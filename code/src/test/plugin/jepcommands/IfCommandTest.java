@@ -44,9 +44,6 @@ public class IfCommandTest extends PCGenTestCase
 		return new TestSuite(IfCommandTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

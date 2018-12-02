@@ -45,9 +45,6 @@ public class OrCommandTest extends PCGenTestCase
 		return new TestSuite(OrCommandTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

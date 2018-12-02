@@ -41,9 +41,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	Skill target = null;
 	Skill target2 = null;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -115,9 +112,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

@@ -75,9 +75,6 @@ public final class BioSetLoaderTest extends TestCase
 
 	private BioSetLoader loader;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{
@@ -87,9 +84,6 @@ public final class BioSetLoaderTest extends TestCase
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA, loader);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{

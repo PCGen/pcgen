@@ -49,9 +49,6 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		return new TestSuite(CountCommandTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

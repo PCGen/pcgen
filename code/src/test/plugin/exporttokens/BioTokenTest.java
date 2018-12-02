@@ -44,9 +44,6 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(BioTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

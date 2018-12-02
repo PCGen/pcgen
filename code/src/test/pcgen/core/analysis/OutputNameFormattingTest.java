@@ -31,9 +31,6 @@ public class OutputNameFormattingTest extends TestCase
 
 	private PObject testObj;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

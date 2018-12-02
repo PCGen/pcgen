@@ -95,9 +95,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -395,9 +392,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

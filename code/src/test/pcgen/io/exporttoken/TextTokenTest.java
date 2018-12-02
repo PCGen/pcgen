@@ -42,9 +42,6 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(TextTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

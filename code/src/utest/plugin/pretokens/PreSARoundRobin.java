@@ -23,9 +23,6 @@ import plugin.pretokens.writer.PreSpecialAbilityWriter;
 
 public class PreSARoundRobin extends AbstractBasicRoundRobin
 {
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

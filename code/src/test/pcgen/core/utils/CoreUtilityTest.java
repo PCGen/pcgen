@@ -31,16 +31,12 @@ import junit.framework.TestCase;
  * {@code CoreUtilityTest}.
  *
  * Tests the CoreUtility class.
- *
- * @see pcgen.core.utils.CoreUtility
  */
 @SuppressWarnings("nls")
 public class CoreUtilityTest extends TestCase
 {
 	/**
 	 * Constructs a new {@code CoreUtilityTest}.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public CoreUtilityTest()
 	{
@@ -51,8 +47,6 @@ public class CoreUtilityTest extends TestCase
 	 * Constructs a new {@code CoreUtilityTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public CoreUtilityTest(final String name)
 	{

@@ -42,9 +42,6 @@ public class StatListTest extends AbstractCharacterTestCase
 	Ability bonus;
 	Ability lockedBonus;
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

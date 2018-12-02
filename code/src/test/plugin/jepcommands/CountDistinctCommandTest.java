@@ -50,9 +50,6 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		return new TestSuite(CountDistinctCommandTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

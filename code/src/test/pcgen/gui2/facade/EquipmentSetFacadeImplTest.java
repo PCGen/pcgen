@@ -471,9 +471,6 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		return newSet;
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

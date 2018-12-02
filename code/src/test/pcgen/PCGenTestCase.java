@@ -56,8 +56,6 @@ public abstract class PCGenTestCase extends TestCase
 
 	/**
 	 * Constructs a new {@code PCGenTestCase}.
-	 *
-	 * @see TestCase#TestCase()
 	 */
 	public PCGenTestCase()
 	{
@@ -68,7 +66,6 @@ public abstract class PCGenTestCase extends TestCase
 	 * Constructs a new {@code PCGenTestCase} with the given <var>name</var>.
 	 *
 	 * @param name The name of the test case
-     * @see TestCase#TestCase(String)
 	 */
 	public PCGenTestCase(final String name)
 	{

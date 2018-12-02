@@ -36,9 +36,6 @@ public class SourceEntryTest extends TestCase
 	Source source;
 	Campaign campaign;
 	
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

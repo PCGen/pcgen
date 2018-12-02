@@ -92,9 +92,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	private Spell luckDomainLvl1Spell;
 	private Spell luckDomainLvl2Spell;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
