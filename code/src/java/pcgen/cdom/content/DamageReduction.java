@@ -165,11 +165,10 @@ public class DamageReduction extends ConcretePrereqObject implements QualifyingO
 	{
 		List<String> list = new ArrayList<>(getBypassList());
 		Collections.sort(list);
-		int hash = 0;
-		for (Iterator<String> i = list.iterator(); i.hasNext();)
-		{
-			hash += i.next().hashCode();
-		}
+
+		int hash = list.stream()
+		    .mapToInt(Object::hashCode)
+		    .sum();
 		return theReduction.hashCode() + hash;
 	}
 
