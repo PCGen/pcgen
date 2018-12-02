@@ -68,8 +68,8 @@ public class IntegerEditor extends DefaultCellEditor
 	{
 		super(new JFormattedTextField());
 		ftf = (JFormattedTextField) getComponent();
-		minimum = new Integer(min);
-		maximum = new Integer(max);
+		minimum = Integer.valueOf(min);
+		maximum = Integer.valueOf(max);
 
 		//Set up the editor for the integer cells.
 		integerFormat = NumberFormat.getIntegerInstance();
@@ -138,7 +138,7 @@ public class IntegerEditor extends DefaultCellEditor
 		}
 		else if (o instanceof Number)
 		{
-			return new Integer(((Number) o).intValue());
+			return Integer.valueOf(((Number) o).intValue());
 		}
 		else
 		{

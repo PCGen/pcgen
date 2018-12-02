@@ -33,11 +33,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.swing.undo.UndoManager;
 
-import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -346,14 +346,7 @@ public class CharacterFacadeImpl
 		statScoreMap = new HashMap<>();
 		for (PCStat stat : dataSet.getStats())
 		{
-			if (stat instanceof PCStat)
-			{
-				statScoreMap.put(stat, getStatReferenceFacade(stat));
-			}
-			else
-			{
-				statScoreMap.put(stat, new DefaultReferenceFacade<>());
-			}
+			statScoreMap.put(stat, getStatReferenceFacade(stat));
 		}
 
 		File portraitFile = null;
@@ -484,7 +477,7 @@ public class CharacterFacadeImpl
 
 	private WriteableReferenceFacade<Number> getStatReferenceFacade(PCStat stat)
 	{
-		return ChannelCompatibility.getStatScore(theCharacter.getCharID(), (PCStat) stat);
+		return ChannelCompatibility.getStatScore(theCharacter.getCharID(), stat);
 	}
 
 	/**
@@ -1432,9 +1425,9 @@ public class CharacterFacadeImpl
 	@Override
 	public int getModTotal(PCStat stat)
 	{
-		if (stat instanceof PCStat && !charDisplay.isNonAbility((PCStat) stat))
+		if (!charDisplay.isNonAbility(stat))
 		{
-			return theCharacter.getStatModFor((PCStat) stat);
+			return theCharacter.getStatModFor(stat);
 		}
 		return 0;
 	}
@@ -1454,43 +1447,30 @@ public class CharacterFacadeImpl
 	@Override
 	public int getScoreBase(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return 0;
-		}
-		return theCharacter.getBaseStatFor((PCStat) stat);
+		return theCharacter.getBaseStatFor(stat);
 	}
 
 	@Override
 	public String getScoreTotalString(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return "";
-		}
-		if (charDisplay.isNonAbility((PCStat) stat))
+		if (charDisplay.isNonAbility(stat))
 		{
 			return "*"; //$NON-NLS-1$
 		}
 
-		return SettingsHandler.getGame().getStatDisplayText(theCharacter.getTotalStatFor((PCStat) stat));
+		return SettingsHandler.getGame().getStatDisplayText(theCharacter.getTotalStatFor(stat));
 	}
 
 	@Override
 	public int getScoreRaceBonus(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return 0;
-		}
-		PCStat activeStat = (PCStat) stat;
-		if (charDisplay.isNonAbility(activeStat))
+		if (charDisplay.isNonAbility(stat))
 		{
 			return 0;
 		}
 
-		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
-		rBonus += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
+		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", stat.getKeyName()); //$NON-NLS-1$
+		rBonus += (int) theCharacter.getBonusDueToType("STAT", stat.getKeyName(), "RACIAL");
 
 		return rBonus;
 	}
@@ -1498,20 +1478,15 @@ public class CharacterFacadeImpl
 	@Override
 	public int getScoreOtherBonus(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return 0;
-		}
-		PCStat activeStat = (PCStat) stat;
-		if (charDisplay.isNonAbility(activeStat))
+		if (charDisplay.isNonAbility(stat))
 		{
 			return 0;
 		}
 
-		int iRace = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
-		iRace += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
+		int iRace = (int) theCharacter.getRaceBonusTo("STAT", stat.getKeyName()); //$NON-NLS-1$
+		iRace += (int) theCharacter.getBonusDueToType("STAT", stat.getKeyName(), "RACIAL");
 
-		return theCharacter.getTotalStatFor(activeStat) - theCharacter.getBaseStatFor(activeStat) - iRace;
+		return theCharacter.getTotalStatFor(stat) - theCharacter.getBaseStatFor(stat) - iRace;
 	}
 
 	@Override
@@ -2330,7 +2305,7 @@ public class CharacterFacadeImpl
 		{
 			chooserList.addElement(
 				new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangSkill"), //$NON-NLS-1$
-				(Skill) speakLangSkill));
+				speakLangSkill));
 		}
 		return chooserList;
 	}
@@ -2366,7 +2341,7 @@ public class CharacterFacadeImpl
 		}
 		else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
-			return (Skill) dataSet.getSpeakLanguageSkill();
+			return dataSet.getSpeakLanguageSkill();
 		}
 		return null;
 	}
@@ -2540,7 +2515,7 @@ public class CharacterFacadeImpl
 	public void setHanded(Handed handedness)
 	{
 		this.handedness.set(handedness);
-		theCharacter.setHanded((Handed) handedness);
+		theCharacter.setHanded(handedness);
 	}
 
 	@Override
@@ -3005,10 +2980,9 @@ public class CharacterFacadeImpl
 			for (PCStat stat : statScoreMap.keySet())
 			{
 				WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
-				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter)
-					&& stat instanceof PCStat)
+				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter))
 				{
-					setStatToPurchaseNeutral((PCStat) stat, score);
+					setStatToPurchaseNeutral(stat, score);
 				}
 			}
 
@@ -3254,7 +3228,7 @@ public class CharacterFacadeImpl
 
 		EquipmentBuilderFacadeImpl builder = new EquipmentBuilderFacadeImpl(newEquip, theCharacter, delegate);
 		CustomEquipResult result = delegate.showCustomEquipDialog(this, builder);
-		if (newEquip != null && result != CustomEquipResult.CANCELLED)
+		if (result != CustomEquipResult.CANCELLED)
 		{
 			dataSet.addEquipment(newEquip);
 		}
@@ -3887,7 +3861,7 @@ public class CharacterFacadeImpl
 		public void set(Rectangle rect)
 		{
 			Rectangle old = get();
-			if (ObjectUtils.equals(old, rect))
+			if (Objects.equals(old, rect))
 			{
 				return;
 			}
