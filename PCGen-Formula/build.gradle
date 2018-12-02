@@ -47,7 +47,7 @@ dependencies {
     // relative path to what you need.
     //compile files("../../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
     
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.157'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.165'
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
