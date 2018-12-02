@@ -626,7 +626,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private void doFormulaSetup(LoadContext context)
 	{
 		VariableContext variableContext = context.getVariableContext();
-		FormulaManager formulaManager = variableContext.getFormulaManager();
+		FormulaManager formulaManager = variableContext.getPCFormulaManager();
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
 		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
