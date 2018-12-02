@@ -534,7 +534,7 @@ public final class ExportHandler
 	 */
 	private String processStringLengthTokens(String vString, PlayerCharacter aPC)
 	{
-		int strlenIndex = vString.indexOf("STRLEN[", 0);
+		int strlenIndex = vString.indexOf("STRLEN[");
 		while (strlenIndex >= 0)
 		{
 
@@ -3703,7 +3703,7 @@ public final class ExportHandler
 						ignores = 0;
 					}
 
-					b.append(_forThisString.substring(i, i + 1));
+					b.append(_forThisString, i, i + 1);
 				}
 
 				aString = b.toString();
