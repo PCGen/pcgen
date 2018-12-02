@@ -566,10 +566,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		processFactDefinitions(context);
 		tableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DATATABLE));
 
-		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		//Load Variables (foundation for other items)
 		variableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_VARIABLE));
 		defineBuiltinVariables(gamemode, context);
+		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		List<CampaignSourceEntry> globalModFileList = fileLists.getListFor(ListKey.FILE_GLOBALMOD);
 		if (globalModFileList.isEmpty())
 		{
