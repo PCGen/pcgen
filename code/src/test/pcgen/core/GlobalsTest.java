@@ -15,23 +15,6 @@ import org.hamcrest.Matchers;
 @SuppressWarnings("nls")
 public class GlobalsTest extends PCGenTestCase
 {
-	/**
-	 * Constructs a new {@code GlobalsTest}.
-	 */
-	public GlobalsTest()
-	{
-	}
-
-	/**
-	 * Constructs a new {@code GlobalsTest} with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 */
-	public GlobalsTest(final String name)
-	{
-		super(name);
-	}
-
 	@Override
 	protected void setUp() throws Exception
 	{
