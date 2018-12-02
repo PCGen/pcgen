@@ -27,6 +27,7 @@ import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
 import gmgen.GMGenSystem;
+import pcgen.core.Kit;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -35,7 +36,6 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.ItemFacade;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.util.ReferenceFacade;
@@ -198,7 +198,7 @@ public final class PCGenActionMap extends ActionMap
 		put(SOLVERVIEW_COMMAND, new SolverViewAction());
 		put(INSTALL_DATA_COMMAND, new InstallDataAction());
 		put(FILTERS_COMMAND, new FiltersAction());
-		put(KIT_FILTERS_COMMAND, new DefaultFiltersAction("mnuToolsFiltersKit", KIT_FILTERS_COMMAND, KitFacade.class));
+		put(KIT_FILTERS_COMMAND, new DefaultFiltersAction("mnuToolsFiltersKit", KIT_FILTERS_COMMAND, Kit.class));
 		put(RACE_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersRace", RACE_FILTERS_COMMAND, Race.class));
 		put(TEMPLATE_FILTERS_COMMAND,

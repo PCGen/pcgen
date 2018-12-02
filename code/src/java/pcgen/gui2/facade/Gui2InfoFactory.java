@@ -108,7 +108,6 @@ import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
@@ -1245,14 +1244,12 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(KitFacade kitFacade)
+	public String getHTMLInfo(Kit kit)
 	{
-		if (kitFacade == null)
+		if (kit == null)
 		{
 			return EMPTY_STRING;
 		}
-
-		Kit kit = (Kit) kitFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -1470,10 +1467,6 @@ public class Gui2InfoFactory implements InfoFactory
 		if (facade instanceof EquipmentFacade)
 		{
 			return getHTMLInfo((EquipmentFacade) facade);
-		}
-		if (facade instanceof KitFacade)
-		{
-			return getHTMLInfo((KitFacade) facade);
 		}
 		if (facade instanceof SpellFacade)
 		{
@@ -2018,20 +2011,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(KitFacade kitFacade)
+	public String getDescription(Kit kit)
 	{
-		if (kitFacade == null || !(kitFacade instanceof Kit))
+		if (kit == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Kit kit = (Kit) kitFacade;
 			return DescriptionFormatting.piWrapDesc(kit, pc.getDescription(kit), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + kitFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + kit, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}

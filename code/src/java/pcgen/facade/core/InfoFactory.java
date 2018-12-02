@@ -19,6 +19,7 @@
 package pcgen.facade.core;
 
 import pcgen.core.Deity;
+import pcgen.core.Kit;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.Skill;
@@ -100,7 +101,7 @@ public interface InfoFactory
 	 * @param kitFacade The kit
 	 * @return The HTML information string
 	 */
-	public String getHTMLInfo(KitFacade kitFacade);
+	public String getHTMLInfo(Kit kitFacade);
 
 	/**
 	 * Produce the HTML information string for a temporary bonus.
@@ -180,7 +181,7 @@ public interface InfoFactory
 	 * @param kitFacade The kit to be described.
 	 * @return The description.
 	 */
-	public String getDescription(KitFacade kitFacade);
+	public String getDescription(Kit kitFacade);
 
 	/**
 	 * Get the description for a deity for this character.

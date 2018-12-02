@@ -144,7 +144,6 @@ import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
@@ -247,7 +246,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
 	private ListFacade<Race> raceList;
-	private DefaultListFacade<KitFacade> kitList;
+	private DefaultListFacade<Kit> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
 	private String selectedGender;
@@ -3570,19 +3569,6 @@ public class CharacterFacadeImpl
 			return false;
 		}
 
-		if (infoFacade instanceof Kit)
-		{
-			Kit kit = (Kit) infoFacade;
-			BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
-			if (totalCost != null)
-			{
-				if (theCharacter.getGold().compareTo(totalCost) < 0)
-				{
-					// Character cannto afford the kit
-					return false;
-				}
-			}
-		}
 		return true;
 	}
 
@@ -3879,20 +3865,19 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public DefaultListFacade<KitFacade> getKits()
+	public DefaultListFacade<Kit> getKits()
 	{
 		return kitList;
 	}
 
 	@Override
-	public void addKit(KitFacade obj)
+	public void addKit(Kit kit)
 	{
-		if (obj == null || !(obj instanceof Kit))
+		if (kit == null)
 		{
 			return;
 		}
 
-		Kit kit = (Kit) obj;
 		if (!theCharacter.isQualified(kit))
 		{
 			return;
@@ -3915,7 +3900,7 @@ public class CharacterFacadeImpl
 		// The user is applying the kit so use the real PC now.
 		Logging.log(Logging.INFO, charDisplay.getName() + ": Adding kit " + kit); //$NON-NLS-1$
 		kit.processKit(theCharacter, thingsToAdd);
-		kitList.addElement(obj);
+		kitList.addElement(kit);
 
 		// Kits can upate most things so do a thorough refresh
 		race.set(charDisplay.getRace());
@@ -3974,19 +3959,19 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public List<KitFacade> getAvailableKits()
+	public List<Kit> getAvailableKits()
 	{
-		List<KitFacade> kits = new ArrayList<>();
-		for (KitFacade obj : dataSet.getKits())
+		List<Kit> kits = new ArrayList<>();
+		for (Kit kit : dataSet.getKits())
 		{
-			if (obj == null || !(obj instanceof Kit))
+			if (kit == null)
 			{
 				continue;
 			}
 
-			if (((Kit) obj).isVisible(theCharacter, View.VISIBLE_DISPLAY))
+			if (kit.isVisible(theCharacter, View.VISIBLE_DISPLAY))
 			{
-				kits.add(obj);
+				kits.add(kit);
 			}
 
 		}
@@ -4249,4 +4234,18 @@ public class CharacterFacadeImpl
 		return theCharacter.isQualified(qRace);
 	}
 
+	@Override
+	public boolean isQualifiedFor(Kit kit)
+	{
+		BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
+		if (totalCost != null)
+		{
+			if (theCharacter.getGold().compareTo(totalCost) < 0)
+			{
+				// Character cannot afford the kit
+				return false;
+			}
+		}
+		return true;
+	}
 }

@@ -48,7 +48,6 @@ import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
@@ -65,7 +64,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<Skill> skills;
 	private final DefaultListFacade<PCTemplate> templates;
 	private final DefaultListFacade<PCAlignment> alignments;
-	private final DefaultListFacade<KitFacade> kits;
+	private final DefaultListFacade<Kit> kits;
 	private final DefaultListFacade<PCStat> stats;
 	private final AbilityMap abilityMap;
 	private final LoadContext context;
@@ -657,7 +656,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<KitFacade> getKits()
+	public ListFacade<Kit> getKits()
 	{
 		return kits;
 	}
