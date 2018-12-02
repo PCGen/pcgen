@@ -28,7 +28,7 @@ import java.util.Map;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import pcgen.facade.core.AbilityCategoryFacade;
+import pcgen.core.AbilityCategory;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -88,23 +88,23 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		return tabTitle;
 	}
 
-	private class AbilityTabsModel implements ListListener<AbilityCategoryFacade>, ChangeListener
+	private class AbilityTabsModel implements ListListener<AbilityCategory>, ChangeListener
 	{
 
 		private final Map<String, TabInfo> typeMap = new HashMap<>();
 		private final List<TabInfo> tabs = new ArrayList<>();
-		private final MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> categoryMap;
+		private final MapFacade<AbilityCategory, ListFacade<AbilityFacade>> categoryMap;
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
 		private String selectedTitle = null;
-		private final ListFacade<AbilityCategoryFacade> activeCategories;
+		private final ListFacade<AbilityCategory> activeCategories;
 
 		public AbilityTabsModel(CharacterFacade character)
 		{
 			this.character = character;
 			this.activeCategories = character.getActiveAbilityCategories();
 			this.categoryMap = character.getDataSet().getAbilities();
-			for (AbilityCategoryFacade category : activeCategories)
+			for (AbilityCategory category : activeCategories)
 			{
 				String type = category.getType();
 				if (!typeMap.containsKey(type))
@@ -126,7 +126,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		 */
 		private void populateFullCategoryList(String type, TabInfo tabInfo)
 		{
-			for (AbilityCategoryFacade category : categoryMap.getKeys())
+			for (AbilityCategory category : categoryMap.getKeys())
 			{
 				if (type.equals(category.getType()))
 				{
@@ -136,9 +136,9 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		}
 
 		@Override
-		public void elementAdded(ListEvent<AbilityCategoryFacade> e)
+		public void elementAdded(ListEvent<AbilityCategory> e)
 		{
-			AbilityCategoryFacade element = e.getElement();
+			AbilityCategory element = e.getElement();
 			String type = element.getType();
 			if (!typeMap.containsKey(type))
 			{
@@ -165,9 +165,9 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		}
 
 		@Override
-		public void elementRemoved(ListEvent<AbilityCategoryFacade> e)
+		public void elementRemoved(ListEvent<AbilityCategory> e)
 		{
-			AbilityCategoryFacade element = e.getElement();
+			AbilityCategory element = e.getElement();
 			String type = element.getType();
 			TabInfo info = typeMap.get(type);
 			info.categoryList.removeElement(element);
@@ -182,11 +182,11 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		}
 
 		@Override
-		public void elementsChanged(ListEvent<AbilityCategoryFacade> e)
+		public void elementsChanged(ListEvent<AbilityCategory> e)
 		{
-			Map<String, List<AbilityCategoryFacade>> tempMap;
+			Map<String, List<AbilityCategory>> tempMap;
 			tempMap = new HashMap<>();
-			for (AbilityCategoryFacade category : categoryMap.getKeys())
+			for (AbilityCategory category : categoryMap.getKeys())
 			{
 				String type = category.getType();
 				if (!tempMap.containsKey(type))
@@ -225,7 +225,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		}
 
 		@Override
-		public void elementModified(ListEvent<AbilityCategoryFacade> e)
+		public void elementModified(ListEvent<AbilityCategory> e)
 		{
 			//TODO: do something
 		}
@@ -278,8 +278,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 			public final String title;
 			public final Hashtable<Object, Object> tabData;
-			public final DefaultListFacade<AbilityCategoryFacade> categoryList;
-			public final DefaultListFacade<AbilityCategoryFacade> fullCategoryList;
+			public final DefaultListFacade<AbilityCategory> categoryList;
+			public final DefaultListFacade<AbilityCategory> fullCategoryList;
 
 			public TabInfo(String title, CharacterFacade character)
 			{
