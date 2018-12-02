@@ -170,6 +170,14 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 		return loadFormulaManager;
 	}
 
+	/**
+	 * Returns a new FormulaManager; method is designed to be used once with each PC.
+	 */
+	public FormulaManager getPCFormulaManager()
+	{
+		return formulaSetupFactory.generate();
+	}
+
 	/*
 	 * Lazy instantiation to avoid trying to pull the "Global" scope before it is loaded
 	 * from plugins
