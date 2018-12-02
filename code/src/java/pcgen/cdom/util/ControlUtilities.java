@@ -18,6 +18,7 @@
 package pcgen.cdom.util;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
@@ -94,13 +95,10 @@ public final class ControlUtilities
 				context.getReferenceContext().silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
 		if (controller != null)
 		{
-			ObjectKey<String> ok = ObjectKey.getKeyFor(String.class, "*" + Objects.requireNonNull(control.getName()));
-			String value = controller.get(ok);
-			if (value == null)
-			{
-				return control.getDefaultValue();
-			}
-			return value;
+			ObjectKey<String> ok = ObjectKey.getKeyFor(String.class,
+				"*" + Objects.requireNonNull(control.getName()));
+			return Optional.ofNullable(controller.get(ok))
+				.orElse(control.getDefaultValue());
 		}
 		return null;
 	}
