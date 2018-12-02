@@ -478,18 +478,7 @@ public final class CustomData
 			{
 				if (race.isType(Constants.TYPE_CUSTOM))
 				{
-					String region;
-					String[] unp = Globals.getContext().unparseSubtoken(race, "REGION");
-
-					if (unp == null)
-					{
-						region = Constants.NONE;
-					}
-					else
-					{
-						region = unp[0];
-					}
-
+					String region = Constants.NONE;
 					final String key = race.getKeyName();
 					bw.write(SettingsHandler.getGame().getBioSet().getRacePCCText(region, key));
 					bw.newLine();
