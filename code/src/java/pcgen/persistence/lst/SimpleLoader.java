@@ -51,8 +51,14 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 
 		while (colToken.hasMoreTokens())
 		{
-			LstUtils.processToken(context, loadable, sourceURI, colToken.nextToken());
+			processNonFirstToken(context, sourceURI, colToken.nextToken(), loadable);
 		}
+	}
+
+	protected void processNonFirstToken(LoadContext context, URI sourceURI,
+		String token, Loadable loadable) throws PersistenceLayerException
+	{
+		LstUtils.processToken(context, loadable, sourceURI, token);
 	}
 
 	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
