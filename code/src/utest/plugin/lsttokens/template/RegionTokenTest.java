@@ -120,34 +120,4 @@ public class RegionTokenTest extends
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer("YES"));
 	}
-
-	@Test
-	public void testUnparseYes()
-	{
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-	}
-
-	@Test
-	public void testUnparseIllegal()
-	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		Region o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
-	}
-
-	@Test
-	public void testUnparseLegalWithFalse()
-	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		Region o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, false);
-		expectSingle(getToken().unparse(primaryContext, primaryProf),
-				getLegalValue());
-	}
-
 }

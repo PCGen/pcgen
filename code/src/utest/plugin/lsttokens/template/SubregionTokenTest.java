@@ -120,33 +120,4 @@ public class SubregionTokenTest extends
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer("YES"));
 	}
-
-	@Test
-	public void testUnparseYes()
-	{
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-	}
-
-	@Test
-	public void testUnparseIllegal()
-	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		SubRegion o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
-	}
-
-	@Test
-	public void testUnparseLegalWithFalse()
-	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		SubRegion o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, false);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), getLegalValue());
-	}
-
 }

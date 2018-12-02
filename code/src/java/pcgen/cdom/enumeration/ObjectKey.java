@@ -115,10 +115,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Region> REGION = new ObjectKey<>(null);
 
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBREGION = new ObjectKey<>(Boolean.FALSE);
-
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORREGION = new ObjectKey<>(Boolean.FALSE);
-
 	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<>(null);
 
 	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBRACE = new ObjectKey<>(Boolean.FALSE);
