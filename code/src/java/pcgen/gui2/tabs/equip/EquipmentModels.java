@@ -127,12 +127,10 @@ public class EquipmentModels
 	{
 		this.character = character;
 		this.unequippedList = new UnequippedList(character);
-		this.fullModel = new EquipmentTableModel(character);
+		this.fullModel = new EquippedTableRootModel(character);
 		fullModel.setEquipmentList(character.getPurchasedEquipment());
-		fullModel.setEquipmentSet(character.getEquipmentSetRef().get());
-		this.unequippedModel = new EquipmentTableModel(character);
+		this.unequippedModel = new EquippedTableRootModel(character);
 		unequippedModel.setEquipmentList(unequippedList);
-		unequippedModel.setEquipmentSet(character.getEquipmentSetRef().get());
 		this.equippedModel = new EquippedTableModel(character);
 
 		selectedModel = fullModel;
@@ -304,6 +302,29 @@ public class EquipmentModels
 		{
 			setEquipmentList(e.getNewReference().getEquippedItems());
 			setEquipmentSet(e.getNewReference());
+		}
+
+	}
+
+	private static class EquippedTableRootModel extends EquipmentTableModel implements ReferenceListener<EquipmentSetFacade>
+	{
+
+		public EquippedTableRootModel(CharacterFacade character)
+		{
+			super(character);
+			ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
+			ref.addReferenceListener(this);
+			setEquipmentSet(ref.get());
+		}
+
+		@Override
+		public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
+		{
+			EquipmentSetFacade es = e.getNewReference();
+			if (es.isRoot())
+			{
+				setEquipmentSet(e.getNewReference());
+			}
 		}
 
 	}

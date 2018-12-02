@@ -195,4 +195,6 @@ public interface EquipmentSetFacade
 	 */
 	public boolean sortEquipment(EquipNode parentNode);
 
+	public boolean isRoot();
+
 }
