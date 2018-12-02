@@ -446,7 +446,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @param <T>
 	 */
-	static class WeightedItem<T>
+	static final class WeightedItem<T>
 	{
 		private final T theElement;
 
@@ -628,7 +628,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 *            The type of the object underlying the WeightedItem objects
 	 *            that this WeightedItemComparator can compare.
 	 */
-	private static class WeightedItemComparator<WICT> implements Comparator<WeightedItem<WICT>>
+	private static final class WeightedItemComparator<WICT> implements Comparator<WeightedItem<WICT>>
 	{
 
 		/**
