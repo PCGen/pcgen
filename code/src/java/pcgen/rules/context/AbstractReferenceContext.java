@@ -63,7 +63,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.cdom.util.IntegerKeyComparator;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
@@ -99,7 +98,7 @@ public abstract class AbstractReferenceContext
 	private static final Class<DataTable> DATA_TABLE_CLASS = DataTable.class;
 	private static final Class<TableColumn> TABLE_COLUMN_CLASS = TableColumn.class;
 
-	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap = new DoubleKeyMap<>();
+	private final DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap = new DoubleKeyMap<>();
 
 	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<>();
 
@@ -148,12 +147,8 @@ public abstract class AbstractReferenceContext
 
 	public boolean validate(UnconstructedValidator validator)
 	{
-		boolean returnGood = true;
-		for (ReferenceManufacturer<?> ref : getAllManufacturers())
-		{
-			returnGood &= ref.validate(validator);
-		}
-		return returnGood;
+		return getAllManufacturers().stream()
+                            .allMatch(ref -> ref.validate(validator));
 	}
 
 	public <T extends Loadable> CDOMGroupRef<T> getCDOMAllReference(Class<T> c)
@@ -257,10 +252,9 @@ public abstract class AbstractReferenceContext
 	public Set<Object> getAllConstructedObjects()
 	{
 		Set<Object> set = new HashSet<>();
-		for (ReferenceManufacturer<?> ref : getAllManufacturers())
-		{
-			set.addAll(ref.getAllObjects());
-		}
+		getAllManufacturers().stream()
+		                     .map(ReferenceManufacturer::getAllObjects).
+				                     forEach(set::addAll);
 		// Collection otherSet = categorized.getAllConstructedCDOMObjects();
 		// set.addAll(otherSet);
 		return set;
@@ -274,12 +268,11 @@ public abstract class AbstractReferenceContext
 	public void buildDerivedObjects()
 	{
 		Collection<Domain> domains = getConstructedCDOMObjects(Domain.class);
-		for (Domain d : domains)
-		{
+		domains.forEach(d -> {
 			DomainSpellList dsl = constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
 			dsl.addType(Type.DIVINE);
 			d.put(ObjectKey.DOMAIN_SPELLLIST, dsl);
-		}
+		});
 		Collection<PCClass> classes = getConstructedCDOMObjects(PCClass.class);
 		for (PCClass pcc : classes)
 		{
@@ -399,12 +392,8 @@ public abstract class AbstractReferenceContext
 
 	public boolean resolveReferences(UnconstructedValidator validator)
 	{
-		boolean returnGood = true;
-		for (ReferenceManufacturer<?> rs : getAllManufacturers())
-		{
-			returnGood &= processResolution(validator, rs);
-		}
-		return returnGood;
+		return getAllManufacturers().stream()
+		                            .allMatch(rs -> processResolution(validator, rs));
 	}
 
 	private <T extends Loadable> boolean processResolution(UnconstructedValidator validator,
@@ -418,10 +407,7 @@ public abstract class AbstractReferenceContext
 
 	public void buildDeferredObjects()
 	{
-		for (ReferenceManufacturer<?> rs : getAllManufacturers())
-		{
-			rs.buildDeferredObjects();
-		}
+		getAllManufacturers().forEach(ReferenceManufacturer::buildDeferredObjects);
 	}
 
 	public <T extends Loadable> T constructNowIfNecessary(Class<T> cl, String name)
@@ -451,20 +437,6 @@ public abstract class AbstractReferenceContext
 		{
 			returnList = generateList(cl, new IntegerKeyComparator(key));
 			sortedMap.put(cl, key, new WeakReference<>(returnList));
-		}
-		return Collections.unmodifiableList(returnList);
-	}
-
-	public <T extends CDOMObject> List<T> getSortOrderedList(Class<T> cl)
-	{
-		List<T> returnList;
-		Comparator<CDOMObject> comp = Globals.P_OBJECT_NAME_COMP;
-		//We arbitrarily use the sort order comparator as the second key
-		WeakReference<List<?>> wr = sortedMap.get(cl, comp);
-		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
-		{
-			returnList = generateList(cl, comp);
-			sortedMap.put(cl, comp, new WeakReference<>(returnList));
 		}
 		return Collections.unmodifiableList(returnList);
 	}
