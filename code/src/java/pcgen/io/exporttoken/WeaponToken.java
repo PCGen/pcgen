@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
@@ -1922,9 +1923,10 @@ public class WeaponToken extends Token
 		 but for some reason they can (e.g. Monkey Grip) then check
 		 for TOHIT modifiers */
 
-		if (eq.getLocation() == EquipmentLocation.EQUIPPED_PRIMARY
-			|| eq.getLocation() == EquipmentLocation.EQUIPPED_SECONDARY
-			|| eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS)
+		if (Stream.of(EquipmentLocation.EQUIPPED_PRIMARY,
+				EquipmentLocation.EQUIPPED_SECONDARY,
+				EquipmentLocation.EQUIPPED_TWO_HANDS)
+		          .anyMatch(equipmentLocation -> eq.getLocation() == equipmentLocation))
 		{
 			// TODO Fix this
 			//			if (eq.isWeaponOneHanded(pc, wp, false) != eq.isWeaponOneHanded(pc, wp, true))
@@ -2912,7 +2914,7 @@ public class WeaponToken extends Token
 	 */
 	private static boolean appendSeperator(Equipment eq)
 	{
-		return eq.isType("Natural") && (eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged"));
+		return eq.isType("Natural") && (Stream.of("Both", "Melee", "Ranged").anyMatch(eq::isType));
 	}
 
 	/**
@@ -2922,7 +2924,7 @@ public class WeaponToken extends Token
 	 */
 	private static boolean isNonStandard(Equipment eq)
 	{
-		return !(eq.isType("Natural") || eq.isType("Both") || eq.isType("Melee") || eq.isType("Ranged"));
+		return Stream.of("Natural", "Both", "Melee", "Ranged").noneMatch(eq::isType);
 	}
 
 	/**

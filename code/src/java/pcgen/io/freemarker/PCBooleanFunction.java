@@ -61,7 +61,7 @@ public class PCBooleanFunction implements TemplateMethodModelEx, CharacterExport
 
 		String value = getExportVariable(tag, pc, eh);
 
-		if ("1.0".equals(value) || "1".equals(value) || "Y".equals(value))
+		if (List.of("1.0", "1", "Y").contains(value))
 		{
 			return Boolean.TRUE;
 		}
