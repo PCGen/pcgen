@@ -494,7 +494,7 @@ public class CharacterDisplay
 	 */
 	public String getRegionString()
 	{
-		return regionFacet.getRegion(id);
+		return regionFacet.getRegionString(id);
 	}
 
 	/**

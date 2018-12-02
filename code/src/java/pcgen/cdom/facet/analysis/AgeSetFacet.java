@@ -87,7 +87,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 	 */
 	private void update(CharID id)
 	{
-		Region region = Region.getConstant(regionFacet.getRegion(id));
+		Region region = Region.getConstant(regionFacet.getRegionString(id));
 		AgeSet ageSet = bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id));
 		if (ageSet == null)
 		{
@@ -133,7 +133,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 	public int getAgeSetIndex(CharID id)
 	{
 		BioSet bioSet = bioSetFacet.get(id);
-		String region = regionFacet.getRegion(id);
+		String region = regionFacet.getRegionString(id);
 		Race race = raceFacet.get(id);
 		String raceName = race == null ? "" : race.getKeyName().trim();
 		List<String> values = bioSet.getValueInMaps(region, raceName, "BASEAGE");
