@@ -32,6 +32,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Test that the jar is properly built.
+ *
+ * It depends on task installToRoot to have placed things in it's place. This is
+ * called on Travis.
  */
 public class JarTest {
 
@@ -75,7 +78,7 @@ public class JarTest {
                         System.out.println(line);
                         error = true;
                     }
-                    if(error){
+                    if (error) {
                         fail();
                     }
                 } catch (InterruptedException | IOException e) {

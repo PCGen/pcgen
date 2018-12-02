@@ -11,7 +11,7 @@ matrix:
       - os: osx
         osx_image: xcode9
  
-script: ./gradlew clean build test compileSlowtest datatest pfinttest allReports buildDist buildNsis pcgenRelease
+script: ./gradlew clean build installToRoot test compileSlowtest datatest pfinttest allReports buildDist buildNsis pcgenRelease
 # Do not use itest, requires release notes
 
 before_install:
