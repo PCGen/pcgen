@@ -670,7 +670,7 @@ public class WeaponToken extends Token
 		{
 			for (String type : equip.typeList())
 			{
-				if (containerCapacity.indexOf(type) >= 0)
+				if (containerCapacity.contains(type))
 				{
 					++ammoCount;
 					break;
@@ -1140,7 +1140,7 @@ public class WeaponToken extends Token
 
 				for (String type : equip.typeList())
 				{
-					if (containerCapacity.indexOf(type) >= 0)
+					if (containerCapacity.contains(type))
 					{
 						++ammoCount;
 						anEquip = equip;
@@ -1245,7 +1245,7 @@ public class WeaponToken extends Token
 			}
 		}
 
-		if (weaponString.indexOf("/") > -1)
+		if (weaponString.contains("/"))
 		{
 			int i = weaponString.indexOf("/");
 			boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);
@@ -2725,7 +2725,7 @@ public class WeaponToken extends Token
 		{
 			for (String type : equip.typeList())
 			{
-				if (containerCapacity.indexOf(type) >= 0)
+				if (containerCapacity.contains(type))
 				{
 					++ammoCount;
 
