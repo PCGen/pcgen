@@ -23,7 +23,10 @@ import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
 /**
@@ -33,7 +36,9 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * 
  * 
  */
-public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentFacade> implements EquipmentListListener
+public class EquipmentTableModel
+		extends FilteredListFacadeTableModel<EquipmentFacade>
+		implements EquipmentListListener, ReferenceListener<EquipmentSetFacade>
 {
 
 	protected EquipmentListFacade equipmentList = null;
@@ -42,6 +47,17 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 	public EquipmentTableModel(CharacterFacade character)
 	{
 		super(character);
+		ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
+		ref.addReferenceListener(this);
+		setEquipmentList(ref.get().getEquippedItems());
+		setEquipmentSet(ref.get());
+	}
+
+	@Override
+	public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
+	{
+		setEquipmentList(e.getNewReference().getEquippedItems());
+		setEquipmentSet(e.getNewReference());
 	}
 
 	protected void setEquipmentList(EquipmentListFacade equipmentList)
