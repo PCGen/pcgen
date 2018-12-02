@@ -198,6 +198,7 @@ configure('jar-all-plugins') {
 
 ext {
     classpath = ""
+    configurations.runtime.each { lib -> classpath += " libs/${lib.name} "}
 }
 
 jar {
