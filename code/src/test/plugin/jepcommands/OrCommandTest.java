@@ -52,7 +52,7 @@ public class OrCommandTest extends PCGenTestCase
 
     }
 
-    private static boolean runOr(final Stack stack, final PostfixMathCommandI pCommand)
+    private static void runOr(final Stack stack, final PostfixMathCommandI pCommand)
     {
         boolean b;
         try
@@ -64,7 +64,6 @@ public class OrCommandTest extends PCGenTestCase
         {
             b = false;
         }
-        return b;
     }
 
     /* Test the case where the first operand is true */
