@@ -140,39 +140,6 @@ public final class BioSet extends PObject implements NonInteractive
 	}
 
 	/**
-	 * Copies the bio data for one race to a new race.
-	 *
-	 * @param origRegion The region of the original race
-	 * @param origRace   The name of the original race
-	 * @param copyRegion The region of the target race
-	 * @param copyRace   The name of the target race
-	 */
-	public void copyRaceTags(final String origRegion, final String origRace, final String copyRegion,
-		final String copyRace)
-	{
-		Region oldr = Region.getConstant(origRegion);
-		Region newr = Region.getConstant(copyRegion);
-		for (String key : userMap.getTertiaryKeySet(oldr, origRace))
-		{
-			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, origRace, key));
-		}
-		final int idx = origRace.indexOf('(');
-		String otherRace;
-		if (idx >= 0)
-		{
-			otherRace = origRace.substring(0, idx).trim() + '%';
-		}
-		else
-		{
-			otherRace = origRace + '%';
-		}
-		for (String key : userMap.getTertiaryKeySet(oldr, otherRace))
-		{
-			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, otherRace, key));
-		}
-	}
-
-	/**
 	 * Randomizes the values of the passed in attributes.
 	 *
 	 * @param randomizeStr .-delimited list of attributes to randomize.
@@ -654,10 +621,5 @@ public final class BioSet extends PObject implements NonInteractive
 			set.add(o.toString());
 		}
 		return set;
-	}
-
-	public Map<Integer, AgeSet> getAgeSets(String regionName)
-	{
-		return new TreeMap<>(ageMap.getMapFor(Region.getConstant(regionName)));
 	}
 }
