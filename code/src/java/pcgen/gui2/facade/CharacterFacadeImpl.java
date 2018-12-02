@@ -120,7 +120,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -637,7 +636,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability)
+	public void addAbility(AbilityCategory category, AbilityFacade ability)
 	{
 		characterAbilities.addAbility(category, ability);
 		refreshKitList();
@@ -649,7 +648,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability)
+	public void removeAbility(AbilityCategory category, AbilityFacade ability)
 	{
 		characterAbilities.removeAbility(category, ability);
 		refreshKitList();
@@ -658,25 +657,25 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
+	public ListFacade<AbilityFacade> getAbilities(AbilityCategory category)
 	{
 		return characterAbilities.getAbilities(category);
 	}
 
 	@Override
-	public ListFacade<AbilityCategoryFacade> getActiveAbilityCategories()
+	public ListFacade<AbilityCategory> getActiveAbilityCategories()
 	{
 		return characterAbilities.getActiveAbilityCategories();
 	}
 
 	@Override
-	public int getTotalSelections(AbilityCategoryFacade category)
+	public int getTotalSelections(AbilityCategory category)
 	{
 		return characterAbilities.getTotalSelections(category);
 	}
 
 	@Override
-	public int getRemainingSelections(AbilityCategoryFacade category)
+	public int getRemainingSelections(AbilityCategory category)
 	{
 		return characterAbilities.getRemainingSelections(category);
 	}
@@ -694,13 +693,13 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void setRemainingSelection(AbilityCategoryFacade category, int remaining)
+	public void setRemainingSelection(AbilityCategory category, int remaining)
 	{
 		characterAbilities.setRemainingSelection(category, remaining);
 	}
 
 	@Override
-	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability)
+	public boolean hasAbility(AbilityCategory category, AbilityFacade ability)
 	{
 		return characterAbilities.hasAbility(category, ability);
 	}
