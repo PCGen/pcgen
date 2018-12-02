@@ -882,4 +882,10 @@ public interface CharacterFacade extends CompanionFacade
 	public boolean isQualifiedFor(PCTemplate element);
 
 	public boolean isQualifiedFor(Kit element);
+
+	/**
+	 * Return true if the feature with the given name is enabled for this PC; false
+	 * otherwise.
+	 */
+	public boolean isFeatureEnabled(String feature);
 }

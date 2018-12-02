@@ -668,10 +668,4 @@ public class DataSet implements DataSetFacade
 	{
 		return "DataSet [gameMode=" + gameMode + ", campaigns=" + campaigns + "]";
 	}
-
-	@Override
-	public boolean hasDeityDomain()
-	{
-		return gameMode.hasDeityDomain();
-	}
 }

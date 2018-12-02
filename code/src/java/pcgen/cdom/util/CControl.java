@@ -104,6 +104,11 @@ public final class CControl
 	public static final String ALIGNMENTFEATURE = "ALIGNMENTFEATURE";
 
 	/**
+	 * Enable/Disable the DomainFeature
+	 */
+	public static final String DOMAINFEATURE = "DOMAINFEATURE";
+
+	/**
 	 * The name of a code control that contains a default value. This is used when a Code
 	 * Control is already used internally and is overridden by data (rather than just
 	 * being an on/off switch for data)
