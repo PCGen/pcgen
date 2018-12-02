@@ -22,10 +22,11 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements CDOMToken<CodeControl>
+public class ACVarToken extends AbstractNonEmptyToken<CodeControl>
+		implements CDOMPrimaryToken<CodeControl>
 {
 	@Override
 	public String getTokenName()
@@ -51,5 +52,12 @@ public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements CD
 	public Class<CodeControl> getTokenClass()
 	{
 		return CodeControl.class;
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CodeControl obj)
+	{
+		//Dynamic build of ObjectKey prevents this
+		throw new UnsupportedOperationException("Cannot unparse ACVAR code control");
 	}
 }
