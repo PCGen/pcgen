@@ -96,6 +96,7 @@ import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -1516,7 +1517,7 @@ public final class PCGVer2Creator
 	private void appendHandedLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HANDED).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getHandedObject().name()));
+		buffer.append(EntityEncoder.encode(HandedCompat.getCurrentHandedness(thePC.getCharID()).name()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

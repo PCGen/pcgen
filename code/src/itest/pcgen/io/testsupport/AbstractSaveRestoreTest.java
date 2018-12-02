@@ -73,6 +73,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -403,7 +404,7 @@ public abstract class AbstractSaveRestoreTest
 		pc.setHeight(0);
 		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
 		pc.setAllowDebt(false);
-		pc.setHanded(Handed.Right);
+		HandedCompat.setCurrentHandedness(pc.getCharID(), Handed.Right);
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 0);
