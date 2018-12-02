@@ -67,36 +67,24 @@ public class TodoFacadeImpl implements TodoFacade
 		this.order = order;
 	}
 
-	/**
-	 * @see pcgen.facade.core.TodoFacade#getFieldName()
-	 */
 	@Override
 	public String getFieldName()
 	{
 		return fieldName;
 	}
 
-	/**
-	 * @see pcgen.facade.core.TodoFacade#getMessageKey()
-	 */
 	@Override
 	public String getMessageKey()
 	{
 		return messageKey;
 	}
 
-	/**
-	 * @see pcgen.facade.core.TodoFacade#getTab()
-	 */
 	@Override
 	public Tab getTab()
 	{
 		return tab;
 	}
 
-	/**
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(TodoFacade that)
 	{

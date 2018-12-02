@@ -188,12 +188,6 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 		Class<T> refClass)
 	{
 		Objects.requireNonNull(refClass);
-		return (ReferenceManufacturer<T>) getManufacturerByFormatName(formatName);
-	}
-
-	@Override
-	public ReferenceManufacturer<?> getManufacturerByFormatName(String formatName)
-	{
 		Objects.requireNonNull(formatName);
 		ClassIdentity<?> identity = nameMap.get(formatName);
 		if (identity == null)
@@ -210,6 +204,6 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 			 */
 			return null;
 		}
-		return map.get(identity);
+		return (ReferenceManufacturer<T>) map.get(identity);
 	}
 }

@@ -18,17 +18,17 @@
 
 package pcgen.core;
 
-import junit.framework.TestCase;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.rules.context.LoadContext;
-
-import org.junit.Before;
 import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import junit.framework.TestCase;
+import org.junit.Before;
+
 /**
- * <code>CampaignTest</code> is ...
+ * {@code CampaignTest} is ...
  * 
  * (Tue, 11 Nov 2008) $
  * 

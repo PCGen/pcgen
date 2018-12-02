@@ -32,7 +32,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>ACTokenTest</code> tests the function of the AC token and 
+ * {@code ACTokenTest} tests the function of the AC token and
  * thus the calculations of armor class.  
  */
 public class AttackTokenTest extends AbstractCharacterTestCase
@@ -48,9 +48,6 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(AttackTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{
@@ -82,9 +79,6 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{

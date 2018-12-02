@@ -29,24 +29,21 @@ import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.formula.scope.PCGenScope;
-import pcgen.core.Campaign;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * The MODIFY token defined by ModifyLst defines a calculation to be performed in the
  * (new) formula system.
  */
-public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
-		implements CDOMInterfaceToken<VarContainer, VarHolder>, CDOMPrimaryToken<VarHolder>
+public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
+		implements CDOMInterfaceToken<VarContainer, VarHolder>
 {
 
 	@Override
@@ -56,48 +53,73 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
 	}
 
 	@Override
-	protected char separator()
+	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
-		return '|';
+		/*
+		 * TODO CODE-3299 Need to check the object type of the VarHolder to make sure it
+		 * is legal. Note it's a proxy, so a @ReadOnly method needs to be used to support
+		 * the analysis.
+		 */
+		try
+		{
+			PCGenScope scope = context.getActiveScope();
+			VarModifier<?> varModifier =
+					parseModifyInfo(context, value, scope, getTokenName(), 0);
+			obj.addModifier(varModifier);
+		}
+		catch (ModifyException e)
+		{
+			return new ParseResult.Fail(e.getMessage());
+		}
+		return ParseResult.SUCCESS;
 	}
 
-	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, VarHolder obj, String value)
+	/**
+	 * Parses the 3 arguments plus associations that are part of a token doing a
+	 * modification.
+	 * 
+	 * @param context
+	 *            The LoadContext for processing
+	 * @param value
+	 *            The instructions of the modification
+	 * @param scope
+	 *            The scope in which the modification should be analyzed
+	 * @param tokenName
+	 *            The token name asking for this process (used for error messages)
+	 * @param argsConsumed
+	 *            The number of arguments consumed before delegating to this method
+	 * @return a VarModifier containing the information in the given instructions
+	 * @throws ModifyException
+	 *             if the parsing failed. The message contains information about the error
+	 */
+	public static VarModifier<?> parseModifyInfo(LoadContext context,
+		String value, PCGenScope scope, String tokenName, int argsConsumed) throws ModifyException
 	{
-		//TODO These instanceof checks will fail - the VarHolder is a proxy :(
-		if (obj instanceof Ungranted)
-		{
-			return new ParseResult.Fail(getTokenName() + " may not be used in Ungranted objects.");
-		}
-		if (obj instanceof Campaign)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " may not be used in Campaign Files.  " + "Please use the Global Modifier file");
-		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
 
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " may not be empty");
+			throw new ModifyException(tokenName + " may not be empty");
 		}
 
-		PCGenScope scope = context.getActiveScope();
 		String varName = sep.next();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " found invalid var name: " + varName + "(scope: " + scope.getName() + ")");
+			throw new ModifyException(tokenName + " found invalid var name: " + varName
+				+ "(scope: " + scope.getName() + ")");
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " needed 2nd argument: " + value);
+			throw new ModifyException(
+				tokenName + " needed argument #" + (argsConsumed + 2) + ": " + value);
 		}
 		String modIdentification = sep.next();
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " needed third argument: " + value);
+			throw new ModifyException(
+				tokenName + " needed argument # " + (argsConsumed + 3) + ": " + value);
 		}
 		String modInstructions = sep.next();
 		FormulaModifier<?> modifier;
@@ -108,8 +130,9 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail(getTokenName() + " Modifier " + modIdentification + " had value "
-				+ modInstructions + " but it was not valid: " + iae.getMessage());
+			throw new ModifyException(
+				tokenName + " Modifier " + modIdentification + " had value "
+					+ modInstructions + " but it was not valid: " + iae.getMessage());
 		}
 		Set<Object> associationsVisited = Collections.newSetFromMap(new CaseInsensitiveMap<>());
 		while (sep.hasNext())
@@ -118,25 +141,25 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
 			int equalLoc = assoc.indexOf('=');
 			if (equalLoc == -1)
 			{
-				return new ParseResult.Fail(
-					getTokenName() + " was expecting = in an ASSOCIATION but got " + assoc + " in " + value);
+				throw new ModifyException(
+					tokenName + " was expecting = in an ASSOCIATION but got " + assoc
+						+ " in " + value);
 			}
 			String assocName = assoc.substring(0, equalLoc);
 			if (associationsVisited.contains(assocName))
 			{
-				return new ParseResult.Fail(
-					getTokenName() + " does not allow multiple asspociations with the same name.  " + "Found multiple: "
-						+ assocName + " in " + value);
+				throw new ModifyException(tokenName
+					+ " does not allow multiple asspociations with the same name.  "
+					+ "Found multiple: " + assocName + " in " + value);
 			}
 			associationsVisited.add(assocName);
 			modifier.addAssociation(assoc);
 		}
-		obj.addModifier(new VarModifier<>(varName, scope, modifier));
-		return ParseResult.SUCCESS;
+		return new VarModifier<>(varName, scope, modifier);
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, VarHolder obj)
+	public String[] unparse(LoadContext context, VarContainer obj)
 	{
 		List<String> modifiers = new ArrayList<>();
 		for (VarModifier<?> vm : obj.getModifierArray())
@@ -155,9 +178,16 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
 		return modifiers.toArray(new String[modifiers.size()]);
 	}
 
-	private String unparseModifier(VarModifier<?> vm)
+	/**
+	 * Unparses a VarModifier into the string of instructions used to produce it.
+	 * 
+	 * @param varModifier
+	 *            The VarModifier to be unparsed
+	 * @return The string of instructions for the given VarModifier
+	 */
+	public static String unparseModifier(VarModifier<?> varModifier)
 	{
-		FormulaModifier<?> modifier = vm.getModifier();
+		FormulaModifier<?> modifier = varModifier.getModifier();
 		String type = modifier.getIdentification();
 		StringBuilder sb = new StringBuilder();
 		sb.append(type);
@@ -183,4 +213,25 @@ public class ModifyLst extends AbstractTokenWithSeparator<VarHolder>
 	{
 		return VarContainer.class;
 	}
+
+	/**
+	 * Exception to indicate something went wrong in the static processing of the 3
+	 * arguments + associations on a modification token.
+	 */
+	public static class ModifyException extends Exception
+	{
+
+		/**
+		 * Constructs a new ModifyException with the given message
+		 * 
+		 * @param message
+		 *            The message indicating the error encountered
+		 */
+		public ModifyException(String message)
+		{
+			super(message);
+		}
+		
+	}
+
 }

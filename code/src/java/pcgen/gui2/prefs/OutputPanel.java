@@ -325,18 +325,12 @@ public class OutputPanel extends PCGenPrefsPanel
 		return button;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_OUTPUT;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -380,9 +374,6 @@ public class OutputPanel extends PCGenPrefsPanel
 			generateTempFileWithPdf.isSelected());
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{

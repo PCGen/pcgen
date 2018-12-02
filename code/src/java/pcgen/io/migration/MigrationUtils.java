@@ -34,6 +34,10 @@ import pcgen.core.system.MigrationRule.ObjectType;
 public final class MigrationUtils
 {
 
+	private MigrationUtils()
+	{
+	}
+
 	/**
 	 * Retrieve a list of migration rules which should be applied based on the supplied filters.  
 	 * @param pcgVer The PCGen version the character was saved in.

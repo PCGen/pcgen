@@ -99,8 +99,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * List of Prerequisites is cloned (to allow Prerequisites to be
 	 * added/removed without altering the original or the clone), but the
 	 * Prerequisites contained within the ConcretePrereqObject are not cloned.
-	 * 
-	 * @see java.lang.Object#clone()
 	 */
 	@Override
 	public ConcretePrereqObject clone() throws CloneNotSupportedException

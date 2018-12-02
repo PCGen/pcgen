@@ -207,8 +207,6 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public AbstractCharacterTestCase()
 	{
@@ -219,17 +217,12 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public AbstractCharacterTestCase(final String name)
 	{
 		super(name);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

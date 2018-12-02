@@ -60,7 +60,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>WeaponTokenTest</code> contains tests to verify that the
+ * {@code WeaponTokenTest} contains tests to verify that the
  * WEAPON token is working correctly.
  */
 
@@ -95,9 +95,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -395,9 +392,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

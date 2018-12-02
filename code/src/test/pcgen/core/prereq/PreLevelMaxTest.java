@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -36,26 +33,13 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreLevelMaxTest</code> tests that the PRELEVELMAX tag is
+ * {@code PreLevelMaxTest} tests that the PRELEVELMAX tag is
  * working correctly.
  */
 public class PreLevelMaxTest extends AbstractCharacterTestCase
 {
 	private PCClass myClass = new PCClass();
 	private Race race = new Race();
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreLevelMaxTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLevelMaxTest.class);
-	}
 
 	/**
 	 * Test that Level works.

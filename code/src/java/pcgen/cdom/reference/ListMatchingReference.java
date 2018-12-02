@@ -190,7 +190,6 @@ public class ListMatchingReference<T extends CDOMObject, V> extends CDOMReferenc
 	 * 
 	 * @return A representation of this ListMatchingReference, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -230,17 +229,6 @@ public class ListMatchingReference<T extends CDOMObject, V> extends CDOMReferenc
 		return count;
 	}
 
-	/**
-	 * Returns true if this ListMatchingReference is equal to the given
-	 * Object. Equality is defined as being another ListMatchingReference
-	 * object with equal Class represented by the reference, an equal staring
-	 * CDOMGroupRef and an equal pattern. This may or may not be a deep .equals,
-	 * depending on the behaviour of the underlying CDOMGroupRef. You should
-	 * check the documentation for the .equals(Object) method of that class to
-	 * establish the actual behaviour of this method.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -259,12 +247,6 @@ public class ListMatchingReference<T extends CDOMObject, V> extends CDOMReferenc
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * ListMatchingReference
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

@@ -26,11 +26,6 @@ import pcgen.util.Logging;
  */
 public final class AbilityPool extends BonusObj
 {
-	/**
-	 * Parse the bonus token.
-	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
-	 * @return True if successfully parsed.
-	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
@@ -42,12 +37,6 @@ public final class AbilityPool extends BonusObj
 		return true;
 	}
 
-	/**
-	 * Unparse the bonus token.
-	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
-	 * @param obj The object to unparse
-	 * @return The unparsed string.
-	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{

@@ -26,19 +26,12 @@ import pcgen.io.exporttoken.AbstractExportToken;
 //PLAYERNAME
 public class PlayerNameToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "PLAYERNAME";
 	}
 
-	//TODO: Move this into NameToken as NAME.PLAYER
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{

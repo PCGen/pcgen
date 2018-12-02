@@ -1,44 +1,45 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 12957 $ $Author: jbaril $ -- Sat Jan 24 13:01:09 2015 -- reformated by prettylst.pl v1.51 (build 25712)
-SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Adventurers-Armory	SOURCEDATE:2010-04
+SOURCELONG:Pathfinder Player Companion: Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/products/btpy8dmf	SOURCEDATE:2010-04
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Jeff Bairl
 
 # TODO Poison Pill Ring should CONTAINS:UNLIM|Poison=1 but that is not allowed on an EQMOD
-# Modifier Name	Unique Key		Type				Cost		Visible		Source Page		Required Type	Special Property
+# Modifier Name	Unique Key							Type				Cost		Visible		Source Page		Required Type	Special Property
 Poison Pill Ring	KEY:Special Quality ~ Poison Pill Ring ~ Ring	TYPE:Ring.Container	COST:20	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Ring	SPROP:Can hold a single poison pill.
 
 ###Block:Armor Shield and Weapon mods
-# Modifier Name		Unique Key		Type						Cost		Visible		Source Page		Required Type				Prohibited Type		Bonus Equip Mods		Special Property
-Sanctified Shield			KEY:Special Quality ~ Sanctified Shield ~ Shield	NAMEOPT:TEXT=Sanctified	TYPE:Shield					COST:100	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:1,Shield												SPROP:Adds +1 sacred/profane bonus when charged
+# Modifier Name									Unique Key								Naming Option			Type						Cost		Visible		Source Page		Required Type				Prohibited Type		Bonus Equip Mods		Special Property
+Sanctified Shield									KEY:Special Quality ~ Sanctified Shield ~ Shield	NAMEOPT:TEXT=Sanctified		TYPE:Shield					COST:100	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:1,Shield												SPROP:Adds +1 sacred/profane bonus when charged
 
 # Also in Ultimate Combat but with Performance and Trip weapon qualities
-Throwing Shield			KEY:Special Quality ~ Throwing Shield ~ Shield	NAMEOPT:TEXT=Throwing	TYPE:Shield					COST:50	VISIBLE:QUALIFY	SOURCEPAGE:p.5	PRETYPE:1,Shield												SPROP:Can unclasp and throw as a free action (except tower).
+Throwing Shield									KEY:Special Quality ~ Throwing Shield ~ Shield		NAMEOPT:TEXT=Throwing		TYPE:Shield					COST:50	VISIBLE:QUALIFY	SOURCEPAGE:p.5	PRETYPE:1,Shield												SPROP:Can unclasp and throw as a free action (except tower).
 
-Consecrated Weapon			KEY:Special Quality ~ Consecrated Weapon ~ Weapon	NAMEOPT:TEXT=Consecrated	TYPE:Weapon.Melee				COST:150	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:2,Weapon,Melee											SPROP:Channel Smite (1/2 dmg) when charged, on next hit
-Sawback Sword			KEY:Special Quality ~ Sawback ~ Sword	NAMEOPT:TEXT=Sawback	TYPE:Weapon.Melee				COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.12	PRETYPE:1,BladeLight,BladeHeavy									SPROP:Crude carpentry saw
+Consecrated Weapon								KEY:Special Quality ~ Consecrated Weapon ~ Weapon	NAMEOPT:TEXT=Consecrated	TYPE:Weapon.Melee				COST:150	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:2,Weapon,Melee											SPROP:Channel Smite (1/2 dmg) when charged, on next hit
+Sawback Sword									KEY:Special Quality ~ Sawback ~ Sword			NAMEOPT:TEXT=Sawback		TYPE:Weapon.Melee				COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.12	PRETYPE:1,BladeLight,BladeHeavy									SPROP:Crude carpentry saw
 
-Tear-away Clothing	KEY:Special Quality ~ Tear-away Clothing ~ Clothing	NAMEOPT:TEXT=Tear-away	TYPE:Goods.Clothing			COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.14	PRETYPE:1,Clothing											SPROP:Clothing can be easily torn off and removed as a standard action
+Tear-away Clothing								KEY:Special Quality ~ Tear-away Clothing ~ Clothing	NAMEOPT:TEXT=Tear-away		TYPE:Goods.Clothing			COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.14	PRETYPE:1,Clothing											SPROP:Clothing can be easily torn off and removed as a standard action
 
 #Stone			KEY:Material ~ Stone	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Stone	!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Stone		ASSIGNTOALL:YES
 
 # TODO Hollowed Pommel should CONTAINS:UNLIM|Flask|Potion|Sheet|Paper=1|Documents=1|Scroll=1 but that is not allowed in an EQMOD
-Hollowed Pommel		KEY:Special Quality ~ Hollowed Pommel ~ Weapon		TYPE:Goods.General			COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Weapon												SPROP:Can contain a single item.
+Hollowed Pommel									KEY:Special Quality ~ Hollowed Pommel ~ Weapon							TYPE:Goods.General			COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Weapon												SPROP:Can contain a single item.
 
-Waterproof Lantern	KEY:Special Quality ~ Waterproof Lantern ~ Lantern	NAMEOPT:TEXT=Waterproof	TYPE:Goods.General.Light Source	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Lantern
+Waterproof Lantern								KEY:Special Quality ~ Waterproof Lantern ~ Lantern	NAMEOPT:TEXT=Waterproof		TYPE:Goods.General.Light Source	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.7	PRETYPE:1,Lantern
 # TODO should not be usable on buckler (only light/heavy/tower)
 # TODO Shield Sconce should CONTAINS:UNLIM|Torch=1 but that is not allowed on an EQMOD
-Shield Sconce		KEY:Special Quality ~ Shield Sconce ~ Shield		TYPE:Shield					COST:1	VISIBLE:QUALIFY	SOURCEPAGE:p.8						PRETYPE:1,Shield	!PRETYPE:1,Buckler	BONUS:EQM|WEIGHTADD|0.5	SPROP:May hold a torch.
+Shield Sconce									KEY:Special Quality ~ Shield Sconce ~ Shield							TYPE:Shield					COST:1	VISIBLE:QUALIFY	SOURCEPAGE:p.8	PRETYPE:1,Shield				!PRETYPE:1,Buckler	BONUS:EQM|WEIGHTADD|0.5	SPROP:May hold a torch.
 
 
 
 
 #Old KEYs
-Special Quality ~ Poison Pill Ring ~ Ring.COPY=POISON_RING		VISIBLE:NO
-Special Quality ~ Sanctified Shield ~ Shield.COPY=SNCTFD		VISIBLE:NO
-Special Quality ~ Throwing Shield ~ Shield.COPY=THRWNG		VISIBLE:NO
-Special Quality ~ Consecrated Weapon ~ Weapon.COPY=CNSCRTD		VISIBLE:NO
-Special Quality ~ Sawback ~ Sword.COPY=SAWBCK				VISIBLE:NO
-Special Quality ~ Tear-away Clothing ~ Clothing.COPY=TEARAWAY	VISIBLE:NO
-Special Quality ~ Hollowed Pommel ~ Weapon.COPY=HLWPML		VISIBLE:NO
-Special Quality ~ Waterproof Lantern ~ Lantern.COPY=LTNWTP		VISIBLE:NO
-Special Quality ~ Shield Sconce ~ Shield.COPY=SHDSCO			VISIBLE:NO
+Special Quality ~ Poison Pill Ring ~ Ring.COPY=POISON_RING																								VISIBLE:NO
+Special Quality ~ Sanctified Shield ~ Shield.COPY=SNCTFD																								VISIBLE:NO
+Special Quality ~ Throwing Shield ~ Shield.COPY=THRWNG																								VISIBLE:NO
+Special Quality ~ Consecrated Weapon ~ Weapon.COPY=CNSCRTD																								VISIBLE:NO
+Special Quality ~ Sawback ~ Sword.COPY=SAWBCK																										VISIBLE:NO
+Special Quality ~ Tear-away Clothing ~ Clothing.COPY=TEARAWAY																							VISIBLE:NO
+Special Quality ~ Hollowed Pommel ~ Weapon.COPY=HLWPML																								VISIBLE:NO
+Special Quality ~ Waterproof Lantern ~ Lantern.COPY=LTNWTP																								VISIBLE:NO
+Special Quality ~ Shield Sconce ~ Shield.COPY=SHDSCO																									VISIBLE:NO

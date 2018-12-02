@@ -21,9 +21,6 @@ package pcgen.core.prereq;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
@@ -43,25 +40,11 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>PreWeaponProfTest</code> tests that the PREWEAPONPROF tag is
+ * {@code PreWeaponProfTest} tests that the PREWEAPONPROF tag is
  * working correctly.
  */
 public class PreWeaponProfTest extends AbstractCharacterTestCase
 {
-	
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreWeaponProfTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreWeaponProfTest.class);
-	}
-	
 	/**
 	 * Test with a simple weapon proficiency.
 	 *
@@ -316,9 +299,6 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	
 	}
 	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

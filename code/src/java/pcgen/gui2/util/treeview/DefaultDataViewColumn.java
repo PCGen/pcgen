@@ -91,10 +91,4 @@ public class DefaultDataViewColumn implements DataViewColumn
 		return editable;
 	}
 
-	@Override
-	public boolean shouldCache()
-	{
-		return cache;
-	}
-
 }

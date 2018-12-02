@@ -33,7 +33,7 @@ import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>PreEquipBothTest</code> tests that the PREEQUIPBOTH tag is
+ * {@code PreEquipBothTest} tests that the PREEQUIPBOTH tag is
  * working correctly.
  */
 public class PreEquipBothTest extends AbstractCharacterTestCase

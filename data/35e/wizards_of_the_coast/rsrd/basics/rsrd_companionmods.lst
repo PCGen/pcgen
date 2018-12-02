@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # RSRD Entry by: jaymecox
@@ -43,14 +44,14 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Companion ~ Zombie
 ###Block:Familiar
 #COMMENT: Familiar is an Animal that becomes a Magical Beast
 
-# Class of the Master	Type			Spell Res.		Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat									Combat bonus										Template
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Alertness|Familiar ~ Empathic Link		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																							TEMPLATE:Familiar Race Change
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																		DEFINESTAT:MINVALUE|INT|5+((mastervar("FamiliarLVL")+1)/2)	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK
-FOLLOWER:FamiliarLVL=3	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
-FOLLOWER:FamiliarLVL=5	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
-FOLLOWER:FamiliarLVL=7	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind
+# Class of the Master	Type			Spell Res.					Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat									Combat bonus										Template
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar							ABILITY:Special Ability|AUTOMATIC|Familiar ~ Alertness|Familiar ~ Empathic Link		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES																							TEMPLATE:Familiar Race Change
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar							ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																		DEFINESTAT:MINVALUE|INT|5+((mastervar("FamiliarLVL")+1)/2)	BONUS:COMBAT|AC|(mastervar("FamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar							ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
+FOLLOWER:FamiliarLVL=5	TYPE:Familiar							ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
+FOLLOWER:FamiliarLVL=7	TYPE:Familiar							ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind
 FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:(mastervar("FamiliarLVL")+5)
-FOLLOWER:FamiliarLVL=13	TYPE:Familiar				ABILITY:Special Ability|AUTOMATIC|Familiar ~ Scry on Familiar
+FOLLOWER:FamiliarLVL=13	TYPE:Familiar							ABILITY:Special Ability|AUTOMATIC|Familiar ~ Scry on Familiar
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race					Apply Kit

@@ -218,12 +218,6 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends Concret
 		return sb.toString();
 	}
 
-	/**
-	 * Returns true if the given object is a AbstractProfProvider with identical
-	 * underlying proficiencies, Equipment TYPEs and Prerequisites.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -267,11 +261,6 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends Concret
 		return false;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this AbstractProfProvider
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -39,7 +36,7 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreSkillParser;
 
 /**
- * <code>PreMultTest</code> tests that the PreMult class
+ * {@code PreMultTest} tests that the PreMult class
  * is working correctly.
  */
 
@@ -49,22 +46,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 	private Skill knowledge;
 	private PCClass myClass;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreMultTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreMultTest.class);
-	}
-
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{
@@ -82,9 +63,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{

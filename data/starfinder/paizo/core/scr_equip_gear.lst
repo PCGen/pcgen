@@ -1,243 +1,243 @@
-SOURCELONG:Starfinder Core Rulebook	SOURCESHORT:SCR	SOURCEWEB:http://paizo.com/products/btpy9qy1	SOURCEDATE:2017-08
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Starfinder Core Rulebook	SOURCESHORT:SCR	SOURCEDATE:2017-09
 # Original Entry by: Gwen T
 
 ###Technological Items###
-Beacon						TYPE:Goods.TechItem.General.LightSource		QUALITY:Level|1		COST:25		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.220	QUALITY:Increases light level by one step|50-ft. radius
-Binders						TYPE:Goods.TechItem.General				QUALITY:Level|1		COST:5		QUALITY:Bulk|-													SOURCEPAGE:p.221
-Cable Line (Titanium Alloy/10 ft)		TYPE:Goods.TechItem.General.CableLine		QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.218
-Cable Line (Adamantine Alloy/20 ft)		TYPE:Goods.TechItem.General.CableLine		QUALITY:Level|2		COST:1000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.218
-Comm Unit (Personal)				TYPE:Goods.TechItem.General.CommUnit		QUALITY:Level|1		COST:7		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|80	QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.218	SPROP:Includes a calculator, a flashlight, and several entertainment options.
-Comm Unit (System-wide)				TYPE:Goods.TechItem.General.CommUnit		QUALITY:Level|6		COST:4000		QUALITY:Bulk|20	BONUS:VAR|Bulk|20	WT:20													SOURCEPAGE:p.218
-Comm Unit (Unlimited)				TYPE:Goods.TechItem.General.CommUnit		QUALITY:Level|12		COST:32000		QUALITY:Bulk|40	BONUS:VAR|Bulk|40	WT:40													SOURCEPAGE:p.218
-Detonator						TYPE:Goods.TechItem.General				QUALITY:Level|1		COST:150		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|5	QUALITY:Charge Usage|1/use		SOURCEPAGE:p.218
-Fire Extinguisher					TYPE:Goods.TechItem.General				QUALITY:Level|1		COST:15		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/round		SOURCEPAGE:p.218
-Flashlight						TYPE:Goods.TechItem.General.LightSource		QUALITY:Level|1		COST:1		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.220	QUALITY:Increases light level by one step|20-ft. cone
-Grappler						TYPE:Goods.TechItem.General				QUALITY:Level|2		COST:700		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.219
-Holoskin						TYPE:Goods.TechItem.General				QUALITY:Level|2		COST:500		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.220
-Lantern						TYPE:Goods.TechItem.General.LightSource		QUALITY:Level|1		COST:1		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.220	QUALITY:Increases light level by one step|10-ft. radius
-Laser Microphone					TYPE:Goods.TechItem.General				QUALITY:Level|5		COST:2725		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.220
-Lock (Simple)					TYPE:Goods.TechItem.General				QUALITY:Level|1		COST:100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.220
-Lock (Average)					TYPE:Goods.TechItem.General				QUALITY:Level|3		COST:1000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.220
-Lock (Good)						TYPE:Goods.TechItem.General				QUALITY:Level|6		COST:3600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.220
-Lock (Superior)					TYPE:Goods.TechItem.General				QUALITY:Level|14		COST:60000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.220
-Manacles						TYPE:Goods.TechItem.General				QUALITY:Level|4		COST:350		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1													SOURCEPAGE:p.221
-Medical Lab						TYPE:Goods.TechItem.General.MedGear			QUALITY:Level|7		COST:7000		QUALITY:Bulk|50	BONUS:VAR|Bulk|50	WT:50													SOURCEPAGE:p.220
-Medkit (Basic)					TYPE:Goods.TechItem.General.MedGear			QUALITY:Level|1		COST:100		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1													SOURCEPAGE:p.220
-Medkit (Advanced)					TYPE:Goods.TechItem.General.MedGear			QUALITY:Level|5		COST:2700		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1													SOURCEPAGE:p.220
-Medpatch						TYPE:Goods.TechItem.General.MedGear			QUALITY:Level|1		COST:50		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|1	QUALITY:Charge Usage|1			SOURCEPAGE:p.220
-Motion Detector					TYPE:Goods.TechItem.General				QUALITY:Level|7		COST:6000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.220
-Regeneration Table				TYPE:Goods.TechItem.General.MedGear			QUALITY:Level|16		COST:45000		QUALITY:Bulk|20	BONUS:VAR|Bulk|20	WT:20													SOURCEPAGE:p.220
-Signal Jammer (Level 1)				TYPE:Goods.TechItem.General				QUALITY:Level|1		COST:100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 2)				TYPE:Goods.TechItem.General				QUALITY:Level|2		COST:400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 3)				TYPE:Goods.TechItem.General				QUALITY:Level|3		COST:900		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 4)				TYPE:Goods.TechItem.General				QUALITY:Level|4		COST:1600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 5)				TYPE:Goods.TechItem.General				QUALITY:Level|5		COST:2500		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 6)				TYPE:Goods.TechItem.General				QUALITY:Level|6		COST:3600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 7)				TYPE:Goods.TechItem.General				QUALITY:Level|7		COST:4900		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 8)				TYPE:Goods.TechItem.General				QUALITY:Level|8		COST:6400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 9)				TYPE:Goods.TechItem.General				QUALITY:Level|9		COST:8100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 10)			TYPE:Goods.TechItem.General				QUALITY:Level|10		COST:10000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 11)			TYPE:Goods.TechItem.General				QUALITY:Level|11		COST:12100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 12)			TYPE:Goods.TechItem.General				QUALITY:Level|12		COST:14400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 13)			TYPE:Goods.TechItem.General				QUALITY:Level|13		COST:16900		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 14)			TYPE:Goods.TechItem.General				QUALITY:Level|14		COST:19600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 15)			TYPE:Goods.TechItem.General				QUALITY:Level|15		COST:22500		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 16)			TYPE:Goods.TechItem.General				QUALITY:Level|16		COST:25600		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 17)			TYPE:Goods.TechItem.General				QUALITY:Level|17		COST:28900		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 18)			TYPE:Goods.TechItem.General				QUALITY:Level|18		COST:32400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 19)			TYPE:Goods.TechItem.General				QUALITY:Level|19		COST:36100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Signal Jammer (Level 20)			TYPE:Goods.TechItem.General				QUALITY:Level|20		COST:40000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute	SOURCEPAGE:p.221
-Spotlight						TYPE:Goods.TechItem.General.LightSource		QUALITY:Level|1		COST:25		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.220	QUALITY:Increases light level by one step|100-ft. cone
-Sprayflesh						TYPE:Goods.TechItem.General.MedGear			QUALITY:Level|5		COST:440		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|1	QUALITY:Charge Usage|1			SOURCEPAGE:p.220
-Spy Drone						TYPE:Goods.TechItem.General				QUALITY:Level|6		COST:4550		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.221
-Tool Kit (Armorcrafter Kit)			TYPE:Goods.TechItem.Tools				QUALITY:Level|2		COST:445		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SITUATION|Engineering=Repair, resize, or upgrade armor|2|TYPE=Circumstance
-Tool Kit (Disguise Kit)				TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221
-Tool Kit (Engineering Kit)			TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221
-Tool Kit (Hacking Kit)				TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221
-Tool Kit (Navigator's Tools)			TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SITUATION|Survival=Orienteering|4|TYPE=Circumstance
-Tool Kit (Profession (Accountant))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Accountant)|4|TYPE=Circumstance
-Tool Kit (Profession (Actor))			TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Actor)|4|TYPE=Circumstance
-Tool Kit (Profession (Archaeologist))	TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Archaeologist)|4|TYPE=Circumstance
-Tool Kit (Profession (Architect))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Architect)|4|TYPE=Circumstance
-Tool Kit (Profession (Artist))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Artist)|4|TYPE=Circumstance
-Tool Kit (Profession (Bounty Hunter))	TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Bounty Hunter)|4|TYPE=Circumstance
-Tool Kit (Profession (Comedian))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Comedian)|4|TYPE=Circumstance
-Tool Kit (Profession (Con Artist))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Con Artist)|4|TYPE=Circumstance
-Tool Kit (Profession (Cook))			TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Cook)|4|TYPE=Circumstance
-Tool Kit (Profession (Corporate Professional))	TYPE:Goods.TechItem.Tools			QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Corporate Professional)|4|TYPE=Circumstance
-Tool Kit (Profession (Courtesan))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Courtesan)|4|TYPE=Circumstance
-Tool Kit (Profession (Counselor))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Counselor)|4|TYPE=Circumstance
-Tool Kit (Profession (Dancer))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Dancer)|4|TYPE=Circumstance
-Tool Kit (Profession (Dockworker))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Dockworker)|4|TYPE=Circumstance
-Tool Kit (Profession (Electrician))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Electrician)|4|TYPE=Circumstance
-Tool Kit (Profession (Farmer))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Farmer)|4|TYPE=Circumstance
-Tool Kit (Profession (Gambler))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Gambler)|4|TYPE=Circumstance
-Tool Kit (Profession (General Contractor))	TYPE:Goods.TechItem.Tools			QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (General Contractor)|4|TYPE=Circumstance
-Tool Kit (Profession (Herbalist))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Herbalist)|4|TYPE=Circumstance
-Tool Kit (Profession (Lab Technician))	TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Lab Technician)|4|TYPE=Circumstance
-Tool Kit (Profession (Lawyer))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Lawyer)|4|TYPE=Circumstance
-Tool Kit (Profession (Maintenance Worker))	TYPE:Goods.TechItem.Tools			QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Maintenance Worker)|4|TYPE=Circumstance
-Tool Kit (Profession (Manager))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Manager)|4|TYPE=Circumstance
-Tool Kit (Profession (Mathematician))	TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Mathematician)|4|TYPE=Circumstance
-Tool Kit (Profession (Mercenary))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Mercenary)|4|TYPE=Circumstance
-Tool Kit (Profession (Merchant))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Merchant)|4|TYPE=Circumstance
-Tool Kit (Profession (Miner))			TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Miner)|4|TYPE=Circumstance
-Tool Kit (Profession (Musician))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Musician)|4|TYPE=Circumstance
-Tool Kit (Profession (Orator))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Orator)|4|TYPE=Circumstance
-Tool Kit (Profession (Philosopher))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Philosopher)|4|TYPE=Circumstance
-Tool Kit (Profession (Poet))			TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Poet)|4|TYPE=Circumstance
-Tool Kit (Profession (Politician))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Politician)|4|TYPE=Circumstance
-Tool Kit (Profession (Professor))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Professor)|4|TYPE=Circumstance
-Tool Kit (Profession (Psychologist))	TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Psychologist)|4|TYPE=Circumstance
-Tool Kit (Profession (Smuggler))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Smuggler)|4|TYPE=Circumstance
-Tool Kit (Profession (Video Personality))	TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Video Personality)|4|TYPE=Circumstance
-Tool Kit (Profession (Vidgamer))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Vidgamer)|4|TYPE=Circumstance
-Tool Kit (Profession (Writer))		TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SKILL|Profession (Writer)|4|TYPE=Circumstance
-Tool Kit (Rider's Kit)				TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SITUATION|Survival=Ride creatures|4|TYPE=Circumstance
-Tool Kit (Trapsmith's Tools)			TYPE:Goods.TechItem.Tools				QUALITY:Level|1		COST:20		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SITUATION|Engineering=Arm or disarm traps,Mysticism=Arm or disarm traps|4|TYPE=Circumstance
-Tool Kit (Weaponsmithing Kit)			TYPE:Goods.TechItem.Tools				QUALITY:Level|2		COST:445		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1													SOURCEPAGE:p.221	BONUS:SITUATION|Engineering=Repair weapons|2|TYPE=Circumstance
-X-ray Visor						TYPE:Goods.TechItem.General				QUALITY:Level|9		COST:15000		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		QUALITY:Charge Capacity|40	QUALITY:Charge Usage|1/round		SOURCEPAGE:p.221
+# Equipment Name						Type								Contains		Cost		Weight	Requires Modification?	Source Page		Bonus to Situation														Bonus to skill										Modify VAR			Quality and value																								Special Property
+Beacon							TYPE:Goods.TechItem.General.LightSource					COST:25	WT:1						SOURCEPAGE:p.220																														BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Bulk|1	QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour	QUALITY:Increases light level by one step|50-ft. radius
+Binders							TYPE:Goods.TechItem.General							COST:5							SOURCEPAGE:p.221																																		QUALITY:Level|1	QUALITY:Bulk|-
+Cable Line (Titanium Alloy/10 ft)			TYPE:Goods.TechItem.General.CableLine					COST:5	WT:0.1					SOURCEPAGE:p.218																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Cable Line (Adamantine Alloy/20 ft)			TYPE:Goods.TechItem.General.CableLine					COST:1000	WT:0.1					SOURCEPAGE:p.218																														BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Bulk|L
+Comm Unit (Personal)					TYPE:Goods.TechItem.General.CommUnit					COST:7	WT:0.1					SOURCEPAGE:p.218																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|80	QUALITY:Charge Usage|1/hour											SPROP:Includes a calculator, a flashlight, and several entertainment options.
+Comm Unit (System-wide)					TYPE:Goods.TechItem.General.CommUnit					COST:4000	WT:20						SOURCEPAGE:p.218																														BONUS:VAR|Bulk|20		QUALITY:Level|6	QUALITY:Bulk|20
+Comm Unit (Unlimited)					TYPE:Goods.TechItem.General.CommUnit					COST:32000	WT:40						SOURCEPAGE:p.218																														BONUS:VAR|Bulk|40		QUALITY:Level|12	QUALITY:Bulk|40
+Detonator							TYPE:Goods.TechItem.General							COST:150	WT:0.1					SOURCEPAGE:p.218																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|5	QUALITY:Charge Usage|1/use
+Fire Extinguisher						TYPE:Goods.TechItem.General							COST:15	WT:0.1					SOURCEPAGE:p.218																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/round
+Flashlight							TYPE:Goods.TechItem.General.LightSource					COST:1	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour	QUALITY:Increases light level by one step|20-ft. cone
+Grappler							TYPE:Goods.TechItem.General							COST:700	WT:0.1					SOURCEPAGE:p.219																														BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Bulk|L	QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/minute
+Holoskin							TYPE:Goods.TechItem.General							COST:500	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Bulk|L	QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/10 minute
+Lantern							TYPE:Goods.TechItem.General.LightSource					COST:1	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour	QUALITY:Increases light level by one step|10-ft. radius
+Laser Microphone						TYPE:Goods.TechItem.General							COST:2725	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/minute
+Lock (Simple)						TYPE:Goods.TechItem.General							COST:100	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Lock (Average)						TYPE:Goods.TechItem.General							COST:1000	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|3	QUALITY:Bulk|L
+Lock (Good)							TYPE:Goods.TechItem.General							COST:3600	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|6	QUALITY:Bulk|L
+Lock (Superior)						TYPE:Goods.TechItem.General							COST:60000	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|14	QUALITY:Bulk|L
+Manacles							TYPE:Goods.TechItem.General							COST:350	WT:1						SOURCEPAGE:p.221																														BONUS:VAR|Bulk|1		QUALITY:Level|4	QUALITY:Bulk|1
+Medical Lab							TYPE:Goods.TechItem.General.MedGear						COST:7000	WT:50						SOURCEPAGE:p.220																														BONUS:VAR|Bulk|50		QUALITY:Level|7	QUALITY:Bulk|50
+Medkit (Basic)						TYPE:Goods.TechItem.General.MedGear						COST:100	WT:1						SOURCEPAGE:p.220																														BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Bulk|1
+Medkit (Advanced)						TYPE:Goods.TechItem.General.MedGear						COST:2700	WT:1						SOURCEPAGE:p.220																														BONUS:VAR|Bulk|1		QUALITY:Level|5	QUALITY:Bulk|1
+Medpatch							TYPE:Goods.TechItem.General.MedGear						COST:50	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|1	QUALITY:Charge Usage|1
+Motion Detector						TYPE:Goods.TechItem.General							COST:6000	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|7	QUALITY:Bulk|L	QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour
+Regeneration Table					TYPE:Goods.TechItem.General.MedGear						COST:45000	WT:20						SOURCEPAGE:p.220																														BONUS:VAR|Bulk|20		QUALITY:Level|16	QUALITY:Bulk|20
+Signal Jammer (Level 1)					TYPE:Goods.TechItem.General							COST:100	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 2)					TYPE:Goods.TechItem.General							COST:400	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 3)					TYPE:Goods.TechItem.General							COST:900	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|3	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 4)					TYPE:Goods.TechItem.General							COST:1600	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|4	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 5)					TYPE:Goods.TechItem.General							COST:2500	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 6)					TYPE:Goods.TechItem.General							COST:3600	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|6	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 7)					TYPE:Goods.TechItem.General							COST:4900	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|7	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 8)					TYPE:Goods.TechItem.General							COST:6400	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|8	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 9)					TYPE:Goods.TechItem.General							COST:8100	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|9	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 10)				TYPE:Goods.TechItem.General							COST:10000	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|10	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 11)				TYPE:Goods.TechItem.General							COST:12100	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|11	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 12)				TYPE:Goods.TechItem.General							COST:14400	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|12	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 13)				TYPE:Goods.TechItem.General							COST:16900	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|13	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 14)				TYPE:Goods.TechItem.General							COST:19600	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|14	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 15)				TYPE:Goods.TechItem.General							COST:22500	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|15	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 16)				TYPE:Goods.TechItem.General							COST:25600	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|16	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 17)				TYPE:Goods.TechItem.General							COST:28900	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|17	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 18)				TYPE:Goods.TechItem.General							COST:32400	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|18	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 19)				TYPE:Goods.TechItem.General							COST:36100	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|19	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Signal Jammer (Level 20)				TYPE:Goods.TechItem.General							COST:40000	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|20	QUALITY:Bulk|L	QUALITY:Charge Capacity|12	QUALITY:Charge Usage|1/10 minute
+Spotlight							TYPE:Goods.TechItem.General.LightSource					COST:25	WT:1						SOURCEPAGE:p.220																														BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Bulk|1	QUALITY:Charge Capacity|10	QUALITY:Charge Usage|1/hour	QUALITY:Increases light level by one step|100-ft. cone
+Sprayflesh							TYPE:Goods.TechItem.General.MedGear						COST:440	WT:0.1					SOURCEPAGE:p.220																														BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	QUALITY:Charge Capacity|1	QUALITY:Charge Usage|1
+Spy Drone							TYPE:Goods.TechItem.General							COST:4550	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|6	QUALITY:Bulk|L	QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/minute
+Tool Kit (Armorcrafter Kit)				TYPE:Goods.TechItem.Tools							COST:445	WT:0.1					SOURCEPAGE:p.221	BONUS:SITUATION|Engineering=Repair, resize, or upgrade armor|2|TYPE=Circumstance																BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Bulk|L
+Tool Kit (Disguise Kit)					TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Engineering Kit)				TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Hacking Kit)					TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Navigator's Tools)				TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221	BONUS:SITUATION|Survival=Orienteering|4|TYPE=Circumstance																				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Accountant))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Accountant)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Actor))				TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Actor)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Archaeologist))		TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Archaeologist)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Architect))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Architect)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Artist))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Artist)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Bounty Hunter))		TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Bounty Hunter)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Comedian))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Comedian)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Con Artist))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Con Artist)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Cook))				TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Cook)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Corporate Professional))	TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Corporate Professional)|4|TYPE=Circumstance	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Courtesan))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Courtesan)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Counselor))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Counselor)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Dancer))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Dancer)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Dockworker))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Dockworker)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Electrician))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Electrician)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Farmer))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Farmer)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Gambler))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Gambler)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (General Contractor))	TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (General Contractor)|4|TYPE=Circumstance		BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Herbalist))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Herbalist)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Lab Technician))		TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Lab Technician)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Lawyer))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Lawyer)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Maintenance Worker))	TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Maintenance Worker)|4|TYPE=Circumstance		BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Manager))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Manager)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Mathematician))		TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Mathematician)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Mercenary))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Mercenary)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Merchant))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Merchant)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Miner))				TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Miner)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Musician))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Musician)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Orator))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Orator)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Philosopher))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Philosopher)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Poet))				TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Poet)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Politician))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Politician)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Professor))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Professor)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Psychologist))		TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Psychologist)|4|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Smuggler))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Smuggler)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Video Personality))		TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Video Personality)|4|TYPE=Circumstance		BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Vidgamer))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Vidgamer)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Profession (Writer))			TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221																		BONUS:SKILL|Profession (Writer)|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Rider's Kit)					TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221	BONUS:SITUATION|Survival=Ride creatures|4|TYPE=Circumstance																				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Trapsmith's Tools)				TYPE:Goods.TechItem.Tools							COST:20	WT:0.1					SOURCEPAGE:p.221	BONUS:SITUATION|Engineering=Arm or disarm traps,Mysticism=Arm or disarm traps|4|TYPE=Circumstance													BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Tool Kit (Weaponsmithing Kit)				TYPE:Goods.TechItem.Tools							COST:445	WT:0.1					SOURCEPAGE:p.221	BONUS:SITUATION|Engineering=Repair weapons|2|TYPE=Circumstance																			BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Bulk|L
+X-ray Visor							TYPE:Goods.TechItem.General							COST:15000	WT:0.1					SOURCEPAGE:p.221																														BONUS:VAR|BulkLight|1	QUALITY:Level|9	QUALITY:Bulk|L	QUALITY:Charge Capacity|40	QUALITY:Charge Usage|1/round
 
 ###Vehicles###
-All-Terrain Transport				TYPE:Goods.Vehicle.Land Vehicle			QUALITY:Level|6		COST:8370		QUALITY:Size|H		SOURCEPAGE:p.229
-Basic Enercycle					TYPE:Goods.Vehicle.Land Vehicle			QUALITY:Level|1		COST:700		QUALITY:Size|L		SOURCEPAGE:p.228
-Exploration Buggy					TYPE:Goods.Vehicle.Land Vehicle			QUALITY:Level|1		COST:1000		QUALITY:Size|L		SOURCEPAGE:p.228
-Goblin Junkcycle					TYPE:Goods.Vehicle.Land Vehicle			QUALITY:Level|1		COST:425		QUALITY:Size|M		SOURCEPAGE:p.228
-Hover Pod						TYPE:Goods.Vehicle.Land Vehicle.Water Vehicle	QUALITY:Level|7		COST:14850		QUALITY:Size|L		SOURCEPAGE:p.229
-Police Cruiser					TYPE:Goods.Vehicle.Land Vehicle.Air Vehicle		QUALITY:Level|4		COST:6195		QUALITY:Size|L		SOURCEPAGE:p.229
-Pump-Jet Sub					TYPE:Goods.Vehicle.Water Vehicle			QUALITY:Level|6		COST:13150		QUALITY:Size|H		SOURCEPAGE:p.229
-Torpedo Minisub					TYPE:Goods.Vehicle.Water Vehicle			QUALITY:Level|1		COST:1500		QUALITY:Size|L		SOURCEPAGE:p.228
-Urban Cruiser					TYPE:Goods.Vehicle.Land Vehicle			QUALITY:Level|2		COST:2210		QUALITY:Size|L		SOURCEPAGE:p.228
+All-Terrain Transport					TYPE:Goods.Vehicle.Land Vehicle						COST:8370							SOURCEPAGE:p.229																																		QUALITY:Level|6	QUALITY:Size|H
+Basic Enercycle						TYPE:Goods.Vehicle.Land Vehicle						COST:700							SOURCEPAGE:p.228																																		QUALITY:Level|1	QUALITY:Size|L
+Exploration Buggy						TYPE:Goods.Vehicle.Land Vehicle						COST:1000							SOURCEPAGE:p.228																																		QUALITY:Level|1	QUALITY:Size|L
+Goblin Junkcycle						TYPE:Goods.Vehicle.Land Vehicle						COST:425							SOURCEPAGE:p.228																																		QUALITY:Level|1	QUALITY:Size|M
+Hover Pod							TYPE:Goods.Vehicle.Land Vehicle.Water Vehicle				COST:14850							SOURCEPAGE:p.229																																		QUALITY:Level|7	QUALITY:Size|L
+Police Cruiser						TYPE:Goods.Vehicle.Land Vehicle.Air Vehicle				COST:6195							SOURCEPAGE:p.229																																		QUALITY:Level|4	QUALITY:Size|L
+Pump-Jet Sub						TYPE:Goods.Vehicle.Water Vehicle						COST:13150							SOURCEPAGE:p.229																																		QUALITY:Level|6	QUALITY:Size|H
+Torpedo Minisub						TYPE:Goods.Vehicle.Water Vehicle						COST:1500							SOURCEPAGE:p.228																																		QUALITY:Level|1	QUALITY:Size|L
+Urban Cruiser						TYPE:Goods.Vehicle.Land Vehicle						COST:2210							SOURCEPAGE:p.228																																		QUALITY:Level|2	QUALITY:Size|L
 
 ###Personal Items###
-Backpack (Consumer)				TYPE:Goods.PersonalItem.General.Container		QUALITY:Level|1		COST:3		QUALITY:Bulk|-		SOURCEPAGE:p.230		CONTAINS:2|ANY		BONUS:VAR|LOADSCORE|1		SPROP:1 Bulk when not worn.
-Backpack (Industrial)				TYPE:Goods.PersonalItem.General.Container		QUALITY:Level|1		COST:25		QUALITY:Bulk|-		SOURCEPAGE:p.230		CONTAINS:2|ANY		BONUS:VAR|LOADSCORE|2		SPROP:1 Bulk when not worn.
-Bonding Epoxy					TYPE:Goods.PersonalItem.General			QUALITY:Level|1		COST:400		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230
-Clothing (Environmental/Cold Climate)	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:10		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		SPROP:+2 on Fortitude saves vs. environmental cold dangers
-Clothing (Environmental/Dust Storm)		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:10		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		SPROP:Reduce damage from dust storms with windstorm-magnitude winds by 1
-Clothing (Environmental/Extreme Gravity)	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:10		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		SPROP:Reduce damage from extreme gravity environments by 1
-Clothing (Environmental/Heat Climate)	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:10		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		SPROP:+2 on Fortitude saves vs. environmental heat dangers
-Clothing (Environmental/Radiation)		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:10		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		SPROP:+1 on saves vs. radiation effects
-Clothing (Environmental/Zero Gravity)	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:10		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		SPROP:+2 on Acrobatics or Athletics checks to stop movement or climb along handholds in zero-g
-Clothing (Everyday)				TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:1		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230
-Clothing (Formal)					TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230
-Clothing (Profession (Accountant))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Accountant)|1|TYPE=Circumstance
-Clothing (Profession (Actor))			TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Actor)|1|TYPE=Circumstance
-Clothing (Profession (Archaeologist))	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Archaeologist)|1|TYPE=Circumstance
-Clothing (Profession (Architect))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Architect)|1|TYPE=Circumstance
-Clothing (Profession (Artist))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Artist)|1|TYPE=Circumstance
-Clothing (Profession (Bounty Hunter))	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Bounty Hunter)|1|TYPE=Circumstance
-Clothing (Profession (Comedian))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Comedian)|1|TYPE=Circumstance
-Clothing (Profession (Con Artist))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Con Artist)|1|TYPE=Circumstance
-Clothing (Profession (Cook))			TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Cook)|1|TYPE=Circumstance
-Clothing (Profession (Corporate Professional))	TYPE:Goods.PersonalItem.Clothing		QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Corporate Professional)|1|TYPE=Circumstance
-Clothing (Profession (Courtesan))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Courtesan)|1|TYPE=Circumstance
-Clothing (Profession (Counselor))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Counselor)|1|TYPE=Circumstance
-Clothing (Profession (Dancer))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Dancer)|1|TYPE=Circumstance
-Clothing (Profession (Dockworker))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Dockworker)|1|TYPE=Circumstance
-Clothing (Profession (Electrician))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Electrician)|1|TYPE=Circumstance
-Clothing (Profession (Farmer))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Farmer)|1|TYPE=Circumstance
-Clothing (Profession (Gambler))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Gambler)|1|TYPE=Circumstance
-Clothing (Profession (General Contractor))	TYPE:Goods.PersonalItem.Clothing		QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (General Contractor)|1|TYPE=Circumstance
-Clothing (Profession (Herbalist))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Herbalist)|1|TYPE=Circumstance
-Clothing (Profession (Lab Technician))	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Lab Technician)|1|TYPE=Circumstance
-Clothing (Profession (Lawyer))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Lawyer)|1|TYPE=Circumstance
-Clothing (Profession (Maintenance Worker))	TYPE:Goods.PersonalItem.Clothing		QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Maintenance Worker)|1|TYPE=Circumstance
-Clothing (Profession (Manager))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Manager)|1|TYPE=Circumstance
-Clothing (Profession (Mathematician))	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Mathematician)|1|TYPE=Circumstance
-Clothing (Profession (Mercenary))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Mercenary)|1|TYPE=Circumstance
-Clothing (Profession (Merchant))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Merchant)|1|TYPE=Circumstance
-Clothing (Profession (Miner))			TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Miner)|1|TYPE=Circumstance
-Clothing (Profession (Musician))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Musician)|1|TYPE=Circumstance
-Clothing (Profession (Orator))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Orator)|1|TYPE=Circumstance
-Clothing (Profession (Philosopher))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Philosopher)|1|TYPE=Circumstance
-Clothing (Profession (Poet))			TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Poet)|1|TYPE=Circumstance
-Clothing (Profession (Politician))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Politician)|1|TYPE=Circumstance
-Clothing (Profession (Professor))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Professor)|1|TYPE=Circumstance
-Clothing (Profession (Psychologist))	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Psychologist)|1|TYPE=Circumstance
-Clothing (Profession (Smuggler))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Smuggler)|1|TYPE=Circumstance
-Clothing (Profession (Video Personality))	TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Video Personality)|1|TYPE=Circumstance
-Clothing (Profession (Vidgamer))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Vidgamer)|1|TYPE=Circumstance
-Clothing (Profession (Writer))		TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:5		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		BONUS:SKILL|Profession (Writer)|1|TYPE=Circumstance
-Clothing (Travel)					TYPE:Goods.PersonalItem.Clothing			QUALITY:Level|1		COST:10		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.230		SPROP:You add 2 miles per 8-hour day of overland movement; +1 to Constitution checks to avoid nonlethal damage from a forced march
-Gear Clamp						TYPE:Goods.PersonalItem.Tools				QUALITY:Level|1		COST:100		QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		SOURCEPAGE:p.231
-Hygiene Kit						TYPE:Goods.PersonalItem.General			QUALITY:Level|1		COST:3		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		SOURCEPAGE:p.231
-Space Suit						TYPE:Goods.PersonalItem.General			QUALITY:Level|1		COST:25		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		SOURCEPAGE:p.231
-Tent (Mass Produced)				TYPE:Goods.PersonalItem.Tools				QUALITY:Level|1		COST:2		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		SOURCEPAGE:p.231
-Tent (Mobile Hotelier)				TYPE:Goods.PersonalItem.TechItem.Tools		QUALITY:Level|1		COST:50		QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		SOURCEPAGE:p.231		QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/8 hour
+Backpack (Consumer)					TYPE:Goods.PersonalItem.General.Container		CONTAINS:2|ANY	COST:3							SOURCEPAGE:p.230																														BONUS:VAR|LOADSCORE|1	QUALITY:Level|1	QUALITY:Bulk|-																					SPROP:1 Bulk when not worn.
+Backpack (Industrial)					TYPE:Goods.PersonalItem.General.Container		CONTAINS:2|ANY	COST:25							SOURCEPAGE:p.230																														BONUS:VAR|LOADSCORE|2	QUALITY:Level|1	QUALITY:Bulk|-																					SPROP:1 Bulk when not worn.
+Bonding Epoxy						TYPE:Goods.PersonalItem.General						COST:400	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Environmental/Cold Climate)		TYPE:Goods.PersonalItem.Clothing						COST:10	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L																					SPROP:+2 on Fortitude saves vs. environmental cold dangers
+Clothing (Environmental/Dust Storm)			TYPE:Goods.PersonalItem.Clothing						COST:10	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L																					SPROP:Reduce damage from dust storms with windstorm-magnitude winds by 1
+Clothing (Environmental/Extreme Gravity)		TYPE:Goods.PersonalItem.Clothing						COST:10	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L																					SPROP:Reduce damage from extreme gravity environments by 1
+Clothing (Environmental/Heat Climate)		TYPE:Goods.PersonalItem.Clothing						COST:10	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L																					SPROP:+2 on Fortitude saves vs. environmental heat dangers
+Clothing (Environmental/Radiation)			TYPE:Goods.PersonalItem.Clothing						COST:10	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L																					SPROP:+1 on saves vs. radiation effects
+Clothing (Environmental/Zero Gravity)		TYPE:Goods.PersonalItem.Clothing						COST:10	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L																					SPROP:+2 on Acrobatics or Athletics checks to stop movement or climb along handholds in zero-g
+Clothing (Everyday)					TYPE:Goods.PersonalItem.Clothing						COST:1	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Formal)						TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Accountant))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Accountant)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Actor))				TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Actor)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Archaeologist))		TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Archaeologist)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Architect))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Architect)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Artist))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Artist)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Bounty Hunter))		TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Bounty Hunter)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Comedian))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Comedian)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Con Artist))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Con Artist)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Cook))				TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Cook)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Corporate Professional))	TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Corporate Professional)|1|TYPE=Circumstance	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Courtesan))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Courtesan)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Counselor))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Counselor)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Dancer))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Dancer)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Dockworker))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Dockworker)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Electrician))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Electrician)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Farmer))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Farmer)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Gambler))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Gambler)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (General Contractor))	TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (General Contractor)|1|TYPE=Circumstance		BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Herbalist))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Herbalist)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Lab Technician))		TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Lab Technician)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Lawyer))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Lawyer)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Maintenance Worker))	TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Maintenance Worker)|1|TYPE=Circumstance		BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Manager))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Manager)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Mathematician))		TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Mathematician)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Mercenary))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Mercenary)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Merchant))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Merchant)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Miner))				TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Miner)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Musician))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Musician)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Orator))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Orator)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Philosopher))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Philosopher)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Poet))				TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Poet)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Politician))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Politician)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Professor))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Professor)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Psychologist))		TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Psychologist)|1|TYPE=Circumstance			BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Smuggler))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Smuggler)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Video Personality))		TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Video Personality)|1|TYPE=Circumstance		BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Vidgamer))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Vidgamer)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Profession (Writer))			TYPE:Goods.PersonalItem.Clothing						COST:5	WT:0.1					SOURCEPAGE:p.230																		BONUS:SKILL|Profession (Writer)|1|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Clothing (Travel)						TYPE:Goods.PersonalItem.Clothing						COST:10	WT:0.1					SOURCEPAGE:p.230																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L																					SPROP:You add 2 miles per 8-hour day of overland movement; +1 to Constitution checks to avoid nonlethal damage from a forced march
+Gear Clamp							TYPE:Goods.PersonalItem.Tools							COST:100	WT:0.1					SOURCEPAGE:p.231																														BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Hygiene Kit							TYPE:Goods.PersonalItem.General						COST:3	WT:1						SOURCEPAGE:p.231																														BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Bulk|1
+Space Suit							TYPE:Goods.PersonalItem.General						COST:25	WT:1						SOURCEPAGE:p.231																														BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Bulk|1
+Tent (Mass Produced)					TYPE:Goods.PersonalItem.Tools							COST:2	WT:1						SOURCEPAGE:p.231																														BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Bulk|1
+Tent (Mobile Hotelier)					TYPE:Goods.PersonalItem.TechItem.Tools					COST:50	WT:1						SOURCEPAGE:p.231																														BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Bulk|1	QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/8 hour
 
 ###Drugs, Medicinals, and Poisons###
-Analgesic (Tier 1)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|1		COST:150		SOURCEPAGE:p.232
-Analgesic (Tier 2)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|5		COST:3000		SOURCEPAGE:p.232
-Analgesic (Tier 3)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|10		COST:15000		SOURCEPAGE:p.232
-Analgesic (Tier 4)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|15		COST:23500		SOURCEPAGE:p.232
-Antitoxin (Tier 1)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|1		COST:150		SOURCEPAGE:p.232
-Antitoxin (Tier 2)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|5		COST:3000		SOURCEPAGE:p.232
-Antitoxin (Tier 3)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|10		COST:15000		SOURCEPAGE:p.232
-Antitoxin (Tier 4)				TYPE:Goods.Chemical.Medicinal				QUALITY:Level|15		COST:23500		SOURCEPAGE:p.232
-Drug (Hyperleaf)					TYPE:Goods.Chemical.Drug				QUALITY:Level|1		COST:95		SOURCEPAGE:p.419
-Drug (Dreamshiver)				TYPE:Goods.Chemical.Drug				QUALITY:Level|5		COST:2500		SOURCEPAGE:p.419
-Drug (Transdimensional Pesh)			TYPE:Goods.Chemical.Drug				QUALITY:Level|10		COST:14000		SOURCEPAGE:p.419
-Drug (Megaopiate)					TYPE:Goods.Chemical.Drug				QUALITY:Level|12		COST:22000		SOURCEPAGE:p.419
-Poison (Id Moss)					TYPE:Goods.Chemical.Poison				QUALITY:Level|2		COST:175		SOURCEPAGE:p.419
-Poison (Insanity Mist)				TYPE:Goods.Chemical.Poison				QUALITY:Level|4		COST:4000		SOURCEPAGE:p.419
-Poison (Blue Whinnis)				TYPE:Goods.Chemical.Poison				QUALITY:Level|8		COST:1400		SOURCEPAGE:p.419
-Poison (Green Lotus Extract)			TYPE:Goods.Chemical.Poison				QUALITY:Level|8		COST:1500		SOURCEPAGE:p.419
-Poison (Ungol Dust)				TYPE:Goods.Chemical.Poison				QUALITY:Level|9		COST:12500		SOURCEPAGE:p.419
-Poison (Black Lotus Extract)			TYPE:Goods.Chemical.Poison				QUALITY:Level|20		COST:140000		SOURCEPAGE:p.419
-Poison (Deathblade)				TYPE:Goods.Chemical.Poison				QUALITY:Level|20		COST:132500		SOURCEPAGE:p.419
-Sedative (Tier 1)					TYPE:Goods.Chemical.Medicinal				QUALITY:Level|1		COST:150		SOURCEPAGE:p.232
-Sedative (Tier 2)					TYPE:Goods.Chemical.Medicinal				QUALITY:Level|5		COST:3000		SOURCEPAGE:p.232
-Sedative (Tier 3)					TYPE:Goods.Chemical.Medicinal				QUALITY:Level|10		COST:15000		SOURCEPAGE:p.232
-Sedative (Tier 4)					TYPE:Goods.Chemical.Medicinal				QUALITY:Level|15		COST:23500		SOURCEPAGE:p.232
+Analgesic (Tier 1)					TYPE:Goods.Chemical.Medicinal							COST:150							SOURCEPAGE:p.232																																		QUALITY:Level|1
+Analgesic (Tier 2)					TYPE:Goods.Chemical.Medicinal							COST:3000							SOURCEPAGE:p.232																																		QUALITY:Level|5
+Analgesic (Tier 3)					TYPE:Goods.Chemical.Medicinal							COST:15000							SOURCEPAGE:p.232																																		QUALITY:Level|10
+Analgesic (Tier 4)					TYPE:Goods.Chemical.Medicinal							COST:23500							SOURCEPAGE:p.232																																		QUALITY:Level|15
+Antitoxin (Tier 1)					TYPE:Goods.Chemical.Medicinal							COST:150							SOURCEPAGE:p.232																																		QUALITY:Level|1
+Antitoxin (Tier 2)					TYPE:Goods.Chemical.Medicinal							COST:3000							SOURCEPAGE:p.232																																		QUALITY:Level|5
+Antitoxin (Tier 3)					TYPE:Goods.Chemical.Medicinal							COST:15000							SOURCEPAGE:p.232																																		QUALITY:Level|10
+Antitoxin (Tier 4)					TYPE:Goods.Chemical.Medicinal							COST:23500							SOURCEPAGE:p.232																																		QUALITY:Level|15
+Drug (Hyperleaf)						TYPE:Goods.Chemical.Drug							COST:95							SOURCEPAGE:p.419																																		QUALITY:Level|1
+Drug (Dreamshiver)					TYPE:Goods.Chemical.Drug							COST:2500							SOURCEPAGE:p.419																																		QUALITY:Level|5
+Drug (Transdimensional Pesh)				TYPE:Goods.Chemical.Drug							COST:14000							SOURCEPAGE:p.419																																		QUALITY:Level|10
+Drug (Megaopiate)						TYPE:Goods.Chemical.Drug							COST:22000							SOURCEPAGE:p.419																																		QUALITY:Level|12
+Poison (Id Moss)						TYPE:Goods.Chemical.Poison							COST:175							SOURCEPAGE:p.419																																		QUALITY:Level|2
+Poison (Insanity Mist)					TYPE:Goods.Chemical.Poison							COST:4000							SOURCEPAGE:p.419																																		QUALITY:Level|4
+Poison (Blue Whinnis)					TYPE:Goods.Chemical.Poison							COST:1400							SOURCEPAGE:p.419																																		QUALITY:Level|8
+Poison (Green Lotus Extract)				TYPE:Goods.Chemical.Poison							COST:1500							SOURCEPAGE:p.419																																		QUALITY:Level|8
+Poison (Ungol Dust)					TYPE:Goods.Chemical.Poison							COST:12500							SOURCEPAGE:p.419																																		QUALITY:Level|9
+Poison (Black Lotus Extract)				TYPE:Goods.Chemical.Poison							COST:140000							SOURCEPAGE:p.419																																		QUALITY:Level|20
+Poison (Deathblade)					TYPE:Goods.Chemical.Poison							COST:132500							SOURCEPAGE:p.419																																		QUALITY:Level|20
+Sedative (Tier 1)						TYPE:Goods.Chemical.Medicinal							COST:150							SOURCEPAGE:p.232																																		QUALITY:Level|1
+Sedative (Tier 2)						TYPE:Goods.Chemical.Medicinal							COST:3000							SOURCEPAGE:p.232																																		QUALITY:Level|5
+Sedative (Tier 3)						TYPE:Goods.Chemical.Medicinal							COST:15000							SOURCEPAGE:p.232																																		QUALITY:Level|10
+Sedative (Tier 4)						TYPE:Goods.Chemical.Medicinal							COST:23500							SOURCEPAGE:p.232																																		QUALITY:Level|15
 
 ###Trade Goods###
-Fine Art						TYPE:Goods.Trade						QUALITY:Bulk|-		COST:0		SOURCEPAGE:p.232		SPROP:Actual cost and weight vary
-Gem							TYPE:Goods.Trade						QUALITY:Bulk|-		COST:0		SOURCEPAGE:p.232		SPROP:Actual cost varies
-Grain							TYPE:Goods.Trade						QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		COST:1		SOURCEPAGE:p.232
-Textiles (Common)					TYPE:Goods.Trade						QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:1		SOURCEPAGE:p.232
-Textiles (Fine)					TYPE:Goods.Trade						QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:100		SOURCEPAGE:p.232
-UPB (1000)						TYPE:Goods.Trade						QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		COST:1000		SOURCEPAGE:p.233
+Fine Art							TYPE:Goods.Trade									COST:0							SOURCEPAGE:p.232																																		QUALITY:Bulk|-																								SPROP:Actual cost and weight vary
+Gem								TYPE:Goods.Trade									COST:0							SOURCEPAGE:p.232																																		QUALITY:Bulk|-																								SPROP:Actual cost varies
+Grain								TYPE:Goods.Trade									COST:1	WT:1						SOURCEPAGE:p.232																														BONUS:VAR|Bulk|1		QUALITY:Bulk|1
+Textiles (Common)						TYPE:Goods.Trade									COST:1	WT:0.1					SOURCEPAGE:p.232																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
+Textiles (Fine)						TYPE:Goods.Trade									COST:100	WT:0.1					SOURCEPAGE:p.232																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
+UPB (1000)							TYPE:Goods.Trade									COST:1000	WT:1						SOURCEPAGE:p.233																														BONUS:VAR|Bulk|1		QUALITY:Bulk|1
 
 ###Food and Drink###
-Field Ration (per week)				TYPE:Goods.Food.Consumable				QUALITY:Bulk|1	BONUS:VAR|Bulk|1	WT:1		COST:1		SOURCEPAGE:p.233
-Intoxicant (Minor)				TYPE:Goods.Food.Consumable				QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:1		SOURCEPAGE:p.233
-Intoxicant (Superior)				TYPE:Goods.Food.Consumable				QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:10		SOURCEPAGE:p.233		SPROP:Actual cost varies
-Meal (Poor)						TYPE:Goods.Food.Consumable				QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:1		SOURCEPAGE:p.233
-Meal (Common)					TYPE:Goods.Food.Consumable				QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:3		SOURCEPAGE:p.233
-Meal (Good)						TYPE:Goods.Food.Consumable				QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:5		SOURCEPAGE:p.233
-R2E							TYPE:Goods.Food.Consumable				QUALITY:Bulk|L	BONUS:VAR|BulkLight|1	WT:0.1		COST:1		SOURCEPAGE:p.233
+Field Ration (per week)					TYPE:Goods.Food.Consumable							COST:1	WT:1						SOURCEPAGE:p.233																														BONUS:VAR|Bulk|1		QUALITY:Bulk|1
+Intoxicant (Minor)					TYPE:Goods.Food.Consumable							COST:1	WT:0.1					SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
+Intoxicant (Superior)					TYPE:Goods.Food.Consumable							COST:10	WT:0.1					SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L																								SPROP:Actual cost varies
+Meal (Poor)							TYPE:Goods.Food.Consumable							COST:1	WT:0.1					SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
+Meal (Common)						TYPE:Goods.Food.Consumable							COST:3	WT:0.1					SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
+Meal (Good)							TYPE:Goods.Food.Consumable							COST:5	WT:0.1					SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
+R2E								TYPE:Goods.Food.Consumable							COST:1	WT:0.1					SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
 
 ###Services###
-Communications (System-Wide/minute)		TYPE:Goods.Service					COST:5						SOURCEPAGE:p.234
-Communications (Unlimited Range/minute)	TYPE:Goods.Service					COST:10						SOURCEPAGE:p.234
-Lodging (Efficiency/night)			TYPE:Goods.Service.Lodging				COST:3						SOURCEPAGE:p.234
-Lodging (Sleep Pod/night)			TYPE:Goods.Service.Lodging				COST:1						SOURCEPAGE:p.234
-Lodging (Suite/1-2 beds/night/bed)		TYPE:Goods.Service.Lodging				COST:5						SOURCEPAGE:p.234
-Lodging (Suite/3-4 beds/night/bed)		TYPE:Goods.Service.Lodging				COST:10						SOURCEPAGE:p.234
-Professional Freelancer				TYPE:Goods.Service												SOURCEPAGE:p.234		SPROP:Cost is (skill bonus a- 2)/day
-Recharging Station				TYPE:Goods.Service												SOURCEPAGE:p.234		SPROP:1 round/charge; 1/2 price of battery or cell
-Spellcasting (0-level spell)			TYPE:Goods.Service					COST:20						SOURCEPAGE:p.234
-Spellcasting (1st-level spell)		TYPE:Goods.Service					COST:100						SOURCEPAGE:p.234
-Spellcasting (2nd-level spell)		TYPE:Goods.Service					COST:350						SOURCEPAGE:p.234
-Spellcasting (3rd-level spell)		TYPE:Goods.Service					COST:1000						SOURCEPAGE:p.234
-Spellcasting (4th-level spell)		TYPE:Goods.Service					COST:3000						SOURCEPAGE:p.234
-Spellcasting (5th-level spell)		TYPE:Goods.Service					COST:9000						SOURCEPAGE:p.234
-Spellcasting (6th-level spell)		TYPE:Goods.Service					COST:30000						SOURCEPAGE:p.234
-Unskilled Labor (per day)			TYPE:Goods.Service					COST:4						SOURCEPAGE:p.234
-Unskilled Labor (per hour)			TYPE:Goods.Service					COST:1						SOURCEPAGE:p.234
+Communications (System-Wide/minute)			TYPE:Goods.Service								COST:5							SOURCEPAGE:p.234
+Communications (Unlimited Range/minute)		TYPE:Goods.Service								COST:10							SOURCEPAGE:p.234
+Lodging (Efficiency/night)				TYPE:Goods.Service.Lodging							COST:3							SOURCEPAGE:p.234
+Lodging (Sleep Pod/night)				TYPE:Goods.Service.Lodging							COST:1							SOURCEPAGE:p.234
+Lodging (Suite/1-2 beds/night/bed)			TYPE:Goods.Service.Lodging							COST:5							SOURCEPAGE:p.234
+Lodging (Suite/3-4 beds/night/bed)			TYPE:Goods.Service.Lodging							COST:10							SOURCEPAGE:p.234
+Professional Freelancer					TYPE:Goods.Service																SOURCEPAGE:p.234																																																												SPROP:Cost is (skill bonus a- 2)/day
+Recharging Station					TYPE:Goods.Service																SOURCEPAGE:p.234																																																												SPROP:1 round/charge; 1/2 price of battery or cell
+Spellcasting (0-level spell)				TYPE:Goods.Service								COST:20							SOURCEPAGE:p.234
+Spellcasting (1st-level spell)			TYPE:Goods.Service								COST:100							SOURCEPAGE:p.234
+Spellcasting (2nd-level spell)			TYPE:Goods.Service								COST:350							SOURCEPAGE:p.234
+Spellcasting (3rd-level spell)			TYPE:Goods.Service								COST:1000							SOURCEPAGE:p.234
+Spellcasting (4th-level spell)			TYPE:Goods.Service								COST:3000							SOURCEPAGE:p.234
+Spellcasting (5th-level spell)			TYPE:Goods.Service								COST:9000							SOURCEPAGE:p.234
+Spellcasting (6th-level spell)			TYPE:Goods.Service								COST:30000							SOURCEPAGE:p.234
+Unskilled Labor (per day)				TYPE:Goods.Service								COST:4							SOURCEPAGE:p.234
+Unskilled Labor (per hour)				TYPE:Goods.Service								COST:1							SOURCEPAGE:p.234
 
 ###Transportation###
-Grav-Train Passage (per 100 miles)		TYPE:Goods.Transportation.Vehicle			COST:1						SOURCEPAGE:p.234
-Robo-Taxi Passage (per 10 miles)		TYPE:Goods.Transportation.Vehicle			COST:1						SOURCEPAGE:p.234
-Sea Vessel Passage (per 50 miles)		TYPE:Goods.Transportation.Vehicle			COST:1						SOURCEPAGE:p.235
-Starship Passage (Common/per day)		TYPE:Goods.Transportation.Vehicle			COST:50						SOURCEPAGE:p.235
-Starship Passage (Good/per day)		TYPE:Goods.Transportation.Vehicle			COST:300						SOURCEPAGE:p.235
-Starship Passage (Luxurious/per day		TYPE:Goods.Transportation.Vehicle			COST:1000						SOURCEPAGE:p.235
-Suborbital Flight (per 25 miles)		TYPE:Goods.Transportation.Vehicle			COST:1						SOURCEPAGE:p.235
+Grav-Train Passage (per 100 miles)			TYPE:Goods.Transportation.Vehicle						COST:1							SOURCEPAGE:p.234
+Robo-Taxi Passage (per 10 miles)			TYPE:Goods.Transportation.Vehicle						COST:1							SOURCEPAGE:p.234
+Sea Vessel Passage (per 50 miles)			TYPE:Goods.Transportation.Vehicle						COST:1							SOURCEPAGE:p.235
+Starship Passage (Common/per day)			TYPE:Goods.Transportation.Vehicle						COST:50							SOURCEPAGE:p.235
+Starship Passage (Good/per day)			TYPE:Goods.Transportation.Vehicle						COST:300							SOURCEPAGE:p.235
+Starship Passage (Luxurious/per day			TYPE:Goods.Transportation.Vehicle						COST:1000							SOURCEPAGE:p.235
+Suborbital Flight (per 25 miles)			TYPE:Goods.Transportation.Vehicle						COST:1							SOURCEPAGE:p.235
 
 
 
-Computer	MODS:REQUIRED	TYPE:Computer
-
-
+Computer							TYPE:Computer													MODS:REQUIRED

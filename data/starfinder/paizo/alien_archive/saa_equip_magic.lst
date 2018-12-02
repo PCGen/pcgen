@@ -1,0 +1,20 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Starfinder Alien Archive	SOURCESHORT:SAA	SOURCEDATE:2017-10
+# Original Entry by: Brad Grinstead
+
+###Magic Items###
+# Equipment Name			Type					Cost		Weight	Requires Modification?	Source Page		Modify VAR			Quality and value
+Aeon Stone (Purple Sphere)	TYPE:Magic.Aeon.WornMagic	COST:7500							SOURCEPAGE:p.7					QUALITY:Level|7	QUALITY:Bulk|-
+Barachius Helm			TYPE:Magic.Head.WornMagic	COST:3000	WT:0.1					SOURCEPAGE:p.13	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L
+Bloodbrother Serum		TYPE:Magic.Serum.Consumable	COST:500	WT:0.1					SOURCEPAGE:p.23	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L
+Aura Goggles			TYPE:Magic.Head.WornMagic	COST:9000	WT:0.1					SOURCEPAGE:p.25	BONUS:VAR|BulkLight|1	QUALITY:Level|8	QUALITY:Bulk|L
+Adaptive Serum Mk 1		TYPE:Magic.Serum.Consumable	COST:350							SOURCEPAGE:p.71					QUALITY:Level|4	QUALITY:Bulk|-
+Adaptive Serum Mk 2		TYPE:Magic.Serum.Consumable	COST:1500							SOURCEPAGE:p.71					QUALITY:Level|8	QUALITY:Bulk|-
+Adaptive Serum Mk 3		TYPE:Magic.Serum.Consumable	COST:5500							SOURCEPAGE:p.71					QUALITY:Level|12	QUALITY:Bulk|-
+Reckless Gloves			TYPE:Magic.Glove.WornMagic	COST:250	WT:0.1					SOURCEPAGE:p.79	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L
+Resilient Jacket			TYPE:Magic.Torso.WornMagic	COST:600	WT:0.1					SOURCEPAGE:p.79	BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Bulk|L
+Trampling Boots			TYPE:Magic.Boot.WornMagic	COST:2500	WT:0.1					SOURCEPAGE:p.79	BONUS:VAR|BulkLight|1	QUALITY:Level|4	QUALITY:Bulk|L
+
+
+###Weapon Fusions###
+Weapon Infusion Seal (NANITE)	TYPE:Weapon Infusion Seal					MODS:REQUIRED

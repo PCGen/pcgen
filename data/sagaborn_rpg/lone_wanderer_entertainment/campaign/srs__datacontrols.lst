@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # This file represents a conversion mechanism for items that were previously
 # stand-alone tokens, but are now handled internally as FACT or FACTSET.
 #
@@ -9,7 +10,8 @@
 # SELECT-ability would be legal]) in one of the DATACONTROL files.
 
 # 6.07.00+ only
-FACTDEF:RACE|BaseSize	DATAFORMAT:SIZEADJUSTMENT	VISIBLE:YES	REQUIRED:NO	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+# Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:RACE|BaseSize				DATAFORMAT:SIZEADJUSTMENT	REQUIRED:NO				VISIBLE:YES					EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
 
 DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
@@ -21,44 +23,44 @@ DEFAULTVARIABLEVALUE:ALIGNMENT|None
 
 # End 6.07.00+ only
 
+FACTDEF:RACE|BaseSize					DATAFORMAT:SIZEADJUSTMENT	REQUIRED:YES				VISIBLE:YES							EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
 # This MUST be included if you enable the datacontrol file....
-# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
-FACTDEF:SPELL|CompMaterial	DATAFORMAT:String							VISIBLE:YES
-# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
-FACTDEF:ABILITY|AppliedName	DATAFORMAT:String							VISIBLE:YES
+# Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:SPELL|CompMaterial			DATAFORMAT:String								VISIBLE:YES
+# Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:ABILITY|AppliedName			DATAFORMAT:String								VISIBLE:YES
 
-FACTDEF:CLASS|Abb			DATAFORMAT:String							VISIBLE:YES
-FACTDEF:CLASS|ClassType		DATAFORMAT:String							VISIBLE:YES
-FACTDEF:CLASS|SpellType		DATAFORMAT:String				SELECTABLE:YES	VISIBLE:YES
+FACTDEF:CLASS|Abb					DATAFORMAT:String								VISIBLE:YES
+FACTDEF:CLASS|ClassType				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:CLASS|SpellType				DATAFORMAT:String					SELECTABLE:YES	VISIBLE:YES
 
-FACTDEF:DEITY|Symbol		DATAFORMAT:String							VISIBLE:YES
-FACTDEF:DEITY|Worshippers	DATAFORMAT:String							VISIBLE:YES
-FACTDEF:DEITY|Title		DATAFORMAT:String							VISIBLE:YES
-FACTDEF:DEITY|Appearance	DATAFORMAT:String							VISIBLE:YES
+FACTDEF:DEITY|Symbol				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Worshippers			DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Title				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Appearance			DATAFORMAT:String								VISIBLE:YES
 
-FACTDEF:EQUIPMENT|RateOfFire	DATAFORMAT:String							VISIBLE:YES
+FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String								VISIBLE:YES
 
-FACTDEF:TEMPLATE|AppliedName	DATAFORMAT:String							VISIBLE:YES
+FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String								VISIBLE:YES
 
-FACTSETDEF:DEITY|Pantheon	DATAFORMAT:String				SELECTABLE:YES	VISIBLE:YES
-FACTSETDEF:DEITY|Race		DATAFORMAT:String							VISIBLE:YES
+FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String					SELECTABLE:YES	VISIBLE:YES
+FACTSETDEF:DEITY|Race				DATAFORMAT:String								VISIBLE:YES
 
 
 # This is my attempt to implement the FACT system to replicate the deprecated PRETYPE to determine whether a given race is initially allowed traits
-FACTDEF:RACE|IsPC			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is a PC to begin with.
-FACTDEF:RACE|IsCompanion	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsCompanion	EXPLANATION:Determines whether a race is a Companion to begin with.
+FACTDEF:RACE|IsPC					DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:RACE|IsCompanion			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsCompanion	EXPLANATION:Determines whether a race is a Companion to begin with.
 
-FACTDEF:RACE|Hands		DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Hands		EXPLANATION:Determines base race ~ Hands.
-FACTDEF:RACE|Legs			DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Legs			EXPLANATION:Determines base race ~ Legs.
+FACTDEF:RACE|Hands				DATAFORMAT:Number			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Hands		EXPLANATION:Determines base race ~ Hands.
+FACTDEF:RACE|Legs					DATAFORMAT:Number			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Legs		EXPLANATION:Determines base race ~ Legs.
 
-FACTDEF:RACE|BaseMove_Walk	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Walk		EXPLANATION:Determines base race ~ Movement Walk.
-FACTDEF:RACE|BaseMove_Fly	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Fly		EXPLANATION:Determines base race ~ Movement Fly.
-FACTDEF:RACE|BaseMove_Climb	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Climb		EXPLANATION:Determines base race ~ Movement Climb.
-FACTDEF:RACE|BaseMove_Swim	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Swim		EXPLANATION:Determines base race ~ Movement Swim.
-FACTDEF:RACE|BaseMove_Burrow	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Burrow		EXPLANATION:Determines base race ~ Movement Burrow.
+FACTDEF:RACE|BaseMove_Walk			DATAFORMAT:Number			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Walk		EXPLANATION:Determines base race ~ Movement Walk.
+FACTDEF:RACE|BaseMove_Fly			DATAFORMAT:Number			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Fly		EXPLANATION:Determines base race ~ Movement Fly.
+FACTDEF:RACE|BaseMove_Climb			DATAFORMAT:Number			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Climb		EXPLANATION:Determines base race ~ Movement Climb.
+FACTDEF:RACE|BaseMove_Swim			DATAFORMAT:Number			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Swim		EXPLANATION:Determines base race ~ Movement Swim.
+FACTDEF:RACE|BaseMove_Burrow			DATAFORMAT:Number			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Burrow	EXPLANATION:Determines base race ~ Movement Burrow.
 
-FACTDEF:ABILITY|IsPC		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:ABILITY|IsPC				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
 
-FACTDEF:SPELL|Mana		DATAFORMAT:String		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Mana	EXPLANATION:Determines base race ~ Hands.
-
+FACTDEF:SPELL|Mana				DATAFORMAT:String			REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Mana		EXPLANATION:Determines base race ~ Hands.

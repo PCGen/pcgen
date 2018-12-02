@@ -55,13 +55,13 @@ import javax.swing.text.NumberFormatter;
 
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
+import pcgen.core.Skill;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.SkillBonusListener;
 import pcgen.facade.core.CharacterLevelsFacade.SkillPointListener;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.filter.Filter;
@@ -89,12 +89,12 @@ import pcgen.util.enumeration.Tab;
 public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
-	private final FilteredTreeViewTable<CharacterFacade, SkillFacade> skillTable;
+	private final FilteredTreeViewTable<CharacterFacade, Skill> skillTable;
 	private final JTable skillpointTable;
 	private final InfoPane infoPane;
 	private final TabTitle tabTitle;
-	private final FilterButton<CharacterFacade, SkillFacade> cFilterButton;
-	private final FilterButton<CharacterFacade, SkillFacade> trainedFilterButton;
+	private final FilterButton<CharacterFacade, Skill> cFilterButton;
+	private final FilterButton<CharacterFacade, Skill> trainedFilterButton;
 	private final JEditorPane htmlPane;
 	private final JComboBox skillFilterBox;
 
@@ -123,7 +123,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		skillTable.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setDefaultRenderer(String.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setRowHeight(26);
-		FilterBar<CharacterFacade, SkillFacade> filterBar = new FilterBar<>();
+		FilterBar<CharacterFacade, Skill> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		cFilterButton.setText(LanguageBundle.getString("in_classString")); //$NON-NLS-1$
@@ -387,11 +387,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class FilterHandler implements ListSelectionListener
 	{
 
-		private final Filter<CharacterFacade, SkillFacade> cFilter = new Filter<CharacterFacade, SkillFacade>()
+		private final Filter<CharacterFacade, Skill> cFilter = new Filter<CharacterFacade, Skill>()
 		{
 
 			@Override
-			public boolean accept(CharacterFacade context, SkillFacade element)
+			public boolean accept(CharacterFacade context, Skill element)
 			{
 				if (context == null)
 				{
@@ -404,11 +404,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		};
 
-		private final Filter<CharacterFacade, SkillFacade> gainedFilter = new Filter<CharacterFacade, SkillFacade>()
+		private final Filter<CharacterFacade, Skill> gainedFilter = new Filter<CharacterFacade, Skill>()
 		{
 
 			@Override
-			public boolean accept(CharacterFacade context, SkillFacade element)
+			public boolean accept(CharacterFacade context, Skill element)
 			{
 				if (context == null)
 				{
@@ -491,7 +491,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
 			int column)
 		{
-			SkillFacade skill = (SkillFacade) table.getModel().getValueAt(row, 0);
+			Skill skill = (Skill) table.getModel().getValueAt(row, 0);
 			int index = listModel.getMinSelectionIndex();
 			model.configureModel(skill, character.getCharacterLevelsFacade().getElementAt(index));
 			return spinner;
@@ -540,7 +540,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 		private CharacterLevelFacade level;
-		private SkillFacade skill;
+		private Skill skill;
 
 		public SkillRankSpinnerModel(CharacterFacade character)
 		{
@@ -553,7 +553,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			return character.getCharacterLevelsFacade().getSkillRanks(level, skill);
 		}
 
-		public void configureModel(SkillFacade sk, CharacterLevelFacade charLevel)
+		public void configureModel(Skill sk, CharacterLevelFacade charLevel)
 		{
 			this.skill = sk;
 			this.level = charLevel;
@@ -683,9 +683,9 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			if (!e.getValueIsAdjusting())
 			{
 				Object data = skillTable.getSelectedObject();
-				if (data != null && data instanceof SkillFacade)
+				if (data != null && data instanceof Skill)
 				{
-					text = character.getInfoFactory().getHTMLInfo((SkillFacade) data);
+					text = character.getInfoFactory().getHTMLInfo((Skill) data);
 				}
 				else
 				{

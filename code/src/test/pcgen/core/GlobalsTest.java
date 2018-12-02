@@ -1,8 +1,13 @@
 package pcgen.core;
 
+import static org.hamcrest.Matchers.greaterThan;
+import static org.junit.Assert.assertThat;
+
 import pcgen.PCGenTestCase;
 import pcgen.cdom.content.BaseDice;
 import pcgen.util.TestHelper;
+
+import org.hamcrest.Matchers;
 
 /**
  * This class tests global areas of PCGen
@@ -10,30 +15,6 @@ import pcgen.util.TestHelper;
 @SuppressWarnings("nls")
 public class GlobalsTest extends PCGenTestCase
 {
-	/**
-	 * Constructs a new <code>GlobalsTest</code>.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public GlobalsTest()
-	{
-	}
-
-	/**
-	 * Constructs a new <code>GlobalsTest</code> with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
-	 */
-	public GlobalsTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -391,9 +372,9 @@ public class GlobalsTest extends PCGenTestCase
 	public void testAdjustDamage()
 	{
 		GameMode gameMode = SettingsHandler.getGame();
-		is(Globals.getContext().getReferenceContext()
-				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
-				"size list initialised");
+		assertThat("size list initialised",
+				Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
+			Matchers.is(greaterThan(0)));
 		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));

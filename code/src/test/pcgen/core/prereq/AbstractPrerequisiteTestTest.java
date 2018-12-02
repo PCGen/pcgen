@@ -19,9 +19,6 @@ package pcgen.core.prereq;
 
 import java.util.Locale;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
@@ -30,25 +27,6 @@ import plugin.pretokens.test.PreWieldTester;
 
 public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * main
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(AbstractPrerequisiteTestTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(AbstractPrerequisiteTestTest.class);
-	}
-
-	
 	@SuppressWarnings("nls")
 	public void testVisionNotHandledFail()
 	{

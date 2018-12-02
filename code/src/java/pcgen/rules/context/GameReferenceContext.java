@@ -138,11 +138,4 @@ public final class GameReferenceContext extends AbstractReferenceContext
 		}
 		return mfg;
 	}
-
-	@Override
-	public ReferenceManufacturer<?> getManufacturerByFormatName(String formatName)
-	{
-		throw new UnsupportedOperationException(
-			"GameReferenceContext cannot get Format by name without knowing underlying class");
-	}
 }

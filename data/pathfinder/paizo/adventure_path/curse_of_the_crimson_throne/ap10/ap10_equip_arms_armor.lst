@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHORT:AP10	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9	SOURCEDATE:2008-07
 # Original Entry by: Paul Grosse
 
-# Equipment Name	Required Weapon Proficiency		Type													Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size		Source Page		Bonus to skill
+# Equipment Name	Required Weapon Proficiency		Type													Cost		Weight	Slot Needed	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Range		Size		Source Page		Bonus to skill
 Totem Spear		PROFICIENCY:WEAPON|Totem Spear	TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Piercing.Spear	COST:25	WT:6		SLOTS:2	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	EQMOD:Material ~ Steel	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.35	BONUS:SKILL|Acrobatics|2|TYPE=Circumstance

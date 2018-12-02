@@ -373,7 +373,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				else
 				// must have books
 				{
-					if (!(obj instanceof PCClass) || !obj.getSafe(ObjectKey.SPELLBOOK))
+					if (!obj.getSafe(ObjectKey.SPELLBOOK))
 					{
 						classes.remove(i);
 					}

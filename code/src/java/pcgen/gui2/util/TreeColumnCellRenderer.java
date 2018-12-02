@@ -38,7 +38,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
 {
 
-	public TreeColumnCellRenderer()
+	protected TreeColumnCellRenderer()
 	{
 		setClosedIcon(null);
 		setLeafIcon(null);

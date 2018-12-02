@@ -43,7 +43,6 @@ public final class PostRangeAdd extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual range attribute that may be bonused.
 	 * @param tagNumber the index of the range attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The range attribute.
 	 */
 	@Override
@@ -54,7 +53,6 @@ public final class PostRangeAdd extends MultiTagBonusObj
 
 	/**
 	 * Get the number of range attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of range attributes.
 	 */
 	@Override

@@ -27,7 +27,7 @@ import pcgen.core.character.EquipSet;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>CharacterFacadeImplTest</code> verifies the behaviour of 
+ * The Class {@code CharacterFacadeImplTest} verifies the behaviour of
  * CharacterFacadeImpl.
  *
  * <br/>
@@ -57,9 +57,6 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
 	}
 	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	@Before
 	public void setUp() throws Exception

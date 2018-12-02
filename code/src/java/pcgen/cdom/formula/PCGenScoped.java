@@ -20,12 +20,13 @@ package pcgen.cdom.formula;
 import java.util.List;
 
 import pcgen.base.formula.base.VarScoped;
+import pcgen.cdom.base.VarContainer;
 
 /**
  * A PCGenScoped is an extension of VarScoped specialized for PCGen to have the ability
  * for an object to have children of various types.
  */
-public interface PCGenScoped extends VarScoped
+public interface PCGenScoped extends VarContainer, VarScoped
 {
 	/**
 	 * Returns the local child of the given child type and child name. Returns null if no

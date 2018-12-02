@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.facade.core.GenderFacade;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -27,7 +26,7 @@ import pcgen.system.LanguageBundle;
  * quickly compared and use less memory when identical Genders exist in two
  * CDOMObjects.
  */
-public enum Gender implements GenderFacade
+public enum Gender
 {
 	Male
 	{

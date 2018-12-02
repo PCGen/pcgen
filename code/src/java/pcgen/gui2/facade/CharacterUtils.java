@@ -32,9 +32,20 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-public class CharacterUtils
+final class CharacterUtils
 {
-	public static void selectClothes(final PlayerCharacter aPC)
+	private CharacterUtils()
+	{
+	}
+
+	private static boolean isFreeClothing(Equipment eq, PlayerCharacter aPC, SizeAdjustment pcSizeAdj)
+	{
+		return !eq.isType("Magic")
+				&& (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))
+				&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE));
+	}
+
+	static void selectClothes(final PlayerCharacter aPC)
 	{
 		if (Globals.checkRule(RuleConstants.FREECLOTHES) && ((aPC.getDisplay().totalNonMonsterLevels()) == 1))
 		{
@@ -48,28 +59,16 @@ public class CharacterUtils
 			// is carrying will actually fit and
 			// has a zero price attached
 			//
-			boolean hasClothes = false;
-			SizeAdjustment pcSizeAdj = aPC.getDisplay().getSizeAdjustment();
+			SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();
 
-			if (!clothes.isEmpty())
-			{
-				for (Equipment eq : clothes)
-				{
-					if (!eq.isType("Magic") && (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))
-						&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
-					{
-						hasClothes = true;
+			boolean hasClothes = clothes.stream()
+			                            .anyMatch(eq -> isFreeClothing(eq, aPC, pcSizeAdj));
 
-						break;
-					}
-				}
-			}
 
-			//
 			// If the PC has no clothing items, or none that
 			// are sized to fit, then allow them to pick
 			// a free set
-			//
+
 			if (!hasClothes)
 			{
 				clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable.Starting", "Magic.Custom.Auto_Gen");
@@ -91,7 +90,7 @@ public class CharacterUtils
 					if (eq != null)
 					{
 						eq = eq.clone();
-						eq.setQty(new Float(1));
+						eq.setQty(1.0);
 
 						//
 						// Need to resize to fit?

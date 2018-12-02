@@ -41,7 +41,6 @@ public final class SizeMod extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual type of SizeMOD that may be bonused.
 	 * @param tagNumber the index of the SizeMOD type.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The type of SizeMOD.
 	 */
 	@Override
@@ -52,7 +51,6 @@ public final class SizeMod extends MultiTagBonusObj
 
 	/**
 	 * Get the number of types of SizeMod that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of SizeMOD types.
 	 */
 	@Override

@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 14380 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
 # Pathfinder RPG Entry by: Stefan Radermacher and Scott Meyer
@@ -247,330 +248,330 @@ Scribe (Map)			TYPE:Service		COST:10	SOURCEPAGE:p.99
 Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 
 ###Block: Tools and Skill Kits
-# Equipment Name												Output Name						Type							Number of Pages	Page Usage				Cost		Weight	Modifier		Source Page		Ability								Bonus to Situation							Bonus to skill
-Abacus.MOD																				TYPE:Goods.Tools													COST:2	WT:2					SOURCEPAGE:p.76
-Alchemist's Lab.MOD																																								SOURCEPAGE:p.76
-Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:5					SOURCEPAGE:p.76
-Antidote Kit																			TYPE:Goods.Tools													COST:100	WT:3					SOURCEPAGE:p.76
-Anvil (Blacksmith).MOD																		TYPE:Goods.Tools													COST:5	WT:100				SOURCEPAGE:p.76
-Anvil (Farrier).MOD																		TYPE:Goods.Tools													COST:5	WT:50					SOURCEPAGE:p.76
-Anvil (Goldsmith/Silversmith).MOD																TYPE:Goods.Tools													COST:5	WT:10					SOURCEPAGE:p.76
-Artisan's Tools.MOD																																							SOURCEPAGE:p.76
-Artisan's Tools.COPY=Artisan's Tools, Masterwork	KEY:Artisan's Tools (Masterwork)	OUTPUTNAME:Masterwork Artisan's Tools
-Artisan's Tools (Masterwork).MOD																																				SOURCEPAGE:p.76	EQMOD:Special Quality ~ Masterwork ~ Item
-Balancing Pole.MOD																		TYPE:Goods.Tools													COST:0.8	WT:12					SOURCEPAGE:p.76
-Bear Trap.MOD																			TYPE:Goods.Tools													COST:2	WT:10					SOURCEPAGE:p.76
-Bellows.MOD																				TYPE:Goods.Tools													COST:1	WT:3					SOURCEPAGE:p.76
-Climber's Kit.MOD																																									SOURCEPAGE:p.76
-Disguise Kit.MOD																																									SOURCEPAGE:p.76
-Footprint Book.MOD																		TYPE:Goods.Tools.Book												COST:50	WT:3					SOURCEPAGE:p.76
-Forger's Kit																			TYPE:Goods.Tools													COST:200	WT:6					SOURCEPAGE:p.77										BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
-Formula Book.MOD	SOURCEPAGE:p.77
-Fortune-Teller's Deck (Common).MOD																TYPE:Goods.Tools													COST:1	WT:0.5				SOURCEPAGE:p.77
-Fortune-Teller's Deck (Quality).MOD																TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
-Fortune-Teller's Deck (Masterwork).MOD															TYPE:Goods.Tools													COST:50	WT:1					SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
-Healer's Kit.MOD																																									SOURCEPAGE:p.77
-Juggler's Kit																			TYPE:Goods.Tools													COST:15	WT:10					SOURCEPAGE:p.77																				BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
-Leeching Kit.MOD																			TYPE:Goods.Tools													COST:5	WT:5					SOURCEPAGE:p.77
-Map Maker's Kit.MOD																		TYPE:Goods.Tools													COST:10	WT:2					SOURCEPAGE:p.78
-#Masterwork tool 50 gp 1 lb.
-Scale (Merchant's).MOD																																								SOURCEPAGE:p.78
-Midwife's Kit																			TYPE:Goods.Tools													COST:10	WT:2					SOURCEPAGE:p.78
-Musical Instrument (Harpsichord).MOD																																					SOURCEPAGE:p.78
-Musical Instrument (Piano).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Pipe Organ).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Bells).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Chimes).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Drums).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Gong).MOD																																							SOURCEPAGE:p.78
-Musical Instrument (Fiddle).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Harp).MOD																																							SOURCEPAGE:p.78
-Musical Instrument (Lute).MOD																																							SOURCEPAGE:p.78
-Musical Instrument (Mandolin).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Flute).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Pan Pipes).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Recorder).MOD																																						SOURCEPAGE:p.78
-Musical Instrument (Trumpet).MOD																																						SOURCEPAGE:p.78
-Harpsichord (Base).COPY=Musical Instrument, Masterwork Harpsichord	KEY:Musical Instrument (Harpsichord/Masterwork)		OUTPUTNAME:Masterwork Harpsichord			BASEITEM:Harpsichord (Base)	VISIBLE:YES
-Musical Instrument (Harpsichord/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Piano (Base).COPY=Musical Instrument, Masterwork Piano	KEY:Musical Instrument (Piano/Masterwork)			OUTPUTNAME:Masterwork Piano				BASEITEM:Piano (Base)		VISIBLE:YES
-Musical Instrument (Piano/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Pipe Organ (Base).COPY=Musical Instrument, Masterwork Pipe Organ	KEY:Musical Instrument (Pipe Organ/Masterwork)			OUTPUTNAME:Masterwork Pipe Organ			BASEITEM:Pipe Organ (Base)	VISIBLE:YES
-Musical Instrument (Pipe Organ/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Bells (Base).COPY=Musical Instrument, Masterwork Bells	KEY:Musical Instrument (Bells/Masterwork)			OUTPUTNAME:Masterwork Bells				BASEITEM:Bells (Base)		VISIBLE:YES
-Musical Instrument (Bells/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Chimes (Base).COPY=Musical Instrument, Masterwork Chimes	KEY:Musical Instrument (Chimes/Masterwork)			OUTPUTNAME:Masterwork Chimes				BASEITEM:Chimes (Base)		VISIBLE:YES
-Musical Instrument (Chimes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Drums (Base).COPY=Musical Instrument, Masterwork Drums	KEY:Musical Instrument (Drums/Masterwork)			OUTPUTNAME:Masterwork Drums				BASEITEM:Drums (Base)		VISIBLE:YES
-Musical Instrument (Drums/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Gong (Base).COPY=Musical Instrument, Masterwork Gong	KEY:Musical Instrument (Gong/Masterwork)				OUTPUTNAME:Masterwork Gong				BASEITEM:Gong (Base)		VISIBLE:YES
-Musical Instrument (Gong/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Fiddle (Base).COPY=Musical Instrument, Masterwork Fiddle	KEY:Musical Instrument (Fiddle/Masterwork)			OUTPUTNAME:Masterwork Fiddle				BASEITEM:Fiddle (Base)		VISIBLE:YES
-Musical Instrument (Fiddle/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Harp (Base).COPY=Musical Instrument, Masterwork Harp	KEY:Musical Instrument (Harp/Masterwork)				OUTPUTNAME:Masterwork Harp				BASEITEM:Harp (Base)		VISIBLE:YES
-Musical Instrument (Harp/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Lute (Base).COPY=Musical Instrument, Masterwork Lute	KEY:Musical Instrument (Lute/Masterwork)				OUTPUTNAME:Masterwork Lute				BASEITEM:Lute (Base)		VISIBLE:YES
-Musical Instrument (Lute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Mandolin (Base).COPY=Musical Instrument, Masterwork Mandolin	KEY:Musical Instrument (Mandolin/Masterwork)			OUTPUTNAME:Masterwork Mandolin			BASEITEM:Mandolin (Base)	VISIBLE:YES
-Musical Instrument (Mandolin/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Flute (Base).COPY=Musical Instrument, Masterwork Flute	KEY:Musical Instrument (Flute/Masterwork)			OUTPUTNAME:Masterwork Flute				BASEITEM:Flute (Base)		VISIBLE:YES
-Musical Instrument (Flute/Masterwork).MOD																																		EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Pan Pipes (Base).COPY=Musical Instrument, Masterwork Pan Pipes	KEY:Musical Instrument (Pan Pipes/Masterwork)			OUTPUTNAME:Masterwork Pan Pipes			BASEITEM:Pan Pipes (Base)	VISIBLE:YES
-Musical Instrument (Pan Pipes/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Recorder (Base).COPY=Musical Instrument, Masterwork Recorder	KEY:Musical Instrument (Recorder/Masterwork)			OUTPUTNAME:Masterwork Recorder			BASEITEM:Recorder (Base)	VISIBLE:YES
-Musical Instrument (Recorder/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Trumpet (Base).COPY=Musical Instrument, Masterwork Trumpet	KEY:Musical Instrument (Trumpet/Masterwork)			OUTPUTNAME:Masterwork Trumpet			BASEITEM:Trumpet (Base)		VISIBLE:YES
-Musical Instrument (Trumpet/Masterwork).MOD																																	EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Parasol																				TYPE:Goods.Tools													COST:1	WT:2					SOURCEPAGE:p.78
-Parasol (Umbrella)																		TYPE:Goods.Tools													COST:2	WT:3					SOURCEPAGE:p.78
-Alchemist's Lab (Portable).MOD									OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist									COST:75	WT:20					SOURCEPAGE:p.79
-Portable Altar																			TYPE:Goods.Tools													COST:250	WT:40					SOURCEPAGE:p.79
-Portrait Book.MOD																			TYPE:Goods.Tools.Book												COST:10	WT:3					SOURCEPAGE:p.79
-Spell Component Pouch.MOD																																							SOURCEPAGE:p.79
-Spellbook.MOD																																						SOURCEPAGE:p.79
-Stretcher																				TYPE:Goods.Tools													COST:1	WT:10					SOURCEPAGE:p.79
-Surgeon's Tools																			TYPE:Goods.Tools													COST:20	WT:5					SOURCEPAGE:p.79
+# Equipment Name										Unique Key							Output Name						Type							Cost		Weight	Base Item for EQMOD		Modifier						Source Page		Ability								Bonus to Situation							Bonus to skill									Visible
+Abacus.MOD																										TYPE:Goods.Tools					COST:2	WT:2														SOURCEPAGE:p.76
+Alchemist's Lab.MOD																																															SOURCEPAGE:p.76
+Alchemy Crafting Kit																								TYPE:Goods.Tools.CraftToolsAlchemist	COST:25	WT:5														SOURCEPAGE:p.76
+Antidote Kit																									TYPE:Goods.Tools					COST:100	WT:3														SOURCEPAGE:p.76
+Anvil (Blacksmith).MOD																								TYPE:Goods.Tools					COST:5	WT:100													SOURCEPAGE:p.76
+Anvil (Farrier).MOD																								TYPE:Goods.Tools					COST:5	WT:50														SOURCEPAGE:p.76
+Anvil (Goldsmith/Silversmith).MOD																						TYPE:Goods.Tools					COST:5	WT:10														SOURCEPAGE:p.76
+Artisan's Tools.MOD																																															SOURCEPAGE:p.76
+Artisan's Tools.COPY=Artisan's Tools, Masterwork				KEY:Artisan's Tools (Masterwork)			OUTPUTNAME:Masterwork Artisan's Tools
+Artisan's Tools (Masterwork).MOD																																						EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.76
+Balancing Pole.MOD																								TYPE:Goods.Tools					COST:0.8	WT:12														SOURCEPAGE:p.76
+Bear Trap.MOD																									TYPE:Goods.Tools					COST:2	WT:10														SOURCEPAGE:p.76
+Bellows.MOD																										TYPE:Goods.Tools					COST:1	WT:3														SOURCEPAGE:p.76
+Climber's Kit.MOD																																																SOURCEPAGE:p.76
+Disguise Kit.MOD																																																SOURCEPAGE:p.76
+Footprint Book.MOD																								TYPE:Goods.Tools.Book				COST:50	WT:3														SOURCEPAGE:p.76
+Forger's Kit																									TYPE:Goods.Tools					COST:200	WT:6														SOURCEPAGE:p.77										BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
+Formula Book.MOD																																																SOURCEPAGE:p.77
+Fortune-Teller's Deck (Common).MOD																						TYPE:Goods.Tools					COST:1	WT:0.5													SOURCEPAGE:p.77
+Fortune-Teller's Deck (Quality).MOD																						TYPE:Goods.Tools					COST:25	WT:1														SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
+Fortune-Teller's Deck (Masterwork).MOD																					TYPE:Goods.Tools					COST:50	WT:1														SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
+Healer's Kit.MOD																																																SOURCEPAGE:p.77
+Juggler's Kit																									TYPE:Goods.Tools					COST:15	WT:10														SOURCEPAGE:p.77																				BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
+Leeching Kit.MOD																									TYPE:Goods.Tools					COST:5	WT:5														SOURCEPAGE:p.77
+Map Maker's Kit.MOD																								TYPE:Goods.Tools					COST:10	WT:2														SOURCEPAGE:p.78
+Masterwork tool																									TYPE:Goods.Tools.Masterwork Tool		COST:50	WT:1														SOURCEPAGE:p.78	MODS:REQUIRED	SPROP:Grants a +2 Circumstance Bonus to %|%LIST
+Scale (Merchant's).MOD																																															SOURCEPAGE:p.78
+Midwife's Kit																									TYPE:Goods.Tools					COST:10	WT:2														SOURCEPAGE:p.78
+Musical Instrument (Harpsichord).MOD																																												SOURCEPAGE:p.78
+Musical Instrument (Piano).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Pipe Organ).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Bells).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Chimes).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Drums).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Gong).MOD																																														SOURCEPAGE:p.78
+Musical Instrument (Fiddle).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Harp).MOD																																														SOURCEPAGE:p.78
+Musical Instrument (Lute).MOD																																														SOURCEPAGE:p.78
+Musical Instrument (Mandolin).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Flute).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Pan Pipes).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Recorder).MOD																																													SOURCEPAGE:p.78
+Musical Instrument (Trumpet).MOD																																													SOURCEPAGE:p.78
+Harpsichord (Base).COPY=Musical Instrument, Masterwork Harpsichord	KEY:Musical Instrument (Harpsichord/Masterwork)	OUTPUTNAME:Masterwork Harpsichord													BASEITEM:Harpsichord (Base)																																									VISIBLE:YES
+Musical Instrument (Harpsichord/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Piano (Base).COPY=Musical Instrument, Masterwork Piano			KEY:Musical Instrument (Piano/Masterwork)		OUTPUTNAME:Masterwork Piano														BASEITEM:Piano (Base)																																										VISIBLE:YES
+Musical Instrument (Piano/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Pipe Organ (Base).COPY=Musical Instrument, Masterwork Pipe Organ		KEY:Musical Instrument (Pipe Organ/Masterwork)	OUTPUTNAME:Masterwork Pipe Organ													BASEITEM:Pipe Organ (Base)																																									VISIBLE:YES
+Musical Instrument (Pipe Organ/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Bells (Base).COPY=Musical Instrument, Masterwork Bells			KEY:Musical Instrument (Bells/Masterwork)		OUTPUTNAME:Masterwork Bells														BASEITEM:Bells (Base)																																										VISIBLE:YES
+Musical Instrument (Bells/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Chimes (Base).COPY=Musical Instrument, Masterwork Chimes			KEY:Musical Instrument (Chimes/Masterwork)	OUTPUTNAME:Masterwork Chimes														BASEITEM:Chimes (Base)																																										VISIBLE:YES
+Musical Instrument (Chimes/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Drums (Base).COPY=Musical Instrument, Masterwork Drums			KEY:Musical Instrument (Drums/Masterwork)		OUTPUTNAME:Masterwork Drums														BASEITEM:Drums (Base)																																										VISIBLE:YES
+Musical Instrument (Drums/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Gong (Base).COPY=Musical Instrument, Masterwork Gong				KEY:Musical Instrument (Gong/Masterwork)		OUTPUTNAME:Masterwork Gong														BASEITEM:Gong (Base)																																										VISIBLE:YES
+Musical Instrument (Gong/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Fiddle (Base).COPY=Musical Instrument, Masterwork Fiddle			KEY:Musical Instrument (Fiddle/Masterwork)	OUTPUTNAME:Masterwork Fiddle														BASEITEM:Fiddle (Base)																																										VISIBLE:YES
+Musical Instrument (Fiddle/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Harp (Base).COPY=Musical Instrument, Masterwork Harp				KEY:Musical Instrument (Harp/Masterwork)		OUTPUTNAME:Masterwork Harp														BASEITEM:Harp (Base)																																										VISIBLE:YES
+Musical Instrument (Harp/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Lute (Base).COPY=Musical Instrument, Masterwork Lute				KEY:Musical Instrument (Lute/Masterwork)		OUTPUTNAME:Masterwork Lute														BASEITEM:Lute (Base)																																										VISIBLE:YES
+Musical Instrument (Lute/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Mandolin (Base).COPY=Musical Instrument, Masterwork Mandolin		KEY:Musical Instrument (Mandolin/Masterwork)	OUTPUTNAME:Masterwork Mandolin													BASEITEM:Mandolin (Base)																																									VISIBLE:YES
+Musical Instrument (Mandolin/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Flute (Base).COPY=Musical Instrument, Masterwork Flute			KEY:Musical Instrument (Flute/Masterwork)		OUTPUTNAME:Masterwork Flute														BASEITEM:Flute (Base)																																										VISIBLE:YES
+Musical Instrument (Flute/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Pan Pipes (Base).COPY=Musical Instrument, Masterwork Pan Pipes		KEY:Musical Instrument (Pan Pipes/Masterwork)	OUTPUTNAME:Masterwork Pan Pipes													BASEITEM:Pan Pipes (Base)																																									VISIBLE:YES
+Musical Instrument (Pan Pipes/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Recorder (Base).COPY=Musical Instrument, Masterwork Recorder		KEY:Musical Instrument (Recorder/Masterwork)	OUTPUTNAME:Masterwork Recorder													BASEITEM:Recorder (Base)																																									VISIBLE:YES
+Musical Instrument (Recorder/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Trumpet (Base).COPY=Musical Instrument, Masterwork Trumpet			KEY:Musical Instrument (Trumpet/Masterwork)	OUTPUTNAME:Masterwork Trumpet														BASEITEM:Trumpet (Base)																																										VISIBLE:YES
+Musical Instrument (Trumpet/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Parasol																										TYPE:Goods.Tools					COST:1	WT:2														SOURCEPAGE:p.78
+Parasol (Umbrella)																								TYPE:Goods.Tools					COST:2	WT:3														SOURCEPAGE:p.78
+Alchemist's Lab (Portable).MOD															OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist	COST:75	WT:20														SOURCEPAGE:p.79
+Portable Altar																									TYPE:Goods.Tools					COST:250	WT:40														SOURCEPAGE:p.79
+Portrait Book.MOD																									TYPE:Goods.Tools.Book				COST:10	WT:3														SOURCEPAGE:p.79
+Spell Component Pouch.MOD																																														SOURCEPAGE:p.79
+Spellbook.MOD																																																SOURCEPAGE:p.79
+Stretcher																										TYPE:Goods.Tools					COST:1	WT:10														SOURCEPAGE:p.79
+Surgeon's Tools																									TYPE:Goods.Tools					COST:20	WT:5														SOURCEPAGE:p.79
 Surgeon's Tools.COPY=Surgeon's Tools (Small)
-Surgeon's Tools (Small).MOD																																		WT:1.25				SOURCEPAGE:p.79
-Symptom Kit.MOD																			TYPE:Goods.Tools													COST:25	WT:5					SOURCEPAGE:p.79
-Thieves' Tools.MOD																																								SOURCEPAGE:p.79
+Surgeon's Tools (Small).MOD																																WT:1.25													SOURCEPAGE:p.79
+Symptom Kit.MOD																									TYPE:Goods.Tools					COST:25	WT:5														SOURCEPAGE:p.79
+Thieves' Tools.MOD																																															SOURCEPAGE:p.79
 Thieves' Tools.COPY=Thieves' Tools (Masterwork)
-Thieves' Tools (Masterwork).MOD																															COST:100	WT:2					SOURCEPAGE:p.79																				BONUS:SKILL|Disable Device|2|TYPE=Circumstance
-Traveling Spellbook.COPY=Traveling Formula Book	SOURCEPAGE:p.79
-Traveling Spellbook.MOD																											SOURCEPAGE:p.79
-Veterinarian's Kit																		TYPE:Goods.Tools													COST:25	WT:1					SOURCEPAGE:p.79										BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
+Thieves' Tools (Masterwork).MOD																													COST:100	WT:2														SOURCEPAGE:p.79																				BONUS:SKILL|Disable Device|2|TYPE=Circumstance
+Traveling Spellbook.COPY=Traveling Formula Book																																											SOURCEPAGE:p.79
+Traveling Spellbook.MOD																																															SOURCEPAGE:p.79
+Veterinarian's Kit																								TYPE:Goods.Tools					COST:25	WT:1														SOURCEPAGE:p.79										BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
 
 ###Block: Adventuring Gear
-# Equipment Name									Output Name						Type								Contains									Cost		Weight	Base Quantity	Source Page		Bonus to Situation																		Bonus to skill							Quality and value																			Special Property
-Air Bladder																	TYPE:Goods.General															COST:0.1	WT:0.5				SOURCEPAGE:p.58																																																				SPROP:If inflated, it holds enough air to sustain a Medium creature for 1 round or a Small creature for 2 rounds.
-Animal Glue																	TYPE:Goods.General.Consumable														COST:0.5	WT:0.5				SOURCEPAGE:p.58																																																				SPROP:Before you use animal glue, you must heat it until it liquefies. You normally apply it with a brush and hold the pieces together for a minute, at which point it is cooled and hardened. The glue is sufficient to coat 1 square foot of surface, or up to 40 smaller applications of approximately 2 square inches each.
-Area Map																	TYPE:Goods.General															COST:50	WT:2					SOURCEPAGE:p.58	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance																															SPROP:A geographically relevant map grants a user a +1 circumstance bonus on Survival checks made to navigate in the wilderness. It also can be used to grant the same bonus on Knowledge (dungeoneering) checks made to navigate underground.
-Astrolabe.MOD																TYPE:Goods.General															COST:1000	WT:6					SOURCEPAGE:p.58																																																				SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
-Backpack.MOD									OUTPUTNAME:Backpack, Common																												SOURCEPAGE:p.58
-Backpack (Masterwork).MOD																																							SOURCEPAGE:p.58
-Bandolier																	TYPE:Goods.General.Resizable.Container		CONTAINS:UNLIM|Any=8							COST:0.5						SOURCEPAGE:p.59																																																				SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the "retrieve a stored item" action to take an item from a bandolier.
-Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
-Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
-Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
-Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt.Cloth													COST:10	WT:4					SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
-Barrel.MOD																																										SOURCEPAGE:p.59
-Basket.MOD																																										SOURCEPAGE:p.59
-Bedroll.MOD																																										SOURCEPAGE:p.59
-Bell.MOD																																										SOURCEPAGE:p.59
-Bell Net																	TYPE:Goods.General															COST:2	WT:2					SOURCEPAGE:p.59																						BONUS:SKILL|Stealth|-2																											SPROP:Creatures attempting to access gear protected by a bell net must succeed at a DC 25 Sleight of Hand check to avoid chiming the bells. Hearing the chiming bells of a bell net requires a DC 0 Perception check. Because the many bells chime when you move, traveling with a bell net gives you a -2 penalty on Stealth checks.
-Pouch (Belt).MOD									OUTPUTNAME:Belt Pouch																													SOURCEPAGE:p.59
-Blanket.MOD																	TYPE:Goods.General.Resizable														COST:0.5	WT:3					SOURCEPAGE:p.59
-Block and Tackle.MOD																																								SOURCEPAGE:p.60
-Blue Book																	TYPE:Goods.Tools.Book															COST:5	WT:1					SOURCEPAGE:p.60																																																				SPROP:By consulting the book for 1 hour, for the next 24 hours you gain a +2 circumstance bonus on Knowledge (local), Bluff, and Diplomacy checks to gather or use information in that city. At the GM's discretion, you can use it in settlements near that city for a +1 bonus.
-Book of Letters																TYPE:Goods.Tools.Book															COST:50	WT:3					SOURCEPAGE:p.60	BONUS:SITUATION|Diplomacy=City Officials|2|TYPE=Circumstance	BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance																															SPROP:It provides a +2 circumstance bonus on Diplomacy checks when dealing with city officials and a +2 circumstance bonus on Linguistics checks when creating forgeries.
-Bottle (Glass).MOD																																								SOURCEPAGE:p.60
-Breakaway Chains																TYPE:Goods.Tools.Masterwork														COST:65	WT:2					SOURCEPAGE:p.60																																																				SPROP:These masterwork chains are easy to break, even though they look like normal chains (Perception DC 25 to notice the difference). A DC 10 Strength check breaks them instantly.
-Bucket.MOD																																										SOURCEPAGE:p.60
-Lantern (Bullseye).MOD								OUTPUTNAME:Bullseye Lantern																												SOURCEPAGE:p.60
-Buoy (Common).MOD									OUTPUTNAME:Buoy, Common				TYPE:Goods.General															COST:0.5	WT:16					SOURCEPAGE:p.60
-Buoy (Superior).MOD								OUTPUTNAME:Buoy, Superior			TYPE:Goods.General															COST:10	WT:30					SOURCEPAGE:p.60
-Butterfly Net.MOD																TYPE:Goods.General.Resizable														COST:5	WT:2					SOURCEPAGE:p.60
-Caltrops.MOD																																									SOURCEPAGE:p.60
-Camouflage Netting															TYPE:Goods.Tools																COST:20	WT:5					SOURCEPAGE:p.61																																																				SPROP:When you hide under the netting in the appropriate terrain, you gain a +4 circumstance bonus on Stealth checks as long as you remain immobile and prone.
-Candle.MOD																																										SOURCEPAGE:p.61
+# Equipment Name									Unique Key					Output Name						Type																							Contains									Cost		Weight	Base Item for EQMOD				Base Quantity	Requires Modification?	Source Page		Bonus to Situation																		Bonus to skill							Quality and value																			Special Property																																																																																					Visible
+Air Bladder																							TYPE:Goods.General																														COST:0.1	WT:0.5															SOURCEPAGE:p.58																																																				SPROP:If inflated, it holds enough air to sustain a Medium creature for 1 round or a Small creature for 2 rounds.
+Animal Glue																							TYPE:Goods.General.Consumable																													COST:0.5	WT:0.5															SOURCEPAGE:p.58																																																				SPROP:Before you use animal glue, you must heat it until it liquefies. You normally apply it with a brush and hold the pieces together for a minute, at which point it is cooled and hardened. The glue is sufficient to coat 1 square foot of surface, or up to 40 smaller applications of approximately 2 square inches each.
+Area Map																							TYPE:Goods.General																														COST:50	WT:2																SOURCEPAGE:p.58	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance																															SPROP:A geographically relevant map grants a user a +1 circumstance bonus on Survival checks made to navigate in the wilderness. It also can be used to grant the same bonus on Knowledge (dungeoneering) checks made to navigate underground.
+Astrolabe.MOD																						TYPE:Goods.General																														COST:1000	WT:6																SOURCEPAGE:p.58																																																				SPROP:When using an astrolabe, you can make a Survival check using your Intelligence modifier instead of your Wisdom modifier to avoid becoming lost.
+Backpack.MOD															OUTPUTNAME:Backpack, Common																																																						SOURCEPAGE:p.58
+Backpack (Masterwork).MOD																																																																							SOURCEPAGE:p.58
+Bandolier																							TYPE:Goods.General.Resizable.Container																	CONTAINS:UNLIM|Any=8							COST:0.5																	SOURCEPAGE:p.59																																																				SPROP:Contains small loops or pouches for holding eight objects the size of a flask or small dagger. You can use the "retrieve a stored item" action to take an item from a bandolier.
+Banner (Simple)															OUTPUTNAME:Banner, Simple			TYPE:Goods.General																														COST:1	WT:2																SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
+Banner (Complex)															OUTPUTNAME:Banner, Complex			TYPE:Goods.General																														COST:5	WT:2																SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
+Banner (Detailed)															OUTPUTNAME:Banner, Detailed			TYPE:Goods.General																														COST:20	WT:2																SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
+Barbed Vest.MOD																						TYPE:Goods.Clothing.Resizable.Shirt.Cloth																											COST:10	WT:4																SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
+Barrel.MOD																																																																										SOURCEPAGE:p.59
+Basket.MOD																																																																										SOURCEPAGE:p.59
+Bedroll.MOD																																																																										SOURCEPAGE:p.59
+Bell.MOD																																																																										SOURCEPAGE:p.59
+Bell Net																							TYPE:Goods.General																														COST:2	WT:2																SOURCEPAGE:p.59																						BONUS:SKILL|Stealth|-2																											SPROP:Creatures attempting to access gear protected by a bell net must succeed at a DC 25 Sleight of Hand check to avoid chiming the bells. Hearing the chiming bells of a bell net requires a DC 0 Perception check. Because the many bells chime when you move, traveling with a bell net gives you a -2 penalty on Stealth checks.
+Pouch (Belt).MOD															OUTPUTNAME:Belt Pouch																																																							SOURCEPAGE:p.59
+Blanket.MOD																							TYPE:Goods.General.Resizable																													COST:0.5	WT:3																SOURCEPAGE:p.59
+Block and Tackle.MOD																																																																								SOURCEPAGE:p.60
+Blue Book																							TYPE:Goods.Tools.Book																														COST:5	WT:1																SOURCEPAGE:p.60																																																				SPROP:By consulting the book for 1 hour, for the next 24 hours you gain a +2 circumstance bonus on Knowledge (local), Bluff, and Diplomacy checks to gather or use information in that city. At the GM's discretion, you can use it in settlements near that city for a +1 bonus.
+Book of Letters																						TYPE:Goods.Tools.Book																														COST:50	WT:3																SOURCEPAGE:p.60	BONUS:SITUATION|Diplomacy=City Officials|2|TYPE=Circumstance	BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance																															SPROP:It provides a +2 circumstance bonus on Diplomacy checks when dealing with city officials and a +2 circumstance bonus on Linguistics checks when creating forgeries.
+Bottle (Glass).MOD																																																																								SOURCEPAGE:p.60
+Breakaway Chains																						TYPE:Goods.Tools.Masterwork																													COST:65	WT:2																SOURCEPAGE:p.60																																																				SPROP:These masterwork chains are easy to break, even though they look like normal chains (Perception DC 25 to notice the difference). A DC 10 Strength check breaks them instantly.
+Bucket.MOD																																																																										SOURCEPAGE:p.60
+Lantern (Bullseye).MOD														OUTPUTNAME:Bullseye Lantern																																																						SOURCEPAGE:p.60
+Buoy (Common).MOD															OUTPUTNAME:Buoy, Common				TYPE:Goods.General																														COST:0.5	WT:16																SOURCEPAGE:p.60
+Buoy (Superior).MOD														OUTPUTNAME:Buoy, Superior			TYPE:Goods.General																														COST:10	WT:30																SOURCEPAGE:p.60
+Butterfly Net.MOD																						TYPE:Goods.General.Resizable																													COST:5	WT:2																SOURCEPAGE:p.60
+Caltrops.MOD																																																																									SOURCEPAGE:p.60
+Camouflage Netting																					TYPE:Goods.Tools																															COST:20	WT:5																SOURCEPAGE:p.61																																																				SPROP:When you hide under the netting in the appropriate terrain, you gain a +4 circumstance bonus on Stealth checks as long as you remain immobile and prone.
+Candle.MOD																																																																										SOURCEPAGE:p.61
 Candle.COPY=Candles (10)
-Candles (10).MOD																																		COST:0.1			BASEQTY:10
-Candle Lamp																	TYPE:Goods.General.Light Source													COST:5	WT:1					SOURCEPAGE:p.61																																																				SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
-Candlestick																	TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.61
-Canteen																	TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:2	WT:1					SOURCEPAGE:p.61
-Canvas (Sq Yd).MOD																																								SOURCEPAGE:p.61
-Cauldron.MOD																TYPE:Goods.Tools																COST:1	WT:5					SOURCEPAGE:p.61
-Cauldron (Mithral)								OUTPUTNAME:Cauldron, Mithral			TYPE:Goods.Tools																COST:2501	WT:2.5				SOURCEPAGE:p.61																																																				SPROP:Lighter than a standard cauldron and food rarely sticks to it.
-Chain (10 Ft).MOD																																									SOURCEPAGE:p.61
-Chalk (1 Piece).MOD																																								SOURCEPAGE:p.62
-Chalkboard.MOD																TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.62
-Chest (Small).MOD																																									SOURCEPAGE:p.62
-Chest (Medium).MOD																																								SOURCEPAGE:p.62
-Chest (Large).MOD																																									SOURCEPAGE:p.62
-Chest (Huge).MOD																																									SOURCEPAGE:p.62
-Clay																		TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.62
-Coffee Pot																	TYPE:Goods.General															COST:3	WT:4					SOURCEPAGE:p.62
-Coffin (Common)																TYPE:Goods.General.Resizable														COST:10	WT:30					SOURCEPAGE:p.62
-Coffin (Ornate)																TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.62
-Collapsible Bathtub															TYPE:Goods.General.Resizable														COST:15	WT:20					SOURCEPAGE:p.62
-Collapsible Plank																TYPE:Goods.General															COST:0.4	WT:10					SOURCEPAGE:p.62
-Compass.MOD																	TYPE:Goods.General															COST:10	WT:0.5				SOURCEPAGE:p.62	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance
-Copy of a Key																TYPE:Goods.Tools																COST:1						SOURCEPAGE:p.63																																																				SPROP:An artisan can make a working copy of a key in an hour.
-Cot																		TYPE:Goods.General.Resizable														COST:1	WT:30					SOURCEPAGE:p.63
-Crowbar.MOD																																										SOURCEPAGE:p.63
-Cypher Books																TYPE:Goods.General															COST:150	WT:2					SOURCEPAGE:p.63																																																				SPROP:A creature without access to the appropriate cypher book takes a -10 penalty on Linguistic checks made to decipher each page of a coded message.
-Drill.MOD																	TYPE:Goods.General															COST:0.5	WT:1					SOURCEPAGE:p.63
-Ear Trumpet																	TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																																				SPROP:By holding this specially crafted ear trumpet to your ear and placing the other end against a door or wall, you reduce the DC penalty for listening through a door or wall by 5.
-Earplugs.MOD																TYPE:Goods.General															COST:0.03						SOURCEPAGE:p.63																																																				SPROP:Give you a +2 circumstance bonus on saves against effects that require hearing, but also cause a -5 penalty on hearing-based Perception checks.
-Everburning Torch.MOD																																								SOURCEPAGE:p.63
-Fake Footprint Shoes															TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.63																																																				SPROP:Each pair creates a specific type of footprint, such as tiger, orc, goblin, or ogre. When walking with these shoes, you may make a Survival check; the check result is the Survival DC for anyone trying to determine whether the tracks are what they appear to be.
-False Manacles																TYPE:Goods.General.Masterwork														COST:65	WT:2					SOURCEPAGE:p.64																																																				SPROP:A wearer who knows the location of the secret catch can open them as a standard action.
-False-Bottomed Chest															TYPE:Goods.General															COST:52	WT:25					SOURCEPAGE:p.64
-False-Bottomed Cup															TYPE:Goods.General															COST:1						SOURCEPAGE:p.64
-False-Bottomed Scabbard															TYPE:Goods.General															COST:45	WT:1					SOURCEPAGE:p.64
-Familiar Satchel																TYPE:Goods.General															COST:25	WT:6					SOURCEPAGE:p.64																																																				SPROP:Provides total cover to any Tiny or smaller creature contained within it.
-Filter Hood																	TYPE:Goods.Tools.Headgear.Resizable													COST:10	WT:4					SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 x 10 minutes and should be thoroughly rinsed after each use.
-Firewood (Per Day).MOD																																								SOURCEPAGE:p.64
-Fishhook.MOD																																									SOURCEPAGE:p.64
-Fishing Net (25 Sq Ft).MOD																																							SOURCEPAGE:p.64
-Flask.MOD																																									SOURCEPAGE:p.64
-Flint and Steel.MOD																																								SOURCEPAGE:p.64
-Folding Chair																TYPE:Goods.General.Resizable														COST:2	WT:10					SOURCEPAGE:p.64
-Folding Ladder																TYPE:Goods.General															COST:2	WT:16					SOURCEPAGE:p.65
-Folding Pole																TYPE:Goods.General															COST:0.2	WT:10					SOURCEPAGE:p.65
-Folding Table																TYPE:Goods.General															COST:10	WT:20					SOURCEPAGE:p.65
-Gear Maintenance Kit															TYPE:Goods.Tools.Kits															COST:5	WT:2					SOURCEPAGE:p.65																																																				SPROP:This kit contains metal polish, a small file, a leather paring knife, conditioning oil for leather, two soft cloths, extra leather straps, a sewing needle, and a few buttons.
-Glass Cutter																TYPE:Goods.General															COST:5						SOURCEPAGE:p.65
-Glue Paper																	TYPE:Goods.General.Consumable														COST:0.1						SOURCEPAGE:p.65																																																				SPROP:If you apply glue paper to a window before you break it, the broken pieces stick to the glue rather than noisily falling to the ground.
-Grappling Arrow																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a bow. When fired, it has a range increment of 30 feet.
-Grappling Bolt																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a crossbow. When fired, it has a range increment of 30 feet.
-Grappling Hook.MOD								OUTPUTNAME:Grappling Hook, Common																											SOURCEPAGE:p.65
-Grappling Hook (Mithral)							OUTPUTNAME:Grappling Hook, Mithral		TYPE:Goods.General															COST:2001	WT:2					SOURCEPAGE:p.65
-Grooming Kit																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.65
-Gunsmith's Kit																TYPE:Goods.General.Gunsmith's Kit													COST:15	WT:2					SOURCEPAGE:p.65
-Hammer.MOD																																										SOURCEPAGE:p.65
-Hammock																	TYPE:Goods.General.Resizable														COST:0.1	WT:3					SOURCEPAGE:p.65
-Harrow Deck																	TYPE:Goods.General															COST:100						SOURCEPAGE:p.66
-Helmet Candle																TYPE:Goods.General.Headgear														COST:2	WT:4					SOURCEPAGE:p.66
-Heritage Book																TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.66																						BONUS:SKILL|Knowledge (Nobility)|2|TYPE=Circumstance																						SPROP:Consulting this book grants a +2 circumstance bonus on Knowledge (nobility) checks.
-Hip Flask																	TYPE:Goods.Container.General.Flask.Resizable	CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:1	WT:0.5				SOURCEPAGE:p.66
-Hollowed Pommel																TYPE:Goods.General															COST:5						SOURCEPAGE:p.66
-Holy Symbol.MOD																																									SOURCEPAGE:p.66
-Holy Symbol.COPY=Compartment Holy Symbol	KEY:Compartment Holy Symbol (Base)	OUTPUTNAME:Compartment Holy Symbol	VISIBLE:NO																COST:5						SOURCEPAGE:p.66
-Compartment Holy Symbol (Base).COPY=Holy Symbol, Compartment	KEY:Holy Symbol (Compartment)	OUTPUTNAME:Compartment Holy Symbol	VISIBLE:YES	BASEITEM:Compartment Holy Symbol (Base)
-Holy Symbol (Compartment).MOD												TYPE:Container						CONTAINS:1|Vial=1|Flask=1
-Holy Symbol.COPY=Flask Holy Symbol	KEY:Flask Holy Symbol (Base)	OUTPUTNAME:Flask Holy Symbol	VISIBLE:NO																			COST:10						SOURCEPAGE:p.66
-Flask Holy Symbol (Base).COPY=Holy Symbol, Flask	KEY:Holy Symbol (Flask)	OUTPUTNAME:Flask Holy Symbol	VISIBLE:YES	BASEITEM:Flask Holy Symbol (Base)
-Holy Symbol (Flask).MOD													TYPE:Container						CONTAINS:1|Liquid=1|Spell Component=1|Poison=1
-Holy Symbol, Tattoo	KEY:Holy Symbol (Tattoo)	OUTPUTNAME:Holy Symbol Tattoo														TYPE:Goods.Tools.Spell Component.Divine Focus											COST:100						SOURCEPAGE:p.66	MODS:NO
-Holy Symbol (Tattoo).MOD														TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
-Holy Text (Cheap)																TYPE:Goods.Tools.Book															COST:1	WT:1					SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
-Holy Text (Typical)															TYPE:Goods.Tools.Book															COST:25	WT:2					SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
-Holy Text (Expensive)															TYPE:Goods.Tools.Book															COST:100	WT:20					SOURCEPAGE:66																																																				SPROP:The most expensive versions have detailed illustrations, gilded initials and border decorations, covers made of fine leather, wood, or even metal, and are often oversized and difficult to carry around.
-Lantern (Hooded).MOD																																								SOURCEPAGE:p.67
-Hourglass (6 Seconds).MOD							OUTPUTNAME:Hourglass, 6 Seconds																				COST:10						SOURCEPAGE:p.67
-Hourglass.MOD									OUTPUTNAME:Hourglass, 1 Minute																				COST:20	WT:0.5				SOURCEPAGE:p.67
-Hourglass (1 Hour).MOD								OUTPUTNAME:Hourglass, 1 Hour																					COST:25	WT:1					SOURCEPAGE:p.67
-Ink (1 oz Vial).MOD																																								SOURCEPAGE:p.67
-Inkpen.MOD																																										SOURCEPAGE:p.67
-Iron Spike.MOD																TYPE:Goods.General															COST:0.05	WT:1					SOURCEPAGE:p.67
-Iron Vial																	TYPE:Goods.General.Vial															COST:0.1	WT:1					SOURCEPAGE:p.67
-Journal																	TYPE:Goods.Tools.Book															COST:10	WT:1					SOURCEPAGE:p.67																																																				SPROP:a blank, lightweight book with an oilskin cover. It has 50 paper pages.
-Jug (Clay).MOD									OUTPUTNAME:Jug																														SOURCEPAGE:p.67
-Ladder (10 Ft).MOD																																								SOURCEPAGE:p.67
-Lamp (Common).MOD																																									SOURCEPAGE:p.67
-Lamp (Common/Waterproof)														TYPE:Goods.General.Light Source													COST:5.1	WT:1					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Bullseye/Waterproof)														TYPE:Goods.General.Light Source													COST:17	WT:3					SOURCEPAGE:p.156																															QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lantern (Hooded/Waterproof)														TYPE:Goods.General.Light Source													COST:12	WT:2					SOURCEPAGE:p.156																															QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
-Lock (Simple).MOD																																									SOURCEPAGE:p.67
-Lock (Average).MOD																																								SOURCEPAGE:p.67
-Lock (Good).MOD																																									SOURCEPAGE:p.67
-Lock (Superior).MOD																																								SOURCEPAGE:p.67
-Magnet.MOD																	TYPE:Goods.General															COST:0.5	WT:0.5				SOURCEPAGE:p.67
-Magnifying Glass.MOD															TYPE:Goods.General															COST:100						SOURCEPAGE:p.67																						BONUS:SKILL|Appraise|2|TYPE=Circumstance
-Manacles (Medium).MOD																																								SOURCEPAGE:p.68
-Manacles (Small).MOD																																								SOURCEPAGE:p.68
-Manacles (Large).MOD																																								SOURCEPAGE:p.68
-Manacles (Huge).MOD																																								SOURCEPAGE:p.68
-Manacles (Masterwork/Small).MOD																																						SOURCEPAGE:p.68
-Manacles (Masterwork/Large).MOD																																						SOURCEPAGE:p.68
-Manacles (Masterwork/Huge).MOD																																						SOURCEPAGE:p.68
-Manacles (Masterwork/Medium).MOD																																						SOURCEPAGE:p.68
-Manacles (Mithral/Small)														TYPE:Goods.General															COST:2015	WT:2					SOURCEPAGE:p.68
-Manacles (Mithral/Medium)														TYPE:Goods.General															COST:2015	WT:2					SOURCEPAGE:p.68
-Manacles (Mithral/Large)														TYPE:Goods.General															COST:20150	WT:8					SOURCEPAGE:p.68
-Manacles (Mithral/Huge)															TYPE:Goods.General															COST:201500	WT:32					SOURCEPAGE:p.68
-Marbles.MOD																	TYPE:Goods.General															COST:0.1	WT:2					SOURCEPAGE:p.68
-Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOURCEPAGE:p.68
-Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
-Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
-Mock Armor																	TYPE:Goods.Cloth.Clothing.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
-Mug (Clay).MOD																																							SOURCEPAGE:p.68
-Tankard.MOD																																							SOURCEPAGE:p.68
-Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
-Paper (Sheet).MOD																																									SOURCEPAGE:p.69
-Parchment (Sheet).MOD																																								SOURCEPAGE:p.69
-Perfume/Cologne																TYPE:Goods.General.Vial															COST:5						SOURCEPAGE:p.69																																																				SPROP:Perfume or cologne may (at the GM's discretion) provide a +1 circumstance bonus on several Charisma-based skill checks.
-Periscope.MOD																TYPE:Goods.General															COST:20	WT:4					SOURCEPAGE:p.69
-Pitcher (Clay).MOD																																								SOURCEPAGE:p.69
-Piton.MOD																																										SOURCEPAGE:p.69
-Ring (Poison Pill).MOD								OUTPUTNAME:Ring, Poison Pill			TYPE:Goods.General															COST:20	WT:0					SOURCEPAGE:p.69
-Poisoning Sheath																TYPE:Goods.General.Resizable														COST:50	WT:1					SOURCEPAGE:p.69
-Pole (10 Ft).MOD																																									SOURCEPAGE:p.69
-Portable Bridge																TYPE:Goods.General															COST:200	WT:60					SOURCEPAGE:p.70
-Ram (Portable).MOD								OUTPUTNAME:Portable Ram																													SOURCEPAGE:p.70
-Pot (Iron).MOD																																									SOURCEPAGE:p.70
-Pot (Mithral)																TYPE:Goods.General															COST:2001	WT:2					SOURCEPAGE:p.70
-Powder.MOD																	TYPE:Goods.General.Consumable														COST:0.01	WT:0.5				SOURCEPAGE:p.70																																																				SPROP:Throwing a bag of powder into a square is an attack against AC 5, and momentarily reveals whether an invisible creature is there.
-Powder Horn																	TYPE:Goods.FirearmGear.Powder Horn.Container	CONTAINS:UNLIM|Black Powder (Dose)=10				COST:3	WT:1					SOURCEPAGE:p.70
-Powder Keg																	TYPE:Goods.FirearmGear.Container			CONTAINS:UNLIM|Black Powder (Dose)=100				COST:0	WT:5					SOURCEPAGE:p.41
-Prosthetic (Arm)																TYPE:Goods.General.Container.Resizable		CONTAINS:2|ANY								COST:10	WT:3					SOURCEPAGE:p.70
-Prosthetic (Foot)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:2					SOURCEPAGE:p.70
-Prosthetic (Hand)																TYPE:Goods.General.Container.Resizable		CONTAINS:1|ANY								COST:1	WT:1					SOURCEPAGE:p.70
-Prosthetic (Leg)																TYPE:Goods.General.Container.Resizable		CONTAINS:2|ANY								COST:20	WT:6					SOURCEPAGE:p.70
-Pyrography Kit																TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.70
-Rice Paper (Sheet).MOD								OUTPUTNAME:Rice Paper, Sheet			TYPE:Goods.General.Writing.Documents												COST:0.05	WT:0					SOURCEPAGE:p.70
-Rope (Hemp/50 ft).MOD																																								SOURCEPAGE:p.70
-Sack.MOD																																										SOURCEPAGE:p.70
-Saw.MOD																	TYPE:Goods.General															COST:0.04	WT:2					SOURCEPAGE:p.71
-Scroll Box																	TYPE:Goods.Container.General				CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:5	WT:1					SOURCEPAGE:p.71
-Scroll Case.MOD																																									SOURCEPAGE:p.71
-Map Case.MOD																																									SOURCEPAGE:p.71
-Sealing Wax.MOD																																									SOURCEPAGE:p.71
-Sentry Mannequin																TYPE:Goods.General.Resizable														COST:30	WT:35					SOURCEPAGE:p.71
-Sewing Needle.MOD																																									SOURCEPAGE:p.71
-Sextant.MOD																	TYPE:Goods.Tools																COST:500	WT:2					SOURCEPAGE:p.71
-Shaving Kit																	TYPE:Goods.General															COST:1.5	WT:0.5				SOURCEPAGE:p.71
-Shield Sconce																TYPE:Goods.General															COST:1	WT:0.5				SOURCEPAGE:p.71																																																				SPROP:This metal frame holds a torch and is designed to be strapped to the front of a light, heavy, or tower shield, allowing you to carry a torch without giving up your shield or occupying your weapon hand.
-Shovel.MOD																																				SOURCEPAGE:p.71
-Spade.MOD																																				SOURCEPAGE:p.71
-Shovel (Folding)									OUTPUTNAME:Shovel, Folding			TYPE:Goods.General															COST:10	WT:12					SOURCEPAGE:p.71
-Signal Horn.MOD																TYPE:Goods.General.Resizable														COST:1	WT:2					SOURCEPAGE:p.71
-Signal Whistle.MOD																																								SOURCEPAGE:p.71
-Signet Ring.MOD																																									SOURCEPAGE:p.72
-Whistle (Silent).MOD								OUTPUTNAME:Silent Whistle																												SOURCEPAGE:p.72
-Rope (Silk/50 ft).MOD																																								SOURCEPAGE:p.72
-Skeleton Key																TYPE:Goods.General															COST:85						SOURCEPAGE:p.72
-Skillet (Common)									OUTPUTNAME:Skillet, Common			TYPE:Goods.General															COST:0.8	WT:4					SOURCEPAGE:p.72
-Skillet (Mithral)									OUTPUTNAME:Skillet, Mithral			TYPE:Goods.General															COST:2001	WT:2					SOURCEPAGE:p.72
-Sledge.MOD																																										SOURCEPAGE:p.72
-Smoked Goggles.MOD															TYPE:Goods.General															COST:10	WT:0					SOURCEPAGE:p.72
-Snorkel (Common)									OUTPUTNAME:Snorkel, Common			TYPE:Goods.General															COST:0.5						SOURCEPAGE:p.72
-Snorkel (Masterwork)								OUTPUTNAME:Snorkel, Masterwork		TYPE:Goods.General.Masterwork														COST:5						SOURCEPAGE:p.72
-Soap.MOD																																			COST:0.01	WT:0.5				SOURCEPAGE:p.72
-Rope (Spider Silk/50 ft.).MOD							OUTPUTNAME:Rope, Spider Silk (50 ft.)	TYPE:Goods.General															COST:100	WT:4					SOURCEPAGE:p.73
-Spyglass.MOD																																									SOURCEPAGE:p.73
-Stationery																	TYPE:Goods.General.Writing.Documents												COST:1						SOURCEPAGE:p.73
-Stilts (Common)																TYPE:Goods.General.Resizable														COST:0.2	WT:10					SOURCEPAGE:p.73
-Stilts (Masterwork)															TYPE:Goods.General.Resizable														COST:5	WT:10					SOURCEPAGE:p.73
-Stove Can																	TYPE:Goods.General															COST:10	WT:1					SOURCEPAGE:p.73
-String (50 ft.).MOD															TYPE:Goods.General															COST:0.01	WT:0.5				SOURCEPAGE:p.73
-Survival Kit (Common)															TYPE:Goods.General															COST:5	WT:4					SOURCEPAGE:p.73
-Survival Kit (Masterwork)														TYPE:Goods.General															COST:50	WT:5					SOURCEPAGE:p.73																						BONUS:SKILL|Survival|2|TYPE=Circumstance
-Swarmsuit.MOD																TYPE:Goods.General.Resizable														COST:20	WT:10					SOURCEPAGE:p.73
+Candles (10).MOD																																																							COST:0.1										BASEQTY:10
+Candle Lamp																							TYPE:Goods.General.Light Source																												COST:5	WT:1																SOURCEPAGE:p.61																																																				SPROP:A small lanternlike device with glass panels and a slot to hold a candle. It protects the candle from drafts and catches wax drippings. Provides the same light as a candle, but can be shuttered such that it only illuminates 1 to 3 adjacent squares. You can use a candle lamp to keep your hands warm.
+Candlestick																							TYPE:Goods.General																														COST:0.01	WT:0.5															SOURCEPAGE:p.61
+Canteen																							TYPE:Goods.Container.General																			CONTAINS:4|Liquid=4							COST:2	WT:1																SOURCEPAGE:p.61
+Canvas (Sq Yd).MOD																																																																								SOURCEPAGE:p.61
+Cauldron.MOD																						TYPE:Goods.Tools																															COST:1	WT:5																SOURCEPAGE:p.61
+Cauldron (Mithral)														OUTPUTNAME:Cauldron, Mithral			TYPE:Goods.Tools																															COST:2501	WT:2.5															SOURCEPAGE:p.61																																																				SPROP:Lighter than a standard cauldron and food rarely sticks to it.
+Chain (10 Ft).MOD																																																																									SOURCEPAGE:p.61
+Chalk (1 Piece).MOD																																																																								SOURCEPAGE:p.62
+Chalkboard.MOD																						TYPE:Goods.General																														COST:1	WT:2																SOURCEPAGE:p.62
+Chest (Small).MOD																																																																									SOURCEPAGE:p.62
+Chest (Medium).MOD																																																																								SOURCEPAGE:p.62
+Chest (Large).MOD																																																																									SOURCEPAGE:p.62
+Chest (Huge).MOD																																																																									SOURCEPAGE:p.62
+Clay																								TYPE:Goods.General																														COST:0.1	WT:1																SOURCEPAGE:p.62
+Coffee Pot																							TYPE:Goods.General																														COST:3	WT:4																SOURCEPAGE:p.62
+Coffin (Common)																						TYPE:Goods.General.Resizable																													COST:10	WT:30																SOURCEPAGE:p.62
+Coffin (Ornate)																						TYPE:Goods.General.Resizable																													COST:100	WT:50																SOURCEPAGE:p.62
+Collapsible Bathtub																					TYPE:Goods.General.Resizable																													COST:15	WT:20																SOURCEPAGE:p.62
+Collapsible Plank																						TYPE:Goods.General																														COST:0.4	WT:10																SOURCEPAGE:p.62
+Compass.MOD																							TYPE:Goods.General																														COST:10	WT:0.5															SOURCEPAGE:p.62	BONUS:SITUATION|Survival=Navigate|1|TYPE=Circumstance	BONUS:SITUATION|Knowledge (Dungeoneering)=Navigate|1|TYPE=Circumstance
+Copy of a Key																						TYPE:Goods.Tools																															COST:1																	SOURCEPAGE:p.63																																																				SPROP:An artisan can make a working copy of a key in an hour.
+Cot																								TYPE:Goods.General.Resizable																													COST:1	WT:30																SOURCEPAGE:p.63
+Crowbar.MOD																																																																										SOURCEPAGE:p.63
+Cypher Books																						TYPE:Goods.General																														COST:150	WT:2																SOURCEPAGE:p.63																																																				SPROP:A creature without access to the appropriate cypher book takes a -10 penalty on Linguistic checks made to decipher each page of a coded message.
+Drill.MOD																							TYPE:Goods.General																														COST:0.5	WT:1																SOURCEPAGE:p.63
+Ear Trumpet																							TYPE:Goods.General																														COST:5	WT:2																SOURCEPAGE:p.63																																																				SPROP:By holding this specially crafted ear trumpet to your ear and placing the other end against a door or wall, you reduce the DC penalty for listening through a door or wall by 5.
+Earplugs.MOD																						TYPE:Goods.General																														COST:0.03																	SOURCEPAGE:p.63																																																				SPROP:Give you a +2 circumstance bonus on saves against effects that require hearing, but also cause a -5 penalty on hearing-based Perception checks.
+Everburning Torch.MOD																																																																								SOURCEPAGE:p.63
+Fake Footprint Shoes																					TYPE:Goods.General																														COST:5	WT:2																SOURCEPAGE:p.63																																																				SPROP:Each pair creates a specific type of footprint, such as tiger, orc, goblin, or ogre. When walking with these shoes, you may make a Survival check; the check result is the Survival DC for anyone trying to determine whether the tracks are what they appear to be.
+False Manacles																						TYPE:Goods.General.Masterwork																													COST:65	WT:2																SOURCEPAGE:p.64																																																				SPROP:A wearer who knows the location of the secret catch can open them as a standard action.
+False-Bottomed Chest																					TYPE:Goods.General																														COST:52	WT:25																SOURCEPAGE:p.64
+False-Bottomed Cup																					TYPE:Goods.General																														COST:1																	SOURCEPAGE:p.64
+False-Bottomed Scabbard																					TYPE:Goods.General																														COST:45	WT:1																SOURCEPAGE:p.64
+Familiar Satchel																						TYPE:Goods.General																														COST:25	WT:6																SOURCEPAGE:p.64																																																				SPROP:Provides total cover to any Tiny or smaller creature contained within it.
+Filter Hood																							TYPE:Goods.Tools.Headgear.Resizable																												COST:10	WT:4																SOURCEPAGE:p.64																						BONUS:SKILL|Perception|-2																										SPROP:This snug leather hood has built-in goggles and a filtration tube containing sponges. A filter hood uses your helm slot and imposes a -2 penalty on hearing- and sight-based Perception checks. While the sponges are moist, the hood grants you a +2 resistance bonus on saving throws against inhaled poisons and other airborne attacks that require you to breathe them. Moistening the sponges with water is a standard action. The sponges dry out after 1d4 x 10 minutes and should be thoroughly rinsed after each use.
+Firewood (Per Day).MOD																																																																								SOURCEPAGE:p.64
+Fishhook.MOD																																																																									SOURCEPAGE:p.64
+Fishing Net (25 Sq Ft).MOD																																																																							SOURCEPAGE:p.64
+Flask.MOD																																																																										SOURCEPAGE:p.64
+Flint and Steel.MOD																																																																								SOURCEPAGE:p.64
+Folding Chair																						TYPE:Goods.General.Resizable																													COST:2	WT:10																SOURCEPAGE:p.64
+Folding Ladder																						TYPE:Goods.General																														COST:2	WT:16																SOURCEPAGE:p.65
+Folding Pole																						TYPE:Goods.General																														COST:0.2	WT:10																SOURCEPAGE:p.65
+Folding Table																						TYPE:Goods.General																														COST:10	WT:20																SOURCEPAGE:p.65
+Gear Maintenance Kit																					TYPE:Goods.Tools.Kits																														COST:5	WT:2																SOURCEPAGE:p.65																																																				SPROP:This kit contains metal polish, a small file, a leather paring knife, conditioning oil for leather, two soft cloths, extra leather straps, a sewing needle, and a few buttons.
+Glass Cutter																						TYPE:Goods.General																														COST:5																	SOURCEPAGE:p.65
+Glue Paper																							TYPE:Goods.General.Consumable																													COST:0.1																	SOURCEPAGE:p.65																																																				SPROP:If you apply glue paper to a window before you break it, the broken pieces stick to the glue rather than noisily falling to the ground.
+Grappling Arrow																						TYPE:Goods.General																														COST:1	WT:0.5															SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a bow. When fired, it has a range increment of 30 feet.
+Grappling Bolt																						TYPE:Goods.General																														COST:1	WT:0.5															SOURCEPAGE:p.65																																																				SPROP:A small grappling hook designed to be tied to a silk rope and fired from a crossbow. When fired, it has a range increment of 30 feet.
+Grappling Hook.MOD														OUTPUTNAME:Grappling Hook, Common																																																					SOURCEPAGE:p.65
+Grappling Hook (Mithral)													OUTPUTNAME:Grappling Hook, Mithral		TYPE:Goods.General																														COST:2001	WT:2																SOURCEPAGE:p.65
+Grooming Kit																						TYPE:Goods.General.Resizable																													COST:1	WT:2																SOURCEPAGE:p.65
+Gunsmith's Kit																						TYPE:Goods.General.Gunsmith's Kit																												COST:15	WT:2																SOURCEPAGE:p.65
+Hammer.MOD																																																																										SOURCEPAGE:p.65
+Hammock																							TYPE:Goods.General.Resizable																													COST:0.1	WT:3																SOURCEPAGE:p.65
+Harrow Deck																							TYPE:Goods.General																														COST:100																	SOURCEPAGE:p.66
+Helmet Candle																						TYPE:Goods.General.Headgear																													COST:2	WT:4																SOURCEPAGE:p.66
+Heritage Book																						TYPE:Goods.Tools.Book																														COST:50	WT:2																SOURCEPAGE:p.66																						BONUS:SKILL|Knowledge (Nobility)|2|TYPE=Circumstance																						SPROP:Consulting this book grants a +2 circumstance bonus on Knowledge (nobility) checks.
+Hip Flask																							TYPE:Goods.Container.General.Flask.Resizable																CONTAINS:1|Liquid=1|Spell Component=1|Poison=1			COST:1	WT:0.5															SOURCEPAGE:p.66
+Hollowed Pommel																						TYPE:Goods.General																														COST:5																	SOURCEPAGE:p.66
+Holy Symbol.MOD																																																																									SOURCEPAGE:p.66
+Holy Symbol.COPY=Compartment Holy Symbol					KEY:Compartment Holy Symbol (Base)	OUTPUTNAME:Compartment Holy Symbol																																			COST:5																	SOURCEPAGE:p.66																																																																																																																																											VISIBLE:NO
+Compartment Holy Symbol (Base).COPY=Holy Symbol, Compartment	KEY:Holy Symbol (Compartment)		OUTPUTNAME:Compartment Holy Symbol																																							BASEITEM:Compartment Holy Symbol (Base)																																																																																																																																																					VISIBLE:YES
+Holy Symbol (Compartment).MOD																				TYPE:Container																					CONTAINS:1|Vial=1|Flask=1
+Holy Symbol.COPY=Flask Holy Symbol						KEY:Flask Holy Symbol (Base)		OUTPUTNAME:Flask Holy Symbol																																				COST:10																	SOURCEPAGE:p.66																																																																																																																																											VISIBLE:NO
+Flask Holy Symbol (Base).COPY=Holy Symbol, Flask			KEY:Holy Symbol (Flask)			OUTPUTNAME:Flask Holy Symbol																																								BASEITEM:Flask Holy Symbol (Base)																																																																																																																																																						VISIBLE:YES
+Holy Symbol (Flask).MOD																					TYPE:Container																					CONTAINS:1|Liquid=1|Spell Component=1|Poison=1
+Holy Symbol, Tattoo								KEY:Holy Symbol (Tattoo)		OUTPUTNAME:Holy Symbol Tattoo			TYPE:Goods.Tools.Spell Component.Divine Focus																										COST:100													MODS:NO			SOURCEPAGE:p.66
+Holy Symbol (Tattoo).MOD																				TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Holy Text (Cheap)																						TYPE:Goods.Tools.Book																														COST:1	WT:1																SOURCEPAGE:66																																																				SPROP:A small, light book with no illustrations, printed or written on thin paper, and with a cover made of canvas or thin leather.
+Holy Text (Typical)																					TYPE:Goods.Tools.Book																														COST:25	WT:2																SOURCEPAGE:66																																																				SPROP:A typical holy text for an experienced adventuring priest. Durable, with a leather cover, chapter illustrations and quality paper.
+Holy Text (Expensive)																					TYPE:Goods.Tools.Book																														COST:100	WT:20																SOURCEPAGE:66																																																				SPROP:The most expensive versions have detailed illustrations, gilded initials and border decorations, covers made of fine leather, wood, or even metal, and are often oversized and difficult to carry around.
+Lantern (Hooded).MOD																																																																								SOURCEPAGE:p.67
+Hourglass (6 Seconds).MOD													OUTPUTNAME:Hourglass, 6 Seconds																																			COST:10																	SOURCEPAGE:p.67
+Hourglass.MOD															OUTPUTNAME:Hourglass, 1 Minute																																			COST:20	WT:0.5															SOURCEPAGE:p.67
+Hourglass (1 Hour).MOD														OUTPUTNAME:Hourglass, 1 Hour																																				COST:25	WT:1																SOURCEPAGE:p.67
+Ink (1 oz Vial).MOD																																																																								SOURCEPAGE:p.67
+Inkpen.MOD																																																																										SOURCEPAGE:p.67
+Iron Spike.MOD																						TYPE:Goods.General																														COST:0.05	WT:1																SOURCEPAGE:p.67
+Iron Vial																							TYPE:Goods.General.Vial																														COST:0.1	WT:1																SOURCEPAGE:p.67
+Journal																							TYPE:Goods.Tools.Book																														COST:10	WT:1																SOURCEPAGE:p.67																																																				SPROP:a blank, lightweight book with an oilskin cover. It has 50 paper pages.
+Jug (Clay).MOD															OUTPUTNAME:Jug																																																								SOURCEPAGE:p.67
+Ladder (10 Ft).MOD																																																																								SOURCEPAGE:p.67
+Lamp (Common).MOD																																																																									SOURCEPAGE:p.67
+Lamp (Common/Waterproof)																				TYPE:Goods.General.Light Source																												COST:5.1	WT:1																SOURCEPAGE:p.156																															QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (15'), shadowy illumination (30'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Bullseye/Waterproof)																				TYPE:Goods.General.Light Source																												COST:17	WT:3																SOURCEPAGE:p.156																															QUALITY:Normal Illumination|60 ft. cone	QUALITY:Increases light level by 1 step|120 ft. cone	QUALITY:Duration|6 hr./pint	SPROP:Normal illumination (60'), plus 1 step (120'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lantern (Hooded/Waterproof)																				TYPE:Goods.General.Light Source																												COST:12	WT:2																SOURCEPAGE:p.156																															QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint					SPROP:Bright illumination (30'), shadowy illumination (60'), 6 hr./pint, holds enough air to burn underwater for 5 rounds before going dark.
+Lock (Simple).MOD																																																																									SOURCEPAGE:p.67
+Lock (Average).MOD																																																																								SOURCEPAGE:p.67
+Lock (Good).MOD																																																																									SOURCEPAGE:p.67
+Lock (Superior).MOD																																																																								SOURCEPAGE:p.67
+Magnet.MOD																							TYPE:Goods.General																														COST:0.5	WT:0.5															SOURCEPAGE:p.67
+Magnifying Glass.MOD																					TYPE:Goods.General																														COST:100																	SOURCEPAGE:p.67																						BONUS:SKILL|Appraise|2|TYPE=Circumstance
+Manacles (Medium).MOD																																																																								SOURCEPAGE:p.68
+Manacles (Small).MOD																																																																								SOURCEPAGE:p.68
+Manacles (Large).MOD																																																																								SOURCEPAGE:p.68
+Manacles (Huge).MOD																																																																								SOURCEPAGE:p.68
+Manacles (Masterwork/Small).MOD																																																																						SOURCEPAGE:p.68
+Manacles (Masterwork/Large).MOD																																																																						SOURCEPAGE:p.68
+Manacles (Masterwork/Huge).MOD																																																																						SOURCEPAGE:p.68
+Manacles (Masterwork/Medium).MOD																																																																						SOURCEPAGE:p.68
+Manacles (Mithral/Small)																				TYPE:Goods.General																														COST:2015	WT:2																SOURCEPAGE:p.68
+Manacles (Mithral/Medium)																				TYPE:Goods.General																														COST:2015	WT:2																SOURCEPAGE:p.68
+Manacles (Mithral/Large)																				TYPE:Goods.General																														COST:20150	WT:8																SOURCEPAGE:p.68
+Manacles (Mithral/Huge)																					TYPE:Goods.General																														COST:201500	WT:32																SOURCEPAGE:p.68
+Marbles.MOD																							TYPE:Goods.General																														COST:0.1	WT:2																SOURCEPAGE:p.68
+Mess Kit																							TYPE:Goods.General																														COST:0.2	WT:1																SOURCEPAGE:p.68
+Miner's Pick																						TYPE:Goods.General																														COST:3	WT:10																SOURCEPAGE:p.68
+Mirror (Small/Steel).MOD																																																																							SOURCEPAGE:p.68
+Mock Armor																							TYPE:Goods.Cloth.Clothing.Resizable																												COST:90	WT:10																SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
+Mug (Clay).MOD																																																																									SOURCEPAGE:p.68
+Tankard.MOD																																																																										SOURCEPAGE:p.68
+Oil (1 Pint Flask).MOD																																																																								SOURCEPAGE:p.68
+Paper (Sheet).MOD																																																																									SOURCEPAGE:p.69
+Parchment (Sheet).MOD																																																																								SOURCEPAGE:p.69
+Perfume/Cologne																						TYPE:Goods.General.Vial																														COST:5																	SOURCEPAGE:p.69																																																				SPROP:Perfume or cologne may (at the GM's discretion) provide a +1 circumstance bonus on several Charisma-based skill checks.
+Periscope.MOD																						TYPE:Goods.General																														COST:20	WT:4																SOURCEPAGE:p.69
+Pitcher (Clay).MOD																																																																								SOURCEPAGE:p.69
+Piton.MOD																																																																										SOURCEPAGE:p.69
+Ring (Poison Pill).MOD														OUTPUTNAME:Ring, Poison Pill			TYPE:Goods.General																														COST:20	WT:0																SOURCEPAGE:p.69
+Poisoning Sheath																						TYPE:Goods.General.Resizable																													COST:50	WT:1																SOURCEPAGE:p.69
+Pole (10 Ft).MOD																																																																									SOURCEPAGE:p.69
+Portable Bridge																						TYPE:Goods.General																														COST:200	WT:60																SOURCEPAGE:p.70
+Ram (Portable).MOD														OUTPUTNAME:Portable Ram																																																							SOURCEPAGE:p.70
+Pot (Iron).MOD																																																																									SOURCEPAGE:p.70
+Pot (Mithral)																						TYPE:Goods.General																														COST:2001	WT:2																SOURCEPAGE:p.70
+Powder.MOD																							TYPE:Goods.General.Consumable																													COST:0.01	WT:0.5															SOURCEPAGE:p.70																																																				SPROP:Throwing a bag of powder into a square is an attack against AC 5, and momentarily reveals whether an invisible creature is there.
+Powder Horn																							TYPE:Goods.FirearmGear.Powder Horn.Container																CONTAINS:UNLIM|Black Powder (Dose)=10				COST:3	WT:1																SOURCEPAGE:p.70
+Powder Keg																							TYPE:Goods.FirearmGear.Container																		CONTAINS:UNLIM|Black Powder (Dose)=100				COST:0	WT:5																SOURCEPAGE:p.41
+Prosthetic (Arm)																						TYPE:Goods.General.Container.Resizable																	CONTAINS:2|ANY								COST:10	WT:3																SOURCEPAGE:p.70
+Prosthetic (Foot)																						TYPE:Goods.General.Container.Resizable																	CONTAINS:1|ANY								COST:1	WT:2																SOURCEPAGE:p.70
+Prosthetic (Hand)																						TYPE:Goods.General.Container.Resizable																	CONTAINS:1|ANY								COST:1	WT:1																SOURCEPAGE:p.70
+Prosthetic (Leg)																						TYPE:Goods.General.Container.Resizable																	CONTAINS:2|ANY								COST:20	WT:6																SOURCEPAGE:p.70
+Pyrography Kit																						TYPE:Goods.General																														COST:1	WT:2																SOURCEPAGE:p.70
+Rice Paper (Sheet).MOD														OUTPUTNAME:Rice Paper, Sheet			TYPE:Goods.General.Writing.Documents																											COST:0.05	WT:0																SOURCEPAGE:p.70
+Rope (Hemp/50 ft).MOD																																																																								SOURCEPAGE:p.70
+Sack.MOD																																																																										SOURCEPAGE:p.70
+Saw.MOD																							TYPE:Goods.General																														COST:0.04	WT:2																SOURCEPAGE:p.71
+Scroll Box																							TYPE:Goods.Container.General																			CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:5	WT:1																SOURCEPAGE:p.71
+Scroll Case.MOD																																																																									SOURCEPAGE:p.71
+Map Case.MOD																																																																									SOURCEPAGE:p.71
+Sealing Wax.MOD																																																																									SOURCEPAGE:p.71
+Sentry Mannequin																						TYPE:Goods.General.Resizable																													COST:30	WT:35																SOURCEPAGE:p.71
+Sewing Needle.MOD																																																																									SOURCEPAGE:p.71
+Sextant.MOD																							TYPE:Goods.Tools																															COST:500	WT:2																SOURCEPAGE:p.71
+Shaving Kit																							TYPE:Goods.General																														COST:1.5	WT:0.5															SOURCEPAGE:p.71
+Shield Sconce																						TYPE:Goods.General																														COST:1	WT:0.5															SOURCEPAGE:p.71																																																				SPROP:This metal frame holds a torch and is designed to be strapped to the front of a light, heavy, or tower shield, allowing you to carry a torch without giving up your shield or occupying your weapon hand.
+Shovel.MOD																																																																										SOURCEPAGE:p.71
+Spade.MOD																																																																										SOURCEPAGE:p.71
+Shovel (Folding)															OUTPUTNAME:Shovel, Folding			TYPE:Goods.General																														COST:10	WT:12																SOURCEPAGE:p.71
+Signal Horn.MOD																						TYPE:Goods.General.Resizable																													COST:1	WT:2																SOURCEPAGE:p.71
+Signal Whistle.MOD																																																																								SOURCEPAGE:p.71
+Signet Ring.MOD																																																																									SOURCEPAGE:p.72
+Whistle (Silent).MOD														OUTPUTNAME:Silent Whistle																																																						SOURCEPAGE:p.72
+Rope (Silk/50 ft).MOD																																																																								SOURCEPAGE:p.72
+Skeleton Key																						TYPE:Goods.General																														COST:85																	SOURCEPAGE:p.72
+Skillet (Common)															OUTPUTNAME:Skillet, Common			TYPE:Goods.General																														COST:0.8	WT:4																SOURCEPAGE:p.72
+Skillet (Mithral)															OUTPUTNAME:Skillet, Mithral			TYPE:Goods.General																														COST:2001	WT:2																SOURCEPAGE:p.72
+Sledge.MOD																																																																										SOURCEPAGE:p.72
+Smoked Goggles.MOD																					TYPE:Goods.General																														COST:10	WT:0																SOURCEPAGE:p.72
+Snorkel (Common)															OUTPUTNAME:Snorkel, Common			TYPE:Goods.General																														COST:0.5																	SOURCEPAGE:p.72
+Snorkel (Masterwork)														OUTPUTNAME:Snorkel, Masterwork		TYPE:Goods.General.Masterwork																													COST:5																	SOURCEPAGE:p.72
+Soap.MOD																																																								COST:0.01	WT:0.5															SOURCEPAGE:p.72
+Rope (Spider Silk/50 ft.).MOD													OUTPUTNAME:Rope, Spider Silk (50 ft.)	TYPE:Goods.General																														COST:100	WT:4																SOURCEPAGE:p.73
+Spyglass.MOD																																																																									SOURCEPAGE:p.73
+Stationery																							TYPE:Goods.General.Writing.Documents																											COST:1																	SOURCEPAGE:p.73
+Stilts (Common)																						TYPE:Goods.General.Resizable																													COST:0.2	WT:10																SOURCEPAGE:p.73
+Stilts (Masterwork)																					TYPE:Goods.General.Resizable																													COST:5	WT:10																SOURCEPAGE:p.73
+Stove Can																							TYPE:Goods.General																														COST:10	WT:1																SOURCEPAGE:p.73
+String (50 ft.).MOD																					TYPE:Goods.General																														COST:0.01	WT:0.5															SOURCEPAGE:p.73
+Survival Kit (Common)																					TYPE:Goods.General																														COST:5	WT:4																SOURCEPAGE:p.73
+Survival Kit (Masterwork)																				TYPE:Goods.General																														COST:50	WT:5																SOURCEPAGE:p.73																						BONUS:SKILL|Survival|2|TYPE=Circumstance
+Swarmsuit.MOD																						TYPE:Goods.General.Resizable																													COST:20	WT:10																SOURCEPAGE:p.73
 #Tattoo 1 cp-20 gp -
-Teapot																	TYPE:Goods.General															COST:0.1	WT:1					SOURCEPAGE:p.74
-Tent (Small).MOD									OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable														COST:10	WT:20					SOURCEPAGE:p.74
-Tent (Medium).MOD									OUTPUTNAME:Medium Tent				TYPE:Goods.General.Resizable														COST:15	WT:30					SOURCEPAGE:p.74
-Tent (Large).MOD									OUTPUTNAME:Large Tent				TYPE:Goods.General.Resizable														COST:30	WT:40					SOURCEPAGE:p.74
-Tent (Pavilion).MOD								OUTPUTNAME:Pavilion				TYPE:Goods.General.Resizable														COST:100	WT:50					SOURCEPAGE:p.74
-Thurible																	TYPE:Goods.General															COST:50	WT:3					SOURCEPAGE:p.74
-Torch.MOD																																										SOURCEPAGE:p.74
-Traveler's Dictionary															TYPE:Goods.Tools.Book															COST:50	WT:2					SOURCEPAGE:p.74
-Vial.MOD																																										SOURCEPAGE:p.74
-Waffle Iron (Common)															TYPE:Goods.General															COST:1	WT:5					SOURCEPAGE:p.74
-Waffle Iron (Mithral)															TYPE:Goods.General															COST:2501	WT:2.5				SOURCEPAGE:p.74
-Water Clock.MOD																																									SOURCEPAGE:p.74
-Waterproof Bag																TYPE:Goods.General.Container.Resizable		CONTAINS:UNLIM|Any							COST:0.5	WT:0.5				SOURCEPAGE:p.74
+Teapot																							TYPE:Goods.General																														COST:0.1	WT:1																SOURCEPAGE:p.74
+Tent (Small).MOD															OUTPUTNAME:Small Tent				TYPE:Goods.General.Resizable																													COST:10	WT:20																SOURCEPAGE:p.74
+Tent (Medium).MOD															OUTPUTNAME:Medium Tent				TYPE:Goods.General.Resizable																													COST:15	WT:30																SOURCEPAGE:p.74
+Tent (Large).MOD															OUTPUTNAME:Large Tent				TYPE:Goods.General.Resizable																													COST:30	WT:40																SOURCEPAGE:p.74
+Tent (Pavilion).MOD														OUTPUTNAME:Pavilion				TYPE:Goods.General.Resizable																													COST:100	WT:50																SOURCEPAGE:p.74
+Thurible																							TYPE:Goods.General																														COST:50	WT:3																SOURCEPAGE:p.74
+Torch.MOD																																																																										SOURCEPAGE:p.74
+Traveler's Dictionary																					TYPE:Goods.Tools.Book																														COST:50	WT:2																SOURCEPAGE:p.74
+Vial.MOD																																																																										SOURCEPAGE:p.74
+Waffle Iron (Common)																					TYPE:Goods.General																														COST:1	WT:5																SOURCEPAGE:p.74
+Waffle Iron (Mithral)																					TYPE:Goods.General																														COST:2501	WT:2.5															SOURCEPAGE:p.74
+Water Clock.MOD																																																																									SOURCEPAGE:p.74
+Waterproof Bag																						TYPE:Goods.General.Container.Resizable																	CONTAINS:UNLIM|Any							COST:0.5	WT:0.5															SOURCEPAGE:p.74
 #Waterproof Lantern +5 gp -
-Waterskin.MOD																																									SOURCEPAGE:p.75
-Wax Key Blank																TYPE:Goods.General															COST:15	WT:0.5				SOURCEPAGE:p.75
-Weapon Cord.MOD																TYPE:Goods.General															COST:0.1	WT:0					SOURCEPAGE:p.75
-Whetstone.MOD																																									SOURCEPAGE:p.75
-Wire																		TYPE:Goods.General															COST:5	WT:0.5				SOURCEPAGE:p.75
-Wire Saw (Common)																TYPE:Goods.General															COST:30						SOURCEPAGE:p.75
-Wire Saw (Adamantine)															TYPE:Goods.General															COST:150						SOURCEPAGE:p.75
-Wrist Sheath																TYPE:Goods.General.Container.Resizable		CONTAINS:UNLIM|Any							COST:1	WT:1					SOURCEPAGE:p.75
+Waterskin.MOD																																																																									SOURCEPAGE:p.75
+Wax Key Blank																						TYPE:Goods.General																														COST:15	WT:0.5															SOURCEPAGE:p.75
+Weapon Cord.MOD																						TYPE:Goods.General																														COST:0.1	WT:0																SOURCEPAGE:p.75
+Whetstone.MOD																																																																									SOURCEPAGE:p.75
+Wire																								TYPE:Goods.General																														COST:5	WT:0.5															SOURCEPAGE:p.75
+Wire Saw (Common)																						TYPE:Goods.General																														COST:30																	SOURCEPAGE:p.75
+Wire Saw (Adamantine)																					TYPE:Goods.General																														COST:150																	SOURCEPAGE:p.75
+Wrist Sheath																						TYPE:Goods.General.Container.Resizable																	CONTAINS:UNLIM|Any							COST:1	WT:1																SOURCEPAGE:p.75
 
 ###Block: Starting Kits
 # Equipment Name			Type		Cost		Weight	Source Page		Bonus to skill							Special Property
@@ -614,8 +615,8 @@ Wizard's Kit			TYPE:Kit	COST:21	WT:21		SOURCEPAGE:p.75										SPROP:This kit i
 # Equipment Name			Type						Cost		Weight	Source Page		Bonus to skill						Modify VAR						Special Property
 Alchemical Grease.MOD		TYPE:Goods.Alchemical.Consumable	COST:5	WT:1		SOURCEPAGE:p.100	BONUS:SKILL|Escape Artist|5|TYPE=Alchemical	BONUS:VAR|CMD_Grapple|5|TYPE=Alchemical
 Alchemist's Kindness.MOD							COST:1			SOURCEPAGE:p.100
-Antiplague (Vial).MOD				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:Gain a +5 alchemical bonus on Fortitude saving throws against disease for the next hour. If already infected, you may also make two saving throws (without the +5 bonus) that day and use the better result.
-Antitoxin (Vial).MOD				TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:gain a +5 alchemical bonus on Fortitude saving throws against poison for 1 hour.
+Antiplague (Vial).MOD		TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:Gain a +5 alchemical bonus on Fortitude saving throws against disease for the next hour. If already infected, you may also make two saving throws (without the +5 bonus) that day and use the better result.
+Antitoxin (Vial).MOD		TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.100																SPROP:gain a +5 alchemical bonus on Fortitude saving throws against poison for 1 hour.
 Bladeguard.MOD			TYPE:Goods.Alchemical.Consumable	COST:40			SOURCEPAGE:p.100																SPROP:Protects a weapon from harmful attacks made by oozes and rust monsters, as well as from similar effects that corrode or melt weapons, rendering the weapon immune for 24 hours.
 Fire Ward Gel			TYPE:Goods.Alchemical.Consumable	COST:150			SOURCEPAGE:p.100																SPROP:Gain fire resistance 5 until 20 points of fire damage have been absorbed.
 Frost Ward Gel			TYPE:Goods.Alchemical.Consumable	COST:150			SOURCEPAGE:p.100																SPROP:Gain cold resistance 5 until 20 points of cold damage have been absorbed.
@@ -630,110 +631,110 @@ Vermin Repellent			TYPE:Goods.Alchemical.Consumable	COST:5			SOURCEPAGE:p.101			
 Wismuth Salix			TYPE:Goods.Alchemical.Consumable	COST:30			SOURCEPAGE:p.101																SPROP:Gain +2 alchemical bonus against nauseated or sickened condition for 1 hour.
 
 ###Block: Alchemical Tools
-# Equipment Name				Output Name						Required Weapon Proficiency			Type																	Cost		Weight	Base Quantity	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Range		Size		Source Page		Special Property
-Alchemical Cement																		TYPE:Goods.Alchemical.Consumable												COST:5	WT:2																					SOURCEPAGE:p.102
-Alchemical Glue																		TYPE:Goods.Alchemical.Consumable												COST:20	WT:0.5																				SOURCEPAGE:p.102
-Alchemical Glue Accelerant																TYPE:Goods.Alchemical.Consumable												COST:25																						SOURCEPAGE:p.102
-Alchemical Solvent																	TYPE:Goods.Alchemical.Consumable												COST:20	WT:0.5																				SOURCEPAGE:p.102
-Armor Ointment																		TYPE:Goods.Alchemical.Consumable												COST:30	WT:1																					SOURCEPAGE:p.102
-Blackfire Clay																		TYPE:Goods.Alchemical.Consumable												COST:20	WT:10																					SOURCEPAGE:p.102
-Bloodblock.MOD																		TYPE:Goods.Alchemical.Consumable												COST:25																						SOURCEPAGE:p.102
-Buoyant Balloon																		TYPE:Goods.Alchemical.Consumable												COST:10	WT:1																					SOURCEPAGE:p.102
-Candlerod																			TYPE:Goods.Alchemical.Consumable												COST:1	WT:1																					SOURCEPAGE:p.102
-Casting Plaster.MOD																	TYPE:Goods.Alchemical.Consumable												COST:0.5	WT:5																					SOURCEPAGE:p.103
-Chill Cream																			TYPE:Goods.Alchemical.Consumable												COST:15	WT:1																					SOURCEPAGE:p.103
-Defoliant																			TYPE:Goods.Alchemical.Consumable												COST:30																						SOURCEPAGE:p.103
-Embalming Fluid																		TYPE:Goods.Alchemical.Consumable												COST:50	WT:10																					SOURCEPAGE:p.103
-Foaming Powder																		TYPE:Goods.Alchemical.Consumable												COST:10	WT:1																					SOURCEPAGE:p.103
-Glowing Ink																			TYPE:Goods.Alchemical.Consumable												COST:5																						SOURCEPAGE:p.104
-Impact Foam																			TYPE:Goods.Alchemical.Consumable												COST:25	WT:1																					SOURCEPAGE:p.104
-Invisible Ink (Simple)																	TYPE:Goods.Alchemical.Consumable												COST:2																						SOURCEPAGE:p.104
-Invisible Ink (Average)																	TYPE:Goods.Alchemical.Consumable												COST:10																						SOURCEPAGE:p.104
-Invisible Ink (Good)																	TYPE:Goods.Alchemical.Consumable												COST:25																						SOURCEPAGE:p.104
-Invisible Ink (Superior)																TYPE:Goods.Alchemical.Consumable												COST:75																						SOURCEPAGE:p.104
-Light Detector.MOD																	TYPE:Goods.Alchemical.Consumable												COST:1																						SOURCEPAGE:p.104
-Marker Dye																			TYPE:Goods.Alchemical.Consumable												COST:15	WT:1																					SOURCEPAGE:p.104
-Mending Paste																		TYPE:Goods.Alchemical.Consumable												COST:25	WT:0.5																				SOURCEPAGE:p.104
-Nushadir (Vial).MOD																																		COST:10	WT:1																					SOURCEPAGE:p.104
-Rusting Powder																		TYPE:Goods.Alchemical.Consumable												COST:60																						SOURCEPAGE:p.104
-Scent Cloak																			TYPE:Goods.Alchemical.Consumable												COST:20	WT:2																					SOURCEPAGE:p.105
-Smoke Pellet.MOD																		TYPE:Goods.Alchemical.Consumable												COST:25																						SOURCEPAGE:p.105
-Smokestick.MOD																																			COST:20	WT:0.5																				SOURCEPAGE:p.105
-Sunrod.MOD																																				COST:2	WT:1																					SOURCEPAGE:p.105
-Tindertwig.MOD																																			COST:1																						SOURCEPAGE:p.105
-Water Purification Sponge																TYPE:Goods.Alchemical.Consumable												COST:25	WT:1																					SOURCEPAGE:p.105
-Weapon Blanch (Adamantine).MOD															TYPE:Goods.Alchemical.Consumable												COST:100	WT:0.5																				SOURCEPAGE:p.105
-Weapon Blanch (Cold Iron).MOD																TYPE:Goods.Alchemical.Consumable												COST:20	WT:0.5																				SOURCEPAGE:p.105
-Weapon Blanch (Silver).MOD																TYPE:Goods.Alchemical.Consumable												COST:5	WT:0.5																				SOURCEPAGE:p.105
+# Equipment Name				Output Name						Required Weapon Proficiency			Type																	Cost		Weight	Base Quantity	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Range		Size		Source Page		Special Property
+Alchemical Cement																		TYPE:Goods.Alchemical.Consumable												COST:5	WT:2																								SOURCEPAGE:p.102
+Alchemical Glue																		TYPE:Goods.Alchemical.Consumable												COST:20	WT:0.5																							SOURCEPAGE:p.102
+Alchemical Glue Accelerant																TYPE:Goods.Alchemical.Consumable												COST:25																									SOURCEPAGE:p.102
+Alchemical Solvent																	TYPE:Goods.Alchemical.Consumable												COST:20	WT:0.5																							SOURCEPAGE:p.102
+Armor Ointment																		TYPE:Goods.Alchemical.Consumable												COST:30	WT:1																								SOURCEPAGE:p.102
+Blackfire Clay																		TYPE:Goods.Alchemical.Consumable												COST:20	WT:10																								SOURCEPAGE:p.102
+Bloodblock.MOD																		TYPE:Goods.Alchemical.Consumable												COST:25																									SOURCEPAGE:p.102
+Buoyant Balloon																		TYPE:Goods.Alchemical.Consumable												COST:10	WT:1																								SOURCEPAGE:p.102
+Candlerod																			TYPE:Goods.Alchemical.Consumable												COST:1	WT:1																								SOURCEPAGE:p.102
+Casting Plaster.MOD																	TYPE:Goods.Alchemical.Consumable												COST:0.5	WT:5																								SOURCEPAGE:p.103
+Chill Cream																			TYPE:Goods.Alchemical.Consumable												COST:15	WT:1																								SOURCEPAGE:p.103
+Defoliant																			TYPE:Goods.Alchemical.Consumable												COST:30																									SOURCEPAGE:p.103
+Embalming Fluid																		TYPE:Goods.Alchemical.Consumable												COST:50	WT:10																								SOURCEPAGE:p.103
+Foaming Powder																		TYPE:Goods.Alchemical.Consumable												COST:10	WT:1																								SOURCEPAGE:p.103
+Glowing Ink																			TYPE:Goods.Alchemical.Consumable												COST:5																									SOURCEPAGE:p.104
+Impact Foam																			TYPE:Goods.Alchemical.Consumable												COST:25	WT:1																								SOURCEPAGE:p.104
+Invisible Ink (Simple)																	TYPE:Goods.Alchemical.Consumable												COST:2																									SOURCEPAGE:p.104
+Invisible Ink (Average)																	TYPE:Goods.Alchemical.Consumable												COST:10																									SOURCEPAGE:p.104
+Invisible Ink (Good)																	TYPE:Goods.Alchemical.Consumable												COST:25																									SOURCEPAGE:p.104
+Invisible Ink (Superior)																TYPE:Goods.Alchemical.Consumable												COST:75																									SOURCEPAGE:p.104
+Light Detector.MOD																	TYPE:Goods.Alchemical.Consumable												COST:1																									SOURCEPAGE:p.104
+Marker Dye																			TYPE:Goods.Alchemical.Consumable												COST:15	WT:1																								SOURCEPAGE:p.104
+Mending Paste																		TYPE:Goods.Alchemical.Consumable												COST:25	WT:0.5																							SOURCEPAGE:p.104
+Nushadir (Vial).MOD																																		COST:10	WT:1																								SOURCEPAGE:p.104
+Rusting Powder																		TYPE:Goods.Alchemical.Consumable												COST:60																									SOURCEPAGE:p.104
+Scent Cloak																			TYPE:Goods.Alchemical.Consumable												COST:20	WT:2																								SOURCEPAGE:p.105
+Smoke Pellet.MOD																		TYPE:Goods.Alchemical.Consumable												COST:25																									SOURCEPAGE:p.105
+Smokestick.MOD																																			COST:20	WT:0.5																							SOURCEPAGE:p.105
+Sunrod.MOD																																				COST:2	WT:1																								SOURCEPAGE:p.105
+Tindertwig.MOD																																			COST:1																									SOURCEPAGE:p.105
+Water Purification Sponge																TYPE:Goods.Alchemical.Consumable												COST:25	WT:1																								SOURCEPAGE:p.105
+Weapon Blanch (Adamantine).MOD															TYPE:Goods.Alchemical.Consumable												COST:100	WT:0.5																							SOURCEPAGE:p.105
+Weapon Blanch (Cold Iron).MOD																TYPE:Goods.Alchemical.Consumable												COST:20	WT:0.5																							SOURCEPAGE:p.105
+Weapon Blanch (Silver).MOD																TYPE:Goods.Alchemical.Consumable												COST:5	WT:0.5																							SOURCEPAGE:p.105
 
 #Block: Alchemical Weapons
-Liquid Blade				OUTPUTNAME:Liquid Blade				PROFICIENCY:WEAPON|Sword (Short)		TYPE:Alchemical.Consumable.Weapon.Melee.Light.Finesseable.Martial.Standard.Piercing.Sword.Fragile	COST:40	WT:2					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6				WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.108	SPROP:Lasts for 10 minutes. Fragile.
-Flame Fountain Firework			OUTPUTNAME:Flame Fountain Firework		PROFICIENCY:WEAPON|Mace (Heavy)		TYPE:Alchemical.Consumable.Weapon.Melee.OneHanded.Fire								COST:100						CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8				WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.106	SPROP:Attacks are melee touch attacks. Lasts 1 min. Move action to light fuse.
-Acid (Flask).MOD											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash								COST:10	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Every creature within 5 feet of the point where the acid hits takes 1 point of acid damage from the splash.
-Alchemist's Fire (Flask).MOD									PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire.Splash								COST:20	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Every creature within 5 feet of the point where the flask hits takes 1 point of fire damage from the splash. On the round following a direct hit, the target takes an additional 1d6 points of damage.
-Alkali (Flask).MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash								COST:15	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Every creature within 5 feet of the point where the alkali flask hits takes 1 point of acid damage from the splash. Against oozes and other acid-based creatures, the alkali flask inflicts double damage.
-Banshee Ballerina (Firework)									PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							COST:75																		RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Any creatures within 5 feet of the noise are effectively deafened while they remain in the area. Burns for 1d4+1 rounds.
-Bottled Lightning											PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Electricity.Sonic.Splash					COST:40	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8							RANGE:20	SIZE:M	SOURCEPAGE:p.106	SPROP:Any creature in a line between you and the target (including the target) takes 1 point of sonic damage.
-Burst Jar												PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							COST:35	WT:1									DAMAGE:1							RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:One round later on the turn the jar was thrown, the target takes 1 point of sonic damage, is deafened for 1d4 rounds, and must make a DC 12 Fortitude save or be stunned for 1 round. Creatures within 5 feet of the explosion take 1 point of sonic damage.
-Flash Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:50																		RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Creatures within a 10-foot-radius burst are blinded for 1 round (Fortitude DC 13 negates).
-Fuse Grenade											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Bludgeoning.Fire.Splash						COST:100	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.107	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 2d6 points of bludgeoning damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
-Ghast Retch (Flask)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison.Splash							COST:50	WT:1																	RANGE:10	SIZE:M	SOURCEPAGE:p.107	SPROP:The target is nauseated for 1 round and sickened for 3 rounds after that. A successful DC 12 Fortitude save prevents the nauseated condition, but not the sickened condition. Creatures within 5 feet of where the flank hits are sickened for 1 round
-Holy Water (Flask).MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:25	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4							RANGE:10	SIZE:M	SOURCEPAGE:p.107	SPROP:Each undead creature or evil outsider within 5 feet of the point where the flask hits takes 1 point of damage from the splash.
-Itching Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison.Splash							COST:60	WT:2																	RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Anyone standing on the square of impact must succeed at a DC 12 Fortitude save to resist the powder, while those in adjacent squares must make a DC 8 Fortitude save. Creatures that fail the save take a -2 penalty on attack rolls, saving throws, skill checks, and ability checks until they wash the powder off.
-Keros Oil (Flask)											PROFICIENCY:WEAPON|Spells (Touch)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:5			BASEQTY:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3							RANGE:5	SIZE:M	SOURCEPAGE:p.108	SPROP:Taking a mouthful from the bottle is a standard action.
-Liquid Ice (Flask).MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Cold.Splash								COST:40	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Creatures within 5 feet of where it hits take 1 point of cold damage from the splash.
-Paper Candle (Firework)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:1																		RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Anyone in the same square when it explodes must make a DC 15 Fortitude save or be dazzled for 1d4 rounds.
-Pellet Grenade (Iron)			OUTPUTNAME:Pellet Grenade, Iron		PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:50	WT:1									DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
-Pellet Grenade (Silver)			OUTPUTNAME:Pellet Grenade, Silver		PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:70	WT:1									DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
-Pellet Grenade (Cold Iron)		OUTPUTNAME:Pellet Grenade, Cold Iron	PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:100	WT:1									DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
-Pellet Grenade (Adamantine)		OUTPUTNAME:Pellet Grenade, Adamantine	PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:150	WT:1									DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
-Shard Gel (Flask)											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Splash							COST:25	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4							RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:The target's square and each square adjacent to it are covered in shards that function like caltrops for 5 rounds
-Skyrocket (Firework)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:50	WT:1									DAMAGE:2d6							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Takes flight one round after being lit at a speed of 90 ft for 1d6 rounds. Damage is a 10-ft-radius burst. Anyone who takes damage from the explosion is either blinded or deafened (50% chance of either) for 1 round.
-Sneezing Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison								COST:60	WT:2																	RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Causes uncontrollable sneezing for 1d4+1 rounds. Anyone standing in the square of impact must succeed at a DC 12 Fortitude save to resist the powder, while those in adjacent squares must make DC 8 Fortitude saves. Affected creatures must make a DC 10 Fortitude save every round for the duration or be staggered until their next turn.
+Liquid Blade				OUTPUTNAME:Liquid Blade				PROFICIENCY:WEAPON|Sword (Short)		TYPE:Alchemical.Consumable.Weapon.Melee.Light.Finesseable.Martial.Standard.Piercing.Sword.Fragile	COST:40	WT:2					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6							WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.108	SPROP:Lasts for 10 minutes. Fragile.
+Flame Fountain Firework			OUTPUTNAME:Flame Fountain Firework		PROFICIENCY:WEAPON|Mace (Heavy)		TYPE:Alchemical.Consumable.Weapon.Melee.OneHanded.Fire								COST:100						CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8							WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.106	SPROP:Attacks are melee touch attacks. Lasts 1 min. Move action to light fuse.
+Acid (Flask).MOD											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash								COST:10	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Every creature within 5 feet of the point where the acid hits takes 1 point of acid damage from the splash.
+Alchemist's Fire (Flask).MOD									PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire.Splash								COST:20	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Every creature within 5 feet of the point where the flask hits takes 1 point of fire damage from the splash. On the round following a direct hit, the target takes an additional 1d6 points of damage.
+Alkali (Flask).MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash								COST:15	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Every creature within 5 feet of the point where the alkali flask hits takes 1 point of acid damage from the splash. Against oozes and other acid-based creatures, the alkali flask inflicts double damage.
+Banshee Ballerina (Firework)									PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							COST:75																					RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Any creatures within 5 feet of the noise are effectively deafened while they remain in the area. Burns for 1d4+1 rounds.
+Bottled Lightning											PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Electricity.Sonic.Splash					COST:40	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8										RANGE:20	SIZE:M	SOURCEPAGE:p.106	SPROP:Any creature in a line between you and the target (including the target) takes 1 point of sonic damage.
+Burst Jar												PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							COST:35	WT:1									DAMAGE:1										RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:One round later on the turn the jar was thrown, the target takes 1 point of sonic damage, is deafened for 1d4 rounds, and must make a DC 12 Fortitude save or be stunned for 1 round. Creatures within 5 feet of the explosion take 1 point of sonic damage.
+Flash Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:50																					RANGE:10	SIZE:M	SOURCEPAGE:p.106	SPROP:Creatures within a 10-foot-radius burst are blinded for 1 round (Fortitude DC 13 negates).
+Fuse Grenade											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Bludgeoning.Fire.Splash						COST:100	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.107	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 2d6 points of bludgeoning damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
+Ghast Retch (Flask)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison.Splash							COST:50	WT:1																				RANGE:10	SIZE:M	SOURCEPAGE:p.107	SPROP:The target is nauseated for 1 round and sickened for 3 rounds after that. A successful DC 12 Fortitude save prevents the nauseated condition, but not the sickened condition. Creatures within 5 feet of where the flank hits are sickened for 1 round
+Holy Water (Flask).MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:25	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4										RANGE:10	SIZE:M	SOURCEPAGE:p.107	SPROP:Each undead creature or evil outsider within 5 feet of the point where the flask hits takes 1 point of damage from the splash.
+Itching Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison.Splash							COST:60	WT:2																				RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Anyone standing on the square of impact must succeed at a DC 12 Fortitude save to resist the powder, while those in adjacent squares must make a DC 8 Fortitude save. Creatures that fail the save take a -2 penalty on attack rolls, saving throws, skill checks, and ability checks until they wash the powder off.
+Keros Oil (Flask)											PROFICIENCY:WEAPON|Spells (Touch)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:5			BASEQTY:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3										RANGE:5	SIZE:M	SOURCEPAGE:p.108	SPROP:Taking a mouthful from the bottle is a standard action.
+Liquid Ice (Flask).MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Cold.Splash								COST:40	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Creatures within 5 feet of where it hits take 1 point of cold damage from the splash.
+Paper Candle (Firework)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:1																					RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Anyone in the same square when it explodes must make a DC 15 Fortitude save or be dazzled for 1d4 rounds.
+Pellet Grenade (Iron)			OUTPUTNAME:Pellet Grenade, Iron		PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:50	WT:1									DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
+Pellet Grenade (Silver)			OUTPUTNAME:Pellet Grenade, Silver		PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:70	WT:1									DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
+Pellet Grenade (Cold Iron)		OUTPUTNAME:Pellet Grenade, Cold Iron	PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:100	WT:1									DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
+Pellet Grenade (Adamantine)		OUTPUTNAME:Pellet Grenade, Adamantine	PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Bludgeoning.Fire.Splash				COST:150	WT:1									DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:Lighting the fuse is a move action; 1d3 rounds later the grenade explodes, dealing 1d6 points of bludgeoning damage, 1d6 points of piercing damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 halves).
+Shard Gel (Flask)											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Piercing.Splash							COST:25	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4										RANGE:10	SIZE:M	SOURCEPAGE:p.108	SPROP:The target's square and each square adjacent to it are covered in shards that function like caltrops for 5 rounds
+Skyrocket (Firework)										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:50	WT:1									DAMAGE:2d6										RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Takes flight one round after being lit at a speed of 90 ft for 1d6 rounds. Damage is a 10-ft-radius burst. Anyone who takes damage from the explosion is either blinded or deafened (50% chance of either) for 1 round.
+Sneezing Powder											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Poison								COST:60	WT:2																				RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Causes uncontrollable sneezing for 1d4+1 rounds. Anyone standing in the square of impact must succeed at a DC 12 Fortitude save to resist the powder, while those in adjacent squares must make DC 8 Fortitude saves. Affected creatures must make a DC 10 Fortitude save every round for the duration or be staggered until their next turn.
 Star Candle (Firework)										PROFICIENCY:WEAPON|Star Candle Firework	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:5						CRITMULT:-	CRITRANGE:1	DAMAGE:1	EQMOD:Special Quality ~ Nonlethal				RANGE:5	SIZE:M	SOURCEPAGE:p.109	SPROP:Launches every round for 4 rounds after being lit. Deals 1 point of nonlethal damage and 1 point of fire damage; on a critical hit, the target is also blinded for 1 round.
-Starfountain (Firework)										PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:500	WT:100								DAMAGE:1							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Indoors or in a closed area, the ricocheting fireworks deal damage each round in a 20-foot-radius spread (Reflex DC 15 halves). Creatures who fail their save are blinded for 1d4 rounds and deafened for 1 hour.
-Tangleburn Bag											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire.Splash								COST:150	WT:5									DAMAGE:1d6							RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move. A direct hit on a creature deals 1d6 points of fire damage, and the creature must make a DC 20 Reflex save or catch on fire.
-Tanglefoot Bag.MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:50	WT:4																	RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move
-Thunderstone.MOD											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							COST:30	WT:1																	RANGE:20	SIZE:M	SOURCEPAGE:p.109	SPROP:Each creature within a 10-foot-radius spread must make a DC 15 Fortitude save or be deafened for 1 hour.
+Starfountain (Firework)										PROFICIENCY:WEAPON|Spells (Ray)		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire									COST:500	WT:100								DAMAGE:1										RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:Indoors or in a closed area, the ricocheting fireworks deal damage each round in a 20-foot-radius spread (Reflex DC 15 halves). Creatures who fail their save are blinded for 1d4 rounds and deafened for 1 hour.
+Tangleburn Bag											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire.Splash								COST:150	WT:5									DAMAGE:1d6										RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move. A direct hit on a creature deals 1d6 points of fire damage, and the creature must make a DC 20 Reflex save or catch on fire.
+Tanglefoot Bag.MOD										PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								COST:50	WT:4																				RANGE:10	SIZE:M	SOURCEPAGE:p.109	SPROP:An entangled creature takes a -2 penalty on attack rolls and a -4 penalty to Dexterity and must make a DC 15 Reflex save or be glued to the floor, unable to move
+Thunderstone.MOD											PROFICIENCY:WEAPON|Splash Weapon		TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							COST:30	WT:1																				RANGE:20	SIZE:M	SOURCEPAGE:p.109	SPROP:Each creature within a 10-foot-radius spread must make a DC 15 Fortitude save or be deafened for 1 hour.
 
 #Block: Poisons
-Poison (Indigo Dreams)																	TYPE:Goods.Poison.Consumable													COST:150																						SOURCEPAGE:p.111	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (6); Effect 1d3 Wis dmg; Cure 2 consecutive saves
-Poison (Swampseer Poison)																TYPE:Goods.Poison.Consumable													COST:180																						SOURCEPAGE:p.111	SPROP:Ingested; Fort DC 11; Onset 10 min; Freq 1 min (4); Effect 1d3 Wis and 1 Int dmg; Cure 1 save
-Poison (Azure Lily Pollen)																TYPE:Goods.Poison.Consumable													COST:1500																						SOURCEPAGE:p.111	SPROP:Inhaled; Fort DC 15; Freq 1 min (2); Effect nauseated 1 min, paralyzed 2d4 hours; Cure 1 save
-Poison (Arsenic).MOD																																																									SOURCEPAGE:p.111
-Poison (Belladonna).MOD																																																									SOURCEPAGE:p.111
-Poison (Black Adder Venom).MOD																																																							SOURCEPAGE:p.111
-Poison (Black Lotus Extract).MOD																																																							SOURCEPAGE:p.111
-Poison (Bloodroot).MOD																																																									SOURCEPAGE:p.111
-Poison (Blue Whinnis).MOD																																																								SOURCEPAGE:p.111
-Poison (Burnt Othur Fumes).MOD																																																							SOURCEPAGE:p.111
-Poison (Dark Reaver Powder).MOD																																																							SOURCEPAGE:p.111
-Poison (Deathblade).MOD																																																									SOURCEPAGE:p.111
-Poison (Dragon Bile).MOD																																																								SOURCEPAGE:p.111
-Poison (Drow Poison).MOD																																																								SOURCEPAGE:p.111
-Poison (Giant Wasp Poison).MOD																																																							SOURCEPAGE:p.111
-Poison (Greenblood Oil).MOD																																																								SOURCEPAGE:p.111
-Poison (Hemlock).MOD																																																									SOURCEPAGE:p.111
-Poison (Id Moss).MOD																																																									SOURCEPAGE:p.111
-Poison (Insanity Mist).MOD																																																								SOURCEPAGE:p.111
-Poison (King's Sleep).MOD																																																								SOURCEPAGE:p.111
-Poison (Large Scorpion Venom).MOD																																																							SOURCEPAGE:p.111
-Poison (Lich Dust).MOD																																																									SOURCEPAGE:p.111
-Poison (Malyass Root Paste).MOD																																																							SOURCEPAGE:p.111
-Poison (Medium Spider Venom).MOD																																																							SOURCEPAGE:p.111
-Poison (Nightmare Vapor).MOD																																																								SOURCEPAGE:p.111
-Poison (Nitharit).MOD																																																									SOURCEPAGE:p.111
-Poison (Oil of Taggit).MOD																																																								SOURCEPAGE:p.111
-Poison (Purple Worm Poison).MOD																																																							SOURCEPAGE:p.111
-Poison (Sassone Leaf Residue).MOD																																																							SOURCEPAGE:p.111
-Poison (Shadow Essence).MOD																																																								SOURCEPAGE:p.111
-Poison (Small Centipede Poison).MOD																																																							SOURCEPAGE:p.111
-Poison (Striped Toadstool).MOD																																																							SOURCEPAGE:p.111
-Poison (Tears of Death).MOD																																																								SOURCEPAGE:p.111
-Poison (Terinav Root).MOD																																																								SOURCEPAGE:p.111
-Poison (Ungol Dust).MOD																																																									SOURCEPAGE:p.111
-Poison (Wolfsbane).MOD																																																									SOURCEPAGE:p.111
-Poison (Wyvern Poison).MOD																																																								SOURCEPAGE:p.111
+Poison (Indigo Dreams)																	TYPE:Goods.Poison.Consumable													COST:150																									SOURCEPAGE:p.111	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (6); Effect 1d3 Wis dmg; Cure 2 consecutive saves
+Poison (Swampseer Poison)																TYPE:Goods.Poison.Consumable													COST:180																									SOURCEPAGE:p.111	SPROP:Ingested; Fort DC 11; Onset 10 min; Freq 1 min (4); Effect 1d3 Wis and 1 Int dmg; Cure 1 save
+Poison (Azure Lily Pollen)																TYPE:Goods.Poison.Consumable													COST:1500																									SOURCEPAGE:p.111	SPROP:Inhaled; Fort DC 15; Freq 1 min (2); Effect nauseated 1 min, paralyzed 2d4 hours; Cure 1 save
+Poison (Arsenic).MOD																																																												SOURCEPAGE:p.111
+Poison (Belladonna).MOD																																																												SOURCEPAGE:p.111
+Poison (Black Adder Venom).MOD																																																										SOURCEPAGE:p.111
+Poison (Black Lotus Extract).MOD																																																										SOURCEPAGE:p.111
+Poison (Bloodroot).MOD																																																												SOURCEPAGE:p.111
+Poison (Blue Whinnis).MOD																																																											SOURCEPAGE:p.111
+Poison (Burnt Othur Fumes).MOD																																																										SOURCEPAGE:p.111
+Poison (Dark Reaver Powder).MOD																																																										SOURCEPAGE:p.111
+Poison (Deathblade).MOD																																																												SOURCEPAGE:p.111
+Poison (Dragon Bile).MOD																																																											SOURCEPAGE:p.111
+Poison (Drow Poison).MOD																																																											SOURCEPAGE:p.111
+Poison (Giant Wasp Poison).MOD																																																										SOURCEPAGE:p.111
+Poison (Greenblood Oil).MOD																																																											SOURCEPAGE:p.111
+Poison (Hemlock).MOD																																																												SOURCEPAGE:p.111
+Poison (Id Moss).MOD																																																												SOURCEPAGE:p.111
+Poison (Insanity Mist).MOD																																																											SOURCEPAGE:p.111
+Poison (King's Sleep).MOD																																																											SOURCEPAGE:p.111
+Poison (Large Scorpion Venom).MOD																																																										SOURCEPAGE:p.111
+Poison (Lich Dust).MOD																																																												SOURCEPAGE:p.111
+Poison (Malyass Root Paste).MOD																																																										SOURCEPAGE:p.111
+Poison (Medium Spider Venom).MOD																																																										SOURCEPAGE:p.111
+Poison (Nightmare Vapor).MOD																																																											SOURCEPAGE:p.111
+Poison (Nitharit).MOD																																																												SOURCEPAGE:p.111
+Poison (Oil of Taggit).MOD																																																											SOURCEPAGE:p.111
+Poison (Purple Worm Poison).MOD																																																										SOURCEPAGE:p.111
+Poison (Sassone Leaf Residue).MOD																																																										SOURCEPAGE:p.111
+Poison (Shadow Essence).MOD																																																											SOURCEPAGE:p.111
+Poison (Small Centipede Poison).MOD																																																										SOURCEPAGE:p.111
+Poison (Striped Toadstool).MOD																																																										SOURCEPAGE:p.111
+Poison (Tears of Death).MOD																																																											SOURCEPAGE:p.111
+Poison (Terinav Root).MOD																																																											SOURCEPAGE:p.111
+Poison (Ungol Dust).MOD																																																												SOURCEPAGE:p.111
+Poison (Wolfsbane).MOD																																																												SOURCEPAGE:p.111
+Poison (Wyvern Poison).MOD																																																											SOURCEPAGE:p.111
 
 
 ###Block: Animals (Non-mount)

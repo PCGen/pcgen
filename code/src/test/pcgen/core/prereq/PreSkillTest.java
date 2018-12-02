@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
@@ -35,20 +32,6 @@ import pcgen.util.TestHelper;
 
 public class PreSkillTest extends AbstractCharacterTestCase
 {
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreSkillTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSkillTest.class);
-	}
-
 	Skill balance = null;
 	Skill knowledge = null;
 	Skill knowledge2 = null;
@@ -58,9 +41,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	Skill target = null;
 	Skill target2 = null;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -132,9 +112,6 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

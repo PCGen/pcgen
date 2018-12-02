@@ -47,7 +47,7 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>VAbilityTokenTest</code> tests the functioning of the VABILITY 
+ * {@code VAbilityTokenTest} tests the functioning of the VABILITY
  * token processing code. 
  */
 public class VAbilityTokenTest extends AbstractCharacterTestCase
@@ -64,9 +64,6 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 
 	private Ability skillFocus;
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

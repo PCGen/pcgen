@@ -1,7 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 18754 $ $Author: amaitland $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #Author: Gerard van Konijnenburg
-SOURCELONG:Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j	SOURCEDATE:2009-12
+SOURCELONG:Pathfinder Companion: Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/products/btpy8b9j	SOURCEDATE:2009-12
 
 ###Block: Weapons
-# Equipment Name		Required Weapon Proficiency			Type																Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Reach Multiplier	Size		Source Page		Weapon prop. bonus
-Dorn-Dergar, Dwarven			KEY:Dorn-Dergar (Dwarven)	PROFICIENCY:WEAPON|Dorn-Dergar (Dwarven)	TYPE:Weapon.Resizable.Melee.Exotic.TwoHanded.Bludgeoning.MeleeBludgeoning.Dwarven.Reach.Flail	COST:50.0	WT:15		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.21	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=FEAT,Dorn-Dergar Master
+# Equipment Name		Unique Key				Required Weapon Proficiency			Type																Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Reach Multiplier	Size		Source Page		Weapon prop. bonus
+Dorn-Dergar, Dwarven	KEY:Dorn-Dergar (Dwarven)	PROFICIENCY:WEAPON|Dorn-Dergar (Dwarven)	TYPE:Weapon.Resizable.Melee.Exotic.TwoHanded.Bludgeoning.MeleeBludgeoning.Dwarven.Reach.Flail	COST:50.0	WT:15		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10	WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.21	BONUS:WEAPON|WIELDCATEGORY|-1|PREABILITY:1,CATEGORY=FEAT,Dorn-Dergar Master

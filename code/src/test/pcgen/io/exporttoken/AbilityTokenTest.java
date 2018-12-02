@@ -42,7 +42,7 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>AbilityTokenTest</code> tests the functioning of the ABILITY 
+ * {@code AbilityTokenTest} tests the functioning of the ABILITY
  * token processing code. 
  */
 public class AbilityTokenTest extends AbstractCharacterTestCase
@@ -59,9 +59,6 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 
 	private Ability skillFocus;
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

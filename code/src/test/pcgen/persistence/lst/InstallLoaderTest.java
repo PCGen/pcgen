@@ -24,15 +24,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
+
+import junit.framework.TestCase;
 
 /**
  * A collection of tests to validate the functioning of the InstallLoader class.
@@ -77,9 +76,6 @@ public final class InstallLoaderTest extends TestCase
 				"PUBNAMELONG:" + PUBNAMELONG, "PUBNAMESHORT:" + PUBNAMESHORT,
 				"PUBNAMEWEB:" + SOURCEWEB};
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -87,9 +83,6 @@ public final class InstallLoaderTest extends TestCase
 		TestHelper.loadPlugins();
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{
@@ -134,26 +127,6 @@ public final class InstallLoaderTest extends TestCase
 		}
 		loader.loadLstString(null, new URI("http://UNIT_TEST_CASE"), data.toString());
 		return loader.getCampaign();
-	}
-
-	/**
-	 * Run the tests standalone from the command line.
-	 *
-	 * @param args Command line args - ignored.
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(InstallLoaderTest.class);
-	}
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test".
-	 *
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(InstallLoaderTest.class);
 	}
 
 	/**

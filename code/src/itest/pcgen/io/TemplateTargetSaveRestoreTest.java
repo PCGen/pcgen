@@ -17,7 +17,8 @@
  */
 package pcgen.io;
 
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -25,6 +26,8 @@ import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.template.FavoredclassToken;
+
+import org.junit.Test;
 
 public class TemplateTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<PCTemplate>

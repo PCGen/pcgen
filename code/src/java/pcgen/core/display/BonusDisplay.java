@@ -38,12 +38,26 @@ public final class BonusDisplay
 	 */
 	public static String getBonusDisplayName(BonusManager.TempBonusInfo ti)
 	{
+		return getBonusDisplayName(ti.source, ti.target);
+	}
+
+	/**
+	 * Returns a Display name for a Bonus based on a source object and target for a
+	 * temporary bonus.
+	 * 
+	 * @param sourceObj
+	 *            The source object that contained the temporary bonus
+	 * @param targetObj
+	 *            The target object of the temporary bonus
+	 * @return a Display name for a Bonus based on the given objects
+	 */
+	public static String getBonusDisplayName(Object sourceObj, Object targetObj)
+	{
 		final StringBuilder buffer = new StringBuilder(50);
 
-		buffer.append(ti.source);
+		buffer.append(sourceObj);
 		buffer.append(" [");
 
-		Object targetObj = ti.target;
 
 		if (targetObj instanceof PlayerCharacter)
 		{

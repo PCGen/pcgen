@@ -62,7 +62,7 @@ import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
 /**
- * The Class <code>DataLoadTest</code> checks each basic source for errors on load.
+ * The Class {@code DataLoadTest} checks each basic source for errors on load.
  *
  * <br/>
  * 

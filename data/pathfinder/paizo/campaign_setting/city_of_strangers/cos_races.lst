@@ -1,4 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
-# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Stat bonus																	Modify VAR											Ability								Nb Legs	Nb Hands	Monster Class Name and Starting Level	Main Race Type	Race Subtype		Type			Challenge Rating	Source Page		Apply Kit
-Caulborn	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30			REACH:5	BONUS:STAT|STR|6	BONUS:STAT|DEX|9	BONUS:STAT|CON|6	BONUS:STAT|INT|14	BONUS:STAT|WIS|10	BONUS:STAT|CHA|8	BONUS:VAR|BlindsenseRange|60	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base	ABILITY:Internal|AUTOMATIC|Race Traits ~ Caulborn	LEGS:2	HANDS:2	MONSTERCLASS:Outsider:9				RACETYPE:Outsider	RACESUBTYPE:Extraplanar	TYPE:Outsider	CR:7			SOURCEPAGE:p.62	KIT:1|TN
+# Race Name	Starting Feats	Size		Move			Reach		Stat bonus																	Modify VAR											Ability								Nb Legs	Nb Hands	Monster Class Name and Starting Level	Main Race Type	Race Subtype		Type			Challenge Rating	Source Page		Apply Kit	FACT
+Caulborn	STARTFEATS:1	SIZE:M	MOVE:Walk,30	REACH:5	BONUS:STAT|STR|6	BONUS:STAT|DEX|9	BONUS:STAT|CON|6	BONUS:STAT|INT|14	BONUS:STAT|WIS|10	BONUS:STAT|CHA|8	BONUS:VAR|BlindsenseRange|60	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Caulborn	LEGS:2	HANDS:2	MONSTERCLASS:Outsider:9				RACETYPE:Outsider	RACESUBTYPE:Extraplanar	TYPE:Outsider	CR:7			SOURCEPAGE:p.62	KIT:1|TN	FACT:BaseSize|M

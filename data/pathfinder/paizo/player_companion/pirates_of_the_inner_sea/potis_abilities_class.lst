@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 16794 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
-SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+SOURCELONG:Pathfinder Player Companion: Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif	SOURCEDATE:2012-04
 # Original Entry by: Stefan Radermacher
 
 ###Block: Weapon Proficiencies
@@ -15,7 +16,7 @@ Sneak Attack	KEY:Inner Sea Pirate ~ Sneak Attack		CATEGORY:Special Ability	TYPE:
 # Ability Name	Unique Key					Category of Ability		Type								Description																																																																								Weapon prof. bonus																												Source Page
 Classic Duelist	KEY:Pirate Trick ~ Classic Duelist	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You gain a +1 competence bonus on attack rolls made with a cutlass, rapier, or short sword.																																																									BONUS:WEAPONPROF=Cutlass|DAMAGE,TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Rapier|DAMAGE,TOHIT|1|TYPE=Competence	BONUS:WEAPONPROF=Sword (Short)|DAMAGE,TOHIT|1|TYPE=Competence	SOURCEPAGE:p.24
 Deep Breath		KEY:Pirate Trick ~ Deep Breath	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You can hold your breath for %1 rounds before you must start making  Constitution checks.|CON*3																																																																																								SOURCEPAGE:p.24
-Drink for Free	KEY:Pirate Trick ~ Drink for Free	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You are admired or feared in the taverns you frequent. You can designate %1 taverns as “favored taverns". When in a favored tavern, you drink for free. In addition, you gain a +2 circumstance bonus on Diplomacy and Intimidate checks within a favored tavern.|CL																																																												SOURCEPAGE:p.24
+Drink for Free	KEY:Pirate Trick ~ Drink for Free	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You are admired or feared in the taverns you frequent. You can designate %1 taverns as "favored taverns". When in a favored tavern, you drink for free. In addition, you gain a +2 circumstance bonus on Diplomacy and Intimidate checks within a favored tavern.|CL																																																												SOURCEPAGE:p.24
 Farseer		KEY:Pirate Trick ~ Farseer		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:Pirates take turns serving as lookouts. You reduce any distance-based penalties on Perception checks by half when you are at least 10 feet off the ground or above the deck of a ship.																																																																									SOURCEPAGE:p.24
 Hand Stab		KEY:Pirate Trick ~ Hand Stab		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You can weaken an opponent's weapon hand by hitting with a sneak attack. When you deals sneak attack damage against an opponent, that opponent becomes easier to disarm. Until the end of your next turn, anyone attempting to disarm that opponent gains a +2 bonus on the disarm attempt.																																																								SOURCEPAGE:p.24
 Quick Appraise	KEY:Pirate Trick ~ Quick Appraise	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.PirateTrick	DESC:You must at times quickly select the most valuable items to spirit away. You can appraises an item as a move action and can determine the most valuable item in a treasure hoard as a standard action.																																																																							SOURCEPAGE:p.24
@@ -70,6 +71,7 @@ Conceal Item	KEY:Rogue Smuggler ~ Conceal Item	CATEGORY:Special Ability	TYPE:Spe
 Distraction		KEY:Rogue Smuggler ~ Distraction	CATEGORY:Special Ability	TYPE:SpecialQuality.RogueEvasion								DESC:You can use patter and body language to deflect searchers from hidden items. You may make a Bluff check opposed by a searcher's Perception check when a searcher looks for items you have concealed. If the your Bluff check succeeds, the searcher must make a second Perception check and take the lower of the two rolls.																																																	SOURCEPAGE:p.23
 
 ###Block: Swashbuckler Finesse and Slashing Grace Support
+# Ability Name									Weapon prof. bonus
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
 

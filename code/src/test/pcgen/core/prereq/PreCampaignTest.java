@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 import org.junit.Test;
 
 /**
- * The Class <code>PreCampaignTest</code> checks the processing
+ * The Class {@code PreCampaignTest} checks the processing
  * of the PRECAMPAIGN tag.
  * 
  * 

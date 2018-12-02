@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
@@ -40,7 +41,7 @@ ALIGN:TN
 RACE:Oma	!PRERACE:1,%
 NAME:Oma
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Perception				RANK:20
+SKILL:Perception	RANK:20
 ABILITY:CATEGORY=FEAT|Awesome Blow
 ABILITY:CATEGORY=FEAT|Critical Focus
 ABILITY:CATEGORY=FEAT|Diehard

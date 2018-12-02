@@ -1,0 +1,512 @@
+###Aldori Swordlord
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																							Modify VAR																																																																			FACT
+CLASS:Aldori Swordlord	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	DEFINE:AldoriSwordlordLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		BONUS:VAR|AldoriSwordlordLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|ASl
+# Class Name			Requirements
+CLASS:Aldori Swordlord	PREABILITY:4,CATEGORY=FEAT,Dazzling Display,Exotic Weapon Proficiency (Aldori Dueling Sword),Weapon Finesse,Weapon Focus (Aldori Dueling Sword)		PRESKILL:4,Acrobatics=3,Intimidate=5,Knowledge (nobility)=3,Sense Motive=3
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Aldori Swordlord	STARTSKILLPTS:2	CSKILL:Acrobatics|Bluff|Diplomacy|Intimidate|Knowledge (nobility)|TYPE=Perform|Sense Motive
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Deft Strike|Aldori Swordlord ~ Quick Draw
+2	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Display Weapon Prowess
+3	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Defensive Parry
+4	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Adaptive Tactics
+5	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Shatter Confidence
+6	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Saving Slash
+7	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Dexterous Duelist
+9	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Greater Saving Slash
+10	ABILITY:Special Ability|AUTOMATIC|Aldori Swordlord ~ Confounding Duelist
+
+###Argent Dramaturge
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																						Modify VAR																																																																		FACT
+CLASS:Argent Dramaturge	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.172	DEFINE:ArgentDramaturgeLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ArgentDramaturgeLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|ArD
+# Class Name			Requirements
+CLASS:Argent Dramaturge	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Perform)	PRESKILL:4,Knowledge (arcana)=2,Knowledge (history)=2,Perform (sing)=6,Spellcraft=6	PRESPELLDESCRIPTOR:1,Language-Dependent=2,Sonic=2
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Argent Dramaturge	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Escape Artist|Fly|Heal|Intimidate|TYPE=Knowledge|Linguistics|TYPE=Perform|Perception|Sense Motive|Spellcraft|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Argent Dramaturge ~ Argent Performance
+2	ABILITY:Special Ability|AUTOMATIC|Argent Dramaturge ~ Dramaturgical Flourish
+###Block: Spell Improvement
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+###Asavir
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																		FACT
+CLASS:Asavir	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.10	DEFINE:AsavirLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		BONUS:VAR|AsavirLVL|CL		BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Asa
+# Class Name		Requirements
+CLASS:Asavir	PREABILITY:1,CATEGORY=FEAT,Mounted Combat		PRETOTALAB:4		PRESKILL:2,Handle Animal=5,Ride=5
+# Class Name		Skill Pts/Lvl		Class Skill
+CLASS:Asavir	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Handle Animal|Intimidate|Knowledge (nature)|Knowledge (religion)|Perception|Ride|Sense Motive|Survival	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|Weapon Prof ~ Simple|Weapon Prof ~ Martial|Armor Prof ~ Light|Armor Prof ~ Medium|Armor Prof ~ Heavy|Shield Prof
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Camaraderie|Asavir ~ Equine Bond
+2	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Shaitan's Blessing|Asavir ~ Thunderous Charge
+3	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Aura of Courage|Asavir ~ Flank Breaker
+4	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Djinni's Blessing|Asavir ~ Controlled Charge
+6	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Marid's Blessing|Asavir ~ Trampling Gallop
+7	ABILITY:Special Ability|AUTOMATIC|Asavir ~ All Eyes on Me
+8	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Efreeti's Blessing
+9	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Inspiring Leader
+10	ABILITY:Special Ability|AUTOMATIC|Asavir ~ Janni's Blessing
+
+###Aspis Agent
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																		FACT
+CLASS:Aspis Agent		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.30	DEFINE:AspisAgentLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|AspisAgentLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Asp
+# Class Name			Requirements
+CLASS:Aspis Agent		PRESKILL:7,Appraise=5,Bluff=5,Craft (traps)=5,Disable Device=5,Intimidate=5,Knowledge(history)=5,Perception=5	PREWEAPONPROF:1,Whip	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trap Sense],[PRESPELL:1,Detect Secret Doors]
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Aspis Agent		STARTSKILLPTS:4	CSKILL:Bluff|Disguise|Knowledge (arcana)|Knowledge (history)|Sense Motive|Sleight of Hand|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Aspis Agent ~ Trap Sense|Aspis Agent ~ Trapfinding
+2	ABILITY:Special Ability|AUTOMATIC|Aspis Agent ~ Agency Secrets|Aspis Agent ~ Mask Alignment
+3	ABILITY:Special Ability|AUTOMATIC|Aspis Agent ~ Ambush Trap|Aspis Agent ~ Sneak Attack
+5	ABILITY:Special Ability|AUTOMATIC|Aspis Agent ~ Crucial Taunt
+7	ABILITY:Special Ability|AUTOMATIC|Aspis Agent ~ Improved Trap Sense
+8	ABILITY:Special Ability|AUTOMATIC|Aspis Agent ~ Remote Activation
+
+###Bellflower Tiller
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																							Modify VAR																																																																			FACT
+CLASS:Bellflower Tiller		NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	DEFINE:BellflowerTillerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|BellflowerTillerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|BfT
+# Class Name				Requirements
+CLASS:Bellflower Tiller		PREALIGN:CG	PREABILITY:2,CATEGORY=FEAT,TYPE=Teamwork	PRESKILL:4,Disguise=5,Knowledge (local)=3,Stealth=5,Survival=5	PREMULT:1,[PREVARGTEQ:SneakAttackDice,2],[PREABILITY:2,CATEGORY=Special Ability,TYPE=Vigilante Talent]
+# Class Name				Skill Pts/Lvl		Class Skill
+CLASS:Bellflower Tiller		STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Escape Artist|Heal|Intimidate|Knowledge (geography)|Knowledge (local)|Perception|Sense Motive|Sleight of Hand|Stealth|Survival
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Bellflower Tiller ~ Bellflower Crop|Bellflower Tiller ~ Swift Sower
+2	ABILITY:Special Ability|AUTOMATIC|Bellflower Tiller ~ Crop Guardian|Bellflower Tiller ~ Scarecrow|Bellflower Tiller ~ Teamwork Feat
+3	ABILITY:Special Ability|AUTOMATIC|Bellflower Tiller ~ Sneak Attack
+5	ABILITY:Special Ability|AUTOMATIC|Bellflower Tiller ~ Favored Barn
+
+###Cyphermage
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																		FACT
+CLASS:Cyphermage		HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.56	DEFINE:CyphermageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|CyphermageLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|CyM
+# Class Name			Requirements
+CLASS:Cyphermage		PREABILITY:2,CATEGORY=FEAT,Cypher Magic,Scribe Scroll	PRELANG:2,Aklo,Draconic,Giant,Shoanti,Thassilonian,Varisian	PRESKILL:3,Knowledge (arcana)=5,Knowledge (history)=5,Linguistics=5	PRESPELLCAST:TYPE=Arcane
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Cyphermage		STARTSKILLPTS:4	CSKILL:Appraise|Climb|Disable Device|Fly|TYPE=Knowledge|Linguistics|Perception|Spellcraft|Survival|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Cyphermage ~ Cypher Lore
+10	ABILITY:Special Ability|AUTOMATIC|Cyphermage ~ Cypherlord
+###Block: Spell Improvement
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+
+###Death Slayer
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																		FACT
+CLASS:Death Slayer	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.152	DEFINE:DeathSlayerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DeathSlayerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|DSl
+# Class Name			Requirements
+CLASS:Death Slayer	PREABILITY:3,CATEGORY=FEAT,Exotic Weapon Proficiency (sawtooth sabre),Great Fortitude,Weapon Focus (sawtooth sabre)	PRESKILL:3,Knowledge (religion)=5,Perception=5,Stealth=5	PRESPELLTYPE:1,Divine=3
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Death Slayer	STARTSKILLPTS:4	CSKILL:Disguise|Escape Artist|Heal|Knowledge (arcana)|Knowledge (local)|Knowledge (nobility)|Knowledge (religion)|Perception|Sense Motive|Spellcraft|Stealth|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Death Slayer ~ Channel Energy|Death Slayer ~ Channel Smite|Death Slayer ~ Gravegaze
+2	ABILITY:Special Ability|AUTOMATIC|Death Slayer ~ Bonus Feats|Death Slayer ~ Favored Enemy
+3	ABILITY:Special Ability|AUTOMATIC|Death Slayer ~ Swift Smite
+4	ABILITY:Special Ability|AUTOMATIC|Death Slayer ~ Infuse Sabre
+6	ABILITY:Special Ability|AUTOMATIC|Death Slayer ~ Deadly Conviction
+8	ABILITY:Special Ability|AUTOMATIC|Death Slayer ~ Undead Bane
+10	ABILITY:Special Ability|AUTOMATIC|Death Slayer ~ Aura of Life
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+###Golden Legionnaire
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																							Modify VAR																																																																	FACT
+CLASS:Golden Legionnaire	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.66	DEFINE:GoldenLegionnaireLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|GoldenLegionnaireLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|GdL
+# Class Name				Requirements
+CLASS:Golden Legionnaire	PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PRETOTALAB:5	PRESKILL:2,Diplomacy=5,Intimidate=5
+# Class Name				Skill Pts/Lvl		Class Skill
+CLASS:Golden Legionnaire	STARTSKILLPTS:2	CSKILL:Climb|Heal|Ride|Survival|Swim		ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|Weapon Prof ~ Simple|Weapon Prof ~ Martial|Armor Prof ~ Heavy|Armor Prof ~ Medium|Armor Prof ~ Light|Shield Prof|Shield Prof ~ Tower
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Authoritative Command|Golden Legionnaire ~ Defy Danger
+2	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Legion Feats|Golden Legionnaire ~ Intercept|Golden Legionnaire ~ United Defense
+3	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Allied Retribution
+4	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Improved Aid
+5	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Hold the Line
+7	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Preemptive Strike
+9	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Retaliate
+10	ABILITY:Special Ability|AUTOMATIC|Golden Legionnaire ~ Guardian of Liberty
+
+###Gray Corsair
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																	FACT
+CLASS:Gray Corsair	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.68	DEFINE:GrayCorsairLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|GrayCorsairLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|GrC
+# Class Name			Requirements
+CLASS:Gray Corsair	PREALIGN:LG,NG,CG,LN,TN,CN	PREABILITY:1,CATEGORY=FEAT,Sea Legs	PRESKILL:3,Acrobatics=5,Profession (sailor)=5,Stealth=5
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Gray Corsair	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Fly|Heal|Intimidate|Knowledge (arcana)|Knowledge (engineering)|Knowledge (geography)|Knowledge (local)|Perception|Profession (sailor)|Sense Motive|Stealth|Spellcraft|Survival|Swim
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Gray Corsair ~ Favored Port|Gray Corsair ~ Gray Focus
+2	ABILITY:Special Ability|AUTOMATIC|Gray Corsair ~ Gray Boon|Gray Corsair ~ Know the Ropes
+3	ABILITY:Special Ability|AUTOMATIC|Gray Corsair ~ Slaver Slayer
+4	ABILITY:Special Ability|AUTOMATIC|Gray Corsair ~ Breathe Easy
+5	ABILITY:Special Ability|AUTOMATIC|Gray Corsair ~ Grim Resolve
+9	ABILITY:Special Ability|AUTOMATIC|Gray Corsair ~ Grant Freedom
+10	ABILITY:Special Ability|AUTOMATIC|Gray Corsair ~ Whisk to Freedom
+
+#Hellknight
+##Taken from ISWG with minimal alterations to avoid potential conflicts
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																				Modify VAR																																																																	FACT
+CLASS:Hellknight	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.278	DEFINE:HellknightLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|HellknightLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HKn
+# Class Name	Required Ability							Required AL		Required Skill						Required Text														PRETOTALAB
+CLASS:Hellknight	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PREALIGN:LG,LN,LE	PRESKILL:2,Intimidate=5,Knowledge (Planes)=2	PRETEXT:Must slay a devil with HD greater than your own. This must be witnessed by a Hellknight	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hellknight	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Local)|Perception|Ride|Sense Motive
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Law|Detect Chaos ~ HK|Smite Chaos ~ HK									BONUS:ABILITYPOOL|Hellknight Order|1		BONUS:VAR|AlignmentAuraLVL|HellknightLVL	BONUS:VAR|HKSmiteTimes|(CL+2)/3
+2	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ HK|PREVARGT:3+CHA,0	ABILITY:Special Ability|AUTOMATIC|Hellknight Armor ~ HK									BONUS:VAR|HellknightArmorLVL|CL
+3	ABILITY:Special Ability|AUTOMATIC|Discipline ~ HK|Force of Will ~ HK											BONUS:ABILITYPOOL|Hellknight Force of Will 1|1	BONUS:VAR|HKDiscipline|CL/3			BONUS:VAR|HKForceOfWill|CL/3
+6																							BONUS:ABILITYPOOL|Hellknight Force of Will 2|1
+7	ABILITY:Special Ability|AUTOMATIC|Lawbringer ~ HK
+9	ABILITY:Special Ability|AUTOMATIC|Infernal Armor ~ HK														BONUS:ABILITYPOOL|Hellknight Force of Will 3|1
+10	ABILITY:Special Ability|AUTOMATIC|Hell's Knight ~ HK
+
+###Hellknight Signifer
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page		Define						Combat bonus																		Save bonus																						Modify VAR																																																																			FACT
+CLASS:Hellknight Signifer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.92	DEFINE:HellknightSigniferLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|HellknightSigniferLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HkS
+# Class Name				Requirements
+CLASS:Hellknight Signifer	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)	PREABILITY:1,CATEGORY=FEAT,Armor Training,Warrior Priest	PRESKILL:3,Intimidate=2,Knowledge (planes)=5,Spellcraft=5	PRESPELLTYPE:1,ANY=3
+# Class Name				Skill Pts/Lvl		Class Skill
+CLASS:Hellknight Signifer	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Linguistics|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Law|Hellknight Signifer ~ Catechesis|Hellknight Signifer ~ Signifer Mask	BONUS:ABILITYPOOL|Hellknight Order|1		BONUS:VAR|AlignmentAuraLVL|HellknightSigniferLVL
+2	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Arcane Armor Expertise
+3	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Signifer Armor Training
+4	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Assiduous Gaze
+6	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ HK|PREVARGT:3+CHA,0
+9	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Infernal Resilience
+10	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Diabolic Harbinger
+###Block: Spell Improvement
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+###Lantern Bearer
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																		FACT
+CLASS:Lantern Bearer	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.110	DEFINE:LanternBearerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|LanternBearerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|LnB
+# Class Name			Requirements
+CLASS:Lantern Bearer	PREALIGN:LG,NG,CG	PRESKILL:3,Knowledge (dungeoneering)=5,Knowledge (nature)=2,Survival=5	PREWEAPONPROF:2,Longbow,TYPE.Martial
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Lantern Bearer	STARTSKILLPTS:4	CSKILL:Heal|Knowledge (dungeoneering)|Knowledge (nature)|Knowledge (planes)|Perception|Stealth|Survival
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Lantern Arcana|Lantern Bearer ~ Luminous Potency	BONUS:VAR|LanternArcanaCount|1
+2	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Favored Enemy|Lantern Bearer ~ Bitter Armament
+3	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Superior Discernment	BONUS:VAR|LanternArcanaCount|1
+4	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Unbounded Stride
+5	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Proven Weapon Familiarity	BONUS:VAR|LanternArcanaCount|1
+6	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Celestial Weaponry
+7	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Fade from Sight	BONUS:VAR|LanternArcanaCount|1
+9	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Aiudara Alignment	BONUS:VAR|LanternArcanaCount|1
+10	ABILITY:Special Ability|AUTOMATIC|Lantern Bearer ~ Bringer of Brightness
+
+###Magaambyan Arcanist
+# Class Name				Product Identity?	Hit Dice	Type			Max Level	Source Page		Define						Combat bonus																		Save bonus																						Modify VAR																																																																		FACT
+CLASS:Magaambyan Arcanist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.118	DEFINE:MagaambyanArcanistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MagaambyanArcanistLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MbA
+# Class Name				Requirements
+CLASS:Magaambyan Arcanist	PREALIGN:LG,NG,CG	PREABILITY:2,CATEGORY=FEAT,Scholar,Spell Mastery	PRESKILL:3,Spellcraft=5,Knowledge (arcana)=5,Knowledge (nature)=5	PRESPELLTYPE:1,Arcane=3	PRESPELLCAST:MEMORIZE=Y
+# Class Name				Skill Pts/Lvl		Class Skill
+CLASS:Magaambyan Arcanist	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|TYPE=Knowledge|Ride|Spellcraft|Survival
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Good|Magaambyan Arcanist ~ Halcyon Magic
+2	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Superior Spell Mastery|Magaambyan Arcanist ~ Virtuous Spells
+3	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Intoned Recollection|Magaambyan Arcanist ~ Lasting Goodness
+4	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Spontaneous Spell Mastery
+5	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Blessed Warding
+6	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Immediate Spell Mastery
+7	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Righteous Contravention
+9	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Holy Arcana
+10	ABILITY:Special Ability|AUTOMATIC|Magaambyan Arcanist ~ Altruistic Guardian|Timeless Body
+###Block: Spell Improvement
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+
+###Mammoth Rider
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
+CLASS:Mammoth Rider	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.128	DEFINE:MammothRiderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC"))/3	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+2)/2		BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MammothRiderLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Mam
+# Class Name			Requirements
+CLASS:Mammoth Rider	PRETOTALAB:6	PRESKILL:3,Handle Animal=9,Ride=9,Survival=5	PREVARGTEQ:AnimalCompanionLVL,6
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Mammoth Rider	CSKILL:Handle Animal|Heal|Intimidate|Ride|Survival	STARTSKILLPTS:4
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Steed|Mammoth Rider ~ Gigantic Steed|Mammoth Rider ~ Wild Coercion
+2	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Born Survivor|Mammoth Rider ~ Colossus Hunter
+3	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Rapid Straddle|Mammoth Rider ~ Rugged Steed
+4	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Mistrust of Magic|Mammoth Rider ~ Undaunted
+5	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Valiant Devotion
+6	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Hunter's Instinct
+7	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Steed's Reach
+8	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Combined Might
+9	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Pulverizing Assault
+10	ABILITY:Special Ability|AUTOMATIC|Mammoth Rider ~ Mammoth Lord
+
+###Pathfinder Delver
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																		Save bonus																																			Modify VAR																																																																	FACT
+CLASS:Pathfinder Delver	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.138	DEFINE:PaDLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PaDLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|PaD
+# Class Name			Requirements
+CLASS:Pathfinder Delver	PRESKILL:4,Acrobatics=5,Disable Device=4,Knowledge (History)=4,Perception=5
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Pathfinder Delver	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Survival|Swim|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Knowledge|Pathfinder Delver ~ Master Explorer				BONUS:VAR|BardicKnowledgeLVL|CL	BONUS:VAR|PaDSkillBonus|max(1,CL/2)
+2	ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Surefooted|Rogue ~ Trap Sense						BONUS:VAR|RogueTrapSenseLVL|CL+1
+3	ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Guardbreaker|Pathfinder Delver ~ Thrilling Escape		BONUS:VAR|PaDEscapeTimes|1
+4	ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Resourceful Disabler|Pathfinder Delver ~ Vigilant Combatant	BONUS:VAR|PaDInitiative|CL/2
+5	ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Left for Dead
+6	ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Fortunate Soul								BONUS:VAR|PaDFortunateTimes|1
+7																				BONUS:VAR|PaDEscapeTimes|1
+9	ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ True Seeing									BONUS:VAR|PaDEscapeTimes|1
+10	ABILITY:Special Ability|AUTOMATIC|Pathfinder Delver ~ Nick of Time								BONUS:VAR|PaDFortunateTimes|1
+
+###Pathfinder Savant
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																FACT
+CLASS:Pathfinder Savant	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.60	DEFINE:PaSLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PaSLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|PaS
+# Class Name			Requirements
+CLASS:Pathfinder Savant	PREABILITY:1,CATEGORY=FEAT,Magical Aptitude	PREABILITY:1,CATEGORY=FEAT,TYPE=ItemCreation	PRESKILL:3,Knowledge (Arcana)=5,Spellcraft=5,Use Magic Device=5	PRESPELLTYPE:1,Arcane=2,Divine=2
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Pathfinder Savant	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Knowledge|Linguistics|Perception|Spellcraft|Survival|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Adept Activation|Pathfinder Savant ~ Master Scholar		BONUS:VAR|PaSSkillBonus|max(1,CL/2)
+2	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Esoteric Magic|Pathfinder Savant ~ Glyph Finding		BONUS:VAR|PaSEsotericSpells|CL-1
+3	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Scroll Master
+4	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Quick Identification							BONUS:VAR|PaSIdentifyTimes|CL/2
+5	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Sigil Master								BONUS:VAR|PaSSaveBonus|CL
+6	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Analyze Dweomer|Pathfinder Savant ~ Silence Master		BONUS:VAR|PaSAnalyzeDuration|CL
+7	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Dispelling Master
+8	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Symbol Master
+9	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Spellcasting Master							BONUS:VAR|PaSSpellcastingMasterRounds|max(INT,WIS,CHA)
+10	ABILITY:Special Ability|AUTOMATIC|Pathfinder Savant ~ Item Master
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																				Modify VAR																																																																		FACT
+CLASS:Red Mantis Assassin	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.282	DEFINE:RedMantisAssassinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RedMantisLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RMA	FACT:SpellType|Arcane
+# Class Name			Required Ability																				Required AL	Required Skill
+CLASS:Red Mantis Assassin	PREABILITY:4,CATEGORY=FEAT,Alertness,Exotic Weapon Proficiency (Sawtooth Sabre),Two-Weapon Fighting,Weapon Focus (Sawtooth Sabre)	PREALIGN:LE	PRESKILL:3,Intimidate=5,Perception=5,Stealth=5
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Red Mantis Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|Disguise|Escape Artist|Heal|Intimidate|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility)|Knowledge (Religion)|Perception|Sense Motive|Stealth
+# Class Name			Spell Stat		Memorize	Spell Scoll Prohibited										Caster level					Use Spell List
+CLASS:Red Mantis Assassin	SPELLSTAT:CHA	MEMORIZE:NO	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|Caster_Level_RedMantisAssassin	SPELLLIST:2|Sorcerer|Wizard		DEFINE:Caster_Level_RedMantisAssassin|0	DEFINE:CasterLevelBLRedMantisAssassin|0	DEFINE:Caster_Level_BL_Stripped_RedMantisAssassin|0	BONUS:VAR|Caster_Level_BL_Stripped_RedMantisAssassin|Caster_Level_RedMantisAssassin-CasterLevelBLRedMantisAssassin	BONUS:VAR|Caster_Level_RedMantisAssassin|RedMantisAssassinLVL+Caster_Level_Bonus+CasterLevelBLRedMantisAssassin	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_RedMantisAssassin|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_RedMantisAssassin
+###Block: Weapon & Armor Proficiencies
+1	ABILITY:Class Feature|AUTOMATIC|RMA Weapon Proficiencies
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfMartial
+###Block: Level Progression
+1	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SabreFightingLvl|CL	ABILITY:Special Ability|AUTOMATIC|Armored Casting ~ RMA|Sabre Fighting|Sneak Attack
+2											ABILITY:Special Ability|AUTOMATIC|Prayer Attack|RMA Bonus Spells
+3											ABILITY:Special Ability|AUTOMATIC|Red Shroud
+4	BONUS:VAR|SneakAttackDice|1						ABILITY:Special Ability|AUTOMATIC|Summon Mantis
+5	BONUS:VAR|SabreFighting|1						ABILITY:Special Ability|AUTOMATIC|Resurrection Sense
+6											ABILITY:Special Ability|AUTOMATIC|Mantis Form|PREVARLT:RedMantisAssassinLvl,8
+7	BONUS:VAR|SneakAttackDice|1
+8											ABILITY:Special Ability|AUTOMATIC|Fading	ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|PREVARLT:RedMantisAssassinLvl,10
+9											ABILITY:Special Ability|AUTOMATIC|Mantis Doom
+10	BONUS:VAR|SneakAttackDice|1						ABILITY:Special Ability|AUTOMATIC|Death Mantis Form
+###Block: Spells
+1	CAST:0,1		KNOWN:0,2
+2	CAST:0,2		KNOWN:0,3
+3	CAST:0,3		KNOWN:0,4
+4	CAST:0,3,1		KNOWN:0,4,2
+5	CAST:0,4,2		KNOWN:0,4,3
+6	CAST:0,4,3		KNOWN:0,4,4
+7	CAST:0,4,3,1	KNOWN:0,5,4,2
+8	CAST:0,4,4,2	KNOWN:0,5,4,3
+9	CAST:0,5,4,3	KNOWN:0,5,4,4
+10	CAST:0,5,4,3,1	KNOWN:0,5,5,4,2
+
+###Rivethun Emissary
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																						Modify VAR																																																																			FACT
+CLASS:Rivethun Emissary	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.164	DEFINE:RivethunEmissaryLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RivethunEmissaryLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RtE
+# Class Name			Requirements
+CLASS:Rivethun Emissary	PREABILITY:2,CATEGORY=FEAT,Iron Will,Spirit Beacon	PRESKILL:2,Diplomacy=5,Knowledge (religion)=5	PREVARGTEQ:FamiliarMasterLVL,1
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Rivethun Emissary	STARTSKILLPTS:4	CSKILL:Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (nature)|Knowledge (planes)|Knowledge (religion)|Sense Motive|Spellcraft|Survival
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Rivethun Emissary ~ Spirit Animal|Rivethun Emissary ~ Spirit Bond|Rivethun Emissary ~ Sixth Sense
+2	ABILITY:Special Ability|AUTOMATIC|Rivethun Emissary ~ Animus
+3	ABILITY:Special Ability|AUTOMATIC|Rivethun Emissary ~ Manifest Will
+5	ABILITY:Special Ability|AUTOMATIC|Rivethun Emissary ~ Parley|Rivethun Emissary ~ Spirit Conduit
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+###Sanguine Angel
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
+CLASS:Sanguine Angel	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.80	DEFINE:SanguineAngelLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SanguineAngelLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SaA
+# Class Name			Requirements
+CLASS:Sanguine Angel	PREALIGN:LE,LN,NE	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PRETOTALAB:5	PREABILITY:3,CATEGORY=FEAT,Improved Shield Bash,Iron Will,Weapon Focus (longsword)	PREGENDER:Female	PRELANG:1,Infernal
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Sanguine Angel	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Diplomacy|Fly|Intimidate|Knowledge (local)|Knowledge (nobility)|Perception|Sense Motive
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Sanguine Angel ~ Hardened Heart|Sanguine Angel ~ Maiden's Shield
+2	ABILITY:Special Ability|AUTOMATIC|Sanguine Angel ~ Tyrant's Discipline
+3	ABILITY:Special Ability|AUTOMATIC|Sanguine Angel ~ Armored Angel
+5	ABILITY:Special Ability|AUTOMATIC|Sanguine Angel ~ Eye of Mahathallah
+7	ABILITY:Special Ability|AUTOMATIC|Sanguine Angel ~ Mystique of Ardad Lili
+9	ABILITY:Special Ability|AUTOMATIC|Sanguine Angel ~ Hollowness of Doloras
+10	ABILITY:Special Ability|AUTOMATIC|Sanguine Angel ~ Angel of Eiseth
+
+###Steel Falcon
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
+CLASS:Steel Falcon	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.70	DEFINE:SteelFalconLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SteelFalconLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|StF
+# Class Name			Requirements
+CLASS:Steel Falcon	PREALIGN:LG,NG,CG,LN,TN,CN	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:4,Diplomacy=5,Knowledge (history)=2,Knowledge (local)=2,Sense Motive=5
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Steel Falcon	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (history)|Knowledge (local)|Knowledge (nobility)|Linguistics|Perception|Sense Motive|Stealth|Survival|Swim
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Enemy of Slavers|Steel Falcon ~ Heart of Freedom|Steel Falcon ~ Sailor and Survivalist
+2	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Luck of the Eagle
+3	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Heroic Speech|Steel Falcon ~ Natural Traps
+4	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Comrade's Bond|Steel Falcon ~ Superior Aid
+5	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Subtle Manipulator|Steel Falcon ~ Talmandor's Blessing
+6	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Chainbreaker
+8	ABILITY:Special Ability|AUTOMATIC|Steel Falcon ~ Talmandor's Fury
+
+###Storm Kindler
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																		FACT
+CLASS:Storm Kindler	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.180	DEFINE:StormKindlerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|StormKindlerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SKr
+# Class Name			Requirements
+CLASS:Storm Kindler	PREALIGN:NG,LN,TN,CN,NE	PREDEITY:1,Gozreh	PREABILITY:1,CATEGORY=FEAT,Storm-Lashed	PRESKILL:4,Fly=3,Knowledge (history)=6,Knowledge (nature)=6,Swim=3	PRESPELLTYPE:1,ANY=2
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Storm Kindler	STARTSKILLPTS:4	CSKILL:Fly|Knowledge (history)|Knowledge (nature)|Knowledge (religion)|Perception|Survival|Swim
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Oceanic Spirit
+2	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Seasight
+2	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Storm Shape
+3	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Aura of Calm
+4	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Wave Breaker
+5	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Thunderstruck
+6	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Weather's Fury
+7	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Eye of the Storm
+8	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Fickle Winds
+9	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Echoing Thunder
+10	ABILITY:Special Ability|AUTOMATIC|Storm Kindler ~ Storm Mastery
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+###Student of War
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define		Combat bonus																Save bonus																																				Modify VAR																																																																FACT
+CLASS:Student of War	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.142	DEFINE:SoWLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SoWLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SoW
+# Class Name		Requirements
+CLASS:Student of War	PRETOTALAB:5	PREABILITY:2,CATEGORY=FEAT,Combat Expertise,Dodge	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge%)	PRESKILL:2,TYPE.Knowledge=4	PREWEAPONPROF:2,TYPE.Martial,TYPE.Martial
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Student of War	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Disable Device|Handle Animal|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Sense Motive|Spellcraft|Survival|Swim
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Stances ~ SoW|Student of War ~ Know Your Enemy|Student of War ~ Additional Skill	BONUS:VAR|SoWKnowEnemy|1	BONUS:VAR|SoWDuration|CL
+2	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Mind Over Metal									BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+3	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Anticipate|Student of War ~ Additional Skill					BONUS:VAR|SoWAnticipateTimes|CL/3
+4																					BONUS:VAR|SoWKnowEnemy|1
+5	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Additional Skill									BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+6	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Telling Blow
+7	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Additional Skill									BONUS:VAR|SoWKnowEnemy|1
+8																					BONUS:ABILITYPOOL|Fighter Bonus Feat|1
+9	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Nemesis|Student of War ~ Additional Skill
+10	ABILITY:Special Ability|AUTOMATIC|Student of War ~ Deadly Blow
+
+###Twilight Talon
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																						Modify VAR																																																																		FACT
+CLASS:Twilight Talon	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.72	DEFINE:TwilightTalonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|TwilightTalonLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|TwT
+# Class Name			Requirements
+CLASS:Twilight Talon	PREALIGN:LG,NG,CG,LN,TN,CN	PREABILITY:2,CATEGORY=FEAT,Catch Off-Guard,Twilight Tattoo	PRESKILL:5,Bluff=5,Disguise=5,Knowledge (local)=2,Linguistics=2,Stealth=5
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Twilight Talon	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (geography)|Knowledge (local)|Knowledge (nobility)|Knowledge (religion)|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Survival
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Twilight Talon ~ Many Hats|Twilight Talon ~ Sneak Attack
+2	ABILITY:Special Ability|AUTOMATIC|Twilight Talon ~ Enhanced Tattoo|Twilight Talon ~ Resourceful Agent
+3	ABILITY:Special Ability|AUTOMATIC|Twilight Talon ~ Eye for Detail
+5	ABILITY:Special Ability|AUTOMATIC|Twilight Talon ~ Dead Drop
+6	ABILITY:Special Ability|AUTOMATIC|Twilight Talon ~ Unassuming Presence
+
+###Westcrown Devil
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																		FACT
+CLASS:Westcrown Devil	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.48	DEFINE:WestcrownDevilLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WestcrownDevilLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1FACT:ClassType|PC	FACT:Abb|WcD
+# Class Name			Requirements
+CLASS:Westcrown Devil	PREALIGN:NG,CG,TN,CN,NE,CE	PREABILITY:1,CATEGORY=FEAT,Weapon Finesse	PREABILITY:1,CATEGORY=FEAT,Alertness,Athletic,Deceitful,Deft Hands,Magical Aptitude,Persuasive,Stealthy	!PREDEITY:1,Norgorber	PRESKILL:1,Knowledge (local)=5	PRESKILL:3,Acrobatics=5,Bluff=5,Climb=5,Disable Device=5,Knowledge (history)=5,Knowledge (nobility)=5,Sense Motive=5,Sleight of Hand=5,Stealth=5,Use Magic Device=5
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Westcrown Devil	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (arcana)|Knowledge (history)|Knowledge (local)|Knowledge (nobility)|Linguistics|Perception|TYPE=Perform|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Swim|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Classically Trained|Westcrown Devil ~ Founders' Favor|Westcrown Devil ~ Eye of Vadrus
+2	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Council's Secret
+3	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Crucisal's Guidance|Westcrown Devil ~ Sneak Attack
+5	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Adel's Craftsmanship
+7	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Rixana's Bounty
+8	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Palmor's Recovery
+9	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Dotara's Shroud
+10	ABILITY:Special Ability|AUTOMATIC|Westcrown Devil ~ Arodennama's Avatar
+
+###Block: Wizard ~ Thassilonian Specialist
+# Class Name
+CLASS:Wizard.MOD
+SUBCLASS:Envy	COST:0	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Envy (Abjuration) School		PREVAREQ:Wizard_CF_ArcaneSchool,0
+SUBCLASS:Gluttony	COST:0	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Gluttony (Necromancy) School	PREVAREQ:Wizard_CF_ArcaneSchool,0
+SUBCLASS:Greed	COST:0	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Greed (Transmutation) School	PREVAREQ:Wizard_CF_ArcaneSchool,0
+SUBCLASS:Lust	COST:0	CHOICE:SCHOOL|Enchantment	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Lust (Enchantment) School		PREVAREQ:Wizard_CF_ArcaneSchool,0
+SUBCLASS:Pride	COST:0	CHOICE:SCHOOL|Illusion		KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Pride (Illusion) School		PREVAREQ:Wizard_CF_ArcaneSchool,0
+SUBCLASS:Sloth	COST:0	CHOICE:SCHOOL|Conjuration	KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Sloth (Conjuration) School		PREVAREQ:Wizard_CF_ArcaneSchool,0
+SUBCLASS:Wrath	COST:0	CHOICE:SCHOOL|Evocation		KNOWNSPELLSFROMSPECIALTY:2
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-2	ABILITY:Wizard Class Feature|AUTOMATIC|Wrath (Evocation) School		PREVAREQ:Wizard_CF_ArcaneSchool,0
+1	PROHIBITSPELL:SCHOOL.Abjuration|PREMULT:1,[PRESUBCLASS:1,Gluttony,Wrath],[PREABILITY:1,CATEGORY=Special Ability,Gluttony (Necromancy) School,Wrath (Evocation) School]
+1	PROHIBITSPELL:SCHOOL.Conjuration|PREMULT:1,[PRESUBCLASS:1,Pride,Wrath],[PREABILITY:1,CATEGORY=Special Ability,Pride (Illusion) School,Wrath (Evocation) School]
+1	PROHIBITSPELL:SCHOOL.Enchantment|PREMULT:1,[PRESUBCLASS:1,Gluttony,Greed],[PREABILITY:1,CATEGORY=Special Ability,Gluttony (Necromancy) School,Greed (Transmutation) School]
+1	PROHIBITSPELL:SCHOOL.Evocation|PREMULT:1,[PRESUBCLASS:1,Envy,Sloth],[PREABILITY:1,CATEGORY=Special Ability,Envy (Abjuration) School,Sloth (Conjuration) School]
+1	PROHIBITSPELL:SCHOOL.Illusion|PREMULT:1,[PRESUBCLASS:1,Greed,Sloth],[PREABILITY:1,CATEGORY=Special Ability,Greed (Transmutation) School,Sloth (Conjuration) School]
+1	PROHIBITSPELL:SCHOOL.Necromancy|PREMULT:1,[PRESUBCLASS:1,Envy,Lust],[PREABILITY:1,CATEGORY=Special Ability,Envy (Abjuration) School,Lust (Enchantment) School]
+1	PROHIBITSPELL:SCHOOL.Transmutation|PREMULT:1,[PRESUBCLASS:1,Lust,Pride],[PREABILITY:1,CATEGORY=Special Ability,Lust (Enchantment) School,Pride (Illusion) School]

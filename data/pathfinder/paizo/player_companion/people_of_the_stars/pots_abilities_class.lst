@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Class Archetype
@@ -40,7 +41,7 @@ It Came From Beyond	KEY:Dark Tapestry Subdomain ~ It Came From Beyond	CATEGORY:S
 The Stars Are Right	KEY:Stars Subdomain ~ The Stars Are Right			CATEGORY:Special Ability	TYPE:SpecialQuality.DomainPower	DESC:If you prepare your cleric spells while the stars are visible to you, you may spontaneously cast any of your Stars subdomain domain spells by swapping out a spell of an equal spell level. Any Stars subdomain spells that you cast while the stars are visible to you heal you of damage equal to the spell's level as you cast the spell. This ability replaces the part the veil ability of the Void domain.
 
 ###Block: Trait ~ Outer Dragon Blood Sorcerer Draconic Bloodline additions
-# Ability Name	Unique Key	Category of Ability				Type						Required Ability									Define					Modify VAR
+# Ability Name	Unique Key						Category of Ability		Type							Required Ability									Define					Modify VAR
 Lunar			KEY:Draconic Bloodline Choice ~ Lunar	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Lunar|0	BONUS:VAR|DraconicBloodline_BW_Line|1	BONUS:VAR|DraconicBloodline_Cold|1	BONUS:VAR|DraconicBloodline_Lunar|1
 Solar			KEY:Draconic Bloodline Choice ~ Solar	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Solar|0	BONUS:VAR|DraconicBloodline_BW_Line|1	BONUS:VAR|DraconicBloodline_Fire|1	BONUS:VAR|DraconicBloodline_Solar|1
 Time			KEY:Draconic Bloodline Choice ~ Time	CATEGORY:Special Ability	TYPE:Sorcerer Draconic Bloodline Choice	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Outer Dragon Blood	DEFINE:DraconicBloodline_Time|0	BONUS:VAR|DraconicBloodline_BW_Cone|1	BONUS:VAR|DraconicBloodline_Electricity|1	BONUS:VAR|DraconicBloodline_Time|1

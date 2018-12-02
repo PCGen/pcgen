@@ -25,6 +25,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1346,7 +1347,7 @@ public final class PCGVer2Creator
 
 		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
 
-		categories.sort((a, b) -> a.getKeyName().compareTo(b.getKeyName()));
+		categories.sort(Comparator.comparing(AbilityCategory::getKeyName));
 
 		for (final AbilityCategory cat : categories)
 		{
@@ -1491,7 +1492,7 @@ public final class PCGVer2Creator
 	private void appendGenderLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_GENDER).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getGenderObject().name()));
+		buffer.append(EntityEncoder.encode(thePC.getGenderObject().name()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2016-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
@@ -16,35 +16,65 @@
 package pcgen.cdom.inst;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.VarContainer;
+import pcgen.cdom.base.VarHolder;
+import pcgen.cdom.content.RemoteModifier;
+import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.formula.PCGenScoped;
 
 /**
- * A Dynamic is an object where the type of object is defined in the data (e.g.
- * "DYNAMICSCOPE:MOVEMENT").
+ * A Dynamic is an object designed to behave as defined by the Data, rather than having
+ * hard-coded behaviors in the PCGen core.
+ * 
+ * By having almost no information hard-coded, this class produces a very flexible
+ * framework for use in a data driven system.
  */
-public class Dynamic implements PCGenScoped, Categorized<Dynamic>
+public class Dynamic
+		implements Loadable, VarHolder, VarContainer, PCGenScoped, Categorized<Dynamic>
 {
 
 	/**
-	 * The URI in which the Dynamic object was defined.
+	 * The source URI for this Dynamic (where it was first created).
 	 */
 	private URI sourceURI;
 
 	/**
-	 * The name of this Dynamic object.
+	 * The Category of the Dynamic.
+	 * 
+	 * This is the actual type of the dynamic object as the data wishes to refer to that
+	 * object. This would be a peer to "SKILL" or "SPELL" for the hard-coded objects.
+	 */
+	private Category<Dynamic> category;
+
+	/**
+	 * The name of this Dynamic.
+	 * 
+	 * This is effectively the key for the Dynamic.
 	 */
 	private String name;
 
 	/**
-	 * The Category for this Dynamic object... This is the scope of the object.
+	 * The lazily-instantiated List of (local) VarModifier objects for this Dynamic.
 	 */
-	private Category<Dynamic> category;
+	private List<VarModifier<?>> modifiers;
+
+	/**
+	 * The lazily-instantiated List of RemoteModifier objects for this Dynamic.
+	 */
+	private List<RemoteModifier<?>> remoteModifiers;
+
+	/**
+	 * The lazily-instantiated List of granted variable objects for this Dynamic.
+	 */
+	private List<String> grantedVars;
 
 	@Override
 	public URI getSourceURI()
@@ -134,5 +164,56 @@ public class Dynamic implements PCGenScoped, Categorized<Dynamic>
 	public String toString()
 	{
 		return category.getDisplayName() + ":" + name;
+	}
+
+	@Override
+	public void addModifier(VarModifier<?> vm)
+	{
+		if (modifiers == null)
+		{
+			modifiers = new ArrayList<>();
+		}
+		modifiers.add(vm);
+	}
+
+	@Override
+	public VarModifier<?>[] getModifierArray()
+	{
+		return (modifiers == null) ? VarModifier.EMPTY_VARMODIFIER
+			: modifiers.toArray(new VarModifier[modifiers.size()]);
+	}
+
+	@Override
+	public void addRemoteModifier(RemoteModifier<?> vm)
+	{
+		if (remoteModifiers == null)
+		{
+			remoteModifiers = new ArrayList<>();
+		}
+		remoteModifiers.add(vm);
+	}
+
+	@Override
+	public RemoteModifier<?>[] getRemoteModifierArray()
+	{
+		return (remoteModifiers == null) ? RemoteModifier.EMPTY_REMOTEMODIFIER
+			: remoteModifiers.toArray(new RemoteModifier[remoteModifiers.size()]);
+	}
+
+	@Override
+	public void addGrantedVariable(String variableName)
+	{
+		if (grantedVars == null)
+		{
+			grantedVars = new ArrayList<>();
+		}
+		grantedVars.add(variableName);
+	}
+
+	@Override
+	public String[] getGrantedVariableArray()
+	{
+		return (grantedVars == null) ? new String[0]
+			: grantedVars.toArray(new String[grantedVars.size()]);
 	}
 }

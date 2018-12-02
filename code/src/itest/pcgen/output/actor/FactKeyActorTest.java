@@ -22,38 +22,32 @@ import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.facet.CDOMWrapperInfoFacet;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.model.DeityFacet;
-import pcgen.core.Deity;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 public class FactKeyActorTest extends AbstractOutputTestCase
 {
 
-	private static final DeityFacet DF = new DeityFacet();
+	private static final RaceFacet DF = new RaceFacet();
 
 	private static boolean classSetUpRun = false;
 
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
-	private void classSetUp()
+	@BeforeClass
+	public static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
 	}
 
+	@Test
 	public void testFactKeyActor()
 	{
-		Deity d = new Deity();
+		Race d = new Race();
 		d.setName("Bob");
 		Integer expectedResult = 475;
 		DF.set(id, d);
@@ -64,9 +58,10 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 		CDOMWrapperInfoFacet wiFacet =
 				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		wiFacet.set(dsid, d.getClass(), "cost", ika);
-		processThroughFreeMarker("${deity.cost}", expectedResult.toString());
+		processThroughFreeMarker("${race.cost}", expectedResult.toString());
 	}
 
+	@Test
 	public void testListKeyActorMissingSafe()
 	{
 		NumberManager mgr = new NumberManager();
@@ -74,7 +69,7 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 		FactKeyActor<?> ika = new FactKeyActor<>(fk);
 		CDOMWrapperInfoFacet wiFacet =
 				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
-		wiFacet.set(dsid, Deity.class, "cost", ika);
-		processThroughFreeMarker("${deity.cost!}", "");
+		wiFacet.set(dsid, Race.class, "cost", ika);
+		processThroughFreeMarker("${race.cost!}", "");
 	}
 }

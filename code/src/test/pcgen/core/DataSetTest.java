@@ -19,20 +19,20 @@ package pcgen.core;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
+import junit.framework.TestCase;
+
 /**
- * The Class <code>DataSetTest</code> check that the Dataset class is functioning 
+ * The Class {@code DataSetTest} check that the Dataset class is functioning
  * correctly.
  *
  * <br/>
@@ -56,7 +56,7 @@ public class DataSetTest extends TestCase
 	public final void getEquipmentLocationsDefaultOnly()
 	{
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
-		ListFacade<BodyStructureFacade> locations = dataset.getEquipmentLocations();
+		ListFacade<BodyStructure> locations = dataset.getEquipmentLocations();
 		assertNotNull("Body Structure should not be null", locations);
 		assertTrue("Expected to find Equipped",
 			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
@@ -78,7 +78,7 @@ public class DataSetTest extends TestCase
 		DataSet dataset =
 				new DataSet(Globals.getContext(), SettingsHandler.getGame(),
 						new DefaultListFacade<>());
-		ListFacade<BodyStructureFacade> locations =
+		ListFacade<BodyStructure> locations =
 				dataset.getEquipmentLocations();
 		assertNotNull("Body Structure should not be null", locations);
 		// TODO i18n this. It should be the same value as structname, not the localized value.
@@ -137,10 +137,10 @@ public class DataSetTest extends TestCase
 	 * @param name 
 	 */
 	private boolean checkBodyStructurePresent(
-		ListFacade<BodyStructureFacade> locations, String name)
+		ListFacade<BodyStructure> locations, String name)
 	{
 		boolean foundRec = false;
-		for (BodyStructureFacade equipmentLocFacade : locations)
+		for (BodyStructure equipmentLocFacade : locations)
 		{
 			if (equipmentLocFacade.toString().equals(name))
 			{

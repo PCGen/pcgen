@@ -59,7 +59,8 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject
-		implements Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder
+		implements Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder,
+		VarContainer
 {
 
 	/**
@@ -1182,9 +1183,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		return getSafe(ObjectKey.INTERNAL);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{
@@ -1341,5 +1339,16 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	{
 		//none by default
 		return null;
+	}
+
+	/**
+	 * Indicates if this is the "UNSELECTED" item an object type for the loaded GameMode.
+	 * 
+	 * @return true if this is the "Unselected" item; false otherwise
+	 */
+	public final boolean isUnselected()
+	{
+		return getSafeListFor(ListKey.GROUP).stream()
+			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
 	}
 }

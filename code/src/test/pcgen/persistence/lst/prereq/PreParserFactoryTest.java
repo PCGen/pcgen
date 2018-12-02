@@ -20,9 +20,6 @@ package pcgen.persistence.lst.prereq;
 
 import java.util.Locale;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
@@ -32,22 +29,6 @@ import pcgen.persistence.PersistenceLayerException;
 @SuppressWarnings("nls")
 public class PreParserFactoryTest extends AbstractCharacterTestCase
 {
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreParserFactoryTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreParserFactoryTest.class);
-	}
-
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

@@ -17,12 +17,12 @@ Pact Worlds serum (Eox Deliquesce)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1
 Pact Worlds serum (Idari Gold)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+3 insight bonus to Acrobatics and Sense Motive checks.
 Pact Worlds serum (Triaxus Dragonsight)	TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Perception checks, and you can ignore concealment caused by dim light.
 Pact Worlds serum (Verces Gleam)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+3 insight bonus to Athletics checks.
-Encryption tattoo (operative)			TYPE:Magic.Tattoo				COST:8900			SOURCEPAGE:p.201					QUALITY:Level|8	QUALITY:Bulk|-	SPROP:1/day gain DR 5/— for up to one minute.
+Encryption tattoo (operative)			TYPE:Magic.Tattoo				COST:8900			SOURCEPAGE:p.201					QUALITY:Level|8	QUALITY:Bulk|-	SPROP:1/day gain DR 5/- for up to one minute.
 Ratfolk belt					TYPE:Magic.Belt.WornMagic		COST:12250			SOURCEPAGE:p.201					QUALITY:Level|9	QUALITY:Bulk|-
 Aballonian drone box				TYPE:Magic.Container			COST:24500	WT:1		SOURCEPAGE:p.201	BONUS:VAR|Bulk|1		QUALITY:Level|11	QUALITY:Bulk|1
-Encryption tattoo (provocateur)		TYPE:Magic.Tattoo				COST:48000			SOURCEPAGE:p.201					QUALITY:Level|13	QUALITY:Bulk|-	SPROP:1/day gain DR 10/— for up to one minute.
+Encryption tattoo (provocateur)		TYPE:Magic.Tattoo				COST:48000			SOURCEPAGE:p.201					QUALITY:Level|13	QUALITY:Bulk|-	SPROP:1/day gain DR 10/- for up to one minute.
 Boardroom attire					TYPE:Magic.Torso.WornMagic		COST:62500	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|14	QUALITY:Bulk|L
-Encryption tattoo (master)			TYPE:Magic.Tattoo				COST:360000										QUALITY:Level|18	QUALITY:Bulk|-	SPROP:1/day gain DR 15/— for up to one minute.
+Encryption tattoo (master)			TYPE:Magic.Tattoo				COST:360000										QUALITY:Level|18	QUALITY:Bulk|-	SPROP:1/day gain DR 15/- for up to one minute.
 
 ###Hybrid Itmes###
 Ablative Insulation Mk 1			TYPE:Magic.Hybrid				COST:350	WT:0.1	SOURCEPAGE:p.203	BONUS:VAR|BulkLight|1	QUALITY:Level|4	QUALITY:Bulk|L	SPROP:Gain Energy Resistance 5 for 1 hour or until 20 pts of Damage have been absorbed.

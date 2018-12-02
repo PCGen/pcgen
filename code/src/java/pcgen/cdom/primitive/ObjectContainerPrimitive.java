@@ -58,19 +58,12 @@ public class ObjectContainerPrimitive<T> implements PrimitiveCollection<T>
 		group = oc;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.PrimitiveCollection#getCollection(pcgen.core.PlayerCharacter,
-	 *      pcgen.cdom.base.Converter)
-	 */
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		return c.convert(group);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.PrimitiveCollection#getReferenceClass()
-	 */
 	@Override
 	public Class<? super T> getReferenceClass()
 	{

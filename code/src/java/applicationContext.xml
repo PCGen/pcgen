@@ -375,7 +375,7 @@
 	<bean id="loadFacet" class="pcgen.cdom.facet.analysis.LoadFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="totalWeightFacet" ref="totalWeightFacet"/>
-		<property name="sizeFacet" ref="sizeFacet"/>
+		<property name="playerCharacterTrackingFacet" ref="playerCharacterTrackingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.input.LocalAddedSkillCostFacet"/>

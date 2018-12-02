@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide	SOURCESHORT:SDPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en	SOURCEDATE:2008-08
 
@@ -15,8 +16,8 @@ CATEGORY=FEAT|Skill Focus.MOD		TYPE:Liberator
 ###Block: This is listed in Chapter 2 & 3
 SOURCELONG:Second Darkness - Chapter 2: Children of the Void	SOURCESHORT:PF14	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 # Feat Name	Type			Required Non-Monster Lvl	Required Race		Innate Spells															Description										Source Page
-# Ability Name	Category of Ability	Type			Required Non-Monster Lvl	Required Race		Innate Spells															Description										Source Page
-Dark Adept		CATEGORY:FEAT		TYPE:General	PREPCLEVEL:MIN=3			PRERACE:1,Elf (Drow)	SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Detect Magic,10+CHA|Feather Fall,11+CHA|Levitate,12+CHA	DESC:You gain additional spell-like abilities from your heritage	SOURCEPAGE:p.46
+# Ability Name	Category of Ability	Type			Multiple Requirements									Required Non-Monster Lvl	Innate Spells															Description										Source Page
+Dark Adept		CATEGORY:FEAT		TYPE:General	PREMULT:2,[PRERACE:1,Elf],[PREABILITY:1,CATEGORY=Internal,Elf ~ Drow]	PREPCLEVEL:MIN=3			SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(TL,1))|Detect Magic,10+CHA|Feather Fall,11+CHA|Levitate,12+CHA	DESC:You gain additional spell-like abilities from your heritage	SOURCEPAGE:p.46
 
 #
 # End

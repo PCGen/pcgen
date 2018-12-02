@@ -27,7 +27,7 @@ import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
- * The Class <code>IsgamemodeCommandTest</code> is responsible for checking 
+ * The Class {@code IsgamemodeCommandTest} is responsible for checking
  * that IsgamemodeCommand is working correctly. 
  * 
  * 
@@ -45,12 +45,6 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 		return new TestSuite(IsgamemodeCommandTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

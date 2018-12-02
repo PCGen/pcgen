@@ -20,7 +20,6 @@ package pcgen.core;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -28,9 +27,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import junit.framework.TestCase;
 
 /**
  * Equipment Modifer Test 
@@ -38,38 +35,8 @@ import junit.textui.TestRunner;
 @SuppressWarnings("nls")
 public class EquipmentModifierTest extends TestCase
 {
-
-	/**
-	 * Main
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(EquipmentModifierTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(EquipmentModifierTest.class);
-	}
-
-	/**
-	 * Constructs a new <code>EquipmentModifierTest</code>.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
-	 */
-	public EquipmentModifierTest()
-	{
-		// Do Nothing
-	}
-
 	/**
 	 * Starts the system plugins.
-	 * 
-	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception
@@ -79,12 +46,10 @@ public class EquipmentModifierTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentModifierTest</code> with the given
+	 * Constructs a new {@code EquipmentModifierTest} with the given
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public EquipmentModifierTest(final String name)
 	{

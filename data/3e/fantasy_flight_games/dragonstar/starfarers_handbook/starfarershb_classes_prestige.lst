@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:StarfarerH	SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html	SOURCEDATE:2001-12
 
@@ -37,13 +38,13 @@ CLASS:Negotiator	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:COMBAT
 CLASS:Negotiator	PREABILITY:2,CATEGORY=FEAT,Iron Will,Leadership	PRESKILL:4,Bluff=8,Diplomacy=8,Innuendo=8,Sense Motive=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Negotiator	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|TYPE=Knowledge|Listen|Move Silently|Perform|TYPE=Profession|Research|Search|Sense Motive|Speak Language|Spot
-1	SAB:First Impression	SAB:Fast Talk	SAB:Bonus Languages	SAB:Tongues						BONUS:LANGUAGES|NUMBER|1
-2	SAB:Discern Lie %/day|DiscernLie								BONUS:VAR|DiscernLie|(CL+2)/4						DEFINE:DiscernLie|0
-3	SAB:Suggestion																BONUS:LANGUAGES|NUMBER|1
-5	SAB:Slippery Mind																BONUS:LANGUAGES|NUMBER|1
+1	SAB:First Impression	SAB:Fast Talk	SAB:Bonus Languages	SAB:Tongues										BONUS:LANGUAGES|NUMBER|1
+2	SAB:Discern Lie %/day|DiscernLie								BONUS:VAR|DiscernLie|(CL+2)/4	DEFINE:DiscernLie|0
+3	SAB:Suggestion																				BONUS:LANGUAGES|NUMBER|1
+5	SAB:Slippery Mind																				BONUS:LANGUAGES|NUMBER|1
 6	SAB:Detect Scrying and Surveillance
-7																			BONUS:LANGUAGES|NUMBER|1
-9																			BONUS:LANGUAGES|NUMBER|1
+7																							BONUS:LANGUAGES|NUMBER|1
+9																							BONUS:LANGUAGES|NUMBER|1
 10	SAB:Mindscan											BONUS:VAR|DiscernLie|1
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Save bonus																					FACT

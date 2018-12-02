@@ -55,7 +55,7 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped> implements Group
 		KeyGrouping<T> keyGrouping = new KeyGrouping<>(info);
 		if (info.hasChild())
 		{
-			GroupingCollection<? extends Loadable> childCollection =
+			GroupingCollection<?> childCollection =
 					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
 			keyGrouping.setChild(childCollection);
 		}
@@ -76,9 +76,6 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped> implements Group
 	 */
 	private static class KeyGrouping<T extends Loadable> implements GroupingCollection<T>
 	{
-
-		private static final Class<PCGenScoped> PCGENSCOPED_CLASS = PCGenScoped.class;
-
 		/**
 		 * The GroupingInfo used to determine the format and GROUP: of objects contained
 		 * by this KeyGrouping.
@@ -105,14 +102,9 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped> implements Group
 				throw new IllegalArgumentException("KEY must have value following =");
 			}
 			this.groupingInfo = Objects.requireNonNull(info);
-			if (groupingInfo.hasChild() && !PCGENSCOPED_CLASS.isAssignableFrom(info.getIdentity().getReferenceClass()))
-			{
-				throw new IllegalArgumentException(
-					"KEY grouping had children but FORMAT: " + info.getIdentity().getName() + " is not a PCGenScoped");
-			}
 		}
 
-		public void setChild(GroupingCollection<? extends Loadable> childCollection)
+		public void setChild(GroupingCollection<?> childCollection)
 		{
 			childGrouping = childCollection;
 		}

@@ -1,8 +1,34 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Dirty Tactics Toolbox	SOURCESHORT:DTT		SOURCEWEB:http://paizo.com/products/btpy9g23?Pathfinder-Player-Companion-Dirty-Tactics-Toolbox	SOURCEDATE:2015-09
+SOURCELONG:Pathfinder Player Companion: Dirty Tactics Toolbox	SOURCESHORT:DTT	SOURCEWEB:http://paizo.com/products/btpy9g23	SOURCEDATE:2015-09
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 03 May 2016
 
-Asmodean Viper Familiar Language			VISIBLE:NO			ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language
+# Template Name				Visible	Add					Ability										Bonus Languages
+Asmodean Viper Familiar Language	VISIBLE:NO	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language
 
-Kraken Caller Language					VISIBLE:NO			LANGBONUS:Aquan
+Kraken Caller Language			VISIBLE:NO																	LANGBONUS:Aquan
+
+
+Accomplished Sneak Attacker	VISIBLE:NO	CHOOSE:TEMPLATE|TYPE=SneakAttackCheck	DEFINE:SneakAttackStatic|0
+SA_1	PREVAREQ:SneakAttack,1	BONUS:VAR|SneakAttackStatic|1		TYPE:SneakAttackCheck
+SA_2	PREVAREQ:SneakAttack,2	BONUS:VAR|SneakAttackStatic|2		TYPE:SneakAttackCheck
+SA_3	PREVAREQ:SneakAttack,3	BONUS:VAR|SneakAttackStatic|3		TYPE:SneakAttackCheck
+SA_4	PREVAREQ:SneakAttack,4	BONUS:VAR|SneakAttackStatic|4		TYPE:SneakAttackCheck
+SA_5	PREVAREQ:SneakAttack,5	BONUS:VAR|SneakAttackStatic|5		TYPE:SneakAttackCheck
+SA_6	PREVAREQ:SneakAttack,6	BONUS:VAR|SneakAttackStatic|6		TYPE:SneakAttackCheck
+SA_7	PREVAREQ:SneakAttack,7	BONUS:VAR|SneakAttackStatic|7		TYPE:SneakAttackCheck
+SA_8	PREVAREQ:SneakAttack,8	BONUS:VAR|SneakAttackStatic|8		TYPE:SneakAttackCheck
+SA_9	PREVAREQ:SneakAttack,9	BONUS:VAR|SneakAttackStatic|9		TYPE:SneakAttackCheck
+SA_10	PREVAREQ:SneakAttack,10	BONUS:VAR|SneakAttackStatic|10	TYPE:SneakAttackCheck
+SA_11	PREVAREQ:SneakAttack,11	BONUS:VAR|SneakAttackStatic|11	TYPE:SneakAttackCheck
+SA_12	PREVAREQ:SneakAttack,12	BONUS:VAR|SneakAttackStatic|12	TYPE:SneakAttackCheck
+SA_13	PREVAREQ:SneakAttack,13	BONUS:VAR|SneakAttackStatic|13	TYPE:SneakAttackCheck
+SA_14	PREVAREQ:SneakAttack,14	BONUS:VAR|SneakAttackStatic|14	TYPE:SneakAttackCheck
+SA_15	PREVAREQ:SneakAttack,15	BONUS:VAR|SneakAttackStatic|15	TYPE:SneakAttackCheck
+SA_16	PREVAREQ:SneakAttack,16	BONUS:VAR|SneakAttackStatic|16	TYPE:SneakAttackCheck
+SA_17	PREVAREQ:SneakAttack,17	BONUS:VAR|SneakAttackStatic|17	TYPE:SneakAttackCheck
+SA_18	PREVAREQ:SneakAttack,18	BONUS:VAR|SneakAttackStatic|18	TYPE:SneakAttackCheck
+SA_19	PREVAREQ:SneakAttack,19	BONUS:VAR|SneakAttackStatic|19	TYPE:SneakAttackCheck
+SA_20	PREVAREQ:SneakAttack,20	BONUS:VAR|SneakAttackStatic|20	TYPE:SneakAttackCheck
+

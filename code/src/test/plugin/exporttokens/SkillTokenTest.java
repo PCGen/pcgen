@@ -43,7 +43,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
- * <code>SkillTokenTest</code> contains tests to verify that the
+ * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
  */
 
@@ -72,9 +72,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -159,9 +156,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

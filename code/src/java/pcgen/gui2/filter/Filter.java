@@ -18,6 +18,7 @@
  */
 package pcgen.gui2.filter;
 
+@FunctionalInterface
 public interface Filter<C, E>
 {
 

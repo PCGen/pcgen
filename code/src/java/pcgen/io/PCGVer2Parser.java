@@ -136,7 +136,8 @@ import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -529,7 +530,7 @@ final class PCGVer2Parser implements PCGParser
 					Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				align = getNoAlignment();
 			}
-			ChannelCompatibility.setCurrentAlignment(thePC.getCharID(), align);
+			AlignmentCompat.setCurrentAlignment(thePC.getCharID(), align);
 
 			return;
 		}
@@ -1182,8 +1183,8 @@ final class PCGVer2Parser implements PCGParser
 		 * HEIGHT:75
 		 * WEIGHT:198
 		 * AGE:17
-		 * GENDER:enum name @see Gender
-		 * HANDED:enum name @see Handed
+		 * GENDER:enum name
+		 * HANDED:enum name
 		 * SKIN:text
 		 * EYECOLOR:text
 		 * HAIRCOLOR:text
@@ -2952,11 +2953,11 @@ final class PCGVer2Parser implements PCGParser
 		Handed h;
 		try
 		{
-			h = Handed.getHandedByName(handed);
+			h = HandedCompat.getHandedByName(handed);
 		}
 		catch (IllegalArgumentException e)
 		{
-			h = Handed.getDefaultValue();
+			h = HandedCompat.getDefaultHanded();
 			final String msg = LanguageBundle.getFormattedString("Warnings.PCGenParser.IllegalHandedness", //$NON-NLS-1$
 				line, h);
 			warnings.add(msg);
@@ -5354,7 +5355,6 @@ final class PCGVer2Parser implements PCGParser
 		 * Returns a string representation of the element.  This string is
 		 * written in XML format.
 		 * @return An XML formatted string.
-		 * @see java.lang.Object#toString()
 		 */
 		@Override
 		public String toString()

@@ -1,23 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
 
-CLASS:Nightblade	MAXLEVEL:20
-CLASS:Nightblade	HD:8	TYPE:Base.PC
-CLASS:Nightblade	FACT:Abb|Nb	FACT:ClassType|PC
-CLASS:Nightblade	DEFINE:NightbladeLVL|0	BONUS:VAR|NightbladeLVL|CL
-CLASS:Nightblade	SOURCEPAGE:p.6	
-CLASS:Nightblade	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-CLASS:Nightblade	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-CLASS:Nightblade	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
-CLASS:Nightblade	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-CLASS:Nightblade	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-CLASS:Nightblade	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
-CLASS:Nightblade	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
-CLASS:Nightblade	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																	Combat bonus																	Save bonus																																																	Modify VAR																																																																																																																											FACT
+CLASS:Nightblade	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.6	DEFINE:NightbladeLVL|0	DEFINE:Caster_Level_BL_Stripped_Nightblade|0	DEFINE:CasterLevelBLNightblade|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|NightbladeLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Nightblade|Caster_Level_Nightblade-CasterLevelBLNightblade	BONUS:VAR|Caster_Level_Nightblade|CL+Caster_Level_Bonus+CasterLevelBLNightblade	BONUS:VAR|CasterLevelBL_Nightblade|charbonusto("PCLEVEL","Nightblade")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Nightblade|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Nightblade	FACT:Abb|Nb	FACT:ClassType|PC	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Nightblade	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (arcana)|Knowledge (local)|Knowledge (planes)|Linguistics|Perception|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
-CLASS:Nightblade	FACT:SpellType|Arcane
-CLASS:Nightblade	SPELLSTAT:CHA	MEMORIZE:NO
-CLASS:Nightblade	BONUS:CASTERLEVEL|Nightblade|Caster_Level_BL_Stripped_Nightblade	DEFINE:Caster_Level_BL_Stripped_Nightblade|0	BONUS:VAR|Caster_Level_BL_Stripped_Nightblade|Caster_Level_Nightblade-CasterLevelBLNightblade	BONUS:VAR|Caster_Level_Nightblade|CL+Caster_Level_Bonus+CasterLevelBLNightblade	DEFINE:CasterLevelBLNightblade|0	BONUS:VAR|CasterLevelBL_Nightblade|charbonusto("PCLEVEL","Nightblade")	
-CLASS:Nightblade	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Nightblade|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Nightblade
+# Class Name	Spell Stat		Memorize	Caster level
+CLASS:Nightblade	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Nightblade|Caster_Level_BL_Stripped_Nightblade
 ###Block
 1	CAST:0,1
 2	CAST:0,2
@@ -62,5 +51,3 @@ CLASS:Nightblade	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Nightblade|
 20	KNOWN:6,6,6,6,6,5,5
 ###Block
 1	ABILITY:Class|AUTOMATIC|Nightblade
-
-

@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # $Revision$ $Author$
-SOURCELONG:Pathfinder Player Companion Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj?Pathfinder-Player-Companion-Animal-Archive	SOURCEDATE:2013-03
+SOURCELONG:Pathfinder Player Companion: Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj	SOURCEDATE:2013-03
 
 ###Block: Animal Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key					Category of Ability		Type			Description																																																															Source Page
@@ -40,17 +41,17 @@ Companion Advancement (Panda)		KEY:Companion Advancement ~ Panda	CATEGORY:Specia
 Companion Advancement (Walrus)	KEY:Companion Advancement ~ Walrus	CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Walrus)																																											ABILITY:Special Ability|AUTOMATIC|Walrus ~ Fatal Gore									BONUS:SIZEMOD|NUMBER|1
 
 
-Race Traits ~ Companion (Llama)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite
-Race Traits ~ Llama									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite	ABILITY:Special Ability|AUTOMATIC|Llama ~ Spit
+Racial Traits ~ Companion (Llama)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite
+Racial Traits ~ Llama									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite	ABILITY:Special Ability|AUTOMATIC|Llama ~ Spit
 
-Race Traits ~ Moose									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof	ABILITY:Special Ability|AUTOMATIC|Powerful Charge|Scent
-Race Traits ~ Companion (Moose)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof
+Racial Traits ~ Moose									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof	ABILITY:Special Ability|AUTOMATIC|Powerful Charge|Scent
+Racial Traits ~ Companion (Moose)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof
 
-Race Traits ~ Panda									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw	ABILITY:Special Ability|AUTOMATIC|Panda ~ Powerful Bite
-Race Traits ~ Companion (Panda)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw
+Racial Traits ~ Panda									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw	ABILITY:Special Ability|AUTOMATIC|Panda ~ Powerful Bite
+Racial Traits ~ Companion (Panda)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw
 
-Race Traits ~ Walrus									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath|Walrus ~ Fatal Gore
-Race Traits ~ Companion (Walrus)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath
+Racial Traits ~ Walrus									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath|Walrus ~ Fatal Gore
+Racial Traits ~ Companion (Walrus)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath
 
 
 Spit						KEY:Llama ~ Spit				CATEGORY:Special Ability	TYPE:Extraordinary.SpecialAttack									DESC:Once per hour, a llama can regurgitate the contents of its stomach, spitting the foul material at a single target within 10 feet. The target must succeed at a DC 12 Fortitude save or be sickened for 1d4 rounds. The save DC is Constitution-based.																															SOURCEPAGE:p.28
@@ -65,7 +66,7 @@ Platypus ~ Semiaquatic									CATEGORY:Special Ability	TYPE:Extraordinary.Speci
 
 ###Block: From B3
 # Ability Name		Unique Key		Category of Ability		Type									Description																																																																																										Ability									Source Page
-Race Traits ~ Skunk				CATEGORY:Internal																																																																																																							ABILITY:Special Ability|AUTOMATIC|TYPE=SkunkRacialAbility
+Racial Traits ~ Skunk				CATEGORY:Internal																																																																																																							ABILITY:Special Ability|AUTOMATIC|TYPE=SkunkRacialAbility
 #
 Musk				KEY:Skunk ~ Musk	CATEGORY:Special Ability	TYPE:SkunkRacialAbility.SpecialQuality.Extraordinary	DESC:Up to twice per day, a skunk can spray a stream of noxious musk at a single target within 10 feet as a standard action. With a successful ranged touch attack, the creature struck by this spray must make a DC 11 Fortitude save or be nauseated for 1d4 rounds and then sickened for 1d4 minutes by the horrific stench. A successful save reduces the effect to only 1d4 rounds of being sickened. A creature cannot use the scent ability as long as it is affected by this musk. The save DC is Constitution-based, and includes a +2 racial bonus.											SOURCEPAGE:p.247
 

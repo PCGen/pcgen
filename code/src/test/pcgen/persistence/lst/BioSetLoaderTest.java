@@ -20,14 +20,14 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.List;
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
+
+import junit.framework.TestCase;
 
 /**
  * A collection of tests to validate the functioning of the BioSetLoader class.
@@ -75,9 +75,6 @@ public final class BioSetLoaderTest extends TestCase
 
 	private BioSetLoader loader;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{
@@ -87,9 +84,6 @@ public final class BioSetLoaderTest extends TestCase
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA, loader);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{
@@ -137,26 +131,6 @@ public final class BioSetLoaderTest extends TestCase
 			loader.parseLine(context, line, new URI("http://UNIT_TEST_CASE"));
 		}
 		SettingsHandler.getGame().setBioSet(loader.bioSet);
-	}
-
-	/**
-	 * Run the tests standalone from the command line.
-	 *
-	 * @param args Command line args - ignored.
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(BioSetLoaderTest.class);
-	}
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test".
-	 *
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(BioSetLoaderTest.class);
 	}
 
 	/**

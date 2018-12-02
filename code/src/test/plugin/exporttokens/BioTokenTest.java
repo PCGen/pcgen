@@ -30,7 +30,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 
 /**
- * <code>BioTokenTest</code> is ...
+ * {@code BioTokenTest} is ...
  */
 public class BioTokenTest extends AbstractCharacterTestCase
 {
@@ -44,9 +44,6 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(BioTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

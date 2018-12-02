@@ -17,8 +17,9 @@
  */
 package plugin.jepcommands;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertThat;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -38,13 +39,11 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.SimpleLoader;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
 import util.TestURI;
 
 /**
- * <code>OrCommandTest</code> tests the functioning of the jep or plugin
- * 
- * (Fri, 26 Oct 2007) $
- * 
+ * {@code OrCommandTest} tests the functioning of the jep or plugin
  */
 public class ClassLevelCommandTest extends AbstractCharacterTestCase
 {
@@ -53,20 +52,6 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 	private PCClass humanoidClass;
 	private PCClass nymphClass;
 
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * 
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(ClassLevelCommandTest.class);
-	}
-
-	/**
-	 * @throws Exception
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -121,41 +106,25 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = this.getCharacter();
 		pc.setRace(nymphRace);
 		pc.incrementClassLevel(1, megaCasterClass);
-		is(pc.getVariableValue("classlevel(\"Humanoid\")", ""), eq(0.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"Nymph\")", ""), eq(0.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"MegaCaster\")", ""),
-				eq(1.0, 0.001), "classlevel(\"MegaCaster\")");
-		is(pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), eq(0.0,
-				0.001), "classlevel(\"TYPE=Monster\")");
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(0.0, 0.001));
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
+		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(1.0, 0.001));
+		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(0.0, 0.001));
 		pc.incrementClassLevel(1, megaCasterClass);
-		is(pc.getVariableValue("classlevel(\"Humanoid\")", ""), eq(0.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"Nymph\")", ""), eq(0.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"MegaCaster\")", ""),
-				eq(2.0, 0.001), "classlevel(\"MegaCaster\")");
-		is(pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), eq(0.0,
-				0.001), "classlevel(\"TYPE=Monster\")");
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(0.0, 0.001));
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
+		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
+		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(0.0, 0.001));
 		pc.incrementClassLevel(1, humanoidClass);
-		is(pc.getVariableValue("classlevel(\"Humanoid\")", ""), eq(1.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"Nymph\")", ""), eq(0.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"MegaCaster\")", ""),
-				eq(2.0, 0.001), "classlevel(\"MegaCaster\")");
-		is(pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), eq(1.0,
-				0.001), "classlevel(\"TYPE=Monster\")");
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(1.0, 0.001));
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(0.0, 0.001));
+		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
+		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(1.0, 0.001));
 		pc.incrementClassLevel(1, nymphClass);
-		is(pc.getVariableValue("classlevel(\"Humanoid\")", ""), eq(1.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"Nymph\")", ""), eq(1.0, 0.001),
-				"classlevel(\"Humanoid\")");
-		is(pc.getVariableValue("classlevel(\"MegaCaster\")", ""),
-				eq(2.0, 0.001), "classlevel(\"MegaCaster\")");
-		is(pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), eq(2.0,
-				0.001), "classlevel(\"TYPE=Monster\")");
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Humanoid\")", ""), closeTo(1.0, 0.001));
+		assertThat("classlevel(\"Humanoid\")", (double) pc.getVariableValue("classlevel(\"Nymph\")", ""), closeTo(1.0, 0.001));
+		assertThat("classlevel(\"MegaCaster\")", (double) pc.getVariableValue("classlevel(\"MegaCaster\")", ""), closeTo(2.0, 0.001));
+		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(2.0, 0.001));
 	}
 
 	public void testClassLevelAppliedAs()
@@ -163,19 +132,13 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = this.getCharacter();
 		pc.setRace(nymphRace);
 		pc.incrementClassLevel(1, megaCasterClass);
-		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), eq(1.0, 0.001),
-				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster");
-		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), eq(0.0, 0.001),
-				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph");
+		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(1.0, 0.001));
+		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(0.0, 0.001));
 		pc.incrementClassLevel(1, megaCasterClass);
-		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), eq(2.0, 0.001),
-				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster");
-		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), eq(0.0, 0.001),
-				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph");
+		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(2.0, 0.001));
+		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(0.0, 0.001));
 		pc.incrementClassLevel(1, nymphClass);
-		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), eq(2.0, 0.001),
-				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster");
-		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), eq(1.0, 0.001),
-				"classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph");
+		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:MegaCaster", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), closeTo(2.0, 0.001));
+		assertThat("classlevel(\"APPLIEDAS=NONEPIC\") CLASS:Nymph", (double) pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:Nymph"), closeTo(1.0, 0.001));
 	}	
 }

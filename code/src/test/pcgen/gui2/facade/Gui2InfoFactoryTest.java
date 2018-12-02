@@ -31,7 +31,7 @@ import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * The Class <code>Gui2InfoFactoryTest</code> verifies the operation of the 
+ * The Class {@code Gui2InfoFactoryTest} verifies the operation of the
  * Gui2InfoFactory class.
  *
  * <br/>
@@ -94,9 +94,6 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 			infoFactory.getHTMLInfo(tbf));
 	}	
 	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

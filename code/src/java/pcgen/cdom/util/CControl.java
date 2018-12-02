@@ -16,6 +16,7 @@
 package pcgen.cdom.util;
 
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Code Controls
@@ -75,7 +76,18 @@ public final class CControl
 	public static final String STATMODSAVE = "STATMODSAVE";
 	public static final String RACESAVE = "RACESAVE";
 
+	/**
+	 * Code Control for the Base Size (original size for the race) of a PC.
+	 */
+	public static final String BASESIZE = "BASESIZE";
+
+	/**
+	 * Code Control for the Current Size of a PC.
+	 */
+	public static final String PCSIZE = "PCSIZE";
+
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment");
+
 
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code
@@ -90,12 +102,36 @@ public final class CControl
 	private final String defaultValue;
 
 	/**
+	 * The controlling Feature for the CodeControl
+	 */
+	private final Optional<String> controllingFeature;
+
+	/**
 	 * Constructs a new CControl with the given name and default variable name
 	 */
 	private CControl(String name, String defaultValue)
 	{
+		this(name, defaultValue, Optional.empty());
+	}
+
+	/**
+	 * Constructs a new CControl with the given name, default variable name, and
+	 * controlling feature.
+	 */
+	private CControl(String name, String defaultValue, String controllingFeature)
+	{
+		this(name, defaultValue, Optional.of(controllingFeature));
+	}
+
+	/**
+	 * Constructs a new CControl with the given name, default variable name, and
+	 * controlling feature.
+	 */
+	private CControl(String name, String defaultValue, Optional<String> controllingFeature)
+	{
 		this.name = Objects.requireNonNull(name);
 		this.defaultValue = Objects.requireNonNull(defaultValue);
+		this.controllingFeature = Objects.requireNonNull(controllingFeature);
 	}
 
 	public String getName()
@@ -106,5 +142,13 @@ public final class CControl
 	public String getDefaultValue()
 	{
 		return defaultValue;
+	}
+
+	/**
+	 * Returns the Controlling Feature (if any) for this Code Control
+	 */
+	public Optional<String> getControllingFeature()
+	{
+		return controllingFeature;
 	}
 }

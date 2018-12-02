@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Inner Sea races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEDATE:2015-09
+SOURCELONG:Inner Sea Races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/btpy9g9v?Pathfinder-Campaign-Setting-Inner-Sea-Races	SOURCEDATE:2015-09
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 14 May 2016
 
@@ -7,52 +8,53 @@ SOURCELONG:Inner Sea races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/b
 # New Magic Items
 # ==============================
 
-Agent's Clasp								TYPE:Magic.Wondrous.Necklace			COST:60000	WT:0		SOURCEPAGE:228
-Amulet of Eldest's Blessing						TYPE:Magic.Wondrous.Necklace			COST:10000	WT:1		SOURCEPAGE:228
-Amulet of Undead Persuasion						TYPE:Magic.Wondrous.Necklace			COST:15000	WT:1		SOURCEPAGE:228
-Anvil of the Skyseeker							TYPE:Magic.Wondrous				COST:6700	WT:1		SOURCEPAGE:228
-Baldric of Magical Stability						TYPE:Magic.Wondrous.Shirt			COST:14000	WT:1		SOURCEPAGE:228
-Belkzen Battle Standard				NAMEISPI:Yes	TYPE:Magic.Wondrous				COST:34000	WT:3		SOURCEPAGE:229
-Belt of Impossible Action						TYPE:Magic.Wondrous.Belt			COST:16000	WT:1		SOURCEPAGE:229
-Binding Contract								TYPE:Magic.Wondrous.Consumable		COST:7500	WT:0.5	SOURCEPAGE:229
-Boots of Fiendish Escape						TYPE:Magic.Wondrous.Boot			COST:45000	WT:2		SOURCEPAGE:229	SPELLS:Boots of Fiendish Escape|TIMES=1|CASTERLEVEL=15|Fog Cloud|Dimension Door
-Bracelet of Good Luck Charms						TYPE:Magic.Wondrous.Bracer			COST:16000	WT:0		SOURCEPAGE:229																																												SPROP:7 times a halfling withthe luck or adaptable luck racial trait can reroll a roll taking the second result
-Broken Rune Bracers							TYPE:Magic.Wondrous.Bracer			COST:9000	WT:0		SOURCEPAGE:229
-Cap of Darkest Dreams							TYPE:Magic.Wondrous.Headgear			COST:90000	WT:0		SOURCEPAGE:230
-Cloak of Blood Alarm							TYPE:Magic.Wondrous.Cloak			COST:3200	WT:1		SOURCEPAGE:230
-Cloak of Summer and Winter						TYPE:Magic.Wondrous.Cloak			COST:30000	WT:1		SOURCEPAGE:230
-Commander's Helm (Lesser)						TYPE:Magic.Wondrous.Headgear			COST:10000	WT:1		SOURCEPAGE:230
-Commander's Helm (Greater)						TYPE:Magic.Wondrous.Headgear			COST:16000	WT:1		SOURCEPAGE:230
-Commander's Helm (Superior)						TYPE:Magic.Wondrous.Headgear			COST:24000	WT:1		SOURCEPAGE:230
-Diadem of the Interplanetary Emissary				TYPE:Magic.Wondrous.Headband			COST:67500	WT:0.5	SOURCEPAGE:231																																												SPROP:constant planetary adaptation, mentally communicate with any creature that has a language
-Elven Still									TYPE:Magic.Wondrous				COST:7500	WT:2		SOURCEPAGE:231
-Eye Patch of Infamy							TYPE:Magic.Wondrous.Eyegear			COST:10000	WT:0		SOURCEPAGE:231
-Eyes of Mind Reading							TYPE:Magic.Wondrous.Eyegear			COST:11000	WT:0.5	SOURCEPAGE:231
-Headband of Controlling Illusions					TYPE:Magic.Wondrous.Headband			COST:40000	WT:0		SOURCEPAGE:231
-Horn of the War-Leader							TYPE:Magic.Wondrous				COST:12000	WT:4		SOURCEPAGE:232																																												SPROP:Blow horn up to 3 times per day to be heard up to 5 miles
-Horseshoes of Desert Fury						TYPE:Magic.Wondrous.Boot			COST:88000	WT:12		SOURCEPAGE:232
-Jinx Eater's Shirt							TYPE:Magic.Wondrous.Shirt			COST:22600	WT:1		SOURCEPAGE:232
-Locket of True and False Friends					TYPE:Magic.Wondrous.Necklace			COST:10000	WT:1		SOURCEPAGE:232
-Lupine Robe									TYPE:Magic.Wondrous.Robe			COST:6800	WT:1		SOURCEPAGE:232
-Lycanthrope Skin (Bat)							TYPE:Magic.Wondrous.Cloak			COST:40000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Lycanthrope Skin (Boar)							TYPE:Magic.Wondrous.Cloak			COST:24000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Lycanthrope Skin (Brown Bear)						TYPE:Magic.Wondrous.Cloak			COST:40000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Lycanthrope Skin (Crocodile)						TYPE:Magic.Wondrous.Cloak			COST:40000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Lycanthrope Skin (Rat)							TYPE:Magic.Wondrous.Cloak			COST:24000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Lycanthrope Skin (Shark)						TYPE:Magic.Wondrous.Cloak			COST:40000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Lycanthrope Skin (Tiger)						TYPE:Magic.Wondrous.Cloak			COST:40000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Lycanthrope Skin (Wolf)							TYPE:Magic.Wondrous.Cloak			COST:24000	WT:2		SOURCEPAGE:233																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability																																												SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
-Mask of Stolen Identities						TYPE:Magic.Wondrous.Headgear			COST:20000	WT:0.5	SOURCEPAGE:233	SPELLS:Mask of Stolen Identities|TIMES=2|CASTERLEVEL=9|Alter Self
-Master's Brand								TYPE:Magic.Wondrous				COST:18200	WT:2		SOURCEPAGE:233	SPELLS:Master's Brand|TIMES=1|CASTERLEVEL=10|Brand (Greater)|Command
-Ointment of Secret Seeing						TYPE:Magic.Wondrous.Consumable		COST:2000	WT:0		SOURCEPAGE:233
-Scarf of Glorious Histories						TYPE:Magic.Wondrous.Necklace			COST:9000	WT:0		SOURCEPAGE:233																																												BONUS:SKILL|Intimidate,Perform (dance)|5|TYPE=Competence
-Shirt of Inconspicuousness						TYPE:Magic.Wondrous.Shirt			COST:8000	WT:0.5	SOURCEPAGE:234
-Spell Winder (2nd Level)						TYPE:Magic.Wondrous				COST:18000	WT:0.5	SOURCEPAGE:234
-Spell Winder (4th Level)						TYPE:Magic.Wondrous				COST:39000	WT:0.5	SOURCEPAGE:234
-Spell Winder (6th Level)						TYPE:Magic.Wondrous				COST:58000	WT:0.5	SOURCEPAGE:234
-Spyglass of Discovery							TYPE:Magic.Wondrous				COST:17500	WT:1		SOURCEPAGE:234	SPELLS:Spyglass of Discovery|TIMES=3|CASTERLEVEL=8|Clairaudience/Clairvoyance
-Stampede Drum								TYPE:Magic.Wondrous				COST:27000	WT:2		SOURCEPAGE:234
-Standard of the Celestial Heir					TYPE:Magic.Wondrous				COST:33000	WT:3		SOURCEPAGE:235
-Translator's Cap								TYPE:Magic.Wondrous.Headgear			COST:14000	WT:1		SOURCEPAGE:235
-Tremor Bar									TYPE:Magic.Wondrous				COST:70000	WT:2		SOURCEPAGE:235	SPELLS:Tremor Bar|TIMES=5|CASTERLEVEL=15|Stone Shape	SPELLS:Tremor Bar|TIMES=1|CASTERLEVEL=15|Earthquake
-Warchanter's Torch							TYPE:Magic.Wondrous				COST:30000	WT:1		SOURCEPAGE:235
+# Equipment Name					Product Identity?	Type						Cost		Weight	Source Page		Innate Spells																Bonus to skill								Special Property
+Agent's Clasp								TYPE:Magic.Wondrous.Necklace		COST:60000	WT:0		SOURCEPAGE:228
+Amulet of Eldest's Blessing						TYPE:Magic.Wondrous.Necklace		COST:10000	WT:1		SOURCEPAGE:228
+Amulet of Undead Persuasion						TYPE:Magic.Wondrous.Necklace		COST:15000	WT:1		SOURCEPAGE:228
+Anvil of the Skyseeker							TYPE:Magic.Wondrous			COST:6700	WT:1		SOURCEPAGE:228
+Baldric of Magical Stability						TYPE:Magic.Wondrous.Shirt		COST:14000	WT:1		SOURCEPAGE:228
+Belkzen Battle Standard				NAMEISPI:YES	TYPE:Magic.Wondrous			COST:34000	WT:3		SOURCEPAGE:229
+Belt of Impossible Action						TYPE:Magic.Wondrous.Belt		COST:16000	WT:1		SOURCEPAGE:229
+Binding Contract								TYPE:Magic.Wondrous.Consumable	COST:7500	WT:0.5	SOURCEPAGE:229
+Boots of Fiendish Escape						TYPE:Magic.Wondrous.Boot		COST:45000	WT:2		SOURCEPAGE:229	SPELLS:Boots of Fiendish Escape|TIMES=1|CASTERLEVEL=15|Fog Cloud|Dimension Door
+Bracelet of Good Luck Charms						TYPE:Magic.Wondrous.Bracer		COST:16000	WT:0		SOURCEPAGE:229																													SPROP:7 times a halfling withthe luck or adaptable luck racial trait can reroll a roll taking the second result
+Broken Rune Bracers							TYPE:Magic.Wondrous.Bracer		COST:9000	WT:0		SOURCEPAGE:229
+Cap of Darkest Dreams							TYPE:Magic.Wondrous.Headgear		COST:90000	WT:0		SOURCEPAGE:230
+Cloak of Blood Alarm							TYPE:Magic.Wondrous.Cloak		COST:3200	WT:1		SOURCEPAGE:230
+Cloak of Summer and Winter						TYPE:Magic.Wondrous.Cloak		COST:30000	WT:1		SOURCEPAGE:230
+Commander's Helm (Lesser)						TYPE:Magic.Wondrous.Headgear		COST:10000	WT:1		SOURCEPAGE:230
+Commander's Helm (Greater)						TYPE:Magic.Wondrous.Headgear		COST:16000	WT:1		SOURCEPAGE:230
+Commander's Helm (Superior)						TYPE:Magic.Wondrous.Headgear		COST:24000	WT:1		SOURCEPAGE:230
+Diadem of the Interplanetary Emissary				TYPE:Magic.Wondrous.Headband		COST:67500	WT:0.5	SOURCEPAGE:231																													SPROP:constant planetary adaptation, mentally communicate with any creature that has a language
+Elven Still									TYPE:Magic.Wondrous			COST:7500	WT:2		SOURCEPAGE:231
+Eye Patch of Infamy							TYPE:Magic.Wondrous.Eyegear		COST:10000	WT:0		SOURCEPAGE:231
+Eyes of Mind Reading							TYPE:Magic.Wondrous.Eyegear		COST:11000	WT:0.5	SOURCEPAGE:231
+Headband of Controlling Illusions					TYPE:Magic.Wondrous.Headband		COST:40000	WT:0		SOURCEPAGE:231
+Horn of the War-Leader							TYPE:Magic.Wondrous			COST:12000	WT:4		SOURCEPAGE:232																													SPROP:Blow horn up to 3 times per day to be heard up to 5 miles
+Horseshoes of Desert Fury						TYPE:Magic.Wondrous.Boot		COST:88000	WT:12		SOURCEPAGE:232
+Jinx Eater's Shirt							TYPE:Magic.Wondrous.Shirt		COST:22600	WT:1		SOURCEPAGE:232
+Locket of True and False Friends					TYPE:Magic.Wondrous.Necklace		COST:10000	WT:1		SOURCEPAGE:232
+Lupine Robe									TYPE:Magic.Wondrous.Robe		COST:6800	WT:1		SOURCEPAGE:232
+Lycanthrope Skin (Bat)							TYPE:Magic.Wondrous.Cloak		COST:40000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Lycanthrope Skin (Boar)							TYPE:Magic.Wondrous.Cloak		COST:24000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Lycanthrope Skin (Brown Bear)						TYPE:Magic.Wondrous.Cloak		COST:40000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Lycanthrope Skin (Crocodile)						TYPE:Magic.Wondrous.Cloak		COST:40000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Lycanthrope Skin (Rat)							TYPE:Magic.Wondrous.Cloak		COST:24000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Lycanthrope Skin (Shark)						TYPE:Magic.Wondrous.Cloak		COST:40000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Lycanthrope Skin (Tiger)						TYPE:Magic.Wondrous.Cloak		COST:40000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Lycanthrope Skin (Wolf)							TYPE:Magic.Wondrous.Cloak		COST:24000	WT:2		SOURCEPAGE:233																													SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability	SPROP:speak with animals of the matching species and related species as per the spell speak with animals, skinwalker with matching skinwalker heritage gains animals form as the change shape ability
+Mask of Stolen Identities						TYPE:Magic.Wondrous.Headgear		COST:20000	WT:0.5	SOURCEPAGE:233	SPELLS:Mask of Stolen Identities|TIMES=2|CASTERLEVEL=9|Alter Self
+Master's Brand								TYPE:Magic.Wondrous			COST:18200	WT:2		SOURCEPAGE:233	SPELLS:Master's Brand|TIMES=1|CASTERLEVEL=10|Brand (Greater)|Command
+Ointment of Secret Seeing						TYPE:Magic.Wondrous.Consumable	COST:2000	WT:0		SOURCEPAGE:233
+Scarf of Glorious Histories						TYPE:Magic.Wondrous.Necklace		COST:9000	WT:0		SOURCEPAGE:233																			BONUS:SKILL|Intimidate,Perform (dance)|5|TYPE=Competence
+Shirt of Inconspicuousness						TYPE:Magic.Wondrous.Shirt		COST:8000	WT:0.5	SOURCEPAGE:234
+Spell Winder (2nd Level)						TYPE:Magic.Wondrous			COST:18000	WT:0.5	SOURCEPAGE:234
+Spell Winder (4th Level)						TYPE:Magic.Wondrous			COST:39000	WT:0.5	SOURCEPAGE:234
+Spell Winder (6th Level)						TYPE:Magic.Wondrous			COST:58000	WT:0.5	SOURCEPAGE:234
+Spyglass of Discovery							TYPE:Magic.Wondrous			COST:17500	WT:1		SOURCEPAGE:234	SPELLS:Spyglass of Discovery|TIMES=3|CASTERLEVEL=8|Clairaudience/Clairvoyance
+Stampede Drum								TYPE:Magic.Wondrous			COST:27000	WT:2		SOURCEPAGE:234
+Standard of the Celestial Heir					TYPE:Magic.Wondrous			COST:33000	WT:3		SOURCEPAGE:235
+Translator's Cap								TYPE:Magic.Wondrous.Headgear		COST:14000	WT:1		SOURCEPAGE:235
+Tremor Bar									TYPE:Magic.Wondrous			COST:70000	WT:2		SOURCEPAGE:235	SPELLS:Tremor Bar|TIMES=5|CASTERLEVEL=15|Stone Shape	SPELLS:Tremor Bar|TIMES=1|CASTERLEVEL=15|Earthquake
+Warchanter's Torch							TYPE:Magic.Wondrous			COST:30000	WT:1		SOURCEPAGE:235

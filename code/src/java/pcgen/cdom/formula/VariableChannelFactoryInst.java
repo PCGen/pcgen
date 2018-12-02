@@ -28,6 +28,8 @@ import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.output.channel.ChannelUtilities;
 
 /**
@@ -116,11 +118,69 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 		if (ref == null)
 		{
 			MonitorableVariableStore varStore = RESULT_FACET.get(id);
-			ref = new VariableChannel<>(MGR_FACET.get(id), varStore, varID);
+			ref = VariableChannel.construct(MGR_FACET.get(id), varStore, varID);
 			channels.put(varID, ref);
 			varStore.addVariableListener(varID, ref);
 		}
 		return ref;
+	}
+
+	/**
+	 * Sets up the given DataFacetChangeListener to receive a DataFacetChangeEvent when
+	 * the value of a channel changes. This provides compatibility for facets that wish to
+	 * listen to the new variable system.
+	 * 
+	 * Note that this currently supports Item-based channels, not lists
+	 * 
+	 * @param id
+	 *            The CharID on which the channel should be watched
+	 * @param channelName
+	 *            The name of the channel to be watched
+	 * @param listener
+	 *            The listener to receive an event when the value of the channel changes
+	 */
+	public static <T> void watchChannel(CharID id, String channelName,
+		DataFacetChangeListener<CharID, T> listener)
+	{
+		watchChannel(id, channelName, listener, 0);
+	}
+
+	/**
+	 * Sets up the given DataFacetChangeListener to receive a DataFacetChangeEvent when
+	 * the value of a channel changes. This provides compatibility for facets that wish to
+	 * listen to the new variable system.
+	 * 
+	 * Note that this currently supports Item-based channels, not lists
+	 * 
+	 * @param id
+	 *            The CharID on which the channel should be watched
+	 * @param channelName
+	 *            The name of the channel to be watched
+	 * @param listener
+	 *            The listener to receive an event when the value of the channel changes
+	 * @param priority
+	 *            The priority of the listener for receiving changes (The lower the
+	 *            priority the earlier in the list the new listener will get advised of
+	 *            the change)
+	 */
+	public static <T> void watchChannel(CharID id, String channelName,
+		DataFacetChangeListener<CharID, T> listener, int priority)
+	{
+		VariableID<T> varID = ChannelUtilities.getChannelVariableID(id, channelName);
+		RESULT_FACET.get(id).addVariableListener(priority, varID, new VariableListener<T>()
+		{
+			@Override
+			public void variableChanged(VariableChangeEvent<T> vcEvent)
+			{
+				DataFacetChangeEvent<CharID, T> removeEvent =
+						new DataFacetChangeEvent<>(id, vcEvent.getOldValue(),
+							RESULT_FACET, DataFacetChangeEvent.DATA_REMOVED);
+				listener.dataRemoved(removeEvent);
+				DataFacetChangeEvent<CharID, T> addEvent = new DataFacetChangeEvent<>(id,
+					vcEvent.getNewValue(), RESULT_FACET, DataFacetChangeEvent.DATA_ADDED);
+				listener.dataAdded(addEvent);
+			}
+		});
 	}
 
 }

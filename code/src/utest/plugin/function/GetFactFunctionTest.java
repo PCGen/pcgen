@@ -17,6 +17,8 @@
  */
 package plugin.function;
 
+import static plugin.function.testsupport.TestUtilities.doParse;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -61,10 +63,10 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongArgCount()
 	{
 		String formula = "getFact(\"SKILL\")";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		isNotValid(formula, node, numberManager, null);
 		String s = "getFact(\"SKILL\", \"Foo\", 4, 5)";
-		SimpleNode simpleNode = TestUtilities.doParse(s);
+		SimpleNode simpleNode = doParse(s);
 		isNotValid(s, simpleNode, numberManager, null);
 	}
 
@@ -74,7 +76,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		LegalScope skillScope = context.getVariableContext().getScope("PC.SKILL");
 		getVariableLibrary().assertLegalVariableID("LocalVar", skillScope, numberManager);
 		String s = "getFact(\"SKILL\",\"SkillKey\",LocalVar)";
-		SimpleNode simpleNode = TestUtilities.doParse(s);
+		SimpleNode simpleNode = doParse(s);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		try
@@ -93,7 +95,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongFormat1()
 	{
 		String formula = "getFact(3,\"SkillKey\",3)";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		isNotValid(formula, node, numberManager, null);
 	}
 
@@ -101,7 +103,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testInvalidWrongFormat2()
 	{
 		String formula = "getFact(\"SKILL\",3,3)";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		try
@@ -120,7 +122,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula =
 				"getFact(\"SKILL\", \"SkillKey\",\"Stuff\")";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		try
@@ -151,7 +153,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		context.getReferenceContext().importObject(fd);
 		String formula =
 				"getFact(\"SKILL\",\"SkillKey\",\"Stuff\")";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
@@ -187,7 +189,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 
 		String formula =
 				"getFact(\"SKILL\",SkillVar,\"Stuff\")";
-		SimpleNode node = TestUtilities.doParse(formula);
+		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));

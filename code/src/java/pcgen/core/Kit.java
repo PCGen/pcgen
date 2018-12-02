@@ -109,8 +109,6 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param   other  Object
 	 *
 	 * @return  int
-	 *
-	 * @see     java.lang.Comparable#compareTo(Object)
 	 */
 	@Override
 	public int compareTo(final Object other)
@@ -329,17 +327,6 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 	}
 
-	private static class ObjectTypeComparator implements Comparator<BaseKit>
-	{
-		@Override
-		public int compare(BaseKit bk1, BaseKit bk2)
-		{
-			String name1 = bk1.getObjectName();
-			String name2 = bk2.getObjectName();
-			return name1.compareTo(name2);
-		}
-	}
-
 	/**
 	 * Get the Kit info for this PC
 	 * @param aPC the PC this kit is being applied to.
@@ -362,7 +349,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 		List<BaseKit> sortedObjects = new ArrayList<>();
 		sortedObjects.addAll(getSafeListFor(ListKey.KIT_TASKS));
-		sortedObjects.sort(new ObjectTypeComparator());
+		sortedObjects.sort(Comparator.comparing(BaseKit::getObjectName));
 
 		String lastObjectName = "";
 		for (BaseKit bk : sortedObjects)
@@ -370,7 +357,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			String objName = bk.getObjectName();
 			if (!objName.equals(lastObjectName))
 			{
-				if (!"".equals(lastObjectName))
+				if (!lastObjectName.isEmpty())
 				{
 					info.append("; ");
 				}

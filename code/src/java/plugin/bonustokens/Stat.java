@@ -150,7 +150,7 @@ public final class Stat extends BonusObj
 			getBonusInfo());
 		if (pcstat != null)
 		{
-			return pcstat.getName();
+			return pcstat.getDisplayName();
 		}
 		return super.getDescription();
 	}

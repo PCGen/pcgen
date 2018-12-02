@@ -71,9 +71,6 @@ public class AbilityListToken extends Token
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see Token#getToken(String, PlayerCharacter, ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{

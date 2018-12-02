@@ -48,9 +48,6 @@ public abstract class AbstractDialog extends JDialog
 	/** The OK button */
 	private JButton okButton;
 
-	/**
-	 * @see JDialog#JDialog(Frame, String, boolean)
-	 */
 	public AbstractDialog(Frame f, String title, boolean modal)
 	{
 		super(f, title, modal);

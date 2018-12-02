@@ -27,7 +27,7 @@ import pcgen.core.PlayerCharacter;
 import plugin.exporttokens.VarToken;
 
 /**
- * <code>VarTokenTest</code> tests the functioning of the VAR 
+ * {@code VarTokenTest} tests the functioning of the VAR
  * token processing code. 
  */
 public class VarTokenTest extends AbstractCharacterTestCase
@@ -42,9 +42,6 @@ public class VarTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(VarTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

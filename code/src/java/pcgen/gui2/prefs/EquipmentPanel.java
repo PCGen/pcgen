@@ -185,18 +185,12 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_EQUIPMENT;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -214,9 +208,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 			autoEquipCreate.isSelected());
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{

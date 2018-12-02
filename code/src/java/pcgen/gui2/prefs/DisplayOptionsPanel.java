@@ -142,18 +142,12 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		return line + 1;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
 		return IN_DISPLAY_OPTS;
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -168,9 +162,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			showSkillRanks.isSelected());
 	}
 
-	/**
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{

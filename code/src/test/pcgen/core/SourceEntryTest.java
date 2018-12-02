@@ -20,14 +20,15 @@ package pcgen.core;
 
 import javax.xml.transform.Source;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 
+import junit.framework.TestCase;
+
 /**
- * <code>SourceEntryTest</code> verifies the function of the SourceEntry class.
+ * {@code SourceEntryTest} verifies the function of the SourceEntry class.
  */
 public class SourceEntryTest extends TestCase
 {
@@ -35,9 +36,6 @@ public class SourceEntryTest extends TestCase
 	Source source;
 	Campaign campaign;
 	
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

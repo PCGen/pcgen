@@ -12,6 +12,8 @@
 
 # This MUST be included if you enable the datacontrol file....
 #
+#FACTDEF:RACE|BaseSize					DATAFORMAT:SIZEADJUSTMENT	REQUIRED:YES				VISIBLE:YES							EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+
 #FACTDEF:ABILITY|AppliedName	DATAFORMAT:String		VISIBLE:YES
 #
 #FACTDEF:CLASS|Abb			DATAFORMAT:String		VISIBLE:YES

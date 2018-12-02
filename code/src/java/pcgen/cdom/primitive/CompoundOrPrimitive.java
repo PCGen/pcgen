@@ -128,24 +128,12 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 		return PrimitiveUtilities.joinLstFormat(primCollection, Constants.PIPE, useAny);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CompoundOrPrimitive
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return primCollection.hashCode();
 	}
 
-	/**
-	 * Returns true if this CompoundOrPrimitive is equal to the given Object.
-	 * Equality is defined as being another CompoundOrPrimitive object with
-	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

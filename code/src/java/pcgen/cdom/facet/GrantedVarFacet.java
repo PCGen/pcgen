@@ -23,6 +23,7 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.BridgeListener;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This Facet controls items granted from variables
@@ -63,10 +64,11 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 		Object source = dfce.getSource();
 		CharID id = dfce.getCharID();
 		ScopeInstance inst = scopeFacet.get(id, cdo);
-		for (String VariableName : grantedVariables)
+		for (String variableName : grantedVariables)
 		{
-			VariableID<?> varID = loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(inst,
-				VariableName);
+			LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
+			VariableID<?> varID = context.getVariableContext()
+				.getVariableID(inst, variableName);
 			processAdd(id, varID, source);
 		}
 	}

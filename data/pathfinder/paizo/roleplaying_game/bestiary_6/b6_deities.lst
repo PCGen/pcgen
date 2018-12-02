@@ -1,0 +1,59 @@
+SOURCELONG:Bestiary 6	SOURCESHORT:B6	SOURCEWEB:http://paizo.com/products/btpy9r1y	SOURCEDATE:2017-05
+
+###Block: Archdevils
+Baalzebul		NAMEISPI:YES	DOMAINS:Air,Death,Evil,Law|PREALIGN:LN,LE,NE				DESC:Archdevil of arrogance, flies, lies					FACT:Title|Lord of Flies		FACT:Symbol|Iron crown and diamond						FACTSET:Animal|Fly		FACTSET:Colors|Black|White	FACTSET:Pantheon|Archdevils		DEITYWEAP:Spear			ALIGN:LE	SOURCEPAGE:p.16
+Barbatos		NAMEISPI:YES	DOMAINS:Evil,Law,Magic,Travel|PREALIGN:LN,LE,NE				DESC:Archdevil of animals, corruption, gateways				FACT:Title|The Bearded Lord		FACT:Symbol|Three-eyed beard							FACTSET:Animal|Raven		FACTSET:Colors|Gray|Red		FACTSET:Pantheon|Archdevils		DEITYWEAP:Quarterstaff		ALIGN:LE	SOURCEPAGE:p.18
+Belial		NAMEISPI:YES	DOMAINS:Charm,Destruction,Evil,Law|PREALIGN:LN,LE,NE			DESC:Archdevil of adultery, deception, desire				FACT:Title|The Pale Kiss		FACT:Symbol|Two-toned devil mask						FACTSET:Animal|Goat		FACTSET:Colors|Red|White	FACTSET:Pantheon|Archdevils		DEITYWEAP:Ranseur			ALIGN:LE	SOURCEPAGE:p.20
+Dispater		NAMEISPI:YES	DOMAINS:Evil,Law,Nobility,Trickery|PREALIGN:LN,LE,NE			DESC:Archdevil of cities, prisons, rulership				FACT:Title|Iron Lord			FACT:Symbol|Iron nail, crown, and ring					FACTSET:Animal|Hound		FACTSET:Colors|Iron gray|Red	FACTSET:Pantheon|Archdevils		DEITYWEAP:Mace (Heavy)		ALIGN:LE	SOURCEPAGE:p.22
+Geryon		NAMEISPI:YES	DOMAINS:Evil,Law,Strength,Water|PREALIGN:LN,LE,NE			DESC:Archdevil of forbidden knowledge, heresy, snakes			FACT:Title|The Serpent			FACT:Symbol|Serpent's head							FACTSET:Animal|Snake		FACTSET:Colors|Purple|Red	FACTSET:Pantheon|Archdevils		DEITYWEAP:Flail (Heavy)		ALIGN:LE	SOURCEPAGE:p.24
+Mammon		NAMEISPI:YES	DOMAINS:Artifice,Earth,Evil,Law|PREALIGN:LN,LE,NE			DESC:Archdevil of avarice, watchfulness, wealth				FACT:Title|The Argent Prince		FACT:Symbol|Devil-faced coin							FACTSET:Animal|Rat		FACTSET:Colors|Gold|Silver	FACTSET:Pantheon|Archdevils		DEITYWEAP:Shortspear		ALIGN:LE	SOURCEPAGE:p.26
+Mephistopheles	NAMEISPI:YES	DOMAINS:Evil,Knowledge,Law,Rune|PREALIGN:LN,LE,NE			DESC:Archdevil of contracts, devils, secrets				FACT:Title|The Crimson Son		FACT:Symbol|Trident and ring							FACTSET:Animal|Mockingbird	FACTSET:Colors|Red|Yellow	FACTSET:Pantheon|Archdevils		DEITYWEAP:Trident			ALIGN:LE	SOURCEPAGE:p.28
+Moloch		NAMEISPI:YES	DOMAINS:Evil,Fire,Law,War|PREALIGN:LN,LE,NE				DESC:Archdevil of fire, obedience, war					FACT:Title|The Ashen Bull		FACT:Symbol|Bull's head with flame						FACTSET:Animal|Bull		FACTSET:Colors|Orange|Yellow	FACTSET:Pantheon|Archdevils		DEITYWEAP:Whip			ALIGN:LE	SOURCEPAGE:p.30
+# Empyreal Lords
+Arshea		NAMEISPI:YES	DOMAINS:Charm,Good,Liberation,Strength|PREALIGN:LG,NG,CG,TN		DESC:Empyreal lord of freedom, physical beauty, sexuality		FACT:Title|Spirit of Abandon		FACT:Symbol|Figure with colorful sashes					FACTSET:Animal|Swan		FACTSET:Colors|Purple|White	FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Flail			ALIGN:NG	SOURCEPAGE:p.110
+Black Butterfly	NAMEISPI:YES	DOMAINS:Chaos,Good,Liberation,Void|PREALIGN:NG,CG,CN			DESC:Empyreal lord of distance, silence, space				FACT:Title|The Silence Between	FACT:Symbol|Black butterfly with star					FACTSET:Animal|Butterfly	FACTSET:Colors|Black|Silver	FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Starknife		ALIGN:CG	SOURCEPAGE:p.112
+Ragathiel		NAMEISPI:YES	DOMAINS:Destruction,Good,Law,Nobility|PREALIGN:LG,LN,NG		DESC:Empyreal lord of chivalry, duty, vengeance				FACT:Title|General of Vengeance	FACT:Symbol|Sword crossed with wing						FACTSET:Animal|Mastiff		FACTSET:Colors|Crimson|Gold	FACTSET:Pantheon|Empyreal Lords	DEITYWEAP:Sword (Bastard)	ALIGN:LG	SOURCEPAGE:p.114
+###Block:Great Old Ones
+Rhan-Tegoth		NAMEISPI:YES	DOMAINS:Chaos,Evil,Repose,Void|PREALIGN:NE,CN,CE			DESC:Great Old One of hibernation, immortality, and ruin		FACT:Title|Herald of the End Times	FACT:Symbol|Three black stars																	FACTSET:Pantheon|Great Old Ones	DEITYWEAP:Sickle			ALIGN:CE	SOURCEPAGE:p.146
+Tawil at'Umr	NAMEISPI:YES	DOMAINS:Chaos,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE																			FACT:Symbol|Black spiral inside of a hexagon														FACTSET:Pantheon|Great Old Ones	DEITYWEAP:Dagger			ALIGN:CN	SOURCEPAGE:p.148
+Yig			NAMEISPI:YES	DOMAINS:Chaos,Community,Protection,Scalykind|PREALIGN:CG,TN,CN,CE	DESC:Great Old One of cycles, procreation, and serpents		FACT:Title|Father of Serpents		FACT:Symbol|Coiled serpent with a crescent mark on its head												FACTSET:Pantheon|Great Old Ones	DEITYWEAP:Dagger (Punching)	ALIGN:CN	SOURCEPAGE:p.150
+###Block: Horsemen
+Apollyon		NAMEISPI:YES	DOMAINS:Air,Darkness,Destruction,Evil|PREALIGN:TN,LE,NE,CE		DESC:Horseman of pestilence							FACT:Title|Prince of Locusts		FACT:Symbol|Diseased yellow scythe						FACTSET:Animal|Horse|Rat	FACTSET:Colors|White		FACTSET:Pantheon|Horsemen		DEITYWEAP:Scythe			ALIGN:NE	SOURCEPAGE:p.160
+Charon		NAMEISPI:YES	DOMAINS:Death,Evil,Knowledge,Water|PREALIGN:TN,LE,NE,CE		DESC:Horseman of death								FACT:Title|The Boatman			FACT:Symbol|Skull with coins on eyes					FACTSET:Animal|Horse|Raven	FACTSET:Colors|Pale green	FACTSET:Pantheon|Horsemen		DEITYWEAP:Quarterstaff		ALIGN:NE	SOURCEPAGE:p.162
+Szuriel		NAMEISPI:YES	DOMAINS:Evil,Fire,Strength,War|PREALIGN:TN,LE,NE,CE			DESC:Horseman of war								FACT:Title|Angel of Desolation	FACT:Symbol|Pale hand and black sword					FACTSET:Animal|Horse|Vulture	FACTSET:Colors|Red		FACTSET:Pantheon|Horsemen		DEITYWEAP:Greatsword		ALIGN:NE	SOURCEPAGE:p.164
+Trelmarixian	NAMEISPI:YES	DOMAINS:Earth,Evil,Madness,Weather|PREALIGN:TN,LE,NE,CE		DESC:Horseman of famine								FACT:Title|The Black			FACT:Symbol|Jackal skull and eclipse					FACTSET:Animal|Horse|Jackal	FACTSET:Colors|Black		FACTSET:Pantheon|Horsemen		DEITYWEAP:Gauntlet (Spiked)	ALIGN:NE	SOURCEPAGE:p.166
+###Block: Qlippoth Lords
+Chavazvug		NAMEISPI:YES	DOMAINS:Chaos,Evil,Fire,Repose|PREALIGN:NE,CN,CE			DESC:Qlippoth lord of fiery consumption, monstrous recursion	FACT:Title|The Crawling Inferno	FACT:Symbol|Burning tentacled rune						FACTSET:Animal|None		FACTSET:Colors|Orange		FACTSET:Pantheon|Qlippoth Lords	DEITYWEAP:Flail (Heavy)		ALIGN:CE	SOURCEPAGE:p.232
+Isph-Aun-Vuln	NAMEISPI:YES	DOMAINS:Air,Chaos,Evil,Trickery|PREALIGN:NE,CN,CE			DESC:Qlippoth lord of infestation of the flesh, poisonous wind	FACT:Title|The Feaster Within		FACT:Symbol|Cloudy tentacled rune						FACTSET:Animal|None		FACTSET:Colors|Gray		FACTSET:Pantheon|Qlippoth Lords	DEITYWEAP:Longbow			ALIGN:CE	SOURCEPAGE:p.234
+Oaur-Ooung		NAMEISPI:YES	DOMAINS:Chaos,Evil,Plant,Water|PREALIGN:NE,CN,CE			DESC:Qlippoth lord of tainted oceans, vile fecundity			FACT:Title|The Blistering Womb	FACT:Symbol|Jellyfish shaped rune						FACTSET:Animal|None		FACTSET:Colors|Blue		FACTSET:Pantheon|Qlippoth Lords	DEITYWEAP:Trident			ALIGN:CE	SOURCEPAGE:p.236
+Thuskchoon		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,Knowledge|PREALIGN:NE,CN,CE		DESC:Qlippoth lord of blinding hunger, revealed secrets		FACT:Title|Everglutton			FACT:Symbol|Triangular rune with teeth					FACTSET:Animal|None		FACTSET:Colors|Green		FACTSET:Pantheon|Qlippoth Lords	DEITYWEAP:Greatclub		ALIGN:CE	SOURCEPAGE:p.238
+
+
+###Block: Archdevils
+Baalzebul.MOD		DOMAINS:Devil Subdomain (Evil),Devil Subdomain (Law),Murder Subdomain,Undead Subdomain,Wind Subdomain|PREALIGN:LN,LE,NE
+Barbatos.MOD		DOMAINS:Arcane Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Divine Subdomain,Trade Subdomain|PREALIGN:LN,LE,NE
+Belial.MOD			DOMAINS:Catastrophe Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Lust Subdomain,Rage Subdomain|PREALIGN:LN,LE,NE
+Dispater.MOD		DOMAINS:Deception Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Leadership Subdomain,Tyranny Subdomain|PREALIGN:LN,LE,NE
+Geryon.MOD			DOMAINS:Devil Subdomain (Evil),Devil Subdomain (Law),Ferocity Subdomain,Oceans Subdomain,Resolve Subdomain|PREALIGN:LN,LE,NE
+Mammon.MOD			DOMAINS:Construct Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Metal Subdomain,Toil Subdomain|PREALIGN:LN,LE,NE
+Mephistopheles.MOD	DOMAINS:Devil Subdomain (Evil),Devil Subdomain (Law),Language Subdomain,Memory Subdomain,Thought Subdomain|PREALIGN:LN,LE,NE
+Moloch.MOD			DOMAINS:Ash Subdomain,Devil Subdomain (Evil),Devil Subdomain (Law),Smoke Subdomain,Tactics Subdomain|PREALIGN:LN,LE,NE
+# Empyreal Lords
+Arshea.MOD			DOMAINS:Agathion Subdomain,Freedom Subdomain,Love Subdomain,Lust Subdomain|PREALIGN:LG,NG,CG,TN
+Black Butterfly.MOD	DOMAINS:Azata Subdomain (Chaos),Azata Subdomain (Good),Freedom Subdomain,Revolution Subdomain,Stars Subdomain|PREALIGN:NG,CG,CN
+Ragathiel.MOD		DOMAINS:Archon Subdomain (Good),Archon Subdomain (Law),Judgment Subdomain,Martyr Subdomain,Rage Subdomain|PREALIGN:LG,LN,NG
+###Block:Great Old Ones
+Rhan-Tegoth.MOD		DOMAINS:Ancestors Subdomain,Dark Tapestry Subdomain,Entropy Subdomain,Stars Subdomain|PREALIGN:NE,CN,CE
+Tawil at'Umr.MOD		DOMAINS:Dark Tapestry Subdomain,Exploration Subdomain,Night Subdomain,Stars Subdomain|PREALIGN:CG,TN,CN,CE
+Yig.MOD			DOMAINS:Defense Subdomain,Dragon Subdomain,Revelry Subdomain,Venom Subdomain|PREALIGN:CG,TN,CN,CE
+# Horsemen
+Apollyon.MOD		DOMAINS:Catastrophe Subdomain,Daemon Subdomain,Loss Subdomain,Night Subdomain|PREALIGN:TN,LE,NE,CE
+Charon.MOD			DOMAINS:Daemon Subdomain,Ice Subdomain,Memory Subdomain,Undead Subdomain|PREALIGN:TN,LE,NE,CE
+Szuriel.MOD			DOMAINS:Blood Subdomain,Daemon Subdomain,Ferocity Subdomain,Tactics Subdomain|PREALIGN:TN,LE,NE,CE
+Trelmarixian.MOD		DOMAINS:Daemon Subdomain,Decay Subdomain,Insanity Subdomain,Seasons Subdomain|PREALIGN:TN,LE,NE,CE
+# Qlippoth Lords
+Chavazvug.MOD		DOMAINS:Ash Subdomain,Entropy Subdomain,Smoke Subdomain,Souls Subdomain|PREALIGN:NE,CN,CE
+Isph-Aun-Vuln.MOD		DOMAINS:Deception Subdomain,Fear Subdomain,Venom Subdomain,Wind Subdomain|PREALIGN:NE,CN,CE
+Oaur-Ooung.MOD		DOMAINS:Decay Subdomain,Fear Subdomain,Growth Subdomain,Oceans Subdomain|PREALIGN:NE,CN,CE
+Thuskchoon.MOD		DOMAINS:Catastrophe Subdomain,Entropy Subdomain,Rage Subdomain,Thought Subdomain|PREALIGN:NE,CN,CE
+

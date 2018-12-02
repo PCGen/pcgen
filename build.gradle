@@ -12,26 +12,23 @@
  */
 
 // import Ant helper static values to differ system families
-import static org.apache.tools.ant.taskdefs.condition.Os.*
+import org.apache.tools.ant.filters.FixCrLfFilter
 
 plugins {
-    id 'com.gradle.build-scan' version '1.16'
+    id 'com.gradle.build-scan' version '2.0.2'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '1.6.4'
+    id "com.github.spotbugs" version '1.6.5'
     id 'java'
     id 'maven'
     id 'pmd'
+    id 'idea'
     id "de.undercouch.download" version '3.4.3'
     id 'edu.sc.seis.launch4j' version '2.4.4'
     id 'com.github.ben-manes.versions' version '0.20.0'
     id "com.dorongold.task-tree" version '1.3.1'
-}
-
-spotbugs {
-    toolVersion = '3.1.8'
 }
 
 group = 'net.sourceforge.pcgen'
@@ -85,11 +82,7 @@ repositories {
     }
     ivy {
         name "fileRepo"
-        url 'http://librepo.pcgen.org'
-    }
-    ivy {
-        name "tempRepo"
-        url 'http://52.90.171.70:8080/librepo/'
+        url 'http://pc-gen.org/librepo/'
     }
     jcenter()
 }
@@ -100,7 +93,7 @@ sourceSets {
             srcDirs 'code/src/java'
         }
         resources {
-            srcDirs = ['code/src/java', 'code/resources' ]
+            srcDirs = ['code/src/java', 'code/resources']
             include '**/*.properties'
             include '**/*.xml'
             include '**/*.gif'
@@ -112,16 +105,28 @@ sourceSets {
         java {
             srcDirs = ['code/src/utest', 'code/src/testcommon']
         }
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
     }
     itest {
         java {
             srcDirs = ['code/src/itest', 'code/src/testcommon']
         }
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+        compileClasspath += sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.runtimeClasspath
+
     }
     slowtest {
         java {
             srcDirs = ['code/src/test', 'code/src/testcommon']
         }
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+        compileClasspath += sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.runtimeClasspath
+
     }
 }
 
@@ -152,9 +157,9 @@ compileJava {
 dependencies {
     compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
-    compile group: 'org.springframework', name: 'spring-core', version:'5.1.1.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.1.RELEASE'
-    compile group: 'org.springframework', name: 'spring-web', version:'5.1.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.1.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.1.3.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.8.1'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
@@ -167,8 +172,8 @@ dependencies {
     compile group: 'org.mozilla', name: 'rhino', version:'1.7.10'
 
     compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.2'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.134'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.167'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.157'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.180'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.3.04'
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'16.0.3'
@@ -179,20 +184,7 @@ dependencies {
     testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
     testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.2'
 
-    itestCompile sourceSets.main.output
-    itestCompile configurations.testCompile
-    itestCompile sourceSets.test.output
-
-    itestRuntime configurations.testRuntime
-
-    slowtestCompile sourceSets.main.output
-    slowtestCompile configurations.testCompile
-    slowtestCompile sourceSets.test.output
-
-    slowtestRuntime configurations.testRuntime
-   
     spotbugs 'com.github.spotbugs:spotbugs:3.1.8'
-    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.8.0'
 }
 
 ant.importBuild 'build-gradle.xml'
@@ -237,9 +229,8 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
-import org.apache.tools.ant.filters.FixCrLfFilter;
-task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, 
-        converterJar]) {
+task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar,
+                                          converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/launch4j/pcgen.exe"
@@ -288,6 +279,13 @@ task cleanRoot(type: Delete) {
     delete "$projectDir/jre"
 }
 
+// Alias tasks
+task buildonly(dependsOn: ['installToRoot']) {
+}
+
+task quickbuild(dependsOn: ['installToRoot', 'test']) {
+}
+
 build {
     it.dependsOn 'copyToOutput', 'syncLibsToRoot'
     mustRunAfter clean
@@ -330,6 +328,7 @@ task inttest(type: Test, dependsOn: 'jar') {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
+    maxParallelForks = 5
     include 'pcgen/inttest/**/*Test.class'
 }
 
@@ -386,6 +385,14 @@ dependencyUpdates.resolutionStrategy = {
                 selection.reject('older than current')
             }
         }
+    }
+}
+
+idea {
+    module {
+        testSourceDirs += project.sourceSets.itest.java.srcDirs
+        testSourceDirs += project.sourceSets.slowtest.java.srcDirs
+        testSourceDirs += project.sourceSets.test.java.srcDirs
     }
 }
 

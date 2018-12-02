@@ -26,7 +26,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMReference;
@@ -65,10 +64,11 @@ import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
 import util.TestURI;
 
 /**
- * The Class <code>PlayerCharacterTest</code> is responsible for testing 
+ * The Class {@code PlayerCharacterTest} is responsible for testing
  * that PlayerCharacter is working correctly.
  * 
  * 
@@ -91,27 +91,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	private Domain luckDomain;
 	private Spell luckDomainLvl1Spell;
 	private Spell luckDomainLvl2Spell;
-	
-	/**
-	 * Run the tests.
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PlayerCharacterTest.class);
-	}
 
-//	/**
-//	 * @return Test
-//	 */
-//	public static Test suite()
-//	{
-//		return new TestSuite(PlayerCharacterTest.class);
-//	}
-
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

@@ -17,8 +17,9 @@
  */
 package plugin.jepcommands;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertThat;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -30,8 +31,11 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
 /**
- * <code>CountCommandTest</code> tests the functioning of the jep count plugin
+ * {@code CountCommandTest} tests the functioning of the jep count plugin
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {
@@ -45,9 +49,6 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		return new TestSuite(CountCommandTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -433,7 +434,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	//
 	//        final String s = sB.toString();
 	//
-	//        is(character.getVariableValue(s,""), eq(6.0, 0.1), s);
+	//        assertThat(s, (double) character.getVariableValue(s,""), closeTo(6.0, 0.1));
 	//    }
 	public void testCountAbilitiesByName()
 	{
@@ -457,19 +458,19 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		final String s = sB.toString();
 
-		is(character.getVariableValue(s, ""), eq(0.0, 0.1), s + " no choices");
+		assertThat(s + " no choices", (double) character.getVariableValue(s, ""), closeTo(0.0, 0.1));
 
 		AbilityCategory category = gCat;
 		finalizeTest(ab, "munch", character, category);
 
-		is(character.getVariableValue(s, ""), eq(1.0, 0.1), s + " one choice");
+		assertThat(s + " one choice", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 
 		finalizeTest(ab, "devour", character, category);
 		finalizeTest(ab, "nibble", character, category);
 		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 
-		is(character.getVariableValue(s, ""), eq(3.0, 0.1), s + " three choices");
+		assertThat(s + " three choices", (double) character.getVariableValue(s, ""), closeTo(3.0, 0.1));
 	}
 
 	public void testCountAbilitiesByKey()
@@ -494,27 +495,27 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 		final String countByKey = sB.toString();
 
-		is(character.getVariableValue(countByKey, ""), eq(0.0, 0.1), countByKey + " no choices");
+		assertThat(countByKey + " no choices", (double) character.getVariableValue(countByKey, ""), closeTo(0.0, 0.1));
 
 		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "munch");
 
-		is(character.getVariableValue(countByKey, ""), eq(1.0, 0.1), countByKey + " one choice");
+		assertThat(countByKey + " one choice", (double) character.getVariableValue(countByKey, ""), closeTo(1.0, 0.1));
 
 		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "devour");
 		character.setDirty(true);
 
-		is(character.getVariableValue(countByKey, ""), eq(2.0, 0.1), countByKey + " two choices");
+		assertThat(countByKey + " two choices", (double) character.getVariableValue(countByKey, ""), closeTo(2.0, 0.1));
 
 		AbstractCharacterTestCase.applyAbility(character, gCat, ab, "nibble");
 		character.setDirty(true);
 
-		is(character.getVariableValue(countByKey, ""), eq(3.0, 0.1), countByKey + " three choices");
+		assertThat(countByKey + " three choices", (double) character.getVariableValue(countByKey, ""), closeTo(3.0, 0.1));
 
 		String countKeyChoice = "count(\"ABILITIES\",\"KEY=KEY_Eat Burger(munch)\")";
-		is(character.getVariableValue(countKeyChoice, ""), eq(1.0, 0.1), countKeyChoice + " chosen");
+		assertThat(countKeyChoice + " chosen", (double) character.getVariableValue(countKeyChoice, ""), closeTo(1.0, 0.1));
 
 		String countStr = "count(\"ABILITIES\",\"KEY=KEY_Turning\")";
-		is(character.getVariableValue(countStr, ""), eq(1.0, 0.1), countStr + " single application");
+		assertThat(countStr + " single application", (double) character.getVariableValue(countStr, ""), closeTo(1.0, 0.1));
 
 	}
 
@@ -530,40 +531,40 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		String countAll = "count(\"CAMPAIGNHISTORY\",\"EXPORT=NO[or]EXPORT=YES\")";
 
 		// No entries yet
-		is(character.getVariableValue(countDefault, ""), eq(0.0, 0.1), countDefault + " no choices");
-		is(character.getVariableValue(countVisible, ""), eq(0.0, 0.1), countVisible + " no choices");
-		is(character.getVariableValue(countHidden, ""), eq(0.0, 0.1), countHidden + " no choices");
-		is(character.getVariableValue(countAll, ""), eq(0.0, 0.1), countAll + " no choices");
+		assertThat(countDefault + " no choices", (double) character.getVariableValue(countDefault, ""), closeTo(0.0, 0.1));
+		assertThat(countVisible + " no choices", (double) character.getVariableValue(countVisible, ""), closeTo(0.0, 0.1));
+		assertThat(countHidden + " no choices", (double) character.getVariableValue(countHidden, ""), closeTo(0.0, 0.1));
+		assertThat(countAll + " no choices", (double) character.getVariableValue(countAll, ""), closeTo(0.0, 0.1));
 
 		ChronicleEntry hiddenEntry =
 				TestHelper.buildChronicleEntry(false, "Campaign", "Date", "GM",
 					"Party", "Adventure", 1390, "Chronicle");
 		character.addChronicleEntry(hiddenEntry);
 		character.setDirty(true);
-		is(character.getVariableValue(countDefault, ""), eq(0.0, 0.1), countDefault + " one hidden");
-		is(character.getVariableValue(countVisible, ""), eq(0.0, 0.1), countVisible + " one hidden");
-		is(character.getVariableValue(countHidden, ""), eq(1.0, 0.1), countHidden + " one hidden");
-		is(character.getVariableValue(countAll, ""), eq(1.0, 0.1), countAll + " one hidden");
+		assertThat(countDefault + " one hidden", (double) character.getVariableValue(countDefault, ""), closeTo(0.0, 0.1));
+		assertThat(countVisible + " one hidden", (double) character.getVariableValue(countVisible, ""), closeTo(0.0, 0.1));
+		assertThat(countHidden + " one hidden", (double) character.getVariableValue(countHidden, ""), closeTo(1.0, 0.1));
+		assertThat(countAll + " one hidden", (double) character.getVariableValue(countAll, ""), closeTo(1.0, 0.1));
 
 		ChronicleEntry visibleEntry =
 				TestHelper.buildChronicleEntry(true, "Campaign", "Date2", "GM",
 					"Party", "Adventure2", 1390, "Chronicle2");
 		character.addChronicleEntry(visibleEntry);
 		character.setDirty(true);
-		is(character.getVariableValue(countDefault, ""), eq(1.0, 0.1), countDefault + " one hidden, one visible");
-		is(character.getVariableValue(countVisible, ""), eq(1.0, 0.1), countVisible + " one hidden, one visible");
-		is(character.getVariableValue(countHidden, ""), eq(1.0, 0.1), countHidden + " one hidden, one visible");
-		is(character.getVariableValue(countAll, ""), eq(2.0, 0.1), countAll + " one hidden, one visible");
+		assertThat(countDefault + " one hidden, one visible", (double) character.getVariableValue(countDefault, ""), closeTo(1.0, 0.1));
+		assertThat(countVisible + " one hidden, one visible", (double) character.getVariableValue(countVisible, ""), closeTo(1.0, 0.1));
+		assertThat(countHidden + " one hidden, one visible", (double) character.getVariableValue(countHidden, ""), closeTo(1.0, 0.1));
+		assertThat(countAll + " one hidden, one visible", (double) character.getVariableValue(countAll, ""), closeTo(2.0, 0.1));
 
 		ChronicleEntry thirdEntry =
 				TestHelper.buildChronicleEntry(true, "Campaign", "Date3", "GM",
 					"Party", "Adventure3", 1390, "Chronicle2");
 		character.addChronicleEntry(thirdEntry);
 		character.setDirty(true);
-		is(character.getVariableValue(countDefault, ""), eq(2.0, 0.1), countDefault + " one hidden, two visible");
-		is(character.getVariableValue(countVisible, ""), eq(2.0, 0.1), countVisible + " one hidden, two visible");
-		is(character.getVariableValue(countHidden, ""), eq(1.0, 0.1), countHidden + " one hidden, two visible");
-		is(character.getVariableValue(countAll, ""), eq(3.0, 0.1), countAll + " one hidden, two visible");
+		assertThat(countDefault + " one hidden, two visible", (double) character.getVariableValue(countDefault, ""), closeTo(2.0, 0.1));
+		assertThat(countVisible + " one hidden, two visible", (double) character.getVariableValue(countVisible, ""), closeTo(2.0, 0.1));
+		assertThat(countHidden + " one hidden, two visible", (double) character.getVariableValue(countHidden, ""), closeTo(1.0, 0.1));
+		assertThat(countAll + " one hidden, two visible", (double) character.getVariableValue(countAll, ""), closeTo(3.0, 0.1));
 
 	}
 

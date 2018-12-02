@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu May 12 14:50:48 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Pathfinder Player Companion: Ranged Tactics Toolbox	SOURCESHORT:RTT	SOURCEWEB:http://paizo.com/products/btpy99s6?Pathfinder-Player-Companion-Ranged-Tactics-Toolbox	SOURCEDATE:2014-10
+SOURCELONG:Pathfinder Player Companion: Ranged Tactics Toolbox	SOURCESHORT:RTT	SOURCEWEB:http://paizo.com/products/btpy99s6	SOURCEDATE:2014-10
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 26 April 2016
 
@@ -9,19 +10,19 @@ SOURCELONG:Pathfinder Player Companion: Ranged Tactics Toolbox	SOURCESHORT:RTT	S
 
 # SIMPLE WEAPONS
 # -- light melee
-# Weapon Name		Type															Nb Hands
-Kunai				TYPE:Simple.Light.Melee.Thrown.Ranged.Piercing.Bludgeoning.Weapon Group Blades Light
+# Weapon Name		Unique Key				Type															Nb Hands
+Kunai									TYPE:Simple.Light.Melee.Thrown.Ranged.Piercing.Bludgeoning.Weapon Group Blades Light
 # --ranged
-Stonebow			TYPE:Simple.Ranged.Bludgeoning.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
+Stonebow								TYPE:Simple.Ranged.Bludgeoning.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
 
 # MARTIAL
 # --ranged
-Hurlbat			TYPE:Martial.Ranged.Thrown.Piercing.Slashing.Axe.Weapon Group Axes
-Spear-Sling			TYPE:Martial.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
-Throwing Arrow Cord	TYPE:Martial.Ranged.Piercing.Thrown.Weapon Group Thrown						HANDS:2
+Hurlbat								TYPE:Martial.Ranged.Thrown.Piercing.Slashing.Axe.Weapon Group Axes
+Spear-Sling								TYPE:Martial.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
+Throwing Arrow Cord						TYPE:Martial.Ranged.Piercing.Thrown.Weapon Group Thrown						HANDS:2
 
 # EXOTIC
 # --ranged
-Knobkerrie			TYPE:Exotic.Melee.Ranged.Thrown.Bludgeoning.Club.Weapon Group Thrown
+Knobkerrie								TYPE:Exotic.Melee.Ranged.Thrown.Bludgeoning.Club.Weapon Group Thrown
 Heavy Crank Crossbow	KEY:Crank Crossbow (Heavy)	TYPE:Exotic.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2
 Light Crank Crossbow	KEY:Crank Crossbow (Light)	TYPE:Exotic.Ranged.Piercing.Crossbow.Archery.Weapon Group Crossbows				HANDS:2

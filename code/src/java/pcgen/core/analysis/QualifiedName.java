@@ -21,8 +21,8 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.StringJoiner;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -100,14 +100,11 @@ public final class QualifiedName
 			return outputName;
 		}
 
-		final StringBuilder buffer = new StringBuilder(50);
-		buffer.append(outputName).append("(");
+		StringJoiner joiner = new StringJoiner(", ", outputName + "(", ")");
 		List<String> associationList = pc.getAssociationList(s);
 		Collections.sort(associationList);
-		buffer.append(StringUtil.joinToStringBuilder(associationList, ", "));
-		buffer.append(")");
-
-		return buffer.toString();
+		associationList.forEach(assoc -> joiner.add(assoc));
+		return joiner.toString();
 	}
 
 }

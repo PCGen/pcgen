@@ -124,7 +124,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #BONUS:STAT|WIS|
 #BONUS:STAT|CHA|
 #KIT:1|yyy Default
-#ABILITY:Internal|AUTOMATIC|Race Traits ~ yyy
+#ABILITY:Internal|AUTOMATIC|Racial Traits ~ yyy
 #LANGBONUS:
 #AUTO:LANG|
 

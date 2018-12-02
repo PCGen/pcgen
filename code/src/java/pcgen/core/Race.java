@@ -126,11 +126,4 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 	{
 		return getSafe(FormulaKey.NUMCHOICES);
 	}
-
-	@Override
-	public boolean isUnselected()
-	{
-		return getSafeListFor(ListKey.GROUP).stream().filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst()
-			.isPresent();
-	}
 }

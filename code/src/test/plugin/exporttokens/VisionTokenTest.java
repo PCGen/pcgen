@@ -37,7 +37,7 @@ import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>VisionTokenTest</code> tests the function of the VISION token.  
+ * {@code VisionTokenTest} tests the function of the VISION token.
  */
 public class VisionTokenTest extends AbstractCharacterTestCase
 {
@@ -55,9 +55,6 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(VisionTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -105,9 +102,6 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		SettingsHandler.getGame().getModeContext().getReferenceContext().importObject(metricUS);
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

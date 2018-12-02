@@ -21,6 +21,7 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -83,8 +84,6 @@ public class PObject extends CDOMObject
 
 	/**
 	 * Compares the keys of the object.
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
 	public int compareTo(final Object obj)
@@ -97,9 +96,6 @@ public class PObject extends CDOMObject
 		return 1;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(final Object obj)
 	{
@@ -232,12 +228,10 @@ public class PObject extends CDOMObject
 	 */
 	public String getPCCText()
 	{
-		final StringBuilder txt = new StringBuilder(200);
-		txt.append(getDisplayName());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(this), "\t"));
-		txt.append("\t");
-		txt.append(PrerequisiteWriter.prereqsToString(this));
+		StringJoiner txt = new StringJoiner("\t");
+		txt.add(getDisplayName());
+		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		txt.add(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 

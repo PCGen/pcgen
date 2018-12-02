@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -264,7 +265,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -625,7 +626,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private void doFormulaSetup(LoadContext context)
 	{
 		VariableContext variableContext = context.getVariableContext();
-		FormulaManager formulaManager = variableContext.getFormulaManager();
+		FormulaManager formulaManager = variableContext.getPCFormulaManager();
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
 		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
@@ -5882,7 +5883,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public int sizeInt()
 	{
-		return sizeFacet.sizeInt(id);
+		return getSizeAdjustment().get(IntegerKey.SIZEORDER);
 	}
 
 	private int totalHitDice()
@@ -6231,7 +6232,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (!SettingsHandler.getGame().getAlignmentText().isEmpty())
 		{
-			PCAlignment align = ChannelCompatibility.getCurrentAlignment(id);
+			PCAlignment align = AlignmentCompat.getCurrentAlignment(id);
 			if (align != null)
 			{
 				list.add(align);
@@ -6283,7 +6284,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// SizeAdjustment
-		SizeAdjustment sa = sizeFacet.get(id);
+		SizeAdjustment sa = getSizeAdjustment();
 		if (sa != null)
 		{
 			list.add(sa);
@@ -6666,7 +6667,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return sizeFacet.get(id);
+		String sizeControl = getControl(CControl.PCSIZE);
+		if (sizeControl != null)
+		{
+			return (SizeAdjustment) getGlobal(sizeControl);
+		}
+		else
+		{
+			return sizeFacet.get(id);
+		}
 	}
 
 	public int getSpellClassCount()
@@ -10134,6 +10143,20 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
+	 * Returns true if a feature code control is enabled.
+	 * 
+	 * @param feature
+	 *            The feature code control for which the value should be returned
+	 * @return true if a feature code control is enabled; false otherwise
+	 */
+	public boolean isFeatureEnabled(String feature)
+	{
+		Boolean object = controller.get(ObjectKey.getKeyFor(Boolean.class,
+			"*" + Objects.requireNonNull(feature)));
+		return (object != null) && object;
+	}
+
+	/**
 	 * Directly solves the given NEPFormula in context to this PlayerCharacter.
 	 * 
 	 * @param formula
@@ -10144,5 +10167,33 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public <T> T solve(NEPFormula<T> formula)
 	{
 		return solverManagerFacet.get(id).solve(formula);
+	}
+
+	/**
+	 *
+	 * @return the racial size
+	 */
+	public int racialSizeInt()
+	{
+		String baseSizeControl = getControl(CControl.BASESIZE);
+		if (baseSizeControl != null)
+		{
+			SizeAdjustment baseSize = (SizeAdjustment) getGlobal(baseSizeControl);
+			return baseSize.get(IntegerKey.SIZEORDER);
+		}
+		else
+		{
+			return sizeFacet.racialSizeInt(id);
+		}
+	}
+
+	public String getGenderString()
+	{
+		return genderFacet.getGender(id).toString();
+	}
+
+	public Gender getGenderObject()
+	{
+		return genderFacet.getGender(id);
 	}
 }

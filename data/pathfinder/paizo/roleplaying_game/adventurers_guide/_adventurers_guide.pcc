@@ -1,0 +1,81 @@
+CAMPAIGN:Adventurer's Guide
+KEY:Adventurer's Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:BETA
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:7,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Occult Adventures,INCLUDES=Ultimate Intrigue
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Adventurer's Guide
+SOURCESHORT:AG
+SOURCEWEB:http://paizo.com/products/btpy9sjo
+SOURCEDATE:2017-06
+ISOGL:YES
+
+COVER:adventurers_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://www.paizo.com/products/btpy9sjo|Download this publication from Paizo Publishing!
+DESC:Join Us! Being an adventurer is a dangerous line of work, but the rewards are well worth the risk. The smartest adventurers never go it alone—they not only bring allies to help explore the dangerous reaches of the world, but also seek aid in the form of support, supplies, and secrets from powerful organizations. With such a group to serve as a guide, an adventuring party's chances for success have never been better!
+
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Genie, Marid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Adventurer’s Guide Copyright 2017, Paizo Inc.; Authors: Benjamin Bruck, John Compton, Crystal Frasier, Tim Hitchcock, Jenny Jarzabski, Isabelle Lee, Joe Pasini, Jessica Price, David Schwartz, and Josh Vogt.
+COPYRIGHT:PCGen dataset conversion for "Wrath of the Righteous Player's Guide" Copyright 2018, PCGen Data Team (including, but not limited to Gwen T. (evilpixie87), Paul Grosse, and Andrew Maitland).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+
+ABILITY:ag_abilities.lst
+ABILITY:ag_abilities_class.lst
+ABILITYCATEGORY:ag_abilitycategories.lst
+CLASS:ag_classes.lst
+COMPANIONMOD:ag_companionmods.lst
+EQUIPMENT:ag_equip_arms_armor.lst
+EQUIPMENT:ag_equip_general.lst
+EQUIPMENT:ag_equip_magic_items.lst
+EQUIPMOD:ag_equipmods.lst
+ABILITY:ag_feats.lst
+ARMORPROF:ag_profs_armor.lst
+WEAPONPROF:ag_profs_weapon.lst
+RACE:ag_races.lst
+SKILL:ag_skills.lst
+SPELL:ag_spells.lst
+TEMPLATE:ag_templates.lst
+
+ABILITY:support/ag_abilities_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITYCATEGORY:support/ag_abilitycategories_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+CLASS:support/ag_classes_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+
+FORWARDREF:RACE|Companion (Amargasaurus),Companion (Brontotherium),Companion (Deinotherium),Companion (Elasmotherium),Companion (Kentrosaurus),Companion (Polar Bear (Dire)),Companion (Moa),Companion (Uintatherium),Companion (Dinosaur (Styracosaurus)),Companion (Baluchitherium),Companion (Elk),Companion (Raven (Giant)),Companion (Walrus),Companion (Archelon),Companion (Basilosaurus),Companion (Chalicotherium),Companion (Embolotherium),Companion (Kaprosuchus),Companion (Megalania),Companion (Saber-Toothed Cat),Companion (Titanoboa)
+FORWARDREF:ABILITY=FEAT|Shatter Control
+
+# ENTRY DATE: October 2018
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.08
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:
+
+# TO DO LIST
+# Asavir Prestige Class - Equine Bond needs work to interact correctly with other classes that may grant companions, especially cavalier
+# Curator Occultist Archetype - Unsure how to implement Extensive Collection, Adaptable Powers. Not entirely sure how exactly this differs from Occultist! VERY confusing.
+# Golden Legionnaire Prestige Class - May eventually want to set up a chooser system for Defy Danger options similar to ranger favored choosers;
+# Blossoming Light Cleric Archetype - Need to kill domain spells somehow!?
+# Rivethun Emissary - Need to set up a system to restrict spirit animal evolution choices.

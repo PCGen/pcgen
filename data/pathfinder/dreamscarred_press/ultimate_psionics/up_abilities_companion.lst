@@ -2,7 +2,7 @@
 
 
 # Ability Name		Unique Key				Category of Ability	Type			Define				Ability																																															Bonus Ability Pool				Modify VAR
-Race Traits ~ Horror						CATEGORY:Internal					DEFINE:Pool_HorrorType|0																																																	BONUS:ABILITYPOOL|Eidolon Evolution|5	BONUS:VAR|Pool_HorrorType|1
+Racial Traits ~ Horror						CATEGORY:Internal					DEFINE:Pool_HorrorType|0																																																	BONUS:ABILITYPOOL|Eidolon Evolution|5	BONUS:VAR|Pool_HorrorType|1
 
 # Selection
 Biped				KEY:Horror Type ~ Biped		CATEGORY:Internal		TYPE:Horror Type						ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Legs	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Legs	ABILITY:Eidolon Evolution|AUTOMATIC|Evolution ~ Bite																													BONUS:VAR|HorrorFortitudeGood|1	BONUS:VAR|HorrorWillGood|1

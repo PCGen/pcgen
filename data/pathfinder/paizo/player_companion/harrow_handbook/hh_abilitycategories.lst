@@ -1,0 +1,4 @@
+#SOURCELONG:Pathfinder Player Companion: The Harrow Handbook		SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
+
+ABILITYCATEGORY:Solar Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SolarRevelation.GeneralRevelation				PLURAL:Solar Mystery Revelations						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Varisian Tattoo Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VarisianTattoo							PLURAL:Varisian Tattoo Choices						DISPLAYLOCATION:Feats

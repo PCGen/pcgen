@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -175,7 +176,10 @@ public class HitDiceToken extends Token
 						IntStream.range(0, display.getLevel(pcClass))
 								.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
 								.boxed()
-								.collect(Collectors.toMap(hitDie -> hitDie, hitDie -> 1, (a, b) -> a + b, LinkedHashMap::new)))
+								.collect(Collectors.toMap(Function.identity(),
+										hitDie -> 1,
+										(a, b) -> a + b,
+										LinkedHashMap::new)))
 				.mapToInt(hdMap -> hdMap.entrySet().stream().mapToInt(Map.Entry::getValue).sum())
 				.sum();
 

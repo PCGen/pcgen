@@ -21,29 +21,29 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
-import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.rules.context.AbstractReferenceContext;
 
-public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreBaseSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
-		if ((display.getRace() != null) && !display.getRace().isUnselected())
+		if ((pc.getRace() != null) && !pc.getRace().isUnselected())
 		{
 			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 			SizeAdjustment sa = ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, prereq.getOperand());
 			int targetSize = sa.get(IntegerKey.SIZEORDER);
-			runningTotal = prereq.getOperator().compare(display.racialSizeInt(), targetSize);
+			runningTotal = prereq.getOperator().compare(pc.racialSizeInt(), targetSize);
 		}
 
 		return countedTotal(prereq, runningTotal);

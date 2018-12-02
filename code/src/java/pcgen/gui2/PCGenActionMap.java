@@ -21,21 +21,23 @@ package pcgen.gui2;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
+import gmgen.GMGenSystem;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.Skill;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.ItemFacade;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellFacade;
-import pcgen.facade.core.StatFacade;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -55,8 +57,6 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
-import gmgen.GMGenSystem;
 
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such
@@ -146,8 +146,14 @@ public final class PCGenActionMap extends ActionMap
 	public static final String MNU_EDIT = "mnuEdit"; //$NON-NLS-1$
 	public static final String MNU_FILE = "mnuFile"; //$NON-NLS-1$
 
-	public PCGenActionMap(PCGenFrame frame)
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
+
+	public PCGenActionMap(PCGenFrame frame, UIContext uiContext)
 	{
+		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
 		initActions();
 	}
@@ -196,13 +202,13 @@ public final class PCGenActionMap extends ActionMap
 		put(RACE_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersRace", RACE_FILTERS_COMMAND, RaceFacade.class));
 		put(TEMPLATE_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersTemplate", TEMPLATE_FILTERS_COMMAND, TemplateFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersTemplate", TEMPLATE_FILTERS_COMMAND, PCTemplate.class));
 		put(CLASS_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersClass", CLASS_FILTERS_COMMAND, ClassFacade.class));
 		put(ABILITY_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersAbility", ABILITY_FILTERS_COMMAND, AbilityFacade.class));
 		put(SKILL_FILTERS_COMMAND,
-			new DefaultFiltersAction("mnuToolsFiltersSkill", SKILL_FILTERS_COMMAND, SkillFacade.class));
+			new DefaultFiltersAction("mnuToolsFiltersSkill", SKILL_FILTERS_COMMAND, Skill.class));
 		put(EQUIPMENT_FILTERS_COMMAND,
 			new DefaultFiltersAction("mnuToolsFiltersEquipment", EQUIPMENT_FILTERS_COMMAND, ItemFacade.class));
 		put(SPELL_FILTERS_COMMAND,
@@ -215,17 +221,17 @@ public final class PCGenActionMap extends ActionMap
 		put(GENERATORS_COMMAND, new GeneratorsAction());
 		put(TREASURE_GENERATORS_COMMAND, new TreasureGeneratorsAction());
 		put(STAT_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsStat", STAT_GENERATORS_COMMAND, StatFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsStat", STAT_GENERATORS_COMMAND, PCStat.class));
 		put(RACE_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsRace", RACE_GENERATORS_COMMAND, RaceFacade.class));
 		put(TEMPLATE_GENERATORS_COMMAND, new DefaultGeneratorsAction("mnuToolsGeneratorsTemplate",
-			TEMPLATE_GENERATORS_COMMAND, TemplateFacade.class));
+			TEMPLATE_GENERATORS_COMMAND, PCTemplate.class));
 		put(CLASS_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsClass", CLASS_GENERATORS_COMMAND, ClassFacade.class));
 		put(ABILITY_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsAbility", ABILITY_GENERATORS_COMMAND, AbilityFacade.class));
 		put(SKILL_GENERATORS_COMMAND,
-			new DefaultGeneratorsAction("mnuToolsGeneratorsSkill", SKILL_GENERATORS_COMMAND, SkillFacade.class));
+			new DefaultGeneratorsAction("mnuToolsGeneratorsSkill", SKILL_GENERATORS_COMMAND, Skill.class));
 		put(EQUIPMENT_GENERATORS_COMMAND,
 			new DefaultGeneratorsAction("mnuToolsGeneratorsEquipment", EQUIPMENT_GENERATORS_COMMAND, ItemFacade.class));
 		put(SPELL_GENERATORS_COMMAND,
@@ -866,7 +872,8 @@ public final class PCGenActionMap extends ActionMap
 		public ReloadSourcesAction()
 		{
 			super("mnuSourcesReload", SOURCES_RELOAD_COMMAND, "shift-shortcut R");
-			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef = frame.getCurrentSourceSelectionRef();
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
+					uiContext.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
 			checkEnabled(currentSourceSelectionRef.get());
 		}
@@ -874,7 +881,8 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			SourceSelectionFacade sources = frame.getCurrentSourceSelectionRef().get();
+			SourceSelectionFacade sources =
+					uiContext.getCurrentSourceSelectionRef().get();
 			if (sources != null)
 			{
 				frame.unloadSources();
@@ -901,7 +909,8 @@ public final class PCGenActionMap extends ActionMap
 		public UnloadSourcesAction()
 		{
 			super("mnuSourcesUnload", SOURCES_UNLOAD_COMMAND, "shortcut U");
-			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef = frame.getCurrentSourceSelectionRef();
+			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
+					uiContext.getCurrentSourceSelectionRef();
 			currentSourceSelectionRef.addReferenceListener(this);
 			checkEnabled(currentSourceSelectionRef.get());
 		}

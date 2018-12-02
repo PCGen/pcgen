@@ -35,16 +35,15 @@ public final class Comparators
 	{
 	}
 
-	private static final ToStringComparator tSC = new ToStringComparator();
-	private static final ToStringIgnoreCaseComparator tSICC = new ToStringIgnoreCaseComparator();
-	private static final ToStringIgnoreCaseCollator tSICCol = new ToStringIgnoreCaseCollator();
-	private static final IntegerComparator iC = new IntegerComparator();
-	private static final NumberComparator nC = new NumberComparator();
-	private static final DateComparator DC = new DateComparator();
-	private static final HashCodeComparator hCC = new HashCodeComparator();
-	private static final TreeTableNodeComparator treeNodeComp = new TreeTableNodeComparator();
+	private static final Comparator<Object> tSC = new ToStringComparator();
+	private static final Comparator<Object> tSICC = new ToStringIgnoreCaseComparator();
+	private static final Comparator<Object> tSICCol = new ToStringIgnoreCaseCollator();
+	private static final Comparator<Integer> iC = new IntegerComparator();
+	private static final Comparator<Number> nC = new NumberComparator();
+	private static final Comparator<Date> DC = new DateComparator();
+	private static final Comparator<Object> treeNodeComp = new TreeTableNodeComparator();
 
-	public static Comparator<Object> toStringComparator()
+	private static Comparator<Object> toStringComparator()
 	{
 		return tSC;
 	}
@@ -62,47 +61,27 @@ public final class Comparators
 	/**
 	 * @return A comparator for use with the contents of tree table nodes. 
 	 */
-	public static Comparator<Object> treeTableNodeComparator()
+	private static Comparator<Object> treeTableNodeComparator()
 	{
 		return treeNodeComp;
 	}
 
-	/**
-	 * TODO: perhaps keep instance references to commonly used InverseComparators?
-	 * @param comparator
-	 * @return new InverseComparator instance
-	 */
-	public static <T> Comparator<T> inverseComparator(Comparator<T> comparator)
-	{
-		if (comparator instanceof InverseComparator)
-		{
-			return ((InverseComparator<T>) comparator).getComparator();
-		}
-		return new InverseComparator<>(comparator);
-
-	}
-
-	public static Comparator<Object> hashCodeComparator()
-	{
-		return hCC;
-	}
-
-	public static Comparator<Integer> integerComparator()
+	private static Comparator<Integer> integerComparator()
 	{
 		return iC;
 	}
 
-	public static Comparator<Number> numberComparator()
+	private static Comparator<Number> numberComparator()
 	{
 		return nC;
 	}
 
-	public static Comparator<Date> dateComparator()
+	private static Comparator<Date> dateComparator()
 	{
 		return DC;
 	}
 
-	public static Comparator<String> ignoreCaseStringComparator()
+	private static Comparator<String> ignoreCaseStringComparator()
 	{
 		return String.CASE_INSENSITIVE_ORDER;
 	}
@@ -187,7 +166,7 @@ public final class Comparators
 			return collator.compare(String.valueOf(o1), String.valueOf(o2));
 		}
 
-		private String getSortKey(Object obj1)
+		private static String getSortKey(Object obj1)
 		{
 			String key;
 			if (obj1 == null)
@@ -268,44 +247,6 @@ public final class Comparators
             return Long.compare(n1, n2);
 
         }
-
-	}
-
-	private static final class HashCodeComparator implements Comparator<Object>
-	{
-
-		@Override
-		public int compare(Object o1, Object o2)
-		{
-			return iC.compare(o1.hashCode(), o2.hashCode());
-		}
-
-	}
-
-	/**
-	 *
-	 *  // @param E
-	 */
-	private static final class InverseComparator<E> implements Comparator<E>, Serializable
-	{
-
-		private final Comparator<E> comparator;
-
-		public InverseComparator(Comparator<E> comparator)
-		{
-			this.comparator = comparator;
-		}
-
-		public Comparator<E> getComparator()
-		{
-			return comparator;
-		}
-
-		@Override
-		public int compare(E o1, E o2)
-		{
-			return -comparator.compare(o1, o2);
-		}
 
 	}
 

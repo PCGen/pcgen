@@ -56,7 +56,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
- * <code>SkillTokenTest</code> contains tests to verify that the
+ * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its sub tokens are working correctly.
  */
 
@@ -88,9 +88,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -191,9 +188,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{
