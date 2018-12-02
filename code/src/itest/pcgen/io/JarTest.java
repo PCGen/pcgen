@@ -37,15 +37,15 @@ import static org.junit.Assert.assertTrue;
  */
 public class JarTest {
 
-    private final String pcgenJar="pcgen.jar";
+    private final String pcgenJar = "pcgen.jar";
     private final File jar = new File(pcgenJar);
     private final File libs = new File("libs");
 
     @Test
     public void testJar() throws IOException, InterruptedException, ExecutionException {
         // Make sure the jar is in root.
-        String taskDependnecy = 
-                "This test depends in the output from installToRoot task.";
+        String taskDependnecy
+                = "This test depends in the output from installToRoot task.";
         assertTrue(taskDependnecy, jar.exists());
 
         // Make sure libs are there
@@ -60,10 +60,10 @@ public class JarTest {
         try {
             final Future<?> future = service.submit(() -> {
                 try {
-                    BufferedReader bri = 
-                            new BufferedReader(new InputStreamReader(process.getInputStream()));
-                    BufferedReader bre = 
-                            new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                    BufferedReader bri
+                            = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    BufferedReader bre
+                            = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                     process.waitFor();
 
                     String line;
