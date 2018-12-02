@@ -1044,7 +1044,7 @@ Oni			VISIBLE:NO							RACESUBTYPE:Oni
 Orc			VISIBLE:NO							RACESUBTYPE:Orc			TYPE:Racial Heritage
 Reptilian		VISIBLE:NO							RACESUBTYPE:Reptilian
 Shapechanger	VISIBLE:NO							RACESUBTYPE:Shapechanger
-Swarm			VISIBLE:NO							RACESUBTYPE:Swarm							MODIFY:FACE|SET|10,10|PRIORITY=200
+Swarm			VISIBLE:NO							RACESUBTYPE:Swarm
 Water			VISIBLE:NO							RACESUBTYPE:Water
 
 ###Block: Variable Type Traits
