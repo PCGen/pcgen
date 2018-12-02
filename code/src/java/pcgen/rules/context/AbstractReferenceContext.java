@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.base.format.HandedManager;
 import pcgen.base.format.dice.DiceFormat;
 import pcgen.base.formatmanager.ArrayFormatFactory;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -113,6 +114,7 @@ public abstract class AbstractReferenceContext
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
 		fmtLibrary.addFormatManagerBuilder(new ArrayFormatFactory('\n', ','));
 		fmtLibrary.addFormatManager(new DiceFormat());
+		fmtLibrary.addFormatManager(new HandedManager());
 		fmtLibrary.addFormatManagerBuilder(
 			new ColumnFormatFactory(this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
 		fmtLibrary.addFormatManagerBuilder(

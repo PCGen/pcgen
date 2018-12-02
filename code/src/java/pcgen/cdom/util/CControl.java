@@ -109,6 +109,16 @@ public final class CControl
 	public static final String DOMAINFEATURE = "DOMAINFEATURE";
 
 	/**
+	 * Code control for the Handedness of a PC.
+	 */
+	public static final CControl HANDEDINPUT = new CControl("HANDEDINPUT", "Handed", Optional.empty(), "HANDED", true, false);
+
+	/**
+	 * Code control for the Available Handedness on a PC.
+	 */
+	public static final CControl AVAILHANDEDNESS = new CControl("AVAILHANDEDNESS", "AvailableHandedness", Optional.empty(), "ARRAY[HANDED]", true, false);
+
+	/**
 	 * The name of a code control that contains a default value. This is used when a Code
 	 * Control is already used internally and is overridden by data (rather than just
 	 * being an on/off switch for data)

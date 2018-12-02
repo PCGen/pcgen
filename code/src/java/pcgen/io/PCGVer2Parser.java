@@ -2952,7 +2952,7 @@ final class PCGVer2Parser implements PCGParser
 			warnings.add(msg);
 
 		}
-		thePC.setHanded(h);
+		HandedCompat.setCurrentHandedness(thePC.getCharID(), h);
 	}
 
 	private void parseHeightLine(final String line)
