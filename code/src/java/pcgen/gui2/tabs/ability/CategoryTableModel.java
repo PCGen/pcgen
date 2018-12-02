@@ -20,7 +20,7 @@ package pcgen.gui2.tabs.ability;
 
 import javax.swing.JTable;
 
-import pcgen.facade.core.AbilityCategoryFacade;
+import pcgen.core.AbilityCategory;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ChangeEvent;
@@ -33,14 +33,14 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * their pool points.
  * 
  */
-public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCategoryFacade> implements ChangeListener
+public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCategory> implements ChangeListener
 {
 
 	boolean installed = false;
 	private final JTable categoryTable;
 
-	public CategoryTableModel(CharacterFacade character, ListFacade<AbilityCategoryFacade> categories,
-		Filter<CharacterFacade, AbilityCategoryFacade> filter, JTable theCategoryTable)
+	public CategoryTableModel(CharacterFacade character, ListFacade<AbilityCategory> categories,
+		Filter<CharacterFacade, AbilityCategory> filter, JTable theCategoryTable)
 	{
 		super(character);
 		this.categoryTable = theCategoryTable;
@@ -48,7 +48,7 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 		setFilter(filter);
 	}
 
-	public AbilityCategoryFacade getCategory(int index)
+	public AbilityCategory getCategory(int index)
 	{
 		return sortedList.getElementAt(index);
 	}
@@ -102,7 +102,7 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	}
 
 	@Override
-	protected Object getValueAt(AbilityCategoryFacade category, int column)
+	protected Object getValueAt(AbilityCategory category, int column)
 	{
 		switch (column)
 		{
@@ -120,7 +120,7 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	@Override
 	public void ItemChanged(ChangeEvent event)
 	{
-		AbilityCategoryFacade facade = null;
+		AbilityCategory facade = null;
 		if (installed)
 		{
 			int selectedRow = categoryTable.getSelectedRow();
@@ -133,7 +133,7 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 		refilter();
 		for (int i = 0; i < getRowCount(); i++)
 		{
-			AbilityCategoryFacade rowCat = getCategory(i);
+			AbilityCategory rowCat = getCategory(i);
 			if (rowCat == data)
 			{
 				fireTableRowsUpdated(i, i);

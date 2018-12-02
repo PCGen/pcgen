@@ -20,6 +20,7 @@ package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
@@ -34,7 +35,7 @@ import pcgen.facade.util.MapFacade;
 public interface DataSetFacade
 {
 
-	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities();
+	public MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities();
 
 	//	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
 	//
