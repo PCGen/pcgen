@@ -17,7 +17,6 @@
  */
 package pcgen.io;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -38,34 +37,33 @@ import static org.junit.Assert.assertTrue;
  */
 public class JarTest {
 
-    private final static File jar = new File("pcgen.jar");
-    private final static File libs = new File("libs");
-
-    @BeforeClass
-    public static void setup() {
-        // Make sure the jar is in root.
-        assertTrue(jar.exists());
-
-        // Make sure libs are there
-        assertTrue(libs.exists());
-        assertTrue(libs.isDirectory());
-        assertNotEquals(0, libs.listFiles().length);
-    }
+    private final String pcgenJar="pcgen.jar";
+    private final File jar = new File(pcgenJar);
+    private final File libs = new File("libs");
 
     @Test
-    public void testJar() throws IOException {
-        // Command to create an external process
-        String command = "java -jar pcgen.jar";
+    public void testJar() throws IOException, InterruptedException, ExecutionException {
+        // Make sure the jar is in root.
+        String taskDependnecy = 
+                "This test depends in the output from installToRoot task.";
+        assertTrue(taskDependnecy, jar.exists());
 
-        // Running the above command 
-        Runtime run = Runtime.getRuntime();
-        Process process = run.exec(command);
+        // Make sure libs are there
+        assertTrue(taskDependnecy, libs.exists());
+        assertTrue(taskDependnecy, libs.isDirectory());
+        assertNotEquals(taskDependnecy, 0, libs.listFiles().length);
+
+        // Running the the command
+        ProcessBuilder pb = new ProcessBuilder("java", "-jar", pcgenJar);
+        Process process = pb.start();
         final ExecutorService service = Executors.newSingleThreadExecutor();
         try {
             final Future<?> future = service.submit(() -> {
                 try {
-                    BufferedReader bri = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                    BufferedReader bre = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                    BufferedReader bri = 
+                            new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    BufferedReader bre = 
+                            new BufferedReader(new InputStreamReader(process.getErrorStream()));
                     process.waitFor();
 
                     String line;
@@ -89,9 +87,6 @@ public class JarTest {
         } catch (final TimeoutException e) {
             // The process may have crashed
             process.destroy();
-        } catch (final Exception e) {
-            e.printStackTrace(System.out);
-            fail(e.getLocalizedMessage());
         } finally {
             service.shutdown();
         }
