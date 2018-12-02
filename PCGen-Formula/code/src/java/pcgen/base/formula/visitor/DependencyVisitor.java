@@ -206,7 +206,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			return getVariableFormat(manager, name).getComponentManager();
+			return getVariableFormat(manager, name).getComponentManager().get();
 		}
 		throw new IllegalStateException(
 				"Evaluation called on invalid Function (failed semantics?)");

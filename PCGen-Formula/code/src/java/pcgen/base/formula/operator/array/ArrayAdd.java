@@ -48,7 +48,11 @@ public class ArrayAdd implements OperatorAction
 		{
 			return null;
 		}
-		FormatManager<?> assertedComponent = formatManager.getComponentManager();
+		Optional<FormatManager<?>> assertedComponent = formatManager.getComponentManager();
+		if (assertedComponent.isEmpty())
+		{
+			return null;
+		}
 		if (!isCompatible(assertedComponent, format1)
 			|| !isCompatible(assertedComponent, format2))
 		{
@@ -57,10 +61,10 @@ public class ArrayAdd implements OperatorAction
 		return formatManager;
 	}
 
-	private boolean isCompatible(FormatManager<?> assertedComponent, Class<?> format)
+	private boolean isCompatible(Optional<FormatManager<?>> assertedComponent, Class<?> format)
 	{
 		Class<?> component = format.isArray() ? format.getComponentType() : format;
-		return assertedComponent.getManagedClass().isAssignableFrom(component);
+		return assertedComponent.get().getManagedClass().isAssignableFrom(component);
 	}
 
 	@Override

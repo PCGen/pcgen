@@ -318,14 +318,10 @@ public class SemanticsVisitor implements FormulaParserVisitor
 				"Variable: " + name + " was not found in scope "
 					+ semantics.get(FormulaSemantics.SCOPE).getName());
 		}
-		FormatManager<?> componentMgr = formatManager.getComponentManager();
-		if (componentMgr == null)
-		{
-			throw new SemanticsFailureException(
+		Optional<FormatManager<?>> componentMgr = formatManager.getComponentManager();
+		return componentMgr.orElseThrow(() -> new SemanticsFailureException(
 				"Variable: " + name + " was not an array in scope "
-					+ semantics.get(FormulaSemantics.SCOPE).getName());
-		}
-		return componentMgr;
+					+ semantics.get(FormulaSemantics.SCOPE).getName()));
 	}
 
 	/**

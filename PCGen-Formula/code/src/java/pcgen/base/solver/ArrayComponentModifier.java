@@ -19,7 +19,6 @@ package pcgen.base.solver;
 
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -71,11 +70,12 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		location = loc;
 		modifier = Objects.requireNonNull(mod);
 		format = Objects.requireNonNull(formatManager);
+		FormatManager<?> componentManager = format.getComponentManager().get();
 		//CONSIDER Leniency here?  Does FormatManager need something like isAssignableFrom?
-		if (!format.getComponentManager().equals(modifier.getVariableFormat()))
+		if (!componentManager.equals(modifier.getVariableFormat()))
 		{
 			throw new IllegalArgumentException("FormatManager manages array of "
-				+ format.getComponentManager().getManagedClass().getCanonicalName()
+				+ componentManager.getManagedClass().getCanonicalName()
 				+ " but Modifier was "
 				+ modifier.getVariableFormat().getManagedClass().getCanonicalName());
 		}
@@ -105,7 +105,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		EvaluationManager subManager =
 				manager.getWith(EvaluationManager.INPUT, input[location]);
 		subManager = subManager.getWith(EvaluationManager.ASSERTED,
-			Optional.of(format.getComponentManager()));
+			format.getComponentManager());
 		result[location] = modifier.process(subManager);
 		return result;
 	}

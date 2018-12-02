@@ -276,9 +276,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
-			return null;
+			return Optional.empty();
 		}
 
 		@Override

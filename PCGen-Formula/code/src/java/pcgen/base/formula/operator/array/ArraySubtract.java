@@ -50,12 +50,16 @@ public class ArraySubtract implements OperatorAction
 		{
 			return null;
 		}
-		FormatManager<?> assertedComponent = formatManager.getComponentManager();
+		Optional<FormatManager<?>> assertedComponent = formatManager.getComponentManager();
+		if (assertedComponent.isEmpty())
+		{
+			return null;
+		}
 		Class<?> firstComponent = format1.getComponentType();
 		Class<?> secondComponent =
 				format2.isArray() ? format2.getComponentType() : format2;
-		if (!assertedComponent.getManagedClass().isAssignableFrom(firstComponent)
-			|| !assertedComponent.getManagedClass().isAssignableFrom(secondComponent))
+		if (!assertedComponent.get().getManagedClass().isAssignableFrom(firstComponent)
+			|| !assertedComponent.get().getManagedClass().isAssignableFrom(secondComponent))
 		{
 			return null;
 		}
