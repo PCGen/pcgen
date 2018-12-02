@@ -96,7 +96,4 @@ public class DynamicLoader extends SimpleLoader<Dynamic>
 		LoadContext subContext = context.dropIntoContext(d.getLocalScopeName());
 		super.processNonFirstToken(subContext, sourceURI, token, loadable);
 	}
-
-	
-	
 }
