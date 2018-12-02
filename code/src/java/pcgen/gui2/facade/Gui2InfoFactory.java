@@ -601,25 +601,23 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(Deity deityFacade)
+	public String getHTMLInfo(Deity deity)
 	{
-		if (deityFacade == null)
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity aDeity = deityFacade;
-
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
-		infoText.appendTitleElement(OutputNameFormatting.piString(aDeity));
+		infoText.appendTitleElement(OutputNameFormatting.piString(deity));
 		infoText.appendLineBreak();
 
 		infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-			DescriptionFormatting.piWrapDesc(aDeity, pc.getDescription(aDeity), false));
+			DescriptionFormatting.piWrapDesc(deity, pc.getDescription(deity), false));
 
-		appendFacts(infoText, aDeity);
+		appendFacts(infoText, deity);
 
-		String aString = getPantheons(aDeity);
+		String aString = getPantheons(deity);
 		if (aString != null)
 		{
 			infoText.appendSpacer();
@@ -627,9 +625,9 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		infoText.appendSpacer();
-		infoText.appendI18nElement("in_domains", getDomains(aDeity)); //$NON-NLS-1$
+		infoText.appendI18nElement("in_domains", getDomains(deity)); //$NON-NLS-1$
 
-		List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(ListKey.DEITYWEAPON);
+		List<CDOMReference<WeaponProf>> dwp = deity.getListFor(ListKey.DEITYWEAPON);
 		if (dwp != null)
 		{
 			infoText.appendSpacer();
@@ -637,7 +635,7 @@ public class Gui2InfoFactory implements InfoFactory
 				ReferenceUtilities.joinLstFormat(dwp, "|"));
 		}
 
-		aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, aDeity.getPrerequisiteList(), false);
+		aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, deity.getPrerequisiteList(), false);
 		if (!aString.isEmpty())
 		{
 			infoText.appendSpacer();
@@ -645,14 +643,14 @@ public class Gui2InfoFactory implements InfoFactory
 				aString);
 		}
 
-		aString = AllowUtilities.getAllowInfo(pc, aDeity);
+		aString = AllowUtilities.getAllowInfo(pc, deity);
 		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		aString = aDeity.getSource();
+		aString = deity.getSource();
 		if (!aString.isEmpty())
 		{
 			infoText.appendSpacer();
@@ -2170,13 +2168,12 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDomains(Deity deityFacade)
+	public String getDomains(Deity deity)
 	{
-		if (deityFacade == null)
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = deityFacade;
 		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
@@ -2187,13 +2184,12 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getPantheons(Deity deityFacade)
+	public String getPantheons(Deity deity)
 	{
-		if (deityFacade == null)
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = deityFacade;
 		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
 		deity.getSafeSetFor(fk).forEach(indirect -> set.add(indirect.get()));
@@ -2203,17 +2199,16 @@ public class Gui2InfoFactory implements InfoFactory
 
 	/**
 	 * Get a display string of the deity's favored weapons.
-	 * @param deityFacade The deity to be output.
+	 * @param deity The deity to be output.
 	 * @return The comma separated list of weapons.
 	 */
 	@Override
-	public String getFavoredWeapons(Deity deityFacade)
+	public String getFavoredWeapons(Deity deity)
 	{
-		if (deityFacade == null)
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = deityFacade;
 		List<CDOMReference<WeaponProf>> wpnList = deity.getSafeListFor(ListKey.DEITYWEAPON);
 		return ReferenceUtilities.joinLstFormat(wpnList, ",");
 	}

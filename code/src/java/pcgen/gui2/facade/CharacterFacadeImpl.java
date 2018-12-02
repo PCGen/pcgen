@@ -380,11 +380,11 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (Handed handsFacade : availHands)
+			for (Handed handed : availHands)
 			{
-				if (handsFacade.equals(charDisplay.getHandedObject()))
+				if (handed.equals(charDisplay.getHandedObject()))
 				{
-					handedness.set(handsFacade);
+					handedness.set(handed);
 					break;
 				}
 			}
@@ -1741,11 +1741,11 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (Handed handsFacade : availHands)
+			for (Handed handed : availHands)
 			{
-				if (handsFacade.toString().equals(charDisplay.getHanded()))
+				if (handed.toString().equals(charDisplay.getHanded()))
 				{
-					handedness.set(handsFacade);
+					handedness.set(handed);
 					break;
 				}
 			}
