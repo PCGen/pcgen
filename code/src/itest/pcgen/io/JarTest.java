@@ -26,6 +26,10 @@ import java.io.InputStreamReader;
 import java.util.concurrent.*;
 
 import static junit.framework.TestCase.fail;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -44,14 +48,12 @@ public class JarTest {
     @Test
     public void testJar() throws IOException, InterruptedException, ExecutionException {
         // Make sure the jar is in root.
-        String taskDependnecy
-                = "This test depends in the output from installToRoot task.";
-        assertTrue(taskDependnecy, jar.exists());
+        assertThat(jar.exists(), is(true));
 
         // Make sure libs are there
-        assertTrue(taskDependnecy, libs.exists());
-        assertTrue(taskDependnecy, libs.isDirectory());
-        assertNotEquals(taskDependnecy, 0, libs.listFiles().length);
+        assertThat(libs.exists(), is(true));
+        assertThat(libs.isDirectory(), is(true));
+        assertThat(libs.listFiles().length, is(not(0)));
 
         // Running the the command
         ProcessBuilder pb = new ProcessBuilder("java", "-jar", pcgenJar);
