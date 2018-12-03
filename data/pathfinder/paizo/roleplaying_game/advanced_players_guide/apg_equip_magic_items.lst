@@ -148,7 +148,7 @@ Bracelet of Mercy					TYPE:Magic.Wondrous.Bracelet			COST:15000	WT:0.01	SOURCEPA
 
 ###Block:C
 # Equipment Name					Type						Cost		Weight	Modifier			Source Page		Bonus to skill
-Campfire Bead					TYPE:Magic.Wondrous.Consumable	COST:720							SOURCEPAGE:p.302
+Campfire Bead					TYPE:Magic.Wondrous		COST:720							SOURCEPAGE:p.302
 Catching Cape					TYPE:Magic.Wondrous.Cape		COST:200	WT:3						SOURCEPAGE:p.302
 Cauldron of Brewing				TYPE:Magic.Wondrous			COST:3000	WT:5						SOURCEPAGE:p.302	BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
 Cauldron of Flying				TYPE:Magic.Wondrous			COST:40000	WT:100					SOURCEPAGE:p.302
