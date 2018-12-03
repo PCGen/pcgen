@@ -5,9 +5,6 @@
 # Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
 Truespeaker						VISIBLE:NO	SOURCEPAGE:p.85																	LANGBONUS:ALL
 
-# Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
-Bypass Advanced Race Spell Restrictions						DEFINE:BypassAdvancedRaceSpellRestriction|0	BONUS:VAR|BypassAdvancedRaceSpellRestriction|1
-
 ###Block:
 # Template Name			Template																																																																																																									Define																																			Modify VAR																																Removable?
 Mystic Past Life Base Score	TEMPLATE:Mystic Past Life ~ INT|Mystic Past Life ~ WIS|Mystic Past Life ~ CHA																																																																																														DEFINE:MysticPastLifeScoreINT|0	DEFINE:MysticPastLifeScoreWIS|0	DEFINE:MysticPastLifeScoreCHA|0	DEFINE:MysticPastLifeINTBonus|0	DEFINE:MysticPastLifeWISBonus|0	DEFINE:MysticPastLifeCHABonus|0	BONUS:VAR|MysticPastLifeINTBonus|(MysticPastLifeScoreINT-10)/2	BONUS:VAR|MysticPastLifeWISBonus|(MysticPastLifeScoreWIS-10)/2	BONUS:VAR|MysticPastLifeCHABonus|(MysticPastLifeScoreCHA-10)/2	REMOVABLE:NO
