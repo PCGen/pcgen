@@ -207,9 +207,9 @@ Last Stand								KEY:Samurai ~ Last Stand										CATEGORY:Special Ability	TYP
 Weapon Expertise							KEY:Samurai Expertise Selection									CATEGORY:Special Ability	TYPE:Internal																																																																																																																																																																																																																																																																														MULT:YES	CHOOSE:WEAPONPROFICIENCY|Katana|Longbow|Naginata|Wakizashi
 
 
-CATEGORY=Special Ability|Samurai ~ Bonus Feat.MOD	BONUS:VAR|SamuraiBonusFeat|-1|PRECLASS:1,Samurai=06|PREVAREQ:1,Samurai_CF_BonusFeat6,1
-CATEGORY=Special Ability|Samurai ~ Bonus Feat.MOD	BONUS:VAR|SamuraiBonusFeat|-1|PRECLASS:1,Samurai=12|PREVAREQ:1,Samurai_CF_BonusFeat12,1
-CATEGORY=Special Ability|Samurai ~ Bonus Feat.MOD	BONUS:VAR|SamuraiBonusFeat|-1|PRECLASS:1,Samurai=18|PREVAREQ:1,Samurai_CF_BonusFeat18,1
+CATEGORY=Special Ability|Samurai ~ Bonus Feat.MOD	BONUS:VAR|SamuraiBonusFeat|-1|PRECLASS:1,Samurai=06|PREVAREQ:Samurai_CF_BonusFeat6,1
+CATEGORY=Special Ability|Samurai ~ Bonus Feat.MOD	BONUS:VAR|SamuraiBonusFeat|-1|PRECLASS:1,Samurai=12|PREVAREQ:Samurai_CF_BonusFeat12,1
+CATEGORY=Special Ability|Samurai ~ Bonus Feat.MOD	BONUS:VAR|SamuraiBonusFeat|-1|PRECLASS:1,Samurai=18|PREVAREQ:Samurai_CF_BonusFeat18,1
 
 
 # Samuarai Orders
