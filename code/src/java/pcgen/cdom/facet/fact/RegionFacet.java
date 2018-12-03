@@ -198,10 +198,6 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		Region sr = template.get(ObjectKey.REGION);
 		if (sr == null)
 		{
-			if (template.getSafe(ObjectKey.USETEMPLATENAMEFORREGION))
-			{
-				return template.getDisplayName();
-			}
 			return Constants.NONE;
 		}
 		return sr.toString();
@@ -309,10 +305,6 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		SubRegion sr = template.get(ObjectKey.SUBREGION);
 		if (sr == null)
 		{
-			if (template.getSafe(ObjectKey.USETEMPLATENAMEFORSUBREGION))
-			{
-				return template.getDisplayName();
-			}
 			return Constants.NONE;
 		}
 		return sr.toString();
