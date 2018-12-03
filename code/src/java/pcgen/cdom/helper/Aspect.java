@@ -408,9 +408,8 @@ public class Aspect extends ConcretePrereqObject
 		Aspect retAspect = null;
 		if (aspects != null)
 		{
-			for (int i = 0; i < aspects.size(); i++)
+			for (Aspect testAspect : aspects)
 			{
-				Aspect testAspect = aspects.get(i);
 				if (testAspect.qualifies(pc, a))
 				{
 					retAspect = testAspect;
