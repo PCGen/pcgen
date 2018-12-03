@@ -144,14 +144,14 @@ public class GenericFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		FormulaManager formulaManager = manager.get(DependencyManager.FMANAGER);
 		FunctionLibrary withArgs = ArgFunction
 			.getWithArgs(formulaManager.get(FormulaManager.FUNCTION), args);
 		FormulaManager subFtn = formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
-		return (FormatManager<?>) visitor.visit(root,
+		return (Optional<FormatManager<?>>) visitor.visit(root,
 			manager.getWith(DependencyManager.FMANAGER, subFtn));
 	}
 }

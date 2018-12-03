@@ -210,7 +210,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		assertEquals(2, store.get(handsID));
 		assertEquals(10, store.get(fingersID));
 
-		getManager().addModifier(result, dynamicMod, source);
+		getManager().addModifier(result, dynamicMod, handsInst);
 
 		assertEquals(2, store.get(result));
 
@@ -218,7 +218,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		assertEquals(10, store.get(result));
 
-		getManager().removeModifier(result, dynamicMod, source);
+		getManager().removeModifier(result, dynamicMod, handsInst);
 
 		assertEquals(0, store.get(result));
 	}
@@ -370,8 +370,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 
 		@Override
-		public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager dm,
-			Node[] args)
+		public Optional<FormatManager<?>> getDependencies(
+			DependencyVisitor visitor, DependencyManager dm, Node[] args)
 		{
 			String varName = ((SimpleNode) args[0]).getText();
 			String name = ((SimpleNode) args[1]).getText();
@@ -380,7 +380,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			visitor.visitVariable(varName, trainer);
 			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "Global.LIMB");
 			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
-			FormatManager<?> returnFormat = visitor.visitVariable(name, dynamic);
+			Optional<FormatManager<?>> returnFormat = visitor.visitVariable(name, dynamic);
 			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
 			return returnFormat;
 		}
@@ -437,7 +437,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)", FormatUtilities.NUMBER_MANAGER);
 		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
 
-		manager.addModifier(resultID, dynamicMod, source);
+		manager.addModifier(resultID, dynamicMod, equipInst);
 		assertEquals(2, store.get(resultID));
 
 		manager.addModifier(activeID, useAlt, source);

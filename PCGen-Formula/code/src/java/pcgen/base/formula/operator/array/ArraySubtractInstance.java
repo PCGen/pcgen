@@ -39,17 +39,17 @@ public class ArraySubtractInstance implements OperatorAction
 	}
 
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format1, Class<?> format2,
 		Optional<FormatManager<?>> asserted)
 	{
 		if (!asserted.isPresent())
 		{
-			return null;
+			return Optional.empty();
 		}
 		FormatManager<?> formatManager = asserted.get();
 		if (!formatManager.getManagedClass().isArray() || !format1.isArray())
 		{
-			return null;
+			return Optional.empty();
 		}
 		Optional<FormatManager<?>> assertedComponent = formatManager.getComponentManager();
 		if (assertedComponent.isEmpty())
@@ -62,9 +62,9 @@ public class ArraySubtractInstance implements OperatorAction
 		if (!assertedComponent.get().getManagedClass().isAssignableFrom(firstComponent)
 			|| !assertedComponent.get().getManagedClass().isAssignableFrom(secondComponent))
 		{
-			return null;
+			return Optional.empty();
 		}
-		return formatManager;
+		return Optional.of(formatManager);
 	}
 
 	@Override

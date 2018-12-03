@@ -19,6 +19,8 @@ package pcgen.base.formula.inst;
 
 import junit.framework.TestCase;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import pcgen.base.formula.base.DependencyManager;
@@ -142,10 +144,10 @@ public class SimpleFunctionLibraryTest extends TestCase
 			}
 
 			@Override
-			public FormatManager<?> getDependencies(DependencyVisitor visitor,
+			public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 				DependencyManager manager, Node[] args)
 			{
-				return null;
+				return Optional.empty();
 			}
 		};
 	}

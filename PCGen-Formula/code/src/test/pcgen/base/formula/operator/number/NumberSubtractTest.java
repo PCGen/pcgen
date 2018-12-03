@@ -65,25 +65,25 @@ public class NumberSubtractTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null));
+		assertTrue(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(NUMBER_CLASS, NUMBER_CLASS, null).getManagedClass());
+			op.abstractEvaluate(NUMBER_CLASS, NUMBER_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(DOUBLE_CLASS, DOUBLE_CLASS, null).getManagedClass());
+			op.abstractEvaluate(DOUBLE_CLASS, DOUBLE_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(INTEGER_CLASS, INTEGER_CLASS, null).getManagedClass());
+			op.abstractEvaluate(INTEGER_CLASS, INTEGER_CLASS, null).get().getManagedClass());
 		//mixed okay too
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(NUMBER_CLASS, DOUBLE_CLASS, null).getManagedClass());
+			op.abstractEvaluate(NUMBER_CLASS, DOUBLE_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(INTEGER_CLASS, DOUBLE_CLASS, null).getManagedClass());
+			op.abstractEvaluate(INTEGER_CLASS, DOUBLE_CLASS, null).get().getManagedClass());
 		assertEquals(NUMBER_CLASS,
-			op.abstractEvaluate(DOUBLE_CLASS, INTEGER_CLASS, null).getManagedClass());
+			op.abstractEvaluate(DOUBLE_CLASS, INTEGER_CLASS, null).get().getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

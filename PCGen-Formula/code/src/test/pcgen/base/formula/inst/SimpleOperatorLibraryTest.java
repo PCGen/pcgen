@@ -69,9 +69,9 @@ public class SimpleOperatorLibraryTest extends TestCase
 	@Test
 	public void testEmpty()
 	{
-		assertNull(
-			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null));
-		assertNull(library.processAbstract(Operator.MINUS, NUMBER_CLASS));
+		assertTrue(
+			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null).isEmpty());
+		assertTrue(library.processAbstract(Operator.MINUS, NUMBER_CLASS).isEmpty());
 		try
 		{
 			library.evaluate(Operator.ADD, 1, 2, null);
@@ -97,7 +97,7 @@ public class SimpleOperatorLibraryTest extends TestCase
 	{
 		library.addAction(new NumberAdd());
 		assertEquals(Number.class,
-			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null).getManagedClass());
+			library.processAbstract(Operator.ADD, NUMBER_CLASS, INTEGER_CLASS, null).get().getManagedClass());
 		assertEquals(Integer.valueOf(3), library.evaluate(Operator.ADD, 1, 2, null));
 		try
 		{
@@ -115,7 +115,7 @@ public class SimpleOperatorLibraryTest extends TestCase
 	{
 		library.addAction(new NumberMinus());
 		assertEquals(Number.class,
-			library.processAbstract(Operator.MINUS, INTEGER_CLASS).getManagedClass());
+			library.processAbstract(Operator.MINUS, INTEGER_CLASS).get().getManagedClass());
 		assertEquals(Integer.valueOf(3), library.evaluate(Operator.MINUS, -3));
 		try
 		{
@@ -134,7 +134,7 @@ public class SimpleOperatorLibraryTest extends TestCase
 		library.addAction(new GenericEquals());
 		library.addAction(new NumberEquals());
 		assertEquals(Boolean.class,
-			library.processAbstract(Operator.EQ, NUMBER_CLASS, INTEGER_CLASS, null).getManagedClass());
+			library.processAbstract(Operator.EQ, NUMBER_CLASS, INTEGER_CLASS, null).get().getManagedClass());
 		assertEquals(Boolean.FALSE, library.evaluate(Operator.EQ, 1, 2, null));
 	}
 

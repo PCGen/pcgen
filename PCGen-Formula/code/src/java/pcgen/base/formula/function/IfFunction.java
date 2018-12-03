@@ -130,12 +130,14 @@ public class IfFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		args[0].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED,
 			Optional.of(FormatUtilities.BOOLEAN_MANAGER)));
-		FormatManager<?> tFormat = (FormatManager<?>) args[1].jjtAccept(visitor, manager);
+		@SuppressWarnings("unchecked")
+		Optional<FormatManager<?>> tFormat =
+				(Optional<FormatManager<?>>) args[1].jjtAccept(visitor, manager);
 		args[2].jjtAccept(visitor, manager);
 		return tFormat;
 	}

@@ -18,6 +18,7 @@
 package pcgen.base.formula.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
@@ -75,11 +76,12 @@ public abstract class AbstractUnaryFunction implements FormulaFunction
 		return (Boolean) args[0].jjtAccept(visitor, null);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		return (FormatManager<?>) args[0].jjtAccept(visitor, manager);
+		return (Optional<FormatManager<?>>) args[0].jjtAccept(visitor, manager);
 	}
 
 	/**

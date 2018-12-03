@@ -50,15 +50,15 @@ public class NumberLessThanOrEqualTo implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format1, Class<?> format2,
 		Optional<FormatManager<?>> asserted)
 	{
 		if (FormatUtilities.NUMBER_CLASS.isAssignableFrom(format1)
 			&& FormatUtilities.NUMBER_CLASS.isAssignableFrom(format2))
 		{
-			return FormatUtilities.BOOLEAN_MANAGER;
+			return Optional.of(FormatUtilities.BOOLEAN_MANAGER);
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	/**

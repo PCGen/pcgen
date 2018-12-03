@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Optional;
+
 import pcgen.base.formula.parse.Operator;
 import pcgen.base.util.FormatManager;
 
@@ -59,8 +61,8 @@ public interface UnaryAction
 	 * of the returned Class rather than on an actual object.
 	 * 
 	 * If the UnaryAction cannot perform an action on the object of the given
-	 * class, then the UnaryAction will return null from this method. An
-	 * exception should not be thrown to indicate incompatibility.
+	 * class, then the UnaryAction must return Optional.empty() from this method.
+	 * An exception should not be thrown to indicate incompatibility.
 	 * 
 	 * Note that this provides a prediction of the returned Class, not the
 	 * actual class. However, the returned Class from this method is guaranteed
@@ -68,31 +70,31 @@ public interface UnaryAction
 	 * return Number.class, whereas evaluate may return an Integer or Double.
 	 * 
 	 * The return value of abstractEvaluate is part of a contract with evaluate.
-	 * If this method returns a non-null value, then evaluate should return a
-	 * non-null value. If this method returns null, then evaluate should throw
+	 * If this method returns a non-empty value, then evaluate should return a
+	 * non-null value. If this method returns empty, then evaluate should throw
 	 * an exception.
 	 * 
 	 * @param format
 	 *            The class (data format) of the argument to the abstract
 	 *            operation
-	 * @return A FormatManager for the data format of the result of the
+	 * @return An Optional FormatManager for the data format of the result of the
 	 *         operation if this UnaryAction can process objects of the given
-	 *         classes; null otherwise
+	 *         classes
 	 */
-	public FormatManager<?> abstractEvaluate(Class<?> format);
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format);
 
 	/**
 	 * Perform an evaluation with the given object as an argument and returns a
 	 * non-null result of the evaluation.
 	 * 
 	 * This method requires that abstractEvaluate called on the class of the
-	 * given argument would not return null. In other words, if abstractEvaluate
-	 * would have returned null when called with the class of the given
+	 * given argument would not return empty. In other words, if abstractEvaluate
+	 * would have returned empty when called with the class of the given
 	 * argument, then evaluate should throw an Exception.
 	 * 
 	 * The return value of evaluate is part of a contract with abstractEvaluate.
-	 * If abstractEvaluate returns a non-null value, then this method should
-	 * return a non-null value. If abstractEvaluate returns null, then this
+	 * If abstractEvaluate returns a non-empty value, then this method should
+	 * return a non-null value. If abstractEvaluate returns empty, then this
 	 * method should throw an Exception.
 	 * 
 	 * @param o

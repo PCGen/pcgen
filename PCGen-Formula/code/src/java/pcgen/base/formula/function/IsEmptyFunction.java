@@ -84,10 +84,10 @@ public class IsEmptyFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		args[0].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
-		return FormatUtilities.BOOLEAN_MANAGER;
+		return Optional.of(FormatUtilities.BOOLEAN_MANAGER);
 	}
 }

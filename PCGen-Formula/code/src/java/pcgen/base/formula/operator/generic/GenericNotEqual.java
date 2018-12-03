@@ -50,18 +50,18 @@ public class GenericNotEqual implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format1, Class<?> format2,
 		Optional<FormatManager<?>> asserted)
 	{
 		if (format1.isArray() || format2.isArray())
 		{
-			return null;
+			return Optional.empty();
 		}
 		if (format1.equals(format2))
 		{
-			return FormatUtilities.BOOLEAN_MANAGER;
+			return Optional.of(FormatUtilities.BOOLEAN_MANAGER);
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	/**

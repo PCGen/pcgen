@@ -49,15 +49,15 @@ public class StringAdd implements OperatorAction
 	 * {@inheritDoc}
 	 */
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format1, Class<?> format2,
 		Optional<FormatManager<?>> asserted)
 	{
 		if (FormatUtilities.STRING_CLASS.isAssignableFrom(format1)
 			&& FormatUtilities.STRING_CLASS.isAssignableFrom(format2))
 		{
-			return FormatUtilities.STRING_MANAGER;
+			return Optional.of(FormatUtilities.STRING_MANAGER);
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	/**

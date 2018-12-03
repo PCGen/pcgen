@@ -64,14 +64,14 @@ public class BooleanOrTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null));
-		assertNull(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null));
+		assertTrue(op.abstractEvaluate(BOOLEAN_CLASS, INTEGER_CLASS, null).isEmpty());
+		assertTrue(op.abstractEvaluate(NUMBER_CLASS, BOOLEAN_CLASS, null).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()
 	{
 		assertEquals(BOOLEAN_CLASS,
-			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS, null).getManagedClass());
+			op.abstractEvaluate(BOOLEAN_CLASS, BOOLEAN_CLASS, null).get().getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

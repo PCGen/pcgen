@@ -49,15 +49,15 @@ public class NumberMinusTest extends TestCase
 
 	public void testAbstractEvaluateMismatch()
 	{
-		assertNull(op.abstractEvaluate(Boolean.class));
+		assertTrue(op.abstractEvaluate(Boolean.class).isEmpty());
 	}
 
 	public void testAbstractEvaluateLegal()
 	{
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(NUMBER_CLASS).getManagedClass());
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(DOUBLE_CLASS).getManagedClass());
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(FLOAT_CLASS).getManagedClass());
-		assertEquals(NUMBER_CLASS, op.abstractEvaluate(INTEGER_CLASS).getManagedClass());
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(NUMBER_CLASS).get().getManagedClass());
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(DOUBLE_CLASS).get().getManagedClass());
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(FLOAT_CLASS).get().getManagedClass());
+		assertEquals(NUMBER_CLASS, op.abstractEvaluate(INTEGER_CLASS).get().getManagedClass());
 	}
 
 	public void testEvaluateFailNull()

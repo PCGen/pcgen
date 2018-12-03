@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.operator.bool;
 
+import java.util.Optional;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.UnaryAction;
 import pcgen.base.formula.parse.Operator;
@@ -40,13 +42,13 @@ public class BooleanNot implements UnaryAction
 	}
 
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format)
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format)
 	{
 		if (FormatUtilities.BOOLEAN_CLASS.isAssignableFrom(format))
 		{
-			return FormatUtilities.BOOLEAN_MANAGER;
+			return Optional.of(FormatUtilities.BOOLEAN_MANAGER);
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

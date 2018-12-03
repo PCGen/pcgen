@@ -36,17 +36,17 @@ public class ArrayAdd implements OperatorAction
 	}
 
 	@Override
-	public FormatManager<?> abstractEvaluate(Class<?> format1, Class<?> format2,
+	public Optional<FormatManager<?>> abstractEvaluate(Class<?> format1, Class<?> format2,
 		Optional<FormatManager<?>> asserted)
 	{
 		if (!asserted.isPresent())
 		{
-			return null;
+			return Optional.empty();
 		}
 		FormatManager<?> formatManager = asserted.get();
 		if (!formatManager.getManagedClass().isArray())
 		{
-			return null;
+			return Optional.empty();
 		}
 		Optional<FormatManager<?>> assertedComponent = formatManager.getComponentManager();
 		if (assertedComponent.isEmpty())
@@ -56,9 +56,9 @@ public class ArrayAdd implements OperatorAction
 		if (!isCompatible(assertedComponent, format1)
 			|| !isCompatible(assertedComponent, format2))
 		{
-			return null;
+			return Optional.empty();
 		}
-		return formatManager;
+		return Optional.of(formatManager);
 	}
 
 	private boolean isCompatible(Optional<FormatManager<?>> assertedComponent, Class<?> format)
