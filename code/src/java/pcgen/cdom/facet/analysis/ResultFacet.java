@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
@@ -56,13 +58,13 @@ public class ResultFacet
 
 	public Object getLocalVariable(CharID id, CDOMObject cdo, String varName)
 	{
-		String localScopeName = cdo.getLocalScopeName();
-		if (localScopeName == null)
+		Optional<String> localScopeName = cdo.getLocalScopeName();
+		if (localScopeName.isEmpty())
 		{
 			return getGlobalVariable(id, varName);
 		}
 
-		ScopeInstance scope = scopeFacet.get(id, localScopeName, cdo);
+		ScopeInstance scope = scopeFacet.get(id, localScopeName.get(), cdo);
 		if (scope == null)
 		{
 			Logging.errorPrint("Improperly built " + cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()

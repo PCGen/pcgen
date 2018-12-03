@@ -19,6 +19,8 @@ package plugin.function;
 
 import static plugin.function.testsupport.TestUtilities.doParse;
 
+import java.util.Optional;
+
 import org.junit.Test;
 
 import junit.framework.TestCase;
@@ -134,7 +136,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		Skill skill = new Skill();
 		skill.setName("SkillKey");
 		ScopeInstance scopeInst =
-				getFormulaManager().getScopeInstanceFactory().get("PC.SKILL", skill);
+				getFormulaManager().getScopeInstanceFactory().get("PC.SKILL", Optional.of(skill));
 		VariableID varID = vl.getVariableID(scopeInst, "LocalVar");
 		getVariableStore().put(varID, 2);
 		context.getReferenceContext().importObject(skill);
@@ -167,10 +169,10 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		skillalt.setName("SkillAlt");
 		ScopeInstanceFactory scopeInstanceFactory =
 				getFormulaManager().getScopeInstanceFactory();
-		ScopeInstance scopeInste = scopeInstanceFactory.get("PC.SKILL", skill);
+		ScopeInstance scopeInste = scopeInstanceFactory.get("PC.SKILL", Optional.of(skill));
 		VariableID varIDe = vl.getVariableID(scopeInste, "LocalVar");
 		getVariableStore().put(varIDe, 2);
-		ScopeInstance scopeInsta = scopeInstanceFactory.get("PC.SKILL", skillalt);
+		ScopeInstance scopeInsta = scopeInstanceFactory.get("PC.SKILL", Optional.of(skillalt));
 		VariableID varIDa = vl.getVariableID(scopeInsta, "LocalVar");
 		getVariableStore().put(varIDa, 3);
 		ScopeInstance globalInst =

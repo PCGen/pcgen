@@ -26,6 +26,7 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -229,7 +230,8 @@ public class SolverViewFrame extends JFrame
 			String scopeName = LegalScope.getFullName(selectedScope);
 			for (VarScoped cdo : objects)
 			{
-				if (scopeName.equals(cdo.getLocalScopeName()))
+				Optional<String> localScopeName = cdo.getLocalScopeName();
+				if (localScopeName.isPresent() && scopeName.equals(localScopeName.get()))
 				{
 					if (scopeFacet.get(activeIdentifier, scopeName, cdo) != null)
 					{

@@ -18,6 +18,7 @@
 package pcgen.cdom.format.table;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -92,9 +93,9 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 	}
 
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return underlying;
+		return Optional.of(underlying);
 	}
 
 	@Override

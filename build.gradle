@@ -172,8 +172,8 @@ dependencies {
     compile group: 'org.mozilla', name: 'rhino', version:'1.7.10'
 
     compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.2'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.157'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.180'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.166'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.186'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.3.04'
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'16.0.3'

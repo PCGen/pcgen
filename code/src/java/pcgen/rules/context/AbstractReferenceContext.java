@@ -527,7 +527,7 @@ public abstract class AbstractReferenceContext
 	 *            The Class of object to return
 	 * @return The List of items, sorted by their sort key
 	 */
-	public <T extends Loadable & SortKeyRequired> List<T> getSortkeySortedCDOMObjects(Class<T> cl)
+	public <T extends SortKeyRequired & Loadable> List<T> getSortkeySortedCDOMObjects(Class<T> cl)
 	{
 		List<T> items = new ArrayList<>(getConstructedCDOMObjects(cl));
 		items.sort(Comparator.comparing(SortKeyRequired::getSortKey));

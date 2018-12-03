@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -682,9 +683,9 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
-			return null;
+			return Optional.empty();
 		}
 	}
 
@@ -729,9 +730,9 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
-			return null;
+			return Optional.empty();
 		}
 	}
 

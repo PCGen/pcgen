@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.inst;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -112,15 +114,15 @@ public final class EquipmentHead extends CDOMObject
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return EquipmentPartScope.PC_EQUIPMENT_PART;
+		return Optional.of(EquipmentPartScope.PC_EQUIPMENT_PART);
 	}
 
 	@Override
-	public VarScoped getVariableParent()
+	public Optional<VarScoped> getVariableParent()
 	{
-		return headSource;
+		return Optional.of(headSource);
 	}
 
 	public Object getLocalVariable(CharID id, String varName)

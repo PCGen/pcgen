@@ -19,6 +19,7 @@
 package pcgen.core;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.base.VarScoped;
 import pcgen.core.analysis.BonusActivation;
@@ -44,8 +45,8 @@ public final class SizeAdjustment extends PObject implements VarScoped
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "PC.SIZE";
+		return Optional.of("PC.SIZE");
 	}
 }

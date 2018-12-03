@@ -27,6 +27,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
@@ -1197,19 +1198,17 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
 		//I don't have one
-		return null;
+		return Optional.empty();
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public VarScoped getVariableParent()
+	public Optional<VarScoped> getVariableParent()
 	{
 		//Fall back to Global
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

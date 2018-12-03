@@ -17,6 +17,7 @@ package pcgen.cdom.formula;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
@@ -67,7 +68,8 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	public VariableChannel<?> getChannel(CharID id, VarScoped owner, String name)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		ScopeInstance scopeInst = instFactory.get(owner.getLocalScopeName(), owner);
+		Optional<String> localScopeName = owner.getLocalScopeName();
+		ScopeInstance scopeInst = instFactory.get(localScopeName.get(), Optional.of(owner));
 		return getChannel(id, scopeInst, name);
 	}
 

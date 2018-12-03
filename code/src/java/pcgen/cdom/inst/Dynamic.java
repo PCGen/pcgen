@@ -18,6 +18,7 @@ package pcgen.cdom.inst;
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Categorized;
@@ -122,15 +123,15 @@ public class Dynamic
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "PC." + category.getKeyName();
+		return Optional.of("PC." + category.getKeyName());
 	}
 
 	@Override
-	public VarScoped getVariableParent()
+	public Optional<VarScoped> getVariableParent()
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override
