@@ -21,7 +21,6 @@
 package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -152,49 +151,25 @@ public class WeaponToken extends Token
 		else if (token.equals("EQUIPPED"))
 		{
 			// remove all weapons which are not equipped from list
-			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
-			{
-				if (!it.next().isEquipped())
-				{
-					it.remove();
-				}
-			}
+			weaponList.removeIf(equipment -> !equipment.isEquipped());
 			token = aTok.nextToken();
 		}
 		else if (token.equals("NOT_EQUIPPED"))
 		{
 			// remove all weapons which are equipped from list
-			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
-			{
-				if (it.next().isEquipped())
-				{
-					it.remove();
-				}
-			}
+			weaponList.removeIf(Equipment::isEquipped);
 			token = aTok.nextToken();
 		}
 		else if (token.equals("CARRIED"))
 		{
 			// remove all weapons which are not carried from list
-			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
-			{
-				if (it.next().numberCarried().intValue() == 0)
-				{
-					it.remove();
-				}
-			}
+			weaponList.removeIf(equipment -> equipment.numberCarried().intValue() == 0);
 			token = aTok.nextToken();
 		}
 		else if (token.equals("NOT_CARRIED"))
 		{
 			// remove all weapons which are carried from list
-			for (Iterator<Equipment> it = weaponList.iterator(); it.hasNext();)
-			{
-				if (it.next().numberCarried().intValue() > 0)
-				{
-					it.remove();
-				}
-			}
+			weaponList.removeIf(equipment -> equipment.numberCarried().intValue() > 0);
 			token = aTok.nextToken();
 		}
 
