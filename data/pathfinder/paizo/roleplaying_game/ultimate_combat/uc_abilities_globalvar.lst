@@ -131,10 +131,11 @@ CATEGORY=Class|Gunslinger.MOD	BONUS:VAR|Gunslinger_CF_GunTraining4|1|TYPE=Boolea
 
 
 ###Block:
-# Ability Name			Define						Ability
-CATEGORY=Class|Ninja.MOD								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Ninja ~ Weapon Proficiencies|PREVAREQ:Ninja_CF_WeaponProficiencies,0	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|PREVAREQ:Ninja_CF_WeaponProficiencies,0
-CATEGORY=Class|Ninja.MOD								ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|PREVAREQ:Ninja_CF_ArmorProficiency,0
-
+# Ability Name			Ability
+CATEGORY=Class|Ninja.MOD	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Ninja ~ Weapon Proficiencies|PREVAREQ:Ninja_CF_WeaponProficiencies,0	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|PREVAREQ:Ninja_CF_WeaponProficiencies,0
+CATEGORY=Class|Ninja.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|PREVAREQ:Ninja_CF_ArmorProficiency,0
+###Block:
+# Ability Name			Define
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_ClassSkills|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_WeaponProficiencies|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_ArmorProficiency|0
@@ -147,6 +148,7 @@ CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_LightSteps|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_UncannyDodge|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_ImprovedUncannyDodge|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_HiddenMaster|0
+CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_HiddenMasterGreaterInvisibility|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick2|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick4|0
 CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick6|0
@@ -172,6 +174,7 @@ CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_LightSteps|1|TYPE=Boolean|PREFACT:1,
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_UncannyDodge=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_HiddenMaster=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_HiddenMaster=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMasterGreaterInvisibility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_HiddenMasterGreaterInvisibility=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick2=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick4|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick4=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_NinjaTrick6=True
@@ -196,12 +199,12 @@ CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_HiddenMaster|1|TYPE=Boolean|PREABILI
 ###Block:Proficiencies
 # Ability Name			Ability
 CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
-CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
-CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyHeavy
-CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyLight
-CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyMedium
-CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiShieldProficiency
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|PREVAREQ:Samurai_CF_WeaponProficiencies,0
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency|PREVAREQ:Samurai_CF_WeaponProficiencies,0
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|PREVAREQ:Samurai_CF_SamuraiArmorProficiencyHeavy,0
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|PREVAREQ:Samurai_CF_SamuraiArmorProficiencyLight,0
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|PREVAREQ:Samurai_CF_SamuraiArmorProficiencyMedium,0
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|PREVAREQ:Samurai_CF_WeaponProficiencies,0
 
 ###Block:
 # Ability Name			Define								Modify VAR
@@ -220,6 +223,9 @@ CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_WeaponExpertise|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_MountedArcher|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_Banner|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_BonusFeat|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_BonusFeat6|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_BonusFeat12|0
+CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_BonusFeat18|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_GreaterResolve|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_HonorableStand|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_DemandingChallenge|0
@@ -227,46 +233,50 @@ CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_GreaterBanner|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_TrueResolve|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_LastStand|0
 
-# Boolean
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_ClassSkills=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_WeaponProficiencies=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_ArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_ArmorProficiency=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyHeavy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyHeavy=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyLight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyLight=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyMedium|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyMedium=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiShieldProficiency=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Challenge=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Mount=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Order=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Resolve=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_WeaponExpertise=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_MountedArcher=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Banner=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_BonusFeats=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_GreaterResolve=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_HonorableStand=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_DemandingChallenge=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_GreaterBanner=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_TrueResolve=True
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_LastStand=True
+###Block:
+# Ability Name			Modify VAR
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_ClassSkills=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_WeaponProficiencies=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_ArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_ArmorProficiency=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyHeavy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyHeavy=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyLight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyLight=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyMedium|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiArmorProficiencyMedium=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_SamuraiShieldProficiency=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Challenge=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Mount=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Order=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Resolve=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_WeaponExpertise=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_MountedArcher=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_Banner=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_BonusFeats=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_BonusFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_BonusFeats6=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_BonusFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_BonusFeats12=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_BonusFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_BonusFeats18=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_GreaterResolve=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_HonorableStand=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_DemandingChallenge=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_GreaterBanner=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_TrueResolve=True
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samurai_CF_LastStand=True
 # Type
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_ArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyHeavy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyHeavy
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyLight|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyLight
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyMedium|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyMedium
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_SamuraiShieldProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiShieldProficiency
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBonusFeats
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
-CATEGORY=Class|Samurai.MOD										BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_ArmorProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyHeavy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyHeavy
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyLight|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyLight
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiArmorProficiencyMedium|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiencyMedium
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_SamuraiShieldProficiency|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiShieldProficiency
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Challenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Mount|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Order|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Resolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_WeaponExpertise|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_MountedArcher|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_Banner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_BonusFeat|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBonusFeats
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_HonorableStand|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_DemandingChallenge|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_GreaterBanner|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_TrueResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
+CATEGORY=Class|Samurai.MOD	BONUS:VAR|Samurai_CF_LastStand|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
