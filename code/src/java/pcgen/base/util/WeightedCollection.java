@@ -26,6 +26,9 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 
+
+import org.jetbrains.annotations.NotNull;
+
 /**
  * An implementation of the <tt>Collection</tt> interface that allows objects
  * added to the Collection to have a &quot;weight&quot; associated with them.
@@ -247,6 +250,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @return An <tt>Iterator</tt> for the WeightedCollection.
 	 */
+	@NotNull
 	@Override
 	public Iterator<E> iterator()
 	{
