@@ -62,7 +62,6 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.cdom.util.IntegerKeyComparator;
-import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -531,7 +530,7 @@ public abstract class AbstractReferenceContext
 	public <T extends Loadable & SortKeyRequired> List<T> getSortkeySortedCDOMObjects(Class<T> cl)
 	{
 		List<T> items = new ArrayList<>(getConstructedCDOMObjects(cl));
-		items.sort(SortKeyComparator.getInstance());
+		items.sort(Comparator.comparing(SortKeyRequired::getSortKey));
 		return items;
 	}
 
