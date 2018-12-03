@@ -18,12 +18,13 @@
  */
 package pcgen.facade.core;
 
+import pcgen.core.Race;
 import pcgen.facade.util.ReferenceFacade;
 
 public interface CompanionStubFacade
 {
 
-	public ReferenceFacade<RaceFacade> getRaceRef();
+	public ReferenceFacade<Race> getRaceRef();
 
 	public String getCompanionType();
 

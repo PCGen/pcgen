@@ -29,6 +29,7 @@ import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.facade.core.AbilityCategoryFacade;
@@ -40,7 +41,6 @@ import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.KitFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
@@ -60,7 +60,7 @@ import pcgen.facade.util.event.MapListener;
 public class DelegatingDataSet implements DataSetFacade
 {
 
-	private final DelegatingListFacade<RaceFacade> races;
+	private final DelegatingListFacade<Race> races;
 	private final DelegatingListFacade<ClassFacade> classes;
 	private final DelegatingListFacade<Skill> skills;
 	private final DelegatingListFacade<Deity> deities;
@@ -241,7 +241,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<RaceFacade> getRaces()
+	public ListFacade<Race> getRaces()
 	{
 		return races;
 	}

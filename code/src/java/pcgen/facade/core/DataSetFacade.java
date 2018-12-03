@@ -25,6 +25,7 @@ import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
+import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.facade.util.ListFacade;
@@ -49,7 +50,7 @@ public interface DataSetFacade
 
 	public ListFacade<Skill> getSkills();
 
-	public ListFacade<RaceFacade> getRaces();
+	public ListFacade<Race> getRaces();
 
 	public ListFacade<ClassFacade> getClasses();
 

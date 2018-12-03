@@ -68,13 +68,13 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
+import pcgen.core.Race;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.InfoFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
@@ -874,7 +874,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private final CharacterComboBoxModel<Handed> handsModel;
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
 		private CharacterComboBoxModel<Deity> deityModel;
-		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
+		private final DeferredCharacterComboBoxModel<Race> raceModel;
 		private final CharacterComboBoxModel<String> ageCatModel;
 		private final FacadeComboBoxModel<ClassFacade> classModel;
 		private final CharacterComboBoxModel<String> xpTableModel;
@@ -956,13 +956,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			}
 
 			//initialize race model
-			raceModel = new DeferredCharacterComboBoxModel<RaceFacade>(dataset.getRaces(), character.getRaceRef())
+			raceModel = new DeferredCharacterComboBoxModel<Race>(dataset.getRaces(), character.getRaceRef())
 			{
 
 				@Override
 				public void commitSelectedItem(Object anItem)
 				{
-					character.setRace((RaceFacade) anItem);
+					character.setRace((Race) anItem);
 				}
 
 			};

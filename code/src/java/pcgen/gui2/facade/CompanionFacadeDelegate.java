@@ -19,8 +19,8 @@ package pcgen.gui2.facade;
 
 import java.io.File;
 
+import pcgen.core.Race;
 import pcgen.facade.core.CompanionFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -41,7 +41,7 @@ public class CompanionFacadeDelegate implements CompanionFacade
 	private CompanionFacade delegate;
 	private final DelegateReferenceFacade<String> nameDelegate;
 	private final DelegateReferenceFacade<File> fileDelegate;
-	private final DelegateReferenceFacade<RaceFacade> raceDelegate;
+	private final DelegateReferenceFacade<Race> raceDelegate;
 
 	public CompanionFacadeDelegate()
 	{
@@ -79,7 +79,7 @@ public class CompanionFacadeDelegate implements CompanionFacade
 	}
 
 	@Override
-	public ReferenceFacade<RaceFacade> getRaceRef()
+	public ReferenceFacade<Race> getRaceRef()
 	{
 		return raceDelegate;
 	}
