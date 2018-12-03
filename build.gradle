@@ -262,11 +262,22 @@ task installToRoot(type: Copy, dependsOn: [syncLibsToRoot, createExe, jar,
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
     }
-    into projectDir
+    into outputDir
 
     rename "(.+)-$version(.+)", '$1$2'
     mustRunAfter clean
 }
+
+task qbuild(type: Copy, dependsOn: [syncLibsToRoot, jar]) {
+    description="Copy the executable file into the root to create a working environment"
+    from "$buildDir/libs/pcgen-${version}.jar"
+
+    into outputDir
+
+    rename "(.+)-$version(.+)", '$1$2'
+    mustRunAfter clean
+}
+
 
 task cleanOutput(type: Delete) {
     description="Clean up things copied to the output folder by the build"
