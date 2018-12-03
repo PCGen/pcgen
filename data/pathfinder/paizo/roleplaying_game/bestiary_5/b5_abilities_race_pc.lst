@@ -7,15 +7,15 @@ SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define						Ability
-Race Traits ~ Android					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceAbilityScores|0	ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Ability Scores|PREVAREQ:Android_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceSize|0			ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Size|PREVAREQ:Android_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceSpeed|0			ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Speed|PREVAREQ:Android_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceExceptionalSenses|0	ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Exceptional Senses|PREVAREQ:Android_ReplaceExceptionalSenses,0
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceConstructed|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Constructed|PREVAREQ:Android_ReplaceConstructed,0
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceEmotionless|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Emotionless|PREVAREQ:Android_ReplaceEmotionless,0
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceNaniteSurge|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Nanite Surge|PREVAREQ:Android_ReplaceNaniteSurge,0
-CATEGORY=Internal|Race Traits ~ Android.MOD					DEFINE:Android_ReplaceLanguages|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Languages|PREVAREQ:Android_ReplaceLanguages,0
+Racial Traits ~ Android					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceAbilityScores|0	ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Ability Scores|PREVAREQ:Android_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceSize|0			ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Size|PREVAREQ:Android_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceSpeed|0			ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Speed|PREVAREQ:Android_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceExceptionalSenses|0	ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Exceptional Senses|PREVAREQ:Android_ReplaceExceptionalSenses,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceConstructed|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Constructed|PREVAREQ:Android_ReplaceConstructed,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceEmotionless|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Emotionless|PREVAREQ:Android_ReplaceEmotionless,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceNaniteSurge|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Nanite Surge|PREVAREQ:Android_ReplaceNaniteSurge,0
+CATEGORY=Internal|Racial Traits ~ Android.MOD					DEFINE:Android_ReplaceLanguages|0		ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Languages|PREVAREQ:Android_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name						Unique Key					Category of Ability		Type																		Description																																																															Template					Auto Language	Bonus to skill					Stat bonus										Modify VAR													Source Page		Aspects
@@ -34,15 +34,15 @@ Languages							KEY:Android ~ Languages			CATEGORY:Special Ability	TYPE:RacialTr
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define						Ability
-Race Traits ~ Astomoi					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceAbilityScores|0	ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Ability Scores|PREVAREQ:Astomoi_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceSize|0			ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Size|PREVAREQ:Astomoi_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceSpeed|0			ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Speed|PREVAREQ:Astomoi_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceScent|0			ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Scent|PREVAREQ:Astomoi_ReplaceScent,0
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceMouthless|0		ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Mouthless|PREVAREQ:Astomoi_ReplaceMouthless,0
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceSensitiveBreath|0	ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Sensitive Breath|PREVAREQ:Astomoi_ReplaceSensitiveBreath,0
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceTelepathicSenses|0	ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Telepathic Senses|PREVAREQ:Astomoi_ReplaceTelepathicSenses,0
-CATEGORY=Internal|Race Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceLanguages|0		ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Languages|PREVAREQ:Astomoi_ReplaceLanguages,0
+Racial Traits ~ Astomoi					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceAbilityScores|0	ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Ability Scores|PREVAREQ:Astomoi_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceSize|0			ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Size|PREVAREQ:Astomoi_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceSpeed|0			ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Speed|PREVAREQ:Astomoi_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceScent|0			ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Scent|PREVAREQ:Astomoi_ReplaceScent,0
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceMouthless|0		ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Mouthless|PREVAREQ:Astomoi_ReplaceMouthless,0
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceSensitiveBreath|0	ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Sensitive Breath|PREVAREQ:Astomoi_ReplaceSensitiveBreath,0
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceTelepathicSenses|0	ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Telepathic Senses|PREVAREQ:Astomoi_ReplaceTelepathicSenses,0
+CATEGORY=Internal|Racial Traits ~ Astomoi.MOD					DEFINE:Astomoi_ReplaceLanguages|0		ABILITY:Astomoi Racial Trait|AUTOMATIC|Astomoi ~ Languages|PREVAREQ:Astomoi_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name						Unique Key					Category of Ability		Type																		Description																																																																Template																																			Auto Language	Ability							Stat bonus										Modify VAR						Source Page		Aspects
@@ -61,13 +61,13 @@ Languages							KEY:Astomoi ~ Languages			CATEGORY:Special Ability	TYPE:RacialTr
 #No languages given, used Common and Dark Folk from example entry, adding "any but Druidic" as a default until rules clairify otherwise
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define						Ability
-Race Traits ~ Caligni					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceAbilityScores|0	ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Ability Scores|PREVAREQ:Caligni_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceSize|0			ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Size|PREVAREQ:Caligni_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceSpeed|0			ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Speed|PREVAREQ:Caligni_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceDeathThroes|0		ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Death Throes|PREVAREQ:Caligni_ReplaceDeathThroes,0
-CATEGORY=Internal|Race Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceLightSensitivity|0	ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Light Sensitivity|PREVAREQ:Caligni_ReplaceLightSensitivity,0
-CATEGORY=Internal|Race Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceSeeInDarkness|0	ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ See in Darkness|PREVAREQ:Caligni_ReplaceSeeInDarkness,0
+Racial Traits ~ Caligni					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceAbilityScores|0	ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Ability Scores|PREVAREQ:Caligni_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceSize|0			ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Size|PREVAREQ:Caligni_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceSpeed|0			ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Speed|PREVAREQ:Caligni_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceDeathThroes|0		ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Death Throes|PREVAREQ:Caligni_ReplaceDeathThroes,0
+CATEGORY=Internal|Racial Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceLightSensitivity|0	ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ Light Sensitivity|PREVAREQ:Caligni_ReplaceLightSensitivity,0
+CATEGORY=Internal|Racial Traits ~ Caligni.MOD					DEFINE:Caligni_ReplaceSeeInDarkness|0	ABILITY:Caligni Racial Trait|AUTOMATIC|Caligni ~ See in Darkness|PREVAREQ:Caligni_ReplaceSeeInDarkness,0
 
 ###Block: Racial Defaults
 # Ability Name						Unique Key					Category of Ability		Type																		Description																																																																Template					Auto Language			Stat bonus										Source Page
@@ -85,16 +85,16 @@ Languages							KEY:Caligni ~ Languages			CATEGORY:Special Ability	TYPE:RacialTr
 
 ###Block: Racial Abilities
 # Ability Name							Category of Ability	Define							Ability
-Race Traits ~ Deep One Hybrid					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceAbilityScores|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Ability Scores|PREVAREQ:DeepOneHybrid_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceSize|0			ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Size|PREVAREQ:DeepOneHybrid_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceSpeed|0			ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Slow|PREVAREQ:DeepOneHybrid_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceLowLightVision|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Low-Light Vision|PREVAREQ:DeepOneHybrid_ReplaceLowLightVision,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceNaturalArmor|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Natural Armor|PREVAREQ:DeepOneHybrid_ReplaceNaturalArmor,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceFinalChange|0		ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Final Change|PREVAREQ:DeepOneHybrid_ReplaceFinalChange,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceSeaLonging|0		ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Sea Longing|PREVAREQ:DeepOneHybrid_ReplaceSeaLonging,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceTakeToTheWater|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Take to the Water|PREVAREQ:DeepOneHybrid_ReplaceTakeToTheWater,0
-CATEGORY=Internal|Race Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceLanguages|0		ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Languages|PREVAREQ:DeepOneHybrid_ReplaceLanguages,0
+Racial Traits ~ Deep One Hybrid					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceAbilityScores|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Ability Scores|PREVAREQ:DeepOneHybrid_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceSize|0			ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Size|PREVAREQ:DeepOneHybrid_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceSpeed|0			ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Slow|PREVAREQ:DeepOneHybrid_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceLowLightVision|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Low-Light Vision|PREVAREQ:DeepOneHybrid_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceNaturalArmor|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Natural Armor|PREVAREQ:DeepOneHybrid_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceFinalChange|0		ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Final Change|PREVAREQ:DeepOneHybrid_ReplaceFinalChange,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceSeaLonging|0		ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Sea Longing|PREVAREQ:DeepOneHybrid_ReplaceSeaLonging,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceTakeToTheWater|0	ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Take to the Water|PREVAREQ:DeepOneHybrid_ReplaceTakeToTheWater,0
+CATEGORY=Internal|Racial Traits ~ Deep One Hybrid.MOD					DEFINE:DeepOneHybrid_ReplaceLanguages|0		ABILITY:Deep One Hybrid Racial Trait|AUTOMATIC|Deep One Hybrid ~ Languages|PREVAREQ:DeepOneHybrid_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name						Unique Key						Category of Ability		Type																				Description																																																																										Template																																																		Auto Language		Stat bonus										Modify VAR						Source Page
@@ -114,18 +114,18 @@ Languages							KEY:Deep One Hybrid ~ Languages		CATEGORY:Special Ability	TYPE:R
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define						Ability
-Race Traits ~ Ghoran					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceAbilityScores|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Ability Scores|PREVAREQ:Ghoran_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSize|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Size|PREVAREQ:Ghoran_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSpeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Speed|PREVAREQ:Ghoran_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalArmor|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Armor|PREVAREQ:Ghoran_ReplaceNaturalArmor,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceDelicious|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Delicious|PREVAREQ:Ghoran_ReplaceDelicious,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalMagic|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Magic|PREVAREQ:Ghoran_ReplaceNaturalMagic,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Seed|PREVAREQ:Ghoran_ReplaceSeed,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLightDependent|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Light Dependent|PREVAREQ:Ghoran_ReplaceLightDependent,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceVision|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Vision|PREVAREQ:Ghoran_ReplaceVision,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplacePastLifeKnowledge|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Past-Life Knowledge|PREVAREQ:Ghoran_ReplacePastLifeKnowledge,0
-CATEGORY=Internal|Race Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLanguages|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Languages|PREVAREQ:Ghoran_ReplaceLanguages,0
+Racial Traits ~ Ghoran					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceAbilityScores|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Ability Scores|PREVAREQ:Ghoran_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSize|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Size|PREVAREQ:Ghoran_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSpeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Speed|PREVAREQ:Ghoran_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalArmor|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Armor|PREVAREQ:Ghoran_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceDelicious|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Delicious|PREVAREQ:Ghoran_ReplaceDelicious,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceNaturalMagic|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Natural Magic|PREVAREQ:Ghoran_ReplaceNaturalMagic,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceSeed|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Seed|PREVAREQ:Ghoran_ReplaceSeed,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLightDependent|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Light Dependent|PREVAREQ:Ghoran_ReplaceLightDependent,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceVision|0			ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Vision|PREVAREQ:Ghoran_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplacePastLifeKnowledge|0	ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Past-Life Knowledge|PREVAREQ:Ghoran_ReplacePastLifeKnowledge,0
+CATEGORY=Internal|Racial Traits ~ Ghoran.MOD					DEFINE:Ghoran_ReplaceLanguages|0		ABILITY:Ghoran Racial Trait|AUTOMATIC|Ghoran ~ Languages|PREVAREQ:Ghoran_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name						Unique Key					Category of Ability		Type																		Define			Innate Spells																											Description																																																																										Template					Auto Language		Ability												Stat bonus										Modify VAR						Class Skill			Source Page		Aspects																										Temporary Bonus
@@ -149,16 +149,16 @@ Seed (Negative Level)					KEY:Ghoran ~ Seed (Negative Level)	CATEGORY:Internal		
 
 ###Block: Racial Abilities
 # Ability Name							Unique Key					Category of Ability		Type																			Define							Description																																					Template																																								Auto Language		Ability																				Bonus to Situation														Stat bonus										Modify VAR						Source Page
-Race Traits ~ Orang-Pendak											CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceAbilityScores|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Ability Scores|PREVAREQ:OrangPendak_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceSize|0																																																																																						ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Size|PREVAREQ:OrangPendak_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceSpeed|0																																																																																						ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Speed|PREVAREQ:OrangPendak_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceForestWalker|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Forest Walker|PREVAREQ:OrangPendak_ReplaceForestWalker,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceLowLightVision|0																																																																																				ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Low-Light Vision|PREVAREQ:OrangPendak_ReplaceLowLightVision,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceOwnTwoFeet|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Own Two Feet|PREVAREQ:OrangPendak_ReplaceOwnTwoFeet,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceSimianEmpathy|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Simian Empathy|PREVAREQ:OrangPendak_ReplaceSimianEmpathy,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceTearApart|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Tear Apart|PREVAREQ:OrangPendak_ReplaceTearApart,0
-CATEGORY=Internal|Race Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceLanguages|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Languages|PREVAREQ:OrangPendak_ReplaceLanguages,0
+Racial Traits ~ Orang-Pendak											CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceAbilityScores|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Ability Scores|PREVAREQ:OrangPendak_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceSize|0																																																																																						ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Size|PREVAREQ:OrangPendak_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceSpeed|0																																																																																						ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Speed|PREVAREQ:OrangPendak_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceForestWalker|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Forest Walker|PREVAREQ:OrangPendak_ReplaceForestWalker,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceLowLightVision|0																																																																																				ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Low-Light Vision|PREVAREQ:OrangPendak_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceOwnTwoFeet|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Own Two Feet|PREVAREQ:OrangPendak_ReplaceOwnTwoFeet,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceSimianEmpathy|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Simian Empathy|PREVAREQ:OrangPendak_ReplaceSimianEmpathy,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceTearApart|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Tear Apart|PREVAREQ:OrangPendak_ReplaceTearApart,0
+CATEGORY=Internal|Racial Traits ~ Orang-Pendak.MOD																															DEFINE:OrangPendak_ReplaceLanguages|0																																																																																					ABILITY:Orang-Pendak Racial Trait|AUTOMATIC|Orang-Pendak ~ Languages|PREVAREQ:OrangPendak_ReplaceLanguages,0
 
 +2 Strength, +2 Wisdom, -2 Intelligence			KEY:Orang-Pendak ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Orang-Pendak Racial Trait.Orang-Pendak Racial Default.Racial Ability Scores									DESC:Orang-pendaks are strong and intuitive, but not particularly clever.																																																																																																													BONUS:STAT|STR,WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial								SOURCEPAGE:p.186
 Small									KEY:Orang-Pendak ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Orang-Pendak Racial Trait.Orang-Pendak Racial Default.Racial Size											DESC:Orang-pendaks are Small creatures and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty on combat maneuver checks and to CMD, and a +4 size bonus on Stealth checks.																																																																																																										SOURCEPAGE:p.186
@@ -176,17 +176,17 @@ Languages								KEY:Orang-Pendak ~ Languages		CATEGORY:Special Ability	TYPE:Rac
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define						Ability
-Race Traits ~ Reptoid					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceAbilityScores|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Ability Scores|PREVAREQ:Reptoid_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceSize|0			ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Size|PREVAREQ:Reptoid_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceSpeed|0			ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Speed|PREVAREQ:Reptoid_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceLowLightVision|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Low-Light Vision|PREVAREQ:Reptoid_ReplaceLowLightVision,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceScales|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Scales|PREVAREQ:Reptoid_ReplaceScales,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceColdBlooded|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Cold-Blooded|PREVAREQ:Reptoid_ReplaceColdBlooded,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceNaturalWeapons|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Natural Weapons|PREVAREQ:Reptoid_ReplaceNaturalWeapons,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceChangeShape|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Change Shape|PREVAREQ:Reptoid_ReplaceChangeShape,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceMentalPotency|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Mental Potency|PREVAREQ:Reptoid_ReplaceMentalPotency,0
-CATEGORY=Internal|Race Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceLanguages|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Languages|PREVAREQ:Reptoid_ReplaceLanguages,0
+Racial Traits ~ Reptoid					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceAbilityScores|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Ability Scores|PREVAREQ:Reptoid_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceSize|0			ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Size|PREVAREQ:Reptoid_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceSpeed|0			ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Speed|PREVAREQ:Reptoid_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceLowLightVision|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Low-Light Vision|PREVAREQ:Reptoid_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceScales|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Scales|PREVAREQ:Reptoid_ReplaceScales,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceColdBlooded|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Cold-Blooded|PREVAREQ:Reptoid_ReplaceColdBlooded,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceNaturalWeapons|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Natural Weapons|PREVAREQ:Reptoid_ReplaceNaturalWeapons,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceChangeShape|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Change Shape|PREVAREQ:Reptoid_ReplaceChangeShape,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceMentalPotency|0	ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Mental Potency|PREVAREQ:Reptoid_ReplaceMentalPotency,0
+CATEGORY=Internal|Racial Traits ~ Reptoid.MOD					DEFINE:Reptoid_ReplaceLanguages|0		ABILITY:Reptoid Racial Trait|AUTOMATIC|Reptoid ~ Languages|PREVAREQ:Reptoid_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name					Unique Key					Category of Ability		Type																	Description																																																																																																	Template					Auto Language			Ability						Stat bonus										Modify VAR							Source Page		Aspects
@@ -207,19 +207,19 @@ Languages						KEY:Reptoid ~ Languages			CATEGORY:Special Ability	TYPE:RacialTra
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define						Ability
-Race Traits ~ Shabti					CATEGORY:Internal
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceAbilityScores|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Ability Scores|PREVAREQ:Shabti_ReplaceAbilityScores,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceSize|0			ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Size|PREVAREQ:Shabti_ReplaceSize,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceSpeed|0			ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Speed|PREVAREQ:Shabti_ReplaceSpeed,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceDarkvision|0		ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Darkvision|PREVAREQ:Shabti_ReplaceDarkvision,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceNativeOutsider|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Native Outsider|PREVAREQ:Shabti_ReplaceNativeOutsider,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceImmortal|0		ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Immortal|PREVAREQ:Shabti_ReplaceImmortal,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceImmuneToUndeath|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Immune to Undeath|PREVAREQ:Shabti_ReplaceImmuneToUndeath,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplacePastLifeKnowledge|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Past-Life Knowledge|PREVAREQ:Shabti_ReplacePastLifeKnowledge,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceResistLevelDrain|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Resist Level Drain|PREVAREQ:Shabti_ReplaceResistLevelDrain,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceShatteredSoul|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Shattered Soul|PREVAREQ:Shabti_ReplaceShatteredSoul,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceSLA|0			ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Spell-Like Ability|PREVAREQ:Shabti_ReplaceSLA,0
-CATEGORY=Internal|Race Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceLanguages|0		ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Languages|PREVAREQ:Shabti_ReplaceLanguages,0
+Racial Traits ~ Shabti					CATEGORY:Internal
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceAbilityScores|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Ability Scores|PREVAREQ:Shabti_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceSize|0			ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Size|PREVAREQ:Shabti_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceSpeed|0			ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Speed|PREVAREQ:Shabti_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceDarkvision|0		ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Darkvision|PREVAREQ:Shabti_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceNativeOutsider|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Native Outsider|PREVAREQ:Shabti_ReplaceNativeOutsider,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceImmortal|0		ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Immortal|PREVAREQ:Shabti_ReplaceImmortal,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceImmuneToUndeath|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Immune to Undeath|PREVAREQ:Shabti_ReplaceImmuneToUndeath,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplacePastLifeKnowledge|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Past-Life Knowledge|PREVAREQ:Shabti_ReplacePastLifeKnowledge,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceResistLevelDrain|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Resist Level Drain|PREVAREQ:Shabti_ReplaceResistLevelDrain,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceShatteredSoul|0	ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Shattered Soul|PREVAREQ:Shabti_ReplaceShatteredSoul,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceSLA|0			ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Spell-Like Ability|PREVAREQ:Shabti_ReplaceSLA,0
+CATEGORY=Internal|Racial Traits ~ Shabti.MOD					DEFINE:Shabti_ReplaceLanguages|0		ABILITY:Shabti Racial Trait|AUTOMATIC|Shabti ~ Languages|PREVAREQ:Shabti_ReplaceLanguages,0
 
 ###Block: Racial Defaults
 # Ability Name			Unique Key					Category of Ability		Type																	Define						Innate Spells								Description																																																														Template					Auto Language	Ability												Bonus Ability Pool				Stat bonus					Modify VAR								Class Skill			Source Page
@@ -240,7 +240,7 @@ Languages				KEY:Shabti ~ Languages			CATEGORY:Special Ability	TYPE:RacialTraits
 # Skinwalker
 # ==============================
 ##Skinwalker default copied from BotM to avoid conflicts
-Race Traits ~ Skinwalker							CATEGORY:Internal																				DEFINE:Skinwalker Change Shape Times|0																																																																																			ABILITY:Skinwalker Racial Trait|AUTOMATIC|TYPE=Skinwalker Racial Default	BONUS:ABILITYPOOL|Skinwalker Heritage|1							BONUS:VAR|Skinwalker Change Shape Times|3+floor(TL/2)
+Racial Traits ~ Skinwalker							CATEGORY:Internal																				DEFINE:Skinwalker Change Shape Times|0																																																																																			ABILITY:Skinwalker Racial Trait|AUTOMATIC|TYPE=Skinwalker Racial Default	BONUS:ABILITYPOOL|Skinwalker Heritage|1							BONUS:VAR|Skinwalker Change Shape Times|3+floor(TL/2)
 
 Skinwalker				KEY:Skinwalker ~ Default		CATEGORY:Internal			TYPE:Skinwalker Subrace.Default																																																																																																					ABILITY:Skinwalker Racial Trait|AUTOMATIC|TYPE=Skinwalker Default Heritage
 ###Block: Skinwalker Defaults

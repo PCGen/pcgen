@@ -276,7 +276,7 @@ public class Aspect extends ConcretePrereqObject
 						joinString = ", ";
 					}
 					Collections.sort(assocList);
-					buf.append(StringUtil.joinToStringBuilder(assocList, joinString));
+					buf.append(StringUtil.join(assocList, joinString));
 				}
 				else if (var.startsWith("\"")) //$NON-NLS-1$
 				{

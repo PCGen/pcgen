@@ -23,14 +23,11 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class FilterUtilities
+public final class FilterUtilities
 {
 
-	public static FilterBar<Object, Object> createDefaultFilterBar()
+	private FilterUtilities()
 	{
-		FilterBar<Object, Object> bar = new FilterBar<>();
-		bar.addDisplayableFilter(new SearchFilterPanel());
-		return bar;
 	}
 
 	/**

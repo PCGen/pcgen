@@ -32,9 +32,6 @@ import plugin.pretokens.parser.PreRuleParser;
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase
 {
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

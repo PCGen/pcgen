@@ -17,9 +17,6 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.rules.context.LoadContext;
-
-public interface CDOMPrimaryToken<T> extends CDOMToken<T>
+public interface CDOMPrimaryToken<T> extends CDOMToken<T>, CDOMWriteToken<T>
 {
-	public String[] unparse(LoadContext context, T obj);
 }

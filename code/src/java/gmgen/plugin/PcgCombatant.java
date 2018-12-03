@@ -23,21 +23,19 @@ package gmgen.plugin;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
-import org.jdom2.Element;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -58,6 +56,10 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+
+import org.apache.commons.lang3.StringUtils;
+import org.jdom2.Element;
 
 /**
  */
@@ -615,7 +617,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(";<br>");
 
 			List<PCStat> statList = new ArrayList<>(pcOut.getUnmodifiableStatList());
-			statList.sort(SortKeyComparator.getInstance());
+			statList.sort(Comparator.comparing(SortKeyRequired::getSortKey));
 
 			for (PCStat stat : statList)
 			{
@@ -836,12 +838,12 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, aPC.getDescription(spell)));
 								spellBuff.append("\\");
-								spellBuff.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.RANGE), ", "));
+								spellBuff.append(StringUtil.join(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(spell.getListAsString(ListKey.CASTTIME));
 								spellBuff.append("\\");
 								spellBuff
-									.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.SAVE_INFO), ", "));
+									.append(StringUtil.join(spell.getListFor(ListKey.SAVE_INFO), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, spell.getListAsString(ListKey.DURATION)));
 								spellBuff.append("\\");

@@ -103,15 +103,12 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.ClassFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
-import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
@@ -161,7 +158,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getFavoredClass(RaceFacade race)
+	public String getFavoredClass(Race race)
 	{
 		if (!(race instanceof Race))
 		{
@@ -172,7 +169,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(RaceFacade raceFacade)
+	public String getHTMLInfo(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -208,7 +205,8 @@ public class Gui2InfoFactory implements InfoFactory
 			appendFacts(infoText, race);
 
 			infoText.appendLineBreak();
-			String size = race.getSize();
+			String size = getSize(race);
+			
 			if (StringUtils.isNotEmpty(size))
 			{
 				infoText.appendI18nElement("in_size", size); //$NON-NLS-1$
@@ -419,13 +417,12 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(SkillFacade skillFacade)
+	public String getHTMLInfo(Skill skill)
 	{
-		if (!(skillFacade instanceof Skill))
+		if (skill == null)
 		{
 			return EMPTY_STRING;
 		}
-		Skill skill = (Skill) skillFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -604,25 +601,23 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(DeityFacade deityFacade)
+	public String getHTMLInfo(Deity deity)
 	{
-		if (!(deityFacade instanceof Deity))
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity aDeity = (Deity) deityFacade;
-
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
-		infoText.appendTitleElement(OutputNameFormatting.piString(aDeity));
+		infoText.appendTitleElement(OutputNameFormatting.piString(deity));
 		infoText.appendLineBreak();
 
 		infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
-			DescriptionFormatting.piWrapDesc(aDeity, pc.getDescription(aDeity), false));
+			DescriptionFormatting.piWrapDesc(deity, pc.getDescription(deity), false));
 
-		appendFacts(infoText, aDeity);
+		appendFacts(infoText, deity);
 
-		String aString = getPantheons(aDeity);
+		String aString = getPantheons(deity);
 		if (aString != null)
 		{
 			infoText.appendSpacer();
@@ -630,9 +625,9 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		infoText.appendSpacer();
-		infoText.appendI18nElement("in_domains", getDomains(aDeity)); //$NON-NLS-1$
+		infoText.appendI18nElement("in_domains", getDomains(deity)); //$NON-NLS-1$
 
-		List<CDOMReference<WeaponProf>> dwp = aDeity.getListFor(ListKey.DEITYWEAPON);
+		List<CDOMReference<WeaponProf>> dwp = deity.getListFor(ListKey.DEITYWEAPON);
 		if (dwp != null)
 		{
 			infoText.appendSpacer();
@@ -640,7 +635,7 @@ public class Gui2InfoFactory implements InfoFactory
 				ReferenceUtilities.joinLstFormat(dwp, "|"));
 		}
 
-		aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, aDeity.getPrerequisiteList(), false);
+		aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, deity.getPrerequisiteList(), false);
 		if (!aString.isEmpty())
 		{
 			infoText.appendSpacer();
@@ -648,14 +643,14 @@ public class Gui2InfoFactory implements InfoFactory
 				aString);
 		}
 
-		aString = AllowUtilities.getAllowInfo(pc, aDeity);
+		aString = AllowUtilities.getAllowInfo(pc, deity);
 		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		aString = aDeity.getSource();
+		aString = deity.getSource();
 		if (!aString.isEmpty())
 		{
 			infoText.appendSpacer();
@@ -1468,10 +1463,6 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((ClassFacade) facade, null);
 		}
-		if (facade instanceof DeityFacade)
-		{
-			return getHTMLInfo((DeityFacade) facade);
-		}
 		if (facade instanceof DomainFacade)
 		{
 			return getHTMLInfo((DomainFacade) facade);
@@ -1483,14 +1474,6 @@ public class Gui2InfoFactory implements InfoFactory
 		if (facade instanceof KitFacade)
 		{
 			return getHTMLInfo((KitFacade) facade);
-		}
-		if (facade instanceof RaceFacade)
-		{
-			return getHTMLInfo((RaceFacade) facade);
-		}
-		if (facade instanceof SkillFacade)
-		{
-			return getHTMLInfo((SkillFacade) facade);
 		}
 		if (facade instanceof SpellFacade)
 		{
@@ -1544,7 +1527,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getLevelAdjustment(RaceFacade raceFacade)
+	public String getLevelAdjustment(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1555,7 +1538,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public int getNumMonsterClassLevels(RaceFacade raceFacade)
+	public int getNumMonsterClassLevels(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1571,7 +1554,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getPreReqHTML(RaceFacade raceFacade)
+	public String getPreReqHTML(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1587,7 +1570,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getStatAdjustments(RaceFacade raceFacade)
+	public String getStatAdjustments(Race raceFacade)
 	{
 		if (!(raceFacade instanceof Race))
 		{
@@ -1625,7 +1608,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getVision(RaceFacade race)
+	public String getVision(Race race)
 	{
 		if (!(race instanceof Race))
 		{
@@ -1942,7 +1925,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(RaceFacade raceFacade)
+	public String getDescription(Race raceFacade)
 	{
 		if (raceFacade == null || !(raceFacade instanceof Race))
 		{
@@ -1998,20 +1981,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(SkillFacade skillFacade)
+	public String getDescription(Skill skill)
 	{
-		if (skillFacade == null || !(skillFacade instanceof Skill))
+		if (skill == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Skill skill = (Skill) skillFacade;
 			return DescriptionFormatting.piWrapDesc(skill, pc.getDescription(skill), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + skillFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + skill, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
@@ -2055,20 +2037,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(DeityFacade deityFacade)
+	public String getDescription(Deity deity)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Deity deity = (Deity) deityFacade;
 			return DescriptionFormatting.piWrapDesc(deity, pc.getDescription(deity), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + deityFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + deity, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
@@ -2183,60 +2164,47 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDomains(DeityFacade deityFacade)
+	public String getDomains(Deity deity)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
 		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				set.add(OutputNameFormatting.piString(d));
-			}
+			ref.getContainedObjects()
+				.forEach(domain -> set.add(OutputNameFormatting.piString(domain)));
 		}
-		final StringBuilder piString = new StringBuilder(100);
-		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
-		return piString.toString();
-
+		return StringUtil.join(set, ", "); //$NON-NLS-1$
 	}
 
 	@Override
-	public String getPantheons(DeityFacade deityFacade)
+	public String getPantheons(Deity deity)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
 		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-		for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-		{
-			set.add(indirect.get());
-		}
-		final StringBuilder piString = new StringBuilder(100);
-		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$
-		return piString.toString();
+		deity.getSafeSetFor(fk).forEach(indirect -> set.add(indirect.get()));
+		return StringUtil.join(set, ","); //$NON-NLS-1$
 
 	}
 
 	/**
 	 * Get a display string of the deity's favored weapons.
-	 * @param deityFacade The deity to be output.
+	 * @param deity The deity to be output.
 	 * @return The comma separated list of weapons.
 	 */
 	@Override
-	public String getFavoredWeapons(DeityFacade deityFacade)
+	public String getFavoredWeapons(Deity deity)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (deity == null)
 		{
 			return EMPTY_STRING;
 		}
-		Deity deity = (Deity) deityFacade;
 		List<CDOMReference<WeaponProf>> wpnList = deity.getSafeListFor(ListKey.DEITYWEAPON);
 		return ReferenceUtilities.joinLstFormat(wpnList, ",");
 	}
@@ -2308,7 +2276,7 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getMovement(RaceFacade race)
+	public String getMovement(Race race)
 	{
 		if (!(race instanceof Race))
 		{
@@ -2391,6 +2359,13 @@ public class Gui2InfoFactory implements InfoFactory
 			first = false;
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public String getSize(Race race)
+	{
+		Formula formula = race.get(FormulaKey.SIZE);
+		return (formula == null) ? "" : formula.toString();
 	}
 
 }

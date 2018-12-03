@@ -102,7 +102,8 @@ CATEGORY=FEAT|Guided Hand.MOD				TYPE:DeathSlayerBonusFeat
 CATEGORY=FEAT|Improved Channel.MOD			TYPE:DeathSlayerBonusFeat	BONUS:VAR|DeathSlayerChannelPositiveEnergyDC|2
 CATEGORY=FEAT|Life Lure.MOD				TYPE:DeathSlayerBonusFeat
 CATEGORY=FEAT|Quick Channel.MOD			TYPE:DeathSlayerBonusFeat
-CATEGORY=FEAT|Shatter Control.MOD			TYPE:DeathSlayerBonusFeat
+# Doesn't Exist in the Repo
+#CATEGORY=FEAT|Shatter Control.MOD			TYPE:DeathSlayerBonusFeat
 CATEGORY=FEAT|Thanatopic Spell.MOD			TYPE:DeathSlayerBonusFeat
 CATEGORY=FEAT|Threnodic Spell.MOD			TYPE:DeathSlayerBonusFeat
 CATEGORY=FEAT|Turn Undead.MOD				TYPE:DeathSlayerBonusFeat

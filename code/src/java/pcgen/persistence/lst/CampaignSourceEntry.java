@@ -422,7 +422,7 @@ public class CampaignSourceEntry implements SourceEntry
 		return sb.toString();
 	}
 
-	private StringBuilder joinIncExcList(List<String> list)
+	private String joinIncExcList(List<String> list)
 	{
 		MapToList<String, String> map = new HashMapToList<>();
 		for (String s : list)
@@ -430,7 +430,7 @@ public class CampaignSourceEntry implements SourceEntry
 			int commaLoc = s.indexOf(',');
 			if (commaLoc == -1)
 			{
-				return StringUtil.joinToStringBuilder(list, Constants.PIPE);
+				return StringUtil.join(list, Constants.PIPE);
 			}
 			else
 			{
@@ -449,9 +449,9 @@ public class CampaignSourceEntry implements SourceEntry
 			sb.append("CATEGORY=");
 			sb.append(category);
 			sb.append(Constants.COMMA);
-			sb.append(StringUtil.joinToStringBuilder(map.getListFor(category), Constants.COMMA));
+			sb.append(StringUtil.join(map.getListFor(category), Constants.COMMA));
 		}
-		return sb;
+		return sb.toString();
 	}
 
 	public CampaignSourceEntry getRelatedTarget(String fileName)

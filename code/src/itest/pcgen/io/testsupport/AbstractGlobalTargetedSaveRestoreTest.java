@@ -17,7 +17,10 @@
  */
 package pcgen.io.testsupport;
 
-import org.junit.Test;
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -44,6 +47,9 @@ import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.skill.ExclusiveToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject>
 		extends AbstractSaveRestoreTest
@@ -90,23 +96,16 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
-		{
-
-			@Override
-			public void run()
+		Runnable fullcleanup = () -> {
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"MonClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"MonClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,
@@ -143,23 +142,16 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
-		{
-
-			@Override
-			public void run()
+		Runnable fullcleanup = () -> {
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"MonClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"MonClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,
@@ -195,23 +187,16 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
-		{
-
-			@Override
-			public void run()
+		Runnable fullcleanup = () -> {
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"SomeClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"SomeClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CROSS_CLASS,
@@ -224,6 +209,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 			reloadedPC.getSkillCostForClass(granted, myclass));
 	}
 
+	@Test
 	public void testGlobalCCSkillList()
 	{
 		PCClass myclass = create(PCClass.class, "SomeClass");
@@ -245,23 +231,16 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
-		{
-
-			@Override
-			public void run()
+		Runnable fullcleanup = () -> {
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"SomeClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"SomeClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CROSS_CLASS,
@@ -566,13 +545,13 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		abil.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Object o = prepare(target);
 		finishLoad();
-		assertEquals(0.0f, SkillRankControl.getTotalRank(pc, granted));
+		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(0.0f, 0.1));
 		applyObject(target);
 		pc.setDirty(true);
-		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
+		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
 		runRoundRobin(getPreEqualityCleanup());
-		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
-		assertEquals(1.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
+		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
+		Assert.assertThat((double) SkillRankControl.getTotalRank(reloadedPC, granted), closeTo(1.0f, 0.1));
 		remove(o);
 		reloadedPC.setDirty(true);
 		//This fails (see CODE-2387)
@@ -596,14 +575,14 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		abil.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Object o = prepare(target);
 		finishLoad();
-		assertEquals(0.0f, SkillRankControl.getTotalRank(pc, granted));
+		assertEquals(0.0, (double) SkillRankControl.getTotalRank(pc, granted), 1.0);
 		applyObject(target);
 		pc.setDirty(true);
 		pc.calcActiveBonuses();
-		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
+		assertEquals(1.0, (double) SkillRankControl.getTotalRank(pc, granted), 1.0);
 		runRoundRobin(getPreEqualityCleanup());
-		assertEquals(1.0f, SkillRankControl.getTotalRank(pc, granted));
-		assertEquals(1.0f, SkillRankControl.getTotalRank(reloadedPC, granted));
+		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
+		Assert.assertThat((double) SkillRankControl.getTotalRank(reloadedPC, granted), closeTo(1.0f, 0.1));
 		remove(o);
 		reloadedPC.setDirty(true);
 		//This fails (see CODE-2387)

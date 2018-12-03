@@ -865,9 +865,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		return reconstClass;
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

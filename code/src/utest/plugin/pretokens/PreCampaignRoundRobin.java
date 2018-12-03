@@ -42,9 +42,6 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 		return new TestSuite(PreCampaignRoundRobin.class);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -53,18 +50,12 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 		TokenRegistration.register(new PreCampaignWriter());
 	}
 
-	/**
-	 * @see plugin.pretokens.AbstractBasicRoundRobin#getBaseString()
-	 */
 	@Override
 	public String getBaseString()
 	{
 		return "CAMPAIGN";
 	}
 
-	/**
-	 * @see plugin.pretokens.AbstractBasicRoundRobin#isTypeAllowed()
-	 */
 	@Override
 	public boolean isTypeAllowed()
 	{

@@ -366,7 +366,7 @@ final class MainAbout extends JPanel
 			aPanel.add(title);
 		}
 
-		Icon bronzeIcon = Icons.ennie_award_2003.getImageIcon();;
+		Icon bronzeIcon = Icons.ennie_award_2003.getImageIcon();
 		if (bronzeIcon != null)
 		{
 			JLabel e2003 = new JLabel(bronzeIcon);

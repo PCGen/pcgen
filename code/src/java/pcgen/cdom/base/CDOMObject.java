@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.helper.InfoBoolean;
+import pcgen.cdom.helper.VarHolderSupport;
 import pcgen.cdom.util.FactSetKeyMapToList;
 import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
@@ -59,17 +60,24 @@ import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
 public abstract class CDOMObject extends ConcretePrereqObject
-		implements Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder
+		implements Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder,
+		VarContainer
 {
 
 	/**
-	 * An Empty String array to support VarHolder
+	 * The source URI for this CDOMObject.
 	 */
-	private static final String[] EMPTY_STRING_ARRAY = new String[0];
-
 	private URI sourceURI = null;
 
+	/**
+	 * The display name for this CDOMObject.
+	 */
 	private String displayName = Constants.EMPTY_STRING;
+	
+	/**
+	 * Support object to store the variable information on an object.
+	 */
+	private VarHolderSupport varHolder = new VarHolderSupport();
 
 	/*
 	 * CONSIDER This should be a NumberMap - not Integer, but allow Double as
@@ -1252,40 +1260,37 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	@Override
 	public void addModifier(VarModifier<?> vm)
 	{
-		addToListFor(ListKey.MODIFY, vm);
+		varHolder.addModifier(vm);
 	}
 
 	@Override
 	public VarModifier<?>[] getModifierArray()
 	{
-		List<VarModifier<?>> list = getListFor(ListKey.MODIFY);
-		return (list == null) ? VarModifier.EMPTY_VARMODIFIER : list.toArray(new VarModifier[list.size()]);
+		return varHolder.getModifierArray();
 	}
 
 	@Override
 	public void addRemoteModifier(RemoteModifier<?> vm)
 	{
-		addToListFor(ListKey.REMOTE_MODIFIER, vm);
+		varHolder.addRemoteModifier(vm);
 	}
 
 	@Override
 	public RemoteModifier<?>[] getRemoteModifierArray()
 	{
-		List<RemoteModifier<?>> list = getListFor(ListKey.REMOTE_MODIFIER);
-		return (list == null) ? RemoteModifier.EMPTY_REMOTEMODIFIER : list.toArray(new RemoteModifier[list.size()]);
+		return varHolder.getRemoteModifierArray();
 	}
 
 	@Override
 	public void addGrantedVariable(String variableName)
 	{
-		addToListFor(ListKey.GRANTEDVARS, variableName);
+		varHolder.addGrantedVariable(variableName);
 	}
 
 	@Override
 	public String[] getGrantedVariableArray()
 	{
-		List<String> list = getListFor(ListKey.GRANTEDVARS);
-		return (list == null) ? EMPTY_STRING_ARRAY : list.toArray(new String[list.size()]);
+		return varHolder.getGrantedVariableArray();
 	}
 	/*
 	 * End implementation of methods supporting VarHolder.
@@ -1338,5 +1343,16 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	{
 		//none by default
 		return null;
+	}
+
+	/**
+	 * Indicates if this is the "UNSELECTED" item an object type for the loaded GameMode.
+	 * 
+	 * @return true if this is the "Unselected" item; false otherwise
+	 */
+	public final boolean isUnselected()
+	{
+		return getSafeListFor(ListKey.GROUP).stream()
+			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
 	}
 }

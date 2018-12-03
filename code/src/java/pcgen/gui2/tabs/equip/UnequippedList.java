@@ -39,7 +39,6 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		EquipmentListListener, ListListener<EquipmentFacade>, ReferenceListener<EquipmentSetFacade>
 {
 
-	private final CharacterFacade character;
 	private final EquipmentListFacade purchasedList;
 	private final List<EquipmentFacade> equipmentList;
 	private final Map<EquipmentFacade, Integer> quantityMap;
@@ -48,7 +47,6 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 
 	public UnequippedList(CharacterFacade character)
 	{
-		this.character = character;
 		this.purchasedList = character.getPurchasedEquipment();
 		equipmentList = new ArrayList<>();
 		quantityMap = new HashMap<>();

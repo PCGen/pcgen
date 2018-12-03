@@ -17,7 +17,6 @@
  */
 package pcgen.core;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
@@ -27,14 +26,11 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.RaceSubType;
-import pcgen.cdom.enumeration.RaceType;
-import pcgen.facade.core.RaceFacade;
 
 /**
  * {@code Race}.
  */
-public final class Race extends PObject implements RaceFacade, ChooseDriver
+public final class Race extends PObject implements ChooseDriver
 {
 
 	/**
@@ -65,39 +61,6 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 	}
 
 	@Override
-	public String getSize()
-	{
-		Formula formula = get(FormulaKey.SIZE);
-		if (formula != null)
-		{
-			return formula.toString();
-		}
-		return null;
-	}
-
-	@Override
-	public String getRaceType()
-	{
-		RaceType rt = getSafe(ObjectKey.RACETYPE);
-		return rt == null ? "" : rt.toString();
-	}
-
-	@Override
-	public List<String> getRaceSubTypes()
-	{
-		List<String> subTypeNames = new ArrayList<>();
-		List<RaceSubType> rst = getListFor(ListKey.RACESUBTYPE);
-		if (rst != null)
-		{
-			for (RaceSubType subtype : rst)
-			{
-				subTypeNames.add(subtype.toString());
-			}
-		}
-		return subTypeNames;
-	}
-
-	@Override
 	public ChooseInformation<?> getChooseInfo()
 	{
 		return get(ObjectKey.CHOOSE_INFO);
@@ -125,12 +88,5 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 	public Formula getNumChoices()
 	{
 		return getSafe(FormulaKey.NUMCHOICES);
-	}
-
-	@Override
-	public boolean isUnselected()
-	{
-		return getSafeListFor(ListKey.GROUP).stream().filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst()
-			.isPresent();
 	}
 }

@@ -18,13 +18,10 @@
  */
 package pcgen.core;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Locale;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -71,66 +68,12 @@ public class BioSetTest extends AbstractCharacterTestCase
 			new BioSetLoader());
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{
 		SettingsHandler.getGame().getBioSet().clearUserMap();
 
 		super.tearDown();
-	}
-
-	/**
-	 * Verify that the copyRaceTags function in BioSet
-	 * is functioning properly.
-	 */
-	public void testCopyRaceTags()
-	{
-		final String BASE_RACE_NAME = "Human";
-		final String NEW_RACE_NAME = "TestHuman";
-		final String[] TEST_TAGS =
-				{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
-					"BASEAGE", "MAXAGE", "SEX", "CLASS"};
-
-		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
-
-		currBioSet.copyRaceTags(Constants.NONE, BASE_RACE_NAME,
-			Constants.NONE, NEW_RACE_NAME);
-
-		List<String> baseRaceTag;
-		List<String> newRaceTag;
-		for (int i = 0; i < TEST_TAGS.length; i++)
-		{
-			final String testArg = TEST_TAGS[i];
-			baseRaceTag =
-					currBioSet.getTagForRace(Constants.NONE, BASE_RACE_NAME,
-						testArg);
-			newRaceTag =
-					currBioSet.getTagForRace(Constants.NONE, NEW_RACE_NAME,
-						testArg);
-			// System.out.println(
-			// "Got '"
-			// + testArg
-			// + "' base of "
-			// + baseRaceTag
-			// + " and new of "
-			// + newRaceTag
-			// + ".");
-			for (Iterator<String> newIter = newRaceTag.iterator(), baseIter =
-					baseRaceTag.iterator(); newIter.hasNext()
-				&& baseIter.hasNext();)
-			{
-				final Object baseElem = baseIter.next();
-				final Object newElem = newIter.next();
-				assertEquals("Comparison of " + testArg + " values (b,n).",
-					baseElem, newElem);
-			}
-		}
-
-		//		System.out.println(
-		//			currBioSet.getRacePCCText(Constants.NONE, NEW_RACE_NAME));
 	}
 
 	/**

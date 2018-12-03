@@ -17,7 +17,9 @@
  */
 package pcgen.io;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
@@ -32,6 +34,8 @@ import plugin.lsttokens.pcclass.IsmonsterToken;
 import plugin.lsttokens.race.FavclassToken;
 import plugin.lsttokens.race.MoncskillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
+
+import org.junit.Test;
 
 public class RaceTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Race>

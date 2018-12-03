@@ -17,6 +17,9 @@
  */
 package pcgen.io;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
@@ -30,7 +33,7 @@ public class SkillTargetSaveRestoreTest extends
 
 	
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 	}
@@ -71,7 +74,7 @@ public class SkillTargetSaveRestoreTest extends
 					"MyClass");
 		Skill sk = (Skill) o;
 		SkillRankControl.modRanks(-1.0, cl, true, reloadedPC, sk);
-		assertTrue(reloadedPC.getRank(sk).equals(0.0f));
+		assertEquals(0.0f, reloadedPC.getRank(sk), 0.0);
 		SkillRankControl.getSkillRankBonusTo(reloadedPC, sk);
 		assertFalse(reloadedPC.hasSkill(sk));
 	}
@@ -80,23 +83,16 @@ public class SkillTargetSaveRestoreTest extends
 	protected Runnable getPreEqualityCleanup()
 	{
 		final Runnable sup = super.getPreEqualityCleanup();
-		return new Runnable()
-		{
-
-			@Override
-			public void run()
+		return () -> {
+			if (sup != null)
 			{
-				if (sup != null)
-				{
-					sup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"MyClass");
-				reloadedPC.getSpellSupport(cl);
+				sup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"MyClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 	}
 

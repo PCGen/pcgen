@@ -248,18 +248,12 @@ public abstract class AbstractJunit4CharacterTestCase
 
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public AbstractJunit4CharacterTestCase()
 	{
 		super();
 	}
 
-	/**
-	 * @throws Exception 
-	 * @see junit.framework.TestCase#tearDown
-	 */
 	@After
 	public void tearDown() throws Exception
 	{

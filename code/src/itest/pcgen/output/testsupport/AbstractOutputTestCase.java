@@ -23,33 +23,34 @@ import java.io.StringWriter;
 import java.util.Locale;
 import java.util.Map;
 
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.publish.OutputDB;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.junit.Assert;
+import org.junit.Before;
 
-public abstract class AbstractOutputTestCase extends TestCase
+public abstract class AbstractOutputTestCase
 {
 	protected DataSetID dsid;
 	protected CharID id;
 	
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		Locale.setDefault(Locale.US);
 		dsid = DataSetID.getID();
 		FacetLibrary.getFacet(ObjectWrapperFacet.class).initialize(dsid);
 		id = CharID.getID(dsid);
 	}
 
-	public void processThroughFreeMarker(String testString,
-		String expectedResult)
+	protected void processThroughFreeMarker(String testString,
+	                                        String expectedResult)
 	{
 		try
 		{
@@ -60,17 +61,12 @@ public abstract class AbstractOutputTestCase extends TestCase
 			Map<String, Object> input = OutputDB.buildDataModel(id);
 			t.process(input, bw);
 			String s = sw.getBuffer().toString();
-			assertEquals(expectedResult, s);
+			Assert.assertEquals(expectedResult, s);
 		}
-		catch (IOException e)
+		catch (IOException | TemplateException e)
 		{
 			e.printStackTrace();
-			fail(e.getLocalizedMessage());
-		}
-		catch (TemplateException e)
-		{
-			e.printStackTrace();
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 

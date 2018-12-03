@@ -17,9 +17,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -49,9 +46,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 	private Skill knowledge;
 	private PCClass myClass;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{
@@ -69,9 +63,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{

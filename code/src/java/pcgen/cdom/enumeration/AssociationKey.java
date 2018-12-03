@@ -20,7 +20,6 @@ package pcgen.cdom.enumeration;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.UnreachableError;
@@ -186,14 +185,12 @@ public final class AssociationKey<T>
 		 * CONSIDER Should this find a way to do a Two-Way Map or something to
 		 * that effect?
 		 */
-		for (Map.Entry<?, AssociationKey<?>> me : map.entrySet())
-		{
-			if (me.getValue() == this)
-			{
-				return me.getKey().toString();
-			}
-		}
+		return map.entrySet()
+		          .stream()
+		          .filter(me -> me.getValue() == this)
+		          .findFirst()
+		          .map(me -> me.getKey().toString())
+		          .orElse("");
 		// Error
-		return "";
 	}
 }

@@ -67,9 +67,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -123,9 +120,6 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 	}
 
-	/*
-	 * @see TestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens.spell;
 
+import java.util.StringJoiner;
 import java.util.StringTokenizer;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
@@ -92,20 +92,16 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements CD
 		{
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
+		StringJoiner joiner = new StringJoiner(Constants.PIPE);
 		if (changes.includesGlobalClear())
 		{
-			sb.append(Constants.LST_DOT_CLEAR);
+			joiner.add(Constants.LST_DOT_CLEAR);
 		}
 		if (changes.hasAddedItems())
 		{
-			if (sb.length() != 0)
-			{
-				sb.append(Constants.PIPE);
-			}
-			sb.append(StringUtil.joinToStringBuilder(changes.getAdded(), Constants.PIPE));
+			changes.getAdded().forEach(added -> joiner.add(added.toString()));
 		}
-		return new String[]{sb.toString()};
+		return new String[]{joiner.toString()};
 	}
 
 	@Override

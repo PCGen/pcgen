@@ -12,9 +12,10 @@ buildScan {
 
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
+	configProperties = [samedir: "${rootDir}/code/standards"]
 	ignoreFailures = true
 	showViolations = false
-	toolVersion = '8.12'
+	toolVersion = '8.14'
 	sourceSets = []
 }
 
@@ -24,7 +25,7 @@ pmd {
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	consoleOutput = true
 	sourceSets = []
-	toolVersion = "6.7.0"
+	toolVersion = "6.9.0"
 }
 
 spotbugs {
@@ -36,7 +37,7 @@ spotbugs {
 }
 
 //Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
-//tasks.withType(com.github.spotbugs.SpotBugs) {
+//tasks.withType(com.github.spotbugs.SpotBugsTask) {
 //	reports {
 //		xml.enabled = false
 //		html.enabled = true

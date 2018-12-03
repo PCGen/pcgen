@@ -88,6 +88,7 @@ public class TableLoader extends LstLineFileLoader
 	 * either blank lines or comment lines. Both of those should be ignored
 	 * prior to the line being passed to a LineProcessor.
 	 */
+	@FunctionalInterface
 	public interface LineProcessor
 	{
 		/**

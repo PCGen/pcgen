@@ -33,11 +33,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.swing.undo.UndoManager;
 
-import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -133,7 +133,6 @@ import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
 import pcgen.facade.core.DescriptionFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipModFacade;
@@ -143,16 +142,12 @@ import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
-import pcgen.facade.core.RaceFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
-import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.facade.core.UIDelegate;
@@ -205,13 +200,13 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<EquipmentSetFacade> equipmentSets;
 	private DefaultReferenceFacade<Gender> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
-	private DefaultListFacade<HandedFacade> availHands;
 	private DefaultListFacade<Gender> availGenders;
-	private Map<StatFacade, WriteableReferenceFacade<Number>> statScoreMap;
+	private DefaultListFacade<Handed> availHands;
+	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
-	private DefaultReferenceFacade<RaceFacade> race;
-	private DefaultReferenceFacade<DeityFacade> deity;
+	private DefaultReferenceFacade<Race> race;
+	private DefaultReferenceFacade<Deity> deity;
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
 	private DefaultReferenceFacade<String> playersName;
@@ -221,7 +216,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<Language> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
 	private DefaultReferenceFacade<File> file;
-	private DefaultReferenceFacade<HandedFacade> handedness;
+	private DefaultReferenceFacade<Handed> handedness;
 	private final UIDelegate delegate;
 	private Set<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
@@ -251,7 +246,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
-	private ListFacade<RaceFacade> raceList;
+	private ListFacade<Race> raceList;
 	private DefaultListFacade<KitFacade> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
@@ -348,16 +343,9 @@ public class CharacterFacadeImpl
 		refreshKitList();
 
 		statScoreMap = new HashMap<>();
-		for (StatFacade stat : dataSet.getStats())
+		for (PCStat stat : dataSet.getStats())
 		{
-			if (stat instanceof PCStat)
-			{
-				statScoreMap.put(stat, getStatReferenceFacade(stat));
-			}
-			else
-			{
-				statScoreMap.put(stat, new DefaultReferenceFacade<>());
-			}
+			statScoreMap.put(stat, getStatReferenceFacade(stat));
 		}
 
 		File portraitFile = null;
@@ -391,11 +379,11 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (HandedFacade handsFacade : availHands)
+			for (Handed handed : availHands)
 			{
-				if (handsFacade.equals(charDisplay.getHandedObject()))
+				if (handed.equals(charDisplay.getHandedObject()))
 				{
-					handedness.set(handsFacade);
+					handedness.set(handed);
 					break;
 				}
 			}
@@ -486,9 +474,9 @@ public class CharacterFacadeImpl
 		allowDebt = false;
 	}
 
-	private WriteableReferenceFacade<Number> getStatReferenceFacade(StatFacade stat)
+	private WriteableReferenceFacade<Number> getStatReferenceFacade(PCStat stat)
 	{
-		return ChannelCompatibility.getStatScore(theCharacter.getCharID(), (PCStat) stat);
+		return ChannelCompatibility.getStatScore(theCharacter.getCharID(), stat);
 	}
 
 	/**
@@ -638,7 +626,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<HandedFacade> getAvailableHands()
+	public ListFacade<Handed> getAvailableHands()
 	{
 		return availHands;
 	}
@@ -998,7 +986,7 @@ public class CharacterFacadeImpl
 	 */
 	private boolean allAbilitiesAreZero()
 	{
-		for (StatFacade stat : dataSet.getStats())
+		for (PCStat stat : dataSet.getStats())
 		{
 			ReferenceFacade<Number> facade = getScoreBaseRef(stat);
 
@@ -1434,17 +1422,17 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public int getModTotal(StatFacade stat)
+	public int getModTotal(PCStat stat)
 	{
-		if (stat instanceof PCStat && !charDisplay.isNonAbility((PCStat) stat))
+		if (!charDisplay.isNonAbility(stat))
 		{
-			return theCharacter.getStatModFor((PCStat) stat);
+			return theCharacter.getStatModFor(stat);
 		}
 		return 0;
 	}
 
 	@Override
-	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat)
+	public ReferenceFacade<Number> getScoreBaseRef(PCStat stat)
 	{
 		WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
 		if (score == null)
@@ -1456,70 +1444,52 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public int getScoreBase(StatFacade stat)
+	public int getScoreBase(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return 0;
-		}
-		return theCharacter.getBaseStatFor((PCStat) stat);
+		return theCharacter.getBaseStatFor(stat);
 	}
 
 	@Override
-	public String getScoreTotalString(StatFacade stat)
+	public String getScoreTotalString(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return "";
-		}
-		if (charDisplay.isNonAbility((PCStat) stat))
+		if (charDisplay.isNonAbility(stat))
 		{
 			return "*"; //$NON-NLS-1$
 		}
 
-		return SettingsHandler.getGame().getStatDisplayText(theCharacter.getTotalStatFor((PCStat) stat));
+		return SettingsHandler.getGame().getStatDisplayText(theCharacter.getTotalStatFor(stat));
 	}
 
 	@Override
-	public int getScoreRaceBonus(StatFacade stat)
+	public int getScoreRaceBonus(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return 0;
-		}
-		PCStat activeStat = (PCStat) stat;
-		if (charDisplay.isNonAbility(activeStat))
+		if (charDisplay.isNonAbility(stat))
 		{
 			return 0;
 		}
 
-		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
-		rBonus += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
+		int rBonus = (int) theCharacter.getRaceBonusTo("STAT", stat.getKeyName()); //$NON-NLS-1$
+		rBonus += (int) theCharacter.getBonusDueToType("STAT", stat.getKeyName(), "RACIAL");
 
 		return rBonus;
 	}
 
 	@Override
-	public int getScoreOtherBonus(StatFacade stat)
+	public int getScoreOtherBonus(PCStat stat)
 	{
-		if (!(stat instanceof PCStat))
-		{
-			return 0;
-		}
-		PCStat activeStat = (PCStat) stat;
-		if (charDisplay.isNonAbility(activeStat))
+		if (charDisplay.isNonAbility(stat))
 		{
 			return 0;
 		}
 
-		int iRace = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getKeyName()); //$NON-NLS-1$
-		iRace += (int) theCharacter.getBonusDueToType("STAT", activeStat.getKeyName(), "RACIAL");
+		int iRace = (int) theCharacter.getRaceBonusTo("STAT", stat.getKeyName()); //$NON-NLS-1$
+		iRace += (int) theCharacter.getBonusDueToType("STAT", stat.getKeyName(), "RACIAL");
 
-		return theCharacter.getTotalStatFor(activeStat) - theCharacter.getBaseStatFor(activeStat) - iRace;
+		return theCharacter.getTotalStatFor(stat) - theCharacter.getBaseStatFor(stat) - iRace;
 	}
 
 	@Override
-	public void setScoreBase(StatFacade stat, int score)
+	public void setScoreBase(PCStat stat, int score)
 	{
 		WriteableReferenceFacade<Number> facade = statScoreMap.get(stat);
 		if (facade == null)
@@ -1719,7 +1689,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<RaceFacade> getRaceRef()
+	public ReferenceFacade<Race> getRaceRef()
 	{
 		return race;
 	}
@@ -1728,13 +1698,13 @@ public class CharacterFacadeImpl
 	 * @return A reference to a list containing the character's race.
 	 */
 	@Override
-	public ListFacade<RaceFacade> getRaceAsList()
+	public ListFacade<Race> getRaceAsList()
 	{
 		return raceList;
 	}
 
 	@Override
-	public void setRace(RaceFacade race)
+	public void setRace(Race race)
 	{
 		// TODO: We don't have a HP dialog implemented yet, so don't try to show it
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
@@ -1770,11 +1740,11 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (HandedFacade handsFacade : availHands)
+			for (Handed handed : availHands)
 			{
-				if (handsFacade.toString().equals(charDisplay.getHanded()))
+				if (handed.toString().equals(charDisplay.getHanded()))
 				{
-					handedness.set(handsFacade);
+					handedness.set(handed);
 					break;
 				}
 			}
@@ -1940,19 +1910,16 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<DeityFacade> getDeityRef()
+	public ReferenceFacade<Deity> getDeityRef()
 	{
 		return deity;
 	}
 
 	@Override
-	public void setDeity(DeityFacade deity)
+	public void setDeity(Deity deity)
 	{
 		this.deity.set(deity);
-		if (deity instanceof Deity)
-		{
-			theCharacter.setDeity((Deity) deity);
-		}
+		theCharacter.setDeity(deity);
 		refreshLanguageList();
 		buildAvailableDomainsList();
 	}
@@ -2287,13 +2254,12 @@ public class CharacterFacadeImpl
 		int numSkillLangSelected = 0;
 		int skillLangMax = 0;
 		//TODO: Need to cope with multiple skill languages
-		SkillFacade speakLangSkill = dataSet.getSpeakLanguageSkill();
+		Skill speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
-			Skill skill = (Skill) speakLangSkill;
-			List<String> langList = theCharacter.getAssociationList(skill);
+			List<String> langList = theCharacter.getAssociationList(speakLangSkill);
 			numSkillLangSelected = langList.size();
-			skillLangMax = SkillRankControl.getTotalRank(theCharacter, skill).intValue();
+			skillLangMax = SkillRankControl.getTotalRank(theCharacter, speakLangSkill).intValue();
 		}
 
 		int skillLangRemain = skillLangMax - numSkillLangSelected;
@@ -2333,12 +2299,12 @@ public class CharacterFacadeImpl
 		chooserList.addElement(
 			new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
 
-		SkillFacade speakLangSkill = dataSet.getSpeakLanguageSkill();
+		Skill speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
 			chooserList.addElement(
 				new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangSkill"), //$NON-NLS-1$
-				(Skill) speakLangSkill));
+				speakLangSkill));
 		}
 		return chooserList;
 	}
@@ -2374,7 +2340,7 @@ public class CharacterFacadeImpl
 		}
 		else if (languages.containsElement(lang) && !isAutomatic(lang))
 		{
-			return (Skill) dataSet.getSpeakLanguageSkill();
+			return dataSet.getSpeakLanguageSkill();
 		}
 		return null;
 	}
@@ -2539,16 +2505,16 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<HandedFacade> getHandedRef()
+	public ReferenceFacade<Handed> getHandedRef()
 	{
 		return handedness;
 	}
 
 	@Override
-	public void setHanded(HandedFacade handedness)
+	public void setHanded(Handed handedness)
 	{
 		this.handedness.set(handedness);
-		theCharacter.setHanded((Handed) handedness);
+		theCharacter.setHanded(handedness);
 	}
 
 	@Override
@@ -3010,13 +2976,12 @@ public class CharacterFacadeImpl
 			theCharacter.setPointBuyPoints(availablePool);
 
 			// Make sure all scores are within the valid range
-			for (StatFacade stat : statScoreMap.keySet())
+			for (PCStat stat : statScoreMap.keySet())
 			{
 				WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
-				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter)
-					&& stat instanceof PCStat)
+				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter))
 				{
-					setStatToPurchaseNeutral((PCStat) stat, score);
+					setStatToPurchaseNeutral(stat, score);
 				}
 			}
 
@@ -3262,7 +3227,7 @@ public class CharacterFacadeImpl
 
 		EquipmentBuilderFacadeImpl builder = new EquipmentBuilderFacadeImpl(newEquip, theCharacter, delegate);
 		CustomEquipResult result = delegate.showCustomEquipDialog(this, builder);
-		if (newEquip != null && result != CustomEquipResult.CANCELLED)
+		if (result != CustomEquipResult.CANCELLED)
 		{
 			dataSet.addEquipment(newEquip);
 		}
@@ -3622,13 +3587,12 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(DeityFacade deityFacade)
+	public boolean isQualifiedFor(Deity aDeity)
 	{
-		if (!(deityFacade instanceof Deity))
+		if (aDeity == null)
 		{
 			return false;
 		}
-		Deity aDeity = (Deity) deityFacade;
 		return PrereqHandler.passesAll(aDeity, theCharacter, aDeity) && theCharacter.isQualified(aDeity);
 	}
 
@@ -3896,7 +3860,7 @@ public class CharacterFacadeImpl
 		public void set(Rectangle rect)
 		{
 			Rectangle old = get();
-			if (ObjectUtils.equals(old, rect))
+			if (Objects.equals(old, rect))
 			{
 				return;
 			}
@@ -4278,4 +4242,11 @@ public class CharacterFacadeImpl
 		return PrereqHandler.passesAll(template, theCharacter, template)
 			&& theCharacter.isQualified(template);
 	}
+
+	@Override
+	public boolean isQualifiedFor(Race qRace)
+	{
+		return theCharacter.isQualified(qRace);
+	}
+
 }

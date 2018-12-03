@@ -9,8 +9,8 @@ SOURCELONG:Pathfinder Player Companion: Faiths & Philosophies	SOURCESHORT:FAP	SO
 # ==============================
 
 # Ability Name			Unique Key					Category of Ability		Type									Description																				Ability													Bonus to skill		Source Page
-Race Traits ~ Dwarf Caiman							CATEGORY:Internal																																	ABILITY:Special Ability|AUTOMATIC|Dwarf Caiman ~ Hold Breath|Dwarf Caiman ~ Sprint
-Hold Breath				KEY:Dwarf Caiman ~ Hold Breath	CATEGORY:Special Ability	TYPE:RaceTrait.Dwarf CaimanRaceTrait.SpecialQuality	DESC:A dwarf caiman can hold its breath for a number of rounds equal to 4 x its Constitution score before it risks drowning.																			SOURCEPAGE:p.
-Sprint				KEY:Dwarf Caiman ~ Sprint		CATEGORY:Special Ability	TYPE:RaceTrait.Dwarf CaimanRaceTrait.SpecialQuality	DESC:Once per minute, a dwarf caiman may sprint, increasing its land speed to 20 feet for 1 round.																							SOURCEPAGE:p.
+Racial Traits ~ Dwarf Caiman							CATEGORY:Internal																																	ABILITY:Special Ability|AUTOMATIC|Dwarf Caiman ~ Hold Breath|Dwarf Caiman ~ Sprint
+Hold Breath				KEY:Dwarf Caiman ~ Hold Breath	CATEGORY:Special Ability	TYPE:Racial Trait.Dwarf Caiman Racial Trait.SpecialQuality	DESC:A dwarf caiman can hold its breath for a number of rounds equal to 4 x its Constitution score before it risks drowning.																			SOURCEPAGE:p.
+Sprint				KEY:Dwarf Caiman ~ Sprint		CATEGORY:Special Ability	TYPE:Racial Trait.Dwarf Caiman Racial Trait.SpecialQuality	DESC:Once per minute, a dwarf caiman may sprint, increasing its land speed to 20 feet for 1 round.																							SOURCEPAGE:p.
 
 Familiar (Dwarf Caiman)								CATEGORY:Internal																																															BONUS:SKILL|Stealth|3

@@ -15,7 +15,15 @@
  */
 package pcgen.cdom.util;
 
+import java.lang.reflect.Field;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
+
+import pcgen.base.lang.UnreachableError;
+import pcgen.base.util.CaseInsensitiveMap;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Code Controls
@@ -46,7 +54,7 @@ public final class CControl
 
 	public static final String EDR = "EDR";
 
-	public static final CControl FACE = new CControl("FACE", "Face");
+	public static final CControl FACE = new CControl("FACE", "Face", Optional.empty(), "ORDEREDPAIR");
 
 	public static final String EQRANGE = "EQRANGE";
 
@@ -85,8 +93,10 @@ public final class CControl
 	 */
 	public static final String PCSIZE = "PCSIZE";
 
-	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment");
-
+	/**
+	 * Code Control for the Alignment Input Channel.
+	 */
+	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", ChannelUtilities.createVarName("Alignment"), Optional.empty(), "ALIGNMENT", true, true);
 
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code
@@ -101,12 +111,56 @@ public final class CControl
 	private final String defaultValue;
 
 	/**
-	 * Constructs a new CControl with the given name and default variable name
+	 * The controlling Feature for the CodeControl
 	 */
-	private CControl(String name, String defaultValue)
+	private final Optional<String> controllingFeature;
+
+	/**
+	 * The Format identifier for the internal variable.
+	 */
+	private final String format;
+
+	/**
+	 * Indicates if the item is a channel.
+	 */
+	private final boolean isChannel;
+
+	/**
+	 * Indicates if a Channel should be auto granted.
+	 */
+	private final boolean isAutoGranted;
+
+	/**
+	 * Constructs a new CControl with the given characteristics.
+	 */
+	private CControl(String name, String defaultValue,
+		Optional<String> controllingFeature, String format, boolean isChannel,
+		boolean isAutoGranted)
 	{
 		this.name = Objects.requireNonNull(name);
 		this.defaultValue = Objects.requireNonNull(defaultValue);
+		this.controllingFeature = Objects.requireNonNull(controllingFeature);
+		this.format = Objects.requireNonNull(format);
+		this.isChannel = isChannel;
+		this.isAutoGranted = isAutoGranted;
+	}
+
+	/**
+	 * Constructs a new CControl with the given name, default variable name, controlling
+	 * feature, and format.
+	 */
+	private CControl(String name, String defaultValue, String controllingFeature, String format)
+	{
+		this(name, defaultValue, Optional.of(controllingFeature), format);
+	}
+
+	/**
+	 * Constructs a new CControl with the given name, default variable name, controlling
+	 * feature, and format.
+	 */
+	private CControl(String name, String defaultValue, Optional<String> controllingFeature, String format)
+	{
+		this(name, defaultValue, controllingFeature, format, false, false);
 	}
 
 	public String getName()
@@ -117,5 +171,67 @@ public final class CControl
 	public String getDefaultValue()
 	{
 		return defaultValue;
+	}
+
+	/**
+	 * Returns the Controlling Feature (if any) for this Code Control
+	 */
+	public Optional<String> getControllingFeature()
+	{
+		return controllingFeature;
+	}
+
+	public String getFormat()
+	{
+		return format;
+	}
+
+	public boolean isChannel()
+	{
+		return isChannel;
+	}
+
+	public boolean isAutoGranted()
+	{
+		return isAutoGranted;
+	}
+
+	private static CaseInsensitiveMap<CControl> map = null;
+
+	static
+	{
+		buildMap();
+	}
+
+	private static void buildMap()
+	{
+		map = new CaseInsensitiveMap<>();
+		Field[] fields = CControl.class.getDeclaredFields();
+		for (int i = 0; i < fields.length; i++)
+		{
+			int mod = fields[i].getModifiers();
+
+			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
+				&& java.lang.reflect.Modifier.isPublic(mod))
+			{
+				try
+				{
+					Object obj = fields[i].get(null);
+					if (obj instanceof CControl)
+					{
+						map.put(fields[i].getName(), (CControl) obj);
+					}
+				}
+				catch (IllegalArgumentException | IllegalAccessException e)
+				{
+					throw new UnreachableError(e);
+				}
+			}
+		}
+	}
+
+	public static Collection<CControl> getChannelConstants()
+	{
+		return new HashSet<>(map.values());
 	}
 }

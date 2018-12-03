@@ -42,9 +42,6 @@ public class VarTokenTest extends AbstractCharacterTestCase
 		return new TestSuite(VarTokenTest.class);
 	}
 
-	/*
-	 * @see TestCase#setUp()
-	 */
     @Override
 	protected void setUp() throws Exception
 	{

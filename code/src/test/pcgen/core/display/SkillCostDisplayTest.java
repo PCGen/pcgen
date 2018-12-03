@@ -17,8 +17,6 @@
  */
 package pcgen.core.display;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -34,6 +32,8 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.Test;
 
 /**
  * The Class {@code SkillModifierTest} is responsible for checking that the
@@ -51,9 +51,6 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	Ability persuasive = new Ability();
 	Skill bluff;
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -103,9 +100,6 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

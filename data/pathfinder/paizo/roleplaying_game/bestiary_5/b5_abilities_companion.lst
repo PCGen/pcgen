@@ -23,12 +23,12 @@ Companion Advancement (Uintatherium)	KEY:Companion Advancement ~ Uintatherium		C
 Companion Advancement (Wolliped)		KEY:Companion Advancement ~ Wolliped		CATEGORY:Special Ability	TYPE:CompanionAdvancement						VISIBLE:DISPLAY	PRERACE:1,Companion (Wolliped)																																	ABILITY:Special Ability|AUTOMATIC|Wolliped ~ Spit|Trample																														BONUS:SIZEMOD|NUMBER|1														BONUS:STAT|STR|-4							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.REPLACE	BONUS:VAR|TrampleDamageDieSize|6
 
 #Familiars
-Race Traits ~ Chicken												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=ChickenRacialTrait
-Race Traits ~ Flying Fox											CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=FlyingFoxRacialTrait|Scent
-Race Traits ~ Penguin												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=PenguinRacialTrait|Hold Breath
-Race Traits ~ Red Panda												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|Scent
-Race Traits ~ Seal												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|Can't Be Tripped|Hold Breath
-Race Traits ~ Trilobite												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=TrilobiteRacialTrait|Water Dependency	ABILITY:FEAT|VIRTUAL|Weapon Finesse
+Racial Traits ~ Chicken												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=ChickenRacialTrait
+Racial Traits ~ Flying Fox											CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=FlyingFoxRacialTrait|Scent
+Racial Traits ~ Penguin												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=PenguinRacialTrait|Hold Breath
+Racial Traits ~ Red Panda												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|Scent
+Racial Traits ~ Seal												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|Can't Be Tripped|Hold Breath
+Racial Traits ~ Trilobite												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=TrilobiteRacialTrait|Water Dependency	ABILITY:FEAT|VIRTUAL|Weapon Finesse
 
 Familiar (Chicken)												CATEGORY:Internal																																																																									BONUS:HP|CURRENTMAX|FamiliarGrantedBonus_3|TYPE=Familiar
 Familiar (Flying Fox)												CATEGORY:Internal																																																																																			BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar

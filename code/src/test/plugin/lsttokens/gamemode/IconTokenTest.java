@@ -34,9 +34,6 @@ public class IconTokenTest extends TestCase
 {
 	private URI uri;
 	
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

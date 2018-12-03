@@ -566,10 +566,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		processFactDefinitions(context);
 		tableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DATATABLE));
 
-		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		//Load Variables (foundation for other items)
 		variableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_VARIABLE));
 		defineBuiltinVariables(gamemode, context);
+		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		List<CampaignSourceEntry> globalModFileList = fileLists.getListFor(ListKey.FILE_GLOBALMOD);
 		if (globalModFileList.isEmpty())
 		{
@@ -675,23 +675,27 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	public static void defineBuiltinVariables(GameMode gameMode, LoadContext context)
 	{
-		VariableContext varContext = context.getVariableContext();
-		if (!ControlUtilities.hasControlToken(context, CControl.FACE))
+		CControl.getChannelConstants().stream()
+			.filter(control -> !ControlUtilities.hasControlToken(context, control))
+			.forEach(control -> enableBuiltInControl(context, control));
+	}
+
+	private static void enableBuiltInControl(LoadContext context,
+		CControl control)
+	{
+		AbstractReferenceContext referenceContext = context.getReferenceContext();
+		FormatManager<?> formatManager = referenceContext.getFormatManager(control.getFormat());
+		String varName = control.getDefaultValue();
+		if (control.isChannel())
 		{
-			FormatManager<?> opManager = context.getReferenceContext().getFormatManager("ORDEREDPAIR");
-			defineVariable(varContext, opManager, CControl.FACE.getDefaultValue());
+			varName = ChannelUtilities.createVarName(varName);
 		}
-		if (!gameMode.getAlignmentText().isEmpty())
+		defineVariable(context.getVariableContext(), formatManager, varName);
+		if (control.isAutoGranted())
 		{
-			if (!ControlUtilities.hasControlToken(context, CControl.ALIGNMENTINPUT))
-			{
-				FormatManager<?> alignManager = context.getReferenceContext().getFormatManager("ALIGNMENT");
-				String varName = ChannelUtilities.createVarName(CControl.ALIGNMENTINPUT.getDefaultValue());
-				defineVariable(varContext, alignManager, varName);
-				GlobalModifiers modifiers = context.getReferenceContext().constructNowIfNecessary(GlobalModifiers.class,
-					GlobalModifierLoader.GLOBAL_MODIFIERS);
-				modifiers.addGrantedVariable(varName);
-			}
+			GlobalModifiers modifiers = referenceContext
+				.constructNowIfNecessary(GlobalModifiers.class, GlobalModifierLoader.GLOBAL_MODIFIERS);
+			modifiers.addGrantedVariable(varName);
 		}
 	}
 

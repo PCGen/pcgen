@@ -17,9 +17,10 @@
  */
 package pcgen.core.analysis;
 
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
+
+import junit.framework.TestCase;
 
 /**
  * Verify the function of the OutputNameFormatting class.
@@ -30,9 +31,6 @@ public class OutputNameFormattingTest extends TestCase
 
 	private PObject testObj;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

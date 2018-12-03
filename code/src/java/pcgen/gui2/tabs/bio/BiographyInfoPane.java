@@ -53,10 +53,10 @@ import org.apache.commons.lang3.StringUtils;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
+import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.DeityFacade;
-import pcgen.facade.core.HandedFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -377,18 +377,18 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HandedItem extends BioItem
 	{
 
-		private final CharacterComboBoxModel<HandedFacade> handsModel;
+		private final CharacterComboBoxModel<Handed> handsModel;
 
 		public HandedItem(final CharacterFacade character)
 		{
 			super("in_handString", BiographyField.HANDED, character); //$NON-NLS-1$
-			handsModel = new CharacterComboBoxModel<HandedFacade>()
+			handsModel = new CharacterComboBoxModel<Handed>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setHanded((HandedFacade) anItem);
+					character.setHanded((Handed) anItem);
 				}
 
 			};
@@ -435,13 +435,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public DeityItem(final CharacterFacade character)
 		{
 			super("in_deity", BiographyField.DEITY, character); //$NON-NLS-1$
-			CharacterComboBoxModel<DeityFacade> deityModel = new CharacterComboBoxModel<DeityFacade>()
+			CharacterComboBoxModel<Deity> deityModel = new CharacterComboBoxModel<Deity>()
 			{
 
 				@Override
 				public void setSelectedItem(Object anItem)
 				{
-					character.setDeity((DeityFacade) anItem);
+					character.setDeity((Deity) anItem);
 				}
 
 			};

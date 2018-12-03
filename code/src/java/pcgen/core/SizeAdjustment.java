@@ -23,13 +23,12 @@ import java.util.List;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.SizeAdjustmentFacade;
 
 /**
  * {@code SizeAdjustment}.
  *
  */
-public final class SizeAdjustment extends PObject implements SizeAdjustmentFacade, VarScoped
+public final class SizeAdjustment extends PObject implements VarScoped
 {
 	/**
 	 * Activates (checks PrereqToUse) and returns list of BonusObj's

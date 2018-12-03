@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.facade.core.HandedFacade;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -27,7 +26,7 @@ import pcgen.system.LanguageBundle;
  * quickly compared and use less memory when identical Handedness exist in two
  * CDOMObjects.
  */
-public enum Handed implements HandedFacade
+public enum Handed
 {
 	Right
 	{

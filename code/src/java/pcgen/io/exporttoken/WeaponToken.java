@@ -670,7 +670,7 @@ public class WeaponToken extends Token
 		{
 			for (String type : equip.typeList())
 			{
-				if (containerCapacity.indexOf(type) >= 0)
+				if (containerCapacity.contains(type))
 				{
 					++ammoCount;
 					break;
@@ -878,7 +878,7 @@ public class WeaponToken extends Token
 	public static String getRangeToken(Equipment eq, PlayerCharacter pc, boolean units)
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(EqToken.getRange(pc, eq).intValue()));
+		sb.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(EqToken.getRange(pc, eq)));
 
 		if (units)
 		{
@@ -1140,7 +1140,7 @@ public class WeaponToken extends Token
 
 				for (String type : equip.typeList())
 				{
-					if (containerCapacity.indexOf(type) >= 0)
+					if (containerCapacity.contains(type))
 					{
 						++ammoCount;
 						anEquip = equip;
@@ -1245,7 +1245,7 @@ public class WeaponToken extends Token
 			}
 		}
 
-		if (weaponString.indexOf("/") > -1)
+		if (weaponString.contains("/"))
 		{
 			int i = weaponString.indexOf("/");
 			boolean progress = eq.getSafe(ObjectKey.ATTACKS_PROGRESS);
@@ -2414,7 +2414,7 @@ public class WeaponToken extends Token
 			{
 				if ((damString.charAt(index) == '+') || (damString.charAt(index) == '-'))
 				{
-					totalBonus = Delta.decode(damString.substring(index)).intValue();
+					totalBonus = Delta.decode(damString.substring(index));
 					break;
 				}
 			}
@@ -2725,7 +2725,7 @@ public class WeaponToken extends Token
 		{
 			for (String type : equip.typeList())
 			{
-				if (containerCapacity.indexOf(type) >= 0)
+				if (containerCapacity.contains(type))
 				{
 					++ammoCount;
 
@@ -2960,7 +2960,7 @@ public class WeaponToken extends Token
 	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
 	{
 		final List<String> aList = new ArrayList<>();
-		final int baseRange = EqToken.getRange(aPC, eq).intValue();
+		final int baseRange = EqToken.getRange(aPC, eq);
 		int aRange = baseRange;
 		int maxIncrements = 0;
 

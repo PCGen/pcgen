@@ -16,116 +16,94 @@
  */
 package pcgen.base.format.dice;
 
-import junit.framework.TestCase;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertThat;
+
 import pcgen.base.format.StringManager;
+import pcgen.base.util.FormatManager;
 
-public class DiceFormatTest extends TestCase
+import org.junit.Test;
+
+public class DiceFormatTest
 {
-	private DiceFormat manager = new DiceFormat();
+	private static final FormatManager<Dice> MANAGER = new DiceFormat();
 
+	@Test(expected = NullPointerException.class)
 	public void testConvertFailNull()
 	{
-		try
-		{
-			manager.convert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		MANAGER.convert(null);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
 	public void testConvertFailNotNumeric()
 	{
-		try
-		{
-			manager.convert("SomeString");
-			fail("invalid value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
+		MANAGER.convert("SomeString");
 	}
 
+	@Test(expected = NullPointerException.class)
 	public void testUnconvertFailNull()
 	{
-		try
-		{
-			manager.unconvert(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		MANAGER.unconvert(null);
 	}
 
+	@Test(expected = NullPointerException.class)
 	public void testConvertIndirectFailNull()
 	{
-		try
-		{
-			manager.convertIndirect(null);
-			fail("null value should fail");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
+		MANAGER.convertIndirect(null);
 	}
 
+	@Test(expected = IllegalArgumentException.class)
 	public void testConvertIndirectFailNotNumeric()
 	{
-		try
-		{
-			manager.convertIndirect("SomeString");
-			fail("invalid value should fail");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
-		}
+		MANAGER.convertIndirect("SomeString");
 	}
 
+	@Test
 	public void testConvert()
 	{
-		assertEquals(new Dice(1, new Die(1)), manager.convert("1"));
-		assertEquals(new Dice(1, new Die(1)), manager.convert("1d1"));
-		assertEquals(new Dice(3, new Die(8)), manager.convert("3d8"));
-		assertEquals(new Dice(1, new Die(4)), manager.convert("d4"));
+		assertEquals(new Dice(1, new Die(1)), MANAGER.convert("1"));
+		assertEquals(new Dice(1, new Die(1)), MANAGER.convert("1d1"));
+		assertEquals(new Dice(3, new Die(8)), MANAGER.convert("3d8"));
+		assertEquals(new Dice(1, new Die(4)), MANAGER.convert("d4"));
 	}
 
+	@Test
 	public void testUnconvert()
 	{
-		assertEquals("1", manager.unconvert(new Dice(1, new Die(1))));
-		assertEquals("3d6", manager.unconvert(new Dice(3, new Die(6))));
-		assertEquals("1d4", manager.unconvert(new Dice(1, new Die(4))));
+		assertEquals("1", MANAGER.unconvert(new Dice(1, new Die(1))));
+		assertEquals("3d6", MANAGER.unconvert(new Dice(3, new Die(6))));
+		assertEquals("1d4", MANAGER.unconvert(new Dice(1, new Die(4))));
 	}
 
+	@Test
 	public void testConvertIndirect()
 	{
-		assertEquals(new Dice(1, new Die(1)), manager.convertIndirect("1").get());
-		assertEquals(new Dice(1, new Die(1)), manager.convertIndirect("1d1").get());
-		assertEquals(new Dice(3, new Die(8)), manager.convertIndirect("3d8").get());
-		assertEquals(new Dice(1, new Die(4)), manager.convertIndirect("d4").get());
+		assertEquals(new Dice(1, new Die(1)), MANAGER.convertIndirect("1").get());
+		assertEquals(new Dice(1, new Die(1)), MANAGER.convertIndirect("1d1").get());
+		assertEquals(new Dice(3, new Die(8)), MANAGER.convertIndirect("3d8").get());
+		assertEquals(new Dice(1, new Die(4)), MANAGER.convertIndirect("d4").get());
 	}
 
+	@Test
 	public void testGetIdentifier()
 	{
-		assertEquals("DICE", manager.getIdentifierType());
+		assertEquals("DICE", MANAGER.getIdentifierType());
 	}
 
+	@Test
 	public void testHashCodeEquals()
 	{
-		assertEquals(new DiceFormat().hashCode(), manager.hashCode());
-		assertFalse(manager.equals(new Object()));
-		assertFalse(manager.equals(new StringManager()));
-		assertTrue(manager.equals(new DiceFormat()));
+		assertEquals(new DiceFormat().hashCode(), MANAGER.hashCode());
+		assertNotEquals(new Object(), MANAGER);
+		assertNotEquals(MANAGER, new StringManager());
+		assertEquals(MANAGER, new DiceFormat());
 	}
 
+	@Test
 	public void testGetComponent()
 	{
-		assertNull(manager.getComponentManager());
+		assertThat(MANAGER.getComponentManager(), nullValue());
 	}
 }

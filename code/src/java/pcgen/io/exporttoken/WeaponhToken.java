@@ -47,7 +47,7 @@ import pcgen.system.LanguageBundle;
 public class WeaponhToken extends WeaponToken
 {
 	/** Weaponh token */
-	public static final String TOKEN_NAME = "WEAPONH";
+	private static final String TOKEN_NAME = "WEAPONH";
 
 	@Override
 	public String getTokenName()
@@ -91,10 +91,10 @@ public class WeaponhToken extends WeaponToken
 	/**
 	 * Create a fake Unarmed Strike equipment so we don't need it in the .lst files anymore
 	 *
-	 * @param display The character used to generate the size.
+	 * @param pc The character used to generate the size.
 	 * @return The Unarmed Strike equipment.
 	 */
-	public static Equipment getWeaponEquipment(PlayerCharacter pc)
+	private static Equipment getWeaponEquipment(PlayerCharacter pc)
 	{
 		// Creating a fake Unarmed Strike equipment so we
 		// don't need it in the .lst files anymore

@@ -172,10 +172,14 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 			@Override
 			public void variableChanged(VariableChangeEvent<T> vcEvent)
 			{
-				DataFacetChangeEvent<CharID, T> removeEvent =
-						new DataFacetChangeEvent<>(id, vcEvent.getOldValue(),
-							RESULT_FACET, DataFacetChangeEvent.DATA_REMOVED);
-				listener.dataRemoved(removeEvent);
+				T oldValue = vcEvent.getOldValue();
+				if (oldValue != null)
+				{
+					DataFacetChangeEvent<CharID, T> removeEvent =
+							new DataFacetChangeEvent<>(id, oldValue,
+								RESULT_FACET, DataFacetChangeEvent.DATA_REMOVED);
+					listener.dataRemoved(removeEvent);
+				}
 				DataFacetChangeEvent<CharID, T> addEvent = new DataFacetChangeEvent<>(id,
 					vcEvent.getNewValue(), RESULT_FACET, DataFacetChangeEvent.DATA_ADDED);
 				listener.dataAdded(addEvent);

@@ -29,7 +29,7 @@ public class BaseSizeToken extends AbstractStringStoringToken<CodeControl>
 	@Override
 	public String getTokenName()
 	{
-		return CControl.PCSIZE;
+		return CControl.BASESIZE;
 	}
 
 	@Override

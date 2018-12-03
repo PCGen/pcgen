@@ -88,9 +88,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -191,9 +188,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

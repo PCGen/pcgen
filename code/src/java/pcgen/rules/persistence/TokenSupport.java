@@ -79,18 +79,17 @@ public class TokenSupport
 		CDOMInterfaceToken<?, ?> interfaceToken = TokenLibrary.getInterfaceToken(tokenName);
 		if (interfaceToken != null)
 		{
-			if (interfaceToken.getTokenClass().isAssignableFrom(target.getClass()))
+			Class<? extends Loadable> targetClass = target.getClass();
+			if (interfaceToken.getTokenClass().isAssignableFrom(targetClass)
+				&& interfaceToken.getReadInterface().isAssignableFrom(targetClass))
 			{
-				//Must be true to be consistent with if above
-				@SuppressWarnings("unchecked")
-				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) interfaceToken;
-				return processInterfaceToken(context, target, tokenName, tokenValue, token);
+				return processInterfaceToken(context, target, tokenName, tokenValue, interfaceToken);
 			}
 			else
 			{
 				Logging.addParseMessage(Logging.LST_ERROR,
 					"Interface Token '" + tokenName + "' '" + tokenValue + "' not compatible with Object "
-						+ target.getClass().getName() + ' ' + target + " in " + context.getSourceURI());
+						+ targetClass.getName() + ' ' + target + " in " + context.getSourceURI());
 				return false;
 			}
 		}
@@ -147,12 +146,14 @@ public class TokenSupport
 		return false;
 	}
 
-	private <R, W> boolean processInterfaceToken(LoadContext context, W target, String tokenName, String tokenValue,
-		CDOMInterfaceToken<R, W> interfaceToken)
+	private <R, W> boolean processInterfaceToken(LoadContext context, Object target,
+		String tokenName, String tokenValue, CDOMInterfaceToken<R, W> interfaceToken)
 	{
+		//Suppressed as we checked this before this method is called
+		@SuppressWarnings("unchecked")
 		StagingInfo<R, W> info =
 				ProxyUtilities.getStagingFactory().produceStaging(
-					interfaceToken.getReadInterface(), interfaceToken.getTokenClass());
+					interfaceToken.getReadInterface(), interfaceToken.getTokenClass(), (R) target);
 		ParseResult parse;
 		try
 		{
@@ -169,7 +170,11 @@ public class TokenSupport
 		parse.addMessagesToLog(context.getSourceURI());
 		if (parse.passed())
 		{
-			context.addDeferredMethodController(new DeferredMethodController<>(info.getStagingObject(), target));
+			//Suppressed as we checked this before this method is called
+			@SuppressWarnings("unchecked")
+			DeferredMethodController<W> controller =
+					new DeferredMethodController<>(info.getStagingObject(), (W) target);
+			context.addDeferredMethodController(controller);
 			return true;
 		}
 		if (Logging.isLoggable(Logging.LST_INFO))
@@ -300,11 +305,12 @@ public class TokenSupport
 		Class<T> cl = (Class<T>) loadable.getClass();
 		for (CDOMInterfaceToken<?, ?> interfaceToken : TokenLibrary.getInterfaceTokens())
 		{
-			if (interfaceToken.getClass().isAssignableFrom(cl))
+			if (interfaceToken.getReadInterface().isAssignableFrom(cl))
 			{
 				@SuppressWarnings("unchecked")
-				CDOMInterfaceToken<?, T> token = (CDOMInterfaceToken<?, T>) interfaceToken;
-				String[] s = token.unparse(context, loadable);
+				CDOMInterfaceToken<R, T> token = (CDOMInterfaceToken<R, T>) interfaceToken;
+				@SuppressWarnings("unchecked")
+				String[] s = token.unparse(context, (R) loadable);
 				if (s != null)
 				{
 					for (String aString : s)

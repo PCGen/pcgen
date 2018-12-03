@@ -65,16 +65,16 @@ import javax.swing.event.HyperlinkListener;
 import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
+import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
+import pcgen.core.Race;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.DeityFacade;
-import pcgen.facade.core.HandedFacade;
 import pcgen.facade.core.InfoFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
@@ -871,10 +871,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	{
 		private final CharacterFacade character;
 		private final CharacterComboBoxModel<Gender> genderModel;
-		private final CharacterComboBoxModel<HandedFacade> handsModel;
+		private final CharacterComboBoxModel<Handed> handsModel;
 		private CharacterComboBoxModel<PCAlignment> alignmentModel;
-		private CharacterComboBoxModel<DeityFacade> deityModel;
-		private final DeferredCharacterComboBoxModel<RaceFacade> raceModel;
+		private CharacterComboBoxModel<Deity> deityModel;
+		private final DeferredCharacterComboBoxModel<Race> raceModel;
 		private final CharacterComboBoxModel<String> ageCatModel;
 		private final FacadeComboBoxModel<ClassFacade> classModel;
 		private final CharacterComboBoxModel<String> xpTableModel;
@@ -913,13 +913,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			//initialize handed model
 			handsModel =
-					new CharacterComboBoxModel<HandedFacade>(character.getAvailableHands(), character.getHandedRef())
+					new CharacterComboBoxModel<Handed>(character.getAvailableHands(), character.getHandedRef())
 					{
 
 						@Override
 						public void setSelectedItem(Object anItem)
 						{
-							character.setHanded((HandedFacade) anItem);
+							character.setHanded((Handed) anItem);
 						}
 
 					};
@@ -943,26 +943,26 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			if (dataset.hasDeityDomain())
 			{
 				//initialize deity model
-				deityModel = new CharacterComboBoxModel<DeityFacade>(dataset.getDeities(), character.getDeityRef())
+				deityModel = new CharacterComboBoxModel<Deity>(dataset.getDeities(), character.getDeityRef())
 				{
 
 					@Override
 					public void setSelectedItem(Object anItem)
 					{
-						character.setDeity((DeityFacade) anItem);
+						character.setDeity((Deity) anItem);
 					}
 
 				};
 			}
 
 			//initialize race model
-			raceModel = new DeferredCharacterComboBoxModel<RaceFacade>(dataset.getRaces(), character.getRaceRef())
+			raceModel = new DeferredCharacterComboBoxModel<Race>(dataset.getRaces(), character.getRaceRef())
 			{
 
 				@Override
 				public void commitSelectedItem(Object anItem)
 				{
-					character.setRace((RaceFacade) anItem);
+					character.setRace((Race) anItem);
 				}
 
 			};

@@ -29,13 +29,17 @@ import javax.swing.undo.UndoManager;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
+import pcgen.core.Deity;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.VariableProcessor;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
@@ -82,26 +86,26 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to retrieve the base for
 	 * @return A reference to the base score for the stat
 	 */
-	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat);
+	public ReferenceFacade<Number> getScoreBaseRef(PCStat stat);
 
 	/**
 	 * @param stat The stat to retrieve the mod total for
 	 * @return The modifier for the stat total
 	 */
-	public int getModTotal(StatFacade stat);
+	public int getModTotal(PCStat stat);
 
 	/**
 	 * @param stat The stat to retrieve the base score of
 	 * @return The base (user set) score for the stat
 	 */
-	public int getScoreBase(StatFacade stat);
+	public int getScoreBase(PCStat stat);
 
 	/**
 	 * Update the base score of the stat.
 	 * @param stat The stat to be set.
 	 * @param score The new base score.
 	 */
-	public void setScoreBase(StatFacade stat, int score);
+	public void setScoreBase(PCStat stat, int score);
 
 	/**
 	 * Retrieve the display string for the score total. This may be a 
@@ -112,13 +116,13 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to be retrieved
 	 * @return The display string for the score total
 	 */
-	public String getScoreTotalString(StatFacade stat);
+	public String getScoreTotalString(PCStat stat);
 
 	/**
 	 * @param stat The stat to retrieve the racial bonus of.
 	 * @return The racial bonus to the stat score.
 	 */
-	public int getScoreRaceBonus(StatFacade stat);
+	public int getScoreRaceBonus(PCStat stat);
 
 	/**
 	 * Retrieve the bonus to the stat score from sources other than the 
@@ -126,7 +130,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to retrieve the other bonus of.
 	 * @return The misc bonus to the stat score
 	 */
-	public int getScoreOtherBonus(StatFacade stat);
+	public int getScoreOtherBonus(PCStat stat);
 
 	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability);
 
@@ -320,18 +324,18 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return a reference to this character's Race
 	 */
 	@Override
-	public ReferenceFacade<RaceFacade> getRaceRef();
+	public ReferenceFacade<Race> getRaceRef();
 
 	/**
 	 * @return A reference to a list containing the character's race.
 	 */
-	public ListFacade<RaceFacade> getRaceAsList();
+	public ListFacade<Race> getRaceAsList();
 
 	/**
 	 * Sets this character's race
 	 * @param race
 	 */
-	public void setRace(RaceFacade race);
+	public void setRace(Race race);
 
 	/**
 	 * @return a reference to this character's tab name
@@ -368,12 +372,12 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return a reference to this character's handedness string
 	 */
-	public ReferenceFacade<HandedFacade> getHandedRef();
+	public ReferenceFacade<Handed> getHandedRef();
 
 	/**
 	 * @param handedness The new handedness string for the character
 	 */
-	public void setHanded(HandedFacade handedness);
+	public void setHanded(Handed handedness);
 
 	/**
 	 * @see CharacterFacade#setFile(File)
@@ -389,9 +393,9 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public void setFile(File file);
 
-	public ReferenceFacade<DeityFacade> getDeityRef();
+	public ReferenceFacade<Deity> getDeityRef();
 
-	public void setDeity(DeityFacade deity);
+	public void setDeity(Deity deity);
 
 	/**
 	 * @return The domains that the character knows
@@ -417,7 +421,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef();
 
-	public ListFacade<HandedFacade> getAvailableHands();
+	public ListFacade<Handed> getAvailableHands();
 
 	public ListFacade<Gender> getAvailableGenders();
 
@@ -616,11 +620,18 @@ public interface CharacterFacade extends CompanionFacade
 	public void refreshRollMethod();
 
 	/**
-	 * Check if the character meets all requirements to be of the onject.
+	 * Check if the character meets all requirements to be of the object.
 	 * @param infoFacade The object to be checked.
 	 * @return True if the character qualifies for the object, false if not.
 	 */
 	public boolean isQualifiedFor(InfoFacade infoFacade);
+
+	/**
+	 * Check if the character meets all requirements to be of the race.
+	 * @param race The race to be checked.
+	 * @return True if the character qualifies for the race, false if not.
+	 */
+	public boolean isQualifiedFor(Race race);
 
 	/**
 	 * Check if the character meets all requirements to take the domain.
@@ -634,7 +645,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param deity The deity to be checked.
 	 * @return True if the character can take the deity, false if not.
 	 */
-	public boolean isQualifiedFor(DeityFacade deity);
+	public boolean isQualifiedFor(Deity deity);
 
 	/**
 	 * Check if the character meets all requirements to take the temporary bonus.

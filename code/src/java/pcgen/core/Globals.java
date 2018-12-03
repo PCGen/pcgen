@@ -35,6 +35,7 @@ import java.util.stream.Collectors;
 import javax.swing.JFrame;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FactKey;
@@ -43,7 +44,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.util.SortKeyComparator;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.utils.CoreUtility;
@@ -420,7 +420,7 @@ public final class Globals
 	{
 		List<PaperInfo> items = new ArrayList<>(SettingsHandler.getGame().getModeContext().getReferenceContext()
 			.getConstructedCDOMObjects(PaperInfo.class));
-		items.sort(SortKeyComparator.getInstance());
+		items.sort(Comparator.comparing(SortKeyRequired::getSortKey));
 		return items;
 	}
 

@@ -17,29 +17,26 @@
  */
 package pcgen.core.utils;
 
-import junit.framework.TestCase;
-import pcgen.base.lang.StringUtil;
-import pcgen.system.PCGenPropBundle;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.system.PCGenPropBundle;
+
+import junit.framework.TestCase;
+
 /**
  * {@code CoreUtilityTest}.
  *
  * Tests the CoreUtility class.
- *
- * @see pcgen.core.utils.CoreUtility
  */
 @SuppressWarnings("nls")
 public class CoreUtilityTest extends TestCase
 {
 	/**
 	 * Constructs a new {@code CoreUtilityTest}.
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase()
 	 */
 	public CoreUtilityTest()
 	{
@@ -50,8 +47,6 @@ public class CoreUtilityTest extends TestCase
 	 * Constructs a new {@code CoreUtilityTest} with the given <var>name</var>.
 	 *
 	 * @param name the test case name
-	 *
-	 * @see pcgen.PCGenTestCase#PCGenTestCase(String)
 	 */
 	public CoreUtilityTest(final String name)
 	{

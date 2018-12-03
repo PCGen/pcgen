@@ -23,8 +23,6 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -33,6 +31,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 public class PreSizeTest extends AbstractCharacterTestCase
 {
@@ -58,9 +59,6 @@ public class PreSizeTest extends AbstractCharacterTestCase
 		eq3 = EquipmentList.getEquipmentFromName("Item Three", character);
 	}
 
-	/*
-	 * @see AbstractCharacterTestCase#tearDown()
-	 */
     @Override
 	protected void tearDown() throws Exception
 	{

@@ -6,15 +6,15 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 ###Block:
 
-# DEVELOPER NOTE: Rename these to our proper standard 'Race Traits ~ RaceName'
+# DEVELOPER NOTE: Rename these to our proper standard 'Racial Traits ~ RaceName'
 # Ability Name				SORTKEY	Category of Ability		Type																						Visible		Stackable?	Multiple?	Choose		Template					Auto Language	Ability																	Bonus Ability Pool			Cost
-Race Traits ~ Dwarf					CATEGORY:Internal
-Race Traits ~ Elf						CATEGORY:Internal
-Race Traits ~ Gnome					CATEGORY:Internal
-Race Traits ~ Half-Elf					CATEGORY:Internal
-Race Traits ~ Half-Orc					CATEGORY:Internal
-Race Traits ~ Halfling					CATEGORY:Internal
-Race Traits ~ Human					CATEGORY:Internal																																												ABILITY:Human Subrace|AUTOMATIC|Human ~ Default|!PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubraceSelection
+Racial Traits ~ Dwarf					CATEGORY:Internal
+Racial Traits ~ Elf						CATEGORY:Internal
+Racial Traits ~ Gnome					CATEGORY:Internal
+Racial Traits ~ Half-Elf					CATEGORY:Internal
+Racial Traits ~ Half-Orc					CATEGORY:Internal
+Racial Traits ~ Halfling					CATEGORY:Internal
+Racial Traits ~ Human					CATEGORY:Internal																																												ABILITY:Human Subrace|AUTOMATIC|Human ~ Default|!PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubraceSelection
 
 Remove Excess Points from Pool	SORTKEY:1	CATEGORY:Special Ability	TYPE:HumanRacialTrait.DwarfRacialTrait.ElfRacialTrait.GnomeRacialTrait.HalfElfRacialTrait.HalfOrcRacialTrait.HalflingRacialTrait	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																		COST:1
 
@@ -23,50 +23,50 @@ Human ~ Default						CATEGORY:Internal			TYPE:HumanSubrace																						
 ###Block: Racial Traits
 #
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREVAREQ:Dwarf_Trait_DefensiveTraining,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|PREVAREQ:Dwarf_Trait_Greed,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|PREVAREQ:Dwarf_Trait_Hatred,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|PREVAREQ:Dwarf_Trait_Hardy,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:Dwarf_Trait_Stability,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:Dwarf_Trait_Stonecunning,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|PREVAREQ:Dwarf_Trait_Steady,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:Dwarf_Trait_WeaponFamiliarity,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:Dwarf_Trait_Darkvision,0
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|PREVAREQ:Dwarf_Trait_Language,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREVAREQ:Dwarf_Trait_DefensiveTraining,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|PREVAREQ:Dwarf_Trait_Greed,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|PREVAREQ:Dwarf_Trait_Hatred,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|PREVAREQ:Dwarf_Trait_Hardy,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:Dwarf_Trait_Stability,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:Dwarf_Trait_Stonecunning,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Steady|PREVAREQ:Dwarf_Trait_Steady,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:Dwarf_Trait_WeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:Dwarf_Trait_Darkvision,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Language|PREVAREQ:Dwarf_Trait_Language,0
 #
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses,TYPE.ElfKeenSenses
-CATEGORY=Internal|Race Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses,TYPE.ElfKeenSenses
+CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
 #
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Defensive Training|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Gnome Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeMagic
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeHatred
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Illusion Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionResistance
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Obsessive|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeObsessive
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSenses
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Defensive Training|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Gnome Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeMagic
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Hatred|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeHatred
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Illusion Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionResistance
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Obsessive|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeObsessive
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSenses
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
 #
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Adaptability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfAdaptability
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Multitalented|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfMultitalented
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunities
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elf Blood
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Adaptability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfAdaptability
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Multitalented|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfMultitalented
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elven Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunities
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elf Blood
 #
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Intimidating|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Ferocity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Blood
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Intimidating|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Ferocity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Blood
 #
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingFearless
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Halfling Luck|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingLuck
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingKeenSenses
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingFearless
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Halfling Luck|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingLuck
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingKeenSenses
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
 #
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Bonus Feat|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled
@@ -230,7 +230,7 @@ Undead Traits			CATEGORY:Special Ability	VISIBLE:NO													TEMPLATE:No Cons
 Vermin Traits			CATEGORY:Special Ability	VISIBLE:NO																														ABILITY:Special Ability|AUTOMATIC|Vermin Traits Output|PRERULE:1,DISPLAYTYPETRAITS																																																																																									BONUS:VAR|DarkvisionRange|60|TYPE=Base													SOURCEPAGE:p.310
 
 ###Block: Creature Subtype Traits
-# Ability Name		Category of Ability		Visible	Define			Template					Ability																																																							Combat bonus											Modify VAR																			Class Skill				Source Page
+# Ability Name		Category of Ability		Visible	Define			Template					Ability																																																							Combat bonus											Modify VAR																			Class Skill				Source Page		MODIFY
 Human Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																									SOURCEPAGE:p.312
 Halfling Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																									SOURCEPAGE:p.312
 Good Traits			CATEGORY:Special Ability	VISIBLE:NO											ABILITY:Special Ability|AUTOMATIC|Aligned (Good)																																																																																						SOURCEPAGE:p.312
@@ -258,7 +258,7 @@ Air Traits			CATEGORY:Special Ability	VISIBLE:NO																																
 Incorporeal Traits	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:CanNotGrapple|0	TEMPLATE:No Strength Score		ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Incorporeal																																		BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX	BONUS:VAR|CanNotGrapple|1	BONUS:VAR|CMB|DEX																		SOURCEPAGE:p.311
 
 Water Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																									SOURCEPAGE:p.313
-Swarm Traits		CATEGORY:Special Ability	VISIBLE:NO					TEMPLATE:Swarm				ABILITY:Special Ability|AUTOMATIC|Swarm Traits Output|PRERULE:1,DISPLAYTYPETRAITS	ABILITY:Special Ability|AUTOMATIC|Can't Be Tripped|Immunity to Critical Hits|Immunity to Flanking|Immunity to Weapon Damage	ABILITY:Special Ability|AUTOMATIC|Distraction ~ Swarm|Swarm Traits																																																SOURCEPAGE:p.312
+Swarm Traits		CATEGORY:Special Ability	VISIBLE:NO											ABILITY:Special Ability|AUTOMATIC|Swarm Traits Output	ABILITY:Special Ability|AUTOMATIC|Can't Be Tripped	ABILITY:Special Ability|AUTOMATIC|Distraction ~ Swarm																																																																				SOURCEPAGE:p.312	MODIFY:FACE|SET|10,10|PRIORITY=200
 Shapechanger Traits	CATEGORY:Special Ability	VISIBLE:NO																																																																																																									SOURCEPAGE:p.312
 Reptilian Traits		CATEGORY:Special Ability	VISIBLE:NO																																																																																																									SOURCEPAGE:p.312
 Orc Traits			CATEGORY:Special Ability	VISIBLE:NO											ABILITY:Special Ability|AUTOMATIC|Light Sensitivity|!PRERACE:1,Half-Orc|PREVAREQ:RemoveLightSensitive,0	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREABILITY:1,CATEGORY=Special Ability,TYPE.RacialVision																																																												SOURCEPAGE:p.312
@@ -288,7 +288,7 @@ Monstrous Humanoid Traits Output	OUTPUTNAME:Monstrous Humanoid Traits	CATEGORY:S
 Ooze Traits Output			OUTPUTNAME:Ooze Traits				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Oozes are not subject to critical hits or flanking and do not take additional damage from precision-based attacks, such as sneak attack. Oozes eat and breathe, but do not sleep.																																																																																																								SOURCEPAGE:p.309
 Outsider Traits Output			OUTPUTNAME:Outsider Traits			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Unlike most living creatures, an outsider does not have a dual nature--its soul and body form one unit. When an outsider is slain, no soul is set loose. Spells that restore souls to their bodies, such as raise dead, reincarnate, and resurrection, don't work on an outsider. It takes a different magical effect, such as limited wish, wish, miracle, or true resurrection to restore it to life. Outsiders breathe, but do not need to eat or sleep (although they can do so if they wish).|!PRERACE:1,RACESUBTYPE=Native	DESC:An outsider with the native subtype can be raised, reincarnated, or resurrected just as other living creatures can be. Native outsider breathe, eat, and sleep.|PRERACE:1,RACESUBTYPE=Native															SOURCEPAGE:p.309
 Plant Traits Output			OUTPUTNAME:Plant Traits				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Plants are immune to all mind-affecting effects (charms, compulsions, morale effects, patterns, and phantasms), paralysis, poison, polymorph, sleep, and stun.																																																																																																											SOURCEPAGE:p.301
-Swarm Traits Output			OUTPUTNAME:Swarm Traits				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A swarm is not subject to critical hits or flanking, they cannot be tripped, grappled, or bull rushed, and they cannot grapple an opponent. Swarms are never staggered or reduced to a dying state by damage. A swarm is immune to any spell or effect that targets a specific number of creatures, with the exception of mindaffecting effects. A swarm takes half again as much damage (+50%%) from spells or effects that affect an area, such as splash weapons and many evocation spells.	DESC:A swarm takes half damage from slashing and piercing weapons.|PRESIZEGT:D	DESC:A swarm composed of Fine or Diminutive creatures is immune to all weapon damage and are also susceptible to high winds, such as those created by a gust of wind spell.|PRESIZELTEQ:D									SOURCEPAGE:p.312
+Swarm Traits Output			OUTPUTNAME:Swarm Traits				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DESC:A swarm is not subject to critical hits or flanking, they cannot be tripped, grappled, or bull rushed, and they cannot grapple an opponent. Swarms are never staggered or reduced to a dying state by damage. A swarm is immune to any spell or effect that targets a specific number of creatures, with the exception of mind-affecting effects. A swarm takes half again as much damage (+50%%) from spells or effects that affect an area, such as splash weapons and many evocation spells.	DESC:A swarm takes half damage from slashing and piercing weapons.|PRESIZEGT:D	DESC:A swarm composed of Fine or Diminutive creatures is immune to all weapon damage and are also susceptible to high winds, such as those created by a gust of wind spell.|PRESIZELTEQ:D									SOURCEPAGE:p.312
 Undead Traits Output			OUTPUTNAME:Undead Traits			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Undead are immune to death effects, disease, mind-affecting effects (charms, compulsions, morale effects, phantasms, and patterns), paralysis, poison, sleep, stun, and any effect that requires a Fortitude save (unless the effect also works on objects or is harmless). Undead are not subject to ability drain, energy drain, or nonlethal damage. Undead are immune to damage or penalties to their physical ability scores (Strength, Dexterity, and Constitution), as well as to fatigue and exhaustion effects. Undead are not at risk of death from massive damage.	DESC:Mindless - Immune to all mind-affecting effects (charms/ compulsions/ phantasms/ patterns/ and morale effects), Cannot heal damage on own if has no Intelligence score (but can be healed and Fast Healing works)|PRETEMPLATE:1,Mindless	SOURCEPAGE:p.305
 Vermin Traits Output			OUTPUTNAME:Vermin Traits			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Mindless vermin are immune to mind-affecting effects (charms, compulsions, phantasms, patterns, and morale effects).|PRETEMPLATE:1,Mindless																																																																																																														SOURCEPAGE:p.310
 

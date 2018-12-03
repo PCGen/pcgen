@@ -299,9 +299,6 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	
 	}
 	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
