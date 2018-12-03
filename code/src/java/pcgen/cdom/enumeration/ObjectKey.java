@@ -244,8 +244,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> SIZE;
 
-	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<>(null);
-
 	public static final ObjectKey<Boolean> USE_MASTER_SKILL = new ObjectKey<>(Boolean.FALSE);
 
 	public static final ObjectKey<Boolean> DONTADD_HITDIE = new ObjectKey<>(null);

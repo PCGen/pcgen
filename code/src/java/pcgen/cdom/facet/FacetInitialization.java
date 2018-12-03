@@ -218,7 +218,6 @@ public final class FacetInitialization
 		FacetLibrary.getFacet(ArmorProfFacet.class);
 		FacetLibrary.getFacet(MonsterClassFacet.class);
 		FacetLibrary.getFacet(KitChoiceFacet.class);
-		FacetLibrary.getFacet(RegionChoiceFacet.class);
 		FacetLibrary.getFacet(AddFacet.class);
 		FacetLibrary.getFacet(RemoveFacet.class);
 		FacetLibrary.getFacet(ModifierFacet.class);

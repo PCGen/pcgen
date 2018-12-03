@@ -497,13 +497,6 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="regionChoiceFacet" class="pcgen.cdom.facet.RegionChoiceFacet">
-		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
-		<property name="domainFacet" ref="domainFacet"/>
-		<property name="skillFacet" ref="skillFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
 	<bean id="regionFacet" class="pcgen.cdom.facet.fact.RegionFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
