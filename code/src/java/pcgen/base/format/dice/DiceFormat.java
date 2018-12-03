@@ -17,6 +17,8 @@
  */
 package pcgen.base.format.dice;
 
+import java.util.Optional;
+
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -87,9 +89,9 @@ public class DiceFormat implements FormatManager<Dice>
 	}
 
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

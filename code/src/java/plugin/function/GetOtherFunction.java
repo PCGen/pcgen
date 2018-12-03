@@ -129,7 +129,9 @@ public class GetOtherFunction implements FormulaFunction
 			manager.getWith(EvaluationManager.ASSERTED, Optional.of(legalScope.getFormatManager(context))));
 		FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
-		ScopeInstance scopeInst = siFactory.get(vs.getLocalScopeName(), vs);
+		Optional<String> localScopeName = vs.getLocalScopeName();
+		//TODO This may be a bug?  What if it doesn't have a localScopeName?
+		ScopeInstance scopeInst = siFactory.get(localScopeName.get(), Optional.of(vs));
 		//Rest of Equation
 		return args[2].jjtAccept(visitor, manager.getWith(EvaluationManager.INSTANCE, scopeInst));
 	}

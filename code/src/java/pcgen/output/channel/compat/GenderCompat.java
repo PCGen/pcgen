@@ -1,5 +1,7 @@
 package pcgen.output.channel.compat;
 
+import java.util.Optional;
+
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -87,9 +89,9 @@ public final class GenderCompat
 		}
 
 		@Override
-		public FormatManager<?> getComponentManager()
+		public Optional<FormatManager<?>> getComponentManager()
 		{
-			return null;
+			return Optional.empty();
 		}
 		
 	}

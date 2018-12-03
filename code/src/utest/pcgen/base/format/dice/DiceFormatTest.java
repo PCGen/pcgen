@@ -16,15 +16,14 @@
  */
 package pcgen.base.format.dice;
 
-import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 
 import pcgen.base.format.StringManager;
 import pcgen.base.util.FormatManager;
-
-import org.junit.Test;
 
 public class DiceFormatTest
 {
@@ -104,6 +103,6 @@ public class DiceFormatTest
 	@Test
 	public void testGetComponent()
 	{
-		assertThat(MANAGER.getComponentManager(), nullValue());
+		assertTrue(MANAGER.getComponentManager().isEmpty());
 	}
 }

@@ -23,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -194,11 +195,11 @@ public class SetSolverManagerTest
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
 
-		ScopeInstance scopeInste = siFactory.get("PC.SKILL", skill);
+		ScopeInstance scopeInste = siFactory.get("PC.SKILL", Optional.of(skill));
 		VariableID varIDe = sl.getVariableID(scopeInste, "LocalVar");
 		manager.createChannel(varIDe);
 		vc.put(varIDe, 2);
-		ScopeInstance scopeInsta = siFactory.get("PC.SKILL", skillalt);
+		ScopeInstance scopeInsta = siFactory.get("PC.SKILL", Optional.of(skillalt));
 		VariableID varIDa = sl.getVariableID(scopeInsta, "LocalVar");
 		manager.createChannel(varIDa);
 		vc.put(varIDa, 3);

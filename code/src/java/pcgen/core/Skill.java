@@ -22,6 +22,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
@@ -156,8 +157,8 @@ public final class Skill extends PObject implements ChooseDriver, VarScoped
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "PC.SKILL";
+		return Optional.of("PC.SKILL");
 	}
 }

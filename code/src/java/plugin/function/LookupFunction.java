@@ -142,7 +142,7 @@ public class LookupFunction implements FormulaFunction
 				throw new SemanticsFailureException("Parse Error: Invalid lookup type: " + lookupTypeName);
 			}
 		}
-		return cf.getComponentManager();
+		return cf.getComponentManager().get();
 	}
 
 	@Override
@@ -212,7 +212,7 @@ public class LookupFunction implements FormulaFunction
 		 */
 		ColumnFormatManager<?> columnFormat = (ColumnFormatManager<?>) args[2].jjtAccept(visitor,
 			manager.getWith(DependencyManager.ASSERTED, Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
-		return columnFormat.getComponentManager();
+		return columnFormat.getComponentManager().get();
 	}
 
 }

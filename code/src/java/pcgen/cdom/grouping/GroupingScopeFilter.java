@@ -16,6 +16,7 @@
 package pcgen.cdom.grouping;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import pcgen.base.formula.base.LegalScope;
@@ -79,8 +80,8 @@ public class GroupingScopeFilter<T> implements GroupingCollection<T>
 	@Override
 	public void process(PCGenScoped owner, Consumer<PCGenScoped> consumer)
 	{
-		String localScopeName = owner.getLocalScopeName();
-		if ((localScopeName != null) && localScopeName.equalsIgnoreCase(scopeName))
+		Optional<String> localScopeName = owner.getLocalScopeName();
+		if (localScopeName.isPresent() && localScopeName.get().equalsIgnoreCase(scopeName))
 		{
 			underlying.process(owner, consumer);
 		}

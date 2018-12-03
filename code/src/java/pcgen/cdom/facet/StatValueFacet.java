@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
@@ -212,7 +213,8 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 	{
 		String varName = ChannelUtilities.createVarName(channelName);
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		ScopeInstance scopeInst = instFactory.get(stat.getLocalScopeName(), stat);
+		Optional<String> localScopeName = stat.getLocalScopeName();
+		ScopeInstance scopeInst = instFactory.get(localScopeName.get(), Optional.of(stat));
 		try
 		{
 			VariableID<Number> varID = (VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()

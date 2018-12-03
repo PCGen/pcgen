@@ -63,15 +63,20 @@ public class ListChannelAdapter<T> extends AbstractListFacade<T>
 	@Override
 	public void addElement(T element)
 	{
-		variableChannel.set(ArrayUtilities.addOnCopy(variableChannel.get(), element));
+		Class<?> variableFormat =
+				variableChannel.getVariableID().getVariableFormat();
+		variableChannel.set(ArrayUtilities.addOnCopy(variableChannel.get(),
+			element, (Class<T>) variableFormat.getComponentType()));
 		fireElementAdded(this, element, getSize());
 	}
 
 	@Override
 	public void addElement(int index, T element)
 	{
-		variableChannel
-			.set(ArrayUtilities.addOnCopy(variableChannel.get(), index, element));
+		Class<?> variableFormat =
+				variableChannel.getVariableID().getVariableFormat();
+		variableChannel.set(ArrayUtilities.addOnCopy(variableChannel.get(),
+			index, element, (Class<T>) variableFormat.getComponentType()));
 		fireElementAdded(this, element, index);
 	}
 

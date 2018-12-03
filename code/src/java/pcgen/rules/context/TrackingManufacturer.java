@@ -18,6 +18,7 @@
 package pcgen.rules.context;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -260,9 +261,9 @@ class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<
 	}
 
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

@@ -18,6 +18,7 @@
 package pcgen.rules.persistence;
 
 import java.net.URI;
+import java.util.Optional;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.inst.Dynamic;
@@ -93,7 +94,11 @@ public class DynamicLoader extends SimpleLoader<Dynamic>
 		String token, Loadable loadable) throws PersistenceLayerException
 	{
 		Dynamic d = (Dynamic) loadable;
-		LoadContext subContext = context.dropIntoContext(d.getLocalScopeName());
-		super.processNonFirstToken(subContext, sourceURI, token, loadable);
+		Optional<String> localScopeName = d.getLocalScopeName();
+		if (localScopeName.isPresent())
+		{
+			context = context.dropIntoContext(localScopeName.get());
+		}
+		super.processNonFirstToken(context, sourceURI, token, loadable);
 	}
 }
