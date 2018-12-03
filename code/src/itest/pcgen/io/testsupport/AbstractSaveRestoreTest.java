@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.Collections;
 
+import pcgen.ControlTestSupport;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.test.InequalityTester;
 import pcgen.base.util.FormatManager;
@@ -152,7 +153,7 @@ public abstract class AbstractSaveRestoreTest
 			"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		"
 		+ "CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
 			0, TestURI.getURI(), "Default");
-		mode.setAlignmentText("Alignment");
+		ControlTestSupport.enableFeature(mode.getModeContext(), CControl.ALIGNMENTFEATURE);
 	}
 
 	@Before
@@ -349,12 +350,13 @@ public abstract class AbstractSaveRestoreTest
 	                                                 AbstractReferenceContext ref)
 	{
 		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
-		String channelName = ChannelUtilities.createVarName("AlignmentInput");
+		String varName = CControl.ALIGNMENTINPUT.getDefaultValue();
+		String channelName = ChannelUtilities.createVarName(varName);
 		context.getVariableContext().assertLegalVariableID(
 			channelName, context.getActiveScope(),
 			fmtManager);
 		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
-		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
+		ai.put(ObjectKey.getKeyFor(String.class, controlName), varName);
 	}
 
 	private <T> void proc(FormatManager<T> fmtManager)

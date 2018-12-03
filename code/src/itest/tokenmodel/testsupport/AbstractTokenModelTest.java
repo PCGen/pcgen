@@ -247,7 +247,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		GlobalModifiers mods = ref.constructNowIfNecessary(GlobalModifiers.class,
 			GlobalModifierLoader.GLOBAL_MODIFIERS);
-		mods.addGrantedVariable(ChannelUtilities.createVarName("AlignmentInput"));
+		mods.addGrantedVariable(ChannelUtilities.createVarName(CControl.ALIGNMENTINPUT.getDefaultValue()));
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -308,11 +308,13 @@ public abstract class AbstractTokenModelTest extends TestCase
 		FormatManager<?> fmtManager, AbstractReferenceContext ref)
 	{
 		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
-		String channelName = ChannelUtilities.createVarName("AlignmentInput");
+		String varName = CControl.ALIGNMENTINPUT.getDefaultValue();
+		String channelName = ChannelUtilities.createVarName(varName);
 		context.getVariableContext().assertLegalVariableID(
-			channelName, context.getActiveScope(), fmtManager);
+			channelName, context.getActiveScope(),
+			fmtManager);
 		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
-		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
+		ai.put(ObjectKey.getKeyFor(String.class, controlName), varName);
 	}
 
 	private <T> void proc(FormatManager<T> fmtManager)

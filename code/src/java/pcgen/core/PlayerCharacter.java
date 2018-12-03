@@ -6230,7 +6230,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		// Alignment
 
-		if (!SettingsHandler.getGame().getAlignmentText().isEmpty())
+		if (isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			PCAlignment align = AlignmentCompat.getCurrentAlignment(id);
 			if (align != null)

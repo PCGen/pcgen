@@ -96,7 +96,12 @@ public final class CControl
 	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
-	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", ChannelUtilities.createVarName("Alignment"), Optional.empty(), "ALIGNMENT", true, true);
+	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", ChannelUtilities.createVarName("Alignment"), Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
+
+	/**
+	 * Enable/Disable the AlignmentFeature
+	 */
+	public static final String ALIGNMENTFEATURE = "ALIGNMENTFEATURE";
 
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code

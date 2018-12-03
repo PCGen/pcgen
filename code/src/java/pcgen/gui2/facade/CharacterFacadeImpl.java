@@ -398,7 +398,7 @@ public class CharacterFacadeImpl
 		}
 
 		GameMode game = (GameMode) dataSet.getGameMode();
-		if (!game.getAlignmentText().isEmpty())
+		if (theCharacter.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			LoadContext context = Globals.getContext();
 			String channelName = ControlUtilities.getControlToken(context, CControl.ALIGNMENTINPUT);

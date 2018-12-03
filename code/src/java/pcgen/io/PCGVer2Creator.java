@@ -57,6 +57,7 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
@@ -638,7 +639,7 @@ public final class PCGVer2Creator
 		//
 		// Only save alignment if game mode supports it
 		//
-		if (!Globals.getGameModeAlignmentText().isEmpty() && charDisplay.getPCAlignment() != null)
+		if (thePC.isFeatureEnabled(CControl.ALIGNMENTFEATURE) && charDisplay.getPCAlignment() != null)
 		{
 			buffer.append(IOConstants.TAG_ALIGNMENT).append(':');
 			buffer.append(charDisplay.getPCAlignment().getKeyName());

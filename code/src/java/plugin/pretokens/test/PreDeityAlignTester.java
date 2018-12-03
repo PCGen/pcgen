@@ -7,11 +7,12 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -20,11 +21,11 @@ import pcgen.util.Logging;
 /**
  * Prerequisite test that the character has a deity with the correct alignment.
  */
-public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreDeityAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
 	{
 
 		//
@@ -32,14 +33,14 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		//
 		int runningTotal = 0;
 
-		if (Globals.getGameModeAlignmentText().isEmpty())
+		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			runningTotal = 1;
 		}
 		else
 		{
 			CDOMSingleRef<PCAlignment> deityAlign = null;
-			Deity deity = display.getDeity();
+			Deity deity = pc.getDeity();
 			if (deity != null)
 			{
 				deityAlign = deity.get(ObjectKey.ALIGNMENT);
