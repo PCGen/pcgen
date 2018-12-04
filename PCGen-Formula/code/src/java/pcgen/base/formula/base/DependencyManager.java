@@ -58,12 +58,8 @@ public class DependencyManager
 
 	/**
 	 * A TypedKey used for storing the ScopeInstance contained in this DependencyManager.
-	 * 
-	 * The INSTANCE TypedKey is optional; it may be required by some VariableStrategy
-	 * objects or other specific situations.
 	 */
-	public static final TypedKey<Optional<ScopeInstance>> INSTANCE =
-			new TypedKey<>(Optional.empty());
+	public static final TypedKey<ScopeInstance> INSTANCE = new TypedKey<>();
 
 	/**
 	 * A TypedKey used for storing the Format currently asserted for the formula served by

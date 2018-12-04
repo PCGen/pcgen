@@ -45,6 +45,6 @@ public class StaticStrategy implements VariableStrategy
 	public static VariableID<?> getVariableID(DependencyManager mgr, String varName)
 	{
 		VariableLibrary varLib = mgr.get(DependencyManager.FMANAGER).getFactory();
-		return varLib.getVariableID(mgr.get(DependencyManager.INSTANCE).get(), varName);
+		return varLib.getVariableID(mgr.get(DependencyManager.INSTANCE), varName);
 	}
 }

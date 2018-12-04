@@ -39,7 +39,7 @@ public interface ManagerFactory
 		FormulaManager formulaManager, ScopeInstance scopeInst)
 	{
 		DependencyManager fdm = new DependencyManager(formulaManager);
-		return fdm.getWith(DependencyManager.INSTANCE, Optional.of(scopeInst));
+		return fdm.getWith(DependencyManager.INSTANCE, scopeInst);
 	}
 
 	/**
