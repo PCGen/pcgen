@@ -39,8 +39,6 @@ import java.util.StringTokenizer;
 
 import javax.swing.SwingConstants;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -52,6 +50,9 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  *
@@ -150,7 +151,6 @@ public final class SettingsHandler
 	private static String selectedPartyPDFOutputSheet = ""; //$NON-NLS-1$
 	private static String selectedEqSetTemplate = ""; //$NON-NLS-1$
 	private static String selectedSpellSheet = ""; //$NON-NLS-1$
-	private static boolean showFeatDialogAtLevelUp = true;
 	private static boolean showHPDialogAtLevelUp = true;
 	private static boolean showStatDialogAtLevelUp = true;
 	private static boolean showToolBar = true;
@@ -992,7 +992,6 @@ public final class SettingsHandler
 		setSelectedPartyPDFOutputSheet(
 			expandRelativePath(getOptions().getProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
 				""))); //$NON-NLS-1$
-		setShowFeatDialogAtLevelUp(getPCGenOption("showFeatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowHPDialogAtLevelUp(getPCGenOption("showHPDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowImagePreview(getPCGenOption("showImagePreview", true)); //$NON-NLS-1$
 		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
@@ -1243,7 +1242,6 @@ public final class SettingsHandler
 		setPCGenOption("saveCustomInLst", isSaveCustomInLst()); //$NON-NLS-1$
 		setPCGenOption("saveOutputSheetWithPC", getSaveOutputSheetWithPC()); //$NON-NLS-1$
 		setPCGenOption("printSpellsWithPC", getPrintSpellsWithPC()); //$NON-NLS-1$
-		setPCGenOption("showFeatDialogAtLevelUp", getShowFeatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("enforceSpendingBeforeLevelUp", getEnforceSpendingBeforeLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showMemoryArea", isShowMemoryArea()); //$NON-NLS-1$
@@ -1713,28 +1711,6 @@ public final class SettingsHandler
 		}
 
 		return selectedSpellSheet;
-	}
-
-	/**
-	 * Sets whether the feats dialog should be shown at level up.
-	 * NOTE: This function has been disabled as it interferes with class builds.
-	 * @see <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719">
-	 *      #1502512</a>
-	 *  
-	 * @param argShowFeatDialogAtLevelUp Should the feats dialog be shown at level up?
-	 */
-	public static void setShowFeatDialogAtLevelUp(final boolean argShowFeatDialogAtLevelUp)
-	{
-		showFeatDialogAtLevelUp = true; //argShowFeatDialogAtLevelUp;
-	}
-
-	/**
-	 * Returns whether the feats dialog should be shown at level up.
-	 * @return true if the feats dialog should be shown at level up.
-	 */
-	public static boolean getShowFeatDialogAtLevelUp()
-	{
-		return showFeatDialogAtLevelUp;
 	}
 
 	/**
