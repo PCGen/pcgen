@@ -20,11 +20,12 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.GameMode;
@@ -40,7 +41,11 @@ import pcgen.util.Logging;
 
 public final class BioSetLoader extends LstLineFileLoader
 {
-	private static String regionName = Constants.NONE;
+	/**
+	 * The current Region being processed
+	 */
+	private static Optional<Region> region = Optional.empty();
+
 	BioSet bioSet = new BioSet();
 	/**
 	 * The age set (bracket) currently being processed. Used by the parseLine
@@ -49,11 +54,11 @@ public final class BioSetLoader extends LstLineFileLoader
 	int currentAgeSetIndex = 0;
 
 	/**
-	 * clear the regionName
+	 * Clear the Region.
 	 */
 	public static void clear()
 	{
-		regionName = Constants.NONE;
+		region = Optional.empty();
 	}
 
 	@Override
@@ -90,7 +95,7 @@ public final class BioSetLoader extends LstLineFileLoader
 					parseTokens(context, ageSet, colToken);
 				}
 
-				ageSet = bioSet.addToAgeMap(regionName, ageSet, sourceURI);
+				ageSet = bioSet.addToAgeMap(region, ageSet, sourceURI);
 				Integer oldIndex = bioSet.addToNameMap(ageSet);
 				if (oldIndex != null && oldIndex != currentAgeSetIndex)
 				{
@@ -122,7 +127,7 @@ public final class BioSetLoader extends LstLineFileLoader
 				}
 				else if (colString.startsWith("REGION:"))
 				{
-					regionName = colString.substring(7).intern();
+					region = Optional.of(Region.getConstant(colString.substring(7).intern()));
 				}
 				else if (PreParserFactory.isPreReqString(colString))
 				{
@@ -150,7 +155,7 @@ public final class BioSetLoader extends LstLineFileLoader
 						aString = sBuf.toString();
 					}
 
-					bioSet.addToUserMap(regionName, raceName.intern(), aString.intern(), currentAgeSetIndex);
+					bioSet.addToUserMap(region, raceName.intern(), aString.intern(), currentAgeSetIndex);
 				}
 			}
 		}

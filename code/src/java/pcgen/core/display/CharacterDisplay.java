@@ -25,6 +25,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -46,6 +47,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.facet.ActiveSpellsFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
@@ -495,6 +497,16 @@ public class CharacterDisplay
 	public String getRegionString()
 	{
 		return regionFacet.getRegionString(id);
+	}
+
+	/**
+	 * Get the Character's Region
+	 * 
+	 * @return character region
+	 */
+	public Optional<Region> getRegion()
+	{
+		return regionFacet.getRegion(id);
 	}
 
 	/**

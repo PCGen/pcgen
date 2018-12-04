@@ -478,9 +478,8 @@ public final class CustomData
 			{
 				if (race.isType(Constants.TYPE_CUSTOM))
 				{
-					String region = Constants.NONE;
 					final String key = race.getKeyName();
-					bw.write(SettingsHandler.getGame().getBioSet().getRacePCCText(region, key));
+					bw.write(SettingsHandler.getGame().getBioSet().getBaseRegionPCCText(key));
 					bw.newLine();
 				}
 			}

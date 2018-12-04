@@ -20,14 +20,13 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
-import pcgen.cdom.base.Constants;
+import junit.framework.TestCase;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
-
-import junit.framework.TestCase;
 
 /**
  * A collection of tests to validate the functioning of the BioSetLoader class.
@@ -183,7 +182,7 @@ public final class BioSetLoaderTest extends TestCase
 			{
 				final String testArg = TEST_TAGS[j];
 				baseRaceTag =
-						currBioSet.getTagForRace(Constants.NONE, raceName,
+						currBioSet.getValueInMaps(Optional.empty(), raceName,
 							testArg);
 				//				System.out.println(
 				//					"Got '"
@@ -207,7 +206,7 @@ public final class BioSetLoaderTest extends TestCase
 	public void testParseSecondBioSetGood() throws Exception
 	{
 		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
-			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
+			.getGame().getBioSet().getBaseRegionPCCText("Ogre"));
 		String[] bioData2 = new String[]{
 			"AGESET:0|Adulthood",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
@@ -224,7 +223,7 @@ public final class BioSetLoaderTest extends TestCase
 
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
-					.getRacePCCText("None", "Ogre");
+					.getBaseRegionPCCText("Ogre");
 		assertFalse("Ogre bio details expected after load but was "
 			+ racePCCText, "REGION:None\n\n".equals(racePCCText));
 		
@@ -239,7 +238,7 @@ public final class BioSetLoaderTest extends TestCase
 	public void testParseSecondBioSetBadName() throws Exception
 	{
 		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
-			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
+			.getGame().getBioSet().getBaseRegionPCCText("Ogre"));
 		String[] bioData2 = new String[]{
 			"AGESET:0|Bad",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
@@ -256,7 +255,7 @@ public final class BioSetLoaderTest extends TestCase
 		
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
-					.getRacePCCText("None", "Ogre");
+					.getBaseRegionPCCText("Ogre");
 		assertTrue(
 			"Expected details to be against original ageset name but was "
 				+ racePCCText,
