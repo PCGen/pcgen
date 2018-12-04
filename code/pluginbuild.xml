@@ -4622,13 +4622,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${lstplugins.dir}/TemplateLstToken-FACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/template/FaceToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${lstplugins.dir}/TemplateLstToken-FAVOREDCLASS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
