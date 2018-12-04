@@ -17,6 +17,8 @@
  */
 package pcgen.core;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
@@ -35,9 +37,9 @@ public final class PCStat extends PObject
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "PC.STAT";
+		return Optional.of("PC.STAT");
 	}
 
 	@Override

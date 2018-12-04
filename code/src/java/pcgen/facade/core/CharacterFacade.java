@@ -33,7 +33,9 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
+import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
@@ -132,11 +134,11 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public int getScoreOtherBonus(PCStat stat);
 
-	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability);
+	public void addAbility(AbilityCategory category, AbilityFacade ability);
 
-	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability);
+	public void removeAbility(AbilityCategory category, AbilityFacade ability);
 
-	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability);
+	public boolean hasAbility(AbilityCategory category, AbilityFacade ability);
 
 	/**
 	 * Note: This method should never return null. If the character does not possess
@@ -145,7 +147,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param category
 	 * @return a List of Abilities the character posseses in the specified category
 	 */
-	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
+	public ListFacade<AbilityFacade> getAbilities(AbilityCategory category);
 
 	/**
 	 * Retrieve a list of the ability categories that are currently relevant to 
@@ -154,7 +156,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * categories become active or inactive.
 	 * @return The list of active categories.
 	 */
-	public ListFacade<AbilityCategoryFacade> getActiveAbilityCategories();
+	public ListFacade<AbilityCategory> getActiveAbilityCategories();
 
 	public void addCharacterLevels(ClassFacade[] classes);
 
@@ -167,11 +169,11 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public int getClassLevel(ClassFacade c);
 
-	public int getTotalSelections(AbilityCategoryFacade category);
+	public int getTotalSelections(AbilityCategory category);
 
-	public int getRemainingSelections(AbilityCategoryFacade category);
+	public int getRemainingSelections(AbilityCategory category);
 
-	public void setRemainingSelection(AbilityCategoryFacade category, int remaining);
+	public void setRemainingSelection(AbilityCategory category, int remaining);
 
 	/**
 	 * Adjust the cash held by the character.
@@ -791,19 +793,19 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return The kits that have been applied to the character 
 	 */
-	public DefaultListFacade<KitFacade> getKits();
+	public DefaultListFacade<Kit> getKits();
 
 	/**
 	 * Add a kit to the character. This will test the kit is valid and warn the 
 	 * user if there are potential errors before applying the kit. 
 	 * @param object The kit to be added
 	 */
-	public void addKit(KitFacade object);
+	public void addKit(Kit object);
 
 	/**
 	 * @return The list of kits currently available to the character.
 	 */
-	public List<KitFacade> getAvailableKits();
+	public List<Kit> getAvailableKits();
 
 	/**
 	 * Record the default output sheet for this character.
@@ -877,4 +879,6 @@ public interface CharacterFacade extends CompanionFacade
 	CharID getCharID();
 
 	public boolean isQualifiedFor(PCTemplate element);
+
+	public boolean isQualifiedFor(Kit element);
 }

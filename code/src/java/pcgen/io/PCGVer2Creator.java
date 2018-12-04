@@ -57,6 +57,7 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
@@ -94,6 +95,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.CampaignFacade;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
@@ -638,10 +640,11 @@ public final class PCGVer2Creator
 		//
 		// Only save alignment if game mode supports it
 		//
-		if (!Globals.getGameModeAlignmentText().isEmpty() && charDisplay.getPCAlignment() != null)
+		PCAlignment pcAlignment = AlignmentCompat.getCurrentAlignment(thePC.getCharID());
+		if (thePC.isFeatureEnabled(CControl.ALIGNMENTFEATURE) && pcAlignment != null)
 		{
 			buffer.append(IOConstants.TAG_ALIGNMENT).append(':');
-			buffer.append(charDisplay.getPCAlignment().getKeyName());
+			buffer.append(pcAlignment.getKeyName());
 			buffer.append(IOConstants.LINE_SEP);
 		}
 	}

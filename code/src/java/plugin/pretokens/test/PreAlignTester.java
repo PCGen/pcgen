@@ -21,34 +21,37 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-public class PreAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, final CharacterDisplay display)
+	public int passes(final Prerequisite prereq, final Equipment equipment, final PlayerCharacter pc)
 		throws PrerequisiteException
 	{
-		if (display == null)
+		if (pc == null)
 		{
 			return 0;
 		}
-		return passes(prereq, display, equipment);
+		return passes(prereq, pc, equipment);
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
 		throws PrerequisiteException
 	{
 		//
@@ -56,25 +59,25 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 		//
 		int runningTotal = 0;
 
-		if (Globals.getGameModeAlignmentText().isEmpty())
+		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			runningTotal = 1;
 		}
 		else
 		{
 			String desiredAlignment = prereq.getKey();
-			final PCAlignment charAlignment = display.getPCAlignment();
+			final PCAlignment charAlignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
 
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 			{
-				if (alignMatches(display, desiredAlignment, charAlignment))
+				if (alignMatches(pc.getDisplay(), desiredAlignment, charAlignment))
 				{
 					runningTotal++;
 				}
 			}
 			else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
 			{
-				if (!alignMatches(display, desiredAlignment, charAlignment))
+				if (!alignMatches(pc.getDisplay(), desiredAlignment, charAlignment))
 				{
 					runningTotal++;
 				}

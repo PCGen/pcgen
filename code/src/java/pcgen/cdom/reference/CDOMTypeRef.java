@@ -65,8 +65,7 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	public CDOMTypeRef(ClassIdentity<T> objClass, String[] typeArray)
 	{
 		super(objClass.getReferenceDescription() + " " + Arrays.deepToString(typeArray));
-		types = new String[typeArray.length];
-		System.arraycopy(typeArray, 0, types, 0, typeArray.length);
+		types = Arrays.copyOf(typeArray, typeArray.length);
 		identity = objClass;
 	}
 

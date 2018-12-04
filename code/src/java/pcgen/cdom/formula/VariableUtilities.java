@@ -24,6 +24,8 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.rules.context.VariableContext;
 
 /**
@@ -92,7 +94,8 @@ public class VariableUtilities
 	 * @param id
 	 *            The CharID on which the variable should be no longer be watched
 	 * @param listener
-	 *            The listener to be removed from receiving an event when the value of the variable changes
+	 *            The listener to be removed from receiving an event when the value of the
+	 *            variable changes
 	 * @param variableName
 	 *            The name of the variable to no longer be watched
 	 */
@@ -101,5 +104,34 @@ public class VariableUtilities
 	{
 		VariableID<T> varID = VariableUtilities.getGlobalVariableID(id, variableName);
 		RESULT_FACET.get(id).removeVariableListener(0, varID, listener);
+	}
+
+	/**
+	 * Forwards a VariableChangeEvent to a DataFacetChangeListener as a
+	 * DataFacetChangeEvent.
+	 * 
+	 * @param id
+	 *            The CharID on which the change is occurring
+	 * @param vcEvent
+	 *            the VariableChangeEvent
+	 * @param listener
+	 *            The DataFacetChangeListener
+	 */
+	public static <T> void forwardVariableChangeToDFCL(CharID id,
+		VariableChangeEvent<T> vcEvent,
+		DataFacetChangeListener<CharID, T> listener)
+	{
+		T oldValue = vcEvent.getOldValue();
+		if (oldValue != null)
+		{
+			DataFacetChangeEvent<CharID, T> removeEvent =
+					new DataFacetChangeEvent<>(id, oldValue, RESULT_FACET,
+						DataFacetChangeEvent.DATA_REMOVED);
+			listener.dataRemoved(removeEvent);
+		}
+		DataFacetChangeEvent<CharID, T> addEvent =
+				new DataFacetChangeEvent<>(id, vcEvent.getNewValue(),
+					RESULT_FACET, DataFacetChangeEvent.DATA_ADDED);
+		listener.dataAdded(addEvent);
 	}
 }

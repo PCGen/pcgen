@@ -494,7 +494,7 @@ public class CharacterDisplay
 	 */
 	public String getRegionString()
 	{
-		return regionFacet.getRegion(id);
+		return regionFacet.getRegionString(id);
 	}
 
 	/**
@@ -753,7 +753,7 @@ public class CharacterDisplay
 	 */
 	public PCAlignment getPCAlignment()
 	{
-		return AlignmentCompat.getCurrentAlignment(id);
+		return AlignmentCompat.getCurrentAlignment(getCharID());
 	}
 
 	public Object getGlobal(String varName)

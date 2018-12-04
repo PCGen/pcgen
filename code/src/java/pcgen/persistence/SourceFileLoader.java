@@ -680,7 +680,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			.forEach(control -> enableBuiltInControl(context, control));
 	}
 
-	private static void enableBuiltInControl(LoadContext context,
+	/**
+	 * Enables the built-in version of the given Code Control.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the CodeControl exists
+	 * @param control
+	 *            The CodeControl to be enabled using its default values
+	 */
+	public static void enableBuiltInControl(LoadContext context,
 		CControl control)
 	{
 		AbstractReferenceContext referenceContext = context.getReferenceContext();
@@ -760,7 +768,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.getVariableContext().validateDefaults();
 		//Test for items we know we use (temporary)
 		//Alignment
-		if (!gameMode.getAlignmentText().isEmpty()
+		if (ControlUtilities.isFeatureEnabled(context, CControl.ALIGNMENTFEATURE)
 			&& !context.getVariableContext().hasSolver(refContext.getManufacturer(PCAlignment.class)))
 		{
 			Logging.errorPrint("GameMode " + gameMode.getName() + " has Alignment text - "

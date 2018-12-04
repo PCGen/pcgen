@@ -33,8 +33,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.core.Kit;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
@@ -68,14 +68,14 @@ import pcgen.system.LanguageBundle;
 public class KitPanel extends FlippingSplitPane
 {
 
-	private final FilteredTreeViewTable<Object, KitFacade> availableTable;
-	private final FilteredTreeViewTable<Object, KitFacade> selectedTable;
+	private final FilteredTreeViewTable<Object, Kit> availableTable;
+	private final FilteredTreeViewTable<Object, Kit> selectedTable;
 	private final JButton addButton;
 	private final InfoPane infoPane;
 	private final CharacterFacade character;
 	private final QualifiedTreeCellRenderer renderer;
 	private final AddAction addAction;
-	private final FilterButton<Object, KitFacade> qFilterButton;
+	private final FilterButton<Object, Kit> qFilterButton;
 
 	/**
 	 * Create a new instance of KitPanel for a character.
@@ -104,7 +104,7 @@ public class KitPanel extends FlippingSplitPane
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 
-		FilterBar<Object, KitFacade> bar = new FilterBar<>();
+		FilterBar<Object, Kit> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		bar.addDisplayableFilter(qFilterButton);
@@ -126,7 +126,7 @@ public class KitPanel extends FlippingSplitPane
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, KitFacade> filterBar = new FilterBar<>();
+		FilterBar<Object, Kit> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -154,10 +154,10 @@ public class KitPanel extends FlippingSplitPane
 	private class KitFilterHandler
 	{
 
-		private final Filter<Object, KitFacade> qFilter = new Filter<Object, KitFacade>()
+		private final Filter<Object, Kit> qFilter = new Filter<Object, Kit>()
 		{
 			@Override
-			public boolean accept(Object context, KitFacade element)
+			public boolean accept(Object context, Kit element)
 			{
 				return character.isQualifiedFor(element);
 			}
@@ -209,9 +209,9 @@ public class KitPanel extends FlippingSplitPane
 						obj = selectedTable.getModel().getValueAt(selectedRow, 0);
 					}
 				}
-				if (obj instanceof KitFacade)
+				if (obj instanceof Kit)
 				{
-					infoPane.setText(character.getInfoFactory().getHTMLInfo((KitFacade) obj));
+					infoPane.setText(character.getInfoFactory().getHTMLInfo((Kit) obj));
 				}
 			}
 		}
@@ -236,9 +236,9 @@ public class KitPanel extends FlippingSplitPane
 			List<Object> data = availableTable.getSelectedData();
 			for (Object kit : data)
 			{
-				if (kit instanceof KitFacade)
+				if (kit instanceof Kit)
 				{
-					character.addKit((KitFacade) kit);
+					character.addKit((Kit) kit);
 					return;
 				}
 			}
@@ -246,16 +246,16 @@ public class KitPanel extends FlippingSplitPane
 
 	}
 
-	private static class KitTreeViewModel implements TreeViewModel<KitFacade>, DataView<KitFacade>,
-			Filter<CharacterFacade, KitFacade>, ListListener<KitFacade>
+	private static class KitTreeViewModel implements TreeViewModel<Kit>, DataView<Kit>,
+			Filter<CharacterFacade, Kit>, ListListener<Kit>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<KitFacade>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<KitFacade>>(Arrays.asList(KitTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<Kit>> TREE_VIEWS =
+				new DefaultListFacade<TreeView<Kit>>(Arrays.asList(KitTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
-		private final FilteredListFacade<CharacterFacade, KitFacade> kits;
+		private final FilteredListFacade<CharacterFacade, Kit> kits;
 
 		public KitTreeViewModel(CharacterFacade character, boolean isAvailModel)
 		{
@@ -266,7 +266,7 @@ public class KitPanel extends FlippingSplitPane
 				kits = new FilteredListFacade<>();
 				kits.setContext(character);
 				kits.setFilter(this);
-				ListFacade<KitFacade> kitList = new DefaultListFacade<>(character.getAvailableKits());
+				ListFacade<Kit> kitList = new DefaultListFacade<>(character.getAvailableKits());
 				kits.setDelegate(kitList);
 				character.getKits().addListListener(this);
 				columns = Arrays.asList(new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
@@ -281,7 +281,7 @@ public class KitPanel extends FlippingSplitPane
 		}
 
 		@Override
-		public ListFacade<? extends TreeView<KitFacade>> getTreeViews()
+		public ListFacade<? extends TreeView<Kit>> getTreeViews()
 		{
 			return TREE_VIEWS;
 		}
@@ -293,13 +293,13 @@ public class KitPanel extends FlippingSplitPane
 		}
 
 		@Override
-		public DataView<KitFacade> getDataView()
+		public DataView<Kit> getDataView()
 		{
 			return this;
 		}
 
 		@Override
-		public ListFacade<KitFacade> getDataModel()
+		public ListFacade<Kit> getDataModel()
 		{
 			if (isAvailModel)
 			{
@@ -312,7 +312,7 @@ public class KitPanel extends FlippingSplitPane
 		}
 
 		@Override
-		public Object getData(KitFacade element, int column)
+		public Object getData(Kit element, int column)
 		{
 			switch (column)
 			{
@@ -326,7 +326,7 @@ public class KitPanel extends FlippingSplitPane
 		}
 
 		@Override
-		public void setData(Object value, KitFacade element, int column)
+		public void setData(Object value, Kit element, int column)
 		{
 		}
 
@@ -337,31 +337,31 @@ public class KitPanel extends FlippingSplitPane
 		}
 
 		@Override
-		public void elementAdded(ListEvent<KitFacade> e)
+		public void elementAdded(ListEvent<Kit> e)
 		{
 			kits.refilter();
 		}
 
 		@Override
-		public void elementRemoved(ListEvent<KitFacade> e)
+		public void elementRemoved(ListEvent<Kit> e)
 		{
 			kits.refilter();
 		}
 
 		@Override
-		public void elementsChanged(ListEvent<KitFacade> e)
+		public void elementsChanged(ListEvent<Kit> e)
 		{
 			kits.refilter();
 		}
 
 		@Override
-		public void elementModified(ListEvent<KitFacade> e)
+		public void elementModified(ListEvent<Kit> e)
 		{
 			kits.refilter();
 		}
 
 		@Override
-		public boolean accept(CharacterFacade context, KitFacade element)
+		public boolean accept(CharacterFacade context, Kit element)
 		{
 			return !element.isPermanent() || !context.getKits().containsElement(element);
 		}
@@ -374,7 +374,7 @@ public class KitPanel extends FlippingSplitPane
 
 	}
 
-	private enum KitTreeView implements TreeView<KitFacade>
+	private enum KitTreeView implements TreeView<Kit>
 	{
 
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
@@ -395,14 +395,14 @@ public class KitPanel extends FlippingSplitPane
 
 		@SuppressWarnings("unchecked")
 		@Override
-		public List<TreeViewPath<KitFacade>> getPaths(KitFacade pobj)
+		public List<TreeViewPath<Kit>> getPaths(Kit pobj)
 		{
 			switch (this)
 			{
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					TreeViewPath<KitFacade> path =
+					TreeViewPath<Kit> path =
 							createTreeViewPath(pobj, (Object[]) pobj.getDisplayType().split("\\.")); //$NON-NLS-1$
 					return Arrays.asList(path);
 				case SOURCE_NAME:
@@ -418,7 +418,7 @@ public class KitPanel extends FlippingSplitPane
 		 * @param path The paths under which the kit should be shown.
 		 * @return The TreeViewPath.
 		 */
-		private static TreeViewPath<KitFacade> createTreeViewPath(KitFacade pobj, Object... path)
+		private static TreeViewPath<Kit> createTreeViewPath(Kit pobj, Object... path)
 		{
 			if (path.length == 0)
 			{

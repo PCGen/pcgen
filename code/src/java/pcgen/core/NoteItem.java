@@ -17,7 +17,6 @@
  */
 package pcgen.core;
 
-import pcgen.facade.core.NoteFacade;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
@@ -25,7 +24,7 @@ import pcgen.util.Logging;
  * {@code NoteItem}.
  *
  */
-public final class NoteItem implements NoteFacade, Cloneable
+public final class NoteItem implements Cloneable
 {
 	private String name = "";
 	private String value = "";
@@ -74,7 +73,6 @@ public final class NoteItem implements NoteFacade, Cloneable
 		name = x;
 	}
 
-	@Override
 	public String getName()
 	{
 		return name;
@@ -90,19 +88,16 @@ public final class NoteItem implements NoteFacade, Cloneable
 		return id_parent;
 	}
 
-	@Override
 	public void setValue(final String x)
 	{
 		value = x;
 	}
 
-	@Override
 	public String getValue()
 	{
 		return value;
 	}
 
-	@Override
 	public boolean isRequired()
 	{
 		return required;

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.fact;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -40,10 +41,6 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		implements DataFacetChangeListener<CharID, PCTemplate>
 {
 
-	/*
-	 * TODO A LOT of this should be type-safe to Region and SubRegion objects,
-	 * but that is currently gated by how Template returns objects.
-	 */
 	private TemplateFacet templateFacet;
 
 	/**
@@ -135,8 +132,6 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Character, it is unlikely that you want this method. It is more likely
 	 * that you should be using getRegion(CharID id)
 	 * 
-	 * @see RegionFacet#getRegion(CharID)
-	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            character Region should be returned.
@@ -144,14 +139,29 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 *         Character represented by the given CharID; "NONE" if no character
 	 *         Region is set for the Player Character
 	 */
-	public String getCharacterRegion(CharID id)
+	public Optional<Region> getCharacterRegion(CharID id)
 	{
 		RegionCacheInfo rci = getInfo(id);
 		if (rci != null && rci.region != null)
 		{
-			return rci.region.toString();
+			return Optional.of(rci.region);
 		}
-		return Constants.NONE;
+		return Optional.empty();
+	}
+
+	/**
+	 * Returns an Optional Region for the Player Character represented by the given
+	 * CharID.
+	 * 
+	 * @param id
+	 *            The CharID representing the Player Character for which the Region should
+	 *            be returned.
+	 * @return An Optional Region for the Player Character represented by the given CharID
+	 */
+	public Optional<Region> getRegion(CharID id)
+	{
+		Optional<Region> charRegion = getCharacterRegion(id);
+		return charRegion.isPresent() ? charRegion : getTemplateRegion(id);
 	}
 
 	/**
@@ -166,45 +176,24 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 *         represented by the given CharID; "NONE" if no Region is set for
 	 *         the Player Character
 	 */
-	public String getRegion(CharID id)
+	public String getRegionString(CharID id)
 	{
-		String charRegion = getCharacterRegion(id);
-		if (!charRegion.equalsIgnoreCase(Constants.NONE))
-		{
-			return charRegion;
-		}
-
-		String region = Constants.NONE;
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			String tempRegion = getTemplateRegion(template);
-
-			if (!tempRegion.equals(Constants.NONE))
-			{
-				region = tempRegion;
-			}
-		}
-
-		return region;
+		Optional<Region> charRegion = getCharacterRegion(id);
+		return charRegion.orElse(getTemplateRegion(id).orElse(Region.NONE)).toString();
 	}
-
-	private String getTemplateRegion(PCTemplate template)
+	
+	private Optional<Region> getTemplateRegion(CharID id)
 	{
-		/*
-		 * TODO This should be made type safe to return a Region. Will require a
-		 * change in the REGION token to suppress load of "None" (corner case)
-		 */
-		Region sr = template.get(ObjectKey.REGION);
-		if (sr == null)
-		{
-			if (template.getSafe(ObjectKey.USETEMPLATENAMEFORREGION))
-			{
-				return template.getDisplayName();
-			}
-			return Constants.NONE;
-		}
-		return sr.toString();
+		return templateFacet.getSet(id)
+				.stream()
+				.map(this::getTemplateRegion)
+				.filter(Optional::isPresent)
+				.reduce(Optional.empty(), (current, next) -> next);
+	}
+	
+	private Optional<Region> getTemplateRegion(PCTemplate template)
+	{
+		return Optional.ofNullable(template.get(ObjectKey.REGION));
 	}
 
 	/**
@@ -225,13 +214,8 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 */
 	public boolean matchesRegion(CharID id, Region r)
 	{
-		String current = getRegion(id);
-		/*
-		 * TODO If this is true (null matches None), should Region prohibit the
-		 * building of Region.NONE or we have to double test here? or two ways
-		 * of specifying NONE?
-		 */
-		return (r == null && Constants.NONE.equals(current)) || (r != null && r.toString().equalsIgnoreCase(current));
+		return getRegion(id).orElse(Region.NONE)
+			.equals(Optional.ofNullable(r).orElse(Region.NONE));
 	}
 
 	/**
@@ -309,10 +293,6 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		SubRegion sr = template.get(ObjectKey.SUBREGION);
 		if (sr == null)
 		{
-			if (template.getSafe(ObjectKey.USETEMPLATENAMEFORSUBREGION))
-			{
-				return template.getDisplayName();
-			}
 			return Constants.NONE;
 		}
 		return sr.toString();
@@ -333,7 +313,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	public String getFullRegion(CharID id)
 	{
 		final String sub = getSubRegion(id);
-		final StringBuilder tempRegName = new StringBuilder(40).append(getRegion(id));
+		final StringBuilder tempRegName = new StringBuilder(40).append(getRegionString(id));
 
 		if (!sub.equals(Constants.NONE))
 		{
@@ -350,7 +330,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 */
 	private static class RegionCacheInfo
 	{
-		public String cachedRegion;
+		public Optional<Region> cachedRegion = Optional.empty();
 
 		public Region region;
 
@@ -359,7 +339,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		@Override
 		public String toString()
 		{
-			return region + " " + subregion + " " + cachedRegion;
+			return region + " " + subregion + " " + cachedRegion.orElse(Region.NONE);
 		}
 
 		@Override
@@ -437,16 +417,16 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	private void updateRegion(CharID id)
 	{
 		RegionCacheInfo rci = getInfo(id);
-		String current = rci.cachedRegion;
-		String newRegion = getRegion(id);
-		if (current == null || !current.equals(newRegion))
+		Optional<Region> current = rci.cachedRegion;
+		Optional<Region> newRegion = getRegion(id);
+		if (current.isEmpty() || !current.equals(newRegion))
 		{
-			if (current != null)
+			if (current.isPresent())
 			{
-				fireDataFacetChangeEvent(id, current, DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, current.get().toString(), DataFacetChangeEvent.DATA_REMOVED);
 			}
 			rci.cachedRegion = newRegion;
-			fireDataFacetChangeEvent(id, newRegion, DataFacetChangeEvent.DATA_ADDED);
+			fireDataFacetChangeEvent(id, newRegion.get().toString(), DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
 

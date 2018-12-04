@@ -40,7 +40,6 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
@@ -48,7 +47,6 @@ import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
@@ -65,7 +63,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<Skill> skills;
 	private final DefaultListFacade<PCTemplate> templates;
 	private final DefaultListFacade<PCAlignment> alignments;
-	private final DefaultListFacade<KitFacade> kits;
+	private final DefaultListFacade<Kit> kits;
 	private final DefaultListFacade<PCStat> stats;
 	private final AbilityMap abilityMap;
 	private final LoadContext context;
@@ -263,7 +261,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities()
+	public MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities()
 	{
 		return abilityMap;
 	}
@@ -562,10 +560,10 @@ public class DataSet implements DataSetFacade
 
 	}
 
-	class AbilityMap extends AbstractMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>>
+	class AbilityMap extends AbstractMapFacade<AbilityCategory, ListFacade<AbilityFacade>>
 	{
 
-		private final TreeMap<AbilityCategoryFacade, ListFacade<AbilityFacade>> map;
+		private final TreeMap<AbilityCategory, ListFacade<AbilityFacade>> map;
 
 		AbilityMap()
 		{
@@ -573,45 +571,43 @@ public class DataSet implements DataSetFacade
 		}
 
 		@Override
-		public Set<AbilityCategoryFacade> getKeys()
+		public Set<AbilityCategory> getKeys()
 		{
 			return Collections.unmodifiableSet(map.keySet());
 		}
 
 		@Override
-		public ListFacade<AbilityFacade> getValue(AbilityCategoryFacade key)
+		public ListFacade<AbilityFacade> getValue(AbilityCategory key)
 		{
 			return map.get(key);
 		}
 
-		public void put(AbilityCategoryFacade key, ListFacade<AbilityFacade> value)
+		public void put(AbilityCategory key, ListFacade<AbilityFacade> value)
 		{
 			map.put(key, value);
 		}
 
 	}
 
-	class AbilityCategoryComparator implements Comparator<AbilityCategoryFacade>
+	class AbilityCategoryComparator implements Comparator<AbilityCategory>
 	{
 
 		@Override
-		public int compare(AbilityCategoryFacade f1, AbilityCategoryFacade f2)
+		public int compare(AbilityCategory category1, AbilityCategory category2)
 		{
-			AbilityCategory o1 = (AbilityCategory) f1;
-			AbilityCategory o2 = (AbilityCategory) f2;
 			final int BEFORE = -1;
 			final int EQUAL = 0;
 			final int AFTER = 1;
 
-			if (o1 == o2)
+			if (category1 == category2)
 			{
 				return EQUAL;
 			}
 
-			String ac1Key = o1.getKeyName();
-			String ac2Key = o2.getKeyName();
-			String ac1Display = o1.getDisplayLocation().toString().toUpperCase();
-			String ac2Display = o2.getDisplayLocation().toString().toUpperCase();
+			String ac1Key = category1.getKeyName();
+			String ac2Key = category2.getKeyName();
+			String ac1Display = category1.getDisplayLocation().toString().toUpperCase();
+			String ac2Display = category2.getDisplayLocation().toString().toUpperCase();
 
 			if (ac1Display == null && ac2Display != null)
 			{
@@ -657,7 +653,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<KitFacade> getKits()
+	public ListFacade<Kit> getKits()
 	{
 		return kits;
 	}

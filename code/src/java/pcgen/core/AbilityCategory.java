@@ -49,7 +49,6 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
-import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
@@ -68,7 +67,7 @@ import pcgen.util.enumeration.Visibility;
  * 
  */
 public class AbilityCategory
-		implements Category<Ability>, Loadable, ManufacturableFactory<Ability>, AbilityCategoryFacade
+		implements Category<Ability>, Loadable, ManufacturableFactory<Ability>
 {
 	private static final ClassIdentity<AbilityCategory> IDENTITY =
 			BasicClassIdentity.getIdentity(AbilityCategory.class);
@@ -418,7 +417,6 @@ public class AbilityCategory
 	 * 
 	 * @return <tt>true</tt> if these abilities are editable.
 	 */
-	@Override
 	public boolean isEditable()
 	{
 		return isEditable;
@@ -439,7 +437,6 @@ public class AbilityCategory
 	 * 
 	 * @return <tt>true</tt> to allow user editing.
 	 */
-	@Override
 	public boolean allowPoolMod()
 	{
 		return isPoolModifiable;
@@ -812,7 +809,6 @@ public class AbilityCategory
 		return getDisplayName();
 	}
 
-	@Override
 	public String getType()
 	{
 		return String.valueOf(getDisplayLocation());

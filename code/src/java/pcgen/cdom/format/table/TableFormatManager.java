@@ -18,6 +18,7 @@
 package pcgen.cdom.format.table;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -98,9 +99,9 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	}
 
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

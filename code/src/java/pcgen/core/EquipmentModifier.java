@@ -19,6 +19,7 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
@@ -298,9 +299,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return EquipmentPartScope.PC_EQUIPMENT_PART;
+		return Optional.of(EquipmentPartScope.PC_EQUIPMENT_PART);
 	}
 
 	private VarScoped variableParent;
@@ -311,8 +312,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	}
 
 	@Override
-	public VarScoped getVariableParent()
+	public Optional<VarScoped> getVariableParent()
 	{
-		return variableParent;
+		return Optional.ofNullable(variableParent);
 	}
 }

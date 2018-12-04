@@ -2,6 +2,7 @@ package pcgen;
 
 import java.math.BigDecimal;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.LevelInfo;
 import pcgen.core.SettingsHandler;
@@ -40,7 +41,7 @@ public abstract class PCGenTestCase extends TestCase
 		super.setUp();
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
-		gamemode.setAlignmentText("Alignment");
+		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
 		gamemode.addLevelInfo("Normal", new LevelInfo());
 		gamemode.addXPTableName("Normal");
 		gamemode.setDefaultXPTableName("Normal");

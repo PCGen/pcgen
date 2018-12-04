@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -6230,7 +6231,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		// Alignment
 
-		if (!SettingsHandler.getGame().getAlignmentText().isEmpty())
+		if (isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			PCAlignment align = AlignmentCompat.getCurrentAlignment(id);
 			if (align != null)
@@ -7274,8 +7275,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		aClone.outputSheetPDF = outputSheetPDF;
 		aClone.defaultDomainSource = defaultDomainSource;
 
-		aClone.ageSetKitSelections = new boolean[ageSetKitSelections.length];
-		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0, ageSetKitSelections.length);
+		aClone.ageSetKitSelections =
+				Arrays.copyOf(ageSetKitSelections, ageSetKitSelections.length);
 
 		// Not sure what this is for
 		aClone.importing = false;
@@ -10135,6 +10136,23 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public String getControl(String string)
 	{
 		return controller.get(ObjectKey.getKeyFor(String.class, '*' + string));
+	}
+
+	/**
+	 * Returns the value of a CodeControl, or the default value if the code control has
+	 * not been set in the data.
+	 * 
+	 * @param control
+	 *            The CodeControl for which the value should be returned
+	 * @return The value of a CodeControl, or the default value if the code control has
+	 *         not been set in the data
+	 */
+	public String getControl(CControl control)
+	{
+		ObjectKey<String> ok = ObjectKey.getKeyFor(String.class,
+			"*" + Objects.requireNonNull(control.getName()));
+		return Optional.ofNullable(controller.get(ok))
+			.orElse(control.getDefaultValue());
 	}
 
 	public boolean hasControl(String string)

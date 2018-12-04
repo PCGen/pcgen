@@ -115,10 +115,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Region> REGION = new ObjectKey<>(null);
 
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBREGION = new ObjectKey<>(Boolean.FALSE);
-
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORREGION = new ObjectKey<>(Boolean.FALSE);
-
 	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<>(null);
 
 	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBRACE = new ObjectKey<>(Boolean.FALSE);
@@ -247,8 +243,6 @@ public class ObjectKey<T>
 	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> BASESIZE;
 
 	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> SIZE;
-
-	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<>(null);
 
 	public static final ObjectKey<Boolean> USE_MASTER_SKILL = new ObjectKey<>(Boolean.FALSE);
 

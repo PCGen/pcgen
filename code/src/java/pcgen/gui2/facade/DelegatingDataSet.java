@@ -24,15 +24,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
+import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
-import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
@@ -40,7 +41,6 @@ import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
@@ -66,7 +66,7 @@ public class DelegatingDataSet implements DataSetFacade
 	private final DelegatingListFacade<Deity> deities;
 	private final DelegatingListFacade<PCTemplate> templates;
 	private final DelegatingListFacade<PCAlignment> alignments;
-	private final DelegatingListFacade<KitFacade> kits;
+	private final DelegatingListFacade<Kit> kits;
 	private final DelegatingListFacade<PCStat> stats;
 	private final DelegatingAbilitiesMap abilities;
 	private final DelegatingListFacade<CampaignFacade> campaigns;
@@ -122,20 +122,20 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities()
+	public MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities()
 	{
 		return abilities;
 	}
 
-	private class DelegatingAbilitiesMap extends AbstractMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>>
-			implements MapListener<AbilityCategoryFacade, ListFacade<AbilityFacade>>
+	private class DelegatingAbilitiesMap extends AbstractMapFacade<AbilityCategory, ListFacade<AbilityFacade>>
+			implements MapListener<AbilityCategory, ListFacade<AbilityFacade>>
 	{
 
-		private final Map<AbilityCategoryFacade, DelegatingListFacade<AbilityFacade>> abilitiesMap;
+		private final Map<AbilityCategory, DelegatingListFacade<AbilityFacade>> abilitiesMap;
 
-		private final MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilitiesDelegate;
+		private final MapFacade<AbilityCategory, ListFacade<AbilityFacade>> abilitiesDelegate;
 
-		public DelegatingAbilitiesMap(MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilitiesDelegate)
+		public DelegatingAbilitiesMap(MapFacade<AbilityCategory, ListFacade<AbilityFacade>> abilitiesDelegate)
 		{
 			this.abilitiesDelegate = abilitiesDelegate;
 			this.abilitiesMap = new HashMap<>();
@@ -153,45 +153,45 @@ public class DelegatingDataSet implements DataSetFacade
 		}
 
 		@Override
-		public Set<AbilityCategoryFacade> getKeys()
+		public Set<AbilityCategory> getKeys()
 		{
 			return abilitiesDelegate.getKeys();
 		}
 
 		@Override
-		public ListFacade<AbilityFacade> getValue(AbilityCategoryFacade key)
+		public ListFacade<AbilityFacade> getValue(AbilityCategory key)
 		{
 			return abilitiesMap.get(key);
 		}
 
 		@Override
-		public void keyAdded(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
+		public void keyAdded(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
-			AbilityCategoryFacade key = e.getKey();
+			AbilityCategory key = e.getKey();
 			DelegatingListFacade<AbilityFacade> newValue = new DelegatingListFacade<>(e.getNewValue());
 			abilitiesMap.put(key, newValue);
 			fireKeyAdded(this, key, newValue);
 		}
 
 		@Override
-		public void keyRemoved(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
+		public void keyRemoved(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
-			AbilityCategoryFacade key = e.getKey();
+			AbilityCategory key = e.getKey();
 			DelegatingListFacade<AbilityFacade> oldValue = abilitiesMap.remove(key);
 			fireKeyRemoved(this, key, oldValue);
 			oldValue.setDelegate(null);
 		}
 
 		@Override
-		public void keyModified(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
+		public void keyModified(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
 			fireKeyModified(this, e.getKey(), abilitiesMap.get(e.getKey()), e);
 		}
 
 		@Override
-		public void valueChanged(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
+		public void valueChanged(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
-			AbilityCategoryFacade key = e.getKey();
+			AbilityCategory key = e.getKey();
 			DelegatingListFacade<AbilityFacade> oldValue = abilitiesMap.get(key);
 			DelegatingListFacade<AbilityFacade> newValue = new DelegatingListFacade<>(e.getNewValue());
 			abilitiesMap.put(key, newValue);
@@ -200,14 +200,14 @@ public class DelegatingDataSet implements DataSetFacade
 		}
 
 		@Override
-		public void valueModified(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
+		public void valueModified(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
 			fireValueModified(this, e.getKey(), abilitiesMap.get(e.getKey()), e);
 		}
 
 		private void populateMap()
 		{
-			for (AbilityCategoryFacade key : abilitiesDelegate.getKeys())
+			for (AbilityCategory key : abilitiesDelegate.getKeys())
 			{
 				DelegatingListFacade<AbilityFacade> value = new DelegatingListFacade<>(abilitiesDelegate.getValue(key));
 				abilitiesMap.put(key, value);
@@ -215,7 +215,7 @@ public class DelegatingDataSet implements DataSetFacade
 		}
 
 		@Override
-		public void keysChanged(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
+		public void keysChanged(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
 			ArrayList<DelegatingListFacade<AbilityFacade>> deadLists = new ArrayList<>(abilitiesMap.values());
 			abilitiesMap.clear();
@@ -331,7 +331,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<KitFacade> getKits()
+	public ListFacade<Kit> getKits()
 	{
 		return kits;
 	}

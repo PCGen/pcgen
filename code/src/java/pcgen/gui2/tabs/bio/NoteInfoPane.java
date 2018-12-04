@@ -31,9 +31,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
+import pcgen.core.NoteItem;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DescriptionFacade;
-import pcgen.facade.core.NoteFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.TextFieldListener;
@@ -53,13 +53,13 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 	private final JTextArea noteField;
 	private final JButton removeButton;
 	private String name;
-	private final NoteFacade note;
+	private final NoteItem note;
 
 	/**
 	 * Create a new instance of NoteInfoPane
 	 * @param note The note we are to manage.
 	 */
-	public NoteInfoPane(NoteFacade note)
+	public NoteInfoPane(NoteItem note)
 	{
 		this.note = note;
 		this.nameField = new JTextField(15);
@@ -167,7 +167,7 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 	/**
 	 * @return the name
 	 */
-	public NoteFacade getNote()
+	public NoteItem getNote()
 	{
 		return note;
 	}

@@ -44,7 +44,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
@@ -1029,11 +1028,6 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 			{
 				kit.act(kit.driveChoice(aPC), classLevel, aPC);
 			}
-			TransitionChoice<Region> region = classLevel.get(ObjectKey.REGION_CHOICE);
-			if (region != null)
-			{
-				region.act(region.driveChoice(aPC), classLevel, aPC);
-			}
 		}
 
 		// this is a monster class, so don't worry about experience
@@ -1322,12 +1316,6 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 
 		removeListFor(ListKey.KIT_CHOICE);
 		addAllToListFor(ListKey.KIT_CHOICE, otherClass.getSafeListFor(ListKey.KIT_CHOICE));
-
-		remove(ObjectKey.REGION_CHOICE);
-		if (otherClass.containsKey(ObjectKey.REGION_CHOICE))
-		{
-			put(ObjectKey.REGION_CHOICE, otherClass.get(ObjectKey.REGION_CHOICE));
-		}
 
 		removeListFor(ListKey.SAB);
 		addAllToListFor(ListKey.SAB, otherClass.getSafeListFor(ListKey.SAB));

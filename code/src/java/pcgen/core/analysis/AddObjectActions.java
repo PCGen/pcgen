@@ -22,8 +22,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Region;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
@@ -40,11 +38,6 @@ public final class AddObjectActions
 		for (TransitionChoice<Kit> kit : po.getSafeListFor(ListKey.KIT_CHOICE))
 		{
 			kit.act(kit.driveChoice(aPC), po, aPC);
-		}
-		TransitionChoice<Region> region = po.get(ObjectKey.REGION_CHOICE);
-		if (region != null)
-		{
-			region.act(region.driveChoice(aPC), po, aPC);
 		}
 	}
 

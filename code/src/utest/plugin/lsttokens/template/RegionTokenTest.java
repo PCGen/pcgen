@@ -17,12 +17,9 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
@@ -76,78 +73,4 @@ public class RegionTokenTest extends
 	{
 		return false;
 	}
-
-	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
-	{
-		runRoundRobin("YES");
-	}
-
-	@Test
-	public void testReplacementYes()
-	{
-		String[] unparsed;
-		assertTrue(parse("YES"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
-		assertTrue(parse("TestWP1"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
-		assertTrue(parse("YES"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
-	}
-
-	@Test
-	public void testOverwriteYes()
-	{
-		parse("YES");
-		validateUnparsed(primaryContext, primaryProf, "YES");
-		parse("TestWP1");
-		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
-				.getAnswer("TestWP1"));
-	}
-
-	@Test
-	public void testOverwriteWithYes()
-	{
-		parse("TestWP1");
-		validateUnparsed(primaryContext, primaryProf, "TestWP1");
-		parse("YES");
-		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
-				.getAnswer("YES"));
-	}
-
-	@Test
-	public void testUnparseYes()
-	{
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-	}
-
-	@Test
-	public void testUnparseIllegal()
-	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		Region o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
-	}
-
-	@Test
-	public void testUnparseLegalWithFalse()
-	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		Region o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, false);
-		expectSingle(getToken().unparse(primaryContext, primaryProf),
-				getLegalValue());
-	}
-
 }

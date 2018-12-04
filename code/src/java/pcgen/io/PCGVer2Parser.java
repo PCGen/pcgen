@@ -34,8 +34,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
@@ -145,6 +143,9 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
+
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code PCGVer2Parser}
@@ -455,17 +456,6 @@ final class PCGVer2Parser implements PCGParser
 		cache.put(s.substring(0, s.indexOf(':')), s);
 	}
 
-	private void checkSkillPools()
-	{
-		int skillPoints = 0;
-
-		for (final PCClass pcClass : thePC.getClassSet())
-		{
-			skillPoints += pcClass.getSkillPool(thePC);
-		}
-
-		thePC.setDirty(true);
-	}
 
 	private void checkStats() throws PCGParseException
 	{
@@ -837,8 +827,7 @@ final class PCGVer2Parser implements PCGParser
 			{
 				parseClassLine(line);
 			}
-
-			checkSkillPools();
+			thePC.setDirty(true);
 		}
 
 		final List<PCLevelInfo> pcLevelInfoList = new ArrayList<>(thePC.getLevelInfo());

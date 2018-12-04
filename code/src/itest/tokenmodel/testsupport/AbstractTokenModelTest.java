@@ -46,8 +46,6 @@ import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.cdom.formula.local.ModifierDecoration;
-import pcgen.cdom.inst.CodeControl;
-import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -58,9 +56,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.SourceFileLoader;
-import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
@@ -245,9 +241,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		GlobalModifiers mods = ref.constructNowIfNecessary(GlobalModifiers.class,
-			GlobalModifierLoader.GLOBAL_MODIFIERS);
-		mods.addGrantedVariable(ChannelUtilities.createVarName("AlignmentInput"));
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -301,18 +294,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
 		proc(fmtManager);
-		setAlignmentInputCodeControl(context, fmtManager, ref);
-	}
-
-	private void setAlignmentInputCodeControl(LoadContext context,
-		FormatManager<?> fmtManager, AbstractReferenceContext ref)
-	{
-		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
-		String channelName = ChannelUtilities.createVarName("AlignmentInput");
-		context.getVariableContext().assertLegalVariableID(
-			channelName, context.getActiveScope(), fmtManager);
-		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
-		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
+		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
 	}
 
 	private <T> void proc(FormatManager<T> fmtManager)

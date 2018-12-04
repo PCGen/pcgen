@@ -23,6 +23,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
+import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -30,7 +31,6 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
-import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.ClassFacade;
@@ -39,7 +39,6 @@ import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
 import pcgen.facade.util.ListFacade;
@@ -55,7 +54,7 @@ public class MockDataSetFacade implements DataSetFacade
 {
 
 	private DefaultListFacade<BodyStructure> equipmentLoc;
-	private DefaultMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
+	private DefaultMapFacade<AbilityCategory, ListFacade<AbilityFacade>> abilityMap;
 	private final GameMode game;
 	private DefaultListFacade<Race> races;
 	private DefaultListFacade<Skill> skills;
@@ -219,10 +218,9 @@ public class MockDataSetFacade implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<KitFacade> getKits()
+	public ListFacade<Kit> getKits()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -240,7 +238,7 @@ public class MockDataSetFacade implements DataSetFacade
 	}
 
 	@Override
-	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities()
+	public MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities()
 	{
 		return abilityMap;
 	}

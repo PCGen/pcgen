@@ -74,7 +74,6 @@ import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
@@ -120,7 +119,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -144,7 +142,6 @@ import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.core.KitFacade;
 import pcgen.facade.core.LanguageChooserFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
@@ -163,6 +160,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.gui2.util.InterfaceChannelUtilities;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
@@ -172,7 +170,6 @@ import pcgen.output.channel.compat.GenderCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
-import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -247,7 +244,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
 	private ListFacade<Race> raceList;
-	private DefaultListFacade<KitFacade> kitList;
+	private DefaultListFacade<Kit> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
 	private String selectedGender;
@@ -398,12 +395,10 @@ public class CharacterFacadeImpl
 		}
 
 		GameMode game = (GameMode) dataSet.getGameMode();
-		if (!game.getAlignmentText().isEmpty())
+		if (theCharacter.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
-			LoadContext context = Globals.getContext();
-			String channelName = ControlUtilities.getControlToken(context, CControl.ALIGNMENTINPUT);
-			alignment = (WriteableReferenceFacade<PCAlignment>) context.getVariableContext()
-				.getGlobalChannel(theCharacter.getCharID(), channelName);
+			alignment = InterfaceChannelUtilities.getReferenceFacade(
+				theCharacter.getCharID(), CControl.ALIGNMENTINPUT);
 		}
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
@@ -638,7 +633,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void addAbility(AbilityCategoryFacade category, AbilityFacade ability)
+	public void addAbility(AbilityCategory category, AbilityFacade ability)
 	{
 		characterAbilities.addAbility(category, ability);
 		refreshKitList();
@@ -650,7 +645,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void removeAbility(AbilityCategoryFacade category, AbilityFacade ability)
+	public void removeAbility(AbilityCategory category, AbilityFacade ability)
 	{
 		characterAbilities.removeAbility(category, ability);
 		refreshKitList();
@@ -659,25 +654,25 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
+	public ListFacade<AbilityFacade> getAbilities(AbilityCategory category)
 	{
 		return characterAbilities.getAbilities(category);
 	}
 
 	@Override
-	public ListFacade<AbilityCategoryFacade> getActiveAbilityCategories()
+	public ListFacade<AbilityCategory> getActiveAbilityCategories()
 	{
 		return characterAbilities.getActiveAbilityCategories();
 	}
 
 	@Override
-	public int getTotalSelections(AbilityCategoryFacade category)
+	public int getTotalSelections(AbilityCategory category)
 	{
 		return characterAbilities.getTotalSelections(category);
 	}
 
 	@Override
-	public int getRemainingSelections(AbilityCategoryFacade category)
+	public int getRemainingSelections(AbilityCategory category)
 	{
 		return characterAbilities.getRemainingSelections(category);
 	}
@@ -695,13 +690,13 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void setRemainingSelection(AbilityCategoryFacade category, int remaining)
+	public void setRemainingSelection(AbilityCategory category, int remaining)
 	{
 		characterAbilities.setRemainingSelection(category, remaining);
 	}
 
 	@Override
-	public boolean hasAbility(AbilityCategoryFacade category, AbilityFacade ability)
+	public boolean hasAbility(AbilityCategory category, AbilityFacade ability)
 	{
 		return characterAbilities.hasAbility(category, ability);
 	}
@@ -1293,7 +1288,7 @@ public class CharacterFacadeImpl
 		StringBuilder unqualified = new StringBuilder(100);
 		List<PCClass> classList = charDisplay.getClassList();
 		List<PCClass> exclassList = new ArrayList<>();
-		PCAlignment savedAlignmnet = charDisplay.getPCAlignment();
+		PCAlignment savedAlignmnet = AlignmentCompat.getCurrentAlignment(theCharacter.getCharID());
 		for (PCClass aClass : classList)
 		{
 			AlignmentCompat.setCurrentAlignment(theCharacter.getCharID(), newAlign);
@@ -1716,10 +1711,10 @@ public class CharacterFacadeImpl
 			race = RaceUtilities.getUnselectedRace();
 		}
 		this.race.set(race);
-		if (race instanceof Race && race != charDisplay.getRace())
+		if (race != charDisplay.getRace())
 		{
 			Logging.log(Logging.INFO, charDisplay.getName() + ": Setting race to " + race); //$NON-NLS-1$
-			theCharacter.setRace((Race) race);
+			theCharacter.setRace(race);
 		}
 		refreshLanguageList();
 		if (selectedGender != null)
@@ -3570,19 +3565,6 @@ public class CharacterFacadeImpl
 			return false;
 		}
 
-		if (infoFacade instanceof Kit)
-		{
-			Kit kit = (Kit) infoFacade;
-			BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
-			if (totalCost != null)
-			{
-				if (theCharacter.getGold().compareTo(totalCost) < 0)
-				{
-					// Character cannto afford the kit
-					return false;
-				}
-			}
-		}
 		return true;
 	}
 
@@ -3879,20 +3861,19 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public DefaultListFacade<KitFacade> getKits()
+	public DefaultListFacade<Kit> getKits()
 	{
 		return kitList;
 	}
 
 	@Override
-	public void addKit(KitFacade obj)
+	public void addKit(Kit kit)
 	{
-		if (obj == null || !(obj instanceof Kit))
+		if (kit == null)
 		{
 			return;
 		}
 
-		Kit kit = (Kit) obj;
 		if (!theCharacter.isQualified(kit))
 		{
 			return;
@@ -3915,7 +3896,7 @@ public class CharacterFacadeImpl
 		// The user is applying the kit so use the real PC now.
 		Logging.log(Logging.INFO, charDisplay.getName() + ": Adding kit " + kit); //$NON-NLS-1$
 		kit.processKit(theCharacter, thingsToAdd);
-		kitList.addElement(obj);
+		kitList.addElement(kit);
 
 		// Kits can upate most things so do a thorough refresh
 		race.set(charDisplay.getRace());
@@ -3974,19 +3955,19 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public List<KitFacade> getAvailableKits()
+	public List<Kit> getAvailableKits()
 	{
-		List<KitFacade> kits = new ArrayList<>();
-		for (KitFacade obj : dataSet.getKits())
+		List<Kit> kits = new ArrayList<>();
+		for (Kit kit : dataSet.getKits())
 		{
-			if (obj == null || !(obj instanceof Kit))
+			if (kit == null)
 			{
 				continue;
 			}
 
-			if (((Kit) obj).isVisible(theCharacter, View.VISIBLE_DISPLAY))
+			if (kit.isVisible(theCharacter, View.VISIBLE_DISPLAY))
 			{
-				kits.add(obj);
+				kits.add(kit);
 			}
 
 		}
@@ -4249,4 +4230,18 @@ public class CharacterFacadeImpl
 		return theCharacter.isQualified(qRace);
 	}
 
+	@Override
+	public boolean isQualifiedFor(Kit kit)
+	{
+		BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
+		if (totalCost != null)
+		{
+			if (theCharacter.getGold().compareTo(totalCost) < 0)
+			{
+				// Character cannot afford the kit
+				return false;
+			}
+		}
+		return true;
+	}
 }

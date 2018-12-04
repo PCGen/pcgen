@@ -32,6 +32,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
@@ -6237,9 +6238,9 @@ public final class Equipment extends PObject
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "PC.EQUIPMENT";
+		return Optional.of("PC.EQUIPMENT");
 	}
 
 	public Object getLocalVariable(CharID id, String varName)

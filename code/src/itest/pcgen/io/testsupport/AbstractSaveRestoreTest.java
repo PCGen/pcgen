@@ -22,6 +22,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.Collections;
 
+import pcgen.ControlTestSupport;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.test.InequalityTester;
 import pcgen.base.util.FormatManager;
@@ -58,7 +59,6 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.formula.local.ModifierDecoration;
-import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -73,7 +73,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
-import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -152,7 +151,7 @@ public abstract class AbstractSaveRestoreTest
 			"LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		"
 		+ "CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2",
 			0, TestURI.getURI(), "Default");
-		mode.setAlignmentText("Alignment");
+		ControlTestSupport.enableFeature(mode.getModeContext(), CControl.ALIGNMENTFEATURE);
 	}
 
 	@Before
@@ -341,20 +340,7 @@ public abstract class AbstractSaveRestoreTest
 		ChooserFactory.setDelegate(new MockUIDelegate());
 		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
 		proc(fmtManager);
-		setAlignmentInputCodeControl(context, fmtManager, ref);
-	}
-
-	private static void setAlignmentInputCodeControl(LoadContext context,
-	                                                 FormatManager<?> fmtManager,
-	                                                 AbstractReferenceContext ref)
-	{
-		CodeControl ai = ref.constructCDOMObject(CodeControl.class, "Controller");
-		String channelName = ChannelUtilities.createVarName("AlignmentInput");
-		context.getVariableContext().assertLegalVariableID(
-			channelName, context.getActiveScope(),
-			fmtManager);
-		String controlName = '*' + CControl.ALIGNMENTINPUT.getName();
-		ai.put(ObjectKey.getKeyFor(String.class, controlName), "AlignmentInput");
+		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
 	}
 
 	private <T> void proc(FormatManager<T> fmtManager)

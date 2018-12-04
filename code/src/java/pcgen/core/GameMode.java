@@ -81,7 +81,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private Map<String, String> spellRangeMap = new HashMap<>();
 	private String acAbbrev = "";
 	private String acName = "";
-	private String alignmentName = "";
 	private String althpAbbrev = "";
 	private String althpName = "";
 	private String babAbbrev = null;
@@ -302,15 +301,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 
 		return acType;
-	}
-
-	/**
-	 * Set Alignment Text.
-	 * @param aString
-	 */
-	public void setAlignmentText(final String aString)
-	{
-		alignmentName = aString;
 	}
 
 	/**
@@ -1148,15 +1138,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public String getACText()
 	{
 		return acName;
-	}
-
-	/**
-	 * Answer with the alignment.
-	 * @return alignment name
-	 */
-	public String getAlignmentText()
-	{
-		return alignmentName;
 	}
 
 	public List<String> getAllowedModes()

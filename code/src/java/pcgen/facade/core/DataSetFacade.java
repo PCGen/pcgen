@@ -20,8 +20,10 @@ package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
+import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -34,7 +36,7 @@ import pcgen.facade.util.MapFacade;
 public interface DataSetFacade
 {
 
-	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities();
+	public MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities();
 
 	//	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
 	//
@@ -90,7 +92,7 @@ public interface DataSetFacade
 	/**
 	 * @return the list of kits
 	 */
-	public ListFacade<KitFacade> getKits();
+	public ListFacade<Kit> getKits();
 
 	/**
 	 * @return The list of sizes

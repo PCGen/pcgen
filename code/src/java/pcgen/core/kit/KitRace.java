@@ -44,12 +44,7 @@ public class KitRace extends BaseKit
 		// We want to level up as quietly as possible for kits.
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		SettingsHandler.setShowFeatDialogAtLevelUp(false);
-
 		aPC.setRace(theRace.get());
-
-		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
 
