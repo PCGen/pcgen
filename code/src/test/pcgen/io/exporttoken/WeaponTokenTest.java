@@ -47,6 +47,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.RuleCheck;
+import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
@@ -270,9 +271,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		GameMode gm = SettingsHandler.getGame();
 		RuleCheck rc = new RuleCheck();
-		rc.setName("SIZECAT");
+		rc.setName(RuleConstants.SIZECAT);
 		gm.getModeContext().getReferenceContext().importObject(rc);
-		SettingsHandler.setRuleCheck("SIZECAT", true);
+		SettingsHandler.setRuleCheck(RuleConstants.SIZECAT, true);
 		gm.setWCStepsFormula("EQUIP.SIZE.INT-PC.SIZE.INT");
 		gm.setWeaponReachFormula("(RACEREACH+(max(0,REACH-5)))*REACHMULT");
 
