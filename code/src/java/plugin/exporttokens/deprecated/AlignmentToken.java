@@ -24,6 +24,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.compat.AlignmentCompat;
 
 /**
  * Class deals with ALIGNMENT and ALIGNMENT.SHORT Token
@@ -62,7 +63,7 @@ public class AlignmentToken extends Token
 		{
 			return "";
 		}
-		final PCAlignment alignment = pc.getDisplay().getPCAlignment();
+		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
 		return alignment == null ? "None" : alignment.getDisplayName();
 	}
 
@@ -78,7 +79,7 @@ public class AlignmentToken extends Token
 			return "";
 		}
 
-		final PCAlignment alignment = pc.getDisplay().getPCAlignment();
+		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
 		return alignment == null ? "None" : alignment.getKeyName();
 	}
 }
