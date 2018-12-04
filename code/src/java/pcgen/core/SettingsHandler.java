@@ -80,7 +80,7 @@ public final class SettingsHandler
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
-	private static Map<String, String> ruleCheckMap = new HashMap<>();
+	private static final Map<String, String> ruleCheckMap = new HashMap<>();
 
 	/** That browserPath is set to null is intentional. */
 	private static String browserPath = null; //Intentional null
@@ -124,8 +124,6 @@ public final class SettingsHandler
 	private static final Properties FILEPATHS = new Properties();
 	private static final String FILE_LOCATION = Globals.getFilepathsPath();
 	private static File pccFilesLocation = null;
-	private static File pcgPath = new File(Globals.getDefaultPath());
-	private static File lastUsedPcgPath = null; // NB: This is not saved to preferences 
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
@@ -180,21 +178,10 @@ public final class SettingsHandler
 	private static boolean showMemoryArea = false;
 	private static boolean showImagePreview = true;
 	private static boolean showTipOfTheDay = true;
-	private static boolean isGMGen = false;
 	private static boolean showSingleBoxPerBundle = false;
 
 	private SettingsHandler()
 	{
-	}
-
-	public static String getSelectedGenerators(String string)
-	{
-		throw new UnsupportedOperationException("Not yet implemented");
-	}
-
-	public static void setSelectedGenerators(String prop, String generators)
-	{
-		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
 	public static void setAlwaysOverwrite(final boolean argAlwaysOverwrite)
@@ -417,20 +404,6 @@ public final class SettingsHandler
 		return FILEPATHS;
 	}
 
-	public static boolean getFirstRun()
-	{
-		// if filepaths.ini doesn't exist that means this is
-		// the first time PCGen has been run
-		final File aFile = new File(FILE_LOCATION);
-
-		return !aFile.exists();
-
-	}
-
-	public static boolean isGMGen()
-	{
-		return isGMGen;
-	}
 
 	/**
 	 * Puts all properties into the {@code Properties} object,
@@ -490,12 +463,12 @@ public final class SettingsHandler
 
 	public static int getGMGenOption(final String optionName, final int defaultValue)
 	{
-		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue))).intValue();
+		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue)));
 	}
 
 	public static Double getGMGenOption(final String optionName, final double defaultValue)
 	{
-		return new Double(getGMGenOption(optionName, Double.toString(defaultValue)));
+		return Double.valueOf(getGMGenOption(optionName, Double.toString(defaultValue)));
 	}
 
 	public static String getGMGenOption(final String optionName, final String defaultValue)
@@ -712,15 +685,6 @@ public final class SettingsHandler
 		return invalidToHitText;
 	}
 
-	/**
-	 * TODO: It's commented out in gmgen. Is it safe to remove?
-	 * @param GMGen
-	 */
-	public static void setIsGMGen(final boolean GMGen)
-	{
-		isGMGen = GMGen;
-	}
-
 	public static void setKitSelectorDimension(final Dimension d)
 	{
 		kitSelectorDimension = d;
@@ -826,7 +790,7 @@ public final class SettingsHandler
 		return OPTIONS;
 	}
 
-	public static Dimension getOptionsFromProperties(final PlayerCharacter aPC)
+	public static void getOptionsFromProperties(final PlayerCharacter aPC)
 	{
 		Dimension d = new Dimension(0, 0);
 
@@ -1016,7 +980,6 @@ public final class SettingsHandler
 		//   pcgen.options.rulechecks=aKey:Y|bKey:N|cKey:Y
 		parseRuleChecksFromOptions(getPCGenOption("ruleChecks", "")); //$NON-NLS-1$ //$NON-NLS-2$
 
-		return d;
 	}
 
 	/**
@@ -1291,11 +1254,6 @@ public final class SettingsHandler
 		return getOptions().getProperty("pcgen.options." + optionName, defaultValue); //$NON-NLS-1$
 	}
 
-	public static boolean hasPCGenOption(final String optionName)
-	{
-		return getOptions().containsKey("pcgen.options." + optionName);
-	}
-
 	public static String getPDFOutputSheetPath()
 	{
 		if ("".equals(selectedCharacterPDFOutputSheet)) //$NON-NLS-1$
@@ -1337,32 +1295,6 @@ public final class SettingsHandler
 		{
 			path.mkdirs();
 		}
-	}
-
-	/**
-	 * Sets the path that was last used in a character or output file chooser.
-	 *
-	 * @param  path  the {@code File} representing the path
-	 */
-	public static void setLastUsedPcgPath(final File path)
-	{
-		if (path != null && !path.exists())
-		{
-			path.mkdirs();
-		}
-		lastUsedPcgPath = path;
-	}
-
-	/**
-	 * @return The path that was last used in a character or output file chooser.
-	 */
-	public static File getLastUsedPcgPath()
-	{
-		if (lastUsedPcgPath == null)
-		{
-			return pcgPath;
-		}
-		return lastUsedPcgPath;
 	}
 
 	public static void setPcgenOutputSheetDir(final File aFile)
@@ -1520,11 +1452,6 @@ public final class SettingsHandler
 		return false;
 	}
 
-	public static void setSaveCustomEquipment(final boolean aBool)
-	{
-		setSaveCustomInLst(aBool);
-	}
-
 	/**
 	 * save the outputsheet location with the PC?
 	 * @param arg
@@ -1629,18 +1556,6 @@ public final class SettingsHandler
 		return selectedEqSetTemplate;
 	}
 
-	public static String getSelectedEqSetTemplateName()
-	{
-		if (!selectedEqSetTemplate.isEmpty())
-		{
-			final int i = selectedEqSetTemplate.lastIndexOf('\\');
-
-			return selectedEqSetTemplate.substring(i + 1);
-		}
-
-		return selectedEqSetTemplate;
-	}
-
 	/**
 	 * Sets the current party HTML template.
 	 *
@@ -1698,18 +1613,6 @@ public final class SettingsHandler
 	 **/
 	public static String getSelectedSpellSheet()
 	{
-		return selectedSpellSheet;
-	}
-
-	public static String getSelectedSpellSheetName()
-	{
-		if (!selectedSpellSheet.isEmpty())
-		{
-			final int i = selectedSpellSheet.lastIndexOf('\\');
-
-			return selectedSpellSheet.substring(i + 1);
-		}
-
 		return selectedSpellSheet;
 	}
 
@@ -1805,16 +1708,6 @@ public final class SettingsHandler
 	public static File getTempPath()
 	{
 		return TEMP_PATH;
-	}
-
-	public static void setToolBarShown(final boolean argShowToolBar)
-	{
-		setShowToolBar(argShowToolBar);
-	}
-
-	public static boolean isToolBarShown()
-	{
-		return isShowToolBar();
 	}
 
 	/**
@@ -2308,7 +2201,7 @@ public final class SettingsHandler
 
 	private static Double getPCGenOption(final String optionName, final double defaultValue)
 	{
-		return new Double(getPCGenOption(optionName, Double.toString(defaultValue)));
+		return Double.valueOf(getPCGenOption(optionName, Double.toString(defaultValue)));
 	}
 
 	/**
@@ -2624,13 +2517,8 @@ public final class SettingsHandler
 		}
 
 		// remove old filter stuff!
-		for (Iterator<Object> it = getOptions().keySet().iterator(); it.hasNext();)
-		{
-			if (((String) it.next()).startsWith("pcgen.filters.")) //$NON-NLS-1$
-			{
-				it.remove();
-			}
-		}
+		//$NON-NLS-1$
+		getOptions().keySet().removeIf(o -> ((String) o).startsWith("pcgen.filters."));
 	}
 
 	/**
