@@ -124,7 +124,6 @@ public class KitClass extends BaseKit
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		//		SettingsHandler.setShowFeatDialogAtLevelUp(false);
 		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
@@ -134,7 +133,6 @@ public class KitClass extends BaseKit
 		pc.setDoLevelAbilities(tempDoLevelAbilities);
 
 		UIPropertyContext.setSingleChoiceAction(tempChoicePref);
-		//		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
 
