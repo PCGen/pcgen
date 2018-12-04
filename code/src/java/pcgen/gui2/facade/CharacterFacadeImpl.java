@@ -1714,10 +1714,10 @@ public class CharacterFacadeImpl
 			race = RaceUtilities.getUnselectedRace();
 		}
 		this.race.set(race);
-		if (race instanceof Race && race != charDisplay.getRace())
+		if (race != charDisplay.getRace())
 		{
 			Logging.log(Logging.INFO, charDisplay.getName() + ": Setting race to " + race); //$NON-NLS-1$
-			theCharacter.setRace((Race) race);
+			theCharacter.setRace(race);
 		}
 		refreshLanguageList();
 		if (selectedGender != null)
