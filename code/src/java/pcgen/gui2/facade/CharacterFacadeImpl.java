@@ -1291,7 +1291,7 @@ public class CharacterFacadeImpl
 		StringBuilder unqualified = new StringBuilder(100);
 		List<PCClass> classList = charDisplay.getClassList();
 		List<PCClass> exclassList = new ArrayList<>();
-		PCAlignment savedAlignmnet = charDisplay.getPCAlignment();
+		PCAlignment savedAlignmnet = AlignmentCompat.getCurrentAlignment(theCharacter.getCharID());
 		for (PCClass aClass : classList)
 		{
 			AlignmentCompat.setCurrentAlignment(theCharacter.getCharID(), newAlign);

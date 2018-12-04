@@ -51,6 +51,7 @@ import pcgen.core.display.VisionDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.MovementToken;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
 
@@ -85,7 +86,7 @@ public class PlayerCharacterOutput
 
 	String getAlignment()
 	{
-		PCAlignment pcAlignment = display.getPCAlignment();
+		PCAlignment pcAlignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
 		return (pcAlignment == null) ? "" : pcAlignment.getKeyName();
 	}
 
