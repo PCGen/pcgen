@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
@@ -87,7 +88,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 	 */
 	private void update(CharID id)
 	{
-		Region region = Region.getConstant(regionFacet.getRegionString(id));
+		Optional<Region> region = regionFacet.getRegion(id);
 		AgeSet ageSet = bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id));
 		if (ageSet == null)
 		{
@@ -133,7 +134,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 	public int getAgeSetIndex(CharID id)
 	{
 		BioSet bioSet = bioSetFacet.get(id);
-		String region = regionFacet.getRegionString(id);
+		Optional<Region> region = regionFacet.getRegion(id);
 		Race race = raceFacet.get(id);
 		String raceName = race == null ? "" : race.getKeyName().trim();
 		List<String> values = bioSet.getValueInMaps(region, raceName, "BASEAGE");

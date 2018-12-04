@@ -2137,7 +2137,7 @@ public final class ExportHandler
 		CharacterDisplay display = aPC.getDisplay();
 		if ("REGION".equals(aString.substring(1)))
 		{
-			if (display.getRegionString().equals(Constants.NONE))
+			if (display.getRegion().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
