@@ -74,7 +74,6 @@ import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
@@ -161,6 +160,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.gui2.util.InterfaceChannelUtilities;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
@@ -170,7 +170,6 @@ import pcgen.output.channel.compat.GenderCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
-import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -398,10 +397,8 @@ public class CharacterFacadeImpl
 		GameMode game = (GameMode) dataSet.getGameMode();
 		if (theCharacter.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
-			LoadContext context = Globals.getContext();
-			String channelName = ControlUtilities.getControlToken(context, CControl.ALIGNMENTINPUT);
-			alignment = (WriteableReferenceFacade<PCAlignment>) context.getVariableContext()
-				.getGlobalChannel(theCharacter.getCharID(), channelName);
+			alignment = InterfaceChannelUtilities.getReferenceFacade(
+				theCharacter.getCharID(), CControl.ALIGNMENTINPUT);
 		}
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
