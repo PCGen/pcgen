@@ -55,6 +55,7 @@ public class JarTest {
         // Running the the command
         ProcessBuilder pb = new ProcessBuilder("java", "-jar", pcgenJar);
         Process process = pb.start();
+      
         final ExecutorService service = Executors.newSingleThreadExecutor();
         try {
             final Future<?> future = service.submit(() -> {

@@ -179,6 +179,7 @@ launch4j {
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
     version = "${shortVerNum}"
     jvmOptions = ["-Dsun.java2d.dpiaware=false"]
+    downloadUrl = "https://jdk.java.net/"
 }
 
 task downloadJRE doLast {
