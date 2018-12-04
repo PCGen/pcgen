@@ -264,7 +264,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 
 		CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
 		CompanionList compList = keyToCompanionListMap.get(companionType);
-		Race compRace = (Race) compFacadeImpl.getRaceRef().get();
+		Race compRace = compFacadeImpl.getRaceRef().get();
 		FollowerOption followerOpt = getFollowerOpt(compList, compRace);
 		if (followerOpt == null)
 		{
@@ -376,7 +376,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				{
 					CompanionList compList = keyToCompanionListMap.get(companionType);
 					final Follower newMaster = new Follower(charDisplay.getFileName(), charDisplay.getName(), compList);
-					FollowerOption followerOpt = getFollowerOpt(compList, (Race) character.getRaceRef().get());
+					FollowerOption followerOpt = getFollowerOpt(compList, character.getRaceRef().get());
 					if (followerOpt != null)
 					{
 						newMaster.setAdjustment(followerOpt.getAdjustment());

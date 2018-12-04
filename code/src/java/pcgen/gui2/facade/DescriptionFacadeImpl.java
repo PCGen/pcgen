@@ -189,14 +189,8 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void setNote(NoteItem note, String text)
+	public void setNote(NoteItem noteItem, String text)
 	{
-		if (!(note instanceof NoteItem))
-		{
-			return;
-		}
-
-		NoteItem noteItem = (NoteItem) note;
 		noteItem.setValue(text);
 		if (noteItem.isRequired())
 		{
@@ -207,14 +201,13 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void renameNote(NoteItem note, String newName)
+	public void renameNote(NoteItem noteItem, String newName)
 	{
-		if (!(note instanceof NoteItem) || note.isRequired())
+		if (noteItem.isRequired())
 		{
 			return;
 		}
 
-		NoteItem noteItem = (NoteItem) note;
 		noteItem.setName(newName);
 		notes.modifyElement(noteItem);
 	}
@@ -222,12 +215,12 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	@Override
 	public void deleteNote(NoteItem note)
 	{
-		if (!(note instanceof NoteItem) || note.isRequired())
+		if (note.isRequired())
 		{
 			return;
 		}
 
-		theCharacter.removeNote((NoteItem) note);
+		theCharacter.removeNote(note);
 		notes.removeElement(note);
 	}
 
