@@ -25,8 +25,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
@@ -36,13 +34,15 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.facade.core.ChronicleEntryFacade;
 import pcgen.facade.core.DescriptionFacade;
-import pcgen.facade.core.NoteFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.system.LanguageBundle;
+
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code DescriptionFacadeImpl} is an implementation of
@@ -68,7 +68,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
 	private final DefaultListFacade<ChronicleEntryFacade> chronicleEntries;
-	private final DefaultListFacade<NoteFacade> notes;
+	private final DefaultListFacade<NoteItem> notes;
 
 	private final Map<BiographyField, WriteableReferenceFacade<String>> bioData = new EnumMap<>(BiographyField.class);
 
@@ -136,7 +136,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	 * @param value
 	 * @return note
 	 */
-	private NoteFacade createDefaultNote(String noteName, String value)
+	private NoteItem createDefaultNote(String noteName, String value)
 	{
 		NoteItem note = new NoteItem(0, -1, noteName, value);
 		note.setRequired(true);
@@ -183,13 +183,13 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public ListFacade<NoteFacade> getNotes()
+	public ListFacade<NoteItem> getNotes()
 	{
 		return notes;
 	}
 
 	@Override
-	public void setNote(NoteFacade note, String text)
+	public void setNote(NoteItem note, String text)
 	{
 		if (!(note instanceof NoteItem))
 		{
@@ -207,7 +207,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void renameNote(NoteFacade note, String newName)
+	public void renameNote(NoteItem note, String newName)
 	{
 		if (!(note instanceof NoteItem) || note.isRequired())
 		{
@@ -220,7 +220,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void deleteNote(NoteFacade note)
+	public void deleteNote(NoteItem note)
 	{
 		if (!(note instanceof NoteItem) || note.isRequired())
 		{
@@ -248,7 +248,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		++newNodeId;
 
 		Set<String> names = new HashSet<>();
-		for (NoteFacade note : notes)
+		for (NoteItem note : notes)
 		{
 			names.add(note.getName());
 		}
@@ -316,9 +316,4 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		customBiographyFields.addElement(field);
 	}
 
-	@Override
-	public void removeCustomBiographyField(BiographyField field)
-	{
-		customBiographyFields.removeElement(field);
-	}
 }

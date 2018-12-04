@@ -18,6 +18,7 @@
 package pcgen.facade.core;
 
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.core.NoteItem;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 
@@ -52,20 +53,20 @@ public interface DescriptionFacade
 	 * Retrieve the set of notes defined for the character.
 	 * @return The character's notes.
 	 */
-	public ListFacade<NoteFacade> getNotes();
+	public ListFacade<NoteItem> getNotes();
 
 	/**
 	 * Update the name of a note.
 	 * @param note The note to be renamed.
 	 * @param newName The new name.
 	 */
-	public void renameNote(NoteFacade note, String newName);
+	public void renameNote(NoteItem note, String newName);
 
 	/**
 	 * Remove a note from a character. 
 	 * @param note The note to be removed.
 	 */
-	public void deleteNote(NoteFacade note);
+	public void deleteNote(NoteItem note);
 
 	/**
 	 * Add a new custom note to the character.
@@ -77,7 +78,7 @@ public interface DescriptionFacade
 	 * @param note The note to be updated.
 	 * @param text The new contents of the note.
 	 */
-	public void setNote(NoteFacade note, String text);
+	public void setNote(NoteItem note, String text);
 
 	/**
 	 * Retrieve the value for a text only biography field.
@@ -105,10 +106,4 @@ public interface DescriptionFacade
 	 */
 	public void addCustomBiographyField(BiographyField field);
 
-	/**
-	 * Remove a new field from the list of fields that will be displayed for 
-	 * this character.
-	 * @param field The BiographyField to be hidden.
-	 */
-	public void removeCustomBiographyField(BiographyField field);
 }
