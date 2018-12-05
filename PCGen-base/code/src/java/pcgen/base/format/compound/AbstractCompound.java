@@ -105,4 +105,41 @@ abstract class AbstractCompound implements Compound
 	{
 		return formatManager;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = prime + ((components == null) ? 0 : components.hashCode());
+		return prime * result + formatManager.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj instanceof AbstractCompound)
+		{
+			AbstractCompound other = (AbstractCompound) obj;
+			if (!formatManager.equals(other.formatManager))
+			{
+				return false;
+			}
+			if (components == null)
+			{
+				if (other.components != null)
+				{
+					return false;
+				}
+			}
+			else if (!components.equals(other.components))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 }
