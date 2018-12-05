@@ -148,6 +148,7 @@ task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
         include 'pcgen.exe'
     }
     from ("${projectDir}/code") {
+        include 'pcgen.bat'
         include 'pcgen.sh'
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
