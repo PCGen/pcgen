@@ -29,6 +29,7 @@ import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.ValueStore;
 
 /**
  * VariableManager performs the management of legal variable names within a LegalScope.
@@ -46,6 +47,12 @@ public class VariableManager implements VariableLibrary
 	private final LegalScopeManager legalScopeManager;
 
 	/**
+	 * The ValueStore that knows what defaults exist (and thus what variables would be
+	 * legal).
+	 */
+	private final ValueStore defaultStore;
+
+	/**
 	 * Holds a map from variable names and LegalScope objects to the format for that
 	 * variable.
 	 */
@@ -61,9 +68,10 @@ public class VariableManager implements VariableLibrary
 	 *            The LegalScopeManager used to to ensure variables are legal within a
 	 *            given scope
 	 */
-	public VariableManager(LegalScopeManager legalScopeManager)
+	public VariableManager(LegalScopeManager legalScopeManager, ValueStore defaultStore)
 	{
 		this.legalScopeManager = Objects.requireNonNull(legalScopeManager);
+		this.defaultStore = Objects.requireNonNull(defaultStore);
 	}
 
 	@Override
@@ -79,6 +87,7 @@ public class VariableManager implements VariableLibrary
 				+ " was not registered with LegalScopeManager");
 		}
 		VariableID.checkLegalVarName(varName);
+		Objects.requireNonNull(formatManager.initializeFrom(defaultStore));
 		if (!variableDefs.containsKey(varName))
 		{
 			//Can't be a conflict

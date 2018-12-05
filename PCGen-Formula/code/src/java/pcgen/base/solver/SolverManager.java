@@ -21,6 +21,7 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.NEPFormula;
+import pcgen.base.util.FormatManager;
 
 /**
  * A SolverManager manages a series of Solver objects in order to manage dependencies
@@ -139,13 +140,14 @@ public interface SolverManager
 	 * Returns the Default Value (in the underlying SolverFactory) for the given Variable
 	 * Format.
 	 * 
-	 * @param varFormat
-	 *            The variable format for which the default value should be returned
+	 * @param formatManager
+	 *            The FormatManager of the variable format for which the default value
+	 *            should be returned
 	 * @param <T>
-	 *            The format for which the default value should be returned
+	 *            The FormatManager for which the default value should be returned
 	 * @return The Default Value for the given Variable Format.
 	 */
-	public <T> T getDefaultValue(Class<T> varFormat);
+	public <T> T getDefaultValue(FormatManager<T> formatManager);
 
 	/**
 	 * Triggers Solvers to be called, recursively through the dependencies, from the

@@ -17,6 +17,7 @@
  */
 package pcgen.base.formula.base;
 
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.TypedKey;
 
 /**
@@ -63,13 +64,13 @@ public interface FormulaManager
 	public OperatorLibrary getOperatorLibrary();
 
 	/**
-	 * Returns the default value for a given format (class).
+	 * Returns the default value for a given FormatManager.
 	 * 
 	 * @param format
-	 *            The format for which the default value should be returned
-	 * @return The default value for a given format (class)
+	 *            The FormatManager for which the default value should be returned
+	 * @return The default value for a given FormatManager
 	 */
-	public <T> T getDefault(Class<T> format);
+	public <T> T getDefault(FormatManager<T> formatManager);
 
 	/**
 	 * Returns a new FormulaManager that has all the characteristics of this

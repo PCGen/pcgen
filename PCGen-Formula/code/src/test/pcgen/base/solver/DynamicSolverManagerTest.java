@@ -67,7 +67,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		manager = new DynamicSolverManager(getFormulaManager(), managerFactory,
 			getSolverFactory(), getVariableStore());
 		limbManager = new LimbManager();
-		getSolverFactory().addSolverFormat(Limb.class, new Modifier<Limb>()
+		getSolverFactory().addSolverFormat(limbManager, new Modifier<Limb>()
 		{
 
 			@Override

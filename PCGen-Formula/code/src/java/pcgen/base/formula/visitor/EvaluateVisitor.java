@@ -410,7 +410,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Class<?> managedClass = asserted.get().getManagedClass();
 		System.out.println("Evaluation called on invalid variable: '" + varName
 			+ "', assuming default for " + managedClass.getSimpleName());
-		return fm.getDefault(managedClass);
+		return fm.getDefault(asserted.get());
 	}
 
 }

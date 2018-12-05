@@ -30,6 +30,7 @@ import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.Modifier;
+import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SolverManager;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -37,7 +38,7 @@ import pcgen.base.testsupport.AbstractFormulaTestCase;
 public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 {
 
-	private SolverFactory solverFactory = new SolverFactory();
+	private SolverFactory solverFactory;
 	private VariableLibrary varLibrary;
 	private WriteableVariableStore store;
 	private LegalScope globalScope;
@@ -47,11 +48,12 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		solverFactory = new SimpleSolverFactory(getValueStore());
 		varLibrary = getVariableLibrary();
 		store = getVariableStore();
 		globalScope = getInstanceFactory().getScope("Global");
 		globalScopeInst = getGlobalScopeInst();
-		solverFactory.addSolverFormat(Number.class, AbstractModifier.setNumber(0, 0));
+		solverFactory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(0, 0));
 	}
 
 	protected abstract SolverManager getManager();
@@ -144,7 +146,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			//ok
 		}
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")
@@ -342,7 +344,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		//Not present is Harmless
 		getManager().removeModifier(hp, modifier, source);
 		//Invalid ID very bad
-		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary());
+		VariableLibrary alternateLibrary = new VariableManager(getScopeLibrary(), getValueStore());
 		alternateLibrary.assertLegalVariableID("brains", globalScope,
 			FormatUtilities.NUMBER_MANAGER);
 		@SuppressWarnings("unchecked")

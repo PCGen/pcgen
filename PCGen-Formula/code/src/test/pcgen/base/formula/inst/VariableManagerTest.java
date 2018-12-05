@@ -1,5 +1,5 @@
 /*
- * pyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * (C) Copyright 2014 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -32,10 +32,8 @@ import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
-import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
-import pcgen.base.formula.inst.VariableManager;
+import pcgen.base.solver.ModifierValueStore;
+import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.testsupport.SimpleVarScoped;
 
 public class VariableManagerTest extends TestCase
@@ -53,7 +51,14 @@ public class VariableManagerTest extends TestCase
 		super.setUp();
 		legalScopeManager = new ScopeManagerInst();
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
-		variableLibrary = new VariableManager(legalScopeManager);
+		ModifierValueStore valueStore = new ModifierValueStore();
+		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER,
+			AbstractModifier.setNumber(0, 0));
+		valueStore.addValueFor(FormatUtilities.STRING_MANAGER,
+			AbstractModifier.setString(""));
+		valueStore.addValueFor(FormatUtilities.BOOLEAN_MANAGER, AbstractModifier
+			.setObject(FormatUtilities.BOOLEAN_MANAGER, Boolean.FALSE, 0));
+		variableLibrary = new VariableManager(legalScopeManager, valueStore);
 	}
 
 	@SuppressWarnings("unused")
@@ -62,7 +67,25 @@ public class VariableManagerTest extends TestCase
 	{
 		try
 		{
-			new VariableManager(null);
+			new VariableManager(null, null);
+			fail("null must be rejected in constructor");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//ok
+		}
+		try
+		{
+			new VariableManager(null, null);
+			fail("null must be rejected in constructor");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//ok
+		}
+		try
+		{
+			new VariableManager(null, null);
 			fail("null must be rejected in constructor");
 		}
 		catch (IllegalArgumentException | NullPointerException e)

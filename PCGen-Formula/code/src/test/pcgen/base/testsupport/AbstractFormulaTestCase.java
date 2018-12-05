@@ -46,8 +46,10 @@ import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.FormulaSetupFactory;
-import pcgen.base.solver.Modifier;
+import pcgen.base.solver.ModifierValueStore;
+import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
+import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.util.FormatManager;
 
 public abstract class AbstractFormulaTestCase extends TestCase
@@ -57,6 +59,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	private ScopeManagerInst legalScopeLibrary;
 	private FormulaManager formulaManager;
 	private ScopeInstance globalInstance;
+	private ModifierValueStore valueStore;
 
 	@Override
 	protected void setUp() throws Exception
@@ -66,84 +69,16 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		legalScopeLibrary = new ScopeManagerInst();
 		legalScopeLibrary.registerScope(new SimpleLegalScope("Global"));
 		setup.setLegalScopeManagerSupplier(() -> legalScopeLibrary);
-		SolverFactory solverFactory = new SolverFactory();
-		solverFactory.addSolverFormat(Number.class, new Modifier<Number>()
-		{
-
-			@Override
-			public Number process(EvaluationManager manager)
-			{
-				return 0;
-			}
-
-			@Override
-			public void getDependencies(DependencyManager fdm)
-			{
-			}
-
-			@Override
-			public long getPriority()
-			{
-				return 0;
-			}
-
-			@Override
-			public FormatManager<Number> getVariableFormat()
-			{
-				return FormatUtilities.NUMBER_MANAGER;
-			}
-
-			@Override
-			public String getIdentification()
-			{
-				return "SET";
-			}
-
-			@Override
-			public String getInstructions()
-			{
-				return "0";
-			}
-		});
-		solverFactory.addSolverFormat(String.class, new Modifier<String>()
-		{
-
-			@Override
-			public String process(EvaluationManager manager)
-			{
-				return "";
-			}
-
-			@Override
-			public void getDependencies(DependencyManager fdm)
-			{
-			}
-
-			@Override
-			public long getPriority()
-			{
-				return 0;
-			}
-
-			@Override
-			public FormatManager<String> getVariableFormat()
-			{
-				return FormatUtilities.STRING_MANAGER;
-			}
-
-			@Override
-			public String getIdentification()
-			{
-				return "SET";
-			}
-
-			@Override
-			public String getInstructions()
-			{
-				return "";
-			}
-		});
-		setup.setSolverFactorySupplier(() -> solverFactory);
+		valueStore = new ModifierValueStore();
+		setup.setValueStoreSupplier(() -> valueStore);
+		SolverFactory solverFactory = new SimpleSolverFactory(valueStore);
+		solverFactory.addSolverFormat(FormatUtilities.NUMBER_MANAGER,
+			AbstractModifier.setNumber(0, 0));
+		solverFactory.addSolverFormat(FormatUtilities.STRING_MANAGER,
+			AbstractModifier.setString(""));
+		solverFactory.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER,
+			AbstractModifier.setObject(FormatUtilities.BOOLEAN_MANAGER,
+				Boolean.FALSE, 0));
 		formulaManager = setup.generate();
 		globalInstance = formulaManager.getScopeInstanceFactory().get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
@@ -317,6 +252,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected ManagerFactory getManagerFactory()
 	{
 		return managerFactory;
+	}
+	
+	protected ModifierValueStore getValueStore()
+	{
+		return valueStore;
 	}
 
 	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)

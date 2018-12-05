@@ -18,18 +18,26 @@ package pcgen.base.solver;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.solver.testsupport.AbstractModifier;
+import pcgen.base.util.FormatManager;
 
-public class SolverFactoryTest extends TestCase
+public class SimpleSolverFactoryTest extends TestCase
 {
+	private final FormatManager<Number[]> NAF =
+			new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ',');
+
 	private SolverFactory factory;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		factory = new SolverFactory();
+		ModifierValueStore valueStore = new ModifierValueStore();
+		factory = new SimpleSolverFactory(valueStore);
 	}
 
 	@Test
@@ -46,7 +54,7 @@ public class SolverFactoryTest extends TestCase
 		}
 		try
 		{
-			factory.getDefault(Number.class);
+			factory.getDefault(FormatUtilities.NUMBER_MANAGER);
 			fail("Should not be able to get Default when none was set");
 		}
 		catch (NullPointerException e)
@@ -63,7 +71,7 @@ public class SolverFactoryTest extends TestCase
 			factory.getSolver(new NumberManager());
 			fail("Should not be able to get Solver when no default was set");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
 		}
@@ -93,7 +101,7 @@ public class SolverFactoryTest extends TestCase
 		}
 		try
 		{
-			factory.addSolverFormat(Number.class, null);
+			factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, null);
 			fail("Should not be able to set Solver for null default");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -101,11 +109,11 @@ public class SolverFactoryTest extends TestCase
 			//ok
 		}
 		//But this is safe
-		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
-		assertEquals(108, factory.getDefault(Number.class));
+		factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(108, 28));
+		assertEquals(108, factory.getDefault(FormatUtilities.NUMBER_MANAGER));
 		try
 		{
-			factory.addSolverFormat(Number.class, AbstractModifier.setNumber(111, 228));
+			factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(111, 228));
 			fail("You can't reset a default to a different value");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -113,14 +121,17 @@ public class SolverFactoryTest extends TestCase
 			//ok
 		}
 		//But you can set it to the same thing
-		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
+		factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(108, 28));
 		assertTrue(factory.validateDefaults().get());
+		//and you can use in an array
+		Solver<Number[]> solver = factory.getSolver(NAF);
+		assertEquals(0, solver.process(new EvaluationManager()).length);
 	}
 
 	@Test
 	public void testIllegalAddSolverFormatAdding()
 	{
-		factory.addSolverFormat(Number.class, AbstractModifier.add(9, 5));
+		factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.add(9, 5));
 		assertFalse("Should not be able to set Solver for adding modifier",
 			factory.validateDefaults().get());
 	}
@@ -131,7 +142,7 @@ public class SolverFactoryTest extends TestCase
 	{
 		AbstractModifier<Number> setNumber = AbstractModifier.setNumber(9, 100);
 		//intentionally break generics
-		factory.addSolverFormat(String.class, (Modifier) setNumber);
+		factory.addSolverFormat(FormatUtilities.STRING_MANAGER, (Modifier) setNumber);
 		assertFalse("Should not be able to add Format with mismatch",
 			factory.validateDefaults().get());
 	}
@@ -139,10 +150,10 @@ public class SolverFactoryTest extends TestCase
 	@Test
 	public void testIllegalAddSolverFormatDouble()
 	{
-		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
+		factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(108, 28));
 		try
 		{
-			factory.addSolverFormat(Number.class, AbstractModifier.setNumber(9, 5));
+			factory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(9, 5));
 			fail("Should not be able to set Default a second time");
 		}
 		catch (IllegalArgumentException e)

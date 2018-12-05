@@ -15,6 +15,7 @@
  */
 package pcgen.base.solver;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -34,6 +35,7 @@ import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.inst.VariableManager;
+import pcgen.base.util.ValueStore;
 
 /**
  * FormulaSetupFactory provides a single location to quickly build the necessary items for
@@ -45,9 +47,10 @@ import pcgen.base.formula.inst.VariableManager;
 public class FormulaSetupFactory
 {
 	/**
-	 * The SolverFactory for this FormulaSetupFactory.
+	 * The ValueStore for this FormulaSetupFactory.
 	 */
-	private Supplier<SolverFactory> solverFactorySupplier = () -> new SolverFactory();
+	private Supplier<ModifierValueStore> valueStoreSupplier =
+			() -> new ModifierValueStore();
 
 	/**
 	 * The LegalScopeManager for this FormulaSetupFactory.
@@ -70,8 +73,8 @@ public class FormulaSetupFactory
 	/**
 	 * The VariableLibrary for this FormulaSetupFactory.
 	 */
-	private Function<LegalScopeManager, VariableLibrary> variableLibraryFunction =
-			lsl -> new VariableManager(lsl);
+	private BiFunction<LegalScopeManager, ValueStore, VariableLibrary> variableLibraryFunction =
+			(lsl, vs) -> new VariableManager(lsl, vs);
 
 	/**
 	 * The ScopeInstanceFactory for this FormulaSetupFactory.
@@ -94,30 +97,31 @@ public class FormulaSetupFactory
 	 */
 	public FormulaManager generate()
 	{
-		SolverFactory solverFactory = solverFactorySupplier.get();
+		ModifierValueStore valueStore = valueStoreSupplier.get();
 		LegalScopeManager legalScopeManager = legalScopeManagerSupplier.get();
 		FunctionLibrary functionLibrary = functionLibrarySupplier.get();
 		OperatorLibrary operatorLibrary = operatorLibrarySupplier.get();
 		VariableStore variableStore = variableStoreSupplier.get();
 		VariableLibrary variableLibrary =
-				variableLibraryFunction.apply(legalScopeManager);
+				variableLibraryFunction.apply(legalScopeManager, valueStore);
 		ScopeInstanceFactory scopeInstanceFactory =
 				scopeInstanceFactoryFunction.apply(legalScopeManager);
 		SimpleFormulaManager fManager = new SimpleFormulaManager(operatorLibrary,
-			variableLibrary, scopeInstanceFactory, variableStore, solverFactory);
+			variableLibrary, scopeInstanceFactory, variableStore, valueStore);
 		return fManager.getWith(FormulaManager.FUNCTION, functionLibrary);
 	}
 
 	/**
-	 * Sets the Supplier that will generate a SolverFactory for this FormulaSetupFactory.
+	 * Sets the Supplier that will generate a ModifierValueStore for this FormulaSetupFactory.
 	 * 
-	 * @param solverFactorySupplier
-	 *            The Supplier that will generate a SolverFactory for this
+	 * @param valueStoreSupplier
+	 *            The Supplier that will generate a ModifierValueStore for this
 	 *            FormulaSetupFactory
 	 */
-	public void setSolverFactorySupplier(Supplier<SolverFactory> solverFactorySupplier)
+	public void setValueStoreSupplier(
+		Supplier<ModifierValueStore> valueStoreSupplier)
 	{
-		this.solverFactorySupplier = solverFactorySupplier;
+		this.valueStoreSupplier = valueStoreSupplier;
 	}
 
 	/**
@@ -163,15 +167,15 @@ public class FormulaSetupFactory
 	}
 
 	/**
-	 * Sets the Function that will generate a VariableLibrary for this
+	 * Sets the BiFunction that will generate a VariableLibrary for this
 	 * FormulaSetupFactory.
 	 * 
 	 * @param variableLibraryFunction
-	 *            The Function that will generate a VariableLibrary for this
+	 *            The BiFunction that will generate a VariableLibrary for this
 	 *            FormulaSetupFactory
 	 */
 	public void setVariableLibraryFunction(
-		Function<LegalScopeManager, VariableLibrary> variableLibraryFunction)
+		BiFunction<LegalScopeManager, ValueStore, VariableLibrary> variableLibraryFunction)
 	{
 		this.variableLibraryFunction = variableLibraryFunction;
 	}

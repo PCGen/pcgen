@@ -75,19 +75,19 @@ public class SolverTest extends TestCase
 		Modifier<Number> mod = AbstractModifier.add(1, 100);
 		try
 		{
-			new Solver<Number>(mod);
-			fail("Default Modifier was not static");
+			new Solver<Number>(FormatUtilities.NUMBER_MANAGER, null);
+			fail("null default value must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
 		}
 		try
 		{
-			new Solver<Number>(null);
-			fail("null default must be rejected");
+			new Solver<Number>(null, 4);
+			fail("null format manager must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
 		}
@@ -97,9 +97,8 @@ public class SolverTest extends TestCase
 	@Test
 	public void testIllegalAdd()
 	{
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
-		mod = AbstractModifier.add(1, 100);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
+		Modifier<Number> mod = AbstractModifier.add(1, 100);
 		try
 		{
 			solver.addModifier(null, inst);
@@ -124,9 +123,8 @@ public class SolverTest extends TestCase
 	@Test
 	public void testIllegalAddGenericsViolation()
 	{
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
-		Modifier<String> badm = AbstractModifier.setString();
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
+		Modifier<String> badm = AbstractModifier.setString("");
 		try
 		{
 			//have to be bad about generics to even get this to be set up to fail
@@ -142,9 +140,8 @@ public class SolverTest extends TestCase
 	@Test
 	public void testIllegalRemove()
 	{
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
-		mod = AbstractModifier.add(1, 100);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
+		Modifier<Number> mod = AbstractModifier.add(1, 100);
 		try
 		{
 			solver.removeModifier(null, inst);
@@ -168,8 +165,7 @@ public class SolverTest extends TestCase
 	@Test
 	public void testIllegalRemoveFromSource()
 	{
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		try
 		{
 			solver.removeFromSource(null);
@@ -185,8 +181,7 @@ public class SolverTest extends TestCase
 	public void testHarmless()
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		solver.removeModifier(addm, inst);
 		assertEquals(Integer.valueOf(6), solver.process(evalManager));
 	}
@@ -197,8 +192,7 @@ public class SolverTest extends TestCase
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		//harmless
 		solver.removeFromSource(inst);
 		assertEquals(Integer.valueOf(6), solver.process(evalManager));
@@ -220,8 +214,7 @@ public class SolverTest extends TestCase
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		solver.addModifier(addm, inst);
 		solver.addModifier(multm, inst);
 		solver.addModifier(setm, inst);
@@ -237,8 +230,7 @@ public class SolverTest extends TestCase
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 200);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 300);
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		solver.addModifier(addm, inst);
 		solver.addModifier(multm, inst);
 		solver.addModifier(setm, inst);
@@ -250,8 +242,7 @@ public class SolverTest extends TestCase
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 300);
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		solver.addModifier(addm, inst);
 		solver.addModifier(multm, inst);
 		assertEquals(Integer.valueOf(14), solver.process(evalManager));
@@ -263,15 +254,15 @@ public class SolverTest extends TestCase
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		List<ProcessStep<Number>> list = solver.diagnose(evalManager);
 		assertNotNull(list);
 		assertEquals(1, list.size());
 		ProcessStep<Number> step = list.get(0);
 		assertEquals("Default Value for NUMBER", step.getSourceInfo());
 		assertEquals(6, step.getResult());
-		assertEquals(mod, step.getModifier());
+		assertEquals("DEFAULT", step.getModifier().getIdentification());
+		assertEquals("6", step.getModifier().getInstructions());
 		solver.addModifier(addm, inst);
 		//Shouldn't be related (verify list is not reference semantic)
 		assertEquals(1, list.size());
@@ -282,7 +273,8 @@ public class SolverTest extends TestCase
 		step = list.get(0);
 		assertEquals("Default Value for NUMBER", step.getSourceInfo());
 		assertEquals(6, step.getResult());
-		assertEquals(mod, step.getModifier());
+		assertEquals("DEFAULT", step.getModifier().getIdentification());
+		assertEquals("6", step.getModifier().getInstructions());
 		step = list.get(1);
 		assertEquals(inst, step.getSource());
 		assertEquals(4, step.getResult());
@@ -301,8 +293,7 @@ public class SolverTest extends TestCase
 	@Test
 	public void testArrayMod()
 	{
-		Solver<Number[]> solver =
-				new Solver<Number[]>(AbstractModifier.setEmptyArray(0));
+		Solver<Number[]> solver = new Solver<Number[]>(NAF, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
 		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
 		solver.addModifier(add1, inst);
@@ -332,8 +323,7 @@ public class SolverTest extends TestCase
 	@Test
 	public void testArrayIndependenceAdd()
 	{
-		Solver<Number[]> solver =
-				new Solver<Number[]>(AbstractModifier.setEmptyArray(0));
+		Solver<Number[]> solver = new Solver<Number[]>(NAF, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
 		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
 		solver.addModifier(add1, inst);
@@ -364,8 +354,7 @@ public class SolverTest extends TestCase
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
-		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod);
+		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		assertEquals(Integer.valueOf(6), solver.process(evalManager));
 		//now do real stuff
 		solver.addModifier(addm, inst);

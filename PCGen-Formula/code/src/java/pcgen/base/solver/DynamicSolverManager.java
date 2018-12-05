@@ -491,9 +491,9 @@ public class DynamicSolverManager implements SolverManager
 	}
 
 	@Override
-	public <T> T getDefaultValue(Class<T> varFormat)
+	public <T> T getDefaultValue(FormatManager<T> formatManager)
 	{
-		return solverFactory.getDefault(varFormat);
+		return solverFactory.getDefault(formatManager);
 	}
 
 	@Override

@@ -17,17 +17,8 @@
  */
 package pcgen.base.solver;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-
-import pcgen.base.formula.base.DefaultStore;
-import pcgen.base.spotbugs.SuppressFBWarnings;
 import pcgen.base.util.ComplexResult;
-import pcgen.base.util.FailureResult;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.PassResult;
 
 /**
  * A SolverFactory is a centralized location to define a shared default value
@@ -36,59 +27,35 @@ import pcgen.base.util.PassResult;
  * 
  * The format of Solver is represented by a Class object.
  */
-public class SolverFactory implements DefaultStore
+public interface SolverFactory
 {
 
 	/**
-	 * The map containing the relationship between a format of Solver and the
-	 * default Modifier for that format of Solver.
-	 */
-	private final Map<Class<?>, Modifier<?>> defaultModifierMap =
-			new HashMap<Class<?>, Modifier<?>>();
-
-	/**
-	 * Adds a relationship between a Solver format and a default Modifier for
-	 * that format of Solver to this SolverFactory.
+	 * Adds a relationship between a Solver format and a default Modifier for that format
+	 * of Solver to this SolverFactory.
 	 * 
-	 * The default Modifier MUST NOT depend on anything (it must be able to
-	 * accept a null input value to its process method). (See SetNumberModifier
-	 * for an example of this)
+	 * The default Modifier MUST NOT depend on anything (it must be able to accept a null
+	 * input value to its process method). (See SetNumberModifier for an example of this)
 	 * 
 	 * The default Modifier for a format of Solver may not be redefined for a
-	 * SolverFactory. Once a given default Modifier has been established for a
-	 * format of Solver, this method MUST NOT be called a second time for that
-	 * format of Solver.
+	 * SolverFactory. Once a given default Modifier has been established for a format of
+	 * Solver, this method MUST NOT be called a second time for that format of Solver.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object changed by the given Modifier
-	 * @param varFormat
-	 *            The format of Solver for which the given Modifier should be
-	 *            the default value
+	 * @param formatManager
+	 *            The FormatManager of the Solver format for which the given Modifier
+	 *            should be the default value
 	 * @param defaultModifier
-	 *            The Modifier to be used as the default Modifier for the given
-	 *            Solver format
+	 *            The Modifier to be used as the default Modifier for the given Solver
+	 *            format
 	 * @throws IllegalArgumentException
-	 *             if either parameter is null, if the given Modifier has
-	 *             dependencies, or if the given Solver format already has a
-	 *             default Modifier defined for this SolverFactory
+	 *             if either parameter is null, if the given Modifier has dependencies, or
+	 *             if the given Solver format already has a default Modifier defined for
+	 *             this SolverFactory
 	 */
-	public <T> void addSolverFormat(Class<T> varFormat,
-		Modifier<? extends T> defaultModifier)
-	{
-		Objects.requireNonNull(varFormat, "Variable/Solve Format Class cannot be null");
-		Objects.requireNonNull(defaultModifier,
-			"Default Modifier for Format: " + varFormat + " cannot be null");
-		Modifier<?> existing = defaultModifierMap.get(varFormat);
-		if (existing == null)
-		{
-			defaultModifierMap.put(varFormat, defaultModifier);
-		}
-		else if (!defaultModifier.equals(existing))
-		{
-			throw new IllegalArgumentException(
-				"Cannot set different default values for Format: " + varFormat);
-		}
-	}
+	public <T> void addSolverFormat(FormatManager<T> formatManager,
+		Modifier<? extends T> defaultModifier);
 
 	/**
 	 * Returns a ComplexResult indicating the status of validating the defaults added to
@@ -99,29 +66,7 @@ public class SolverFactory implements DefaultStore
 	 * @return A ComplexResult indicating the status of validating the defaults added to
 	 *         the addSolverFormat method
 	 */
-	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
-	public ComplexResult<Boolean> validateDefaults()
-	{
-		for (Entry<Class<?>, Modifier<?>> entry : defaultModifierMap.entrySet())
-		{
-			try
-			{
-				Object defaultValue = entry.getValue().process(null);
-				if (!entry.getKey().isAssignableFrom(defaultValue.getClass()))
-				{
-					//Generics were violated during addSolverFormat if we got here
-					return new FailureResult("Default Modifier for Format: "
-						+ entry.getKey() + " cannot produce: " + defaultValue.getClass());
-				}
-			}
-			catch (NullPointerException e)
-			{
-				return new FailureResult("Default Modifier for Format: "
-					+ entry.getKey() + " cannot be null or rely on terms/functions");
-			}
-		}
-		return PassResult.SUCCESS;
-	}
+	public <T> ComplexResult<Boolean> validateDefaults();
 
 	/**
 	 * Returns a new Solver for the given format. The default value of the
@@ -139,53 +84,18 @@ public class SolverFactory implements DefaultStore
 	 *             if no default Modifier for the given format has been provided
 	 *             with the addSolverType method on SolverFactory
 	 */
-	public <T> Solver<T> getSolver(FormatManager<T> formatManager)
-	{
-		@SuppressWarnings("unchecked")
-		Modifier<T> defaultModifier =
-				(Modifier<T>) defaultModifierMap.get(formatManager
-					.getManagedClass());
-		if (defaultModifier == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot create Solver of format " + formatManager.getIdentifierType()
-					+ " because no default was provided for that format");
-		}
-		return new Solver<T>(defaultModifier);
-	}
+	public <T> Solver<T> getSolver(FormatManager<T> formatManager);
 
 	/**
-	 * Returns the default value for a given Format (provided as a Class).
+	 * Returns the default value for a given FormatManager.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object for which the default value
 	 *            should be returned
-	 * @param varFormat
-	 *            The Class (data format) for which the default value should be
+	 * @param formatManager
+	 *            The FormatManager for which the default value should be
 	 *            returned
-	 * @return The default value for the given Format
+	 * @return The default value for the given FormatManager
 	 */
-	@Override
-	@SuppressFBWarnings("NP_NULL_PARAM_DEREF_ALL_TARGETS_DANGEROUS")
-	public <T> T getDefault(Class<T> varFormat)
-	{
-		@SuppressWarnings("unchecked")
-		Modifier<T> defaultModifier =
-				(Modifier<T>) defaultModifierMap.get(varFormat);
-		return defaultModifier.process(null);
-	}
-
-	/**
-	 * Returns true if there is a default value set for the given Format (provided as a
-	 * Class).
-	 * 
-	 * @param varFormat
-	 *            The Class (data format) to be checked if there is a default value
-	 * @return true if there is a default value set for the given Format (provided as a
-	 *         Class); false otherwise
-	 */
-	public boolean hasDefault(Class<?> varFormat)
-	{
-		return defaultModifierMap.get(varFormat) != null;
-	}
+	public <T> T getDefault(FormatManager<T> formatManager);
 }

@@ -18,9 +18,15 @@ package pcgen.base.formula.inst;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import pcgen.base.format.ArrayFormatManager;
+import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.solver.ModifierValueStore;
+import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
+import pcgen.base.solver.testsupport.AbstractModifier;
 
 public class SimpleFormulaManagerTest extends TestCase
 {
@@ -30,17 +36,21 @@ public class SimpleFormulaManagerTest extends TestCase
 	private SimpleVariableStore resultsStore;
 	private SolverFactory defaultStore;
 	private ScopeInstanceFactory siFactory;
+	private ModifierValueStore valueStore;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		valueStore = new ModifierValueStore();
+		defaultStore = new SimpleSolverFactory(valueStore);
 		LegalScopeManager legalScopeManager = new ScopeManagerInst();
-		variableLibrary = new VariableManager(legalScopeManager);
+		variableLibrary = new VariableManager(legalScopeManager, valueStore);
 		opLibrary = new SimpleOperatorLibrary();
 		resultsStore = new SimpleVariableStore();
-		defaultStore = new SolverFactory();
 		siFactory = new SimpleScopeInstanceFactory(legalScopeManager);
+		defaultStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(0, 0));
+		defaultStore.addSolverFormat(FormatUtilities.STRING_MANAGER, AbstractModifier.setString(""));
 	}
 
 	@SuppressWarnings("unused")
@@ -59,7 +69,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		try
 		{
 			new SimpleFormulaManager(null, variableLibrary, siFactory,
-				resultsStore, defaultStore);
+				resultsStore, valueStore);
 			fail("null op lib must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -69,7 +79,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		try
 		{
 			new SimpleFormulaManager(opLibrary, null, siFactory, resultsStore,
-				defaultStore);
+				valueStore);
 			fail("null var lib must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -79,7 +89,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		try
 		{
 			new SimpleFormulaManager(opLibrary, variableLibrary, null,
-				resultsStore, defaultStore);
+				resultsStore, valueStore);
 			fail("null var siFactory must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -89,7 +99,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		try
 		{
 			new SimpleFormulaManager(opLibrary, variableLibrary, siFactory, null,
-				defaultStore);
+				valueStore);
 			fail("null results must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -108,4 +118,14 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 	}
 
+	@Test
+	public void testGetDefault()
+	{
+		FormulaManager formulaManager = new SimpleFormulaManager(opLibrary, variableLibrary, siFactory,
+			resultsStore, valueStore);
+		assertEquals(0,formulaManager.getDefault(FormatUtilities.NUMBER_MANAGER));
+		assertEquals("", formulaManager.getDefault(FormatUtilities.STRING_MANAGER));
+		Object[] array = formulaManager.getDefault(new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER, '\n', ','));
+		assertEquals(0, array.length);
+	}
 }

@@ -30,8 +30,6 @@ public class ArrayEqualsTest extends TestCase
 	private static final Class<Number> NUMBER_CLASS = Number.class;
 	private static final Class<Boolean> BOOLEAN_CLASS = Boolean.class;
 	private static final Class<Integer> INTEGER_CLASS = Integer.class;
-	private static final Class<Object[]> OBJECT_ARRAY_CLASS =
-			(Class<Object[]>) Array.newInstance(Object.class, 0).getClass();
 	private static final Class<Number[]> NUMBER_ARRAY_CLASS =
 			(Class<Number[]>) Array.newInstance(NUMBER_CLASS, 0).getClass();
 	private static final Class<Boolean[]> BOOLEAN_ARRAY_CLASS =

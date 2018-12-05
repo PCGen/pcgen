@@ -19,13 +19,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import pcgen.base.formula.base.DefaultStore;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.TypedKey;
+import pcgen.base.util.ValueStore;
 
 /**
  * A FormulaManager exists as compound object to simplify those things that require
@@ -42,9 +43,9 @@ public class SimpleFormulaManager implements FormulaManager
 	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
 	/**
-	 * The DefaultStore used to know the default values for a format (class).
+	 * The ValueStore used to know the default values for a format.
 	 */
-	private final DefaultStore defaultStore;
+	private final ValueStore defaultStore;
 
 	/**
 	 * The OperatorLibrary used to store valid operators in this FormulaManager.
@@ -75,11 +76,11 @@ public class SimpleFormulaManager implements FormulaManager
 	 *            The VariableStore used to hold variables values for items processed
 	 *            through this FormulaManager
 	 * @param defaultStore
-	 *            The DefaultStore used to know default values for each format (class)
+	 *            The ValueStore used to know default values for each format (class)
 	 */
 	public SimpleFormulaManager(OperatorLibrary opLibrary, VariableLibrary varLibrary,
 		ScopeInstanceFactory siFactory, VariableStore resultStore,
-		DefaultStore defaultStore)
+		ValueStore defaultStore)
 	{
 		this.opLibrary = Objects.requireNonNull(opLibrary);
 		this.varLibrary = Objects.requireNonNull(varLibrary);
@@ -119,20 +120,10 @@ public class SimpleFormulaManager implements FormulaManager
 		return opLibrary;
 	}
 
-	/**
-	 * Returns the default value for a given Format (provided as a Class).
-	 * 
-	 * @param <T>
-	 *            The format (class) of object for which the default value should be
-	 *            returned
-	 * @param format
-	 *            The Class (data format) for which the default value should be returned
-	 * @return The default value for the given Format
-	 */
 	@Override
-	public <T> T getDefault(Class<T> format)
+	public <T> T getDefault(FormatManager<T> formatManager)
 	{
-		return defaultStore.getDefault(format);
+		return formatManager.initializeFrom(defaultStore);
 	}
 
 	@Override

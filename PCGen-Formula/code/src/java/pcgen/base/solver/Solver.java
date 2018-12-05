@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.Identified;
 import pcgen.base.formula.base.ScopeInstance;
@@ -52,13 +53,15 @@ public class Solver<T>
 {
 
 	/**
-	 * The "starting" or "default" modifier for this Solver. This is the value
-	 * the Solver has if no other Modifier was added to the Solver.
-	 * 
-	 * Note that this Modifier MUST NOT depend on anything (it must be able to
-	 * accept a null input value to its process method).
+	 * The "starting" or "default" value for this Solver. This is the value the Solver has
+	 * if no Modifier was added to the Solver.
 	 */
-	private final Modifier<T> defaultModifier;
+	private final T defaultValue;
+
+	/**
+	 * The format for this Solver.
+	 */
+	private final FormatManager<T> formatManager;
 
 	/**
 	 * The list of Modifiers for this Solver. This is maintained as an ordered
@@ -76,30 +79,19 @@ public class Solver<T>
 			new HashMapToList<Object, Modifier<T>>();
 
 	/**
-	 * Constructs a new Solver with the given default Modifier.
+	 * Constructs a new Solver with the given default Value.
 	 * 
-	 * The default Modifier MUST NOT depend on anything (it must be able to
-	 * accept a null input value to its process method). (See SetNumberModifier
-	 * for an example of this)
-	 * 
-	 * @param defaultModifier
-	 *            The "starting" or "default" modifier for this Solver
+	 * @param formatManager
+	 *            The FormatManager for this Solver
+	 * @param defaultValue
+	 *            The "starting" or "default" value for this Solver
 	 */
-	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
-	public Solver(Modifier<T> defaultModifier)
+	public Solver(FormatManager<T> formatManager, T defaultValue)
 	{
-		Objects.requireNonNull("Default Modifier cannot be null");
-		//Enforce no dependencies
-		try
-		{
-			defaultModifier.process(null);
-		}
-		catch (NullPointerException e)
-		{
-			throw new IllegalArgumentException(
-				"Default Modifier must support null input", e);
-		}
-		this.defaultModifier = defaultModifier;
+		this.formatManager = Objects.requireNonNull(formatManager,
+			"FormatManager cannot be null");
+		this.defaultValue = Objects.requireNonNull(defaultValue,
+			"Default Value cannot be null");
 	}
 
 	/**
@@ -116,11 +108,10 @@ public class Solver<T>
 	public void addModifier(Modifier<T> modifier, ScopeInstance source)
 	{
 		//Ensure someone isn't playing fast and loose with generics
-		FormatManager<T> varFormat = defaultModifier.getVariableFormat();
-		if (!modifier.getVariableFormat().equals(varFormat))
+		if (!modifier.getVariableFormat().equals(formatManager))
 		{
 			throw new IllegalArgumentException("Expected Modifier of Process Class: "
-				+ varFormat.getManagedClass().getCanonicalName() + " but got: "
+				+ formatManager.getManagedClass().getCanonicalName() + " but got: "
 				+ modifier.getVariableFormat().getManagedClass().getCanonicalName());
 		}
 		modifierList.addToListFor(Long.valueOf(modifier.getPriority()),
@@ -186,8 +177,8 @@ public class Solver<T>
 	public T process(EvaluationManager evalManager)
 	{
 		EvaluationManager assertedManager = evalManager.getWith(
-			EvaluationManager.ASSERTED, Optional.of(defaultModifier.getVariableFormat()));
-		T result = defaultModifier.process(null);
+			EvaluationManager.ASSERTED, Optional.of(formatManager));
+		T result = defaultValue;
 		for (Long priority : modifierList.getKeySet())
 		{
 			for (ModInfo<T> modInfo : modifierList.getListFor(priority))
@@ -217,11 +208,12 @@ public class Solver<T>
 	public List<ProcessStep<T>> diagnose(EvaluationManager evalManager)
 	{
 		EvaluationManager assertedManager = evalManager.getWith(
-			EvaluationManager.ASSERTED, Optional.of(defaultModifier.getVariableFormat()));
+			EvaluationManager.ASSERTED, Optional.of(formatManager));
 		List<ProcessStep<T>> steps = new ArrayList<ProcessStep<T>>();
-		T stepResult = defaultModifier.process(null);
-		steps.add(new ProcessStep<T>(defaultModifier, new DefaultValue(
-			defaultModifier.getVariableFormat().getIdentifierType()), stepResult));
+		T stepResult = defaultValue;
+		steps.add(new ProcessStep<T>(
+			new SetModifier<>(formatManager, defaultValue),
+			new DefaultValue(formatManager.getIdentifierType()), stepResult));
 		if (!modifierList.isEmpty())
 		{
 			for (Long priority : modifierList.getKeySet())
@@ -244,7 +236,73 @@ public class Solver<T>
 	}
 
 	/**
-	 * Carries the Default Value information for display in diagnosis
+	 * Carries the Default Value information for display in diagnosis.
+	 */
+	private static final class SetModifier<T> implements Modifier<T>
+	{
+		/**
+		 * The FormatManager that this SetModifier is representing.
+		 */
+		private final FormatManager<T> formatManager;
+		
+		/**
+		 * The value that this SetModifier contains.
+		 */
+		private final T value;
+		
+		/**
+		 * Constructs a new SetModifier with the given FormatManager and value.
+		 * 
+		 * @param formatManager
+		 *            The FormatManager that this SetModifier is representing
+		 * @param value
+		 *            The value that this SetModifier contains
+		 */
+		public SetModifier(FormatManager<T> formatManager, T value)
+		{
+			this.formatManager = formatManager;
+			this.value = value;
+		}
+
+		@Override
+		public T process(EvaluationManager manager)
+		{
+			return value;
+		}
+
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+		}
+
+		@Override
+		public long getPriority()
+		{
+			return 0;
+		}
+
+		@Override
+		public FormatManager<T> getVariableFormat()
+		{
+			return formatManager;
+		}
+
+		@Override
+		public String getIdentification()
+		{
+			return "DEFAULT";
+		}
+
+		@Override
+		public String getInstructions()
+		{
+			return formatManager.unconvert(value);
+		}
+		
+	}
+
+	/**
+	 * Carries the Default Value Source information for display in diagnosis.
 	 */
 	private final class DefaultValue implements Identified
 	{
@@ -321,10 +379,9 @@ public class Solver<T>
 	 */
 	public Solver<T> createReplacement()
 	{
-		Solver<T> replacement = new Solver<>(defaultModifier);
+		Solver<T> replacement = new Solver<>(formatManager, defaultValue);
 		replacement.modifierList.addAllLists(modifierList);
 		replacement.sourceList.addAllLists(sourceList);
 		return replacement;
-	}
-	
+	}	
 }

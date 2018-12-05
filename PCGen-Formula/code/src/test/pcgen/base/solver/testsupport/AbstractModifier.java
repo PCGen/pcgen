@@ -171,20 +171,20 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		return new PrivateSetNumber(0, NUMBER_FORMAT, priority, value);
 	}
 
-	public static AbstractModifier<String> setString()
+	public static AbstractModifier<String> setString(String s)
 	{
 		return new AbstractModifier<String>(0, STRING_FORMAT)
 		{
 			@Override
 			public String process(EvaluationManager manager)
 			{
-				return "Something";
+				return s;
 			}
 
 			@Override
 			public String getInstructions()
 			{
-				return "Something";
+				return s;
 			}
 		};
 	}
