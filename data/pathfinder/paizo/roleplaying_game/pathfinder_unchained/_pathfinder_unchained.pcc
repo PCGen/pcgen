@@ -44,6 +44,7 @@ ABILITY:pu_abilities_race.lst
 ABILITYCATEGORY:pu_abilitycategories.lst
 COMPANIONMOD:pu_companionmods.lst
 EQUIPMENT:pu_equip.lst
+EQUIPMOD:pu_equipmods.lst
 ABILITY:pu_feats.lst
 SKILL:pu_skills.lst
 SPELL:pu_spells.lst
