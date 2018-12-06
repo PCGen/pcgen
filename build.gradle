@@ -234,6 +234,7 @@ task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar,
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/launch4j/pcgen.exe"
+    from "$projectDir/code/pcgen.bat"
     from("$projectDir/code/pcgen.sh") {
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
@@ -258,6 +259,7 @@ task installToRoot(type: Copy, dependsOn: [syncLibsToRoot, createExe, jar,
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/launch4j/pcgen.exe"
+    from "$projectDir/code/pcgen.bat"
     from("$projectDir/code/pcgen.sh") {
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
         fileMode 0755
