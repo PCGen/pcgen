@@ -73,7 +73,7 @@ public class IsEmptyFunction implements FormulaFunction
 		EvaluationManager manager)
 	{
 		Object[] solution = (Object[]) args[0].jjtAccept(visitor,
-			manager.getWith(EvaluationManager.ASSERTED, null));
+			manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
 		return (solution.length == 0);
 	}
 
@@ -87,7 +87,8 @@ public class IsEmptyFunction implements FormulaFunction
 	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		args[0].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
+		args[0].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, Optional.empty()));
 		return Optional.of(FormatUtilities.BOOLEAN_MANAGER);
 	}
 }
