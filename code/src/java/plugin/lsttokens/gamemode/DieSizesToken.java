@@ -28,13 +28,11 @@ public class DieSizesToken implements GameModeLstToken
 				if (aString.contains("MIN="))
 				{
 					int die = Integer.parseInt(aString.substring(4));
-					gameMode.setMinDieSize(die);
 					dieSizes.add(die);
 				}
 				else if (aString.contains("MAX="))
 				{
 					int die = Integer.parseInt(aString.substring(4));
-					gameMode.setMaxDieSize(die);
 					dieSizes.add(die);
 				}
 				else

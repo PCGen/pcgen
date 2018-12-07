@@ -22,7 +22,6 @@ public class BabminvalToken implements GameModeLstToken
 	{
 		try
 		{
-			gameMode.setBabMinVal(Integer.parseInt(value));
 			return true;
 		}
 		catch (NumberFormatException nfe)

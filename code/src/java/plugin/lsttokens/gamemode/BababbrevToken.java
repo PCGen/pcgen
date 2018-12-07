@@ -20,7 +20,6 @@ public class BababbrevToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setBabAbbrev(value);
 		return true;
 	}
 }

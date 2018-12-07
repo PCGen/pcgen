@@ -20,7 +20,6 @@ public class WcstepsformulaToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setWCStepsFormula(value);
 		return true;
 	}
 }

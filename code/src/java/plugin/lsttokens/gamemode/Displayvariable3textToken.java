@@ -20,7 +20,6 @@ public class Displayvariable3textToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setVariableDisplay3Text(value);
 		return true;
 	}
 }

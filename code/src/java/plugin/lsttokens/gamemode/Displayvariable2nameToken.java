@@ -20,7 +20,6 @@ public class Displayvariable2nameToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setVariableDisplay2Name(value);
 		return true;
 	}
 }

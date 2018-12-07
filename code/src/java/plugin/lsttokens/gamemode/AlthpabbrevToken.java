@@ -38,7 +38,6 @@ public class AlthpabbrevToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setAltHPAbbrev(value);
 		return true;
 	}
 }

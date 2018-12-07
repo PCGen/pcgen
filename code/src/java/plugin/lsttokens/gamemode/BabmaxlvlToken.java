@@ -22,7 +22,6 @@ public class BabmaxlvlToken implements GameModeLstToken
 	{
 		try
 		{
-			gameMode.setBabMaxLvl(Integer.parseInt(value));
 			return true;
 		}
 		catch (NumberFormatException nfe)

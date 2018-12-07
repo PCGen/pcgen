@@ -20,7 +20,6 @@ public class HpnameToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setHPText(value);
 		return true;
 	}
 }

@@ -38,7 +38,6 @@ public class AcabbrevToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setACAbbrev(value);
 		return true;
 	}
 }

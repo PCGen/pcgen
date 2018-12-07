@@ -20,7 +20,6 @@ public class MenutooltipToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setModeToolTip(value.replace('|', '\n'));
 		return true;
 	}
 }

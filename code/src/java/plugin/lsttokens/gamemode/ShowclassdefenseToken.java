@@ -20,7 +20,6 @@ public class ShowclassdefenseToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setShowClassDefense(value.toUpperCase().startsWith("Y"));
 		return true;
 	}
 }

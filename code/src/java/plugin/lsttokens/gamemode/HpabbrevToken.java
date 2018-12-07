@@ -20,7 +20,6 @@ public class HpabbrevToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setHPAbbrev(value);
 		return true;
 	}
 }
