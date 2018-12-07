@@ -1959,7 +1959,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Parchment</longname>
+			<longname>Parchment (Sheet)</longname>
 			<id></id>
 			<name>Parchment</name>
 			<carried>4.0</carried>
@@ -2141,7 +2141,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations, Trail, Per Day</longname>
+			<longname>Rations, Trail</longname>
 			<id></id>
 			<name>Trail Ration</name>
 			<carried>1.0</carried>
@@ -2167,7 +2167,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations, Trail, Per Day</longname>
+			<longname>Rations, Trail</longname>
 			<id></id>
 			<name>Trail Ration</name>
 			<carried>0.0</carried>
@@ -2297,7 +2297,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin, Gold Piece</longname>
+			<longname>Gold Piece</longname>
 			<id></id>
 			<name>Gold Piece</name>
 			<carried>1.0</carried>
@@ -2323,7 +2323,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin, Silver Piece</longname>
+			<longname>Silver Piece</longname>
 			<id></id>
 			<name>Silver Piece</name>
 			<carried>6.0</carried>
@@ -2407,9 +2407,9 @@ BIO
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>53.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Riding Saddle, 1 Saddlebags, 1 Waterskin</contents>
+			<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Riding Saddle, 1 Saddlebags, 1 Waterskin</contents>
 			<contents_num>7</contents_num>
-			<content_weight>53.5</content_weight>
+			<content_weight>73.5</content_weight>
 			<cost>150</cost>
 			<equipped>N</equipped>
 			<location></location>
@@ -2563,9 +2563,9 @@ BIO
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>11 lbs., 1 Oil, 4 Trail Ration, 1 Grappling Hook, 1 Map Maker&#39;s Kit</contents>
-			<contents_num>4</contents_num>
-			<content_weight>11</content_weight>
+			<contents>31 lbs., 1 Oil, 4 Trail Ration, 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Small Tent</contents>
+			<contents_num>5</contents_num>
+			<content_weight>31</content_weight>
 			<cost>4</cost>
 			<equipped>N</equipped>
 			<location>Riding Dog</location>
@@ -2632,6 +2632,32 @@ BIO
 			<special_properties></special_properties>
 			<type>GOODS.TOOLS</type>
 			<weight>2</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Tent</longname>
+			<id></id>
+			<name>Small Tent</name>
+			<carried>0.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>10</cost>
+			<equipped>N</equipped>
+			<location>Saddlebags</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL.RESIZABLE</type>
+			<weight>20</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
@@ -3324,7 +3350,7 @@ BIO
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>53.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Riding Saddle, 1 Saddlebags, 1 Waterskin</contents>
+				<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Riding Saddle, 1 Saddlebags, 1 Waterskin</contents>
 				<cost>150</cost>
 				<equipped>N</equipped>
 				<location></location>
@@ -3450,7 +3476,7 @@ BIO
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>11 lbs., 1 Oil, 4 Trail Ration, 1 Grappling Hook, 1 Map Maker&#39;s Kit</contents>
+				<contents>31 lbs., 1 Oil, 4 Trail Ration, 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Small Tent</contents>
 				<cost>4</cost>
 				<equipped>N</equipped>
 				<location>Riding Dog</location>
@@ -3506,6 +3532,27 @@ BIO
 				<special_properties></special_properties>
 				<type>GOODS.TOOLS</type>
 				<weight>2</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Small Tent</name>
+				<carried>0.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>10</cost>
+				<equipped>N</equipped>
+				<location>Saddlebags</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.RESIZABLE</type>
+				<weight>20</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>

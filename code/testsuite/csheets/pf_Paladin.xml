@@ -2085,7 +2085,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Horse, Heavy (Combat Trained)</longname>
+			<longname>Heavy Horse (Combat Trained)</longname>
 			<id></id>
 			<name>Heavy Horse (Combat Trained)</name>
 			<carried>0.0</carried>
@@ -2267,32 +2267,6 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Outfit, Traveler&#39;s</longname>
-			<id></id>
-			<name>Traveler&#39;s Outfit</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>1</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
-			<weight>5</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
 			<longname>Rope, Silk (50 ft.)</longname>
 			<id></id>
 			<name>Silk Rope (50 ft.)</name>
@@ -2342,6 +2316,32 @@ BIO
 			<special_properties></special_properties>
 			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
 			<weight>1</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Traveler&#39;s Outfit</longname>
+			<id></id>
+			<name>Traveler&#39;s Outfit</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+			<weight>5</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<total>
@@ -2899,27 +2899,6 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Traveler&#39;s Outfit</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>1</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
-				<weight>5</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
 				<name>Silk Rope (50 ft.)</name>
 				<carried>1.0</carried>
 				<charges></charges>
@@ -2959,6 +2938,27 @@ BIO
 				<special_properties></special_properties>
 				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
 				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Traveler&#39;s Outfit</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+				<weight>5</weight>
 				<bonuslist></bonuslist>
 			</item>
 			</equipmentset>
