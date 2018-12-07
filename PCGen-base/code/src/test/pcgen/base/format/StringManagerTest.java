@@ -19,6 +19,8 @@ package pcgen.base.format;
 import java.util.Comparator;
 
 import junit.framework.TestCase;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.SimpleValueStore;
 
 /**
  * Test the StringManager class
@@ -48,6 +50,22 @@ public class StringManagerTest extends TestCase
 			fail("null value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
+		{
+			//expected
+		}
+	}
+
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public void testUnconvertFailObject()
+	{
+		try
+		{
+			//Yes generics are being violated in order to do this test
+			FormatManager formatManager = manager;
+			formatManager.unconvert(new Object());
+			fail("Object should fail");
+		}
+		catch (ClassCastException | IllegalArgumentException e)
 		{
 			//expected
 		}
@@ -115,5 +133,15 @@ public class StringManagerTest extends TestCase
 	{
 		assertTrue(manager.isDirect());
 	}
-}
 
+	public void testInitializeFrom()
+	{
+		SimpleValueStore valueStore = new SimpleValueStore();
+		valueStore.addValueFor(manager.getIdentifierType(), "");
+		Object value = manager.initializeFrom(valueStore);
+		assertEquals("", value);
+		valueStore.addValueFor(manager.getIdentifierType(), "Hi");
+		value = manager.initializeFrom(valueStore);
+		assertEquals("Hi", value);
+	}
+}

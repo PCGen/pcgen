@@ -29,11 +29,12 @@ import java.util.stream.Stream;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.ArrayUtilities;
+import pcgen.base.util.Converter;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.Converter;
 import pcgen.base.util.Tuple;
 import pcgen.base.util.TupleUtil;
+import pcgen.base.util.ValueStore;
 
 /**
  * An ArrayFormatManager wraps an underlying FormatManager to produce arrays of
@@ -364,5 +365,11 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			return ArrayFormatManager.this.convertInternal(
 				derivedComponentMgr::convertIndirect, inputStr, getIndirectClass());
 		}
+	}
+
+	@Override
+	public T[] initializeFrom(ValueStore valueStore)
+	{
+		return buildOfClass(componentManager.getManagedClass()).apply(0);
 	}
 }

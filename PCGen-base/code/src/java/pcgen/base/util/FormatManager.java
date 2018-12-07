@@ -136,4 +136,28 @@ public interface FormatManager<T> extends Converter<T>
 	 *         FormatManager
 	 */
 	public Optional<FormatManager<?>> getComponentManager();
+
+	/**
+	 * Initializes an instance of the class managed by this FormatManager with underlying
+	 * values of native formats as they are contained in the provided ValueStore.
+	 * 
+	 * Generally, this is a method for setting up an initialized and valid object of the
+	 * given class underlying the FormatManager. For complex types, such as a Compound,
+	 * the FormatManager can use its internal knowledge along with the values in the
+	 * ValueStore to build a valid Compound for the exact format managed by the
+	 * FormatManager. For native objects, like a manager for Strings, it would just grab
+	 * the value from the ValueStore. Note the underlying intent here is to hold default
+	 * values for a formula system, without having to specify a default value for complex
+	 * formats which could be derived from the simple native formats.
+	 * 
+	 * @param valueStore
+	 *            The ValueStore from which values should be retrieved for native formats
+	 * @return An instance of the class managed by this FormatManager with underlying
+	 *         values from the ValueStore
+	 */
+	@SuppressWarnings("unchecked")
+	public default T initializeFrom(ValueStore valueStore)
+	{
+		return (T) valueStore.getValueFor(getIdentifierType());
+	}
 }

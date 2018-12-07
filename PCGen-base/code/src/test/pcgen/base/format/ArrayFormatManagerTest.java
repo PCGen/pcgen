@@ -22,6 +22,7 @@ import java.util.Optional;
 import junit.framework.TestCase;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.SimpleValueStore;
 
 /**
  * Test the ArrayFormatManager class
@@ -72,6 +73,38 @@ public class ArrayFormatManagerTest extends TestCase
 			fail("null value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
+		{
+			//expected
+		}
+	}
+
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public void testUnconvertFailObject()
+	{
+		try
+		{
+			//Yes generics are being violated in order to do this test
+			FormatManager formatManager = manager;
+			formatManager.unconvert(new Object());
+			fail("Object should fail");
+		}
+		catch (ClassCastException | IllegalArgumentException e)
+		{
+			//expected
+		}
+	}
+
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public void testUnconvertFailUnderlying()
+	{
+		try
+		{
+			//Yes generics are being violated in order to do this test
+			FormatManager formatManager = manager;
+			formatManager.unconvert(1);
+			fail("Integer should fail");
+		}
+		catch (ClassCastException | IllegalArgumentException e)
 		{
 			//expected
 		}
@@ -289,5 +322,14 @@ public class ArrayFormatManagerTest extends TestCase
 			
 		}, '\n', ',').isDirect());
 	}
+
+	public void testInitializeFrom()
+	{
+		Object value = manager.initializeFrom(new SimpleValueStore());
+		assertTrue(value.getClass().isArray());
+		Object[] array = (Object[]) value;
+		assertEquals(0, array.length);
+	}
+	
 }
 

@@ -19,6 +19,8 @@ package pcgen.base.format;
 import java.util.Comparator;
 
 import junit.framework.TestCase;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.SimpleValueStore;
 
 /**
  * Test the NumberManager class
@@ -61,6 +63,22 @@ public class NumberManagerTest extends TestCase
 			fail("null value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
+		{
+			//expected
+		}
+	}
+
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public void testUnconvertFailObject()
+	{
+		try
+		{
+			//Yes generics are being violated in order to do this test
+			FormatManager formatManager = manager;
+			formatManager.unconvert(new Object());
+			fail("Object should fail");
+		}
+		catch (ClassCastException | IllegalArgumentException e)
 		{
 			//expected
 		}
@@ -143,5 +161,16 @@ public class NumberManagerTest extends TestCase
 		assertEquals(1, comparator.compare(Integer.valueOf(21), Integer.valueOf(12)));
 		assertEquals(-1, comparator.compare(Integer.valueOf(1), Integer.valueOf(2)));
 		assertEquals(0, comparator.compare(Integer.valueOf(1), Double.valueOf(1)));
+	}
+
+	public void testInitializeFrom()
+	{
+		SimpleValueStore valueStore = new SimpleValueStore();
+		valueStore.addValueFor(manager.getIdentifierType(), 1);
+		Object value = manager.initializeFrom(valueStore);
+		assertEquals(1, value);
+		valueStore.addValueFor(manager.getIdentifierType(), 3);
+		value = manager.initializeFrom(valueStore);
+		assertEquals(3, value);
 	}
 }

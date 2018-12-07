@@ -21,7 +21,9 @@ import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
+import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.SimpleValueStore;
 
 /**
  * Test the CompoundFormatManager class
@@ -31,6 +33,25 @@ public class CompoundFormatManagerTest extends TestCase
 	private final NumberManager numberManager = new NumberManager();
 	private final BooleanManager booleanManager = new BooleanManager();
 	private final StringManager stringManager = new StringManager();
+
+
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public void testUnconvertFailObject()
+	{
+		CompoundFormatManager<Number> manager =
+				new CompoundFormatManager<>(numberManager, '|');
+		try
+		{
+			//Yes generics are being violated in order to do this test
+			FormatManager formatManager = manager;
+			formatManager.unconvert(new Object());
+			fail("Object should fail");
+		}
+		catch (ClassCastException e)
+		{
+			//expected
+		}
+	}
 
 	@SuppressWarnings("unused")
 	public void testConstructor()
@@ -283,4 +304,22 @@ public class CompoundFormatManagerTest extends TestCase
 		assertEquals("4|ALLOWED=false|LEVEL=Easy", in2.getUnconverted());
 	}
 
+	public void testInitializeFrom()
+	{
+		SimpleValueStore valueStore = new SimpleValueStore();
+		CompoundFormatManager<Number> manager =
+				new CompoundFormatManager<>(numberManager, '|');
+		manager.addSecondary(booleanManager, "Allowed", false);
+		manager.addSecondary(stringManager, "Level", true);
+		Compound c = manager.convert("3|LEVEL=Hard");
+		valueStore.addValueFor(numberManager.getIdentifierType(), 3);
+		valueStore.addValueFor(stringManager.getIdentifierType(), "Hard");
+		Object value = manager.initializeFrom(valueStore);
+		assertEquals(c, value);
+		Compound c2 = manager.convert("4|LEVEL=Easy");
+		valueStore.addValueFor(numberManager.getIdentifierType(), 4);
+		valueStore.addValueFor(stringManager.getIdentifierType(), "Easy");
+		value = manager.initializeFrom(valueStore);
+		assertEquals(c2, value);
+	}
 }

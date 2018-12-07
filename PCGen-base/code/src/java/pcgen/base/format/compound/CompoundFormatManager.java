@@ -29,6 +29,7 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.NamedIndirect;
 import pcgen.base.util.Tuple;
+import pcgen.base.util.ValueStore;
 
 /**
  * CompoundFormatManager is a FormatManager that handles the Compound format. A Compound
@@ -396,5 +397,25 @@ public class CompoundFormatManager<T> implements DispatchingFormatManager<Compou
 		{
 			return CompoundFormatManager.this;
 		}
+	}
+
+	@Override
+	public Compound initializeFrom(ValueStore valueStore)
+	{
+		T primary = formatManager.initializeFrom(valueStore);
+		Compound c = new DirectCompound(primary, this);
+		secondaryDefs.values()
+			.stream()
+			.filter(SecondaryDefinition::isRequired)
+			.map(sd -> processSecondary(valueStore, sd.getName(), sd.getFormatManager()))
+			.forEach(c::addSecondary);
+		return c;
+	}
+
+	private <S> NamedIndirect<S> processSecondary(ValueStore valueStore,
+		String name, FormatManager<S> secondaryManager)
+	{
+		S secondaryValue = secondaryManager.initializeFrom(valueStore);
+		return new NamedIndirect<>(name, secondaryManager, secondaryValue);
 	}
 }

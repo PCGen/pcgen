@@ -42,6 +42,23 @@ public class NamedIndirect<T>
 	private final String name;
 
 	/**
+	 * Constructs a new NamedIndirect with the given name, Format of the value, and value
+	 * of the NamedIndirect.
+	 * 
+	 * @param name
+	 *            The name of this NamedIndirect
+	 * @param manager
+	 *            The FormatManager used to unconvert the value
+	 * @param object
+	 *            The value of this NamedIndirect
+	 */
+	public NamedIndirect(String name, FormatManager<T> manager, T object)
+	{
+		this.name = Objects.requireNonNull(name);
+		this.object = new BasicIndirect<>(manager, object);
+	}
+
+	/**
 	 * Constructs a new NamedIndirect with the given name, Format of the value, and
 	 * instructions for the underlying value of the NamedIndirect.
 	 * 

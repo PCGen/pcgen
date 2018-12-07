@@ -20,6 +20,8 @@ import java.math.BigDecimal;
 
 import junit.framework.TestCase;
 import pcgen.base.math.OrderedPair;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.SimpleValueStore;
 
 /**
  * Test the OrderedPairManager class
@@ -62,6 +64,22 @@ public class OrderedPairManagerTest extends TestCase
 			fail("null value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
+		{
+			//expected
+		}
+	}
+
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public void testUnconvertFailObject()
+	{
+		try
+		{
+			//Yes generics are being violated in order to do this test
+			FormatManager formatManager = manager;
+			formatManager.unconvert(new Object());
+			fail("Object should fail");
+		}
+		catch (ClassCastException | IllegalArgumentException e)
 		{
 			//expected
 		}
@@ -139,5 +157,15 @@ public class OrderedPairManagerTest extends TestCase
 	{
 		assertTrue(manager.isDirect());
 	}
-}
 
+	public void testInitializeFrom()
+	{
+		SimpleValueStore valueStore = new SimpleValueStore();
+		valueStore.addValueFor(manager.getIdentifierType(), new OrderedPair(1, 3));
+		Object value = manager.initializeFrom(valueStore);
+		assertEquals(new OrderedPair(1, 3), value);
+		valueStore.addValueFor(manager.getIdentifierType(), new OrderedPair(2, 6));
+		value = manager.initializeFrom(valueStore);
+		assertEquals(new OrderedPair(2, 6), value);
+	}
+}
