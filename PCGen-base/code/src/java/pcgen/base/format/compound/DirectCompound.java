@@ -85,4 +85,17 @@ class DirectCompound extends AbstractCompound
 	{
 		return componentManager.unconvert((A) object);
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return 31 * super.hashCode() + object.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return super.equals(obj) && (obj instanceof DirectCompound)
+			&& object.equals(((DirectCompound) obj).object);
+	}
 }

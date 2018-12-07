@@ -87,4 +87,20 @@ public class NamedIndirect<T>
 		return getName() + '=' + getUnconverted();
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return 31 * (31 + name.hashCode()) + object.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof NamedIndirect)
+		{
+			NamedIndirect<?> other = (NamedIndirect<?>) obj;
+			return name.equalsIgnoreCase(other.name) && object.equals(other.object);
+		}
+		return false;
+	}
 }
