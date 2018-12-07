@@ -33,8 +33,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
@@ -492,7 +492,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			{
 				SpellNode spellNode = (SpellNode) element;
 				SpellFacade spell = spellNode.getSpell();
-				ClassFacade pcClass = spellNode.getSpellcastingClass();
+				PCClass pcClass = spellNode.getSpellcastingClass();
 				return character.isQualifiedFor(spell, pcClass);
 			}
 			return true;

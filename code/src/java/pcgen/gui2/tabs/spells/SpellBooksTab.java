@@ -34,8 +34,8 @@ import javax.swing.tree.TreePath;
 
 import org.apache.commons.lang3.StringUtils;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.SpellSupportFacade.RootNode;
@@ -405,7 +405,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 			{
 				SpellNode spellNode = (SpellNode) element;
 				SpellFacade spell = spellNode.getSpell();
-				ClassFacade pcClass = spellNode.getSpellcastingClass();
+				PCClass pcClass = spellNode.getSpellcastingClass();
 				return character.isQualifiedFor(spell, pcClass);
 			}
 			return true;

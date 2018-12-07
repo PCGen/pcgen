@@ -68,11 +68,11 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.TodoFacade;
@@ -876,7 +876,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private CharacterComboBoxModel<Deity> deityModel;
 		private final DeferredCharacterComboBoxModel<Race> raceModel;
 		private final CharacterComboBoxModel<String> ageCatModel;
-		private final FacadeComboBoxModel<ClassFacade> classModel;
+		private final FacadeComboBoxModel<PCClass> classModel;
 		private final CharacterComboBoxModel<String> xpTableModel;
 		private final CharacterComboBoxModel<String> characterTypeModel;
 
@@ -1105,7 +1105,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			boolean cellHasFocus)
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-			if (value instanceof ClassFacade && !character.isQualifiedFor((ClassFacade) value))
+			if (value instanceof PCClass && !character.isQualifiedFor((PCClass) value))
 			{
 				if (index == -1)
 				{// this is a hack to prevent the combobox from overwriting the text color
@@ -1364,13 +1364,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			ClassFacade c = (ClassFacade) classComboBox.getSelectedItem();
+			PCClass c = (PCClass) classComboBox.getSelectedItem();
 			if (c != null)
 			{
 				Number levels = (Number) addLevelsField.getValue();
 				if (levels.intValue() >= 0)
 				{
-					ClassFacade[] classes = new ClassFacade[levels.intValue()];
+					PCClass[] classes = new PCClass[levels.intValue()];
 					Arrays.fill(classes, c);
 					character.addCharacterLevels(classes);
 				}
@@ -1383,7 +1383,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			int maxLvl = characterLevelsFacade.getSize();
 			if (maxLvl > 0)
 			{
-				ClassFacade classTaken =
+				PCClass classTaken =
 						characterLevelsFacade.getClassTaken(characterLevelsFacade.getElementAt(maxLvl - 1));
 				classComboBox.setSelectedItem(classTaken);
 			}

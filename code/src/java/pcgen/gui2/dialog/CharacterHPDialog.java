@@ -43,13 +43,13 @@ import javax.swing.table.TableCellRenderer;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
+import pcgen.core.PCClass;
 import pcgen.core.RollingMethods;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -259,7 +259,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			CharacterLevelFacade level = levels.getElementAt(rowIndex);
-			ClassFacade c = levels.getClassTaken(level);
+			PCClass c = levels.getClassTaken(level);
 			switch (columnIndex)
 			{
 				case 0:

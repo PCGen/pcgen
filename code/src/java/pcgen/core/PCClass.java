@@ -72,7 +72,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.facade.core.ClassFacade;
+import pcgen.facade.core.InfoFacade;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -83,7 +83,7 @@ import pcgen.util.enumeration.AttackType;
 /**
  * {@code PCClass}.
  */
-public class PCClass extends PObject implements ClassFacade, Cloneable
+public class PCClass extends PObject implements InfoFacade, Cloneable
 {
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;
@@ -123,7 +123,6 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	@Override
 	public final String getAbbrev()
 	{
 		FactKey<String> fk = FactKey.valueOf("Abb");
@@ -345,7 +344,6 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-	@Override
 	public final String getSpellType()
 	{
 		FactKey<String> fk = FactKey.valueOf("SpellType");
@@ -1443,20 +1441,17 @@ public class PCClass extends PObject implements ClassFacade, Cloneable
 		return super.qualifies(aPC, owner);
 	}
 
-	@Override
 	public String getBaseStat()
 	{
 		return getSpellBaseStat();
 	}
 
-	@Override
 	public String getHD()
 	{
 		HitDie hd = getSafe(ObjectKey.LEVEL_HITDIE);
 		return String.valueOf(hd.getDie());
 	}
 
-	@Override
 	public String[] getTypes()
 	{
 		String type = getType();

@@ -20,6 +20,7 @@ package pcgen.facade.core;
 
 import pcgen.core.Deity;
 import pcgen.core.Kit;
+import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.Skill;
@@ -64,7 +65,7 @@ public interface InfoFactory
 
 	public String getHTMLInfo(Race race);
 
-	public String getHTMLInfo(ClassFacade pcClass, ClassFacade parentClass);
+	public String getHTMLInfo(PCClass pcClass, PCClass parentClass);
 
 	public String getHTMLInfo(Skill skill);
 
@@ -154,10 +155,10 @@ public interface InfoFactory
 	/**
 	 * Get the description for a class for this character.
 	 *
-	 * @param classFacade The class to be described.
+	 * @param pcClass The class to be described.
 	 * @return The description.
 	 */
-	public String getDescription(ClassFacade classFacade);
+	public String getDescription(PCClass pcClass);
 
 	/**
 	 * Get the description for a skill for this character.

@@ -102,7 +102,6 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
@@ -269,20 +268,15 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(ClassFacade classFacade, ClassFacade parentClassFacade)
+	public String getHTMLInfo(PCClass aClass, PCClass possibleParentClass)
 	{
-		if (!(classFacade instanceof PCClass))
-		{
-			return EMPTY_STRING;
-		}
-		PCClass aClass = (PCClass) classFacade;
 		PCClass parentClass = aClass;
 
 		String aString;
 		boolean isSubClass = aClass instanceof SubClass;
-		if (isSubClass && parentClassFacade != null)
+		if (isSubClass && possibleParentClass != null)
 		{
-			parentClass = (PCClass) parentClassFacade;
+			parentClass = possibleParentClass;
 		}
 
 		final HtmlInfoBuilder b = new HtmlInfoBuilder(OutputNameFormatting.piString(aClass));
@@ -1446,9 +1440,9 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((AbilityFacade) facade);
 		}
-		if (facade instanceof ClassFacade)
+		if (facade instanceof PCClass)
 		{
-			return getHTMLInfo((ClassFacade) facade, null);
+			return getHTMLInfo((PCClass) facade, null);
 		}
 		if (facade instanceof DomainFacade)
 		{
@@ -1920,20 +1914,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(ClassFacade classFacade)
+	public String getDescription(PCClass pcClass)
 	{
-		if (classFacade == null || !(classFacade instanceof PCClass))
+		if (pcClass == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			PCClass pcClass = (PCClass) classFacade;
 			return DescriptionFormatting.piWrapDesc(pcClass, pc.getDescription(pcClass), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + classFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + pcClass, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
