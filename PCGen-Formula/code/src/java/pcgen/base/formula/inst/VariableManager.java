@@ -83,6 +83,7 @@ public class VariableManager implements VariableLibrary
 		{
 			//Can't be a conflict
 			variableDefs.put(varName, legalScope, formatManager);
+			return;
 		}
 		FormatManager<?> currentFormat = variableDefs.get(varName, legalScope);
 		//Asserted Format Already there
