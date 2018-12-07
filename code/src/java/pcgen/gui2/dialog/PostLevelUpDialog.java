@@ -45,12 +45,12 @@ import javax.swing.table.TableCellRenderer;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.mutable.MutableInt;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
-import pcgen.facade.core.ClassFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
@@ -186,7 +186,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 
 		private final Object[] columns;
 		private final Object[][] data;
-		private final Map<ClassFacade, MutableInt> classLevelMap;
+		private final Map<PCClass, MutableInt> classLevelMap;
 
 		LevelTableModel()
 		{
@@ -198,7 +198,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 			};
 
 			data = new Object[numLevels + 1][5];
-			classLevelMap = new HashMap<ClassFacade, MutableInt>();
+			classLevelMap = new HashMap<PCClass, MutableInt>();
 			int gainedTotal = 0;
 			int rolledTotal = 0;
 			int pointTotal = 0;
@@ -207,23 +207,23 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 				CharacterLevelFacade level = levels.getElementAt(i);
 				Object[] dataRow = data[i - oldLevel];
 				dataRow[COL_LEVEL] = i + 1;
-				ClassFacade classFacade = levels.getClassTaken(level);
-				dataRow[COL_CLASS] = classFacade;
-				if (!classLevelMap.containsKey(classFacade))
+				PCClass pcClass = levels.getClassTaken(level);
+				dataRow[COL_CLASS] = pcClass;
+				if (!classLevelMap.containsKey(pcClass))
 				{
-					classLevelMap.put(classFacade, new MutableInt(0));
+					classLevelMap.put(pcClass, new MutableInt(0));
 				}
-				classLevelMap.get(classFacade).increment();
+				classLevelMap.get(pcClass).increment();
 				gainedTotal += (Integer) (dataRow[COL_GAINED_HP] = levels.getHPGained(level));
 				rolledTotal += (Integer) (dataRow[COL_ROLLED_HP] = levels.getHPRolled(level));
 				pointTotal += (Integer) (dataRow[COL_SKILL_POINTS] = levels.getGainedSkillPoints(level));
 			}
 			data[numLevels][COL_LEVEL] = LanguageBundle.getString("in_sumTotal"); //$NON-NLS-1$
 			StringBuilder builder = new StringBuilder(100);
-			Iterator<ClassFacade> classes = classLevelMap.keySet().iterator();
+			Iterator<PCClass> classes = classLevelMap.keySet().iterator();
 			while (classes.hasNext())
 			{
-				ClassFacade c = classes.next();
+				PCClass c = classes.next();
 				builder.append(c.getAbbrev()).append(' ');
 				builder.append('(').append(classLevelMap.get(c)).append(')');
 				if (classes.hasNext())

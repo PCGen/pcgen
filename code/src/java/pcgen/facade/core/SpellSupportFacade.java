@@ -18,6 +18,7 @@
  */
 package pcgen.facade.core;
 
+import pcgen.core.PCClass;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 
@@ -89,7 +90,7 @@ public interface SpellSupportFacade
 	 * @param spellcaster a spell caster class
 	 * @return an HTML string
 	 */
-	public String getClassInfo(ClassFacade spellcaster);
+	public String getClassInfo(PCClass spellcaster);
 
 	/** 
 	 * Refresh the available and known spells list in response to an action 
@@ -164,7 +165,7 @@ public interface SpellSupportFacade
 	public static interface SpellNode extends SuperNode
 	{
 
-		public ClassFacade getSpellcastingClass();
+		public PCClass getSpellcastingClass();
 
 		public String getSpellLevel();
 

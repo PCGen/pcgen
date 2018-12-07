@@ -17,8 +17,8 @@
  */
 package pcgen.gui2.facade;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterLevelFacade;
-import pcgen.facade.core.ClassFacade;
 
 /**
  * The Class {@code CharacterLevelFacadeImpl} is an implementation of
@@ -31,11 +31,11 @@ public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 {
 
 	private final int characterLevel;
-	private final ClassFacade classFacade;
+	private final PCClass pcClass;
 
-	public CharacterLevelFacadeImpl(ClassFacade classFacade, int level)
+	public CharacterLevelFacadeImpl(PCClass pcClass, int level)
 	{
-		this.classFacade = classFacade;
+		this.pcClass = pcClass;
 		this.characterLevel = level;
 	}
 
@@ -50,15 +50,15 @@ public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 	/**
 	 * @return The class taken for this level
 	 */
-	ClassFacade getSelectedClass()
+	PCClass getSelectedClass()
 	{
-		return classFacade;
+		return pcClass;
 	}
 
 	@Override
 	public String toString()
 	{
-		return characterLevel + " - " + String.valueOf(classFacade);
+		return characterLevel + " - " + String.valueOf(pcClass);
 	}
 
 }

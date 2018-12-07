@@ -23,8 +23,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 
@@ -78,14 +78,14 @@ class ClassInfoHandler implements ListSelectionListener
 			{
 				return;
 			}
-			ClassFacade c = null;
+			PCClass c = null;
 			DefaultMutableTreeNode treenode = (DefaultMutableTreeNode) path.getLastPathComponent();
 			Object[] objs = treenode.getUserObjectPath();
 			for (Object object : objs)
 			{
-				if (object instanceof ClassFacade)
+				if (object instanceof PCClass)
 				{
-					c = (ClassFacade) object;
+					c = (PCClass) object;
 					break;
 				}
 			}

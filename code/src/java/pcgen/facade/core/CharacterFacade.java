@@ -38,6 +38,7 @@ import pcgen.core.Deity;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -158,7 +159,7 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public ListFacade<AbilityCategory> getActiveAbilityCategories();
 
-	public void addCharacterLevels(ClassFacade[] classes);
+	public void addCharacterLevels(PCClass[] classes);
 
 	public void removeCharacterLevels(int levels);
 
@@ -167,7 +168,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param c a ClassFacade
 	 * @return the total level of a class
 	 */
-	public int getClassLevel(ClassFacade c);
+	public int getClassLevel(PCClass c);
 
 	public int getTotalSelections(AbilityCategory category);
 
@@ -263,7 +264,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	public void deleteEquipmentSet(EquipmentSetFacade set);
 
-	public boolean isQualifiedFor(ClassFacade c);
+	public boolean isQualifiedFor(PCClass c);
 
 	public boolean isAutomatic(Language language);
 
@@ -659,10 +660,10 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * Check if the character meets all requirements to know the spell.
 	 * @param spell The spell to be checked.
-	 * @param classFacade The class the spell would be added within.
+	 * @param pcClass The class the spell would be added within.
 	 * @return True if the character can know the spell, false if not.
 	 */
-	public boolean isQualifiedFor(SpellFacade spell, ClassFacade classFacade);
+	public boolean isQualifiedFor(SpellFacade spell, PCClass pcClass);
 
 	/**
 	 * Is the modifier able to be added to the item of equipment?

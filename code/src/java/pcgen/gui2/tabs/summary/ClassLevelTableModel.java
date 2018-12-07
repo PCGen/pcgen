@@ -44,13 +44,13 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.ClassListener;
 import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tabs.Utilities;
@@ -175,7 +175,7 @@ public class ClassLevelTableModel extends AbstractTableModel implements ListList
 			case 1:
 				return levels.getHPGained(levels.getElementAt(rowIndex));
 			case 2:
-				ClassFacade c = levels.getClassTaken(levels.getElementAt(rowIndex));
+				PCClass c = levels.getClassTaken(levels.getElementAt(rowIndex));
 				String classKey = c.getKeyName();
 				if (finalLevelMap.get(classKey) == rowIndex)
 				{
@@ -325,10 +325,10 @@ public class ClassLevelTableModel extends AbstractTableModel implements ListList
 		{
 			if (e.getSource() == addLevelButton)
 			{
-				ClassFacade c = (ClassFacade) classComboBox.getSelectedItem();
+				PCClass c = (PCClass) classComboBox.getSelectedItem();
 				if (c != null)
 				{
-					character.addCharacterLevels(new ClassFacade[]{c});
+					character.addCharacterLevels(new PCClass[]{c});
 				}
 			}
 			else

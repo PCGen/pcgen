@@ -127,7 +127,6 @@ import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
 import pcgen.facade.core.CharacterStubFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.core.DataSetFacade;
@@ -190,7 +189,7 @@ public class CharacterFacadeImpl
 {
 
 	private static final PlayerCharacter DUMMY_PC = new PlayerCharacter();
-	private List<ClassFacade> pcClasses;
+	private List<PCClass> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
 	private WriteableReferenceFacade<PCAlignment> alignment;
@@ -724,7 +723,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void addCharacterLevels(ClassFacade[] classes)
+	public void addCharacterLevels(PCClass[] classes)
 	{
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		//SettingsHandler.setShowStatDialogAtLevelUp(false);
@@ -732,33 +731,31 @@ public class CharacterFacadeImpl
 		int oldLevel = charLevelsFacade.getSize();
 		boolean needFullRefresh = false;
 
-		for (ClassFacade classFacade : classes)
+		for (PCClass pcClass : classes)
 		{
-			if (classFacade instanceof PCClass)
+			int totalLevels = charDisplay.getTotalLevels();
+			if (!validateAddLevel(pcClass))
 			{
-				int totalLevels = charDisplay.getTotalLevels();
-				if (!validateAddLevel((PCClass) classFacade))
-				{
-					return;
-				}
-				Logging.log(Logging.INFO, charDisplay.getName() + ": Adding level " + (totalLevels + 1) //$NON-NLS-1$
-					+ " in class " + classFacade); //$NON-NLS-1$
-				theCharacter.incrementClassLevel(1, (PCClass) classFacade);
-				if (totalLevels == charDisplay.getTotalLevels())
-				{
-					// The level change was rejected - no further processing needed.
-					return;
-				}
-				if (((PCClass) classFacade).containsKey(ObjectKey.EXCHANGE_LEVEL))
-				{
-					needFullRefresh = true;
-				}
+				return;
 			}
-			if (!pcClasses.contains(classFacade))
+			Logging.log(Logging.INFO,
+				charDisplay.getName() + ": Adding level " + (totalLevels + 1) //$NON-NLS-1$
+					+ " in class " + pcClass); //$NON-NLS-1$
+			theCharacter.incrementClassLevel(1, pcClass);
+			if (totalLevels == charDisplay.getTotalLevels())
 			{
-				pcClasses.add(classFacade);
+				// The level change was rejected - no further processing needed.
+				return;
 			}
-			CharacterLevelFacadeImpl cl = new CharacterLevelFacadeImpl(classFacade, charLevelsFacade.getSize() + 1);
+			if (pcClass.containsKey(ObjectKey.EXCHANGE_LEVEL))
+			{
+				needFullRefresh = true;
+			}
+			if (!pcClasses.contains(pcClass))
+			{
+				pcClasses.add(pcClass);
+			}
+			CharacterLevelFacadeImpl cl = new CharacterLevelFacadeImpl(pcClass, charLevelsFacade.getSize() + 1);
 			pcClassLevels.addElement(cl);
 			charLevelsFacade.addLevelOfClass(cl);
 		}
@@ -821,27 +818,24 @@ public class CharacterFacadeImpl
 	{
 		for (int i = levels; i > 0 && !pcClassLevels.isEmpty(); i--)
 		{
-			ClassFacade classFacade =
+			PCClass pcClass =
 					charLevelsFacade.getClassTaken(pcClassLevels.getElementAt(pcClassLevels.getSize() - 1));
 			pcClassLevels.removeElement(pcClassLevels.getSize() - 1);
-			if (classFacade instanceof PCClass)
-			{
-				Logging.log(Logging.INFO, charDisplay.getName()
-					+ ": Removing level " + (pcClassLevels.getSize() + 1) //$NON-NLS-1$
-					+ " in class " + classFacade); //$NON-NLS-1$
-				theCharacter.incrementClassLevel(-1, (PCClass) classFacade);
-			}
+			Logging.log(Logging.INFO,
+				charDisplay.getName() + ": Removing level " //$NON-NLS-1$
+					+ (pcClassLevels.getSize() + 1) + " in class " + pcClass); //$NON-NLS-1$
+			theCharacter.incrementClassLevel(-1, pcClass);
 			charLevelsFacade.removeLastLevel();
 		}
 
 		// Clean up the class list 
-		for (Iterator<ClassFacade> iterator = pcClasses.iterator(); iterator.hasNext();)
+		for (Iterator<PCClass> iterator = pcClasses.iterator(); iterator.hasNext();)
 		{
-			ClassFacade classFacade = iterator.next();
+			PCClass pcClass = iterator.next();
 			boolean stillPresent = false;
 			for (CharacterLevelFacade charLevel : pcClassLevels)
 			{
-				if (charLevelsFacade.getClassTaken(charLevel) == classFacade)
+				if (charLevelsFacade.getClassTaken(charLevel) == pcClass)
 				{
 					stillPresent = true;
 					break;
@@ -872,7 +866,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public int getClassLevel(ClassFacade c)
+	public int getClassLevel(PCClass c)
 	{
 		int clsLevel = 0;
 		// We have to compare by class key as classes get cloned and we may have
@@ -2526,13 +2520,9 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(ClassFacade c)
+	public boolean isQualifiedFor(PCClass c)
 	{
-		if (c instanceof PCClass)
-		{
-			return theCharacter.isQualified((PCClass) c);
-		}
-		return false;
+		return theCharacter.isQualified(c);
 	}
 
 	@Override
@@ -3613,15 +3603,14 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(SpellFacade spellFacade, ClassFacade classFacade)
+	public boolean isQualifiedFor(SpellFacade spellFacade, PCClass pcClass)
 	{
-		if (!(spellFacade instanceof SpellFacadeImplem) || !(classFacade == null || classFacade instanceof PCClass))
+		if (!(spellFacade instanceof SpellFacadeImplem) || (pcClass == null))
 		{
 			return false;
 		}
 
 		SpellFacadeImplem spellFI = (SpellFacadeImplem) spellFacade;
-		PCClass pcClass = (PCClass) classFacade;
 
 		if (!theCharacter.isQualified(spellFI.getSpell()))
 		{

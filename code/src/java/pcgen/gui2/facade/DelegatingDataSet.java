@@ -29,6 +29,7 @@ import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
 import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -36,7 +37,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
@@ -61,7 +61,7 @@ public class DelegatingDataSet implements DataSetFacade
 {
 
 	private final DelegatingListFacade<Race> races;
-	private final DelegatingListFacade<ClassFacade> classes;
+	private final DelegatingListFacade<PCClass> classes;
 	private final DelegatingListFacade<Skill> skills;
 	private final DelegatingListFacade<Deity> deities;
 	private final DelegatingListFacade<PCTemplate> templates;
@@ -247,7 +247,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<ClassFacade> getClasses()
+	public ListFacade<PCClass> getClasses()
 	{
 		return classes;
 	}

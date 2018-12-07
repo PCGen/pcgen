@@ -47,7 +47,6 @@ import pcgen.core.display.SkillDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.AbstractListFacade;
@@ -70,7 +69,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 
 	private final UIDelegate delegate;
 
-	private List<ClassFacade> classLevels;
+	private List<PCClass> classLevels;
 	private List<CharacterLevelFacade> charLevels;
 	private final TodoManager todoManager;
 	private CharID charID;
@@ -211,7 +210,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public ClassFacade getClassTaken(CharacterLevelFacade level)
+	public PCClass getClassTaken(CharacterLevelFacade level)
 	{
 		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
 		{
@@ -554,7 +553,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 			// selected level in which the rank to be removed is below max ranks and 
 			// is a class that has bought ranks in the class
 			CharacterLevelFacade levelToRefundSkill =
-					scanForLevelToRefundSkill(skill, currRank, (PCClass) getClassTaken(baseLevel));
+					scanForLevelToRefundSkill(skill, currRank, getClassTaken(baseLevel));
 			if (levelToRefundSkill != null)
 			{
 				return levelToRefundSkill;
@@ -691,9 +690,9 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	 * @param pcClass The class being checked.
 	 * @return true if the character took ranks of the skill in the class.
 	 */
-	private boolean classHasRanksIn(Skill skill, ClassFacade pcClass)
+	private boolean classHasRanksIn(Skill skill, PCClass pcClass)
 	{
-		Double rank = theCharacter.getSkillRankForClass(skill, (PCClass) pcClass);
+		Double rank = theCharacter.getSkillRankForClass(skill, pcClass);
 		return (rank != null) && (rank > 0.0d);
 	}
 
@@ -751,7 +750,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	 */
 	void addLevelOfClass(CharacterLevelFacadeImpl theClassLevel)
 	{
-		ClassFacade theClass = theClassLevel.getSelectedClass();
+		PCClass theClass = theClassLevel.getSelectedClass();
 		classLevels.add(theClass);
 		addElement(theClassLevel);
 		updateSkillsTodo();
