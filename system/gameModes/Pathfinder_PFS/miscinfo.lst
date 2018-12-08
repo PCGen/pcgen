@@ -74,7 +74,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Pathfinder Society Organized Play
-MENUTOOLTIP:Use Pathfinder Society Organized Play character creation rules
 DISPLAYORDER:1
 ALLOWEDMODES:Pathfinder_PFS
 GAMEMODEKEY:Pathfinder_PFS

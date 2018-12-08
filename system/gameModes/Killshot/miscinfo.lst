@@ -78,7 +78,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod		VISIBLE:NO	CONTEXT:tabpages\tabtemporarybonuse
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Killshot
-MENUTOOLTIP:Use Killshot system
 DISPLAYORDER:1
 ALLOWEDMODES:Killshot
 

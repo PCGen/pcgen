@@ -73,7 +73,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:3e
-MENUTOOLTIP:Use 3.0 character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:3e|DnD|Xcrawl
 #
