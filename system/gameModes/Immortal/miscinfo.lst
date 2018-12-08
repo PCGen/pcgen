@@ -21,7 +21,6 @@ ACNAME:Armor
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Gold
 CURRENCYUNITABBREV:gp
 
 #

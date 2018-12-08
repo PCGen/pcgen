@@ -21,7 +21,6 @@ BONUSSTACKS:Defense.Dodge.Circumstance.Racial.NotRanged.NotFlatFooted
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Gold
 CURRENCYUNITABBREV:gp
 
 #
