@@ -54,7 +54,7 @@ public class PCGenMessage extends EventObject
 	/**
 	 * @return the consumed flag
 	 */
-	public boolean isConsumed()
+	boolean isConsumed()
 	{
 		return consumed;
 	}

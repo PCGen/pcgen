@@ -46,8 +46,6 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
@@ -161,7 +159,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		rootNode.add(pluginNode);
 	}
 
-	public void applyPluginPreferences()
+	private void applyPluginPreferences()
 	{
 		pluginsPanel.applyPreferences();
 	}
@@ -199,8 +197,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private static JPanel buildEmptyPanel(String title, String messageText)
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		JPanel panel = new JPanel();
 		Border etched = null;
@@ -208,9 +204,9 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		panel.setBorder(title1);
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
 		panel.setLayout(gridbag);
-		c = new GridBagConstraints();
+		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.CENTER;
 		c.insets = new Insets(2, 2, 2, 2);
@@ -328,21 +324,16 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.expandPath(new TreePath(pluginNode.getPath()));
 
 		// Add the listener which switches panels when a node of the tree is selected
-		settingsTree.addTreeSelectionListener(new TreeSelectionListener()
-		{
-			@Override
-			public void valueChanged(TreeSelectionEvent e)
+		settingsTree.addTreeSelectionListener(e -> {
+			DefaultMutableTreeNode node = (DefaultMutableTreeNode) settingsTree.getLastSelectedPathComponent();
+
+			if (node == null)
 			{
-				DefaultMutableTreeNode node = (DefaultMutableTreeNode) settingsTree.getLastSelectedPathComponent();
-
-				if (node == null)
-				{
-					return;
-				}
-
-				CardLayout cl = (CardLayout) (settingsPanel.getLayout());
-				cl.show(settingsPanel, String.valueOf(node));
+				return;
 			}
+
+			CardLayout cl = (CardLayout) (settingsPanel.getLayout());
+			cl.show(settingsPanel, String.valueOf(node));
 		});
 
 		// Build the split pane
@@ -378,10 +369,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private void resetOptionValues()
 	{
-		for (PCGenPrefsPanel prefsPanel : panelList)
-		{
-			prefsPanel.resetOptionValues();
-		}
+		panelList.forEach(PCGenPrefsPanel::resetOptionValues);
 	}
 
 	@Override
@@ -404,12 +392,11 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	private JScrollPane jScrollPane1;
 
 	/** Creates new form PreferencesDamagePanel */
-	public PreferencesPluginsPanel()
+	PreferencesPluginsPanel()
 	{
-		for (PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
-		{
-			addPanel(info.logName, info.pluginName, Constants.SYSTEM_GMGEN);
-		}
+		PluginManager.getInstance()
+		             .getPluginInfoList()
+		             .forEach(info -> addPanel(info.logName, info.pluginName));
 		initComponents();
 		initPreferences();
 	}
@@ -417,19 +404,13 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public void applyPreferences()
 	{
-		for (String key : pluginMap.keySet())
-		{
-			pluginMap.get(key).applyPreferences();
-		}
+		pluginMap.forEach((key, value) -> value.applyPreferences());
 	}
 
 	@Override
 	public void initPreferences()
 	{
-		for (String key : pluginMap.keySet())
-		{
-			pluginMap.get(key).initPreferences();
-		}
+		pluginMap.forEach((key, value) -> value.initPreferences());
 	}
 
 	@Override
@@ -447,21 +428,18 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-		for (String key : pluginMap.keySet())
-		{
-			mainPanel.add(pluginMap.get(key));
-		}
+		pluginMap.forEach((key, value) -> mainPanel.add(value));
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);
 		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.SOUTH); //$NON-NLS-1$
 	}
 
-	private void addPanel(String pluginName, String pluginTitle, String defaultSystem)
+	private void addPanel(String pluginName, String pluginTitle)
 	{
 		if (!pluginMap.containsKey(pluginName))
 		{
-			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, defaultSystem);
+			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle);
 			pluginMap.put(pluginName, pluginRef);
 		}
 	}
@@ -470,16 +448,14 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	{
 		private final String pluginName;
 		private final String pluginTitle;
-		private final String defaultSystem;
 		private JCheckBox checkBox;
 		private JRadioButton pcgenButton;
 		private JRadioButton gmgenButton;
 
-		public PluginRef(String pluginName, String pluginTitle, String defaultSystem)
+		private PluginRef(String pluginName, String pluginTitle)
 		{
 			this.pluginName = pluginName;
 			this.pluginTitle = pluginTitle;
-			this.defaultSystem = defaultSystem;
 			initComponents();
 		}
 

@@ -39,7 +39,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 
 	private PluginManager()
 	{
-		pluginMap = new TreeMap<>(PLUGIN_PRIORITY_SORTER);
+		pluginMap = new TreeMap<>(Comparator.comparingInt(InteractivePlugin::getPriority));
 		infoList = new ArrayList<>();
 		msgHandlerMgr = new MessageHandlerManager();
 	}
@@ -53,18 +53,6 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		return instance;
 	}
 
-	/**
-	 * A Comparator to sort interactive plugins by their priority.
-	 */
-	public static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER = new Comparator<InteractivePlugin>()
-	{
-		@Override
-		public int compare(InteractivePlugin arg0, InteractivePlugin arg1)
-		{
-			return Integer.compare(arg0.getPriority(), arg1.getPriority());
-		}
-	};
-
 	public List<PluginInfo> getPluginInfoList()
 	{
 		return new ArrayList<>(infoList);
@@ -73,17 +61,15 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	public void startAllPlugins()
 	{
 		PCGenMessageHandler dispatcher = msgHandlerMgr.getPostbox();
-		for (InteractivePlugin plugin : pluginMap.keySet())
-		{
-			if (pluginMap.get(plugin))
-			{
-				plugin.start(dispatcher);
-				msgHandlerMgr.addMember(plugin);
-			}
-		}
+		pluginMap.entrySet().stream()
+		         .filter(Map.Entry::getValue)
+		         .forEach(interactivePluginBooleanEntry -> {
+			interactivePluginBooleanEntry.getKey().start(dispatcher);
+			msgHandlerMgr.addMember(interactivePluginBooleanEntry.getKey());
+		});
 	}
 
-	private String getLogName(Class<?> clazz, InteractivePlugin pl)
+	private static String getLogName(Class<?> clazz, InteractivePlugin pl)
 	{
 		String logName = null;
 		try
