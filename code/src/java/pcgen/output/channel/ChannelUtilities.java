@@ -244,9 +244,25 @@ public final class ChannelUtilities
 	public static void setDirtyOnChannelChange(PlayerCharacter pc,
 		CControl codeControl)
 	{
-		String variableName =
-				createVarName(pc.getControl(codeControl));
-		VariableUtilities.addListenerToVariable(pc.getCharID(), variableName,
-			x -> pc.setDirty(true));
+		addListenerToChannel(pc, codeControl, x -> pc.setDirty(true));
+	}
+
+	/**
+	 * Adds a listener to the channel on the given PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter on which the listener will be added
+	 * @param control
+	 *            The CodeControl indicating the channel on which the listener will be
+	 *            added
+	 * @param listener
+	 *            the VariableListener to be added to listen to changes to the channel
+	 */
+	public static void addListenerToChannel(PlayerCharacter pc, CControl control,
+		VariableListener<?> listener)
+	{
+		String varName = createVarName(pc.getControl(control));
+		VariableUtilities.addListenerToVariable(pc.getCharID(), varName,
+			listener);
 	}
 }
