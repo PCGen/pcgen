@@ -1980,7 +1980,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public boolean hasSkillRankDisplayText()
 	{
-		return (skillRankDisplayText == null) ? false : true;
+		return skillRankDisplayText != null;
 	}
 
 	/**
