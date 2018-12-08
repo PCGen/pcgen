@@ -27,6 +27,8 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.formula.VariableUtilities;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
@@ -50,9 +52,7 @@ public class ResultFacet
 
 	public Object getGlobalVariable(CharID id, String varName)
 	{
-		ScopeInstance scope = scopeFacet.getGlobalScope(id);
-		VariableID<?> varID =
-				loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(scope, varName);
+		VariableID<?> varID = VariableUtilities.getGlobalVariableID(id, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
@@ -71,8 +71,9 @@ public class ResultFacet
 				+ " had no VariableScope");
 			return null;
 		}
+		LoadContext loadContext = loadContextFacet.get(id.getDatasetID()).get();
 		VariableID<?> varID =
-				loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(scope, varName);
+				loadContext.getVariableContext().getVariableID(scope, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 

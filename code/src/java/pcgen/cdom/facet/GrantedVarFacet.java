@@ -106,8 +106,8 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 		ScopeInstance inst = scopeFacet.get(id, cdo);
 		for (String s : list)
 		{
-			VariableID<?> varID =
-					loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(inst, s);
+			LoadContext loadContext = loadContextFacet.get(id.getDatasetID()).get();
+			VariableID<?> varID = loadContext.getVariableContext().getVariableID(inst, s);
 			processRemove(id, varID, source);
 		}
 	}
