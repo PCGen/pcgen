@@ -285,19 +285,24 @@ abstract class LoadContextInst implements LoadContext
 	public void resolvePostValidationTokens()
 	{
 		Collection<? extends ReferenceManufacturer<?>> mfgs = getReferenceContext().getAllManufacturers();
-		TokenLibrary.getPostValidationTokens().forEach(token -> processPostVal(token, mfgs));
+		for (PostValidationToken<? extends Loadable> token : TokenLibrary.getPostValidationTokens())
+		{
+			processPostVal(token, mfgs);
+		}
 	}
 
 	private <T extends Loadable> void processPostVal(PostValidationToken<T> token,
 		Collection<? extends ReferenceManufacturer> mfgs)
 	{
 		Class<T> cl = token.getValidationTokenClass();
-		mfgs.stream()
-		    .filter(rm -> cl.isAssignableFrom(rm.getReferenceClass()))
-		    .forEach(rm -> {
-			setSourceURI(null);
-			token.process(this, rm.getAllObjects());
-		});
+		for (ReferenceManufacturer<? extends T> rm : mfgs)
+		{
+			if (cl.isAssignableFrom(rm.getReferenceClass()))
+			{
+				setSourceURI(null);
+				token.process(this, rm.getAllObjects());
+			}
+		}
 	}
 
 	@Override
