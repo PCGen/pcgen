@@ -144,5 +144,4 @@ public class NumberManagerTest extends TestCase
 		assertEquals(-1, comparator.compare(Integer.valueOf(1), Integer.valueOf(2)));
 		assertEquals(0, comparator.compare(Integer.valueOf(1), Double.valueOf(1)));
 	}
-
 }

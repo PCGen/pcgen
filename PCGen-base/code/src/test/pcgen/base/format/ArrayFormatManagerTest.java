@@ -290,3 +290,4 @@ public class ArrayFormatManagerTest extends TestCase
 		}, '\n', ',').isDirect());
 	}
 }
+

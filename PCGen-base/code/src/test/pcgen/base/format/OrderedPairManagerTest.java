@@ -140,3 +140,4 @@ public class OrderedPairManagerTest extends TestCase
 		assertTrue(manager.isDirect());
 	}
 }
+

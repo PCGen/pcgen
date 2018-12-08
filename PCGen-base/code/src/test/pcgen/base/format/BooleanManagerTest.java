@@ -132,3 +132,4 @@ public class BooleanManagerTest extends TestCase
 		assertTrue(manager.isDirect());
 	}
 }
+
