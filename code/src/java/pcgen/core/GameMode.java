@@ -79,7 +79,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<>();
 	private Map<String, String> plusCalcs;
 	private Map<String, String> spellRangeMap = new HashMap<>();
-	private String acAbbrev = "";
 	private String acName = "";
 	private String althpAbbrev = "";
 	private String althpName = "";
@@ -230,15 +229,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		rollMethod = gamemodePrefsContext.getInt("rollMethod"); //$NON-NLS-1$
 		allStatsValue = gamemodePrefsContext.initInt("allStatsValue", 10); //$NON-NLS-1$
 		purchaseMethodName = gamemodePrefsContext.getProperty("purchaseMethodName"); //$NON-NLS-1$
-	}
-
-	/**
-	 * Set the AC Abbreviation.
-	 * @param aString
-	 */
-	public void setACAbbrev(final String aString)
-	{
-		acAbbrev = aString;
 	}
 
 	/**
@@ -1086,14 +1076,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setWeaponReachFormula(String aString)
 	{
 		this.weaponReachFormula = aString;
-	}
-
-	/**
-	 * Set the acAbbrev field.
-	 */
-	String getACAbbrev()
-	{
-		return acAbbrev;
 	}
 
 	/**
