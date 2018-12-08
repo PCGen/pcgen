@@ -138,7 +138,7 @@ public class EquipNode implements Comparable<EquipNode>
 	/**
 	 * @return the slot
 	 */
-	EquipSlot getSlot()
+	public EquipSlot getSlot()
 	{
 		return slot;
 	}

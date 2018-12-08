@@ -69,7 +69,7 @@ import pcgen.util.enumeration.Tab;
  * where each item is located. As a result it also manages what items are 
  * deemed active.
  */
-class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListener, ListListener<EquipmentFacade>
+public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListener, ListListener<EquipmentFacade>
 {
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
@@ -83,10 +83,6 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	private DefaultReferenceFacade<String> name;
 	private EquipmentListFacadeImpl equippedItemsList;
 	private double totalWeight = 0;
-	/** This list of equipment nodes to be displayed on the equipped tree. */
-	private DefaultListFacade<EquipNode> nodeList;
-	private Map<EquipSlot, EquipNode> equipSlotNodeMap;
-	private Map<String, EquipNode> naturalWeaponNodes;
 	/** List of phantom nodes which are currently both empty and not able to contain equipment */
 	private Set<EquipNode> hiddenPhantomNodes;
 	private final CharacterFacadeImpl characterFacadeImpl;
@@ -124,7 +120,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		this.eqSet = equipSet;
 		name = new DefaultReferenceFacade<>(equipSet.getName());
 		equippedItemsList = new EquipmentListFacadeImpl();
-		naturalWeaponNodes = new HashMap<>();
+		setNaturalWeaponNodes(new HashMap<>());
 		hiddenPhantomNodes = new HashSet<>();
 
 		buildNodeList();
@@ -139,14 +135,14 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 
 	private void buildNodeList()
 	{
-		nodeList = new DefaultListFacade<>();
-		equipSlotNodeMap = new LinkedHashMap<>();
+		setNodeList(new DefaultListFacade<>());
+		setEquipSlotNodeMap(new LinkedHashMap<>());
 		int index = 0;
 		for (BodyStructure bodyStruct : dataSet.getEquipmentLocations())
 		{
 			String structString = bodyStruct.toString();
 			EquipNode node = new EquipNode(bodyStruct, index++);
-			nodeList.addElement(node);
+			getNodeList().addElement(node);
 
 			// Add locations for this body structure
 			for (EquipSlot slot : SystemCollections.getUnmodifiableEquipSlotList())
@@ -227,8 +223,8 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	private void addEquipNodeForEquipSlot(EquipNode bodyStructNode, EquipSlot slot, boolean singleOnly)
 	{
 		EquipNode slotNode = new EquipNode(bodyStructNode, slot, singleOnly);
-		nodeList.addElement(slotNode);
-		equipSlotNodeMap.put(slot, slotNode);
+		getNodeList().addElement(slotNode);
+		getEquipSlotNodeMap().put(slot, slotNode);
 	}
 
 	/**
@@ -254,7 +250,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 			if (es.getParentIdPath().equals(idPath))
 			{
 				EquipSlot slot = Globals.getEquipSlotByName(es.getName());
-				EquipNode slotNode = equipSlotNodeMap.get(slot);
+				EquipNode slotNode = getEquipSlotNodeMap().get(slot);
 				EquipNode parentNode = parent;
 				if (parentNode == null)
 				{
@@ -264,7 +260,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 					}
 					else
 					{
-						for (EquipNode scanNode : nodeList)
+						for (EquipNode scanNode : getNodeList())
 						{
 							if ((scanNode.getNodeType() == EquipNode.NodeType.BODY_SLOT)
 								&& scanNode.toString().equals(es.getName()))
@@ -287,14 +283,14 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 				if (parentNode != null)
 				{
 					EquipNode node = new EquipNode(parentNode, slot, es.getItem(), es.getIdPath());
-					nodeList.addElement(node);
+					getNodeList().addElement(node);
 					if ((slotNode != null) && (slotNode.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)
 						&& (getNumFreeSlots(slotNode) <= 0))
 					{
-						nodeList.removeElement(slotNode);
+						getNodeList().removeElement(slotNode);
 						for (EquipNode inompatNode : getIncompatibleWeaponSlots(slotNode))
 						{
-							nodeList.removeElement(inompatNode);
+							getNodeList().removeElement(inompatNode);
 						}
 					}
 
@@ -432,7 +428,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 				es.setIdPath(newPath);
 				updateContainerPath(origPath, newPath, origPathToNode, origPathToEquipSet);
 				node.setIdPath(newPath);
-				nodeList.modifyElement(node);
+				getNodeList().modifyElement(node);
 			}
 		}
 
@@ -464,7 +460,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 				if (node != null)
 				{
 					node.setIdPath(newItemPath);
-					nodeList.modifyElement(node);
+					getNodeList().modifyElement(node);
 				}
 			}
 		}
@@ -478,7 +474,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	private Map<String, EquipNode> buildPathNodeMap()
 	{
 		Map<String, EquipNode> pathMap = new HashMap<>();
-		for (EquipNode node : nodeList)
+		for (EquipNode node : getNodeList())
 		{
 			if ((node instanceof EquipNode) && (node.getIdPath() != null))
 			{
@@ -568,7 +564,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		// Check for adding more instances to an existing item, but don't merge containers
 		if (!item.isContainer())
 		{
-			for (EquipNode existing : nodeList)
+			for (EquipNode existing : getNodeList())
 			{
 				if (parent.equals(existing.getParent()) && (existing.getNodeType() == EquipNode.NodeType.EQUIPMENT))
 				{
@@ -620,13 +616,13 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 
 		// Create EquipNode for the item
 		EquipNode itemNode = new EquipNode(parent, equipSlot, newItem, id);
-		nodeList.addElement(itemNode);
+		getNodeList().addElement(itemNode);
 		if ((targetNode.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT) && (getNumFreeSlots(targetNode) <= 0))
 		{
-			nodeList.removeElement(targetNode);
+			getNodeList().removeElement(targetNode);
 			for (EquipNode inompatNode : getIncompatibleWeaponSlots(targetNode))
 			{
-				nodeList.removeElement(inompatNode);
+				getNodeList().removeElement(inompatNode);
 			}
 		}
 
@@ -661,7 +657,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		}
 		EquipNode equipNode = node;
 
-		List<EquipNode> orderedEquipNodes = new ArrayList<>(nodeList.getContents());
+		List<EquipNode> orderedEquipNodes = new ArrayList<>(getNodeList().getContents());
 		Collections.sort(orderedEquipNodes);
 
 		// Get current location
@@ -687,7 +683,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		// Move the equipment item
 		Map<String, EquipNode> origPathToNode = buildPathNodeMap();
 		Map<String, EquipSet> origPathToEquipSet = buildPathEquipSetMap();
-		nodeList.removeElement(equipNode);
+		getNodeList().removeElement(equipNode);
 		String origIdPath = equipNode.getIdPath();
 		EquipSet parentEs = charDisplay.getEquipSetByIdPath(EquipSet.getParentPath(origIdPath));
 		EquipSet nodeEs = charDisplay.getEquipSetByIdPath(origIdPath);
@@ -702,7 +698,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		}
 		nodeEs.setIdPath(newIdPath);
 		equipNode.setIdPath(newIdPath);
-		nodeList.addElement(equipNode);
+		getNodeList().addElement(equipNode);
 
 		// Update children of the item
 		updateContainerPath(origIdPath, newIdPath, origPathToNode, origPathToEquipSet);
@@ -757,12 +753,12 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		{
 			String origPath = childNode.idPath;
 			String newPath = pid + '.' + format.format(id);
-			nodeList.removeElement(childNode);
+			getNodeList().removeElement(childNode);
 			EquipSet es = origPathToEquipSet.get(origPath);
 			es.setIdPath(newPath);
 			updateContainerPath(origPath, newPath, origPathToNode, origPathToEquipSet);
 			childNode.setIdPath(newPath);
-			nodeList.addElement(childNode);
+			getNodeList().addElement(childNode);
 			id++;
 		}
 		return true;
@@ -879,7 +875,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	 */
 	private void updateOutputOrder()
 	{
-		List<EquipNode> orderedEquipNodes = new ArrayList<>(nodeList.getContents());
+		List<EquipNode> orderedEquipNodes = new ArrayList<>(getNodeList().getContents());
 		Collections.sort(orderedEquipNodes);
 		List<Equipment> processed = new ArrayList<>(orderedEquipNodes.size());
 
@@ -927,7 +923,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 
 			// remove Equipment (via EquipSet) from the PC
 			theCharacter.delEquipSet(eSet);
-			nodeList.removeElement(targetNode);
+			getNodeList().removeElement(targetNode);
 
 			// if it was inside a container, make sure to update
 			// the container Equipment Object
@@ -942,10 +938,10 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 			}
 			else if (targetNode.getSlot() != null)
 			{
-				final EquipNode restoredNode = equipSlotNodeMap.get(targetNode.getSlot());
-				if ((restoredNode != null) && !nodeList.containsElement(restoredNode))
+				final EquipNode restoredNode = getEquipSlotNodeMap().get(targetNode.getSlot());
+				if ((restoredNode != null) && !getNodeList().containsElement(restoredNode))
 				{
-					nodeList.addElement(0, restoredNode);
+					getNodeList().addElement(0, restoredNode);
 					addCompatWeaponSlots(restoredNode);
 				}
 			}
@@ -975,8 +971,8 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 			return;
 		}
 
-		List<EquipNode> equipToBeRemoved = new ArrayList<>(nodeList.getSize());
-		for (EquipNode node : nodeList)
+		List<EquipNode> equipToBeRemoved = new ArrayList<>(getNodeList().getSize());
+		for (EquipNode node : getNodeList())
 		{
 			// Only select top level equipment, anything in a container will be removed along with the container.
 			if ((node.getNodeType() == EquipNode.NodeType.EQUIPMENT) && (node.getParent() == parentNode))
@@ -1036,11 +1032,11 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		//TODO: Extra secondary locations for more than 2 arms
 
 		List<String> namesList = Arrays.asList(incompatLocNames);
-		for (EquipSlot slot : equipSlotNodeMap.keySet())
+		for (EquipSlot slot : getEquipSlotNodeMap().keySet())
 		{
 			if (namesList.contains(slot.toString()))
 			{
-				wpnList.add(equipSlotNodeMap.get(slot));
+				wpnList.add(getEquipSlotNodeMap().get(slot));
 			}
 		}
 		return wpnList;
@@ -1057,21 +1053,21 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	{
 		List<EquipNode> weaponSlots = getIncompatibleWeaponSlots(restoredNode);
 		Set<EquipNode> incompatNodes = new HashSet<>();
-		for (EquipNode equipNode : nodeList)
+		for (EquipNode equipNode : getNodeList())
 		{
 			if ((equipNode.getNodeType() == EquipNode.NodeType.EQUIPMENT) && affectsWeaponSlots(equipNode))
 			{
 				EquipSlot slot = equipNode.getSlot();
-				if ((slot != null) && (equipSlotNodeMap.get(slot) != null))
+				if ((slot != null) && (getEquipSlotNodeMap().get(slot) != null))
 				{
-					incompatNodes.addAll(getIncompatibleWeaponSlots(equipSlotNodeMap.get(slot)));
+					incompatNodes.addAll(getIncompatibleWeaponSlots(getEquipSlotNodeMap().get(slot)));
 				}
 			}
 		}
 		weaponSlots.removeAll(incompatNodes);
 		for (EquipNode node : weaponSlots)
 		{
-			nodeList.addElement(0, node);
+			getNodeList().addElement(0, node);
 		}
 	}
 
@@ -1122,14 +1118,14 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		if (pcHasUnequippedNaturalWeapons())
 		{
 			// Ensure natural weapon locations are visible
-			naturalWeaponNodes.values().stream().filter(natWpnEquipNode -> !nodeList.containsElement(natWpnEquipNode))
-				.forEach(natWpnEquipNode -> nodeList.addElement(natWpnEquipNode));
+			getNaturalWeaponNodes().values().stream().filter(natWpnEquipNode -> !getNodeList().containsElement(natWpnEquipNode))
+				.forEach(natWpnEquipNode -> getNodeList().addElement(natWpnEquipNode));
 		}
 		else
 		{
 			// Ensure natural weapon locations are not visible
-			naturalWeaponNodes.values().stream().filter(natWpnEquipNode -> nodeList.containsElement(natWpnEquipNode))
-				.forEach(natWpnEquipNode -> nodeList.removeElement(natWpnEquipNode));
+			getNaturalWeaponNodes().values().stream().filter(natWpnEquipNode -> getNodeList().containsElement(natWpnEquipNode))
+				.forEach(natWpnEquipNode -> getNodeList().removeElement(natWpnEquipNode));
 		}
 	}
 
@@ -1146,7 +1142,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		Set<EquipNode> nodesToBeRemoved = new HashSet<>();
 		Set<EquipNode> presentPNs = new HashSet<>();
 		Set<EquipNode> neededPNs = new HashSet<>();
-		for (EquipNode node : nodeList)
+		for (EquipNode node : getNodeList())
 		{
 			EquipNode nodeImpl = node;
 			switch (node.getNodeType())
@@ -1165,7 +1161,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 				case EQUIPMENT:
 					if (nodeImpl.getSlot() != null)
 					{
-						final EquipNode parentNode = equipSlotNodeMap.get(nodeImpl.getSlot());
+						final EquipNode parentNode = getEquipSlotNodeMap().get(nodeImpl.getSlot());
 						if ((parentNode != null) && (parentNode.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT))
 						{
 							int numFreeSlots = getNumFreeSlots(parentNode);
@@ -1203,7 +1199,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		// Remove the phantom nodes flagged, add to hiddenPNs as needed
 		for (EquipNode node : nodesToBeRemoved)
 		{
-			nodeList.removeElement(node);
+			getNodeList().removeElement(node);
 			if (getQuantity(node) <= 0)
 			{
 				hiddenPhantomNodes.add(node);
@@ -1214,7 +1210,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		neededPNs.removeAll(presentPNs);
 		for (EquipNode restoredNode : neededPNs)
 		{
-			nodeList.addElement(0, restoredNode);
+			getNodeList().addElement(0, restoredNode);
 			addCompatWeaponSlots(restoredNode);
 			hiddenPhantomNodes.remove(restoredNode);
 		}
@@ -1266,118 +1262,11 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	@Override
 	public boolean canEquip(EquipNode node, EquipmentFacade equipment)
 	{
-		if (!(equipment instanceof Equipment) || (node == null))
+		if ((equipment == null) || (node == null))
 		{
 			return false;
 		}
-		Equipment item = (Equipment) equipment;
-
-		// Check for a required location (i.e. you can't carry a natural weapon)
-		EquipNode requiredLoc = getNaturalWeaponLoc(equipment);
-		if (requiredLoc != null)
-		{
-			return validLocationForNaturalWeapon(node, item, requiredLoc);
-		}
-
-		// Is this a container? Then check if the object can fit in
-		if (node.getNodeType() == EquipNode.NodeType.EQUIPMENT)
-		{
-			EquipmentFacade parent = node.getEquipment();
-			if ((parent instanceof Equipment) && ((Equipment) parent).isContainer())
-			{
-				// Check if it fits
-				if (((Equipment) parent).canContain(theCharacter, item) == 1)
-				{
-					return true;
-				}
-			}
-		}
-
-		if (node.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)
-		{
-			// Check first for an already full or taken slot
-			if (!getNodes().containsElement(node))
-			{
-				return false;
-			}
-			EquipSlot slot = node.getSlot();
-			if (slot.canContainType(item.getType()))
-			{
-				if (item.isWeapon())
-				{
-					final String slotName = slot.getSlotName();
-
-					if (item.isUnarmed() && slotName.equals(Constants.EQUIP_LOCATION_UNARMED))
-					{
-						return true;
-					}
-					if (item.isShield() && slotName.equals(Constants.EQUIP_LOCATION_SHIELD))
-					{
-						return true;
-					}
-
-					// If it is outsized, they can't equip it to a weapon slot
-					if (item.isWeaponOutsizedForPC(theCharacter))
-					{
-						return false;
-					}
-
-					if (slotName.startsWith(Constants.EQUIP_LOCATION_BOTH))
-					{
-						return true;
-					}
-					if (item.isMelee() && item.isDouble() && slotName.equals(Constants.EQUIP_LOCATION_DOUBLE))
-					{
-						return true;
-					}
-					if (item.isWeaponOneHanded(theCharacter))
-					{
-						if (slotName.equals(Constants.EQUIP_LOCATION_PRIMARY)
-							|| slotName.startsWith(Constants.EQUIP_LOCATION_SECONDARY))
-						{
-							return true;
-						}
-					}
-
-				}
-				else
-				{
-					return true;
-				}
-			}
-		}
-
-		// Is this a body structure? Then check if the object be placed there
-		if (node.getNodeType() == EquipNode.NodeType.BODY_SLOT)
-		{
-			BodyStructure root = node.getBodyStructure();
-			if (root.isHoldsAnyType())
-			{
-				return !root.isForbidden(item.getTrueTypeList(false));
-			}
-		}
-
-		// This item can't be equipped in this location
-		return false;
-	}
-
-	/**
-	 * Check if the node is a valid location for the natural weapon to be equipped to.
-	 * This allows primary natural weapons to be equipped to primary or secondary
-	 * slots, but secondary weapons only too the secondary slot.
-	 *
-	 * @param node The node to be tested.
-	 * @param equipment The natural weapon
-	 * @param naturalLoc The natural weapon;s preferred slot.
-	 * @return true if the node can take the natural weapon, false otherwise.
-	 */
-	private boolean validLocationForNaturalWeapon(EquipNode node, Equipment equipment, EquipNode naturalLoc)
-	{
-		if (equipment.isPrimaryNaturalWeapon())
-		{
-			return naturalWeaponNodes.containsValue(node);
-		}
-		return node.equals(naturalLoc);
+		return eqSet.canEquip(theCharacter, node, (Equipment) equipment);
 	}
 
 	@Override
@@ -1388,7 +1277,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		{
 			return reqNode.toString();
 		}
-		for (EquipNode node : equipSlotNodeMap.values())
+		for (EquipNode node : getEquipSlotNodeMap().values())
 		{
 			if (node.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)
 			{
@@ -1415,14 +1304,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		{
 			return null;
 		}
-		Equipment item = (Equipment) equipment;
-		String locName = theCharacter.getNaturalWeaponLocation(item);
-		if (locName != null)
-		{
-			return naturalWeaponNodes.get(locName);
-		}
-
-		return null;
+		return eqSet.getNatWeaponLoc(theCharacter, (Equipment) equipment);
 	}
 
 	private void createNaturalWeaponSlots()
@@ -1431,7 +1313,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 		{
 			if (slot.canContainType("WEAPON")) //$NON-NLS-1$
 			{
-				for (EquipNode node : nodeList)
+				for (EquipNode node : getNodeList())
 				{
 					if ((node.getNodeType() == EquipNode.NodeType.BODY_SLOT)
 						&& slot.getBodyStructureName().equalsIgnoreCase(node.getBodyStructure().toString()))
@@ -1450,7 +1332,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	{
 		EquipSlot natWpnEquipSlot = createWeaponEquipSlot(slot, locName);
 		EquipNode slotNode = new EquipNode(node, natWpnEquipSlot, true);
-		naturalWeaponNodes.put(locName, slotNode);
+		getNaturalWeaponNodes().put(locName, slotNode);
 	}
 
 	/**
@@ -1472,7 +1354,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 
 		// Scan for items
 		int numUsed = 0;
-		for (EquipNode item : nodeList)
+		for (EquipNode item : getNodeList())
 		{
 			if ((item.getNodeType() == EquipNode.NodeType.EQUIPMENT) && (item.getSlot() == node.getSlot()))
 			{
@@ -1487,8 +1369,8 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	@Override
 	public void removeAllEquipment()
 	{
-		List<EquipNode> equipToBeRemoved = new ArrayList<>(nodeList.getSize());
-		for (EquipNode node : nodeList)
+		List<EquipNode> equipToBeRemoved = new ArrayList<>(getNodeList().getSize());
+		for (EquipNode node : getNodeList())
 		{
 			// Only select top level equipment, anything in a container will be removed along with the container.
 			if ((node.getNodeType() == EquipNode.NodeType.EQUIPMENT) && (node.getParent().getNodeType() != EquipNode.NodeType.EQUIPMENT))
@@ -1538,7 +1420,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	@Override
 	public ListFacade<EquipNode> getNodes()
 	{
-		return nodeList;
+		return getNodeList();
 	}
 
 	@Override
@@ -1590,7 +1472,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	@Override
 	public String getLocation(EquipmentFacade equip)
 	{
-		for (EquipNode node : nodeList)
+		for (EquipNode node : getNodeList())
 		{
 			if (equip.equals(node.getEquipment()))
 			{
@@ -1656,7 +1538,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	private List<EquipNode> findEquipmentNodes(EquipmentFacade equipmentFacade)
 	{
 		List<EquipNode> affectedList = new ArrayList<>();
-		for (EquipNode node : nodeList)
+		for (EquipNode node : getNodeList())
 		{
 			if (equipmentFacade.equals(node.getEquipment()))
 			{
@@ -1780,5 +1662,35 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentListListene
 	public boolean isRoot()
 	{
 		return eqSet.getParentIdPath().equals("0");
+	}
+
+	private DefaultListFacade<EquipNode> getNodeList()
+	{
+		return eqSet.getNodeList();
+	}
+
+	private void setNodeList(DefaultListFacade<EquipNode> nodeList)
+	{
+		eqSet.setNodeList(nodeList);
+	}
+
+	private Map<EquipSlot, EquipNode> getEquipSlotNodeMap()
+	{
+		return eqSet.getEquipSlotNodeMap();
+	}
+
+	private void setEquipSlotNodeMap(Map<EquipSlot, EquipNode> equipSlotNodeMap)
+	{
+		eqSet.setEquipSlotNodeMap(equipSlotNodeMap);
+	}
+
+	public Map<String, EquipNode> getNaturalWeaponNodes()
+	{
+		return eqSet.getNaturalWeaponNodes();
+	}
+
+	private void setNaturalWeaponNodes(Map<String, EquipNode> naturalWeaponNodes)
+	{
+		eqSet.setNaturalWeaponNodes(naturalWeaponNodes);
 	}
 }
