@@ -2267,7 +2267,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 	}
 
-	private AbstractReferenceContext getRefContext()
+	private static AbstractReferenceContext getRefContext()
 	{
 		return SettingsHandler.inputUnconstructedMessages() ? TrackingReferenceContext.createTrackingReferenceContext()
 			: RuntimeReferenceContext.createRuntimeReferenceContext();
