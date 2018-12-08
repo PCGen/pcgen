@@ -54,6 +54,9 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
+
+import org.jetbrains.annotations.Nullable;
+
 /**
  * The Class {@code CharacterLevelsFacadeImpl} is an implementation of
  * the CharacterLevelsFacade interface for the new user interface. It allows 
@@ -390,19 +393,23 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public float getSkillRanks(CharacterLevelFacade level, Skill skill)
+	public float getSkillRanks(@Nullable CharacterLevelFacade level, @Nullable Skill skill)
 	{
-		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
+		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed
+		if (skill == null)
+		{
+			return 0;
+		}
 		return SkillRankControl.getTotalRank(theCharacter, skill);
 	}
 
 	@Override
 	public int getSkillTotal(CharacterLevelFacade level, Skill skill)
 	{
-		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
+		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed
 		Float ranks = SkillRankControl.getTotalRank(theCharacter, skill);
 		Integer mods = SkillModifier.modifier(skill, theCharacter);
-		return mods.intValue() + ranks.intValue();
+		return mods + ranks.intValue();
 	}
 
 	@Override
