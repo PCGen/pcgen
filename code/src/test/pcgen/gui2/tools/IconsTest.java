@@ -18,52 +18,28 @@
  */
 package pcgen.gui2.tools;
 
-import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.hamcrest.Matchers.notNullValue;
+import static org.junit.Assert.assertThat;
+
+import java.util.Arrays;
+
 import org.junit.Test;
 
 
-public class IconsTest extends TestCase
+public class IconsTest
 {
-
-	@BeforeClass
-	public static void setUpClass() throws Exception
-	{
-	}
-
-	@AfterClass
-	public static void tearDownClass() throws Exception
-	{
-	}
-
-	@Before
-    @Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	@After
-    @Override
-	public void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
-
 	/**
 	 * Test that the icons in Icons actually exist
 	 */
 	@Test
 	public void testIconsExist()
 	{
-		System.out.println("getImageIcon");
-		for (Icons icon : Icons.values())
-		{
-			assertNotNull("Expected Icon for: " + icon.name(), icon.getImageIcon());
-		}
+		Arrays.stream(Icons.values())
+		      .forEach(icon -> assertThat(
+				      "Expected Icon for: " + icon.name(),
+				      icon.getImageIcon(),
+				      notNullValue()
+		      ));
 	}
 
 }
