@@ -29,8 +29,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -56,6 +54,9 @@ import pcgen.system.PropertyContext;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Handles game modes.
@@ -104,7 +105,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String name = "";
 	private String spellBaseDC = "0";
 	private String spellBaseConcentration = "";
-	private String wcStepsFormula = "";
 	private String weaponCategories = "";
 	private String weaponTypes = "";
 	private String weaponReachFormula = "";
@@ -829,24 +829,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setVariableDisplayText(final String aString)
 	{
 		displayVariableText = aString;
-	}
-
-	/**
-	 * Formula used to compute Wield Category steps.
-	 * @param aString
-	 */
-	public void setWCStepsFormula(final String aString)
-	{
-		wcStepsFormula = aString;
-	}
-
-	/**
-	 * Get the formula used to compute Wield Category steps.
-	 * @return formula used to compute Wield Category steps
-	 */
-	public String getWCStepsFormula()
-	{
-		return wcStepsFormula;
 	}
 
 	/**
