@@ -208,7 +208,7 @@ INFOSHEET:SUMMARY|preview/summary/35e_info.html.ftl
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
-DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
+DIESIZES:1,2,3,4,6,8,10,12,20,100,1000
 
 # Character Types:
 CHARACTERTYPE:PC|NPC

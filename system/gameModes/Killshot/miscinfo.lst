@@ -93,7 +93,7 @@ OUTPUTSHEET:DEFAULT.PDF|csheet_killshot.xslt
 INFOSHEET:SUMMARY|preview/summary/killshot_info.html.ftl
 #INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
-DIESIZES:MIN=6,8,10,12,MAX=20
+DIESIZES:6,8,10,12,20
 
 # Character Types:
 CHARACTERTYPE:Assassin|Mark|Thug
