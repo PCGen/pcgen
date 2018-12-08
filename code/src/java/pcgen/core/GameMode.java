@@ -2263,7 +2263,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public List<String> getMonsterRoleDefaultList()
 	{
-		return new ArrayList<>(Arrays.asList(monsterRoleDefault));
+		return new ArrayList<>(Collections.singletonList(monsterRoleDefault));
 	}
 
 	/**
