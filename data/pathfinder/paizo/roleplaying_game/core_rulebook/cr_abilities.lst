@@ -295,6 +295,11 @@ Periapt of Wound Closure ~ Healing Rate																			CATEGORY:Equipment				
 Periapt of Wound Closure ~ Bleed Immunity																			CATEGORY:Equipment																																																																																																																																																																																																	ASPECT:CombatBonus|Hit point damage caused by bleeding is negated for you, but you are still susceptible to damage from bleeding that causes ability damage or drain.
 Stone of Good Luck ~ Ability Bonus																				CATEGORY:Equipment																																																																																																																																																																																																	ASPECT:CombatBonus|+1 luck bonus on ability checks.
 
+#EQMOD Abilities for Output
+25% chance to negate critical hits and sneak attacks	KEY:Eqmod ~ Fortification (Light)		CATEGORY:Special Ability	TYPE:Defensive
+50% chance to negate critical hits and sneak attacks	KEY:Eqmod ~ Fortification (Medium)		CATEGORY:Special Ability	TYPE:Defensive
+75% chance to negate critical hits and sneak attacks	KEY:Eqmod ~ Fortification (Heavy)		CATEGORY:Special Ability	TYPE:Defensive
+
 
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team

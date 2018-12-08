@@ -1407,7 +1407,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<special_properties>silver</special_properties>
 				<template></template>
 				<type>BP</type>
 				<weight>3</weight>
@@ -1467,7 +1467,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
-				<special_properties>30 hp/inch, hardness 10</special_properties>
+				<special_properties>cold iron</special_properties>
 				<template></template>
 				<type>P</type>
 				<weight>1</weight>
@@ -1523,7 +1523,7 @@ BIO
 			<maxdex>+6</maxdex>
 			<move></move>
 			<spellfail>10</spellfail>
-			<special_properties>30 hp/inch, hardness 15</special_properties>
+			<special_properties>mithral</special_properties>
 			<totalac>+5</totalac>
 			<type>Light</type>
 			<wt>6.25</wt>
@@ -1797,7 +1797,7 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>30 hp/inch, hardness 15</special_properties>
+			<special_properties>mithral</special_properties>
 			<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>6.25</weight>
 			<bonuslist></bonuslist>
@@ -2499,7 +2499,7 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>10 hp/inch, hardness 8</special_properties>
+			<special_properties>silver</special_properties>
 			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.ONEHANDED.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
@@ -2525,7 +2525,7 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>30 hp/inch, hardness 10</special_properties>
+			<special_properties>cold iron</special_properties>
 			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
@@ -2831,7 +2831,7 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>30 hp/inch, hardness 15</special_properties>
+				<special_properties>mithral</special_properties>
 				<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>6.25</weight>
 				<bonuslist></bonuslist>
@@ -3398,7 +3398,7 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<special_properties>silver</special_properties>
 				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.ONEHANDED.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
 				<weight>3</weight>
 				<bonuslist></bonuslist>
@@ -3419,7 +3419,7 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>30 hp/inch, hardness 10</special_properties>
+				<special_properties>cold iron</special_properties>
 				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
