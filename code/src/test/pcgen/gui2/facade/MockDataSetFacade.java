@@ -219,7 +219,8 @@ public class MockDataSetFacade implements DataSetFacade
 	@Override
 	public ListFacade<Kit> getKits()
 	{
-		throw new UnsupportedOperationException();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
