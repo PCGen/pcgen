@@ -2344,7 +2344,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public String getDefaultXPTableName()
 	{
-		if (defaultXPTableName == null || defaultXPTableName.equals("") || !xpTableNames.contains(defaultXPTableName))
+		if (defaultXPTableName == null || defaultXPTableName.isEmpty() || !xpTableNames.contains(defaultXPTableName))
 		{
 			if (xpTableNames.isEmpty())
 			{
@@ -2392,7 +2392,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public String getDefaultCharacterType()
 	{
-		if (defaultCharacterType == null || defaultCharacterType.equals("")
+		if (defaultCharacterType == null || defaultCharacterType.isEmpty()
 			|| !characterTypeList.contains(defaultCharacterType))
 		{
 			if (characterTypeList.isEmpty())
