@@ -22,13 +22,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-import javax.swing.event.EventListenerList;
-
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.SolverManager;
+import pcgen.facade.util.AbstractReferenceFacade;
 import pcgen.facade.util.VetoableReferenceFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -39,7 +36,8 @@ import org.apache.commons.collections4.CollectionUtils;
  * @param <T>
  *            The Format of the information contained in this VariableChannel
  */
-public final class VariableChannel<T> implements VariableListener<T>, VetoableReferenceFacade<T>
+public final class VariableChannel<T> extends AbstractReferenceFacade<T>
+		implements VariableListener<T>, VetoableReferenceFacade<T>
 {
 
 	/**
@@ -58,12 +56,6 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 	 * SolverManager are placed in.
 	 */
 	private final MonitorableVariableStore varStore;
-
-	/**
-	 * The list of listeners that listen to this VariableChannel for
-	 * ReferenceEvents.
-	 */
-	private final EventListenerList listenerList = new EventListenerList();
 
 	/**
 	 * The list of functions allowed to veto changes to this variable channel.
@@ -143,32 +135,6 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 	public void disconnect()
 	{
 		varStore.removeVariableListener(varID, this);
-	}
-
-	@Override
-	public void addReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.add(ReferenceListener.class, listener);
-	}
-
-	@Override
-	public void removeReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.remove(ReferenceListener.class, listener);
-	}
-
-	private void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
-	{
-		ReferenceListener[] listeners = listenerList.getListeners(ReferenceListener.class);
-		ReferenceEvent<T> e = null;
-		for (int i = listeners.length - 1; i >= 0; i--)
-		{
-			if (e == null)
-			{
-				e = new ReferenceEvent<>(source, oldValue, newValue);
-			}
-			listeners[i].referenceChanged(e);
-		}
 	}
 
 	/**
