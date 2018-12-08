@@ -1970,7 +1970,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				final int firstKey = statDisplayText.firstKey();
 				if (statValue < firstKey)
 				{
-					statText = "???" + Integer.toString(statValue) + "???";
+					statText = "???" + statValue + "???";
 				}
 				else
 				{
@@ -2032,7 +2032,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				final int firstKey = skillRankDisplayText.firstKey();
 				if (rankValue < firstKey)
 				{
-					rankText = "???" + Integer.toString(rankValue) + "???";
+					rankText = "???" + rankValue + "???";
 				}
 				else
 				{
