@@ -39,18 +39,10 @@ DEFAULTUNITSET:Imperial
 # variables are displayed on the Classes tab.
 # SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
+#
+#
 
 SHOWCLASSDEFENSE:YES
-DISPLAYVARIABLE1TEXT:Lifestyle
-DISPLAYVARIABLE1NAME:LifestyleScore
-DISPLAYVARIABLE2TEXT:Legend
-DISPLAYVARIABLE2NAME:LegendSCore
-DISPLAYVARIABLE3TEXT:Reputation
-DISPLAYVARIABLE3NAME:ReputationScore
 
 #
 # Whether or not the game mode displays these tabs

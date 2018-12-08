@@ -35,18 +35,8 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 # The following determine whether some Class-related variables are displayed
 # on the Classes tab.
 # SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.  This must match the DEFINE:
-# variable in order to be displayed
-# up to 3 variables can be displayed in this manner
 
 SHOWCLASSDEFENSE:No
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
 
 #
 # Whether or not the game mode displays these tabs
