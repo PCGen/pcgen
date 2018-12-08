@@ -161,8 +161,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private Map<String, String> outputSheetDefaultMap = new HashMap<>();
 
 	private int[] dieSizes;
-	private int maxDieSize = 12;
-	private int minDieSize = 4;
 
 	private List<String> resizableTypeList = new ArrayList<>();
 	private List<String> characterTypeList = new ArrayList<>();
@@ -1988,42 +1986,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public String getDefaultPreviewSheet()
 	{
 		return theDefaultPreviewSheet;
-	}
-
-	/**
-	 * Get's current gamemodes MaxDieSize.
-	 * @return maxDieSize
-	 */
-	public int getMaxDieSize()
-	{
-		return maxDieSize;
-	}
-
-	/**
-	 * Sets's current gamemodes MaxDieSize.
-	 * @param dice
-	 */
-	public void setMaxDieSize(final int dice)
-	{
-		maxDieSize = dice;
-	}
-
-	/**
-	 * Get's current gamemodes MinDieSize.
-	 * @return minDieSize
-	 */
-	public int getMinDieSize()
-	{
-		return minDieSize;
-	}
-
-	/**
-	 * Sets's current gamemodes MinDieSize.
-	 * @param dice
-	 */
-	public void setMinDieSize(final int dice)
-	{
-		minDieSize = dice;
 	}
 
 	/**

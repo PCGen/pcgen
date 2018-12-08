@@ -2,7 +2,7 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
@@ -17,7 +17,7 @@ public class DieSizesToken implements GameModeLstToken
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.COMMA);
-		List<Integer> dieSizes = new ArrayList<>();
+		Collection<Integer> dieSizes = new ArrayList<>();
 		while (aTok.hasMoreTokens())
 		{
 			// trim in case there is training\leading whitespace after the comma split
@@ -25,23 +25,8 @@ public class DieSizesToken implements GameModeLstToken
 
 			try
 			{
-				if (aString.contains("MIN="))
-				{
-					int die = Integer.parseInt(aString.substring(4));
-					gameMode.setMinDieSize(die);
-					dieSizes.add(die);
-				}
-				else if (aString.contains("MAX="))
-				{
-					int die = Integer.parseInt(aString.substring(4));
-					gameMode.setMaxDieSize(die);
-					dieSizes.add(die);
-				}
-				else
-				{
-					int die = Integer.parseInt(aString);
-					dieSizes.add(die);
-				}
+				int die = Integer.parseInt(aString);
+				dieSizes.add(die);
 			}
 			catch (NumberFormatException e)
 			{
