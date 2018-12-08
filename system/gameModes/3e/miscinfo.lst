@@ -15,7 +15,6 @@ HPABBREV:HP
 # ACNAME: and ACABBREV: are required for proper usage.
 # SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 ACNAME:Armor Class
-ACABBREV:AC
 
 #
 #misc. currency specific items

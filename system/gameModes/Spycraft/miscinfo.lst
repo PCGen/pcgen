@@ -13,7 +13,6 @@ HPABBREV:VP
 # ACNAME: and ACABBREV: are required for proper usage.
 # SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 ACNAME:Defense
-ACABBREV:Def
 
 #
 #misc. Spycraft specific items

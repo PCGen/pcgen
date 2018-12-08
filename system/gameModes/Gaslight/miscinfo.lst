@@ -15,7 +15,6 @@ HPABBREV:HP
 # SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 # on the Classes Tab
 ACNAME:Defense
-ACABBREV:Def
 #ALTACNAME:
 #ALTACABBREV:
 
