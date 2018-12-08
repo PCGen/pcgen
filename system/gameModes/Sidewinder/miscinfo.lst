@@ -8,8 +8,6 @@ LEVELMSG:Congratulations, you can advance with that much experience!
 #ALIGNMENTNAME:
 HPNAME:Grit
 HPABBREV:Grit
-ALTHPNAME:Damage Threshold
-ALTHPABBREV:Threshold
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
 # ACNAME: and ACABBREV: are required for proper usage.
