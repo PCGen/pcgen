@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -285,23 +286,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			return acType;
 		}
-		for (String acKey : ACTypeAddMap.getKeySet())
-		{
-			if (acKey.equalsIgnoreCase(acType))
-			{
-				return acKey;
-			}
-		}
-		for (String acKey : ACTypeRemoveMap.getKeySet())
-		{
-			if (acKey.equalsIgnoreCase(acType))
-			{
-				return acKey;
-			}
-		}
-
-		return acType;
+		return Stream.concat(ACTypeAddMap.getKeySet().stream(), ACTypeRemoveMap.getKeySet().stream()).
+				filter(acKey -> acKey.equalsIgnoreCase(acType))
+		      .findFirst()
+		      .orElse(acType);
 	}
+
 
 	/**
 	 * Adds an Allowed Game Mode
