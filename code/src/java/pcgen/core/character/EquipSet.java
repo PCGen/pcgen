@@ -21,12 +21,16 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
+import pcgen.core.BodyStructure;
 import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.gui2.facade.EquipNode;
 import pcgen.util.Logging;
 
 /**
@@ -83,6 +87,13 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	private String note = Constants.EMPTY_STRING;
 	private String value = Constants.EMPTY_STRING;
 	private boolean useTempBonuses = true;
+
+	/** This list of equipment nodes to be displayed on the equipped tree. */
+	private DefaultListFacade<EquipNode> nodeList;
+
+	private Map<EquipSlot, EquipNode> equipSlotNodeMap;
+
+	private Map<String, EquipNode> naturalWeaponNodes;
 
 	/**
 	 * Retrieve the id from a path, that is the last number in the sequence.
@@ -579,4 +590,163 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 		return abParentId.startsWith(abCalcId);
 	}
+
+	public DefaultListFacade<EquipNode> getNodeList()
+	{
+		return nodeList;
+	}
+
+	public void setNodeList(DefaultListFacade<EquipNode> nodeList)
+	{
+		this.nodeList = nodeList;
+	}
+
+	public Map<EquipSlot, EquipNode> getEquipSlotNodeMap()
+	{
+		return equipSlotNodeMap;
+	}
+
+	public void setEquipSlotNodeMap(Map<EquipSlot, EquipNode> equipSlotNodeMap)
+	{
+		this.equipSlotNodeMap = equipSlotNodeMap;
+	}
+
+	public Map<String, EquipNode> getNaturalWeaponNodes()
+	{
+		return naturalWeaponNodes;
+	}
+
+	public void setNaturalWeaponNodes(Map<String, EquipNode> naturalWeaponNodes)
+	{
+		this.naturalWeaponNodes = naturalWeaponNodes;
+	}
+
+	/**
+	 * Retrieve the preferred location for a natural weapon. Will return null
+	 * for non natural weapon equipment items.
+	 *
+	 * @param equipment The equipment item to be checked.
+	 * @return The preferred natural equip node, or null if not applicable.
+	 */
+	public EquipNode getNatWeaponLoc(PlayerCharacter pc, Equipment item)
+	{
+		String locName = pc.getNaturalWeaponLocation(item);
+		if (locName != null)
+		{
+			return naturalWeaponNodes.get(locName);
+		}
+		return null;
+	}
+
+	/**
+	 * Check if the node is a valid location for the natural weapon to be equipped to.
+	 * This allows primary natural weapons to be equipped to primary or secondary
+	 * slots, but secondary weapons only too the secondary slot.
+	 *
+	 * @param node The node to be tested.
+	 * @param equipment The natural weapon
+	 * @param naturalLoc The natural weapon;s preferred slot.
+	 * @return true if the node can take the natural weapon, false otherwise.
+	 */
+	public boolean validLocationForNaturalWeapon(EquipNode node, Equipment equipment, EquipNode naturalLoc)
+	{
+		if (equipment.isPrimaryNaturalWeapon())
+		{
+			return getNaturalWeaponNodes().containsValue(node);
+		}
+		return node.equals(naturalLoc);
+	}
+
+	public boolean canEquip(PlayerCharacter theCharacter, EquipNode node,
+		Equipment item)
+	{
+		// Check for a required location (i.e. you can't carry a natural weapon)
+		EquipNode requiredLoc = getNatWeaponLoc(theCharacter, item);
+		if (requiredLoc != null)
+		{
+			return validLocationForNaturalWeapon(node, item, requiredLoc);
+		}
+
+		// Is this a container? Then check if the object can fit in
+		if (node.getNodeType() == EquipNode.NodeType.EQUIPMENT)
+		{
+			EquipmentFacade parent = node.getEquipment();
+			if ((parent instanceof Equipment) && ((Equipment) parent).isContainer())
+			{
+				// Check if it fits
+				if (((Equipment) parent).canContain(theCharacter, item) == 1)
+				{
+					return true;
+				}
+			}
+		}
+
+		if (node.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)
+		{
+			// Check first for an already full or taken slot
+			if (!getNodeList().containsElement(node))
+			{
+				return false;
+			}
+			EquipSlot slot = node.getSlot();
+			if (slot.canContainType(item.getType()))
+			{
+				if (item.isWeapon())
+				{
+					final String slotName = slot.getSlotName();
+
+					if (item.isUnarmed() && slotName.equals(Constants.EQUIP_LOCATION_UNARMED))
+					{
+						return true;
+					}
+					if (item.isShield() && slotName.equals(Constants.EQUIP_LOCATION_SHIELD))
+					{
+						return true;
+					}
+
+					// If it is outsized, they can't equip it to a weapon slot
+					if (item.isWeaponOutsizedForPC(theCharacter))
+					{
+						return false;
+					}
+
+					if (slotName.startsWith(Constants.EQUIP_LOCATION_BOTH))
+					{
+						return true;
+					}
+					if (item.isMelee() && item.isDouble() && slotName.equals(Constants.EQUIP_LOCATION_DOUBLE))
+					{
+						return true;
+					}
+					if (item.isWeaponOneHanded(theCharacter))
+					{
+						if (slotName.equals(Constants.EQUIP_LOCATION_PRIMARY)
+							|| slotName.startsWith(Constants.EQUIP_LOCATION_SECONDARY))
+						{
+							return true;
+						}
+					}
+
+				}
+				else
+				{
+					return true;
+				}
+			}
+		}
+
+		// Is this a body structure? Then check if the object be placed there
+		if (node.getNodeType() == EquipNode.NodeType.BODY_SLOT)
+		{
+			BodyStructure root = node.getBodyStructure();
+			if (root.isHoldsAnyType())
+			{
+				return !root.isForbidden(item.getTrueTypeList(false));
+			}
+		}
+
+		// This item can't be equipped in this location
+		return false;
+	}
+
 }
