@@ -1303,7 +1303,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<special_properties>silver</special_properties>
 				<template></template>
 				<type>S</type>
 				<weight>4</weight>
@@ -2053,7 +2053,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>10 hp/inch, hardness 8</special_properties>
+			<special_properties>silver</special_properties>
 			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 			<weight>4</weight>
 			<bonuslist></bonuslist>
@@ -2725,7 +2725,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<special_properties>silver</special_properties>
 				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 				<weight>4</weight>
 				<bonuslist></bonuslist>
