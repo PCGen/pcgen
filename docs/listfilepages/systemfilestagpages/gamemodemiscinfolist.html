@@ -1929,20 +1929,6 @@ size)
   </p>
   <p class="indent1">
    <strong>
-    Variables Used (x):
-   </strong>
-   MIN=Number
-(Minimum die size)
-  </p>
-  <p class="indent1">
-   <strong>
-    Variables Used (x):
-   </strong>
-   MAX=Number
-(Maximum die size)
-  </p>
-  <p class="indent1">
-   <strong>
     What it does:
    </strong>
   </p>
@@ -1970,33 +1956,6 @@ bump a character's hit die up or down.
     </a>
     files.
    </li>
-   <li>
-    <code>MIN=x</code>
-    sets the lowest hit die size the
-"%downNumber"
-    <code>HITDIE</code>
-    function allow.
-   </li>
-   <li>
-    <code>MAX=x</code>
-    sets the highest hit die size the
-"%upNumber"
-    <code>HITDIE</code>
-    function will allow.
-   </li>
-   <li>
-    The "%Hup" and "%Hdown"
-    <code>HITDIE</code>
-    functions will
-ignore
-    <code>MIN</code>
-    and
-    <code>MAX</code>
-    and move the hit die
-the full range of die sizes specified by the
-    <code>DIESIZES</code>
-    tag.
-   </li>
   </ul>
   <p class="indent1">
    <strong>
@@ -2004,7 +1963,7 @@ the full range of die sizes specified by the
    </strong>
   </p>
   <p class="indent2">
-   <code>DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000</code>
+   <code>DIESIZES:1,2,3,4,6,8,10,12,20,100,1000</code>
   </p>
   <p class="indent3">
    Sets the range of hit die sizes used in the
