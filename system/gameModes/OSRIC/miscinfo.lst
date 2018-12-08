@@ -234,7 +234,6 @@ WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
