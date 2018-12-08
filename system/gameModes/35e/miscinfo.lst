@@ -8,8 +8,6 @@
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-HPNAME:Hit Points
-HPABBREV:HP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
 ACNAME:Armor Class

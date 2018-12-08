@@ -6,8 +6,6 @@ LEVELMSG:Congratulations Agent, you can advance with that much experience!
 #
 #
 #ALIGNMENTNAME:Alignment
-HPNAME:Vitality Points
-HPABBREV:VP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
 # SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected

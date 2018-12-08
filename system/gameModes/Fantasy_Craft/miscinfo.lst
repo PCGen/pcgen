@@ -11,8 +11,6 @@ ALLOWEDMODES:FantasyCraft
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-HPNAME:Vitality
-HPABBREV:Vit
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
 ACNAME:Defense

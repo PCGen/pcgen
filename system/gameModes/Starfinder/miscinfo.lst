@@ -7,8 +7,6 @@
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-HPNAME:Stamina
-HPABBREV:SP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
 ACNAME:Armor Class
