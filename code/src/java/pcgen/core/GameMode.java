@@ -113,7 +113,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private boolean showClassDefense;
 	private int babAttCyc = 5; //6
 	private int babMaxAtt = Integer.MAX_VALUE; //4
-	private int babMaxLvl = Integer.MAX_VALUE; //20
 	private int babMinVal = 1;
 	private int maxNonEpicLevel = Integer.MAX_VALUE;
 	private int displayOrder = Integer.MAX_VALUE;
@@ -688,24 +687,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	int getBabMaxAtt()
 	{
 		return babMaxAtt;
-	}
-
-	/**
-	 * Set the max BAB level.
-	 * @param arg
-	 */
-	public void setBabMaxLvl(final int arg)
-	{
-		babMaxLvl = arg;
-	}
-
-	/**
-	 * Get the max BAB level.
-	 * @return the max BAB level
-	 */
-	public int getBabMaxLvl()
-	{
-		return babMaxLvl;
 	}
 
 	/**
