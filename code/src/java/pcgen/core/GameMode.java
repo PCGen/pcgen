@@ -113,7 +113,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String crThreshold = null;
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
-	private boolean allowAutoResize = false;
 	private boolean bonusStatAllowsStack = false;
 	private boolean showClassDefense;
 	private int babAttCyc = 5; //6
@@ -320,24 +319,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setAltHPText(final String aString)
 	{
 		althpName = aString;
-	}
-
-	/**
-	 * Set flag to allow auto resizing or not.
-	 * @param allow
-	 */
-	public void setAllowAutoResize(final boolean allow)
-	{
-		allowAutoResize = allow;
-	}
-
-	/**
-	 * Get the allow auto resize flag.
-	 * @return true if allowed to auto resize
-	 */
-	public boolean getAllowAutoResize()
-	{
-		return allowAutoResize;
 	}
 
 	/**
