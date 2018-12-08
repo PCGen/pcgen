@@ -179,6 +179,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	@Override
 	public ModelMap createModels(final CharacterFacade character)
 	{
+		Objects.requireNonNull(character);
 		ModelMap models = new ModelMap();
 
 		ListSelectionModel listModel = new DefaultListSelectionModel();

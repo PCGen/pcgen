@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -53,6 +54,9 @@ import pcgen.facade.util.AbstractListFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+
+
+import org.jetbrains.annotations.Nullable;
 
 /**
  * The Class {@code CharacterLevelsFacadeImpl} is an implementation of
@@ -390,19 +394,23 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public float getSkillRanks(CharacterLevelFacade level, Skill skill)
+	public float getSkillRanks(@Nullable CharacterLevelFacade level, @Nullable Skill skill)
 	{
-		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
+		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed
+		if (skill == null)
+		{
+			return 0;
+		}
 		return SkillRankControl.getTotalRank(theCharacter, skill);
 	}
 
 	@Override
 	public int getSkillTotal(CharacterLevelFacade level, Skill skill)
 	{
-		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
+		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed
 		Float ranks = SkillRankControl.getTotalRank(theCharacter, skill);
 		Integer mods = SkillModifier.modifier(skill, theCharacter);
-		return mods.intValue() + ranks.intValue();
+		return mods + ranks.intValue();
 	}
 
 	@Override
