@@ -64,7 +64,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod		CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Starfinder RPG
-MENUTOOLTIP:Use Starfinder RPG character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Starfinder
 GAMEMODEKEY:Starfinder

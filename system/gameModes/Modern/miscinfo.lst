@@ -60,7 +60,6 @@ TAB:TEMPMOD			NAME:in_InfoTempMod			CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:MSRD Modern
-MENUTOOLTIP:Use Modern character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Modern
 

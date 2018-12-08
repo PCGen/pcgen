@@ -64,7 +64,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html		VISI
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Immortal
-MENUTOOLTIP:Use Immortal character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Immortal
 #

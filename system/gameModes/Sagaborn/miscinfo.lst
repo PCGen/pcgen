@@ -63,7 +63,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod			CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Sagaborn Roleplaying System
-MENUTOOLTIP:Use Sagaborn Roleplaying System character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Sagaborn
 GAMEMODEKEY:Sagaborn

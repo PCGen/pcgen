@@ -61,7 +61,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Gaslight RPG
-MENUTOOLTIP:Use Gaslight character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Gaslight
 #
