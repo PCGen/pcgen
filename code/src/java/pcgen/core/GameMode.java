@@ -817,14 +817,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	{
 		if (cr.startsWith("1/"))
 		{
-			for (Map.Entry<Integer, String> entry : crStepsMap.entrySet())
-			{
-				if (entry.getValue().equals(cr))
-				{
-					return entry.getKey();
-				}
-			}
-			return null;
+			return crStepsMap.entrySet()
+			                 .stream()
+			                 .filter(entry -> entry.getValue().equals(cr))
+			                 .findFirst()
+			                 .map(Map.Entry::getKey)
+			                 .orElse(null);
 		}
 		return Integer.parseInt(cr);
 	}
