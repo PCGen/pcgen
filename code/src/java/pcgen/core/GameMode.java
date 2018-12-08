@@ -98,8 +98,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String displayVariableName = "";
 	private String displayVariableText = "";
 	private final String folderName;
-	private String hpAbbrev = "";
-	private String hpName = "";
 	private String levelUpMessage = "";
 	private String name = "";
 	private String spellBaseDC = "0";
@@ -503,24 +501,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public String getFolderName()
 	{
 		return folderName;
-	}
-
-	/**
-	 * Set the HP Abbreviation.
-	 * @param aString
-	 */
-	public void setHPAbbrev(final String aString)
-	{
-		hpAbbrev = aString;
-	}
-
-	/**
-	 * Set the HP Text.
-	 * @param aString
-	 */
-	public void setHPText(final String aString)
-	{
-		hpName = aString;
 	}
 
 	/**
@@ -1205,20 +1185,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	int getDisplayOrder()
 	{
 		return displayOrder;
-	}
-
-	/**
-	 * HP.
-	 * @return HP abbreviation
-	 */
-	String getHPAbbrev()
-	{
-		return hpAbbrev;
-	}
-
-	String getHPText()
-	{
-		return hpName;
 	}
 
 	/**
