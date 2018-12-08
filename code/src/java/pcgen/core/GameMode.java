@@ -2119,11 +2119,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		thePreviewDir = aDir;
 	}
 
-	private String getPreviewDir()
-	{
-		return thePreviewDir;
-	}
-
 	public void setDefaultPreviewSheet(final String aSheet)
 	{
 		theDefaultPreviewSheet = aSheet;
@@ -2616,7 +2611,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	@Override
 	public String getCharSheetDir()
 	{
-		return getPreviewDir();
+		return thePreviewDir;
 	}
 
 	@Override
