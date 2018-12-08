@@ -2879,10 +2879,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * Returns the &quot;Base&quot; check value for the check at the index
 	 * specified.
 	 *
-	 * <p>
-	 * This method caps the base check based on the game mode setting for
-	 * {@link pcgen.core.GameMode#getChecksMaxLvl() checks max level}.
-	 *
 	 * @param check
 	 *            The index of the check to get
 	 *

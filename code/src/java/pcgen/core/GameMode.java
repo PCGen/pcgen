@@ -119,7 +119,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private int babMaxLvl = Integer.MAX_VALUE; //20
 	private int babMinVal = 1;
 	private int maxNonEpicLevel = Integer.MAX_VALUE;
-	private int checksMaxLvl = Integer.MAX_VALUE; //20
 	private int displayOrder = Integer.MAX_VALUE;
 
 	private int skillCosts_Class = 1;
@@ -381,24 +380,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setBonusStatLevels(final String aString)
 	{
 		bonusStatLevels.add(aString);
-	}
-
-	/**
-	 * Set Max Level check.
-	 * @param arg
-	 */
-	public void setChecksMaxLvl(final int arg)
-	{
-		checksMaxLvl = arg;
-	}
-
-	/**
-	 * Get max level check.
-	 * @return max level check
-	 */
-	int getChecksMaxLvl()
-	{
-		return checksMaxLvl;
 	}
 
 	/**
