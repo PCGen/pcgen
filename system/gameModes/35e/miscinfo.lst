@@ -14,7 +14,6 @@ HPABBREV:HP
 #ALTHPABBREV:
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Armor Class
 ACABBREV:AC
 

@@ -18,7 +18,6 @@ ALTHPNAME:Wound Points
 ALTHPABBREV:WP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Defense
 ACABBREV:Def
 

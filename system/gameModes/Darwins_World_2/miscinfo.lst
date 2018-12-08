@@ -13,13 +13,11 @@ ALTHPNAME:Damage Threshold
 ALTHPABBREV:Threshold
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 # SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 # on the Classes Tab
 ACNAME:Defense
 ACABBREV:Def
 #ALTACNAME:
-#ALTACABBREV:
 
 #
 #misc. DW2 specific items
