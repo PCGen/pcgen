@@ -20,7 +20,6 @@
 # ACNAME: and ACABBREV: are required for proper usage.
 
 #ACNAME:Armor Class
-#ACABBREV:AC
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
 #ALLOWAUTORESIZE:Y
