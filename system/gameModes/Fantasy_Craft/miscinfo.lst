@@ -22,7 +22,6 @@ ACNAME:Defense
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Silver
 CURRENCYUNITABBREV:s
 
 #

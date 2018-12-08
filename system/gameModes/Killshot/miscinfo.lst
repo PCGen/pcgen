@@ -22,7 +22,6 @@
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Dollar
 CURRENCYUNITABBREV:$
 
 #
