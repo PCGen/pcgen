@@ -60,23 +60,23 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class GameMode implements Comparable<Object>
 {
-	private static PropertyContext prefsContext =
+	private static final PropertyContext prefsContext =
 			PCGenSettings.getInstance().createChildContext("gameMode"); //$NON-NLS-1$
 
 	private PropertyContext gamemodePrefsContext = prefsContext.createChildContext("gameMode"); //$NON-NLS-1$
 	private List<String> allowedModes;
-	private List<String> bonusFeatLevels = new ArrayList<>();
-	private List<String> bonusStackList = new ArrayList<>();
-	private List<String> bonusStatLevels = new ArrayList<>();
+	private final List<String> bonusFeatLevels = new ArrayList<>();
+	private final List<String> bonusStackList = new ArrayList<>();
+	private final List<String> bonusStatLevels = new ArrayList<>();
 	private List<String> defaultDataSetList = new ArrayList<>();
-	private Map<String, XPTable> xpTableInfo = new HashMap<>();
-	private List<String> skillMultiplierLevels = new ArrayList<>();
+	private final Map<String, XPTable> xpTableInfo = new HashMap<>();
+	private final List<String> skillMultiplierLevels = new ArrayList<>();
 	@Deprecated
-	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<>();
+	private final HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<>();
 	@Deprecated
-	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<>();
+	private final HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<>();
 	private Map<String, String> plusCalcs;
-	private Map<String, String> spellRangeMap = new HashMap<>();
+	private final Map<String, String> spellRangeMap = new HashMap<>();
 	private String acName = "";
 	private String currencyUnitAbbrev = "";
 	private String damageResistance = "";
@@ -92,8 +92,8 @@ public final class GameMode implements Comparable<Object>
 	private String weaponCategories = "";
 	private String weaponTypes = "";
 	private String weaponReachFormula = "";
-	private Map<Integer, Integer> xpAwardsMap = new HashMap<>();
-	private Map<Integer, String> crStepsMap = new HashMap<>();
+	private final Map<Integer, Integer> xpAwardsMap = new HashMap<>();
+	private final Map<Integer, String> crStepsMap = new HashMap<>();
 	private String crThreshold = null;
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
@@ -135,7 +135,7 @@ public final class GameMode implements Comparable<Object>
 	private int statMax = 18;
 
 	private TreeMap<Integer, String> statDisplayText = null;
-	private String statDisplayTextAppend = "+";
+	private final String statDisplayTextAppend = "+";
 	private TreeMap<Integer, String> skillRankDisplayText = null;
 
 	private String thePreviewDir;
@@ -144,7 +144,7 @@ public final class GameMode implements Comparable<Object>
 	private String theInfoSheetSkill;
 
 	private String outputSheetDirectory;
-	private Map<String, String> outputSheetDefaultMap = new HashMap<>();
+	private final Map<String, String> outputSheetDefaultMap = new HashMap<>();
 
 	private int[] dieSizes;
 	private int maxDieSize = 12;
@@ -154,19 +154,19 @@ public final class GameMode implements Comparable<Object>
 	private List<String> characterTypeList = new ArrayList<>();
 	private List<String> monsterRoleList = new ArrayList<>();
 	private String monsterRoleDefault = "";
-	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<>();
+	private final Map<Class<?>, Set<String>> hiddenTypes = new HashMap<>();
 
-	private List<String> xpTableNames = new ArrayList<>();
+	private final List<String> xpTableNames = new ArrayList<>();
 	private String defaultXPTableName;
 	private String defaultCharacterType;
 
 	/** The BioSet used for age calculations */
 	private BioSet bioSet = new BioSet();
 
-	private Map<String, String> equipTypeIconMap = new HashMap<>();
+	private final Map<String, String> equipTypeIconMap = new HashMap<>();
 
 	/** Priority of the equipment types for icon use. */
-	private Map<String, Integer> equipTypeIconPriorityMap = new HashMap<>();
+	private final Map<String, Integer> equipTypeIconPriorityMap = new HashMap<>();
 
 	/** A container for feat settings for this game mode. */
 	private AbilityCategory featTemplate;
@@ -1912,8 +1912,8 @@ public final class GameMode implements Comparable<Object>
 
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
 	private LoadContext context = new RuntimeLoadContext(getRefContext(), masterLCS);
-	private GameReferenceContext gameRefContext = GameReferenceContext.createGameReferenceContext();
-	private LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
+	private final GameReferenceContext gameRefContext = GameReferenceContext.createGameReferenceContext();
+	private final LoadContext modeContext = new RuntimeLoadContext(gameRefContext, masterLCS);
 	private String defaultSourceTitle;
 
 	public void clearLoadContext()
