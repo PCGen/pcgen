@@ -8,8 +8,6 @@ LEVELMSG:Congratulations Agent, you can advance with that much experience!
 #ALIGNMENTNAME:Alignment
 HPNAME:Vitality Points
 HPABBREV:VP
-ALTHPNAME:Wound Points
-ALTHPABBREV:WP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
 # ACNAME: and ACABBREV: are required for proper usage.
