@@ -101,7 +101,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String hpAbbrev = "";
 	private String hpName = "";
 	private String levelUpMessage = "";
-	private String menuToolTip = "";
 	private String name = "";
 	private String spellBaseDC = "0";
 	private String spellBaseConcentration = "";
@@ -586,35 +585,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Get the menu tool tip.
-	 * @return menu tool tip
-	 */
-	public String getMenuToolTip()
-	{
-		if (menuToolTip == null)
-		{
-			return "";
-		}
-
-		return menuToolTip;
-	}
-
-	/**
 	 * Set the game mode name.
 	 * @param modeName The MENUENTRY value.
 	 */
 	public void setModeName(final String modeName)
 	{
 		displayName = modeName;
-	}
-
-	/**
-	 * Set the game mode tool tip.
-	 * @param aString
-	 */
-	public void setModeToolTip(final String aString)
-	{
-		menuToolTip = aString;
 	}
 
 	/**
