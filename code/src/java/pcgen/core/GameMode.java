@@ -53,7 +53,6 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.context.TrackingReferenceContext;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PropertyContext;
-import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
@@ -1480,8 +1479,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		if (pointBuyStatCosts == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
-			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			pointBuyStatCosts = new TreeMap<>(new ComparableComparator<>());
+			pointBuyStatCosts = new TreeMap<>();
 		}
 		abilityScoreCost = null;
 		pointBuyStatCosts.put(pbc.getStatValue(), pbc);
@@ -1906,8 +1904,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		if (statDisplayText == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
-			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			statDisplayText = new TreeMap<>(new ComparableComparator<>());
+			statDisplayText = new TreeMap<>();
 		}
 		statDisplayText.put(statValue, statText);
 	}
@@ -1968,8 +1965,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		if (skillRankDisplayText == null)
 		{
 			// Sort NUMERICALLY, not alphabetically!
-			// CONSIDER Huh? The natural order of Integer IS numerically... - thpr 10/20/06
-			skillRankDisplayText = new TreeMap<>(new ComparableComparator<>());
+			skillRankDisplayText = new TreeMap<>();
 		}
 		skillRankDisplayText.put(rankValue, rankText);
 	}
