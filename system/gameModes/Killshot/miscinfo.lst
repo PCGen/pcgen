@@ -15,7 +15,6 @@
 #ACNAME:Armor Class
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-#ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 #BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
