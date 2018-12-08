@@ -564,6 +564,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		LoadContext context = Globals.getContext();
 		id = CharID.getID(context.getDataSetID());
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
 		doFormulaSetup(context);
 
 		display = new CharacterDisplay(id);
@@ -578,12 +580,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			ageSetKitSelections[i] = false;
 		}
-		AbstractReferenceContext refContext = context.getReferenceContext();
 		GlobalModifiers gm =
 				refContext.constructNowIfNecessary(GlobalModifiers.class, GlobalModifierLoader.GLOBAL_MODIFIERS);
 		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
 		globalModifierFacet.set(id, gm);
-		controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
 
 		//Do BioSet first, since required by Race
 		bioSetFacet.set(id, SettingsHandler.getGame().getBioSet());
