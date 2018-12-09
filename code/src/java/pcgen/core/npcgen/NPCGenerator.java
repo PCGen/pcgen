@@ -531,7 +531,7 @@ public final class NPCGenerator
 		final List<LevelGeneratorOption> levels, final RollMethod aRollMethod)
 	{
 		// Force a more quiet process
-		ChooserFactory.pushChooserClassname("pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
+		ChooserFactory.useRandomChooser(); //$NON-NLS-1$
 
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
@@ -779,7 +779,7 @@ public final class NPCGenerator
 		{
 			SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 			UIPropertyContext.setSingleChoiceAction(tempChoicePref);
-			ChooserFactory.popChooserClassname();
+			ChooserFactory.stopUsingRandomChooser();
 		}
 	}
 }
