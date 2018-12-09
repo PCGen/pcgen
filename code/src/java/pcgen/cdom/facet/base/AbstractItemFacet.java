@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.base;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.util.Logging;
@@ -135,8 +137,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends 
 	 */
 	public boolean matches(IDT id, T obj)
 	{
-		T current = get(id);
-		return ((obj == null) && (current == null)) || ((obj != null) && obj.equals(current));
+		return Objects.equals(obj, get(id));
 	}
 
 	/**
