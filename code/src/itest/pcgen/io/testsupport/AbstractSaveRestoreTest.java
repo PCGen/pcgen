@@ -80,7 +80,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
@@ -164,7 +163,7 @@ public abstract class AbstractSaveRestoreTest
 	@After
 	public void tearDown() throws Exception
 	{
-		ChooserFactory.popChooserClassname();
+		ChooserFactory.stopUsingRandomChooser();
 	}
 
 	protected <T extends Loadable> T create(Class<T> cl, String key)
@@ -236,7 +235,7 @@ public abstract class AbstractSaveRestoreTest
 
 	private void setUpContext()
 	{
-		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
+		ChooserFactory.useRandomChooser();
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);

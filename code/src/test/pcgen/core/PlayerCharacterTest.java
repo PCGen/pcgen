@@ -60,7 +60,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -211,7 +210,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(wpnProfTestC);
 	
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
-		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
+		ChooserFactory.useRandomChooser();
 	
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon B)");
@@ -250,7 +249,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		ChooserFactory.popChooserClassname();
+		ChooserFactory.stopUsingRandomChooser();
 		Logging.setDebugMode(false);
 		human.removeListFor(ListKey.BONUS);
 		giantRace.removeListFor(ListKey.BONUS);
@@ -458,7 +457,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass, true);
 
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
-		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
+		ChooserFactory.useRandomChooser();
 
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
@@ -472,7 +471,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		}
 		finally
 		{
-			ChooserFactory.popChooserClassname();
+			ChooserFactory.stopUsingRandomChooser();
 		}
 	}
 
