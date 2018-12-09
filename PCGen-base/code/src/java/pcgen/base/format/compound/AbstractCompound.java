@@ -109,9 +109,8 @@ abstract class AbstractCompound implements Compound
 	@Override
 	public int hashCode()
 	{
-		final int prime = 31;
-		int result = prime + ((components == null) ? 0 : components.hashCode());
-		return prime * result + formatManager.hashCode();
+		int result = 31 + ((components == null) ? 0 : components.hashCode());
+		return 31 * result + formatManager.hashCode();
 	}
 
 	@Override
