@@ -80,8 +80,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private Map<String, String> plusCalcs;
 	private Map<String, String> spellRangeMap = new HashMap<>();
 	private String acName = "";
-	private String althpAbbrev = "";
-	private String althpName = "";
 	private String babAbbrev = null;
 	private String currencyUnit = "";
 	private String currencyUnitAbbrev = "";
@@ -286,24 +284,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 
 		allowedModes.add(modeName);
-	}
-
-	/**
-	 * Set the alternative HP Abbreviation.
-	 * @param aString
-	 */
-	public void setAltHPAbbrev(final String aString)
-	{
-		althpAbbrev = aString;
-	}
-
-	/**
-	 * Set the alternative HP Text.
-	 * @param aString
-	 */
-	public void setAltHPText(final String aString)
-	{
-		althpName = aString;
 	}
 
 	/**
@@ -1000,20 +980,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 
 		return allowedModes;
-	}
-
-	String getAltHPAbbrev()
-	{
-		return althpAbbrev;
-	}
-
-	/**
-	 * Wound Points.
-	 * @return alt hp name
-	 */
-	String getAltHPText()
-	{
-		return althpName;
 	}
 
 	/**
