@@ -108,7 +108,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
 	private boolean bonusStatAllowsStack = false;
-	private boolean showClassDefense;
 	private int babAttCyc = 5; //6
 	private int babMaxAtt = Integer.MAX_VALUE; //4
 	private int babMinVal = 1;
@@ -545,15 +544,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public int getShortRangeDistance()
 	{
 		return shortRangeDistance;
-	}
-
-	/**
-	 * Set the show class defense parameter.
-	 * @param argShowDef
-	 */
-	public void setShowClassDefense(final boolean argShowDef)
-	{
-		showClassDefense = argShowDef;
 	}
 
 	/**
@@ -1069,11 +1059,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public String getRankModFormula()
 	{
 		return rankModFormula;
-	}
-
-	boolean getShowClassDefense()
-	{
-		return showClassDefense;
 	}
 
 	List<String> getSkillMultiplierLevels()
