@@ -29,12 +29,10 @@ DEFAULTUNITSET:Imperial
 
 # The following determine whether some Class-related
 # variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
 #
 #
 
-SHOWCLASSDEFENSE:No
 
 #
 # Whether or not the game mode displays these tabs

@@ -8,7 +8,6 @@ LEVELMSG:Congratulations Agent, you can advance with that much experience!
 #ALIGNMENTNAME:Alignment
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 ACNAME:Defense
 
 #
@@ -27,10 +26,8 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 
 # The following determine whether some Class-related variables are displayed
 # on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is displayed.
 
 
-SHOWCLASSDEFENSE:Yes
 
 
 
