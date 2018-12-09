@@ -126,7 +126,7 @@ public final class TermUtilities
 				sB.append(src);
 			}
 			sB.append(" following \"");
-			sB.append(expressionString.substring(0, fixed));
+			sB.append(expressionString, 0, fixed);
 			throw new TermEvaulatorException(sB.toString());
 		}
 
