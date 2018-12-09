@@ -629,16 +629,6 @@ public class CharacterDisplay
 		return followerFacet.getSet(id);
 	}
 
-	/**
-	 * Get a sorted list of the languages that this character knows.
-	 * @return a sorted list of language objects
-	 */
-	@Deprecated
-	public Set<Language> getSortedLanguageSet()
-	{
-		return new TreeSet<>(languageFacet.getSet(id));
-	}
-
 	@Deprecated
 	public int processOldInitiativeMod()
 	{

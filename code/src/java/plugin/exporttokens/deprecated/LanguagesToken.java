@@ -18,9 +18,9 @@
  */
 package plugin.exporttokens.deprecated;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.core.Language;
@@ -48,7 +48,7 @@ public class LanguagesToken extends AbstractExportToken
 		int languageIndex = 0;
 		int startIndex = 0;
 
-		List<Language> languageList = new ArrayList<>(display.getSortedLanguageSet());
+		List<Language> languageList = display.getLanguageSet().stream().sorted().collect(Collectors.toList());
 
 		if (aTok.hasMoreTokens())
 		{
