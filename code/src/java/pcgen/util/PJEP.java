@@ -21,6 +21,12 @@ package pcgen.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.IntStream;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.VariableProcessor;
+import pcgen.persistence.lst.LstUtils;
+import pcgen.system.PluginLoader;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.VariableProcessor;
@@ -52,7 +58,7 @@ public final class PJEP extends JEP
 	private static List<Class<PCGenCommand>> commandList = new ArrayList<>();
 	private List<PCGenCommand> localCommandList = new ArrayList<>();
 
-	public static void addCommand(Class<PCGenCommand> clazz)
+	private static void addCommand(Class<PCGenCommand> clazz)
 	{
 		commandList.add(clazz);
 	}
@@ -130,7 +136,7 @@ public final class PJEP extends JEP
 	 * @param node The node to be checked.
 	 * @return True if the result would be cachable, false otherwise.
 	 */
-	public boolean isResultCachable(Node node)
+	private static boolean isResultCachable(Node node)
 	{
 		if (node instanceof ASTFunNode)
 		{
@@ -144,15 +150,9 @@ public final class PJEP extends JEP
 				}
 			}
 		}
-		for (int i = 0; i < node.jjtGetNumChildren(); i++)
-		{
-			if (!isResultCachable(node.jjtGetChild(i)))
-			{
-				return false;
-			}
-		}
 
-		return true;
+		return IntStream.range(0, node.jjtGetNumChildren())
+		                .allMatch(i -> isResultCachable(node.jjtGetChild(i)));
 	}
 
 	private boolean updateVariables()
@@ -295,13 +295,10 @@ public final class PJEP extends JEP
 	/**
 	 * @param variableSource The variableSource to set.
 	 */
-	protected void setVariableSource(String variableSource)
+	void setVariableSource(String variableSource)
 	{
 		this.variableSource = variableSource;
-		for (PCGenCommand com : localCommandList)
-		{
-			com.setVariableSource(variableSource);
-		}
+		localCommandList.forEach(com -> com.setVariableSource(variableSource));
 	}
 
 	/**
