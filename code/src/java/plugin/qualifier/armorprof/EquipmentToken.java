@@ -19,8 +19,10 @@ package plugin.qualifier.armorprof;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
@@ -31,7 +33,6 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.ArmorProf;
@@ -132,31 +133,23 @@ public class EquipmentToken implements QualifierToken<ArmorProf>, Converter<Equi
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<ArmorProf, R> c)
 	{
-		Set<R> returnSet = new HashSet<>();
+		Collection<R> returnSet = new HashSet<>();
 		Collection<? extends ObjectContainer<ArmorProf>> intermediate = pcs.getCollection(pc, this);
-		for (ObjectContainer<ArmorProf> ref : intermediate)
-		{
-			returnSet.addAll(c.convert(ref));
-		}
+		intermediate.stream()
+		            .map(c::convert)
+		            .forEach(returnSet::addAll);
 		return returnSet;
 	}
 
 	@Override
 	public Collection<CDOMReference<ArmorProf>> convert(ObjectContainer<Equipment> orig)
 	{
-		Set<CDOMReference<ArmorProf>> refSet = new HashSet<>();
-		for (Equipment e : orig.getContainedObjects())
-		{
-			if (e.getListFor(ListKey.TYPE).contains(ARMOR_TYPE))
-			{
-				CDOMSingleRef<ArmorProf> prof = e.get(ObjectKey.ARMOR_PROF);
-				if (prof != null)
-				{
-					refSet.add(prof);
-				}
-			}
-		}
-		return refSet;
+		return orig.getContainedObjects()
+		           .stream()
+		           .filter(e -> e.getListFor(ListKey.TYPE).contains(ARMOR_TYPE))
+		           .map(e -> e.get(ObjectKey.ARMOR_PROF))
+		           .filter(Objects::nonNull)
+		           .collect(Collectors.toSet());
 	}
 
 	@Override
