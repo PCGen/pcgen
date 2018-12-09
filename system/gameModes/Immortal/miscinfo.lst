@@ -7,8 +7,6 @@
 #
 #
 #ALIGNMENTNAME:Alignment
-HPNAME:Body
-HPABBREV:Bdy
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
 ACNAME:Armor

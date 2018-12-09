@@ -10,8 +10,6 @@
 # Displays the Alignment and what name to call Hit Points. Commenting out the Alignment tag removes it from the GUI. Example of this use is in MSRD.
 
 #ALIGNMENTNAME:Alignment
-#HPNAME:Hit Points
-#HPABBREV:HP
 
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
