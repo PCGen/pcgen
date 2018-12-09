@@ -358,7 +358,7 @@ public class CharacterFacadeImpl
 		tabName = new DefaultReferenceFacade<>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
-		raceList = Facades.singletonList(race);
+		raceList = new DelegatingSingleton<>(race);
 		handedness = new DefaultReferenceFacade<>();
 		gender = new DefaultReferenceFacade<>();
 
