@@ -42,7 +42,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GameModeFacade;
@@ -58,7 +57,7 @@ public class DataSet implements DataSetFacade
 {
 
 	private final DefaultListFacade<Race> races;
-	private final DefaultListFacade<ClassFacade> classes;
+	private final DefaultListFacade<PCClass> classes;
 	private final DefaultListFacade<Deity> deities;
 	private final DefaultListFacade<Skill> skills;
 	private final DefaultListFacade<PCTemplate> templates;
@@ -323,7 +322,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<ClassFacade> getClasses()
+	public ListFacade<PCClass> getClasses()
 	{
 		return classes;
 	}

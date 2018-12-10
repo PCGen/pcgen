@@ -22,6 +22,7 @@ import java.util.EventListener;
 import java.util.EventObject;
 
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.facade.util.ListFacade;
 
@@ -40,7 +41,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	 */
 	public boolean investSkillPoints(CharacterLevelFacade level, Skill skill, int points);
 
-	public ClassFacade getClassTaken(CharacterLevelFacade level);
+	public PCClass getClassTaken(CharacterLevelFacade level);
 
 	public SkillCost getSkillCost(CharacterLevelFacade level, Skill skill);
 

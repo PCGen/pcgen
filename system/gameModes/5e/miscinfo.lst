@@ -3,7 +3,6 @@
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:5e
-MENUTOOLTIP:Use 5e character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:5e
 
@@ -13,16 +12,11 @@ ALLOWEDMODES:5e
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-HPNAME:Hit Points
-HPABBREV:HP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Armor Class
-ACABBREV:AC
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
@@ -30,7 +24,6 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Gold
 CURRENCYUNITABBREV:gp
 
 #
@@ -41,20 +34,10 @@ DEFAULTUNITSET:Imperial
 
 # The following determine whether some Class-related
 # variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
+#
+#
 
-SHOWCLASSDEFENSE:No
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
 
 #
 # Whether or not the game mode displays these tabs
@@ -132,8 +115,6 @@ BABMAXATT:4
 BABATTCYC:20
 BABMINVAL:1
 # Epic stuff
-BABMAXLVL:20
-CHECKSMAXLVL:20
 
 #Class Types
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:YES	CRMOD:0	CRMODPRIORITY:1
@@ -227,7 +208,6 @@ WIELDCATEGORY:None		HANDS:0
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-#WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 #WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 #WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light

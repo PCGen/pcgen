@@ -25,13 +25,13 @@ import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import org.apache.commons.lang3.StringUtils;
+import pcgen.output.publish.OutputDB;
+import pcgen.util.Logging;
 
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
-import pcgen.output.publish.OutputDB;
-import pcgen.util.Logging;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class is used to manage the properties of the PCGen application
@@ -138,7 +138,7 @@ public final class PCGenPropBundle
 	 */
 	public static String getMailingList()
 	{
-		return getPropValue("MailingList", "http://groups.yahoo.com/group/pcgen");
+		return getPropValue("MailingList", "https://pcgen.groups.io/g/main");
 	}
 
 	/**

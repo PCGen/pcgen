@@ -19,6 +19,7 @@
 package pcgen.core;
 
 import java.util.Locale;
+import java.util.Optional;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
@@ -149,7 +150,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
 
-		SettingsHandler.getGame().getBioSet().getAgeSet(Region.getConstant(pc.getDisplay().getRegionString()), idx);
+		Optional<Region> region = pc.getDisplay().getRegion();
+		SettingsHandler.getGame().getBioSet().getAgeSet(region, idx);
 
 	}
 }

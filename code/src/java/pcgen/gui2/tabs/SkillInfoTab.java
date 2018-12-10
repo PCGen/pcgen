@@ -27,6 +27,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.DecimalFormat;
 import java.util.EventObject;
+import java.util.Objects;
 
 import javax.swing.AbstractSpinnerModel;
 import javax.swing.ComboBoxModel;
@@ -179,6 +180,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	@Override
 	public ModelMap createModels(final CharacterFacade character)
 	{
+		Objects.requireNonNull(character);
 		ModelMap models = new ModelMap();
 
 		ListSelectionModel listModel = new DefaultListSelectionModel();

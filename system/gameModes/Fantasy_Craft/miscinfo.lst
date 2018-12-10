@@ -2,7 +2,6 @@
 # use & for mnemonic, && for & (MENUENTRY only)
 MENUENTRY:Fantasy Craft
 GAMEMODEKEY:FantasyCraft
-MENUTOOLTIP:Use Fantasy Craft character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:FantasyCraft
 #
@@ -12,23 +11,15 @@ ALLOWEDMODES:FantasyCraft
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-HPNAME:Vitality
-HPABBREV:Vit
-ALTHPNAME:Wound Points
-ALTHPABBREV:WP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Defense
-ACABBREV:Def
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-ALLOWAUTORESIZE:N
 
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Silver
 CURRENCYUNITABBREV:s
 
 #
@@ -39,20 +30,10 @@ DEFAULTUNITSET:Imperial
 
 # The following determine whether some Class-related
 # variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
+#
+#
 
-SHOWCLASSDEFENSE:YES
-DISPLAYVARIABLE1TEXT:Lifestyle
-DISPLAYVARIABLE1NAME:LifestyleScore
-DISPLAYVARIABLE2TEXT:Legend
-DISPLAYVARIABLE2NAME:LegendSCore
-DISPLAYVARIABLE3TEXT:Reputation
-DISPLAYVARIABLE3NAME:ReputationScore
 
 #
 # Whether or not the game mode displays these tabs
@@ -122,8 +103,6 @@ BABMAXATT:1
 BABATTCYC:20
 BABMINVAL:20
 # Epic stuff
-BABMAXLVL:20
-CHECKSMAXLVL:20
 
 #Class Types
 CLASSTYPE:PC		ISMONSTER:NO	XPPENALTY:NO	CRFORMULA:0	
@@ -207,7 +186,6 @@ WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 WIELDCATEGORY:OneHanded		UP:TwoHanded								ZERO:OneHanded

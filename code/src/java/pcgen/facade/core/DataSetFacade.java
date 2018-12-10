@@ -25,6 +25,7 @@ import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
 import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -54,7 +55,7 @@ public interface DataSetFacade
 
 	public ListFacade<Race> getRaces();
 
-	public ListFacade<ClassFacade> getClasses();
+	public ListFacade<PCClass> getClasses();
 
 	public ListFacade<Deity> getDeities();
 

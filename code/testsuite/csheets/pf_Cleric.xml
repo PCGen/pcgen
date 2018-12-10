@@ -1047,7 +1047,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Outfit, Traveler&#39;s</longname>
+			<longname>Traveler&#39;s Outfit</longname>
 			<id></id>
 			<name>Traveler&#39;s Outfit</name>
 			<carried>1.0</carried>
@@ -1281,7 +1281,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin, Gold Piece</longname>
+			<longname>Gold Piece</longname>
 			<id></id>
 			<name>Gold Piece</name>
 			<carried>10.0</carried>
@@ -1307,7 +1307,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin, Platinum Piece</longname>
+			<longname>Platinum Piece</longname>
 			<id></id>
 			<name>Platinum Piece</name>
 			<carried>5.0</carried>
@@ -1333,7 +1333,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin, Silver Piece</longname>
+			<longname>Silver Piece</longname>
 			<id></id>
 			<name>Silver Piece</name>
 			<carried>10.0</carried>
@@ -1411,7 +1411,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Horse, Light (Combat Trained)</longname>
+			<longname>Light Horse (Combat Trained)</longname>
 			<id></id>
 			<name>Light Horse (Combat Trained)</name>
 			<carried>0.0</carried>
@@ -1463,7 +1463,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations, Trail, Per Day</longname>
+			<longname>Rations, Trail</longname>
 			<id></id>
 			<name>Trail Ration</name>
 			<carried>4.0</carried>

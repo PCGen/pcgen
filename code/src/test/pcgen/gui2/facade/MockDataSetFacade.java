@@ -33,7 +33,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
@@ -60,7 +59,7 @@ public class MockDataSetFacade implements DataSetFacade
 	private DefaultListFacade<Skill> skills;
 	private DefaultListFacade<PCStat> stats;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
-	private DefaultListFacade<ClassFacade> classes;
+	private DefaultListFacade<PCClass> classes;
 
 
 	public MockDataSetFacade(GameMode gameMode)
@@ -106,7 +105,7 @@ public class MockDataSetFacade implements DataSetFacade
 	}
 
     @Override
-	public ListFacade<ClassFacade> getClasses()
+	public ListFacade<PCClass> getClasses()
 	{
 		return classes;
 	}
@@ -220,7 +219,8 @@ public class MockDataSetFacade implements DataSetFacade
 	@Override
 	public ListFacade<Kit> getKits()
 	{
-		throw new UnsupportedOperationException();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override

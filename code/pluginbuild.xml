@@ -5423,14 +5423,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ACABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/AcabbrevToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ACNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5452,31 +5444,10 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALLOWAUTORESIZE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/AllowautoresizeToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALLOWEDMODES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/AllowedmodesToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALTHPABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/AlthpabbrevToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-ALTHPNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/AlthpnameToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5498,13 +5469,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/BabmaxattToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABMAXLVL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/BabmaxlvlToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5554,13 +5518,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/CharacterTypeToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CHECKSMAXLVL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/ChecksmaxlvlToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5712,20 +5669,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HPABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/HpabbrevToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-HPNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/HpnameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-INFOSHEET.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5751,13 +5694,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/MenuentryToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-MENUTOOLTIP.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/MenutooltipToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5843,13 +5779,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/ShortrangeToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-SHOWCLASSDEFENSE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/ShowclassdefenseToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5941,13 +5870,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/UnitsetToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-WCSTEPSFORMULA.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/WcstepsformulaToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

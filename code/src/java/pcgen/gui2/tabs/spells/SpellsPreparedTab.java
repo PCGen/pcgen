@@ -36,8 +36,8 @@ import javax.swing.tree.TreePath;
 
 import org.apache.commons.lang3.StringUtils;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
@@ -508,7 +508,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			{
 				SpellNode spellNode = (SpellNode) element;
 				SpellFacade spell = spellNode.getSpell();
-				ClassFacade pcClass = spellNode.getSpellcastingClass();
+				PCClass pcClass = spellNode.getSpellcastingClass();
 				return character.isQualifiedFor(spell, pcClass);
 			}
 			return true;

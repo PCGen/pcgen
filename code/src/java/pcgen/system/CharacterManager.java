@@ -22,10 +22,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
-
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
@@ -49,6 +47,8 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class stores the characters that are currently opened by
@@ -505,7 +505,7 @@ public final class CharacterManager
 			for (final CharacterFacade character : getCharacters())
 			{
 				String charName = character.getNameRef().get();
-				if (ObjectUtils.equals(compName, charName))
+				if (Objects.equals(compName, charName))
 				{
 					return character;
 				}
