@@ -31,11 +31,11 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
-
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.SkinLFResourceChecker;
+
+import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 
 /**
  * {@code UIFactory}.
@@ -43,7 +43,7 @@ import pcgen.util.SkinLFResourceChecker;
 public final class LookAndFeelManager
 {
 
-	private static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.getMissingResourceCount() == 0;
+	private static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.hasMissingResources();
 	private static final String SYSTEM_LAF_CLASS = UIManager.getSystemLookAndFeelClassName();
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
 	private static final LookAndFeelHandler[] LAF_HANDLERS;
