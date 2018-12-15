@@ -71,7 +71,7 @@ CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUT
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingKeenSenses
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
-CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Halfling ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingRacialLanguage
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingRacialLanguage
 #
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Bonus Feat|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled
