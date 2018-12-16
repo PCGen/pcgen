@@ -509,3 +509,45 @@ Add additional Weapon Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Add
 Add additional Tool Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Tool Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Tools Proficiency|1
 Add additional Language					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Language					STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Language|1
 Add additional Feat					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Feat					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Feat|1
+
+
+# Ability Name		Category of Ability		Type		Modify VAR
+Add Athletics +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Athletics|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Acrobatics +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Acrobatics|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Sleight of Hand +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Sleight_of_Hand|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Stealth +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Stealth|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Arcana +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Arcana|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add History +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_History|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Investigation +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Investigation|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Nature +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Nature|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Religion +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Religion|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Animal Handling +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Animal_Handling|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Insight +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Insight|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Medicine +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Medicine|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Perception +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Perception|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Survival +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Survival|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Deception +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Deception|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Intimidation +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Intimidation|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Performance +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Performance|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Persuasion +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Persuasion|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+
+
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Athletics|GMAward_Athletics			DEFINE:GMAward_Athletics|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Acrobatics|GMAward_Acrobatics		DEFINE:GMAward_Acrobatics|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Sleight_of_Hand|GMAward_Sleight_of_Hand	DEFINE:GMAward_Sleight_of_Hand|0	
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Stealth|GMAward_Stealth			DEFINE:GMAward_Stealth|0			
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Arcana|GMAward_Arcana				DEFINE:GMAward_Arcana|0			
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_History|GMAward_History			DEFINE:GMAward_History|0			
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Investigation|GMAward_Investigation	DEFINE:GMAward_Investigation|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Nature|GMAward_Nature				DEFINE:GMAward_Nature|0			
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Religion|GMAward_Religion			DEFINE:GMAward_Religion|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Animal_Handling|GMAward_Animal_Handling	DEFINE:GMAward_Animal_Handling|0	
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Insight|GMAward_Insight			DEFINE:GMAward_Insight|0			
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Medicine|GMAward_Medicine			DEFINE:GMAward_Medicine|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Perception|GMAward_Perception		DEFINE:GMAward_Perception|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Survival|GMAward_Survival			DEFINE:GMAward_Survival|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Deception|GMAward_Deception			DEFINE:GMAward_Deception|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Intimidation|GMAward_Intimidation		DEFINE:GMAward_Intimidation|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Performance|GMAward_Performance		DEFINE:GMAward_Performance|0		
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Persuasion|GMAward_Persuasion		DEFINE:GMAward_Persuasion|0		
+
