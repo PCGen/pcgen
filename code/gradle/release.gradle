@@ -329,7 +329,7 @@ task genDataList doLast {
     ignoreList.add("homebrew");
     ignoreList.add("zen_test");
     ignoreList.add("customsources");
-    ignoreList.add("images");
+    ignoreList.add("_images");
     ignoreList.add("_universal");
     new File("${projectDir}/data").eachDir{ 
         if (ignoreList.contains(it.name))
