@@ -465,7 +465,7 @@ Burrow Speed ~ 30		CATEGORY:Internal	MOVE:Burrow,30
 # Limbs
 CATEGORY=Internal|Default.MOD	DEFINE:Arms|0	DEFINE:Legs|0	ABILITY:Internal|AUTOMATIC|Limbs|PREMULT:1,[PREVARGTEQ:Arms,1],[PREVARGTEQ:Legs,1]
 
-Limbs	CATEGORY:Internal		
+Limbs	CATEGORY:Internal
 # Arms
 CATEGORY=Internal|Limbs.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 1|PREVAREQ:Arms,1
 CATEGORY=Internal|Limbs.MOD	ABILITY:Internal|AUTOMATIC|Arms ~ 2|PREVAREQ:Arms,2

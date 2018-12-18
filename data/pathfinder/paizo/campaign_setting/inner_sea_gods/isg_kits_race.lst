@@ -188,7 +188,7 @@ ABILITY:CATEGORY=FEAT|Agile Maneuvers
 ABILITY:CATEGORY=FEAT|Combat Casting
 
 
-STARTPACK:Night Monarch Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Night Monarch],[!PRERACE:1,%]	SOURCEPAGE:p.282
+STARTPACK:Night Monarch Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Night Monarch],[!PRERACE:1,%]	SOURCEPAGE:p.284
 ALIGN:CG
 RACE:Night Monarch	!PRERACE:1,%
 NAME:Night Monarch
@@ -216,7 +216,7 @@ ABILITY:CATEGORY=FEAT|Wind Stance
 LANGBONUS:Auran|Celestial|Common
 
 
-STARTPACK:Azata (Thyrlien) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Thyrlien)],[!PRERACE:1,%]	SOURCEPAGE:p.283
+STARTPACK:Azata (Thyrlien) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Thyrlien)],[!PRERACE:1,%]	SOURCEPAGE:p.285
 ALIGN:CG
 RACE:Azata (Thyrlien)	!PRERACE:1,%
 NAME:Azata (Thyrlien)
@@ -234,7 +234,7 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 LANGBONUS:Infernal
 
 
-STARTPACK:The Grim White Stag Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Grim White Stag],[!PRERACE:1,%]	SOURCEPAGE:p.282
+STARTPACK:The Grim White Stag Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Grim White Stag],[!PRERACE:1,%]	SOURCEPAGE:p.286
 ALIGN:LG
 RACE:The Grim White Stag	!PRERACE:1,%
 NAME:The Grim White Stag
@@ -259,7 +259,7 @@ ABILITY:CATEGORY=FEAT|Run
 ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
 
 
-STARTPACK:Archon (Stag) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Stag)],[!PRERACE:1,%]	SOURCEPAGE:p.283
+STARTPACK:Archon (Stag) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Stag)],[!PRERACE:1,%]		SOURCEPAGE:p.287
 ALIGN:LG
 RACE:Archon (Stag)	!PRERACE:1,%
 NAME:Archon (Stag)
@@ -276,7 +276,7 @@ ABILITY:CATEGORY=FEAT|Rapid Shot
 GEAR:Longbow	SIZE:M	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
-STARTPACK:The First Blade Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The First Blade],[!PRERACE:1,%]	SOURCEPAGE:p.282
+STARTPACK:The First Blade Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The First Blade],[!PRERACE:1,%]	SOURCEPAGE:p.288
 ALIGN:CN
 RACE:The First Blade	!PRERACE:1,%
 NAME:The First Blade
@@ -284,7 +284,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 SKILL:Acrobatics				RANK:18
 SKILL:Climb						RANK:18
 SKILL:Intimidate				RANK:18
-SKILL:Knowledge (History)			RANK:18
+SKILL:Knowledge (History)		RANK:18
 SKILL:Perception				RANK:18
 SKILL:Sense Motive				RANK:18
 ABILITY:CATEGORY=FEAT|Blind-Fight
@@ -298,7 +298,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
 
 
-STARTPACK:Zentragt Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zentragt],[!PRERACE:1,%]	SOURCEPAGE:p.283
+STARTPACK:Zentragt Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zentragt],[!PRERACE:1,%]		SOURCEPAGE:p.289
 ALIGN:LG
 RACE:Zentragt	!PRERACE:1,%
 NAME:Zentragt
@@ -314,7 +314,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 
-STARTPACK:Personification of Fury Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Personification of Fury],[!PRERACE:1,%]	SOURCEPAGE:p.282
+STARTPACK:Personification of Fury Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Personification of Fury],[!PRERACE:1,%]	SOURCEPAGE:p.290
 ALIGN:TN
 RACE:Personification of Fury	!PRERACE:1,%
 NAME:Personification of Fury
@@ -339,6 +339,143 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Power Attack
 LANGBONUS:Sylvan|Terran
+
+
+STARTPACK:Xocothian Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Xocothian],[!PRERACE:1,%]		SOURCEPAGE:p.291
+ALIGN:TN
+RACE:Xocothian	!PRERACE:1,%
+NAME:Xocothian
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Fly						RANK:6
+SKILL:Handle Animal				RANK:6
+SKILL:Knowledge (Nature)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Stealth					RANK:6
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+
+
+STARTPACK:Hand of the Inheritor Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hand of the Inheritor],[!PRERACE:1,%]		SOURCEPAGE:p.292
+ALIGN:LG
+RACE:Hand of the Inheritor	!PRERACE:1,%
+NAME:Hand of the Inheritor
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Craft (Weapons)			RANK:18
+SKILL:Diplomacy					RANK:9
+SKILL:Heal						RANK:9
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Arcana)		RANK:18
+SKILL:Knowledge (History)		RANK:18
+SKILL:Knowledge (Nobility)		RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:18
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Spellcraft				RANK:18
+SKILL:Swim						RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Shield Bash
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Shield Master
+ABILITY:CATEGORY=FEAT|Shield Slam
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Shieldbash)
+LANGBONUS:Celestial|Common|Draconic|Infernal
+GEAR:Longsword	SIZE:L	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Holy ~ Weapon
+GEAR:Heavy Steel Shield (Base)	SIZE:L	LOCATION:Equipped		EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ +2 ~ Weapon
+
+
+# COMMENT: The skills in the book don't seem correct -- there are 5 unspent skill points, and the Acrobatics and Fly skills are still higher than listed in the book.
+STARTPACK:Angel (Iophanite) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Iophanite)],[!PRERACE:1,%]		SOURCEPAGE:p.293
+ALIGN:LG
+RACE:Angel (Iophanite)	!PRERACE:1,%
+NAME:Angel (Iophanite)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Geography)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:The Old Man Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Old Man],[!PRERACE:1,%]		SOURCEPAGE:p.294
+ALIGN:LN
+RACE:The Old Man	!PRERACE:1,%
+NAME:The Old Man
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:17
+SKILL:Diplomacy					RANK:17
+SKILL:Handle Animal				RANK:8
+SKILL:Heal						RANK:9
+SKILL:Knowledge (History)		RANK:17
+SKILL:Knowledge (Religion)		RANK:8
+SKILL:Perception				RANK:17
+SKILL:Perform (String Instruments)	RANK:17
+SKILL:Ride						RANK:17
+SKILL:Sense Motive				RANK:17
+SKILL:Sleight of Hand			RANK:17
+SKILL:Stealth					RANK:17
+SKILL:Swim						RANK:9
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Greater Grapple
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Grapple
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Wind Stance
+LANGBONUS:Common|Tien|Vudrani
+
+
+STARTPACK:Pavbagha Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Pavbagha],[!PRERACE:1,%]		SOURCEPAGE:p.295
+ALIGN:LN
+RACE:Pavbagha	!PRERACE:1,%
+NAME:Pavbagha
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:5
+SKILL:Knowledge (History)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+SKILL:Swim						RANK:5
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+
+# COMMENT: Don't know how to add Improved Drag conditionally based on whether the APG is loaded or not. User can add it manually if needed.
+STARTPACK:Yethazmari Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yethazmari],[!PRERACE:1,%]	SOURCEPAGE:p.278
+ALIGN:CE
+RACE:Yethazmari	!PRERACE:1,%
+NAME:Yethazmari
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Acrobatics				RANK:18
+SKILL:Bluff						RANK:18
+SKILL:Climb						RANK:9
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:9
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Stealth					RANK:18
+SKILL:Survival					RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+LANGBONUS:Abyssal|Common|Infernal
+
 
 
 

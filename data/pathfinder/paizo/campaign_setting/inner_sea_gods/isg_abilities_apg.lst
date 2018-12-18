@@ -4,3 +4,4 @@ SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
 ### Innate spells from APG added to creatures
 CATEGORY=Internal|Race Traits ~ Orsheval.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Ant Haul
 CATEGORY=Internal|Race Traits ~ Hesperian.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Beguiling Gift,11+CHA
+CATEGORY=Internal|Race Traits ~ Xocothian.MOD				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Alter Winds		SPELLS:Innate|TIMES=1|CASTERLEVEL=6|Hydraulic Torrent,13+CHA
