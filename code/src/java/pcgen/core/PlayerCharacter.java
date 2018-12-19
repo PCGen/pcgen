@@ -564,6 +564,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		LoadContext context = Globals.getContext();
 		id = CharID.getID(context.getDataSetID());
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
 		doFormulaSetup(context);
 
 		display = new CharacterDisplay(id);
@@ -578,12 +580,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			ageSetKitSelections[i] = false;
 		}
-		AbstractReferenceContext refContext = context.getReferenceContext();
 		GlobalModifiers gm =
 				refContext.constructNowIfNecessary(GlobalModifiers.class, GlobalModifierLoader.GLOBAL_MODIFIERS);
 		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
 		globalModifierFacet.set(id, gm);
-		controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
 
 		//Do BioSet first, since required by Race
 		bioSetFacet.set(id, SettingsHandler.getGame().getBioSet());
@@ -2878,10 +2878,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	/**
 	 * Returns the &quot;Base&quot; check value for the check at the index
 	 * specified.
-	 *
-	 * <p>
-	 * This method caps the base check based on the game mode setting for
-	 * {@link pcgen.core.GameMode#getChecksMaxLvl() checks max level}.
 	 *
 	 * @param check
 	 *            The index of the check to get

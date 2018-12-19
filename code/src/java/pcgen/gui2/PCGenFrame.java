@@ -45,6 +45,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Observer;
+import java.util.Optional;
 import java.util.logging.LogRecord;
 
 import javax.swing.Action;
@@ -1643,10 +1644,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
 		// Check for an override of the chooser to be used 
-		ChoiceHandler choiceHandler = ChooserFactory.getChoiceHandler();
-		if (choiceHandler != null)
+		Optional<ChoiceHandler> choiceHandler = ChooserFactory.getChoiceHandler();
+		if (choiceHandler.isPresent())
 		{
-			return choiceHandler.makeChoice(chooserFacade);
+			return choiceHandler.get().makeChoice(chooserFacade);
 		}
 
 		if (chooserFacade.isPreferRadioSelection() && chooserFacade.getAvailableList().getSize() <= 20

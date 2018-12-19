@@ -32,6 +32,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -65,19 +66,18 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		else
 		{
 			String desiredAlignment = prereq.getKey();
-			CharacterDisplay display = pc.getDisplay();
-			final PCAlignment charAlignment = display.getPCAlignment();
+			final PCAlignment charAlignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
 
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 			{
-				if (alignMatches(display, desiredAlignment, charAlignment))
+				if (alignMatches(pc.getDisplay(), desiredAlignment, charAlignment))
 				{
 					runningTotal++;
 				}
 			}
 			else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
 			{
-				if (!alignMatches(display, desiredAlignment, charAlignment))
+				if (!alignMatches(pc.getDisplay(), desiredAlignment, charAlignment))
 				{
 					runningTotal++;
 				}

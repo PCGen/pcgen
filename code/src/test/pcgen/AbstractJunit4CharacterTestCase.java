@@ -164,7 +164,7 @@ public abstract class AbstractJunit4CharacterTestCase
 		LoadContext context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
 		AbstractReferenceContext ref = context.getReferenceContext();
-		SourceFileLoader.defineBuiltinVariables(gamemode, context);
+		SourceFileLoader.defineBuiltinVariables(context);
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");

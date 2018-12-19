@@ -19,19 +19,18 @@ package pcgen.output.channel;
 
 import java.util.Objects;
 
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.LoadContextFacet;
-import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.formula.VariableListener;
+import pcgen.cdom.formula.VariableUtilities;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
-import pcgen.rules.context.VariableContext;
+import pcgen.core.PlayerCharacter;
 
 /**
  * ChannelUtilities are a class for setting up communication channels from the
@@ -39,16 +38,6 @@ import pcgen.rules.context.VariableContext;
  */
 public final class ChannelUtilities
 {
-	/**
-	 * The LoadContextFacet
-	 */
-	private static final LoadContextFacet LOAD_CONTEXT_FACET = FacetLibrary.getFacet(LoadContextFacet.class);
-	
-	/**
-	 * The ScopeFacet
-	 */
-	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
-	
 	/**
 	 * The VariableStoreFacet
 	 */
@@ -109,12 +98,8 @@ public final class ChannelUtilities
 	 */
 	public static void setGlobalChannel(CharID id, String channelName, Object value)
 	{
-		processSet(id, getChannelVariableID(id, channelName), value);
-	}
-
-	private static <T> void processSet(CharID id, VariableID<T> varID, Object value)
-	{
-		RESULT_FACET.get(id).put(varID, (T) value);
+		VariableID<Object> varID = getChannelVariableID(id, channelName);
+		RESULT_FACET.get(id).put(varID, value);
 		SOLVER_MANAGER_FACET.get(id).solveChildren(varID);
 	}
 
@@ -162,8 +147,8 @@ public final class ChannelUtilities
 	public static <T> void addListenerToChannel(CharID id, String channelName,
 		VariableListener<T> listener)
 	{
-		VariableID<T> varID = getChannelVariableID(id, channelName);
-		RESULT_FACET.get(id).addVariableListener(0, varID, listener);
+		String variableName = createVarName(channelName);
+		VariableUtilities.addListenerToVariable(id, variableName, listener);
 	}
 
 	/**
@@ -179,8 +164,8 @@ public final class ChannelUtilities
 	public static <T> void removeListenerFromChannel(CharID id, String channelName,
 		VariableListener<T> listener)
 	{
-		VariableID<T> varID = getChannelVariableID(id, channelName);
-		RESULT_FACET.get(id).removeVariableListener(0, varID, listener);
+		String variableName = createVarName(channelName);
+		VariableUtilities.removeListenerFromVariable(id, listener, variableName);
 	}
 
 	/**
@@ -194,14 +179,90 @@ public final class ChannelUtilities
 	 * @return The VariableID for the channel with the given name on the PlayerCharacter
 	 *         represented by the given CharID
 	 */
-	public static <T> VariableID<T> getChannelVariableID(CharID id, String channelName)
+	private static <T> VariableID<T> getChannelVariableID(CharID id, String channelName)
 	{
-		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
 		String variableName = createVarName(channelName);
-		VariableContext varContext =
-				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext();
+		return VariableUtilities.getGlobalVariableID(id, variableName);
+	}
+
+	/**
+	 * Sets up the given DataFacetChangeListener to receive a DataFacetChangeEvent when
+	 * the value of the given channel on the given PC changes. This provides compatibility
+	 * for facets that wish to listen to the new variable system.
+	 * 
+	 * Note that this currently supports Item-based channels, not lists
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter on which the channel should be watched
+	 * @param codeControl
+	 *            The name of the channel to be watched
+	 * @param listener
+	 *            The listener to receive an event when the value of the channel changes
+	 */
+	public static void watchChannel(PlayerCharacter pc, CControl codeControl,
+		DataFacetChangeListener<CharID, ?> listener)
+	{
+		ChannelUtilities.watchChannel(pc.getCharID(), pc.getControl(codeControl), listener, 0);
+	}
+
+	/**
+	 * Sets up the given DataFacetChangeListener to receive a DataFacetChangeEvent when
+	 * the value of a channel changes. This provides compatibility for facets that wish to
+	 * listen to the new variable system.
+	 * 
+	 * Note that this currently supports Item-based channels, not lists
+	 * 
+	 * @param id
+	 *            The CharID on which the channel should be watched
+	 * @param channelName
+	 *            The name of the channel to be watched
+	 * @param listener
+	 *            The listener to receive an event when the value of the channel changes
+	 * @param priority
+	 *            The priority of the listener for receiving changes (The lower the
+	 *            priority the earlier in the list the new listener will get advised of
+	 *            the change)
+	 */
+	public static <T> void watchChannel(CharID id, String channelName,
+		DataFacetChangeListener<CharID, T> listener, int priority)
+	{
 		VariableID<T> varID =
-				(VariableID<T>) varContext.getVariableID(globalInstance, variableName);
-		return varID;
+				getChannelVariableID(id, channelName);
+		RESULT_FACET.get(id).addVariableListener(priority, varID,
+			e -> VariableUtilities.forwardVariableChangeToDFCL(id, e, listener));
+	}
+
+	/**
+	 * Sets up the given Code Control so that if the value on the channel changes, the PC
+	 * is categorized as Dirty.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter on which the channel should be watched
+	 * @param codeControl
+	 *            The name of the channel to be watched
+	 */
+	public static void setDirtyOnChannelChange(PlayerCharacter pc,
+		CControl codeControl)
+	{
+		addListenerToChannel(pc, codeControl, x -> pc.setDirty(true));
+	}
+
+	/**
+	 * Adds a listener to the channel on the given PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter on which the listener will be added
+	 * @param control
+	 *            The CodeControl indicating the channel on which the listener will be
+	 *            added
+	 * @param listener
+	 *            the VariableListener to be added to listen to changes to the channel
+	 */
+	public static void addListenerToChannel(PlayerCharacter pc, CControl control,
+		VariableListener<?> listener)
+	{
+		String varName = createVarName(pc.getControl(control));
+		VariableUtilities.addListenerToVariable(pc.getCharID(), varName,
+			listener);
 	}
 }

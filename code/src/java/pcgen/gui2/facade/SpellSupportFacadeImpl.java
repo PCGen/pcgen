@@ -32,6 +32,8 @@ import java.util.TreeSet;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
@@ -66,7 +68,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
@@ -90,8 +91,6 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code SpellSupportFacadeImpl} marshals the spell data for a
@@ -585,13 +584,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	}
 
 	@Override
-	public String getClassInfo(ClassFacade spellcaster)
+	public String getClassInfo(PCClass aClass)
 	{
-		if (!(spellcaster instanceof PCClass))
-		{
-			return "";
-		}
-		PCClass aClass = (PCClass) spellcaster;
 		SpellSupportForPCClass spellSupport = pc.getSpellSupport(aClass);
 		int highestSpellLevel = spellSupport.getHighestLevelSpell(pc);
 
@@ -987,7 +981,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			return false;
 		}
 
-		final String errorMsg = pc.delSpell(spellInfo, (PCClass) spell.getSpellcastingClass(), bookName);
+		final String errorMsg = pc.delSpell(spellInfo, spell.getSpellcastingClass(), bookName);
 
 		if (!errorMsg.isEmpty())
 		{
@@ -1343,7 +1337,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	{
 
 		private final SpellFacade spell;
-		private final ClassFacade cls;
+		private final PCClass cls;
 		private final RootNode rootNode;
 		private final String level;
 		private int count;
@@ -1355,7 +1349,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		 * @param level The level of the spell.
 		 * @param rootNode The top level node this entry will appear under. 
 		 */
-		public SpellNodeImpl(SpellFacade spell, ClassFacade cls, String level, RootNode rootNode)
+		public SpellNodeImpl(SpellFacade spell, PCClass cls, String level, RootNode rootNode)
 		{
 			this.spell = spell;
 			this.cls = cls;
@@ -1372,11 +1366,11 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		 */
 		public SpellNodeImpl(SpellFacade spell, String level, RootNode rootNode)
 		{
-			this(spell, (ClassFacade) null, level, rootNode);
+			this(spell, (PCClass) null, level, rootNode);
 		}
 
 		@Override
-		public ClassFacade getSpellcastingClass()
+		public PCClass getSpellcastingClass()
 		{
 			return cls;
 		}
@@ -1541,7 +1535,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 
 		@Override
-		public ClassFacade getSpellcastingClass()
+		public PCClass getSpellcastingClass()
 		{
 			return null;
 		}

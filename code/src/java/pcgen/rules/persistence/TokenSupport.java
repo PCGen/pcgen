@@ -85,13 +85,7 @@ public class TokenSupport
 			{
 				return processInterfaceToken(context, target, tokenName, tokenValue, interfaceToken);
 			}
-			else
-			{
-				Logging.addParseMessage(Logging.LST_ERROR,
-					"Interface Token '" + tokenName + "' '" + tokenValue + "' not compatible with Object "
-						+ targetClass.getName() + ' ' + target + " in " + context.getSourceURI());
-				return false;
-			}
+			//We want to fall through to class tokens if the interface token isn't usable
 		}
 		return processClassTokens(context, target, tokenName, tokenValue);
 	}

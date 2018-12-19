@@ -60,7 +60,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -211,7 +210,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(wpnProfTestC);
 	
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
-		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
+		ChooserFactory.useRandomChooser();
 	
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon B)");
@@ -250,7 +249,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		ChooserFactory.popChooserClassname();
+		ChooserFactory.stopUsingRandomChooser();
 		Logging.setDebugMode(false);
 		human.removeListFor(ListKey.BONUS);
 		giantRace.removeListFor(ListKey.BONUS);
@@ -458,7 +457,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass, true);
 
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
-		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
+		ChooserFactory.useRandomChooser();
 
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
@@ -472,7 +471,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		}
 		finally
 		{
-			ChooserFactory.popChooserClassname();
+			ChooserFactory.stopUsingRandomChooser();
 		}
 	}
 
@@ -1313,65 +1312,65 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = new PlayerCharacter();
 		character.setRace(human);
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(1, (int) character.baseAttackBonus());
-		assertEquals(1, (int) character.getNumAttacks());
+		assertEquals(1, character.baseAttackBonus());
+		assertEquals(1, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(2, (int) character.baseAttackBonus());
-		assertEquals(1, (int) character.getNumAttacks());
+		assertEquals(2, character.baseAttackBonus());
+		assertEquals(1, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(3, (int) character.baseAttackBonus());
-		assertEquals(1, (int) character.getNumAttacks());
+		assertEquals(3, character.baseAttackBonus());
+		assertEquals(1, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(4, (int) character.baseAttackBonus());
-		assertEquals(1, (int) character.getNumAttacks());
+		assertEquals(4, character.baseAttackBonus());
+		assertEquals(1, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(5, (int) character.baseAttackBonus());
-		assertEquals(1, (int) character.getNumAttacks());
+		assertEquals(5, character.baseAttackBonus());
+		assertEquals(1, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(6, (int) character.baseAttackBonus());
-		assertEquals(2, (int) character.getNumAttacks());
+		assertEquals(6, character.baseAttackBonus());
+		assertEquals(2, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(7, (int) character.baseAttackBonus());
-		assertEquals(2, (int) character.getNumAttacks());
+		assertEquals(7, character.baseAttackBonus());
+		assertEquals(2, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(8, (int) character.baseAttackBonus());
-		assertEquals(2, (int) character.getNumAttacks());
+		assertEquals(8, character.baseAttackBonus());
+		assertEquals(2, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(9, (int) character.baseAttackBonus());
-		assertEquals(2, (int) character.getNumAttacks());
+		assertEquals(9, character.baseAttackBonus());
+		assertEquals(2, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(10, (int) character.baseAttackBonus());
-		assertEquals(2, (int) character.getNumAttacks());
+		assertEquals(10, character.baseAttackBonus());
+		assertEquals(2, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(11, (int) character.baseAttackBonus());
-		assertEquals(3, (int) character.getNumAttacks());
+		assertEquals(11, character.baseAttackBonus());
+		assertEquals(3, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(12, (int) character.baseAttackBonus());
-		assertEquals(3, (int) character.getNumAttacks());
+		assertEquals(12, character.baseAttackBonus());
+		assertEquals(3, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(13, (int) character.baseAttackBonus());
-		assertEquals(3, (int) character.getNumAttacks());
+		assertEquals(13, character.baseAttackBonus());
+		assertEquals(3, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(14, (int) character.baseAttackBonus());
-		assertEquals(3, (int) character.getNumAttacks());
+		assertEquals(14, character.baseAttackBonus());
+		assertEquals(3, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(15, (int) character.baseAttackBonus());
-		assertEquals(3, (int) character.getNumAttacks());
+		assertEquals(15, character.baseAttackBonus());
+		assertEquals(3, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(16, (int) character.baseAttackBonus());
-		assertEquals(4, (int) character.getNumAttacks());
+		assertEquals(16, character.baseAttackBonus());
+		assertEquals(4, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(17, (int) character.baseAttackBonus());
-		assertEquals(4, (int) character.getNumAttacks());
+		assertEquals(17, character.baseAttackBonus());
+		assertEquals(4, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(18, (int) character.baseAttackBonus());
-		assertEquals(4, (int) character.getNumAttacks());
+		assertEquals(18, character.baseAttackBonus());
+		assertEquals(4, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(19, (int) character.baseAttackBonus());
-		assertEquals(4, (int) character.getNumAttacks());
+		assertEquals(19, character.baseAttackBonus());
+		assertEquals(4, character.getNumAttacks());
 		character.incrementClassLevel(1, fighterClass, true);
-		assertEquals(20, (int) character.baseAttackBonus());
-		assertEquals(4, (int) character.getNumAttacks());
+		assertEquals(20, character.baseAttackBonus());
+		assertEquals(4, character.getNumAttacks());
 		//
 		// Disabled testing for level 21+ as it is not correctly implemented.
 		//

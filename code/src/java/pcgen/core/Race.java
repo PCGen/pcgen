@@ -23,6 +23,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.LimitedVarHolder;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -30,7 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 /**
  * {@code Race}.
  */
-public final class Race extends PObject implements ChooseDriver
+public final class Race extends PObject implements ChooseDriver, LimitedVarHolder
 {
 
 	/**
@@ -88,5 +89,11 @@ public final class Race extends PObject implements ChooseDriver
 	public Formula getNumChoices()
 	{
 		return getSafe(FormulaKey.NUMCHOICES);
+	}
+
+	@Override
+	public String getIdentifier()
+	{
+		return "RACE";
 	}
 }

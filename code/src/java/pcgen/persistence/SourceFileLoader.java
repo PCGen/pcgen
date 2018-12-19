@@ -568,7 +568,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		//Load Variables (foundation for other items)
 		variableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_VARIABLE));
-		defineBuiltinVariables(gamemode, context);
+		defineBuiltinVariables(context);
 		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		List<CampaignSourceEntry> globalModFileList = fileLists.getListFor(ListKey.FILE_GLOBALMOD);
 		if (globalModFileList.isEmpty())
@@ -673,11 +673,17 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 *            The LoadContext in which the built in variables will be loaded, if
 	 *            necessary
 	 */
-	public static void defineBuiltinVariables(GameMode gameMode, LoadContext context)
+	public static void defineBuiltinVariables(LoadContext context)
 	{
 		CControl.getChannelConstants().stream()
-			.filter(control -> !ControlUtilities.hasControlToken(context, control))
+			.filter(control -> allowControl(context, control))
 			.forEach(control -> enableBuiltInControl(context, control));
+	}
+
+	private static boolean allowControl(LoadContext context, CControl control)
+	{
+		return control.getControllingFeature().isEmpty() || ControlUtilities
+			.hasControlToken(context, control.getControllingFeature().get());
 	}
 
 	/**

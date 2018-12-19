@@ -102,7 +102,6 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
@@ -159,23 +158,13 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getFavoredClass(Race race)
 	{
-		if (!(race instanceof Race))
-		{
-			return Gui2InfoFactory.EMPTY_STRING;
-		}
 		String[] favClass = Globals.getContext().unparseSubtoken(race, "FAVCLASS");
 		return StringUtil.join(favClass, ", ");
 	}
 
 	@Override
-	public String getHTMLInfo(Race raceFacade)
+	public String getHTMLInfo(Race race)
 	{
-		if (!(raceFacade instanceof Race))
-		{
-			return EMPTY_STRING;
-		}
-		Race race = (Race) raceFacade;
-
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
 		if (!race.isUnselected())
@@ -210,13 +199,13 @@ public class Gui2InfoFactory implements InfoFactory
 			{
 				infoText.appendI18nElement("in_size", size); //$NON-NLS-1$
 			}
-			String movement = getMovement(raceFacade);
+			String movement = getMovement(race);
 			if (!movement.isEmpty())
 			{
 				infoText.appendSpacer();
 				infoText.appendI18nElement("in_movement", movement); //$NON-NLS-1$
 			}
-			String vision = getVision(raceFacade);
+			String vision = getVision(race);
 			if (!vision.isEmpty())
 			{
 				infoText.appendSpacer();
@@ -245,7 +234,7 @@ public class Gui2InfoFactory implements InfoFactory
 					DescriptionFormatting.piWrapDesc(race, desc, false));
 			}
 
-			String statAdjustments = getStatAdjustments(raceFacade);
+			String statAdjustments = getStatAdjustments(race);
 			if (StringUtils.isNotEmpty(statAdjustments))
 			{
 				infoText.appendLineBreak();
@@ -261,7 +250,7 @@ public class Gui2InfoFactory implements InfoFactory
 					OutputNameFormatting.piString(levelCommandFactory.getPCClass()));
 
 			}
-			String favoredClass = getFavoredClass(raceFacade);
+			String favoredClass = getFavoredClass(race);
 			if (StringUtils.isNotEmpty(favoredClass))
 			{
 				infoText.appendLineBreak();
@@ -279,20 +268,15 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(ClassFacade classFacade, ClassFacade parentClassFacade)
+	public String getHTMLInfo(PCClass aClass, PCClass possibleParentClass)
 	{
-		if (!(classFacade instanceof PCClass))
-		{
-			return EMPTY_STRING;
-		}
-		PCClass aClass = (PCClass) classFacade;
 		PCClass parentClass = aClass;
 
 		String aString;
 		boolean isSubClass = aClass instanceof SubClass;
-		if (isSubClass && parentClassFacade != null)
+		if (isSubClass && possibleParentClass != null)
 		{
-			parentClass = (PCClass) parentClassFacade;
+			parentClass = possibleParentClass;
 		}
 
 		final HtmlInfoBuilder b = new HtmlInfoBuilder(OutputNameFormatting.piString(aClass));
@@ -1456,9 +1440,9 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return getHTMLInfo((AbilityFacade) facade);
 		}
-		if (facade instanceof ClassFacade)
+		if (facade instanceof PCClass)
 		{
-			return getHTMLInfo((ClassFacade) facade, null);
+			return getHTMLInfo((PCClass) facade, null);
 		}
 		if (facade instanceof DomainFacade)
 		{
@@ -1520,24 +1504,14 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getLevelAdjustment(Race raceFacade)
+	public String getLevelAdjustment(Race race)
 	{
-		if (!(raceFacade instanceof Race))
-		{
-			return EMPTY_STRING;
-		}
-		Race race = (Race) raceFacade;
 		return ADJ_FMT.format(race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(pc, EMPTY_STRING));
 	}
 
 	@Override
-	public int getNumMonsterClassLevels(Race raceFacade)
+	public int getNumMonsterClassLevels(Race race)
 	{
-		if (!(raceFacade instanceof Race))
-		{
-			return 0;
-		}
-		Race race = (Race) raceFacade;
 		LevelCommandFactory levelCommandFactory = race.get(ObjectKey.MONSTER_CLASS);
 		if (levelCommandFactory == null)
 		{
@@ -1547,15 +1521,10 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getPreReqHTML(Race raceFacade)
+	public String getPreReqHTML(Race race)
 	{
-		if (!(raceFacade instanceof Race))
-		{
-			return EMPTY_STRING;
-		}
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>");
-		Race race = (Race) raceFacade;
 		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, race.getPrerequisiteList(), false));
 		sb.append(AllowUtilities.getAllowInfo(pc, race));
 		sb.append("</html>");
@@ -1563,13 +1532,8 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getStatAdjustments(Race raceFacade)
+	public String getStatAdjustments(Race race)
 	{
-		if (!(raceFacade instanceof Race))
-		{
-			return EMPTY_STRING;
-		}
-		Race race = (Race) raceFacade;
 		final StringBuilder retString = new StringBuilder(100);
 
 		for (PCStat stat : charDisplay.getStatSet())
@@ -1603,11 +1567,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getVision(Race race)
 	{
-		if (!(race instanceof Race))
-		{
-			return EMPTY_STRING;
-		}
-		return VisionDisplay.getVision(pc, (Race) race);
+		return VisionDisplay.getVision(pc, race);
 	}
 
 	@Override
@@ -1918,20 +1878,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(Race raceFacade)
+	public String getDescription(Race race)
 	{
-		if (raceFacade == null || !(raceFacade instanceof Race))
+		if (race == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			Race race = (Race) raceFacade;
 			return DescriptionFormatting.piWrapDesc(race, pc.getDescription(race), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + raceFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + race, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
@@ -1955,20 +1914,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(ClassFacade classFacade)
+	public String getDescription(PCClass pcClass)
 	{
-		if (classFacade == null || !(classFacade instanceof PCClass))
+		if (pcClass == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			PCClass pcClass = (PCClass) classFacade;
 			return DescriptionFormatting.piWrapDesc(pcClass, pc.getDescription(pcClass), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + classFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + pcClass, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}
@@ -2270,11 +2228,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getMovement(Race race)
 	{
-		if (!(race instanceof Race))
-		{
-			return EMPTY_STRING;
-		}
-		List<Movement> movements = ((Race) race).getListFor(ListKey.BASE_MOVEMENT);
+		List<Movement> movements = race.getListFor(ListKey.BASE_MOVEMENT);
 		if (movements != null && !movements.isEmpty())
 		{
 			return movements.get(0).toString();

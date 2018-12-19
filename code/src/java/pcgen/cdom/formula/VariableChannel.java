@@ -17,13 +17,18 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.function.BiFunction;
 
 import javax.swing.event.EventListenerList;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.SolverManager;
-import pcgen.facade.util.WriteableReferenceFacade;
+import pcgen.facade.util.VetoableReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
@@ -34,7 +39,7 @@ import pcgen.facade.util.event.ReferenceListener;
  * @param <T>
  *            The Format of the information contained in this VariableChannel
  */
-public final class VariableChannel<T> implements VariableListener<T>, WriteableReferenceFacade<T>
+public final class VariableChannel<T> implements VariableListener<T>, VetoableReferenceFacade<T>
 {
 
 	/**
@@ -59,6 +64,11 @@ public final class VariableChannel<T> implements VariableListener<T>, WriteableR
 	 * ReferenceEvents.
 	 */
 	private final EventListenerList listenerList = new EventListenerList();
+
+	/**
+	 * The list of functions allowed to veto changes to this variable channel.
+	 */
+	private List<BiFunction<T, T, Boolean>> vetoList = null;
 
 	/**
 	 * Constructs a new VariableChannel with the given SolverManager,
@@ -103,8 +113,21 @@ public final class VariableChannel<T> implements VariableListener<T>, WriteableR
 	@Override
 	public void set(T object)
 	{
-		varStore.put(varID, object);
-		manager.solveChildren(varID);
+		if (!checkForVeto(object))
+		{
+			varStore.put(varID, object);
+			manager.solveChildren(varID);
+		}
+	}
+
+	private boolean checkForVeto(T proposedValue)
+	{
+		T oldValue = varStore.get(varID);
+		return CollectionUtils.emptyIfNull(vetoList)
+			.stream()
+			.filter(f -> f.apply(oldValue, proposedValue))
+			.findAny()
+			.isPresent();
 	}
 
 	/**
@@ -186,6 +209,16 @@ public final class VariableChannel<T> implements VariableListener<T>, WriteableR
 	public VariableID<?> getVariableID()
 	{
 		return varID;
+	}
+
+	@Override
+	public void addVetoToChannel(BiFunction<T, T, Boolean> function)
+	{
+		if (vetoList == null)
+		{
+			vetoList = new ArrayList<>(2);
+		}
+		vetoList.add(Objects.requireNonNull(function));
 	}
 
 }

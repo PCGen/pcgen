@@ -100,7 +100,7 @@ public final class ControlUtilities
 			return Optional.ofNullable(controller.get(ok))
 				.orElse(control.getDefaultValue());
 		}
-		return null;
+		return control.getDefaultValue();
 	}
 
 	/**

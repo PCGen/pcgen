@@ -7,18 +7,11 @@
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-HPNAME:Hit Points
-HPABBREV:HP
-ALTHPNAME:Wound
-ALTHPABBREV:WP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Armor Class
-ACABBREV:AC
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 BONUSSTACKS:Defense.Dodge.Circumstance.Racial.NotRanged.NotFlatFooted
@@ -26,7 +19,6 @@ BONUSSTACKS:Defense.Dodge.Circumstance.Racial.NotRanged.NotFlatFooted
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Gold
 CURRENCYUNITABBREV:gp
 
 #
@@ -37,20 +29,10 @@ DEFAULTUNITSET:Imperial
 
 # The following determine whether some Class-related
 # variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
+#
+#
 
-SHOWCLASSDEFENSE:No
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
 
 #
 # Whether or not the game mode displays these tabs
@@ -74,7 +56,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Pathfinder 2 RPG
-MENUTOOLTIP:Use Pathfinder 2 RPG character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Pathfinder_2
 GAMEMODEKEY:Pathfinder_2
@@ -141,8 +122,6 @@ BABMAXATT:1
 BABATTCYC:20
 BABMINVAL:0
 # Epic stuff
-#BABMAXLVL:20
-#CHECKSMAXLVL:20
 
 #Class Types
 CLASSTYPE:PC		CRFORMULA:CL	ISMONSTER:NO	XPPENALTY:NO	CRMOD:-1	CRMODPRIORITY:1
@@ -272,7 +251,6 @@ WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-# WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 # WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded							ZERO:Light
 # WIELDCATEGORY:Light		UP:OneHanded|TwoHanded

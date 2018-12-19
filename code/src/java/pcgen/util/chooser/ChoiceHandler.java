@@ -22,9 +22,8 @@ import pcgen.facade.core.ChooserFacade;
 /**
  * This interface indicates that the class can handle making a decision 
  * on a choice request.
- *
- * 
  */
+@Deprecated(forRemoval = true)
 @FunctionalInterface
 public interface ChoiceHandler
 {

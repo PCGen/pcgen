@@ -24,7 +24,7 @@ import java.awt.Component;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import pcgen.facade.core.ClassFacade;
+import pcgen.core.PCClass;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
@@ -60,7 +60,7 @@ public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 		{
 			SpellNode spellNode = (SpellNode) obj;
 			SpellFacade spell = spellNode.getSpell();
-			ClassFacade pcClass = spellNode.getSpellcastingClass();
+			PCClass pcClass = spellNode.getSpellcastingClass();
 			if (!character.isQualifiedFor(spell, pcClass))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());

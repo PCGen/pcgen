@@ -6,24 +6,15 @@ LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
 #ALIGNMENTNAME:
-HPNAME:Grit
-HPABBREV:Grit
-ALTHPNAME:Damage Threshold
-ALTHPABBREV:Threshold
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 # on the Classes Tab
 ACNAME:Defense
-ACABBREV:Def
 #ALTACNAME:
-#ALTACABBREV:
 
 #
 #misc. Modern specific items
 #
-CURRENCYUNIT:Wealth
 CURRENCYUNITABBREV:Wlth
 
 #
@@ -37,19 +28,8 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 
 # The following determine whether some Class-related variables are displayed
 # on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.  This must match the DEFINE:
-# variable in order to be displayed
-# up to 3 variables can be displayed in this manner
 
-SHOWCLASSDEFENSE:NO
-DISPLAYVARIABLE1TEXT:Action Points
-DISPLAYVARIABLE1NAME:ActionRemain
-DISPLAYVARIABLE2TEXT:Class Defense Bonus
-DISPLAYVARIABLE2NAME:ClassDefense
-DISPLAYVARIABLE3TEXT:Wealth Bonus
-DISPLAYVARIABLE3NAME:Wealth
+
 
 #
 # Tabs defined
@@ -77,7 +57,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Sidewinder
-MENUTOOLTIP:Use Sidewinder:Recoiled character creation settings
 DISPLAYORDER:2
 #
 #SHORTRANGE sets the Short Range as referenced by TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE

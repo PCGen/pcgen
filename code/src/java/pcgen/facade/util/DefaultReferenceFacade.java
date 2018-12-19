@@ -18,9 +18,9 @@
  */
 package pcgen.facade.util;
 
-import javax.swing.event.EventListenerList;
+import java.util.Objects;
 
-import org.apache.commons.lang3.ObjectUtils;
+import javax.swing.event.EventListenerList;
 
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -62,7 +62,7 @@ public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 	@Override
 	public void set(E object)
 	{
-		if (ObjectUtils.equals(this.object, object))
+		if (Objects.equals(this.object, object))
 		{
 			return;
 		}

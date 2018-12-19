@@ -88,7 +88,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		LoadContext context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
 		
-		SourceFileLoader.defineBuiltinVariables(gamemode, context);
+		SourceFileLoader.defineBuiltinVariables(context);
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 				FormulaFactory.getFormulaFor("STRSCORE"));

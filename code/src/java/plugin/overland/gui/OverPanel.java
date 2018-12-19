@@ -1162,7 +1162,7 @@ public class OverPanel extends javax.swing.JPanel
 		Number people = (Number) txtPeop.getValue();
 		Number value = (Number) txtAnim.getValue();
 		//now set them all
-		if (people != null && people instanceof Number)
+		if (people != null)
 		{
 			int numPeople = people.intValue();
 
@@ -1176,7 +1176,7 @@ public class OverPanel extends javax.swing.JPanel
 			result *= 7;
 			txtWeekInn.setText(gp.format(result)); //but here we use gp
 		}
-		if (value != null && value instanceof Number)
+		if (value != null)
 		{
 			int numAnimal = value.intValue();
 
