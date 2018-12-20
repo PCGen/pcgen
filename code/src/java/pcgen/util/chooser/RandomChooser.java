@@ -26,7 +26,7 @@ import pcgen.facade.util.ListFacade;
  * An implementation of the Chooser Interface that does not display a GUI but
  * simply selects a random choice from the available list of options.
  */
-@Deprecated(forRemoval = true)
+@Deprecated()
 public final class RandomChooser implements ChoiceHandler
 {
 	@Override
