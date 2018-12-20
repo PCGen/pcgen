@@ -113,8 +113,8 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
-import pcgen.util.chooser.ChoiceHandler;
 import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.chooser.RandomChooser;
 
 import org.apache.commons.lang3.StringUtils;
 import org.lobobrowser.html.HtmlRendererContext;
@@ -1644,7 +1644,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
 		// Check for an override of the chooser to be used 
-		Optional<ChoiceHandler> choiceHandler = ChooserFactory.getChoiceHandler();
+		Optional<RandomChooser> choiceHandler = ChooserFactory.getChoiceHandler();
 		if (choiceHandler.isPresent())
 		{
 			return choiceHandler.get().makeChoice(chooserFacade);

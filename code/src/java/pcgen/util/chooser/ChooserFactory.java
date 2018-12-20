@@ -44,7 +44,7 @@ public final class ChooserFactory
 	 * 
 	 * @return The most recently registered ChoiceHandler, if any.
 	 */
-	public static Optional<ChoiceHandler> getChoiceHandler()
+	public static Optional<RandomChooser> getChoiceHandler()
 	{
 		if (useRandomChooser)
 		{

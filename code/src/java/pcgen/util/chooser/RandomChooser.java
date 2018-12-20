@@ -27,9 +27,8 @@ import pcgen.facade.util.ListFacade;
  * simply selects a random choice from the available list of options.
  */
 @Deprecated()
-public final class RandomChooser implements ChoiceHandler
+public final class RandomChooser
 {
-	@Override
 	public boolean makeChoice(ChooserFacade chooserFacade)
 	{
 		while ((chooserFacade.getRemainingSelections().get() > 0) && !chooserFacade.getAvailableList().isEmpty())
