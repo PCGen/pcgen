@@ -52,6 +52,7 @@ ext {
         }
         from('code') {
             include 'LICENSE'
+	    include 'pcgen.bat'
             include 'pcgen.sh'
             eachFile{ file ->
                 if(file.getName().endsWith(".sh")) {
