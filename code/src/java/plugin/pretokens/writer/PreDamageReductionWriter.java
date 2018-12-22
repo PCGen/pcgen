@@ -59,7 +59,7 @@ public class PreDamageReductionWriter extends AbstractPrerequisiteWriter impleme
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

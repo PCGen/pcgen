@@ -61,7 +61,7 @@ public class PreRuleWriter extends AbstractPrerequisiteWriter implements Prerequ
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

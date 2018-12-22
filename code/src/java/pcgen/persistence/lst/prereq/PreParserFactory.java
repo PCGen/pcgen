@@ -167,7 +167,7 @@ public final class PreParserFactory implements PluginLoader
 		}
 		catch (Throwable t)
 		{
-			throw new PersistenceLayerException("Can not parse '" + prereqStr + "': " + t.getMessage());
+			throw new PersistenceLayerException("Can not parse '" + prereqStr + "': " + t.getMessage(), t);
 		}
 	}
 
