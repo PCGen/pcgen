@@ -17,6 +17,8 @@
  */
 package pcgen.gui2.converter.panel;
 
+import java.util.Objects;
+
 import javax.swing.JPanel;
 import javax.swing.event.EventListenerList;
 
@@ -34,9 +36,8 @@ public abstract class ConvertSubPanel implements ProgressMonitor
 		return false;
 	}
 
-	public ConvertSubPanel()
+	protected ConvertSubPanel()
 	{
-		super();
 		support = new ProgressSupport(this);
 	}
 
@@ -79,35 +80,30 @@ public abstract class ConvertSubPanel implements ProgressMonitor
 
 	public abstract void setupDisplay(JPanel panel, CDOMObject pc);
 
-	public class ProgressSupport implements ProgressMonitor
+	public static final class ProgressSupport implements ProgressMonitor
 	{
 
 		private final EventListenerList listenerList;
 
 		private final Object source;
 
-		public ProgressSupport(Object sourceObject)
+		private ProgressSupport(Object sourceObject)
 		{
-			super();
-			if (sourceObject == null)
-			{
-				throw new IllegalArgumentException("Source for ProgressSupport cannot be null");
-			}
-			source = sourceObject;
+			source = Objects.requireNonNull(sourceObject);
 			listenerList = new EventListenerList();
 		}
 
-		public void addProgressListener(ProgressListener listener)
+		private void addProgressListener(ProgressListener listener)
 		{
 			listenerList.add(ProgressListener.class, listener);
 		}
 
-		public synchronized ProgressListener[] getProgressListeners()
+		private synchronized ProgressListener[] getProgressListeners()
 		{
 			return listenerList.getListeners(ProgressListener.class);
 		}
 
-		public void removeProgressListener(ProgressListener listener)
+		private void removeProgressListener(ProgressListener listener)
 		{
 			listenerList.remove(ProgressListener.class, listener);
 		}
