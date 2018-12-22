@@ -2483,6 +2483,34 @@ Metamagic Mastery		KEY:Universal School ~ Metamagic Mastery		CATEGORY:Special Ab
 
 Wizard Free Spellbook									CATEGORY:Internal																																																																																																																																			TEMPLATE:Wizard Spellbook
 
+CATEGORY=Special Ability|Abjuration School ~ Resistance.MOD				PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Abjuration School ~ Protective Ward.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Conjuration School ~ Summoner's Charm.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Conjuration School ~ Acid Dart.MOD				PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Divination School ~ Forwarned.MOD				PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Divination School ~ Diviner's Fortune.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Enchantment School ~ Enchanting Smile.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Enchantment School ~ Dazing Touch.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Evocation School ~ Intense Spells.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Evocation School ~ Force Missile.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Illusion School ~ Extended Illusion.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Illusion School ~ Blinding Ray.MOD				PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Necromancy School ~ Power Over Undead.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Necromancy School ~ Grave Touch.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Transmutation School ~ Physical Enhancement.MOD	PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Transmutation School ~ Telekinetic Fist.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Universal School ~ Hand of the Apprentice.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+
+CATEGORY=Special Ability|Abjuration School ~ Energy Absorption.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Conjuration School ~ Dimensional Steps.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Divination School ~ Scrying Adept.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Enchantment School ~ Aura of Despair.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Evocation School ~ Elemental Wall.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Illusion School ~ Invisibility Field.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Necromancy School ~ Life Sight.MOD				PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Transmutation School ~ Change Shape.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Universal School ~ Metamagic Mastery.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+
 ###Block: Companion Class Support - This is the only way to remove a FOLLOWER choice from the Companion Tabs
 # Ability Name			Category of Ability	Allow Follower
 Companion ~ Animal Companion	CATEGORY:Internal		FOLLOWERS:Animal Companion|1
