@@ -797,6 +797,13 @@ Wisdom Bonus		KEY:Flexible Enhancement Wisdom Bonus		CATEGORY:Special Ability	TY
 Dexterity Bonus		KEY:Flexible Enhancement Dexterity Bonus		CATEGORY:Special Ability	TYPE:FlexibleEnhancementBonus																																																																																																																																																																																																																																																																				BONUS:STAT|DEX|FlexibleEnhancementBonus|TYPE=Enhancement
 Constitution Bonus	KEY:Flexible Enhancement Constitution Bonus	CATEGORY:Special Ability	TYPE:FlexibleEnhancementBonus																																																																																																																																																																																																																																																																				BONUS:STAT|CON|FlexibleEnhancementBonus|TYPE=Enhancement
 
+CATEGORY=Special Ability|Metal School ~ Metal Rending.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Metal School ~ Iron Skin.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Wood School ~ Flexible Enhancement.MOD	PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Wood School ~ Splintered Spear.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+
+CATEGORY=Special Ability|Metal School ~ Shrapnel Burst.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Wood School ~ Cooperative Defense.MOD	PREVARLT:Wizard_CF_SchoolPower8,1
 
 ###Block: Add new familiars
 #Block: Arcane Bond familiar
