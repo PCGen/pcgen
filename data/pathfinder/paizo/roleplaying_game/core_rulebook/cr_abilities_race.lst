@@ -39,7 +39,6 @@ CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|El
 CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
 CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses,TYPE.ElfKeenSenses
 CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
-CATEGORY=Internal|Racial Traits ~ Elf.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialLanguage
 #
 CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Defensive Training|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
 CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Gnome Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeMagic
@@ -49,7 +48,6 @@ CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATI
 CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSenses
 CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
 CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
-CATEGORY=Internal|Racial Traits ~ Gnome.MOD		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialLanguage
 #
 CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Adaptability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfAdaptability
 CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Multitalented|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfMultitalented
@@ -57,25 +55,21 @@ CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUT
 CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
 CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
 CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elf Blood
-CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialLanguage
 #
 CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Intimidating|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
 CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Ferocity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
 CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
 CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
 CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Blood
-CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialLanguage
 #
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Fearless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingFearless
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Halfling Luck|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingLuck
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingKeenSenses
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
 CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
-CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingRacialLanguage
 #
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Bonus Feat|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
 CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled
-CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanRacialLanguage
 
 ##################
 # RACE ABILITIES #
