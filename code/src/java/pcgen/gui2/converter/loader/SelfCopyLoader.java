@@ -44,9 +44,4 @@ public class SelfCopyLoader implements Loader
 		return Collections.singletonList(new CampaignSourceEntry(c, c.getSourceURI()));
 	}
 
-	public String getLoadName()
-	{
-		return "Self";
-	}
-
 }

@@ -190,10 +190,4 @@ public class ClassLoader implements Loader
 	{
 		return c.getSafeListFor(ListKey.FILE_CLASS);
 	}
-
-	public String getLoadName()
-	{
-		return "Class";
-	}
-
 }
