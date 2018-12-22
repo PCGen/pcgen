@@ -190,14 +190,14 @@ public class StatToken extends Token
 		return retString;
 	}
 
-	public static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
-		boolean usePost, boolean useLevel, int aLevel)
+	private static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
+	                                   boolean usePost, boolean useLevel, int aLevel)
 	{
 		return getStatToken(pc, stat, useTemp, useEquip, usePost, useLevel, aLevel, true);
 	}
 
-	public static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
-		boolean usePost, boolean useLevel, int aLevel, final boolean checkGameMode)
+	private static String getStatToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
+	                                   boolean usePost, boolean useLevel, int aLevel, final boolean checkGameMode)
 	{
 		if (pc.getDisplay().isNonAbility(stat))
 		{
@@ -233,8 +233,8 @@ public class StatToken extends Token
 		return Integer.toString(aTotal);
 	}
 
-	public static String getModToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
-		boolean usePost, boolean useLevel, int aLevel)
+	private static String getModToken(PlayerCharacter pc, PCStat stat, boolean useTemp, boolean useEquip,
+	                                  boolean usePost, boolean useLevel, int aLevel)
 	{
 		if (pc.getDisplay().isNonAbility(stat))
 		{
@@ -246,7 +246,7 @@ public class StatToken extends Token
 		return Delta.toString(temp);
 	}
 
-	public static String getBaseToken(PlayerCharacter pc, PCStat stat)
+	private static String getBaseToken(PlayerCharacter pc, PCStat stat)
 	{
 		if (pc.getDisplay().isNonAbility(stat))
 		{
@@ -255,7 +255,7 @@ public class StatToken extends Token
 		return Integer.toString(pc.getBaseStatFor(stat));
 	}
 
-	public static String getBaseModToken(PlayerCharacter pc, PCStat stat)
+	private static String getBaseModToken(PlayerCharacter pc, PCStat stat)
 	{
 		if (pc.getDisplay().isNonAbility(stat))
 		{
@@ -266,14 +266,4 @@ public class StatToken extends Token
 
 		return Delta.toString(temp);
 	}
-
-	/*
-	 * Wrapper functions for calls with old arguments
-	 */
-
-	public static String getModToken(PlayerCharacter pc, PCStat stat)
-	{
-		return getModToken(pc, stat, true, true, true, false, 0);
-	}
-
 }
