@@ -117,6 +117,11 @@ Void Awareness		KEY:Void Elemental School ~ Void Awareness	CATEGORY:Special Abil
 Reveal Weakness		KEY:Void Elemental School ~ Reveal Weakness	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:RevealWeaknessPenalty|0	DEFINE:RevealWeaknessTimes|0	DESC:When you activate this school power as a standard action, you select a foe within 30 feet. That creature takes a -%1 penalty to its AC and on saving throws for 1 round. You can use this ability %2 times per day|RevealWeaknessPenalty|RevealWeaknessTimes																															BONUS:VAR|RevealWeaknessPenalty|max(VoidElementalSchoolLVL/2,1)	BONUS:VAR|RevealWeaknessTimes|WizardSchoolPowerTimes	ASPECT:Ability Benefit|(-%1, %2/day)|RevealWeaknessPenalty|RevealWeaknessTimes	ASPECT:CheckCount|%1|RevealWeaknessTimes	ASPECT:CheckType|Uses per day
 Aura of Prescience	KEY:Void Elemental School ~ Aura of Prescience	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural												DESC:You can emit a 30-foot aura of void energy for %1 rounds. Allies within this aura gain a +2 insight bonus on ability checks, attack rolls, damage rolls, saving throws, and skill checks. These rounds do not need to be consecutive.|VoidElementalSchoolLVL																																																			ASPECT:Ability Benefit|(%1 rounds/day)|VoidElementalSchoolLVL	ASPECT:CheckCount|%1|VoidElementalSchoolLVL	ASPECT:CheckType|Rounds per day
 
+CATEGORY=Special Ability|Void Elemental School ~ Void Awareness.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Void Elemental School ~ Reveal Weakness.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+
+CATEGORY=Special Ability|Void Elemental School ~ Aura of Prescience.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+
 #
 # End
 #

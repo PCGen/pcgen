@@ -1089,6 +1089,8 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_TransmutationOppositionScho
 
 ###Block: Wizard School Replacement Support
 # Ability Name			Define								Modify VAR
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_SchoolPower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SchoolPower1=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_SchoolPower8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SchoolPower8=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_AcidDart|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AcidDart=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_AuraOfDespair|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AuraOfDespair=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_BlindingRay|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BlindingRay=True
@@ -1118,6 +1120,8 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_IllusionOppositionSchool|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_NecromancyOppositionSchool|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_TransmutationOppositionSchool|0
 
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SchoolPower1|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SchoolPower8|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AcidDart|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AuraOfDespair|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BlindingRay|0

@@ -237,6 +237,11 @@ CATEGORY=Special Ability|Earth Opposition School.MOD														TYPE:Elemental
 CATEGORY=Special Ability|Fire Opposition School.MOD														TYPE:ElementalOppositionSchool
 CATEGORY=Special Ability|Water Opposition School.MOD														TYPE:ElementalOppositionSchool
 
+CATEGORY=Special Ability|Aether School ~ Aether Supremacy.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Aether School ~ Telekinetic Protection.MOD	PREVARLT:Wizard_CF_SchoolPower1,1
+
+CATEGORY=Special Ability|Aether School ~ Receptive Vibrations.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+
 # ==============================
 # Wizard School ~ Focused Arcane Schools
 # ==============================
@@ -265,3 +270,13 @@ Mud Missile								KEY:Mud Subschool ~ Mud Missile			CATEGORY:Special Ability	TY
 #Smoke Subschool
 Smokesight								KEY:Smoke Subschool ~ Smokesight			CATEGORY:Special Ability	TYPE:WizardClassFeatures.SpecialQuality.Supernatural																																																																																																																																																																																																																																																																													DESC:You can see normally through natural fog and smoke, as well as any fog and smoke that you (but not others) magically create. %1 times per day, you can touch another creature as a standard action to grant it this vision for 1 hour.|3+INT																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		SOURCEPAGE:p.21
 Body of Smoke							KEY:Smoke Subschool ~ Body of Smoke			CATEGORY:Special Ability	TYPE:WizardClassFeatures.SpecialQuality.Supernatural																																																																																																																																																																																																																																																																													DESC:You can assume a gaseous form (as per the spell of that name) as a swift action for %1 minutes per day. This duration does not need to be consecutive, but it must be used in 1-minute increments.|WizardLVL																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								SOURCEPAGE:p.21
+
+CATEGORY=Special Ability|Ice Subschool ~ Freezing Shards.MOD	PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Magma Subschool ~ Magma Furrow.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Mud Subschool ~ Hindering Muck.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Smoke Subschool ~ Smokesight.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+
+CATEGORY=Special Ability|Ice Subschool ~ Icy Shackles.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Magma Subschool ~ Lava Shield.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Mud Subschool ~ Mud Missile.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Smoke Subschool ~ Body of Smoke.MOD	PREVARLT:Wizard_CF_SchoolPower8,1

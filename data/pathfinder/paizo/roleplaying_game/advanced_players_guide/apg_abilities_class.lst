@@ -3365,6 +3365,48 @@ Shift				KEY:Teleportation School ~ Shift			CATEGORY:Special Ability	TYPE:Wizard
 # Undead School
 Bolster			KEY:Undead School ~ Bolster				CATEGORY:Special Ability	TYPE:WizardClassFeatures.SpecialQuality.SpellLike	DEFINE:UndeadBolsterBonus|0	DEFINE:UndeadBolsterRounds|0	DEFINE:UndeadBolsterTimes|0														DESC:As a standard action, you can touch an undead creature and infuse it with negative energy. It gains a + %1 profane bonus on all attack rolls and saving throws, as well as 1 temporary hit point per Hit Die and a +2 bonus to its turn resistance. These bonuses last for %2 rounds. The bonuses and temporary hit points are immediately dispelled if the creature is within the area of a consecrate spell. You can use this ability %3 times per day.|UndeadBolsterBonus|UndeadBolsterRounds|UndeadBolsterTimes																																																																																																																																																																																																																																																																																																																																																																																																																																																																										BONUS:VAR|UndeadBolsterBonus|NecromancySchoolLVL/5+1	BONUS:VAR|UndeadBolsterRounds|max(NecromancySchoolLVL/2,1)	BONUS:VAR|UndeadBolsterTimes|WizardSchoolPowerTimes																												SOURCEPAGE:p.147	ASPECT:CheckCount|%1|UndeadBolsterTimes	ASPECT:CheckType|Uses per Day
 
+CATEGORY=Special Ability|Air School ~ Air Supremacy.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Air School ~ Lightning Flash.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Earth School ~ Earth Supremacy.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Earth School ~ Acid Cloud.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Fire School ~ Fire Supremacy.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Fire School ~ Fire Jet.MOD				PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Water School ~ Water Supremacy.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Water School ~ Cold Blast.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Admixture School ~ Versatile Evocation.MOD	PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Banishment School ~ Unstable Bonds.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Controller School ~ Force of Will.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Counterspell School ~ Disruption.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Creation School ~ Create Gear.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Enhancement School ~ Augment.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Foresight School ~ Prescience.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Generation School ~ Lingering Evocations.MOD	PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Generation School ~ Wind Servant.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Life School ~ Healing Grace.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Life School ~ Share Essence.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Manipulator School ~ Beguiling Touch.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Phantasm School ~ Terror.MOD				PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Scryer School ~ Send Senses.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Shadow School ~ Binding Darkness.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Shapechange School ~ Battleshaping.MOD		PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Teleportation School ~ Shift.MOD			PREVARLT:Wizard_CF_SchoolPower1,1
+CATEGORY=Special Ability|Undead School ~ Bolster.MOD				PREVARLT:Wizard_CF_SchoolPower1,1
+
+CATEGORY=Special Ability|Air School ~ Cyclone.MOD				PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Earth School ~ Earth Glide.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Fire School ~ Dancing Flame.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Water School ~ Wave.MOD				PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Admixture School ~ Elemental Manipulation.MOD	PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Banishment School ~ Aura of Banishment.MOD	PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Controller School ~ Irresistible Demand.MOD	PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Counterspell School ~ Counterspell Mastery.MOD	PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Creation School ~ Creator's Will.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Enhancement School ~ Perfection of Self.MOD	PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Foresight School ~ Foretell.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Manipulator School ~ Shape Emotions.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Phantasm School ~ Bedeviling Aura.MOD		PREVARLT:Wizard_CF_SchoolPower8,1
+CATEGORY=Special Ability|Shadow School ~ Shadow Step.MOD			PREVARLT:Wizard_CF_SchoolPower8,1
+
 # Removing Spellcasting ~ Ranger, Paladin & Bard
 No Spellcasting		KEY:No Spellcasting ~ Ranger				CATEGORY:Special Ability	TYPE:Internal.RangerClassFeatures																																																																																																																																																																																																				BONUS:CASTERLEVEL|Ranger.RESET|0	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=1|-floor((WIS+3)/4)|PRECLASS:1,Ranger=4	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=1|-1|PRECLASS:1,Ranger=5	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=1|-1|PRECLASS:1,Ranger=9	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=1|-1|PRECLASS:1,Ranger=13	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=1|-1|PRECLASS:1,Ranger=17	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=2|-floor((WIS+2)/4)|PRECLASS:1,Ranger=7	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=2|-1|PRECLASS:1,Ranger=8	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=2|-1|PRECLASS:1,Ranger=12	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=2|-1|PRECLASS:1,Ranger=16	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=2|-1|PRECLASS:1,Ranger=20	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=3|-floor((WIS+1)/4)|PRECLASS:1,Ranger=10	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=3|-1|PRECLASS:1,Ranger=11	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=3|-1|PRECLASS:1,Ranger=15	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=3|-1|PRECLASS:1,Ranger=19	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=4|-floor(WIS/4)|PRECLASS:1,Ranger=13	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=4|-1|PRECLASS:1,Ranger=14	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=4|-1|PRECLASS:1,Ranger=18	BONUS:SPELLCAST|CLASS=Ranger;LEVEL=4|-1|PRECLASS:1,Ranger=20
 No Spellcasting		KEY:No Spellcasting ~ Paladin				CATEGORY:Special Ability	TYPE:Internal.PaladinClassFeatures																																																																																																																																																																																																				BONUS:CASTERLEVEL|Paladin.RESET|0	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=1|-floor((CHA+3)/4)|PRECLASS:1,Paladin=4	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=1|-1|PRECLASS:1,Paladin=5	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=1|-1|PRECLASS:1,Paladin=9	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=1|-1|PRECLASS:1,Paladin=13	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=1|-1|PRECLASS:1,Paladin=17	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=2|-floor((CHA+2)/4)|PRECLASS:1,Paladin=7	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=2|-1|PRECLASS:1,Paladin=8	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=2|-1|PRECLASS:1,Paladin=12	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=2|-1|PRECLASS:1,Paladin=16	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=2|-1|PRECLASS:1,Paladin=20	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=3|-floor((CHA+1)/4)|PRECLASS:1,Paladin=10	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=3|-1|PRECLASS:1,Paladin=11	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=3|-1|PRECLASS:1,Paladin=15	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=3|-1|PRECLASS:1,Paladin=19	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=4|-floor(CHA/4)|PRECLASS:1,Paladin=13	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=4|-1|PRECLASS:1,Paladin=14	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=4|-1|PRECLASS:1,Paladin=18	BONUS:SPELLCAST|CLASS=Paladin;LEVEL=4|-1|PRECLASS:1,Paladin=20
