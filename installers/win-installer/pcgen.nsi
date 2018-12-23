@@ -100,6 +100,7 @@ Section "PCGen" Section1
 	SetOutPath "$INSTDIR\${APPDIR}\data"
 	File /r "${SrcDir}\..\..\data\_images"
 	File /r "${SrcDir}\..\..\data\_universal"
+	File /r "${SrcDir}\..\..\data\publisher_logos"
 
 SectionEnd
 
