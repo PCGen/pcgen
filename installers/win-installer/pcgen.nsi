@@ -83,6 +83,11 @@ Section "PCGen" Section1
 	SetOutPath "$INSTDIR\${APPDIR}\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}_base\*.*"
 
+	; Set the common files
+	SetOutPath "$INSTDIR\${APPDIR}\data"
+	File /r "${SrcDir}\..\..\data\_images"
+	File /r "${SrcDir}\..\..\data\_universal"
+
 SectionEnd
 
 SubSection /e "Data" Section2
