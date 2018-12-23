@@ -331,6 +331,8 @@ task genDataList doLast {
     ignoreList.add("customsources");
     ignoreList.add("images");
     ignoreList.add("_universal");
+    ignoreList.add("_images");
+    ignoreList.add("publisher_logos");
     new File("${projectDir}/data").eachDir{ 
         if (ignoreList.contains(it.name))
         {
