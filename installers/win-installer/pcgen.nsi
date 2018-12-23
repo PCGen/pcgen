@@ -9,8 +9,8 @@
 !include "x64.nsh"
 
 ; Define constants
-!define APPNAME "PCGen"
-!define APPNAMEANDVERSION "${APPNAME} ${LONGVER}"
+!define APP "PCGen"
+!define APPNAME "$[APP] ${LONGVER}"
 !define APPDIR "${LONGVER}"
 !define TargetVer "1.10"
 !define OverVer "1.11"
@@ -27,9 +27,9 @@
 ;!define MUI_WELCOMEFINISHPAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp" 
 
 ; Main Install settings
-Name "${APPNAMEANDVERSION}"
-InstallDir "$LOCALAPPDATA\${APPNAME}"
-InstallDirRegKey HKLM "Software\${APPNAME}\${APPDIR}" ""
+Name "${APPNAME}"
+InstallDir "$LOCALAPPDATA\${APP}"
+InstallDirRegKey HKLM "Software\${APP}\${APPDIR}" ""
 OutFile "${OutDir}\${OutName}.exe"
 ;This will save a little less than 1mb, it should be left enabled -Ed
 SetCompressor lzma
@@ -133,27 +133,27 @@ Section "-Local" Section4
 
 	; Create Shortcuts
 	SetOutPath "$INSTDIR\${APPDIR}\"
-	CreateDirectory "$SMPROGRAMS\PCGen\${APPDIR}"
-	CreateShortCut "$DESKTOP\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
+	CreateDirectory "$SMPROGRAMS\${APPNAME}"
+	CreateShortCut "$DESKTOP\${APPNAME}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
 # We no longer provide the .bat file.
-#	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
+#	CreateShortCut "$SMPROGRAMS\PCGEN\${APPNAME}\PCGen-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+        CreateShortCut "$SMPROGRAMS\${APPNAME}\PCGen-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
+	CreateShortCut "$SMPROGRAMS\${APPNAME}\PCGen.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \ 
+        CreateShortCut "$SMPROGRAMS\${APPNAME}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \
                                 "-Xmx256M -jar pcgen-batch-convert.jar" \
 				"$INSTDIR\${APPDIR}\Local\convert.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Release Notes.lnk" \ 
+	CreateShortCut "$SMPROGRAMS\${APPNAME}\Release Notes.lnk" \
                                 "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html" "" \ 
                                 "$INSTDIR\${APPDIR}\Local\knight.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" \ 
+	CreateShortCut "$SMPROGRAMS\${APPNAME}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" \
                                 "$INSTDIR\${APPDIR}\Local\queen.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${LONGVER}.lnk" \ 
+	CreateShortCut "$SMPROGRAMS\${APPDIR}\uninstall-${LONGVER}.lnk" \
                                 "$INSTDIR\uninstall-${LONGVER}.exe"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" \ 
+	CreateShortCut "$SMPROGRAMS\${APPNAME}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" \
                                 "$INSTDIR\${APPDIR}\Local\castle.ico"
         ;Add file extension registration
         ;File association. See: http://nsis.sourceforge.net/FileAssoc
@@ -186,8 +186,8 @@ SectionEnd
 Section -FinishSection
 
 	WriteRegStr HKLM "Software\${APPNAME}\${APPDIR}" "" "$INSTDIR\${APPDIR}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "DisplayName" "${APPDIR}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "DisplayName" "${APPNAME}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAME}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
 
 SectionEnd
@@ -207,7 +207,7 @@ Section Uninstall
 	Delete "$INSTDIR\uninstall-${APPDIR}.exe"
 
 	; Remove from registry...
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}"
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPNAMEANDVERSION}"
 	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
 	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}_alpha"
 
