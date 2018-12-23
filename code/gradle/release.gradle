@@ -180,6 +180,7 @@ launch4j {
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
     version = "${shortVerNum}"
     jvmOptions = ["-Dsun.java2d.dpiaware=false"]
+    downloadUrl = "https://jdk.java.net/"
 }
 
 task downloadJRE doLast {
@@ -329,7 +330,7 @@ task genDataList doLast {
     ignoreList.add("homebrew");
     ignoreList.add("zen_test");
     ignoreList.add("customsources");
-    ignoreList.add("images");
+    ignoreList.add("_images");
     ignoreList.add("_universal");
     new File("${projectDir}/data").eachDir{ 
         if (ignoreList.contains(it.name))
