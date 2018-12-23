@@ -284,7 +284,6 @@ Section Uninstall
 	RMDir "$INSTDIR\${APPDIR}"
 
 	# Always delete uninstaller as the last action
-	delete $INSTDIR\uninstall-${APPDIR}.exe
 
 	# Try to remove the install directory - this will only happen if it is empty
 	rmDir $INSTDIR
@@ -294,6 +293,7 @@ Section Uninstall
 	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
 	DeleteRegKey HKLM "${ARP}_alpha"
 
+	Delete /REBOOTOK "$INSTDIR\uninstall-${APPDIR}.exe"
 SectionEnd
 
 Function .onInit
