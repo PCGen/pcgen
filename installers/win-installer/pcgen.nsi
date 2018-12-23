@@ -73,18 +73,6 @@ Icon "${SrcDir}\Local\PCGen2.ico"
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
-!define ARP "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}"
-
-!macro VerifyUserIsAdmin
-UserInfo::GetAccountType
-pop $0
-${If} $0 != "admin" ;Require admin rights on NT4+
-        messageBox mb_iconstop "Administrator rights required!"
-        setErrorLevel 740 ;ERROR_ELEVATION_REQUIRED
-        quit
-${EndIf}
-!macroend
-
 Section "PCGen" Section1
 
 	SectionIn RO
@@ -156,11 +144,11 @@ Section "-Local" Section4
 	CreateShortCut "$DESKTOP\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
 # We no longer provide the .bat file.
-#	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
+#	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+        CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
+	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
         CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \ 
                                 "-Xmx256M -jar pcgen-batch-convert.jar" \
@@ -205,15 +193,9 @@ SectionEnd
 Section -FinishSection
 
 	WriteRegStr HKLM "Software\${APPNAME}\${APPDIR}" "" "$INSTDIR\${APPDIR}"
-	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPDIR}"
-	WriteRegStr HKLM "${ARP}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "DisplayName" "${APPDIR}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
-
-	DetailPrint "Calculating installation size..."
-	${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
- 	IntFmt $0 "0x%08X" $0
- 	WriteRegDWORD HKLM "${ARP}" "EstimatedSize" "$0"
-	DetailPrint "Done!"
 
 SectionEnd
 
@@ -227,6 +209,14 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section Uninstall
+
+	; Delete self
+	Delete "$INSTDIR\uninstall-${APPDIR}.exe"
+
+	; Remove from registry...
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}"
+	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}_alpha"
 
 	; Delete Desktop Shortcut
 	Delete "$DESKTOP\${APPDIR}.lnk"
@@ -259,7 +249,6 @@ Section Uninstall
 	RMDir /r "$INSTDIR\${APPDIR}\data"
 	RMDir /r "$INSTDIR\${APPDIR}\docs"
 	RMDir /r "$INSTDIR\${APPDIR}\libs"
-	RMDir /r "$INSTDIR\${APPDIR}_Save"
         ;Remove local JRE
         RMDir /r "$INSTDIR\${APPDIR}\jre"
 	RMDir /r "$INSTDIR\${APPDIR}\Local"
@@ -273,7 +262,6 @@ Section Uninstall
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.exe"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.sh"
-	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.bat"
 #	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_low_mem.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-batch-convert.jar"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\filepaths.ini"
@@ -288,10 +276,17 @@ Section Uninstall
 	# Try to remove the install directory - this will only happen if it is empty
 	rmDir $INSTDIR
 
-	; Remove from registry...
-	DeleteRegKey HKLM "${ARP}"
-	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
-	DeleteRegKey HKLM "${ARP}_alpha"
+	;Run the uninstaller
+	uninst:
+  		ClearErrors
+  		ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
+ 
+  		IfErrors no_remove_uninstaller done
+    		;You can either use Delete /REBOOTOK in the uninstaller or add some code
+    		;here to remove the uninstaller. Use a registry key to check
+    		;whether the user has chosen to uninstall. If you are using an uninstaller
+    		;components page, make sure all sections are uninstalled.
+  	no_remove_uninstaller:
 
 	Delete /REBOOTOK "$INSTDIR\uninstall-${APPDIR}.exe"
 SectionEnd
