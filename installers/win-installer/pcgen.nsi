@@ -7,6 +7,8 @@
 !include ${INCLUDES_DIR}\FileAssociation.nsh
 ;Windows 32 or 64 bit version
 !include "x64.nsh"
+;Used for installation size calculation
+!include "FileFunc.nsh"
 
 ; Define constants
 !define APPNAME "PCGen"
@@ -51,7 +53,6 @@ InstallColors FF8080 000030
 XPStyle on
 Icon "${SrcDir}\Local\PCGen2.ico"
 
-
 ; Modern interface settings
 !include "MUI.nsh"
 
@@ -72,6 +73,18 @@ Icon "${SrcDir}\Local\PCGen2.ico"
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
+!define ARP "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}"
+
+!macro VerifyUserIsAdmin
+UserInfo::GetAccountType
+pop $0
+${If} $0 != "admin" ;Require admin rights on NT4+
+        messageBox mb_iconstop "Administrator rights required!"
+        setErrorLevel 740 ;ERROR_ELEVATION_REQUIRED
+        quit
+${EndIf}
+!macroend
+
 Section "PCGen" Section1
 
 	SectionIn RO
@@ -82,6 +95,11 @@ Section "PCGen" Section1
 	; Set Section Files and Shortcuts
 	SetOutPath "$INSTDIR\${APPDIR}\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}_base\*.*"
+
+	; Set the common files
+	SetOutPath "$INSTDIR\${APPDIR}\data"
+	File /r "${SrcDir}\..\..\data\_images"
+	File /r "${SrcDir}\..\..\data\_universal"
 
 SectionEnd
 
@@ -137,11 +155,11 @@ Section "-Local" Section4
 	CreateShortCut "$DESKTOP\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
 # We no longer provide the .bat file.
-#	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
+#	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
         CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \ 
                                 "-Xmx256M -jar pcgen-batch-convert.jar" \
@@ -186,9 +204,15 @@ SectionEnd
 Section -FinishSection
 
 	WriteRegStr HKLM "Software\${APPNAME}\${APPDIR}" "" "$INSTDIR\${APPDIR}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "DisplayName" "${APPDIR}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
+	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPDIR}"
+	WriteRegStr HKLM "${ARP}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
+
+	DetailPrint "Calculating installation size..."
+	${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
+ 	IntFmt $0 "0x%08X" $0
+ 	WriteRegDWORD HKLM "${ARP}" "EstimatedSize" "$0"
+	DetailPrint "Done!"
 
 SectionEnd
 
@@ -202,14 +226,6 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section Uninstall
-
-	; Delete self
-	Delete "$INSTDIR\uninstall-${APPDIR}.exe"
-
-	; Remove from registry...
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}"
-	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}_alpha"
 
 	; Delete Desktop Shortcut
 	Delete "$DESKTOP\${APPDIR}.lnk"
@@ -242,6 +258,7 @@ Section Uninstall
 	RMDir /r "$INSTDIR\${APPDIR}\data"
 	RMDir /r "$INSTDIR\${APPDIR}\docs"
 	RMDir /r "$INSTDIR\${APPDIR}\libs"
+	RMDir /r "$INSTDIR\${APPDIR}_Save"
         ;Remove local JRE
         RMDir /r "$INSTDIR\${APPDIR}\jre"
 	RMDir /r "$INSTDIR\${APPDIR}\Local"
@@ -255,6 +272,7 @@ Section Uninstall
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.exe"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.sh"
+	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.bat"
 #	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_low_mem.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-batch-convert.jar"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\filepaths.ini"
@@ -263,6 +281,17 @@ Section Uninstall
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.log"
 	
 	RMDir "$INSTDIR\${APPDIR}"
+
+	# Always delete uninstaller as the last action
+	delete $INSTDIR\uninstall-${APPDIR}.exe
+
+	# Try to remove the install directory - this will only happen if it is empty
+	rmDir $INSTDIR
+
+	; Remove from registry...
+	DeleteRegKey HKLM "${ARP}"
+	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
+	DeleteRegKey HKLM "${ARP}_alpha"
 
 SectionEnd
 
