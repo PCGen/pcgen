@@ -97,7 +97,7 @@ CATEGORY=Special Ability|Arcanist ~ Arcane Reservoir.MOD																								
 
 # Gnome Bloodrager Bloodline Class Level
 Bonus Bloodline Class Level						KEY:Gnome ~ Favored Class Bonus ~ Bloodline Class Level	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBloodrager	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bloodrager	PRECLASS:1,Bloodrager=1		PRERACE:1,Gnome%,RACESUBTYPE=Gnome	DEFINE:GnomeBloodragerFavClassBonus|0	DESC:Add 1/4 to the bloodrager's effective class level when determining the power of her bloodrager bloodline powers.																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|GnomeBloodragerFavClassBonus|1
-CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD																																																																																																																									BONUS:VAR|BloodlineLVL|GnomeBloodragerFavClassBonus/4
+CATEGORY=Special Ability|Bloodrager ~ Standard Bloodline.MOD																																																																																																																							BONUS:VAR|BloodragerBloodlineLVL|GnomeBloodragerFavClassBonus/4
 
 # Gnome Brawler Martial Flexibility
 Bonus Martial Flexibility						KEY:Gnome ~ Favored Class Bonus ~ Martial Flexibility		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBrawler		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Brawler		PRECLASS:1,Brawler=1		PRERACE:1,Gnome%,RACESUBTYPE=Gnome	DEFINE:GnomeBrawlerFavClassBonus|0		DESC:Increase the number of times per day the brawler can use martial flexibility by 1/4.																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|GnomeBrawlerFavClassBonus|1
