@@ -3269,14 +3269,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public PCLevelInfo getLevelInfo(int index)
 	{
-		return levelInfoFacet.get(id, index);
+		return levelInfoFacet.get(id, index).get();
 	}
 
 	public String getLevelInfoClassKeyName(final int idx)
 	{
 		if ((idx >= 0) && (idx < getLevelInfoSize()))
 		{
-			return levelInfoFacet.get(id, idx).getClassKeyName();
+			return levelInfoFacet.get(id, idx).get().getClassKeyName();
 		}
 
 		return Constants.EMPTY_STRING;
@@ -3815,15 +3815,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int curStat = this.getTotalStatFor(stat);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
-			final int statLvlAdjust = levelInfoFacet.get(id, idx).getTotalStatMod(stat, true);
+			final int statLvlAdjust = levelInfoFacet.get(id, idx).get().getTotalStatMod(stat, true);
 			curStat -= statLvlAdjust;
 		}
 		// If the user doesn't want POST changes, we remove any made in the
 		// target level only
 		if (!includePost && level > 0)
 		{
-			int statLvlAdjust = levelInfoFacet.get(id, level - 1).getTotalStatMod(stat, true);
-			statLvlAdjust -= levelInfoFacet.get(id, level - 1).getTotalStatMod(stat, false);
+			int statLvlAdjust = levelInfoFacet.get(id, level - 1).get().getTotalStatMod(stat, true);
+			statLvlAdjust -= levelInfoFacet.get(id, level - 1).get().getTotalStatMod(stat, false);
 			curStat -= statLvlAdjust;
 
 		}
@@ -5575,7 +5575,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			//
 			for (int idx = getLevelInfoSize() - 1; idx >= 0; --idx)
 			{
-				final PCLevelInfo li = levelInfoFacet.get(id, idx);
+				final PCLevelInfo li = levelInfoFacet.get(id, idx).get();
 
 				if (li.getClassKeyName().equals(fromClass.getKeyName()))
 				{
@@ -5861,7 +5861,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (idx >= 0)
 		{
-			levelInfoFacet.get(id, idx).addModifiedStat(stat, mod, isPreMod);
+			levelInfoFacet.get(id, idx).get().addModifiedStat(stat, mod, isPreMod);
 		}
 
 		setDirty(true);
@@ -5873,7 +5873,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (idx >= 0)
 		{
-			return levelInfoFacet.get(id, idx).getTotalStatMod(stat, includePost);
+			return levelInfoFacet.get(id, idx).get().getTotalStatMod(stat, includePost);
 		}
 		return 0;
 	}
@@ -6886,7 +6886,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		for (int idx = getLevelInfoSize() - 1; idx >= 0; --idx)
 		{
-			final PCLevelInfo li = levelInfoFacet.get(id, idx);
+			final PCLevelInfo li = levelInfoFacet.get(id, idx).get();
 
 			if (li.getClassKeyName().equals(classKeyName))
 			{
@@ -7177,7 +7177,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int curStat = StatAnalysis.getPartialStatFor(this, stat, useTemp, useEquip);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
-			final int statLvlAdjust = levelInfoFacet.get(id, idx).getTotalStatMod(stat, usePost);
+			final int statLvlAdjust = levelInfoFacet.get(id, idx).get().getTotalStatMod(stat, usePost);
 			curStat -= statLvlAdjust;
 		}
 

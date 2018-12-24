@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
@@ -58,14 +59,14 @@ public class LevelInfoFacet extends AbstractListFacet<CharID, PCLevelInfo>
 	 * @return The object in this LevelInfoFacet for the Player Character
 	 *         represented by the given CharID and location.
 	 */
-	public PCLevelInfo get(CharID id, int location)
+	public Optional<PCLevelInfo> get(CharID id, int location)
 	{
 		List<PCLevelInfo> componentSet = (List<PCLevelInfo>) getCachedSet(id);
 		if (componentSet == null || location < 0 || location >= componentSet.size())
 		{
-			return null;
+			return Optional.empty();
 		}
-		return componentSet.get(location);
+		return Optional.of(componentSet.get(location));
 	}
 
 }

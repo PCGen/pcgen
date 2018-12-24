@@ -1045,7 +1045,7 @@ public class CharacterDisplay
 
 	public PCLevelInfo getLevelInfo(int index)
 	{
-		return levelInfoFacet.get(id, index);
+		return levelInfoFacet.get(id, index).get();
 	}
 
 	public int getLevelInfoSize()
@@ -1057,7 +1057,7 @@ public class CharacterDisplay
 	{
 		if ((idx >= 0) && (idx < getLevelInfoSize()))
 		{
-			return levelInfoFacet.get(id, idx).getClassKeyName();
+			return levelInfoFacet.get(id, idx).get().getClassKeyName();
 		}
 
 		return Constants.EMPTY_STRING;
@@ -1067,7 +1067,7 @@ public class CharacterDisplay
 	{
 		if ((idx >= 0) && (idx < getLevelInfoSize()))
 		{
-			return levelInfoFacet.get(id, idx).getClassLevel();
+			return levelInfoFacet.get(id, idx).get().getClassLevel();
 		}
 
 		return 0;
