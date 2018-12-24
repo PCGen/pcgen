@@ -64,7 +64,7 @@ public class PreWeaponProfWriter extends AbstractPrerequisiteWriter implements P
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

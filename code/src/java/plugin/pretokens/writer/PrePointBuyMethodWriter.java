@@ -60,7 +60,7 @@ public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter implemen
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

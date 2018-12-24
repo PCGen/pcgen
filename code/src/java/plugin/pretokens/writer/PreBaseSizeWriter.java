@@ -56,7 +56,7 @@ public class PreBaseSizeWriter implements PrerequisiteWriterInterface
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

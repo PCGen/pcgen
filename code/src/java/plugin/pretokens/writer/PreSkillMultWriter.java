@@ -67,7 +67,7 @@ public class PreSkillMultWriter extends AbstractPrerequisiteWriter implements Pr
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 
