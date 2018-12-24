@@ -40,7 +40,7 @@ import pcgen.util.Logging;
 public class EquipmentLoader implements Loader
 {
 
-	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
+	private static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 	private final ListKey<CampaignSourceEntry> listkey;
 	private final EditorLoadContext context;
@@ -145,10 +145,4 @@ public class EquipmentLoader implements Loader
 	{
 		return c.getSafeListFor(listkey);
 	}
-
-	public String getLoadName()
-	{
-		return EQUIPMENT_CLASS.getSimpleName();
-	}
-
 }

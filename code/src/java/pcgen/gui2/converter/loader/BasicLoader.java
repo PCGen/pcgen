@@ -134,9 +134,4 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		return c.getSafeListFor(listkey);
 	}
 
-	public String getLoadName()
-	{
-		return cdomClass.getSimpleName();
-	}
-
 }
