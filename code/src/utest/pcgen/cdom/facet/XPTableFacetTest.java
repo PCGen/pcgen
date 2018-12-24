@@ -17,6 +17,11 @@
  */
 package pcgen.cdom.facet;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -52,7 +57,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		XPTable t1 = getItem();
 		CharID id = getCharID();
 		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, -1));
+		assertThat(facet.getLevelInfo(id, -1), nullValue());
 	}
 
 	@Test
@@ -61,14 +66,14 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		XPTable t1 = getItem();
 		CharID id = getCharID();
 		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, 0));
+		assertThat(facet.getLevelInfo(id, 0), nullValue());
 	}
 
 	@Test
 	public void testGetLevelInfoNoTable()
 	{
 		CharID id = getCharID();
-		assertNull(facet.getLevelInfo(id, 1));
+		assertThat(facet.getLevelInfo(id, 1), nullValue());
 	}
 	
 	@Test
@@ -77,7 +82,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		XPTable t1 = getItem();
 		CharID id = getCharID();
 		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, 1));
+		assertThat(facet.getLevelInfo(id, 1), nullValue());
 	}
 
 	@Test
@@ -89,8 +94,8 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		CharID id = getCharID();
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNotNull(xpt);
-		assertSame(li, xpt);
+		assertThat(xpt, notNullValue());
+		assertThat(xpt, sameInstance(li));
 	}
 
 	@Test
@@ -102,7 +107,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		CharID id = getCharID();
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNull(xpt);
+		assertThat(xpt, nullValue());
 	}
 	
 	@Test
@@ -114,8 +119,8 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		CharID id = getCharID();
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNotNull(xpt);
-		assertSame(li, xpt);
+		assertThat(xpt, notNullValue());
+		assertThat(xpt, sameInstance(li));
 	}
 	
 

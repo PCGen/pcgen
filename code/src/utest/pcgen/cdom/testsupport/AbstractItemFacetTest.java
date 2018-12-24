@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.testsupport;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -27,7 +27,11 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
-public abstract class AbstractItemFacetTest<T> extends TestCase
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public abstract class AbstractItemFacetTest<T>
 {
 	private CharID id;
 	private CharID altid;
@@ -37,8 +41,8 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	public class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
-		public int addEventCount;
-		public int removeEventCount;
+		private int addEventCount;
+		private int removeEventCount;
 
         @Override
 		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
@@ -54,10 +58,9 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 
 	}
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -66,17 +69,18 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 
 	private void assertEventCount(int a, int r)
 	{
-		assertEquals(a, listener.addEventCount);
-		assertEquals(r, listener.removeEventCount);
+		assertThat(listener.addEventCount, is(a));
+		assertThat(listener.removeEventCount, is(r));
 	}
 
 	@Test
 	public void testItemUnsetEmpty()
 	{
-		assertNull(getFacet().get(id));
-		assertTrue(getFacet().matches(id, null));
+		assertThat(getFacet().get(id), nullValue());
+		assertThat(getFacet().matches(id, null), is(true));
 	}
 
+	@Test
 	public void testListeners()
 	{
 		Listener newL = new Listener();
@@ -88,50 +92,50 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		getFacet().removeDataFacetChangeListener(listener);
 		// Note assert event count works because no new events added
 		testItemSetGet();
-		assertEquals(2, newL.addEventCount);
-		assertEquals(1, newL.removeEventCount);
+		assertThat(newL.addEventCount, is(2));
+		assertThat(newL.removeEventCount, is(1));
 		Listener thirdL = new Listener();
 		getFacet().addDataFacetChangeListener(thirdL);
 		Listener fourthL = new Listener();
 		getFacet().addDataFacetChangeListener(fourthL);
 		// Note assert event count works because no new events added
 		testItemSetGet();
-		assertEquals(3, newL.addEventCount);
-		assertEquals(2, newL.removeEventCount);
-		assertEquals(1, thirdL.addEventCount);
-		assertEquals(1, thirdL.removeEventCount);
-		assertEquals(1, fourthL.addEventCount);
-		assertEquals(1, fourthL.removeEventCount);
+		assertThat(newL.addEventCount, is(3));
+		assertThat(newL.removeEventCount, is(2));
+		assertThat(thirdL.addEventCount, is(1));
+		assertThat(thirdL.removeEventCount, is(1));
+		assertThat(fourthL.addEventCount, is(1));
+		assertThat(fourthL.removeEventCount, is(1));
 		// Remove middle
 		getFacet().removeDataFacetChangeListener(thirdL);
 		// Note assert event count works because no new events added
 		testItemSetGet();
-		assertEquals(4, newL.addEventCount);
-		assertEquals(3, newL.removeEventCount);
-		assertEquals(1, thirdL.addEventCount);
-		assertEquals(1, thirdL.removeEventCount);
-		assertEquals(2, fourthL.addEventCount);
-		assertEquals(2, fourthL.removeEventCount);
+		assertThat(newL.addEventCount, is(4));
+		assertThat(newL.removeEventCount, is(3));
+		assertThat(thirdL.addEventCount, is(1));
+		assertThat(thirdL.removeEventCount, is(1));
+		assertThat(fourthL.addEventCount, is(2));
+		assertThat(fourthL.removeEventCount, is(2));
 		// Remove added last
 		getFacet().removeDataFacetChangeListener(fourthL);
 		// Note assert event count works because no new events added
 		testItemSetGet();
-		assertEquals(5, newL.addEventCount);
-		assertEquals(4, newL.removeEventCount);
-		assertEquals(1, thirdL.addEventCount);
-		assertEquals(1, thirdL.removeEventCount);
-		assertEquals(2, fourthL.addEventCount);
-		assertEquals(2, fourthL.removeEventCount);
+		assertThat(newL.addEventCount, is(5));
+		assertThat(newL.removeEventCount, is(4));
+		assertThat(thirdL.addEventCount, is(1));
+		assertThat(thirdL.removeEventCount, is(1));
+		assertThat(fourthL.addEventCount, is(2));
+		assertThat(fourthL.removeEventCount, is(2));
 		// Remove only
 		getFacet().removeDataFacetChangeListener(newL);
 		// Note assert event count works because no new events added
 		testItemSetGet();
-		assertEquals(5, newL.addEventCount);
-		assertEquals(4, newL.removeEventCount);
-		assertEquals(1, thirdL.addEventCount);
-		assertEquals(1, thirdL.removeEventCount);
-		assertEquals(2, fourthL.addEventCount);
-		assertEquals(2, fourthL.removeEventCount);
+		assertThat(newL.addEventCount, is(5));
+		assertThat(newL.removeEventCount, is(4));
+		assertThat(thirdL.addEventCount, is(1));
+		assertThat(thirdL.removeEventCount, is(1));
+		assertThat(fourthL.addEventCount, is(2));
+		assertThat(fourthL.removeEventCount, is(2));
 	}
 
 	@Test
@@ -149,7 +153,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 			 */
 			// fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException ignored)
 		{
 			// Yep!
 		}
@@ -166,7 +170,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		try
 		{
 			getFacet().set(null, t1);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -181,10 +185,10 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	{
 		T t1 = getItem();
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertThat(getFacet().get(id), is(t1));
 		assertEventCount(1, 0);
 		// No cross-pollution
-		assertNull(getFacet().get(altid));
+		assertThat(getFacet().get(altid), nullValue());
 	}
 
 	@Test
@@ -192,11 +196,11 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	{
 		T t1 = getItem();
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertThat(getFacet().get(id), is(t1));
 		assertEventCount(1, 0);
 		// Set same, still only set (and only one event)
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertThat(getFacet().get(id), is(t1));
 		assertEventCount(1, 0);
 	}
 
@@ -205,19 +209,19 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	{
 		T t1 = getItem();
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertThat(getFacet().get(id), is(t1));
 		assertEventCount(1, 0);
 		T t2 = getItem();
 		getFacet().set(id, t2);
-		assertEquals(t2, getFacet().get(id));
+		assertThat(getFacet().get(id), is(t2));
 		assertEventCount(2, 1);
 		// Remove
 		getFacet().remove(id);
-		assertNull(getFacet().get(id));
+		assertThat(getFacet().get(id), nullValue());
 		assertEventCount(2, 2);
 		// But only one remove event
 		getFacet().remove(id);
-		assertNull(getFacet().get(id));
+		assertThat(getFacet().get(id), nullValue());
 		assertEventCount(2, 2);
 	}
 
@@ -225,21 +229,21 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	public void testItemMatches()
 	{
 		T t1 = getItem();
-		assertFalse(getFacet().matches(id, t1));
+		assertThat(getFacet().matches(id, t1), is(false));
 		getFacet().set(id, t1);
-		assertTrue(getFacet().matches(id, t1));
+		assertThat(getFacet().matches(id, t1), is(true));
 		getFacet().remove(id);
-		assertFalse(getFacet().matches(id, t1));
-		assertNull(getFacet().get(id));
-		assertTrue(getFacet().matches(id, null));
+		assertThat(getFacet().matches(id, t1), is(false));
+		assertThat(getFacet().get(id), nullValue());
+		assertThat(getFacet().matches(id, null), is(true));
 	}
 
 	@Test
 	public void testCopyContentsNone()
 	{
 		getFacet().copyContents(altid, id);
-		assertNull(getFacet().get(id));
-		assertTrue(getFacet().matches(id, null));
+		assertThat(getFacet().get(id), nullValue());
+		assertThat(getFacet().matches(id, null), is(true));
 	}
 
 	@Test
@@ -249,10 +253,10 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		T t2 = getItem();
 		getFacet().set(id, t1);
 		getFacet().copyContents(id, altid);
-		assertEquals(t1, getFacet().get(altid));
+		assertThat(getFacet().get(altid), is(t1));
 		// Prove independence (remove from id)
 		getFacet().set(id, t2);
-		assertEquals(t1, getFacet().get(altid));
+		assertThat(getFacet().get(altid), is(t1));
 	}
 
 	@Test
@@ -261,12 +265,12 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		T t1 = getItem();
 		getFacet().set(id, t1);
 		getFacet().copyContents(id, altid);
-		assertEquals(t1, getFacet().get(altid));
+		assertThat(getFacet().get(altid), is(t1));
 		// Prove Independence (remove from altid)
 		getFacet().remove(altid);
-		assertEquals(t1, getFacet().get(id));
-		assertNull(getFacet().get(altid));
-		assertTrue(getFacet().matches(altid, null));
+		assertThat(getFacet().get(id), is(t1));
+		assertThat(getFacet().get(altid), nullValue());
+		assertThat(getFacet().matches(altid, null), is(true));
 	}
 
 	protected abstract AbstractItemFacet<CharID, T> getFacet();

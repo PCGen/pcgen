@@ -17,12 +17,15 @@
  */
 package pcgen.cdom.facet.fact;
 
-import org.junit.Test;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
+
+import org.junit.Test;
 
 public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 {
@@ -40,14 +43,14 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testHeightUnsetZero()
 	{
-		assertEquals(0, facet.getHeight(id));
+		assertThat(facet.getHeight(id), is(0));
 	}
 
 	@Test
 	public void testHeightSetZeroValid()
 	{
 		facet.setHeight(id, 0);
-		assertEquals(0, facet.getHeight(id));
+		assertThat(facet.getHeight(id), is(0));
 	}
 
 	@Test
@@ -63,9 +66,9 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	public void testRemoveHeight()
 	{
 		facet.setHeight(id, 25);
-		assertEquals(25, facet.getHeight(id));
+		assertThat(facet.getHeight(id), is(25));
 		facet.removeHeight(id);
-		assertEquals(0, facet.getHeight(id));
+		assertThat(facet.getHeight(id), is(0));
 	}
 
 	@Override

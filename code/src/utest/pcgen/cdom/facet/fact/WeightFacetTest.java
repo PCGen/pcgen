@@ -17,6 +17,11 @@
  */
 package pcgen.cdom.facet.fact;
 
+import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
+
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -40,14 +45,14 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testWeightUnsetZero()
 	{
-		assertEquals(0, facet.getWeight(id));
+		assertThat(facet.getWeight(id), is(0));
 	}
 
 	@Test
 	public void testWeightSetZeroValid()
 	{
 		facet.setWeight(id, 0);
-		assertEquals(0, facet.getWeight(id));
+		assertThat(facet.getWeight(id), is(0));
 	}
 
 	@Test
@@ -63,9 +68,9 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	public void testRemoveWeight()
 	{
 		facet.setWeight(id, 25);
-		assertEquals(25, facet.getWeight(id));
+		assertThat(facet.getWeight(id), is(25));
 		facet.removeWeight(id);
-		assertEquals(0, facet.getWeight(id));
+		assertThat(facet.getWeight(id), is(0));
 	}
 
 	@Override

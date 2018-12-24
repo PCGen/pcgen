@@ -17,12 +17,15 @@
  */
 package pcgen.cdom.facet.fact;
 
-import org.junit.Test;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
+
+import org.junit.Test;
 
 public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 {
@@ -48,13 +51,13 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testItemSetMultGetAge()
 	{
-		assertEquals(0, facet.getAge(id));
+		assertThat(facet.getAge(id), is(0));
 		getFacet().set(id, 4);
-		assertEquals(4, facet.getAge(id));
+		assertThat(facet.getAge(id), is(4));
 		getFacet().set(id, 2);
-		assertEquals(2, facet.getAge(id));
+		assertThat(facet.getAge(id), is(2));
 		// Remove
 		getFacet().remove(id);
-		assertEquals(0, facet.getAge(id));
+		assertThat(facet.getAge(id), is(0));
 	}
 }
