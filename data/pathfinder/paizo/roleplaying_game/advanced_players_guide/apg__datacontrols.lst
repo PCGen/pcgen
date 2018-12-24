@@ -342,6 +342,7 @@ FACTDEF:ABILITY|Summoner_CF_ShareSpells				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECT
 
 
 # Witch
+FACTDEF:ABILITY|Witch_Archetype_WeaponProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponProficiencies	EXPLANATION:Determines whether the archetype affects - WeaponProficiencies
 FACTDEF:ABILITY|Witch_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
 FACTDEF:ABILITY|Witch_Archetype_Familiar				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Familiar			EXPLANATION:Determines whether the archetype affects - Familiar
 FACTDEF:ABILITY|Witch_Archetype_Cantrips				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Cantrips			EXPLANATION:Determines whether the archetype affects - Cantrips
