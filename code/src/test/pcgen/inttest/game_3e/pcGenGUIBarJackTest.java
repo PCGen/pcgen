@@ -21,25 +21,14 @@ package pcgen.inttest.game_3e;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
+import org.junit.Test;
+
 /**
  * Tests a 3e 4th lvl Gnome Barbarian
  */
-@SuppressWarnings("nls")
 public class pcGenGUIBarJackTest extends PcgenFtlTestCase
 {
-	/**
-	 * Default constructor
-	 */
-	public pcGenGUIBarJackTest()
-	{
-		super("3e_barjack");
-	}
-
-	/**
-	 * Main test case.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testBarJack() throws Exception
 	{
 		runTest("3e_BarJack", "3e");

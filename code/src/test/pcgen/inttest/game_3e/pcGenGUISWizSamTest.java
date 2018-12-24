@@ -21,29 +21,17 @@ import java.io.IOException;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
+import org.junit.Test;
+
 /**
  * Tests a 3e 1st level Halfling Wizard(Transmuter).
  * 
  * See PCG file for details.
  */
-@SuppressWarnings("nls")
+
 public class pcGenGUISWizSamTest extends PcgenFtlTestCase
 {
-	/** 
-	 * Standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUISWizSamTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Run test.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
+	@Test
 	public void testSWizSam() throws IOException
 	{
 		runTest("3e_SWizSam", "3e");

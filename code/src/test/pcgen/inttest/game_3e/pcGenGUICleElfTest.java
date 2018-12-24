@@ -21,27 +21,14 @@ package pcgen.inttest.game_3e;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
+import org.junit.Test;
+
 /**
  * Tests a 3e 2nd level Elf Cleric Law and Protection domains.
  */
-@SuppressWarnings("nls")
 public class pcGenGUICleElfTest extends PcgenFtlTestCase
 {
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name No Idea.
-	 */
-	public pcGenGUICleElfTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Load and output the character.
-	 * 
-	 * @throws Exception If there is a problem.
-	 */
+	@Test
 	public void testCleElf() throws Exception
 	{
 		runTest("3e_CleElf", "3e");
