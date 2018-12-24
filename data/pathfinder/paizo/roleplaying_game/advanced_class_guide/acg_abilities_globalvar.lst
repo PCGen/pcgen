@@ -90,6 +90,7 @@ CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_FastMovement|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodSanctuary|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodCasting|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_EschewMaterials|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_Spells|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_DamageReduction|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_GreaterBloodrage|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_IndomitableWill|0
@@ -113,6 +114,7 @@ CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|B
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodSanctuary|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodSanctuary=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodCasting=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_EschewMaterials|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_EschewMaterials=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Spells=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_DamageReduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_DamageReduction=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_GreaterBloodrage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_GreaterBloodrage=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_IndomitableWill|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_IndomitableWill=True
