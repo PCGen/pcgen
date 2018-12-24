@@ -357,6 +357,13 @@ task rsrdinttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/game_35e/*Test.class'
 }
 
+task srdinttest(type: Test, dependsOn: 'jar') {
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
+    classpath = sourceSets.slowtest.runtimeClasspath
+    forkEvery = 1
+    include 'pcgen/inttest/game_3e/*Test.class'
+}
+
 task msrdinttest(type: Test, dependsOn: 'jar') {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
