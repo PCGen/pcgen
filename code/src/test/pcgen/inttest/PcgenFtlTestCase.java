@@ -21,13 +21,11 @@ package pcgen.inttest;
  * PcgenFtlTestCase is a base class for tests which use the FreeMarker
  * base template to produce an XML output for a character and then compare that
  * output with the expected result.
- * 
- * 
  */
 public abstract class PcgenFtlTestCase extends PcGenGUITestCase
 {
 
-	public PcgenFtlTestCase(String name)
+	protected PcgenFtlTestCase(String name)
 	{
 		super(name);
 	}

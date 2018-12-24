@@ -29,6 +29,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedValue;
@@ -79,7 +80,6 @@ import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ArmorClassFacet;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
-import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerOptionFacet;
 import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
@@ -130,7 +130,6 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.AgeSet;
 import pcgen.core.ArmorProf;
 import pcgen.core.BioSet;
@@ -193,7 +192,6 @@ public class CharacterDisplay
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
-	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 	private BaseMovementFacet baseMovementFacet = FacetLibrary.getFacet(BaseMovementFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
@@ -478,15 +476,11 @@ public class CharacterDisplay
 		return getVisibleToTemplateList(View.VISIBLE_DISPLAY);
 	}
 
-	private List<PCTemplate> getVisibleToTemplateList(View v)
+	private List<PCTemplate> getVisibleToTemplateList(View view)
 	{
-		List<PCTemplate> tl = new ArrayList<>();
-
-		Collection<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities::compareKeys);
-		templateFacet.getSet(id).stream().filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			.forEach(treeSet::add);
-		tl.addAll(treeSet);
-		return tl;
+		return templateFacet.getSet(id).stream()
+		             .filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
+		             .collect(Collectors.toList());
 	}
 
 	/**
@@ -739,23 +733,18 @@ public class CharacterDisplay
 	 * Retrieve those skills in the character's skill list that match the
 	 * supplied visibility level.
 	 * 
-	 * @param v What level of visibility skills are desired.
+	 * @param view What level of visibility skills are desired.
 	 * 
 	 * @return A list of the character's skills matching the visibility
 	 *         criteria.
 	 */
-	public List<Skill> getPartialSkillList(View v)
+	public List<Skill> getPartialSkillList(View view)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<>();
-		for (Skill po : skillFacet.getSet(id))
-		{
-			if (po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				aList.add(po);
-			}
-		}
-		return aList;
+		return skillFacet.getSet(id)
+		                 .stream()
+		                 .filter(skill -> skill.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
+		                 .collect(Collectors.toList());
 	}
 
 	/**
@@ -1093,15 +1082,10 @@ public class CharacterDisplay
 			return false;
 		}
 
-		for (Equipment eqI : secondaryWeaponFacet.getSet(id))
-		{
-			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return secondaryWeaponFacet.getSet(id)
+		                           .stream()
+		                           .anyMatch(eqI -> eqI.getName().equalsIgnoreCase(eq.getName()) && (
+				                           eqI.getLocation() == eq.getLocation()));
 	}
 
 	/**
@@ -1146,15 +1130,10 @@ public class CharacterDisplay
 			return false;
 		}
 
-		for (Equipment eqI : primaryWeaponFacet.getSet(id))
-		{
-			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return primaryWeaponFacet.getSet(id)
+		                         .stream()
+		                         .anyMatch(eqI -> eqI.getName().equalsIgnoreCase(eq.getName()) && (
+				                         eqI.getLocation() == eq.getLocation()));
 	}
 
 	public int minXPForNextECL()
@@ -1263,11 +1242,6 @@ public class CharacterDisplay
 	public boolean hasEquipSet()
 	{
 		return !equipSetFacet.isEmpty(id);
-	}
-
-	public boolean hasCharacterSpells(CDOMObject cdo)
-	{
-		return activeSpellsFacet.containsFrom(id, cdo);
 	}
 
 	public Collection<? extends CharacterSpell> getCharacterSpells(CDOMObject cdo)
@@ -1607,11 +1581,6 @@ public class CharacterDisplay
 		return statCalcFacet.getBaseStatFor(id, stat);
 	}
 
-	public int getTemplateCount()
-	{
-		return templateFacet.getCount(id);
-	}
-
 	public int getFollowerCount()
 	{
 		return followerFacet.getCount(id);
@@ -1635,11 +1604,6 @@ public class CharacterDisplay
 	public double movementOfType(final String moveType)
 	{
 		return moveResultFacet.movementOfType(id, moveType);
-	}
-
-	public boolean containsNote(NoteItem note)
-	{
-		return noteItemFacet.contains(id, note);
 	}
 
 	public int getNotesCount()
@@ -1688,11 +1652,6 @@ public class CharacterDisplay
 	public Float getRank(Skill sk)
 	{
 		return skillRankFacet.getRank(id, sk);
-	}
-
-	public List<WeaponProf> getWeaponProfsInTarget(CDOMGroupRef<WeaponProf> master)
-	{
-		return changeProfFacet.getWeaponProfsInTarget(id, master);
 	}
 
 	/**

@@ -2,8 +2,8 @@
  */
 package pcgen.inttest.game_pathfinder;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import java.io.IOException;
+
 import pcgen.inttest.PcgenFtlTestCase;
 
 /**
@@ -13,29 +13,9 @@ import pcgen.inttest.PcgenFtlTestCase;
 @SuppressWarnings("nls")
 public class pcGenGUIPfrpgGoldielocksTest extends PcgenFtlTestCase
 {
-
-
 	public pcGenGUIPfrpgGoldielocksTest()
 	{
 		super("pf_goldielocks");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUIPfrpgGoldielocksTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIPfrpgGoldielocksTest.class);
 	}
 
 	/**
@@ -43,7 +23,7 @@ public class pcGenGUIPfrpgGoldielocksTest extends PcgenFtlTestCase
 	 * 
 	 * @throws Exception If an error occurs.
 	 */
-	public void testCode() throws Exception
+	public void testCode() throws IOException
 	{
 		runTest("pf_goldielocks", "Pathfinder_RPG");
 	}
