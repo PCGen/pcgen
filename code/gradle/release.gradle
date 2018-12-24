@@ -250,7 +250,7 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToOutput) {
 task genDataList doLast {
     //TODO: find a way to move it to ext section.
     // The list of publishers - add an entry here to correct a reported missing publisher
-    Map<String,String> publisherMap  = new HashMap<String,String>();
+    Map<String,String> publisherMap  = new TreeMap<String,String>();
     publisherMap.put("12_to_midnight","12 to Midnight");
     publisherMap.put("alderac_entertainment_group","Alderac Entertainment Group");
     publisherMap.put("alderac_ent_group","Alderac Entertainment Group");
@@ -330,8 +330,9 @@ task genDataList doLast {
     ignoreList.add("homebrew");
     ignoreList.add("zen_test");
     ignoreList.add("customsources");
-    ignoreList.add("_images");
     ignoreList.add("_universal");
+    ignoreList.add("_images");
+    ignoreList.add("publisher_logos");
     new File("${projectDir}/data").eachDir{ 
         if (ignoreList.contains(it.name))
         {
