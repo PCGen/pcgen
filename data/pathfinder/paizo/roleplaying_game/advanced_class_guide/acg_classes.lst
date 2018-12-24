@@ -45,13 +45,15 @@ CLASS:Bloodrager	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bloodrager|Caster_L
 1	ABILITY:Class|AUTOMATIC|Bloodrager
 ###Block: Level Progression
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Weapon and Armor Proficiency
-1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Bloodline|PREVAREQ:Bloodrager_CF_Bloodline,0
+1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Standard Bloodline|PREVAREQ:Bloodrager_CF_Bloodline,0
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Bloodrage|PREVAREQ:Bloodrager_CF_Bloodrage,0
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Fast Movement|PREVAREQ:Bloodrager_CF_FastMovement,0
 2	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Uncanny Dodge Tracker
 3	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Blood Sanctuary|PREVAREQ:Bloodrager_CF_BloodSanctuary,0
 4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Blood Casting|PREVAREQ:Bloodrager_CF_BloodCasting,0
 4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Eschew Materials|PREVAREQ:Bloodrager_CF_EschewMaterials,0
+4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Spells|PREVAREQ:Bloodrager_CF_Spells,0
+5	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Improved Uncanny Dodge|PREVAREQ:PREVAREQ:Bloodrager_CF_ImprovedUncannyDodge,0
 7	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Damage Reduction|PREVAREQ:Bloodrager_CF_DamageReduction,0
 11	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Greater Bloodrage|PREVAREQ:Bloodrager_CF_GreaterBloodrage,0
 14	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Indomitable Will|PREVAREQ:Bloodrager_CF_IndomitableWill,0
