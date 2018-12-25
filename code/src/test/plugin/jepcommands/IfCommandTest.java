@@ -17,57 +17,35 @@
  */
 package plugin.jepcommands;
 
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.Stack;
 
-import pcgen.PCGenTestCase;
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.Test;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
  * {@code IfCommandTest} tests the functioning of the jep if plugin
  */
-public class IfCommandTest extends PCGenTestCase
+public class IfCommandTest
 {
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(IfCommandTest.class);
-	}
-
-    @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-
-    }
-
-    private static boolean runIf(final Stack stack, final PostfixMathCommandI pCommand)
+    private static void runIf(final Stack stack, final PostfixMathCommandI pCommand)
     {
-        boolean b;
         try
         {
             pCommand.run(stack);
-            b = true;
         }
-        catch (ParseException e)
+        catch (ParseException ignored)
         {
-            b = false;
         }
-        return b;
     }
 
     /* Test the case where the condition is a zero double */
-    public void testIf01()
+    @Test
+    public void testIf01() throws ParseException
     {
         final PostfixMathCommandI   c = new IfCommand();
         final Stack<Double>         s = new Stack<>();
@@ -84,6 +62,7 @@ public class IfCommandTest extends PCGenTestCase
     }
 
     /* Test the case where the condition is a non zero double */
+    @Test
     public void testIf02()
     {
         final PostfixMathCommandI   c = new IfCommand();
@@ -101,6 +80,7 @@ public class IfCommandTest extends PCGenTestCase
     }
 
     /* Test the case where the condition is a false boolean */
+    @Test
     public void testIf03()
     {
         final PostfixMathCommandI   c = new IfCommand();
@@ -114,10 +94,11 @@ public class IfCommandTest extends PCGenTestCase
 
         final Boolean result = s.pop();
 
-        is(result, eq(true), "if (false,false,true) returns true");
+        assertThat("if (false,false,true) returns true", result, is(true));
     }
 
     /* Test the case where the condition is a true boolean */
+    @Test
     public void testIf04()
     {
         final PostfixMathCommandI   c = new IfCommand();
@@ -131,6 +112,6 @@ public class IfCommandTest extends PCGenTestCase
 
         final Boolean result = s.pop();
 
-        is(result, eq(false), "if (true,false,true) returns false");
+        assertThat("if (true,false,true) returns true", result, is(false));
     }
 }
