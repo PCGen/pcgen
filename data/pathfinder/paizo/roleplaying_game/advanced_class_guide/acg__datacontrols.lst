@@ -66,6 +66,7 @@ FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat12				DATAFORMAT:BOOLEAN	REQUI
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat15				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat18				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_ArmorProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_Spells					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_UncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_ImprovedUncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
@@ -85,6 +86,7 @@ FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineSpell16				DATAFORMAT:BOOLEAN	REQU
 FACTDEF:ABILITY|Bloodrager_CF_UncannyDodge					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ImprovedUncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ArmorProficiency					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_Spells						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_Bloodline						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
@@ -112,8 +114,9 @@ FACTDEF:ABILITY|Bloodrager_CF_BloodlinePower20					DATAFORMAT:BOOLEAN	REQUIRED:N
 
 
 # Brawler
-FACTDEF:ABILITY|Brawler_Archetype_Proficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - WeaponProficiencies
-FACTDEF:ABILITY|Brawler_Archetype_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_Proficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Brawler_Archetype_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ArmorProficiencies
+FACTDEF:ABILITY|Brawler_Archetype_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - WeaponProficiencies
 FACTDEF:ABILITY|Brawler_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ClassSkills
 FACTDEF:ABILITY|Brawler_Archetype_UnarmedStrike					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - UnarmedStrike
 FACTDEF:ABILITY|Brawler_Archetype_BrawlersCunning				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - BrawlersCunning
@@ -138,6 +141,8 @@ FACTDEF:ABILITY|Brawler_Archetype_BonusFeat20					DATAFORMAT:BOOLEAN	REQUIRED:NO
 
 
 
+FACTDEF:ABILITY|Brawler_CF_Proficiencies						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:WeaponProficiencies
+FACTDEF:ABILITY|Brawler_CF_ArmorProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:WeaponProficiencies
 FACTDEF:ABILITY|Brawler_CF_WeaponProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:WeaponProficiencies
 FACTDEF:ABILITY|Brawler_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:ClassSkills
 FACTDEF:ABILITY|Brawler_CF_UnarmedStrike						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:UnarmedStrike
