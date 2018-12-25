@@ -167,6 +167,19 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**
+	 * Ensures that the path specified exists.
+	 *
+	 * @param  path  the {@code File} representing the path
+	 */
+	private static void ensurePathExists(final File path)
+	{
+		if (path != null && !path.exists())
+		{
+			path.mkdirs();
+		}
+	}
+
+	/**
 	 * Sets the active Initiative to be the passed in value
 	 *
 	 * @param init - The new Active Initiative value
@@ -1675,13 +1688,13 @@ public class Initiative extends javax.swing.JPanel
 
 					if (choice == JOptionPane.YES_OPTION)
 					{
-						SettingsHandler.ensurePathExists(xml.getParentFile());
+						ensurePathExists(xml.getParentFile());
 						saveToDocument(xml);
 					}
 				}
 				else
 				{
-					SettingsHandler.ensurePathExists(xml.getParentFile());
+					ensurePathExists(xml.getParentFile());
 					saveToDocument(xml);
 				}
 			}
