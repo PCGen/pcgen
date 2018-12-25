@@ -3,8 +3,9 @@ package pcgen.util;
 import pcgen.PCGenTestCase;
 import pcgen.core.term.TermEvaulatorException;
 
+import org.junit.Test;
+
 /**
- * TermUtilities Tester.
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -20,40 +21,21 @@ import pcgen.core.term.TermEvaulatorException;
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 10/04/2008
  */
 
 public class TermUtilitiesTest extends PCGenTestCase
 {
-
-	public TermUtilitiesTest(String name)
-	{
-		super(name);
-	}
-
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	@Override
-	public void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
-
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray01()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED"};
+			String[] types = {"EQUIPPED"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -66,13 +48,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray02()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOTEQUIPPED"};
+			String[] types = {"NOTEQUIPPED"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -85,13 +68,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray03()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED", "FOO"};
+			String[] types = {"EQUIPPED", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -104,13 +88,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray04()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"BAR", "NOT", "FOO"};
+			String[] types = {"BAR", "NOT", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.NOT.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -123,13 +108,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray05()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"BAR", "ADD", "FOO"};
+			String[] types = {"BAR", "ADD", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.ADD.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -142,13 +128,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray06()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"BAR", "IS", "FOO"};
+			String[] types = {"BAR", "IS", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.IS.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -161,13 +148,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray07()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
+			String[] types = {"QUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.QUX.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -180,13 +168,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEqTypeTypesArray08()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
+			String[] types = {"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.QUUX.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -199,13 +188,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray01()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED"};
+			String[] types = {"EQUIPPED"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.EQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -218,13 +208,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray02()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOTEQUIPPED"};
+			String[] types = {"NOTEQUIPPED"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOTEQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -237,13 +228,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray03()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED", "FOO"};
+			String[] types = {"EQUIPPED", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.EQUIPPED.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -256,13 +248,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray04()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO"};
+			String[] types = {"NOT", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -275,13 +268,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray05()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"ADD", "FOO"};
+			String[] types = {"ADD", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.ADD.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -294,13 +288,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray06()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"IS", "FOO"};
+			String[] types = {"IS", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.IS.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -313,13 +308,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray07()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
+			String[] types = {"NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -332,13 +328,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
+	@Test
 	public void testcheckEquipmentTypesArray08()
 	{
 		boolean ok;
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
+			String[] types = {"NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
 		}
 		catch (TermEvaulatorException e)
@@ -352,6 +349,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testSplitAndConvertIntegers01()
 	{
 		boolean ok;
@@ -361,11 +359,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = true;
 			nums = TermUtilities.splitAndConvertIntegers("Test:3", "3", 1);
 		}
-		catch (NumberFormatException e)
-		{
-			ok = false;
-		}
-		catch (TermEvaulatorException e)
+		catch (NumberFormatException | TermEvaulatorException e)
 		{
 			ok = false;
 		}
@@ -376,6 +370,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testSplitAndConvertIntegers02()
 	{
 		boolean ok;
@@ -385,11 +380,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = true;
 			nums = TermUtilities.splitAndConvertIntegers("Test:3.57", "3.57", 2);
 		}
-		catch (NumberFormatException e)
-		{
-			ok = false;
-		}
-		catch (TermEvaulatorException e)
+		catch (NumberFormatException | TermEvaulatorException e)
 		{
 			ok = false;
 		}
@@ -402,6 +393,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testSplitAndConvertIntegers03()
 	{
 		boolean ok;
@@ -411,11 +403,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = true;
 			nums = TermUtilities.splitAndConvertIntegers("Test.3.57.67", "3.57.67", 3);
 		}
-		catch (NumberFormatException e)
-		{
-			ok = false;
-		}
-		catch (TermEvaulatorException e)
+		catch (NumberFormatException | TermEvaulatorException e)
 		{
 			ok = false;
 		}
@@ -429,6 +417,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testSplitAndConvertIntegers04()
 	{
 		boolean ok;
@@ -438,11 +427,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			TermUtilities.splitAndConvertIntegers(
 				"Test.3.57.67.foo", "3.57.67.foo", 3);
 		}
-		catch (NumberFormatException e)
-		{
-			ok = false;
-		}
-		catch (TermEvaulatorException e)
+		catch (NumberFormatException | TermEvaulatorException e)
 		{
 			ok = false;
 		}
@@ -453,16 +438,17 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
+	@Test
 	public void testExtractContentsOfBrackets01()
 	{
-		String orig = "COUNT[MARSHMALLOWS.FOO]";
 		String inside = "";
-		int length = orig.indexOf('[');
 
 		boolean ok;
 		try
 		{
 			ok = true;
+			String orig = "COUNT[MARSHMALLOWS.FOO]";
+			int length = orig.indexOf('[');
 			inside = TermUtilities.extractContentsOfBrackets(orig, "CLASS:Foo Bar", length + 1);
 		}
 		catch (TermEvaulatorException e)
@@ -477,15 +463,16 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
+	@Test
 	public void testExtractContentsOfBrackets02()
 	{
-		String orig = "COUNT[MARSHMALLOWS.FOO";
-		int length = orig.indexOf('[');
 
 		boolean ok;
 		try
 		{
 			ok = true;
+			String orig = "COUNT[MARSHMALLOWS.FOO";
+			int length = orig.indexOf('[');
 			TermUtilities.extractContentsOfBrackets(orig, "CLASS:Foo Bar", length + 1);
 		}
 		catch (TermEvaulatorException e)
@@ -499,15 +486,16 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
+	@Test
 	public void testExtractContentsOfBrackets03()
 	{
-		String orig = "COUNT[MARSHMALLOWS.FOO]B";
-		int length = orig.indexOf('[');
 
 		boolean ok;
 		try
 		{
 			ok = true;
+			String orig = "COUNT[MARSHMALLOWS.FOO]B";
+			int length = orig.indexOf('[');
 			TermUtilities.extractContentsOfBrackets(orig, "CLASS:Foo Bar", length + 1);
 		}
 		catch (TermEvaulatorException e)
@@ -522,6 +510,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testConvertToIntegers01()
 	{
 		boolean ok;
@@ -543,6 +532,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testConvertToIntegers02()
 	{
 		boolean ok;
@@ -565,6 +555,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testConvertToIntegers03()
 	{
 		boolean ok;
@@ -588,6 +579,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testConvertToIntegers04()
 	{
 		boolean ok;
@@ -607,6 +599,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 	/**
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
+	@Test
 	public void testConvertToIntegers05()
 	{
 		boolean ok;
