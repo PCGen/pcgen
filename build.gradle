@@ -251,34 +251,8 @@ task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar,
     rename "(.+)-$version(.+)", '$1$2'
 }
 
-task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.dir("$projectDir/libs")
-    inputs.files(fileTree("$buildDir/libs"))
-
-    from "$buildDir/libs"
-    into "$projectDir/libs"
-    exclude "pcgen-*.jar"
-}
-
-task installToRoot(type: Copy, dependsOn: [syncLibsToRoot, createExe, jar,
-                                           converterJar]) {
-    description="Copy the executable file into the root to create a working environment"
-    from "$buildDir/libs/pcgen-${version}.jar"
-    from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-    from "$buildDir/launch4j/pcgen.exe"
-    from "$projectDir/code/pcgen.bat"
-    from("$projectDir/code/pcgen.sh") {
-        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
-        fileMode 0755
-    }
-    into outputDir
-
-    rename "(.+)-$version(.+)", '$1$2'
-    mustRunAfter clean
-}
-
-task qbuild(type: Copy, dependsOn: [syncLibsToRoot, jar]) {
-    description="Copy the executable file into the root to create a working environment"
+task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
+    description="Copy the executable file into 'output' to create a working environment"
     from "$buildDir/libs/pcgen-${version}.jar"
 
     into outputDir
@@ -293,29 +267,22 @@ task cleanOutput(type: Delete) {
     delete outputDir
 }
 
-task cleanRoot(type: Delete) {
-    description="Clean up things copied to the root folder by the build"
-    delete "$projectDir/libs"
-    delete "$projectDir/jre"
-}
-
 // Alias tasks
 tasks.register("buildonly") {
-    dependsOn 'installToRoot'
+    dependsOn 'copyToOutput'
 }
+
 tasks.register("quickbuild") {
-    dependsOn 'installToRoot', 'test'
+    dependsOn 'copyToOutput', 'test'
 }
 
 build {
-    it.dependsOn 'copyToOutput', 'syncLibsToRoot'
-    mustRunAfter clean
+    it.dependsOn 'copyToOutput'
 }
 
 clean {
     it.dependsOn 'clean-plugins'
     it.dependsOn 'cleanOutput'
-    it.dependsOn 'cleanRoot'
 }
 
 test {
