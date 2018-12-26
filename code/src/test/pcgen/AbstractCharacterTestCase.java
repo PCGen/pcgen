@@ -46,12 +46,13 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Assert;
 
+import junit.framework.TestCase;
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
  */
 @SuppressWarnings("nls")
-public abstract class AbstractCharacterTestCase extends PCGenTestCase
+public abstract class AbstractCharacterTestCase extends TestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;

@@ -17,17 +17,47 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.PCGenTestCase;
+import pcgen.ControlTestSupport;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.core.system.LoadInfo;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestHelper;
 
+import junit.framework.TestCase;
 
-public class EquipmentUtilitiesTest extends PCGenTestCase
+
+public class EquipmentUtilitiesTest extends TestCase
 {
+
+	/**
+	 * Sets up some basic stuff that must be present for tests to work.
+	 */
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		final GameMode gamemode = new GameMode("3.5");
+		gamemode.setBonusFeatLevels("3|3");
+		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
+		gamemode.addLevelInfo("Normal", new LevelInfo());
+		gamemode.addXPTableName("Normal");
+		gamemode.setDefaultXPTableName("Normal");
+		gamemode.clearLoadContext();
+		LoadInfo loadable =
+				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
+						LoadInfo.class, gamemode.getName());
+		loadable.addLoadScoreValue(0, BigDecimal.ONE);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
+	}
+
 	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.appendToName(String, String)'
 	 */
