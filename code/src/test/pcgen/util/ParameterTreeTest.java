@@ -29,7 +29,7 @@ import java.util.regex.Matcher;
 import org.junit.jupiter.api.Test;
 import org.nfunk.jep.ParseException;
 
-class ParameterTreeTest
+public class ParameterTreeTest
 {
 	/**
 	 * Test method for {@link pcgen.util.ParameterTree#ParameterTree(java.lang.String)}.
@@ -274,6 +274,7 @@ class ParameterTreeTest
 		mat.find();
 
 		ParameterTree t = ParameterTree.makeTree(s);
+
 
 		final ParameterTree tl    = t.getLeftTree();
 		final ParameterTree tr    = t.getRightTree();
