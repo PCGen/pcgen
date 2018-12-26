@@ -17,12 +17,17 @@
  */
 package plugin.jepcommands;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Stack;
 
-import pcgen.PCGenTestCase;
+import pcgen.core.GameMode;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
+import pcgen.persistence.GameModeFileLoader;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.Before;
+import org.junit.Test;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
@@ -32,52 +37,37 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  * 
  * 
  */
-public class IsgamemodeCommandTest extends PCGenTestCase
+public class IsgamemodeCommandTest
 {
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test".
-	 * 
-	 * @return The Test suite
-	 */
-	public static Test suite()
+	@Before
+	public void setUp()
 	{
-		return new TestSuite(IsgamemodeCommandTest.class);
+		final GameMode gamemode = new GameMode("3.5");
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
 	}
-
-    @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-
-    }
-
     /**
      * Run isgamemode.
      * 
      * @param stack the stack
-     * 
-     * @return true, if successful
      */
-    private static boolean runIsgamemode(final Stack stack)
+    private static void runIsgamemode(final Stack<Object> stack)
     {
-        final PostfixMathCommandI   pCommand = new IsgamemodeCommand();
-        boolean b;
-        try
+	    try
         {
-            pCommand.run(stack);
-            b = true;
+	        final PostfixMathCommandI pCommand = new IsgamemodeCommand();
+	        pCommand.run(stack);
         }
-        catch (ParseException e)
+        catch (ParseException ignored)
         {
-            b = false;
         }
-        return b;
     }
 
     /**
      * Test is game mode true.
      */
+    @Test
     public void testIsGameModeTrue()
     {
         final Stack<Object>         s = new Stack<>();
@@ -88,12 +78,13 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 
         final Integer result = (Integer) s.pop();
 
-        is(result, eq(1), "isgamemode(\"3.5\") returns 1");
+        assertEquals("isgamemode(\"3.5\") returns 1", Integer.valueOf(1), result);
     }
 
     /**
      * Test is game mode false.
      */
+    @Test
     public void testIsGameModeFalse()
     {
         final Stack<Object>         s = new Stack<>();
@@ -104,6 +95,6 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 
         final Integer result = (Integer) s.pop();
 
-        is(result, eq(0), "isgamemode(\"3e\") returns 0");
+	    assertEquals("isgamemode(\"3e\") returns 0", Integer.valueOf(0), result);
     }
 }
