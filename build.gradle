@@ -214,6 +214,9 @@ jar {
         attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version,
                 'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
     }
+    from {
+        configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
+    }
 }
 
 task converterJar(type: Jar, dependsOn: jar) {
@@ -223,6 +226,10 @@ task converterJar(type: Jar, dependsOn: jar) {
     }
 
     archiveClassifier.set('batch-convert')
+    from {
+        configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
+    }
+
     from sourceSets.main.output
     include 'none'
 }
