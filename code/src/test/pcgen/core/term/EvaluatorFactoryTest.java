@@ -38,24 +38,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class EvaluatorFactoryTest extends PCGenTestCase
 {
-
-	public EvaluatorFactoryTest(String name)
-	{
-		super(name);
-	}
-
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	@Override
-	public void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
-
 	/**
 	 * Method: constructor()
 	 */
