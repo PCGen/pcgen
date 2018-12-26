@@ -72,8 +72,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			//is(pF.get(null), eqnull(), "");
-			//is(sF.get(null), eqnull(), "");
+			//assertNull("", pF.get(null));
+			//assertNull("", sF.get(null));
 
 			Pattern iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 			// noinspection unchecked
@@ -6443,7 +6443,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator056 evaluator is null");
+		assertNull("GetTermEvaluator056 evaluator is null", t);
 	}
 
 	/**
@@ -7435,7 +7435,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator081 evaluator is null");
+		assertNull("GetTermEvaluator081 evaluator is null", t);
 	}
 
 	/**
@@ -7659,7 +7659,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator087 evaluator is null");
+		assertNull("GetTermEvaluator087 evaluator is null", t);
 	}
 
 	/**
@@ -8414,7 +8414,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator104 evaluator is null");
+		assertNull("GetTermEvaluator104 evaluator is null", t);
 	}
 
 	/**
@@ -8428,7 +8428,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator105 evaluator is null");
+		assertNull("GetTermEvaluator105 evaluator is null", t);
 	}
 
 	/**
@@ -8442,7 +8442,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator106 evaluator is null");
+		assertNull("GetTermEvaluator106 evaluator is null", t);
 	}
 
 	/**
@@ -8594,7 +8594,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator110 evaluator is null");
+		assertNull("GetTermEvaluator110 evaluator is null", t);
 	}
 
 	/**
@@ -8608,7 +8608,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator111 evaluator is null");
+		assertNull("GetTermEvaluator111 evaluator is null", t);
 	}
 
 	/**
@@ -8622,7 +8622,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator112 evaluator is null");
+		assertNull("GetTermEvaluator112 evaluator is null", t);
 	}
 
 	/**
@@ -8636,7 +8636,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator113 evaluator is null");
+		assertNull("GetTermEvaluator113 evaluator is null", t);
 	}
 
 	/**
@@ -8650,7 +8650,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator114 evaluator is null");
+		assertNull("GetTermEvaluator114 evaluator is null", t);
 	}
 
 	/**
@@ -8805,7 +8805,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator118 evaluator is null");
+		assertNull("GetTermEvaluator118 evaluator is null", t);
 	}
 
 	/**
@@ -8866,7 +8866,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator120 evaluator is null");
+		assertNull("GetTermEvaluator120 evaluator is null", t);
 	}
 
 	/**
@@ -8880,7 +8880,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator121 evaluator is null");
+		assertNull("GetTermEvaluator121 evaluator is null", t);
 	}
 
 	/**
@@ -8894,7 +8894,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator122 evaluator is null");
+		assertNull("GetTermEvaluator122 evaluator is null", t);
 	}
 
 	/**
@@ -9462,7 +9462,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator134 evaluator is null");
+		assertNull("GetTermEvaluator134 evaluator is null", t);
 	}
 
 	/**
@@ -9476,7 +9476,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator135 evaluator is null");
+		assertNull("GetTermEvaluator135 evaluator is null", t);
 	}
 
 	/**
@@ -9612,7 +9612,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator139 evaluator is null");
+		assertNull("GetTermEvaluator139 evaluator is null", t);
 	}
 
 	/**
@@ -9669,7 +9669,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator141 evaluator is null");
+		assertNull("GetTermEvaluator141 evaluator is null", t);
 	}
 
 	/**
@@ -9726,7 +9726,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator143 evaluator is null");
+		assertNull("GetTermEvaluator143 evaluator is null", t);
 	}
 
 	/**
@@ -9740,7 +9740,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator144 evaluator is null");
+		assertNull("GetTermEvaluator144 evaluator is null", t);
 	}
 
 	/**
@@ -9754,7 +9754,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator145 evaluator is null");
+		assertNull("GetTermEvaluator145 evaluator is null", t);
 	}
 
 	/**
@@ -9869,7 +9869,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator148 evaluator is null");
+		assertNull("GetTermEvaluator148 evaluator is null", t);
 	}
 
 	/**
@@ -9883,7 +9883,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator149 evaluator is null");
+		assertNull("GetTermEvaluator149 evaluator is null", t);
 	}
 
 	/**
@@ -9897,7 +9897,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator150 evaluator is null");
+		assertNull("GetTermEvaluator150 evaluator is null", t);
 	}
 
 	/**
@@ -9911,7 +9911,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator151 evaluator is null");
+		assertNull("GetTermEvaluator151 evaluator is null", t);
 	}
 
 	/**
@@ -10131,7 +10131,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator157 evaluator is null");
+		assertNull("GetTermEvaluator157 evaluator is null", t);
 	}
 
 	/**
@@ -10629,7 +10629,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator170 evaluator is null");
+		assertNull("GetTermEvaluator170 evaluator is null", t);
 	}
 
 	/**
@@ -11651,7 +11651,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator195 evaluator is null");
+		assertNull("GetTermEvaluator195 evaluator is null", t);
 	}
 
 	/**
@@ -11665,7 +11665,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator196 evaluator is null");
+		assertNull("GetTermEvaluator196 evaluator is null", t);
 	}
 
 	/**
@@ -11679,7 +11679,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator197 evaluator is null");
+		assertNull("GetTermEvaluator197 evaluator is null", t);
 	}
 
 	/**
@@ -11693,7 +11693,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator198 evaluator is null");
+		assertNull("GetTermEvaluator198 evaluator is null", t);
 	}
 
 	/**
@@ -11707,7 +11707,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator199 evaluator is null");
+		assertNull("GetTermEvaluator199 evaluator is null", t);
 	}
 
 	/**
@@ -11721,7 +11721,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t, eqnull(), "GetTermEvaluator200 evaluator is null");
+		assertNull("GetTermEvaluator200 evaluator is null", t);
 	}
 
 	/**

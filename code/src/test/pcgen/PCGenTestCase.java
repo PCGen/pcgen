@@ -13,7 +13,6 @@ import pcgen.util.TestChecker;
 import pcgen.util.testchecker.CompareEqualBoolean;
 import pcgen.util.testchecker.CompareEqualInt;
 import pcgen.util.testchecker.CompareEqualString;
-import pcgen.util.testchecker.CompareNull;
 
 import junit.framework.TestCase;
 
@@ -114,8 +113,4 @@ public abstract class PCGenTestCase extends TestCase
 		return new CompareEqualInt(operand);
 	}
 
-	protected static CompareNull eqnull()
-	{
-		return new CompareNull();
-	}
 }
