@@ -56,7 +56,7 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Got correct undecorated name",
 			"foo",
 			AbilityUtilities.getUndecoratedName(name, specifics));
-		is(specifics.size(), eq(2), "First extracted decoration is correct");
+		assertEquals("Size of extracted decoration", 2, specifics.size());
 		assertEquals("First extracted decoration is correct", "bar", specifics.get(0));
 		assertEquals("Second extracted decoration is correct", "baz", specifics.get(1));
 	}
