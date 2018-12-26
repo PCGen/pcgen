@@ -9,10 +9,8 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
-import pcgen.util.TestChecker;
 
 import junit.framework.TestCase;
-import org.junit.Assert;
 
 /**
  * Test case base for PCGen.  This addresses a common bug with JUnit whereby
@@ -68,19 +66,5 @@ public abstract class PCGenTestCase extends TestCase
 	protected PCGenTestCase(final String name)
 	{
 		super(name);
-	}
-
-	protected void is(final Object something, final TestChecker matches, final String testCase)
-	{
-		if (!matches.check(something))
-		{
-
-			final StringBuilder message = new StringBuilder("\nExpected: ");
-			matches.scribe(message);
-			message.append("\nbut got: ").append(something);
-			message.append(" \nIn test ").append(testCase);
-
-			Assert.fail(message.toString());
-		}
 	}
 }
