@@ -290,11 +290,13 @@ task cleanRoot(type: Delete) {
 }
 
 // Alias tasks
-task buildonly(dependsOn: ['installToRoot']) {
+tasks.register("buildonly") {
+    dependsOn 'installToRoot'
+}
+tasks.register("quickbuild") {
+    dependsOn 'installToRoot', 'test'
 }
 
-task quickbuild(dependsOn: ['installToRoot', 'test']) {
-}
 
 build {
     it.dependsOn 'copyToOutput', 'syncLibsToRoot'
