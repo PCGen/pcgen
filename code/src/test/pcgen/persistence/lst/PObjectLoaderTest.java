@@ -22,9 +22,13 @@
  */
 package pcgen.persistence.lst;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
 
-import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -34,29 +38,27 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-public class PObjectLoaderTest extends PCGenTestCase
-{
-	public PObjectLoaderTest(String name)
-	{
-		super(name);
-	}
+import org.junit.Before;
+import org.junit.Test;
 
+public class PObjectLoaderTest
+{
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 */
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
 	}
 
+	@Test
 	public void testDefine() throws Exception
 	{
 		Ability feat = new Ability();
@@ -68,21 +70,15 @@ public class PObjectLoaderTest extends PCGenTestCase
 		assertEquals("0", feat.get(VariableKey.getConstant("Foo")).toString());
 	}
 
+	@Test
 	public void testBadDefine() throws Exception
 	{
 		Ability feat = new Ability();
-
-		try
-		{
-			is(Globals.getContext().processToken(feat, "DEFINE", "Foo"), eq(false),
-				"Parse fails for badly formed define");
-		}
-		catch (PersistenceLayerException ple)
-		{
-			fail("parseTag throws exception instead of passing back false");
-		}
+		assertFalse("Parse fails for badly formed define",
+				Globals.getContext().processToken(feat, "DEFINE", "Foo"));
 	}
 
+	@Test
 	public void testUnlockDefineStat() throws Exception
 	{
 		LoadContext context = Globals.getContext();
@@ -93,8 +89,8 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		Ability feat = new Ability();
 
-		is(context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), eq(true),
-			"Parse fails for unlock");
+		assertTrue("Parse fails for unlock",
+				context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"));
 		context.commit();
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		Logging.clearParseMessages();
@@ -104,15 +100,16 @@ public class PObjectLoaderTest extends PCGenTestCase
 		assertEquals("INT", statList.get(0).get().getKeyName());
 	}
 
+	@Test
 	public void testBadUnlockDefine() throws Exception
 	{
 		Ability feat = new Ability();
-
-		is(Globals.getContext()
-			.processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"), eq(false),
-			"Parse fails to catch bad unlock definestat");
+		assertFalse("Parse fails to catch bad unlock definestat",
+				Globals.getContext()
+				       .processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"));
 	}
 
+	@Test
 	public void testParsePreClear() throws Exception
 	{
 		PObject object = new PObject();
@@ -124,8 +121,8 @@ public class PObjectLoaderTest extends PCGenTestCase
 		assertEquals(2, list.size());
 
 		context.unconditionallyProcess(object, "PRE", Constants.LST_DOT_CLEAR);
-		list = object.getPrerequisiteList();
-		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", list);
-		assertTrue("Prereqlist should be empty after the clear", list.isEmpty());
+		List<Prerequisite> prerequisiteList = object.getPrerequisiteList();
+		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", prerequisiteList);
+		assertTrue("Prereqlist should be empty after the clear", prerequisiteList.isEmpty());
 	}
 }
