@@ -96,11 +96,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -134,11 +130,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -172,11 +164,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -210,11 +198,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -248,11 +232,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -286,11 +266,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -324,11 +300,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -362,11 +334,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -400,11 +368,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -438,11 +402,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -476,11 +436,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -514,11 +470,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -552,11 +504,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -590,11 +538,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -628,11 +572,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -666,11 +606,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -704,11 +640,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -742,11 +674,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -780,11 +708,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -818,11 +742,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -856,11 +776,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -894,11 +810,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -932,11 +844,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -970,11 +878,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1008,11 +912,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1046,11 +946,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1084,11 +980,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1122,11 +1014,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1160,11 +1048,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1198,11 +1082,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1236,11 +1116,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1274,11 +1150,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1312,11 +1184,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1350,11 +1218,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1388,11 +1252,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1426,11 +1286,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1464,11 +1320,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1502,11 +1354,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1540,11 +1388,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1578,11 +1422,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1616,11 +1456,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1654,11 +1490,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1692,11 +1524,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1730,11 +1558,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1768,11 +1592,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1806,11 +1626,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1844,11 +1660,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1882,11 +1694,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1920,11 +1728,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1958,11 +1762,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -1996,11 +1796,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2034,11 +1830,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2072,11 +1864,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2110,11 +1898,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2148,11 +1932,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2186,11 +1966,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2224,11 +2000,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2262,11 +2034,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2300,11 +2068,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2338,11 +2102,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2376,11 +2136,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2414,11 +2170,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2452,11 +2204,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2490,11 +2238,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2528,11 +2272,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2566,11 +2306,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2604,11 +2340,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2642,11 +2374,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2680,11 +2408,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2718,11 +2442,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2756,11 +2476,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2794,11 +2510,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2832,11 +2544,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2870,11 +2578,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2908,11 +2612,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2946,11 +2646,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -2984,11 +2680,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3022,11 +2714,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3060,11 +2748,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3098,11 +2782,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3136,11 +2816,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3174,11 +2850,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3212,11 +2884,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3250,11 +2918,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3288,11 +2952,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3326,11 +2986,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3364,11 +3020,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3402,11 +3054,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3440,11 +3088,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3478,11 +3122,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3516,11 +3156,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3554,11 +3190,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3592,11 +3224,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3630,11 +3258,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3668,11 +3292,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3706,11 +3326,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3744,11 +3360,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3782,11 +3394,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3820,11 +3428,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3858,11 +3462,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3896,11 +3496,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3934,11 +3530,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -3972,11 +3564,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4010,11 +3598,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4048,11 +3632,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4086,11 +3666,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4130,11 +3706,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4168,11 +3740,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4206,11 +3774,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4244,11 +3808,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4282,11 +3842,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4323,11 +3879,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4365,11 +3917,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4407,11 +3955,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4449,11 +3993,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4488,11 +4028,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4526,11 +4062,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4564,11 +4096,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4602,11 +4130,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4640,11 +4164,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4678,11 +4198,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4716,11 +4232,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4761,11 +4273,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4808,11 +4316,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4855,11 +4359,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4902,11 +4402,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4949,11 +4445,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -4996,11 +4488,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5043,11 +4531,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5090,11 +4574,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5137,11 +4617,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5184,11 +4660,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5231,11 +4703,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5278,11 +4746,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5325,11 +4789,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5372,11 +4832,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5419,11 +4875,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5466,11 +4918,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5506,11 +4954,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5544,11 +4988,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5583,11 +5023,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5621,11 +5057,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5659,11 +5091,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5697,11 +5125,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5735,11 +5159,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5774,11 +5194,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5812,11 +5228,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5850,11 +5262,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5889,11 +5297,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5927,11 +5331,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -5965,11 +5365,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6004,11 +5400,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6042,11 +5434,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6081,11 +5469,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6119,11 +5503,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6157,11 +5537,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6195,11 +5571,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6233,11 +5605,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6275,11 +5643,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (ClassSpellList) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6318,11 +5682,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6361,11 +5721,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6400,11 +5756,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6452,11 +5804,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6490,11 +5838,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6528,11 +5872,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6569,11 +5909,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6611,11 +5947,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6650,11 +5982,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6691,11 +6019,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6733,11 +6057,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6772,11 +6092,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6810,11 +6126,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6848,11 +6160,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6886,11 +6194,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6927,11 +6231,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -6970,11 +6270,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7012,11 +6308,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7055,11 +6347,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7094,11 +6382,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7132,11 +6416,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7173,11 +6453,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7215,11 +6491,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7257,11 +6529,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7299,11 +6567,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7344,11 +6608,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7390,11 +6650,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7447,11 +6703,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7489,11 +6741,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7531,11 +6779,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7573,11 +6817,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7615,11 +6855,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7671,11 +6907,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7713,11 +6945,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7758,11 +6986,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7804,11 +7028,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7850,11 +7070,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7896,11 +7112,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7942,11 +7154,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -7988,11 +7196,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8034,11 +7238,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8080,11 +7280,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8126,11 +7322,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8174,11 +7366,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8222,11 +7410,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8270,11 +7454,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8318,11 +7498,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8369,11 +7545,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8457,11 +7629,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8503,11 +7671,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8549,11 +7713,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8665,11 +7825,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8712,11 +7868,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8759,11 +7911,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8913,11 +8061,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -8964,11 +8108,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9014,11 +8154,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9064,11 +8200,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9115,11 +8247,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9166,11 +8294,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9217,11 +8341,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9268,11 +8388,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9319,11 +8435,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9367,11 +8479,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9416,11 +8524,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (String) pF2.get(t);
 			field3 = (String) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9488,11 +8592,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9530,11 +8630,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9569,11 +8665,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9625,11 +8717,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9681,11 +8769,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (int[]) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9775,11 +8859,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field3 = (Integer) pF3.get(t);
 			field4 = (Integer) pF4.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9824,11 +8904,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Integer) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9920,11 +8996,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -9961,11 +9033,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10003,11 +9071,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10045,11 +9109,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10087,11 +9147,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10140,11 +9196,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10181,11 +9233,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10223,11 +9271,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10265,11 +9309,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10307,11 +9347,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10349,11 +9385,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10391,11 +9423,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10433,11 +9461,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10472,11 +9496,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10510,11 +9530,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10548,11 +9564,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10586,11 +9598,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10683,11 +9691,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10725,11 +9729,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10767,11 +9767,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10809,11 +9805,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10851,11 +9843,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10893,11 +9881,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10935,11 +9919,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -10977,11 +9957,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11019,11 +9995,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11061,11 +10033,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11103,11 +10071,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11145,11 +10109,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11187,11 +10147,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11229,11 +10185,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11271,11 +10223,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11313,11 +10261,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11355,11 +10299,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11397,11 +10337,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11439,11 +10375,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11481,11 +10413,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11523,11 +10451,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11565,11 +10489,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11607,11 +10527,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11730,11 +10646,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11768,11 +10680,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11806,11 +10714,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11844,11 +10748,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11882,11 +10782,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11920,11 +10816,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11958,11 +10850,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -11996,11 +10884,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12034,11 +10918,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12073,11 +10953,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12111,11 +10987,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12149,11 +11021,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12187,11 +11055,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12225,11 +11089,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12263,11 +11123,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12301,11 +11157,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
@@ -12339,11 +11191,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
