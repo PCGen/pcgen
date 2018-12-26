@@ -15,15 +15,15 @@ CLASS:Arcanist	STARTSKILLPTS:2
 CLASS:Arcanist	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Arcanist|CL	SPELLLIST:1|Wizard
 1	ABILITY:Class|AUTOMATIC|Arcanist
 ###Block: Level Progression
-1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Weapon and Armor Proficiency
-1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Spells Prepared
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Weapon and Armor Proficiency|PREVAREQ:Arcanist_CF_Proficiencies,0
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Spells Prepared|PREVAREQ:Arcanist_CF_Spells,0
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Consume Spells|PREVAREQ:Arcanist_CF_ConsumeSpells,0
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Arcane Reservoir|PREVAREQ:Arcanist_CF_ArcaneReservoir,0
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Arcanist Exploits|PREVAREQ:Arcanist_CF_ArcanistExploits,0
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Cantrips|PREVAREQ:Arcanist_CF_Cantrips,0
 11	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Greater Arcanist Exploits|PREVAREQ:Arcanist_CF_GreaterArcanistExploits,0
 20	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Magical Supremacy|PREVAREQ:Arcanist_CF_MagicalSupremacy,0
-1	ABILITY:Internal|AUTOMATIC|Arcanist Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Arcanist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Arcanist=1]]
+1	ABILITY:Internal|AUTOMATIC|Arcanist Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Arcanist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Arcanist=1]]|PREVAREQ:Arcanist_CF_Spellbooks,0
 ###Block: Spell Level progression
 # WORKAROUND: CAST is actually spells prepared
 # WORKAROUND: The variables ArcanistCastLVL_n (n=1..9) hold the number of spells castable per day of each level
@@ -45,13 +45,15 @@ CLASS:Bloodrager	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Bloodrager|Caster_L
 1	ABILITY:Class|AUTOMATIC|Bloodrager
 ###Block: Level Progression
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Weapon and Armor Proficiency
-1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Bloodline|PREVAREQ:Bloodrager_CF_Bloodline,0
+1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Standard Bloodline|PREVAREQ:Bloodrager_CF_Bloodline,0
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Bloodrage|PREVAREQ:Bloodrager_CF_Bloodrage,0
 1	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Fast Movement|PREVAREQ:Bloodrager_CF_FastMovement,0
 2	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Uncanny Dodge Tracker
 3	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Blood Sanctuary|PREVAREQ:Bloodrager_CF_BloodSanctuary,0
 4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Blood Casting|PREVAREQ:Bloodrager_CF_BloodCasting,0
 4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Eschew Materials|PREVAREQ:Bloodrager_CF_EschewMaterials,0
+4	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Spells|PREVAREQ:Bloodrager_CF_Spells,0
+5	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Improved Uncanny Dodge|PREVAREQ:PREVAREQ:Bloodrager_CF_ImprovedUncannyDodge,0
 7	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Damage Reduction|PREVAREQ:Bloodrager_CF_DamageReduction,0
 11	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Greater Bloodrage|PREVAREQ:Bloodrager_CF_GreaterBloodrage,0
 14	ABILITY:Bloodrager Class Feature|AUTOMATIC|Bloodrager ~ Indomitable Will|PREVAREQ:Bloodrager_CF_IndomitableWill,0
@@ -86,7 +88,7 @@ CLASS:Brawler	STARTSKILLPTS:4
 ###Block:
 2	KIT:1|Brawler Brawler's Flurry
 ###Block:
-1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Weapon and Armor Proficiency
+1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Weapon and Armor Proficiency|PREVAREQ:Brawler_CF_Proficiencies,0
 1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Brawler's Cunning|PREVAREQ:Brawler_CF_BrawlersCunning,0
 1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Martial Flexibility|PREVAREQ:Brawler_CF_MartialFlexibility,0
 1	ABILITY:Brawler Class Feature|AUTOMATIC|Brawler ~ Martial Training|PREVAREQ:Brawler_CF_MartialTraining,0

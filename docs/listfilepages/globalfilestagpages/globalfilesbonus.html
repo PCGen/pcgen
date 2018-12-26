@@ -5039,6 +5039,11 @@ the weapon.
 weapon.
      </li>
      <li>
+      <code>STATDAMAGE</code>
+      modifies the STATDAMAGE for the specified
+weapon.
+     </li>
+     <li>
       <code>TOHIT</code>
       adds to the attack bonus of the weapon.
      </li>
@@ -5113,12 +5118,19 @@ if he were medium sized.
 5.
   </p>
   <p class="indent2">
+   <code>BONUS:WEAPONPROF=Rapier|STATDAMAGE|DEX-STR</code>
+  </p>
+  <p class="indent3">
+   Changes the STATDAMAGE of the Rapier from STR to DEX.
+  </p>
+    <p class="indent2">
    <code>BONUS:WEAPONPROF=Greatsword|TOHITOVERSIZE|1</code>
   </p>
   <p class="indent3">
    Allows a medium character to use a Greatsword
 one handed without penalty.
   </p>
+
   <p class="indent2">
    <code>BONUS:WEAPONPROF=Longsword|WIELDCATEGORY|-1</code>
   </p>

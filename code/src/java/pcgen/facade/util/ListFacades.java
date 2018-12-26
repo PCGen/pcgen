@@ -19,6 +19,7 @@
 package pcgen.facade.util;
 
 import java.util.AbstractList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public final class ListFacades
 		//Do not instantiate Utility Class
 	}
 
-	public static final ListFacade EMPTY_LIST = new EmptyList();
+	private static final ListFacade EMPTY_LIST = new EmptyList();
 
 	public static <T> ListFacade<T> emptyList()
 	{
@@ -59,34 +60,13 @@ public final class ListFacades
 		};
 	}
 
-	private static class EmptyList implements ListFacade
+	private static class EmptyList implements ListFacade<Object>
 	{
 
-		private static final Iterator ITERATOR = new Iterator()
-		{
-
-			@Override
-			public boolean hasNext()
-			{
-				return false;
-			}
-
-			@Override
-			public Object next()
-			{
-				throw new UnsupportedOperationException();
-			}
-
-			@Override
-			public void remove()
-			{
-				throw new UnsupportedOperationException();
-			}
-
-		};
+		private static final Iterator<Object> ITERATOR = Collections.emptyIterator();
 
 		@Override
-		public void addListListener(ListListener listener)
+		public void addListListener(ListListener<? super Object> listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
@@ -94,7 +74,7 @@ public final class ListFacades
 		@Override
 		public Object getElementAt(int index)
 		{
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException(index);
 		}
 
 		@Override
@@ -104,13 +84,13 @@ public final class ListFacades
 		}
 
 		@Override
-		public void removeListListener(ListListener listener)
+		public void removeListListener(ListListener<? super Object> listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
 
 		@Override
-		public Iterator iterator()
+		public Iterator<Object> iterator()
 		{
 			return ITERATOR;
 		}

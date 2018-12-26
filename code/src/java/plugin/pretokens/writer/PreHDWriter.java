@@ -77,7 +77,7 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements Prerequis
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

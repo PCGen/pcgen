@@ -68,24 +68,19 @@ public class StartupPanel extends ConvertSubPanel
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
-		new Thread(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				PCGenTask loadPluginTask = Main.createLoadPluginTask();
-				loadPluginTask.execute();
-				progressBar.setValue(1);
-				gameModeFileLoader.execute();
-				progressBar.setValue(2);
-				campaignFileLoader.execute();
-				progressBar.setValue(3);
+		new Thread(() -> {
+			PCGenTask loadPluginTask = Main.createLoadPluginTask();
+			loadPluginTask.execute();
+			progressBar.setValue(1);
+			gameModeFileLoader.execute();
+			progressBar.setValue(2);
+			campaignFileLoader.execute();
+			progressBar.setValue(3);
 
-				message.add(new JLabel("Initialization complete, press next button to continue..."));
-				message.revalidate();
+			message.add(new JLabel("Initialization complete, press next button to continue..."));
+			message.revalidate();
 
-				fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
-			}
+			fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
 		}).start();
 		return true;
 	}

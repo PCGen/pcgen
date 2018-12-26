@@ -90,6 +90,7 @@ CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_FastMovement|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodSanctuary|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_BloodCasting|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_EschewMaterials|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_Spells|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_DamageReduction|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_GreaterBloodrage|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_IndomitableWill|0
@@ -113,6 +114,7 @@ CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|B
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodSanctuary|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodSanctuary=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_BloodCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_BloodCasting=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_EschewMaterials|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_EschewMaterials=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Spells=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_DamageReduction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_DamageReduction=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_GreaterBloodrage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_GreaterBloodrage=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_IndomitableWill|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_IndomitableWill=True
@@ -152,6 +154,7 @@ CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|B
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_UncannyDodge|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_ImprovedUncannyDodge|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_ArmorProficiency|0
+CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_WeaponProficiencies|0
 CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_Spells|0
 
 
@@ -159,12 +162,15 @@ CATEGORY=Class|Bloodrager.MOD		DEFINE:Bloodrager_CF_Spells|0
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_UncannyDodge=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_ImprovedUncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_ImprovedUncannyDodge=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_ArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_ArmorProficiency=True
+CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_WeaponProficiencies=True
 CATEGORY=Class|Bloodrager.MOD																																								BONUS:VAR|Bloodrager_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Bloodrager_CF_Spells=True
 
 
 CATEGORY=Class|Brawler.MOD											ABILITY:Internal|AUTOMATIC|Brawler ~ Class Skills|PREVAREQ:Brawler_CF_ClassSkills,0
 CATEGORY=Class|Brawler.MOD											ABILITY:Internal|AUTOMATIC|Brawler ~ Unarmed Damage|PREVAREQ:Brawler_CF_UnarmedStrike,0	ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike|PREVAREQ:Brawler_CF_UnarmedStrike,0
 
+CATEGORY=Class|Brawler.MOD		DEFINE:Brawler_CF_Proficiencies|0
+CATEGORY=Class|Brawler.MOD		DEFINE:Brawler_CF_ArmorProficiencies|0
 CATEGORY=Class|Brawler.MOD		DEFINE:Brawler_CF_WeaponProficiencies|0
 CATEGORY=Class|Brawler.MOD		DEFINE:Brawler_CF_ClassSkills|0
 CATEGORY=Class|Brawler.MOD		DEFINE:Brawler_CF_UnarmedStrike|0
@@ -198,7 +204,8 @@ CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Braw
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_BonusFeat20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_BonusFeat20=True
 
 
-
+CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_Proficiencies=True
+CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_ArmorProficiencies=True
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_WeaponProficiencies=True
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_ClassSkills=True
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_UnarmedStrike|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_UnarmedStrike=True
@@ -215,6 +222,8 @@ CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Braw
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_AwesomeBlow|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_AwesomeBlow=True
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_ImprovedAwesomeBlow|1|TYPE=Boolean|PREFACT:1,ABILITIES,Brawler_CF_ImprovedAwesomeBlow=True
 
+CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_Proficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerProficiencies
+CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerArmorProficiencies
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerWeaponProficiencies
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_ClassSkills|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerClassSkills
 CATEGORY=Class|Brawler.MOD																																								BONUS:VAR|Brawler_CF_UnarmedStrike|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.BrawlerUnarmedStrike

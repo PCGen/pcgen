@@ -481,7 +481,7 @@ public final class Main
 		@Override
 		public void uncaughtException(Thread t, Throwable e)
 		{
-			Logging.errorPrint("Uncaught error - ignoring", e);
+			Logging.errorPrint("Uncaught error on thread  " + t + " - ignoring", e);
 		}
 	}
 }
