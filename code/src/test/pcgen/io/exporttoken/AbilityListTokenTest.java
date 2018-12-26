@@ -81,14 +81,17 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		is(tok.getToken("ABILITYLIST.FEAT", character, eh), 
-				strEq("Perform (Dance), Perform (Oratory), Silent Step"), "ABILITYLIST.FEAT");
+		assertEquals("ABILITYLIST.FEAT",
+			"Perform (Dance), Perform (Oratory), Silent Step",
+			tok.getToken("ABILITYLIST.FEAT", character, eh));
 
-		is(tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh),
-				strEq("Perform (Dance), Perform (Oratory)"), "ABILITYLIST.FEAT.TYPE=Fighter");
+		assertEquals("ABILITYLIST.FEAT.TYPE=Fighter",
+			"Perform (Dance), Perform (Oratory)",
+			tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh));
 
-		is(tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh),
-				strEq("Silent Step"), "ABILITYLIST.FEAT.!TYPE=Fighter");
+		assertEquals("ABILITYLIST.FEAT.!TYPE=Fighter",
+			"Silent Step",
+			tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh));
 	}
 
 	/**
@@ -100,9 +103,9 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		is(tok.getToken("ABILITYLIST.BARDIC", character, eh),
-			strEq("Perform (Dance)"),
-			"ABILITYLIST.BARDIC");
+		assertEquals("ABILITYLIST.BARDIC",
+			"Perform (Dance)",
+			tok.getToken("ABILITYLIST.BARDIC", character, eh));
 	}
 
 	/**

@@ -12,7 +12,6 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestChecker;
 import pcgen.util.testchecker.CompareEqualBoolean;
 import pcgen.util.testchecker.CompareEqualInt;
-import pcgen.util.testchecker.CompareEqualString;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
@@ -85,11 +84,6 @@ public abstract class PCGenTestCase extends TestCase
 
 			Assert.fail(message.toString());
 		}
-	}
-
-	protected static CompareEqualString strEq(final String s)
-	{
-		return new CompareEqualString(s);
 	}
 
 	public static CompareEqualBoolean eq(final boolean bo)

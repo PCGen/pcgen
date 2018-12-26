@@ -41,14 +41,14 @@ public class ParameterTreeTest extends PCGenTestCase
 	public final void testParameterTree()
 	{
         final ParameterTree t1 = new ParameterTree("Test Node1");
-        is(t1.getContents(), strEq("Test Node1"), "New ParameterTree has correct contents");
+        assertEquals("New ParameterTree has correct contents", "Test Node1", t1.getContents());
 		assertNull("New ParameterTree has null left subtree", t1.getLeftTree());
 		assertNull("New ParameterTree has null right subtree", t1.getRightTree());
 
 		final ParameterTree t2 = new ParameterTree("Test Node2");
 		t2.setLeftTree(t1);
-		is(t2.getContents(), strEq("Test Node2"), "New ParameterTree has correct contents");
-		is(t2.getLeftTree().getContents(), strEq("Test Node1"), "New ParameterTree has null left subtree");
+		assertEquals("New ParameterTree has correct contents", "Test Node2", t2.getContents());
+		assertEquals("New ParameterTree has null left subtree", "Test Node1", t2.getLeftTree().getContents());
 		assertNull("New ParameterTree has null right subtree", t1.getRightTree());
 	}
 
@@ -70,7 +70,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 
-		is(t1.getContents(), strEq(s), "New ParamterTree has correct contents");
+		assertEquals("New ParamterTree has correct contents", s, t1.getContents());
 	}
 
 	@Test
@@ -91,7 +91,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 
-		is(t1.getContents(), strEq("TYPE=Foo"), "New ParamterTree has correct contents");
+		assertEquals("New ParamterTree has correct contents", "TYPE=Foo", t1.getContents());
 	}
 
 	@Test
@@ -112,7 +112,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 
-		is(t1.getContents(), strEq("TYPE=Foo"), "New ParamterTree has correct contents");
+		assertEquals("New ParamterTree has correct contents", "TYPE=Foo", t1.getContents());
 	}
 
 	@Test
@@ -133,12 +133,12 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 
-		is(t1.getContents(), strEq("[or]"),                      "New ParamterTree has correct contents");
-		is(t1.getLeftTree().getContents(),  strEq("TYPE=Foo"), "New ParamterTree has correct left tree contents");
+		assertEquals("New ParamterTree has correct contents", "[or]", t1.getContents());
+		assertEquals("New ParamterTree has correct left tree contents", "TYPE=Foo", t1.getLeftTree().getContents());
 		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getLeftTree().getLeftTree());
 		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getLeftTree().getRightTree());
 
-		is(t1.getRightTree().getContents(), strEq("TYPE=Bar"), "New ParamterTree has correct right tree contents");
+		assertEquals("New ParamterTree has correct right tree contents", "TYPE=Bar", t1.getRightTree().getContents());
 		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getRightTree().getLeftTree());
 		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getRightTree().getRightTree());
 	}
@@ -162,12 +162,12 @@ public class ParameterTreeTest extends PCGenTestCase
 			fail("Threw a parse exception");
 		}
 
-		is(t1.getContents(), strEq("[or]"),                      "New ParamterTree has correct contents");
-		is(t1.getLeftTree().getContents(),  strEq("TYPE=Foo"), "New ParamterTree has correct left tree contents");
+		assertEquals("New ParamterTree has correct contents", "[or]", t1.getContents());
+		assertEquals("New ParamterTree has correct left tree contents", "TYPE=Foo", t1.getLeftTree().getContents());
 		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getLeftTree().getLeftTree());
 		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getLeftTree().getRightTree());
 
-		is(t1.getRightTree().getContents(), strEq("TYPE=Bar"), "New ParamterTree has correct right tree contents");
+		assertEquals("New ParamterTree has correct right tree contents", "TYPE=Bar", t1.getRightTree().getContents());
 		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getRightTree().getLeftTree());
 		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getRightTree().getRightTree());
 	}
@@ -196,13 +196,13 @@ public class ParameterTreeTest extends PCGenTestCase
 		final ParameterTree tlr = tl.getRightTree();
 
 		// expected branch nodes
-		is(t.getContents(), strEq("[and]"),   "t1 ParamterTree has correct contents");
-		is(tl.getContents(), strEq("[or]"),  "tl ParamterTree has correct contents");
+		assertEquals("t1 ParamterTree has correct contents", "[and]", t.getContents());
+		assertEquals("tl ParamterTree has correct contents", "[or]", tl.getContents());
 
 		// expected leaf nodes
-		is(tr.getContents(), strEq("String3"),  "tr ParamterTree has correct contents");
-		is(tll.getContents(), strEq("TYPE=Foo"), "tll ParamterTree has correct contents");
-		is(tlr.getContents(), strEq("TYPE=Bar"), "tlr ParamterTree has correct contents");
+		assertEquals("tr ParamterTree has correct contents", "String3", tr.getContents());
+		assertEquals("tll ParamterTree has correct contents", "TYPE=Foo", tll.getContents());
+		assertEquals("tlr ParamterTree has correct contents", "TYPE=Bar", tlr.getContents());
 
 		// check that leaves really are leaves
 		assertNull("tr left tree is null (i.e. is a leaf node)", tr.getLeftTree());
@@ -245,17 +245,17 @@ public class ParameterTreeTest extends PCGenTestCase
 		assertThat("t  not null", t, notNullValue());
 		assertThat("tr  not null", tr, notNullValue());
 
-		is(t.getContents(),  strEq("[or]"),  "t  has correct contents '[or]'");
-		is(tr.getContents(), strEq("[and]"),  "tr has correct contents '[and]'");
+		assertEquals("t  has correct contents '[or]'", "[or]", t.getContents());
+		assertEquals("tr has correct contents '[and]'", "[and]", tr.getContents());
 
 		// expected leaf nodes
 		Assert.assertNotNull("tl  not null", tl);
 		Assert.assertNotNull("trl  not null", trl);
 		Assert.assertNotNull("trr  not null", trr);
 
-		is(tl.getContents(),  strEq("TYPE=Foo"), "tl  has correct contents 'TYPE=Foo'");
-		is(trl.getContents(), strEq("TYPE=Bar"), "trl has correct contents 'TYPE=Bar'");
-		is(trr.getContents(), strEq("String3"),  "trr has correct contents 'String3'");
+		assertEquals("tl  has correct contents 'TYPE=Foo'", "TYPE=Foo", tl.getContents());
+		assertEquals("trl has correct contents 'TYPE=Bar'", "TYPE=Bar", trl.getContents());
+		assertEquals("trr has correct contents 'String3'", "String3", trr.getContents());
 
 		// check that leaves really are leaves
 		assertNull("tl left tree is null (i.e. is a leaf node)", tl.getLeftTree());
@@ -304,9 +304,9 @@ public class ParameterTreeTest extends PCGenTestCase
 		Assert.assertNotNull("tr not null", tr);
 		Assert.assertNotNull("trl not null", trl);
 
-		is(t.getContents(),   strEq("[or]"),  "t  has correct contents '[or]'");
-		is(tr.getContents(),  strEq("[and]"),  "tr has correct contents '[and]'");
-		is(trl.getContents(), strEq("[or]"),  "trl has correct contents '[or]'");
+		assertEquals("t  has correct contents '[or]'", "[or]", t.getContents());
+		assertEquals("tr has correct contents '[and]'", "[and]", tr.getContents());
+		assertEquals("trl has correct contents '[or]'", "[or]", trl.getContents());
 
 		// expected leaf nodes
 		Assert.assertNotNull("tl not null", tl);
@@ -315,11 +315,11 @@ public class ParameterTreeTest extends PCGenTestCase
 		Assert.assertNotNull("trll not null", trll);
 		Assert.assertNotNull("trlr not null", trlr);
 
-		is(tl.getContents(),  strEq("TYPE=Foo"), "tl  has correct contents 'TYPE=Foo'");
-		is(trr.getContents(), strEq("TYPE=Bar"), "trr has correct contents 'TYPE=Bar'");
+		assertEquals("tl  has correct contents 'TYPE=Foo'", "TYPE=Foo", tl.getContents());
+		assertEquals("trr has correct contents 'TYPE=Bar'", "TYPE=Bar", trr.getContents());
 
-		is(trll.getContents(), strEq("CATEGORY=FEAT"), "trl has correct contents 'CATEGORY=FEAT'");
-		is(trlr.getContents(), strEq("NATURE=AUTO"), "trl has correct contents 'NATURE=AUTO'");
+		assertEquals("trl has correct contents 'CATEGORY=FEAT'", "CATEGORY=FEAT", trll.getContents());
+		assertEquals("trl has correct contents 'NATURE=AUTO'", "NATURE=AUTO", trlr.getContents());
 
 		// check that leaves really are leaves
 		assertNull("tl left tree is null (i.e. is a leaf node)", tl.getLeftTree());
@@ -375,10 +375,10 @@ public class ParameterTreeTest extends PCGenTestCase
 		Assert.assertNotNull("trl not null", trl);
 		Assert.assertNotNull("trll not null", trll);
 
-		is(t.getContents(),    strEq("[or]"), "t    has correct contents '[or]'");
-		is(tr.getContents(),   strEq("[and]"), "tr   has correct contents '[and]'");
-		is(trl.getContents(),  strEq("[or]"), "trl  has correct contents '[or]'");
-		is(trll.getContents(), strEq("[or]"), "trll has correct contents '[or]'");
+		assertEquals("t    has correct contents '[or]'", "[or]", t.getContents());
+		assertEquals("tr   has correct contents '[and]'", "[and]", tr.getContents());
+		assertEquals("trl  has correct contents '[or]'", "[or]", trl.getContents());
+		assertEquals("trll has correct contents '[or]'", "[or]", trll.getContents());
 
 		// expected leaf nodes
 		Assert.assertNotNull("tl not null", tl);
@@ -388,12 +388,12 @@ public class ParameterTreeTest extends PCGenTestCase
 		Assert.assertNotNull("trlll not null", trlll);
 		Assert.assertNotNull("trllr not null", trllr);
 
-		is(tl.getContents(), strEq("TYPE=Foo"), "tl  has correct contents 'TYPE=Foo'");
-		is(trr.getContents(), strEq("TYPE=Bar"), "trr has correct contents 'TYPE=Bar'");
+		assertEquals("tl  has correct contents 'TYPE=Foo'", "TYPE=Foo", tl.getContents());
+		assertEquals("trr has correct contents 'TYPE=Bar'", "TYPE=Bar", trr.getContents());
 
-		is(trlr.getContents(), strEq("CATEGORY=SA"),   "trlr has correct contents 'CATEGORY=SA'");
-		is(trlll.getContents(), strEq("CATEGORY=FEAT"), "trlr has correct contents 'CATEGORY=FEAT'");
-		is(trllr.getContents(), strEq("NATURE=AUTO"),   "trlr has correct contents 'NATURE=AUTO'");
+		assertEquals("trlr has correct contents 'CATEGORY=SA'", "CATEGORY=SA", trlr.getContents());
+		assertEquals("trlr has correct contents 'CATEGORY=FEAT'", "CATEGORY=FEAT", trlll.getContents());
+		assertEquals("trlr has correct contents 'NATURE=AUTO'", "NATURE=AUTO", trllr.getContents());
 
 		
 		// check that leaves really are leaves
