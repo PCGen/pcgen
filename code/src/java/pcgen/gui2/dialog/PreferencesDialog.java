@@ -370,21 +370,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	}
 
 	@Override
-	public void cancelButtonActionPerformed()
-	{
-		resetOptionValues();
-		super.cancelButtonActionPerformed();
-	}
-
-	private void resetOptionValues()
-	{
-		for (PCGenPrefsPanel prefsPanel : panelList)
-		{
-			prefsPanel.resetOptionValues();
-		}
-	}
-
-	@Override
 	public void applyButtonActionPerformed()
 	{
 		setOptionsBasedOnControls();

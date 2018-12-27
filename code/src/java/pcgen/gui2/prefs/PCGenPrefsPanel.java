@@ -22,10 +22,7 @@ import javax.swing.JPanel;
 /**
  * The abstract class {@code PCGenPrefsPanel} defines the
  * interface for a panel in the Preferences dialog.
- * 
- * 
  */
-@SuppressWarnings("serial")
 public abstract class PCGenPrefsPanel extends JPanel
 {
 
@@ -45,10 +42,6 @@ public abstract class PCGenPrefsPanel extends JPanel
 	 * Updates the current preferences based on the panel's values.
 	 */
 	public abstract void setOptionsBasedOnControls();
-
-	public void resetOptionValues()
-	{
-	}
 
 	/**
 	 * Identify of the actions the user has taken require a restart to take effect.
