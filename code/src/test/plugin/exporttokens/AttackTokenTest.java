@@ -79,12 +79,6 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 
 	}
 
-    @Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
-
 	/**
 	 * Test the character's attack calcs with no bonus.
 	 */

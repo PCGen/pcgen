@@ -371,9 +371,4 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 	}
 
-	@Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
 }

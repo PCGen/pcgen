@@ -59,12 +59,6 @@ public class PreSizeTest extends AbstractCharacterTestCase
 		eq3 = EquipmentList.getEquipmentFromName("Item Three", character);
 	}
 
-    @Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
-
 	public static Test suite()
 	{
 		return new TestSuite(PreSizeTest.class);
