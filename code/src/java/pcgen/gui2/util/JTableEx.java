@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -177,10 +178,7 @@ public class JTableEx extends JTable
 	@Override
 	public void setModel(TableModel dataModel)
 	{
-		if (dataModel == null)
-		{
-			throw new IllegalArgumentException("Cannot set a null TableModel");
-		}
+		Objects.requireNonNull(dataModel, "Cannot set a null TableModel");
 		if (this.dataModel != dataModel)
 		{
 			TableModel old = this.dataModel;

@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -61,10 +62,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends 
 	 */
 	public boolean add(IDT id, T obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
 
 		if (getConstructingCachedSet(id).add(obj))
 		{
@@ -101,10 +99,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends 
 		Collection<T> set = getConstructingCachedSet(id);
 		for (T obj : c)
 		{
-			if (obj == null)
-			{
-				throw new IllegalArgumentException("Object to add may not be null");
-			}
+			Objects.requireNonNull(obj, "Object to add may not be null");
 			if (set.add(obj))
 			{
 				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -129,10 +124,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends 
 	 */
 	public boolean remove(IDT id, T obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
 		{
@@ -173,10 +165,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends 
 		{
 			for (T obj : c)
 			{
-				if (obj == null)
-				{
-					throw new IllegalArgumentException("Object to add may not be null");
-				}
+				Objects.requireNonNull(obj, "Object to add may not be null");
 				if (componentSet.remove(obj))
 				{
 					fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);

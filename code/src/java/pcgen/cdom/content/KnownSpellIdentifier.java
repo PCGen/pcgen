@@ -20,6 +20,7 @@ package pcgen.cdom.content;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
@@ -67,10 +68,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 */
 	public KnownSpellIdentifier(CDOMReference<Spell> spellRef, Integer levelLimit)
 	{
-		if (spellRef == null)
-		{
-			throw new IllegalArgumentException("Known Spell Identifier cannot have null spell reference");
-		}
+		Objects.requireNonNull(spellRef, "Known Spell Identifier cannot have null spell reference");
 		if (levelLimit != null && levelLimit.intValue() < 0)
 		{
 			throw new IllegalArgumentException("Known Spell Identifier level limit cannot be negative");

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Objects;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -63,27 +65,15 @@ public class SkillCostFacet extends AbstractSubScopeFacet<Skill, SkillCost, PCCl
 
 	public boolean isClassSkill(CharID id, PCClass pcc, Skill skill)
 	{
-		if (pcc == null)
-		{
-			throw new IllegalArgumentException("PCClass in isClassSkill cannot be null");
-		}
-		if (skill == null)
-		{
-			throw new IllegalArgumentException("Skill in isClassSkill cannot be null");
-		}
+		Objects.requireNonNull(pcc, "PCClass in isClassSkill cannot be null");
+		Objects.requireNonNull(skill, "Skill in isClassSkill cannot be null");
 		return contains(id, skill, SkillCost.CLASS, pcc);
 	}
 
 	public boolean isCrossClassSkill(CharID id, PCClass pcc, Skill skill)
 	{
-		if (pcc == null)
-		{
-			throw new IllegalArgumentException("PCClass in isCrossClassSkill cannot be null");
-		}
-		if (skill == null)
-		{
-			throw new IllegalArgumentException("Skill in isCrossClassSkill cannot be null");
-		}
+		Objects.requireNonNull(pcc, "PCClass in isCrossClassSkill cannot be null");
+		Objects.requireNonNull(skill, "Skill in isCrossClassSkill cannot be null");
 		return !contains(id, skill, SkillCost.CLASS, pcc) && contains(id, skill, SkillCost.CROSS_CLASS, pcc);
 	}
 

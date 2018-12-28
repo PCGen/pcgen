@@ -17,6 +17,8 @@
  */
 package pcgen.output.actor;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import pcgen.base.util.Indirect;
@@ -58,10 +60,7 @@ public class FactKeyActor<T> implements OutputActor<CDOMObject>
 	 */
 	public FactKeyActor(FactKey<T> fk)
 	{
-		if (fk == null)
-		{
-			throw new IllegalArgumentException("FactKey may not be null");
-		}
+		Objects.requireNonNull(fk, "FactKey may not be null");
 		this.fk = fk;
 	}
 

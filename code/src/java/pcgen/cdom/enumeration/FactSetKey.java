@@ -17,6 +17,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
@@ -45,14 +46,8 @@ public final class FactSetKey<T>
 
 	private FactSetKey(String name, FormatManager<T> fmtManager)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name for FactSetKey cannot be null");
-		}
-		if (fmtManager == null)
-		{
-			throw new IllegalArgumentException("FormatManager for FactSetKey cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for FactSetKey cannot be null");
+		Objects.requireNonNull(fmtManager, "FormatManager for FactSetKey cannot be null");
 		fieldName = name;
 		formatManager = fmtManager;
 	}

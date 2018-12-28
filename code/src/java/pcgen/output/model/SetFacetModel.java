@@ -19,6 +19,7 @@ package pcgen.output.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -63,14 +64,8 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 	 */
 	public SetFacetModel(CharID id, SetFacet<CharID, T> facet)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID may not be null");
-		}
-		if (facet == null)
-		{
-			throw new IllegalArgumentException("SetFacet may not be null");
-		}
+		Objects.requireNonNull(id, "CharID may not be null");
+		Objects.requireNonNull(facet, "SetFacet may not be null");
 		this.id = id;
 		this.facet = facet;
 	}

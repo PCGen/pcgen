@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 
 import javax.swing.event.EventListenerList;
 
@@ -89,10 +90,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 
 	public void set(CharID id, Skill skill, PCClass pcc, double value)
 	{
-		if (skill == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null in add");
-		}
+		Objects.requireNonNull(skill, "Skill cannot be null in add");
 		Float oldRank = getRank(id, skill);
 		Map<Skill, Map<PCClass, Double>> map = getConstructingInfo(id);
 		Map<PCClass, Double> clMap = map.get(skill);
@@ -179,10 +177,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 
 	public void remove(CharID id, Skill sk, PCClass pcc)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null in remove");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null in remove");
 		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
 		if (map != null)
 		{
@@ -239,14 +234,8 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		public SkillRankChangeEvent(CharID source, Skill sk, float oldRank, float newRank)
 		{
 			super(source);
-			if (source == null)
-			{
-				throw new IllegalArgumentException("CharID cannot be null");
-			}
-			if (sk == null)
-			{
-				throw new IllegalArgumentException("PCClass cannot be null");
-			}
+			Objects.requireNonNull(source, "CharID cannot be null");
+			Objects.requireNonNull(sk, "PCClass cannot be null");
 			charID = source;
 			skill = sk;
 			oldRnk = oldRank;

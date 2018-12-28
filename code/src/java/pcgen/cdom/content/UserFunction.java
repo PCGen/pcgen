@@ -18,6 +18,7 @@
 package pcgen.cdom.content;
 
 import java.io.StringReader;
+import java.util.Objects;
 
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.library.GenericFunction;
@@ -52,10 +53,7 @@ public class UserFunction extends UserContent
 	 */
 	public void setFunction(String expression)
 	{
-		if (expression == null)
-		{
-			throw new IllegalArgumentException("Cannot make formula from null String");
-		}
+		Objects.requireNonNull(expression, "Cannot make formula from null String");
 		origExpression = expression;
 		try
 		{

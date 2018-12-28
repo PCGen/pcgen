@@ -18,6 +18,7 @@
 package pcgen.cdom.primitive;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
@@ -51,10 +52,7 @@ public class ObjectContainerPrimitive<T> implements PrimitiveCollection<T>
 	 */
 	public ObjectContainerPrimitive(ObjectContainer<T> oc)
 	{
-		if (oc == null)
-		{
-			throw new IllegalArgumentException("ObjectContainer cannot be null");
-		}
+		Objects.requireNonNull(oc, "ObjectContainer cannot be null");
 		group = oc;
 	}
 

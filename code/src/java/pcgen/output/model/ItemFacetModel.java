@@ -19,6 +19,7 @@ package pcgen.output.model;
 
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.Objects;
 
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
@@ -78,14 +79,8 @@ public class ItemFacetModel<T> implements TemplateHashModel, TemplateScalarModel
 	 */
 	public ItemFacetModel(CharID id, ItemFacet<CharID, T> facet)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID may not be null");
-		}
-		if (facet == null)
-		{
-			throw new IllegalArgumentException("SetFacet may not be null");
-		}
+		Objects.requireNonNull(id, "CharID may not be null");
+		Objects.requireNonNull(facet, "SetFacet may not be null");
 		this.id = id;
 		this.facet = facet;
 	}

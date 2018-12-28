@@ -18,6 +18,7 @@
 package pcgen.output.model;
 
 import java.text.MessageFormat;
+import java.util.Objects;
 
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
@@ -57,14 +58,8 @@ public class InfoModel implements TemplateHashModel
 	 */
 	public InfoModel(CharID id, CDOMObject cdo)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID cannot be null");
-		}
-		if (cdo == null)
-		{
-			throw new IllegalArgumentException("CDOMObject cannot be null");
-		}
+		Objects.requireNonNull(id, "CharID cannot be null");
+		Objects.requireNonNull(cdo, "CDOMObject cannot be null");
 		this.id = id;
 		this.cdo = cdo;
 	}

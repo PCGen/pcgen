@@ -19,6 +19,7 @@ package pcgen.core.chooser;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -34,10 +35,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 
 	public AbilityChooseController(Ability a, AbilityCategory cat, PlayerCharacter aPC, ChoiceManagerList<?> cont)
 	{
-		if (a == null)
-		{
-			throw new IllegalArgumentException("Ability cannot be null for AbilityChooseController");
-		}
+		Objects.requireNonNull(a, "Ability cannot be null for AbilityChooseController");
 		ability = a;
 		ac = cat;
 		pc = aPC;

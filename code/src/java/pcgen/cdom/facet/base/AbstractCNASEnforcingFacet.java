@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -40,14 +41,8 @@ public class AbstractCNASEnforcingFacet extends AbstractDataFacet<CharID, CNAbil
 
 	public boolean add(CharID id, CNAbilitySelection cnas, Object source)
 	{
-		if (cnas == null)
-		{
-			throw new IllegalArgumentException("Attempt to add null to list");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Attempt to add object with null source to list");
-		}
+		Objects.requireNonNull(cnas, "Attempt to add null to list");
+		Objects.requireNonNull(source, "Attempt to add object with null source to list");
 		List<List<SourcedCNAS>> list = getConstructingList(id);
 		for (List<SourcedCNAS> slist : list)
 		{
@@ -67,14 +62,8 @@ public class AbstractCNASEnforcingFacet extends AbstractDataFacet<CharID, CNAbil
 
 	public boolean remove(CharID id, CNAbilitySelection cnas, Object source)
 	{
-		if (cnas == null)
-		{
-			throw new IllegalArgumentException("Attempt to remove null from list");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Attempt to remove object with null source from list");
-		}
+		Objects.requireNonNull(cnas, "Attempt to remove null from list");
+		Objects.requireNonNull(source, "Attempt to remove object with null source from list");
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list == null)
 		{

@@ -20,6 +20,7 @@ package pcgen.cdom.processor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.content.Processor;
 
@@ -66,14 +67,8 @@ public class ChangeArmorType implements Processor<String>
 	 */
 	public ChangeArmorType(String sourceType, String resultType)
 	{
-		if (sourceType == null)
-		{
-			throw new IllegalArgumentException("Source Type for ChangeArmorType cannot be null");
-		}
-		if (resultType == null)
-		{
-			throw new IllegalArgumentException("Resulting Type for ChangeArmorType cannot be null");
-		}
+		Objects.requireNonNull(sourceType, "Source Type for ChangeArmorType cannot be null");
+		Objects.requireNonNull(resultType, "Resulting Type for ChangeArmorType cannot be null");
 		result = resultType;
 		source = sourceType;
 	}

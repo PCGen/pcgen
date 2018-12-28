@@ -18,6 +18,7 @@
 package pcgen.cdom.content.factset;
 
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactSetKey;
@@ -58,10 +59,7 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements Defer
 	 */
 	public FactSetDefinitionEnforcer(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("FactSet Info cannot be null");
-		}
+		Objects.requireNonNull(fsi, "FactSet Info cannot be null");
 		def = fsi;
 	}
 

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Set;
 
@@ -714,15 +715,9 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 
 			// These are programming errors so the msgs don't need to be 
 			// internationalized.
-			if (aSource == null)
-			{
-				throw new IllegalArgumentException("source must not be null"); //$NON-NLS-1$
-			}
+			Objects.requireNonNull(aSource, "source must not be null");
 
-			if (aLstLine == null)
-			{
-				throw new IllegalArgumentException("lstLine must not be null"); //$NON-NLS-1$
-			}
+			Objects.requireNonNull(aLstLine, "lstLine must not be null");
 
 			this.source = aSource;
 			this.lstLine = aLstLine;

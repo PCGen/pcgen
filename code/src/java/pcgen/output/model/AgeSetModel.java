@@ -17,6 +17,8 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 import pcgen.core.AgeSet;
@@ -40,10 +42,7 @@ public class AgeSetModel implements TemplateScalarModel
 	 */
 	public AgeSetModel(AgeSet as)
 	{
-		if (as == null)
-		{
-			throw new IllegalArgumentException("AgeSet cannot be null");
-		}
+		Objects.requireNonNull(as, "AgeSet cannot be null");
 		this.set = as;
 	}
 

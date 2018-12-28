@@ -23,6 +23,7 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.swing.event.EventListenerList;
@@ -60,10 +61,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 */
 	public void addClass(CharID id, PCClass obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("PCClass to add may not be null");
-		}
+		Objects.requireNonNull(obj, "PCClass to add may not be null");
 		if (getConstructingClassInfo(id).addClass(obj))
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -94,14 +92,8 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 */
 	public boolean setClassLevel(CharID id, PCClass pcc, PCClassLevel pcl) throws CloneNotSupportedException
 	{
-		if (pcc == null)
-		{
-			throw new IllegalArgumentException("Class cannot be null in setClassLevel");
-		}
-		if (pcl == null)
-		{
-			throw new IllegalArgumentException("Class Level cannot be null in setClassLevel");
-		}
+		Objects.requireNonNull(pcc, "Class cannot be null in setClassLevel");
+		Objects.requireNonNull(pcl, "Class Level cannot be null in setClassLevel");
 		ClassInfo info = getClassInfo(id);
 		if (info == null)
 		{
@@ -155,10 +147,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 */
 	public void removeClass(CharID id, PCClass obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("PCClass to add may not be null");
-		}
+		Objects.requireNonNull(obj, "PCClass to add may not be null");
 		ClassInfo info = getClassInfo(id);
 		if (info != null)
 		{
@@ -430,10 +419,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 
 		public Integer setLevel(PCClass pcc, int level)
 		{
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException("Class for setLevel must not be null");
-			}
+			Objects.requireNonNull(pcc, "Class for setLevel must not be null");
 			if (level < 0)
 			{
 				throw new IllegalArgumentException("Level for " + pcc.getDisplayName() + " must be > 0");
@@ -500,10 +486,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 
 		public PCClassLevel getClassLevel(PCClass pcc, int level)
 		{
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException("Class in getClassLevel cannot be null");
-			}
+			Objects.requireNonNull(pcc, "Class in getClassLevel cannot be null");
 			if (level < 0)
 			{
 				throw new IllegalArgumentException("Level cannot be negative in getClassLevel");
@@ -626,14 +609,8 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		public ClassLevelChangeEvent(CharID source, PCClass pcc, int oldLevel, int newLevel)
 		{
 			super(source);
-			if (source == null)
-			{
-				throw new IllegalArgumentException("CharID cannot be null");
-			}
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException("PCClass cannot be null");
-			}
+			Objects.requireNonNull(source, "CharID cannot be null");
+			Objects.requireNonNull(pcc, "PCClass cannot be null");
 			charID = source;
 			pcClass = pcc;
 			oldLvl = oldLevel;
@@ -683,18 +660,9 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		public ClassLevelObjectChangeEvent(CharID source, PCClass pcc, PCClassLevel oldLevel, PCClassLevel newLevel)
 		{
 			super(source);
-			if (source == null)
-			{
-				throw new IllegalArgumentException("CharID cannot be null");
-			}
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException("PCClass cannot be null");
-			}
-			if (newLevel == null)
-			{
-				throw new IllegalArgumentException("New Level cannot be null");
-			}
+			Objects.requireNonNull(source, "CharID cannot be null");
+			Objects.requireNonNull(pcc, "PCClass cannot be null");
+			Objects.requireNonNull(newLevel, "New Level cannot be null");
 			charID = source;
 			pcClass = pcc;
 			oldLvl = oldLevel;

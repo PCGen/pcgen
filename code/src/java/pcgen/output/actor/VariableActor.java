@@ -17,6 +17,8 @@
  */
 package pcgen.output.actor;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import pcgen.base.formula.base.ScopeInstance;
@@ -79,10 +81,7 @@ public class VariableActor<T> implements OutputActor<CDOMObject>
 	 */
 	public VariableActor(String varName)
 	{
-		if (varName == null)
-		{
-			throw new IllegalArgumentException("Variable Name cannot be null");
-		}
+		Objects.requireNonNull(varName, "Variable Name cannot be null");
 		this.varName = varName;
 	}
 
