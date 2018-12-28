@@ -284,7 +284,7 @@ Section Uninstall
 	RMDir "$INSTDIR\${APPDIR}"
 
 	# Always delete uninstaller as the last action
-	delete $INSTDIR\uninstall-${APPDIR}.exe
+	Delete /REBOOTOK "$INSTDIR\uninstall-${APPDIR}.exe"
 
 	# Try to remove the install directory - this will only happen if it is empty
 	rmDir $INSTDIR
