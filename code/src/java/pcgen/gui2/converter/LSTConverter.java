@@ -55,7 +55,7 @@ import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.converter.loader.AbilityLoader;
 import pcgen.gui2.converter.loader.BasicLoader;
-import pcgen.gui2.converter.loader.ClassLoader;
+import pcgen.gui2.converter.loader.PCClassLoader;
 import pcgen.gui2.converter.loader.CopyLoader;
 import pcgen.gui2.converter.loader.EquipmentLoader;
 import pcgen.gui2.converter.loader.SelfCopyLoader;
@@ -259,7 +259,7 @@ public class LSTConverter extends Observable
 		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP, changeLogWriter));
 		loaderList.add(new BasicLoader<>(context, EquipmentModifier.class, ListKey.FILE_EQUIP_MOD, changeLogWriter));
 		loaderList.add(new BasicLoader<>(context, CompanionMod.class, ListKey.FILE_COMPANION_MOD, changeLogWriter));
-		loaderList.add(new ClassLoader(context, changeLogWriter));
+		loaderList.add(new PCClassLoader(context, changeLogWriter));
 		loaderList.add(new CopyLoader(ListKey.FILE_ABILITY_CATEGORY));
 		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));
 		loaderList.add(new CopyLoader(ListKey.FILE_KIT));
