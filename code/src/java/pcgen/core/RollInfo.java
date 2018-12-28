@@ -327,7 +327,7 @@ public final class RollInfo
 			{
 				Logging.errorPrint("Bad rolls: nothing to keep!");
 
-				return null;
+				return "";
 			}
 
 			// Note the ordering: by testing for bottom
