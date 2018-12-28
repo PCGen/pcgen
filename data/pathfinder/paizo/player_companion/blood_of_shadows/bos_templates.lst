@@ -4,5 +4,5 @@
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 14 April 2016
 
-# Template Name		Visible	Auto Language				Clear Bonus Languages
-Half-Drow Languages	VISIBLE:NO	AUTO:LANG|.CLEAR|Elven|Undercommon	LANGBONUS:.CLEAR,Abyssal,Aquan,Common,Draconic,Drow Sign Language,Gnome,Goblin
+# Template Name		Visible						Bonus Languages
+Half-Drow Languages					VISIBLE:NO			AUTO:LANG|Elven|Undercommon								LANGBONUS:Abyssal,Aquan,Common,Draconic,Drow Sign Language,Gnome,Goblin
