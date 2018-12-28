@@ -79,7 +79,7 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			getFacet().set(null, getTypeObj(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -97,7 +97,7 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			getFacet().set(id, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -115,7 +115,7 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			getFacet().set(id, t1, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// OK
 		}

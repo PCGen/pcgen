@@ -146,7 +146,7 @@ public class ClassFacetTest extends TestCase
 			facet.addClass(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -332,7 +332,7 @@ public class ClassFacetTest extends TestCase
 			facet.removeClass(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Expected
 		}
@@ -651,7 +651,7 @@ public class ClassFacetTest extends TestCase
 			facet.setLevel(id, null, 2);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -694,7 +694,7 @@ public class ClassFacetTest extends TestCase
 			assertFalse(facet.setClassLevel(id, null, pcl));
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -715,7 +715,7 @@ public class ClassFacetTest extends TestCase
 			assertFalse(facet.setClassLevel(id, t1, null));
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -916,7 +916,7 @@ public class ClassFacetTest extends TestCase
 			facet.getClassLevel(id, null, 1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			//Yep!
 		}
