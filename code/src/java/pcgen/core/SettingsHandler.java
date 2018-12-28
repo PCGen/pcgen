@@ -176,7 +176,6 @@ public final class SettingsHandler
 	private static boolean guiUsesOutputNameSpells = false;
 	private static int lastTipShown = -1;
 	private static boolean showMemoryArea = false;
-	private static boolean showImagePreview = true;
 	private static boolean showTipOfTheDay = true;
 	private static boolean showSingleBoxPerBundle = false;
 
@@ -957,7 +956,6 @@ public final class SettingsHandler
 			expandRelativePath(getOptions().getProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
 				""))); //$NON-NLS-1$
 		setShowHPDialogAtLevelUp(getPCGenOption("showHPDialogAtLevelUp", true)); //$NON-NLS-1$
-		setShowImagePreview(getPCGenOption("showImagePreview", true)); //$NON-NLS-1$
 		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
 		setOutputDeprecationMessages(getPCGenOption("outputDeprecationMessages", true));
 		setInputUnconstructedMessages(getPCGenOption("inputUnconstructedMessages", false));
@@ -1208,7 +1206,6 @@ public final class SettingsHandler
 		setPCGenOption("enforceSpendingBeforeLevelUp", getEnforceSpendingBeforeLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showMemoryArea", isShowMemoryArea()); //$NON-NLS-1$
-		setPCGenOption("showImagePreview", isShowImagePreview()); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
 		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
@@ -2551,26 +2548,6 @@ public final class SettingsHandler
 	public static boolean isShowMemoryArea()
 	{
 		return showMemoryArea;
-	}
-
-	/**
-	 * Shows character portrait preview in the file chooser if {@code true}.
-	 *
-	 * @return show portrait preview
-	 */
-	public static boolean isShowImagePreview()
-	{
-		return showImagePreview;
-	}
-
-	/**
-	 * Toggles displaying the character portrait preview in the file chooser
-	 *
-	 * @param showImagePreview {@code true} to show portrait preview
-	 */
-	public static void setShowImagePreview(final boolean showImagePreview)
-	{
-		SettingsHandler.showImagePreview = showImagePreview;
 	}
 
 	/**
