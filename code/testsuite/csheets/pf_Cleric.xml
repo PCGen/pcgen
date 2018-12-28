@@ -2163,6 +2163,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Language</name>
+			<description>Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).</description>
+			<type>RACIALTRAITS.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Orisons</name>
 			<description>You can prepare a number of orisons, or 0-level spells. These spells are cast like any other spells, but they are not expended when used and may be used again.</description>
 			<type>CLERICCLASSFEATURES.SPECIALQUALITY</type>
