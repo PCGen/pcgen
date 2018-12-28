@@ -9,12 +9,12 @@ SOURCELONG:Pathfinder Player Companion: People of the North	SOURCESHORT:POTN	SOU
 # ==============================
 
 # Equipment Name			Required Weapon Proficiency	Type																				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																					Wield Category	Range		Size		Source Page		Combat bonus			Special Property
-Ember pot									TYPE:Goods.General																	COST:.5	WT:1																																					SOURCEPAGE:p.28
+Ember Pot									TYPE:Goods.General																	COST:.5	WT:1																																					SOURCEPAGE:p.28
 Mammoth									TYPE:Mount.Goods.Transportation.Container														COST:2000	WT:16000																																				SOURCEPAGE:p.28
 Mammoth (combat-trained)						TYPE:Mount.Goods.Transportation.Container														COST:2250	WT:16000																																				SOURCEPAGE:p.28
-Mammoth goad								TYPE:Goods.Mount																		COST:5	WT:10																																					SOURCEPAGE:p.28						SPROP:The goad grants a +2 bonus on all Handle Animal checks made against mammoths and other megafauna.
+Mammoth Goad								TYPE:Goods.Mount																		COST:5	WT:10																																					SOURCEPAGE:p.28						SPROP:The goad grants a +2 bonus on all Handle Animal checks made against mammoths and other megafauna.
 Reindeer									TYPE:Mount.Goods.Transportation.Container														COST:75	WT:450																																				SOURCEPAGE:p.28
-Whale oil									TYPE:Goods.General																	COST:.2	WT:1																																					SOURCEPAGE:p.28
+Whale Oil (1 Pint Flask)				PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.General.Liquid.Flask.Consumable.Weapon.Ranged.Thrown.Fire.Splash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:0.2	WT:1	SOURCEPAGE:p.28	SPROP:Thrown splash weapon, full-round action to prepare, 50% chance to ignite
 
 # ==============================
 # New Magic Items
