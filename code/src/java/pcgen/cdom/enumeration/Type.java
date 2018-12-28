@@ -19,6 +19,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Locale;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -147,7 +148,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 */
 	public String getComparisonString()
 	{
-		return fieldName.toUpperCase();
+		return fieldName.toUpperCase(Locale.ENGLISH);
 	}
 
 	/**

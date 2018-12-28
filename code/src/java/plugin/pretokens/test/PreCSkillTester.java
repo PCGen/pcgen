@@ -19,6 +19,7 @@
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -45,11 +46,11 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 		PreCSkillTester.getImitators(serveAsSkills, imitators);
 
 		// Compute the skill name from the Prerequisite
-		String requiredSkillKey = prereq.getKey().toUpperCase();
+		String requiredSkillKey = prereq.getKey().toUpperCase(Locale.ENGLISH);
 
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ')'; //$NON-NLS-1$ 
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase(Locale.ENGLISH) + ')'; //$NON-NLS-1$
 		}
 
 		final boolean isType = (

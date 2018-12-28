@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.CoreUtility;
@@ -65,7 +66,7 @@ public class PatternFilter implements OutputFilter
 			filterName = filterName.substring(idx + 1);
 		}
 
-		filterName = filterName.toLowerCase();
+		filterName = filterName.toLowerCase(Locale.ENGLISH);
 
 		if (filterName.equals(outputFilterName))
 		{

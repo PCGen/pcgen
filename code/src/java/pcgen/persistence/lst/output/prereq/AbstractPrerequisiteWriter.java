@@ -26,6 +26,7 @@ package pcgen.persistence.lst.output.prereq;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -61,7 +62,7 @@ public class AbstractPrerequisiteWriter
 			kind = "<NULL>";
 		}
 		throw new PersistenceLayerException("Cannot write token: LST syntax only supports "
-			+ comparatorString.toString() + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
+			+ comparatorString.toString() + " operators for PRE" + kind.toUpperCase(Locale.ENGLISH) + ": " + prereq.toString());
 	}
 
 	protected boolean checkForPremultOfKind(final Prerequisite prereq, final String kind, final boolean multiplesOnly)

@@ -1,6 +1,7 @@
 package plugin.lsttokens.gamemode;
 
 import java.net.URI;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
@@ -32,7 +33,7 @@ public class BonusstacksToken implements GameModeLstToken
 			}
 			else
 			{
-				gameMode.addToBonusStackList(type.toUpperCase());
+				gameMode.addToBonusStackList(type.toUpperCase(Locale.ENGLISH));
 			}
 		}
 		return true;

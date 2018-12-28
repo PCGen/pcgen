@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -95,7 +96,7 @@ public class BonusManager
 			return bonus;
 		}
 
-		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 		if (cachedActiveBonusSumsMap.containsKey(fullyQualifiedBonusType))
 		{
 			return cachedActiveBonusSumsMap.get(fullyQualifiedBonusType);
@@ -219,7 +220,7 @@ public class BonusManager
 	 */
 	private double getActiveBonusForMapKey(String fullyQualifiedBonusType, final double defaultValue)
 	{
-		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 
 		final String regVal = activeBonusMap.get(fullyQualifiedBonusType);
 
@@ -248,7 +249,7 @@ public class BonusManager
 	public String getSpellBonusType(String bonusName, String bonusInfo)
 	{
 		String prefix = new StringBuilder(bonusName).append('.').append(bonusInfo).toString();
-		prefix = prefix.toUpperCase();
+		prefix = prefix.toUpperCase(Locale.ENGLISH);
 
 		for (String fullyQualifedBonusType : activeBonusMap.keySet())
 		{
@@ -407,7 +408,7 @@ public class BonusManager
 	{
 		if (fullyQualifiedBonusType != null)
 		{
-			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 		}
 		String nonStackString = nonStackMap.get(fullyQualifiedBonusType);
 		Float nonStackVal = nonStackString == null ? 0.0f : Float.valueOf(nonStackString);
@@ -633,7 +634,7 @@ public class BonusManager
 	{
 		if (fullyQualifiedBonusType != null)
 		{
-			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 
 			// only specific bonuses can actually be fractional
 			// -> TODO should define this in external file

@@ -21,6 +21,7 @@ package pcgen.persistence.lst;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.cdom.content.TabInfo;
 import pcgen.rules.context.LoadContext;
@@ -48,7 +49,7 @@ public class TabLoader extends SimpleLoader<TabInfo>
 	{
 		if (!Tab.exists(token))
 		{
-			if (deprecatedTabNames.contains(token.toUpperCase()))
+			if (deprecatedTabNames.contains(token.toUpperCase(Locale.ENGLISH)))
 			{
 				Logging.deprecationPrint("TAB:" + token + " has been deprecated and is now ignored.", context);
 			}

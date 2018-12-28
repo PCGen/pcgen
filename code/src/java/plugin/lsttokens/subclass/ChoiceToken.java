@@ -19,6 +19,7 @@ package plugin.lsttokens.subclass;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
@@ -104,7 +105,7 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 		}
 		StringBuilder sb = new StringBuilder();
 		ProhibitedSpellType pst = sp.getType();
-		sb.append(pst.toString().toUpperCase());
+		sb.append(pst.toString().toUpperCase(Locale.ENGLISH));
 		sb.append('|');
 		Collection<String> valueSet = sp.getValueList();
 		sb.append(StringUtil.join(new TreeSet<>(valueSet), Constants.PIPE));

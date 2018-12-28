@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -179,7 +180,7 @@ public class DataSet implements DataSetFacade
 		for (String name : SystemCollections.getUnmodifiableBodyStructureList())
 		{
 			// TODO i18n the display name and correct the DataSetTest
-			String displayName = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+			String displayName = name.substring(0, 1).toUpperCase(Locale.ENGLISH) + name.substring(1).toLowerCase(Locale.ENGLISH);
 			final BodyStructure bodyStructure = new BodyStructure(displayName);
 			bodyStructures.addElement(bodyStructure);
 			structMap.put(name, bodyStructure);
@@ -605,8 +606,8 @@ public class DataSet implements DataSetFacade
 
 			String ac1Key = category1.getKeyName();
 			String ac2Key = category2.getKeyName();
-			String ac1Display = category1.getDisplayLocation().toString().toUpperCase();
-			String ac2Display = category2.getDisplayLocation().toString().toUpperCase();
+			String ac1Display = category1.getDisplayLocation().toString().toUpperCase(Locale.ENGLISH);
+			String ac2Display = category2.getDisplayLocation().toString().toUpperCase(Locale.ENGLISH);
 
 			if (ac1Display == null && ac2Display != null)
 			{

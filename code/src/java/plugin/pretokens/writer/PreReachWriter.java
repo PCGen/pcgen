@@ -20,6 +20,7 @@ package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -48,7 +49,7 @@ public class PreReachWriter extends AbstractPrerequisiteWriter implements Prereq
 		try
 		{
 			writer.write("PREREACH" + (prereq.isOverrideQualify() ? "Q:" : ""));
-			writer.write(prereq.getOperator().toString().toUpperCase());
+			writer.write(prereq.getOperator().toString().toUpperCase(Locale.ENGLISH));
 			writer.write(':');
 			writer.write(prereq.getOperand());
 		}

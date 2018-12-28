@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -1453,7 +1454,7 @@ public class CharacterDisplay
 	 */
 	public double getLoadToken(String type)
 	{
-		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(type.toUpperCase());
+		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(type.toUpperCase(Locale.ENGLISH));
 		if (mult != null)
 		{
 			return getMaxLoad(mult).intValue();

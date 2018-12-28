@@ -22,6 +22,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.core.GameMode;
 import pcgen.system.ConfigurationSettings;
@@ -66,7 +67,7 @@ public final class TreasureGenerator
 					@Override
 					public boolean accept(final File aDir, final String aName)
 					{
-						if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
+						if (aName.toLowerCase(Locale.ENGLISH).endsWith(".xml")) //$NON-NLS-1$
 						{
 							return true;
 						}

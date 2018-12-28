@@ -22,6 +22,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
+import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -97,11 +98,11 @@ public class TextToken extends Token
 
 		if (action.equalsIgnoreCase("UPPER") || action.equalsIgnoreCase("UPPERCASE"))
 		{
-			retString = retString.toUpperCase();
+			retString = retString.toUpperCase(Locale.ENGLISH);
 		}
 		else if (action.equalsIgnoreCase("LOWER") || action.equalsIgnoreCase("LOWERCASE"))
 		{
-			retString = retString.toLowerCase();
+			retString = retString.toLowerCase(Locale.ENGLISH);
 		}
 		else if (action.equalsIgnoreCase("SENTENCE") || action.equalsIgnoreCase("SENTENCECASE"))
 		{
@@ -169,7 +170,7 @@ public class TextToken extends Token
 	 */
 	private String changeToSentenceCase(String value)
 	{
-		String temp = value.toLowerCase();
+		String temp = value.toLowerCase(Locale.ENGLISH);
 		String[] sentence = temp.split("\\.");
 		StringBuilder res = new StringBuilder(value.length());
 		Pattern p = Pattern.compile("\\s*");
@@ -191,7 +192,7 @@ public class TextToken extends Token
 				{
 					res.append(sentence[i].substring(0, pos));
 				}
-				res.append(sentence[i].substring(pos, pos + 1).toUpperCase());
+				res.append(sentence[i].substring(pos, pos + 1).toUpperCase(Locale.ENGLISH));
 				res.append(sentence[i].substring(pos + 1));
 			}
 			else
@@ -210,7 +211,7 @@ public class TextToken extends Token
 	 */
 	private String changeToTitleCase(String value)
 	{
-		String temp = value.toLowerCase();
+		String temp = value.toLowerCase(Locale.ENGLISH);
 		char[] chars = temp.toCharArray();
 		StringBuilder res = new StringBuilder(value.length());
 		boolean start = true;

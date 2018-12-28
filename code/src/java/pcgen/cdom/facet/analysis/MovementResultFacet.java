@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -371,7 +372,8 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			double moveInFeet = getMovement(moveIdx);
 
 			// First get the MOVEADD bonus
-			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE." + getMovementType(moveIdx).toUpperCase());
+			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE." + getMovementType(moveIdx).toUpperCase(
+					Locale.ENGLISH));
 
 			// also check for special case of TYPE=ALL
 			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE.ALL");
@@ -388,7 +390,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 
 			// Now we get the BONUS:MOVEMULT multipliers
 			double moveMult =
-					bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE." + getMovementType(moveIdx).toUpperCase());
+					bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE." + getMovementType(moveIdx).toUpperCase(Locale.ENGLISH));
 
 			// also check for special case of TYPE=ALL
 			moveMult += bonusCheckingFacet.getBonus(id, "MOVEMULT", "TYPE.ALL");
@@ -402,7 +404,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 
 			// now add on any POSTMOVE bonuses
 			postMove +=
-					bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE." + getMovementType(moveIdx).toUpperCase());
+					bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE." + getMovementType(moveIdx).toUpperCase(Locale.ENGLISH));
 
 			// also check for special case of TYPE=ALL
 			postMove += bonusCheckingFacet.getBonus(id, "POSTMOVEADD", "TYPE.ALL");

@@ -17,6 +17,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
@@ -52,7 +54,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 				LanguageBundle.getFormattedString("PreKit.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		String kitKey = prereq.getKey().toUpperCase();
+		String kitKey = prereq.getKey().toUpperCase(Locale.ENGLISH);
 		final int wildCard = kitKey.indexOf('%');
 		//handle wildcards (always assume they end the line)
 		if (wildCard >= 0)
@@ -60,7 +62,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 			kitKey = kitKey.substring(0, wildCard);
 			for (Kit kit : display.getKitInfo())
 			{
-				if (kit.getKeyName().toUpperCase().startsWith(kitKey))
+				if (kit.getKeyName().toUpperCase(Locale.ENGLISH).startsWith(kitKey))
 				{
 					runningTotal++;
 				}

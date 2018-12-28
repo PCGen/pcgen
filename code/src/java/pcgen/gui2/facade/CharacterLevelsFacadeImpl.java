@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import pcgen.cdom.base.Constants;
@@ -109,7 +110,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
 		for (Skill skillFacade : dataSetFacade.getSkills())
 		{
-			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase());
+			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase(Locale.ENGLISH));
 		}
 		theCharacter = null;
 		charDisplay = null;
@@ -131,7 +132,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
 		for (Skill skillFacade : dataSetFacade.getSkills())
 		{
-			bcf.addBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase());
+			bcf.addBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase(Locale.ENGLISH));
 		}
 
 	}

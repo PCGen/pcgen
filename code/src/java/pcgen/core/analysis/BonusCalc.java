@@ -18,6 +18,7 @@
 package pcgen.core.analysis;
 
 import java.util.Collection;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
@@ -62,8 +63,8 @@ public final class BonusCalc
 
 		double retVal = 0;
 
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
+		aType = aType.toUpperCase(Locale.ENGLISH);
+		aName = aName.toUpperCase(Locale.ENGLISH);
 
 		final String aTypePlusName = new StringBuilder(aType).append('.').append(aName).append('.').toString();
 
@@ -100,7 +101,7 @@ public final class BonusCalc
 
 		for (BonusObj bonus : aBonusList)
 		{
-			String bString = bonus.toString().toUpperCase();
+			String bString = bonus.toString().toUpperCase(Locale.ENGLISH);
 
 			if (aPC != null && !aPC.getConsolidatedAssociationList(po).isEmpty())
 			{
@@ -121,7 +122,7 @@ public final class BonusCalc
 					for (String assoc : aPC.getConsolidatedAssociationList(po))
 					{
 						final String xString = new StringBuilder(50).append(firstPart).append(assoc).append(secondPart)
-							.toString().toUpperCase();
+							.toString().toUpperCase(Locale.ENGLISH);
 
 						retVal +=
 								BonusCalc.calcBonus(po, xString, aType, aName, aTypePlusName, obj, iTimes, bonus, aPC);
@@ -194,7 +195,8 @@ public final class BonusCalc
 
 		final String aList = aTok.nextToken();
 
-		if (!aList.equals("LIST") && !aList.equals("ALL") && (!aList.toUpperCase().contains(aName.toUpperCase())))
+		if (!aList.equals("LIST") && !aList.equals("ALL") && (!aList.toUpperCase(Locale.ENGLISH).contains(aName.toUpperCase(
+				Locale.ENGLISH))))
 		{
 			return 0;
 		}

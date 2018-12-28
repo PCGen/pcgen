@@ -30,6 +30,7 @@ import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -3925,7 +3926,7 @@ final class PCGVer2Parser implements PCGParser
 
 					if (IOConstants.TAG_TYPE.equals(childTag))
 					{
-						typeName = child.getText().toUpperCase();
+						typeName = child.getText().toUpperCase(Locale.ENGLISH);
 					}
 					else if (IOConstants.TAG_NAME.equals(childTag))
 					{
@@ -4236,7 +4237,7 @@ final class PCGVer2Parser implements PCGParser
 			PCStat stat =
 					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, statName);
 
-			if ((stat != null) && seenStats.add(statName.toUpperCase()) && (it.hasNext()))
+			if ((stat != null) && seenStats.add(statName.toUpperCase(Locale.ENGLISH)) && (it.hasNext()))
 			{
 				element = it.next();
 
@@ -4548,7 +4549,7 @@ final class PCGVer2Parser implements PCGParser
 
 					if (IOConstants.TAG_TYPE.equals(tag))
 					{
-						type = child.getText().toUpperCase();
+						type = child.getText().toUpperCase(Locale.ENGLISH);
 					}
 					else if (IOConstants.TAG_NAME.equals(tag))
 					{
@@ -5305,7 +5306,7 @@ final class PCGVer2Parser implements PCGParser
 			}
 			else if (IOConstants.TAG_DEFINED.equals(tag))
 			{
-				defined = child.getText().toUpperCase();
+				defined = child.getText().toUpperCase(Locale.ENGLISH);
 			}
 		}
 

@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.variable;
 
+import java.util.Locale;
+
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
@@ -124,7 +126,7 @@ public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable> impleme
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(dv.getScope().getName().toUpperCase());
+		sb.append(dv.getScope().getName().toUpperCase(Locale.ENGLISH));
 		sb.append(Constants.PIPE);
 		String identifier = format.getIdentifierType();
 		if (!"NUMBER".equals(identifier))

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -195,7 +196,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		// Replace illegal characters in old name
 		oldName = oldName.replaceAll(";:\\|,", "@");
 
-		if (!oldName.toUpperCase().startsWith(Constants.GENERIC_ITEM))
+		if (!oldName.toUpperCase(Locale.ENGLISH).startsWith(Constants.GENERIC_ITEM))
 		{
 			equip.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(oldName));
 		}

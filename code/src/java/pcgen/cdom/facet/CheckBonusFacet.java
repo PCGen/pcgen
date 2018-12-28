@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -58,8 +59,8 @@ public class CheckBonusFacet
 	public double getCheckBonusTo(CharID id, String type, String name)
 	{
 		double bonus = 0;
-		String upperType = type.toUpperCase();
-		String upperName = name.toUpperCase();
+		String upperType = type.toUpperCase(Locale.ENGLISH);
+		String upperName = name.toUpperCase(Locale.ENGLISH);
 
 		for (PCCheck check : checkFacet.getSet(id))
 		{

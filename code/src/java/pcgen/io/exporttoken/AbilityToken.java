@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
@@ -513,7 +514,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".TYPE"))
 			{
-				retString = aAbility.getType().toUpperCase();
+				retString = aAbility.getType().toUpperCase(Locale.ENGLISH);
 			}
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{

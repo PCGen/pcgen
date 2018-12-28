@@ -135,7 +135,7 @@ public final class CoreUtility
 	public static String capitalizeFirstLetter(final String aString)
 	{
 		boolean toUpper = true;
-		final char[] a = aString.toLowerCase().toCharArray();
+		final char[] a = aString.toLowerCase(Locale.ENGLISH).toCharArray();
 
 		for (int i = 0; i < a.length; ++i)
 		{

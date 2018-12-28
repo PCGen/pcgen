@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -147,6 +148,6 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 	@Override
 	public String getPersistentFormat()
 	{
-		return getName().toUpperCase();
+		return getName().toUpperCase(Locale.ENGLISH);
 	}
 }

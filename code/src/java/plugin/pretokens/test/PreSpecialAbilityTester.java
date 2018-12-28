@@ -18,6 +18,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
@@ -47,10 +49,10 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 					"PreSpecialAbility.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 		}
 
-		final String aString = prereq.getKey().toUpperCase();
+		final String aString = prereq.getKey().toUpperCase(Locale.ENGLISH);
 		for (SpecialAbility sa : character.getSpecialAbilityList())
 		{
-			if (sa.getKeyName().toUpperCase().startsWith(aString))
+			if (sa.getKeyName().toUpperCase(Locale.ENGLISH).startsWith(aString))
 			{
 				runningTotal++;
 			}

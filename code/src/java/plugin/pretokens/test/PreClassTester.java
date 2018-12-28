@@ -4,6 +4,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
@@ -44,7 +46,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 		int countedTotal = 0;
 
 		final boolean sumLevels = prereq.isTotalValues();
-		final String aString = prereq.getKey().toUpperCase();
+		final String aString = prereq.getKey().toUpperCase(Locale.ENGLISH);
 		final int preClass = Integer.parseInt(prereq.getOperand());
 
 		if ("SPELLCASTER".equals(aString)) //$NON-NLS-1$

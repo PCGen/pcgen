@@ -17,6 +17,8 @@
  */
 package plugin.initiative;
 
+import java.util.Locale;
+
 /**
  * <p>
  * This class models a saving throw; basically it models a save
@@ -134,7 +136,7 @@ public class SaveModel extends PObjectModel
 	 */
 	public void setSaveType(String saveType)
 	{
-		String saveUC = saveType.toUpperCase();
+		String saveUC = saveType.toUpperCase(Locale.ENGLISH);
 		if (SAVE_TYPE_FORTITUDE.startsWith(saveUC))
 		{
 			m_saveType = SAVE_TYPE_FORTITUDE;

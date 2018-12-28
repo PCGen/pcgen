@@ -19,6 +19,7 @@ package plugin.pretokens.parser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -118,10 +119,10 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements 
 		if (prereq.getPrerequisiteCount() == 0)
 		{
 			String preKey = prereq.getKey();
-			if (preKey.toUpperCase().startsWith(CATEGORY) || preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
+			if (preKey.toUpperCase(Locale.ENGLISH).startsWith(CATEGORY) || preKey.toUpperCase(Locale.ENGLISH).startsWith(CATEGORY_EQUALS))
 			{
 				String tempCat = preKey.substring((CATEGORY.length()));
-				if (tempCat.toUpperCase().trim().equals("ANY"))
+				if (tempCat.toUpperCase(Locale.ENGLISH).trim().equals("ANY"))
 				{
 					Logging.errorPrint("ANY no longer allowed as an Ability Category in PREABILITY");
 				}
@@ -145,7 +146,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements 
 			else
 			{
 				String preKey = p.getKey();
-				if (preKey.toUpperCase().startsWith(CATEGORY) || preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
+				if (preKey.toUpperCase(Locale.ENGLISH).startsWith(CATEGORY) || preKey.toUpperCase(Locale.ENGLISH).startsWith(CATEGORY_EQUALS))
 				{
 					String tempCat = preKey.substring((CATEGORY.length()));
 					if (!categoryName.isEmpty())
@@ -159,7 +160,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements 
 							LanguageBundle.getFormattedString("Errors.PreAbility.CategoryNotFirst", tempCat));
 					}
 
-					if (tempCat.toUpperCase().trim().equals("ANY"))
+					if (tempCat.toUpperCase(Locale.ENGLISH).trim().equals("ANY"))
 					{
 						Logging.errorPrint("ANY no longer allowed as an Ability Category in PREABILITY");
 					}

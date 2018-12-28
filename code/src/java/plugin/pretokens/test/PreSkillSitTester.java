@@ -19,6 +19,7 @@ package plugin.pretokens.test;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -57,7 +58,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 
 		for (Skill aSkill : display.getSkillSet())
 		{
-			final String aSkillKey = aSkill.getKeyName().toUpperCase();
+			final String aSkillKey = aSkill.getKeyName().toUpperCase(Locale.ENGLISH);
 			if (aSkillKey.equals(requiredSkill))
 			{
 				foundMatch = true;
@@ -87,7 +88,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 					{
 						break;
 					}
-					final String aSkillKey = target.getKeyName().toUpperCase();
+					final String aSkillKey = target.getKeyName().toUpperCase(Locale.ENGLISH);
 					if (aSkillKey.equals(requiredSkill))
 					{
 						foundSkill = true;

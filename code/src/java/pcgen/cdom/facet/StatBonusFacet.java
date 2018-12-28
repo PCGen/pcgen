@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -93,7 +94,8 @@ public class StatBonusFacet
 	 */
 	public double getStatBonusTo(CharID id, String type, String name)
 	{
-		final Map<BonusObj, PCStat> map = getBonusListOfType(id, type.toUpperCase(), name.toUpperCase());
+		final Map<BonusObj, PCStat> map = getBonusListOfType(id, type.toUpperCase(Locale.ENGLISH), name.toUpperCase(
+				Locale.ENGLISH));
 		for (Iterator<Map.Entry<BonusObj, PCStat>> it = map.entrySet().iterator(); it.hasNext();)
 		{
 			Entry<BonusObj, PCStat> me = it.next();

@@ -19,6 +19,7 @@
 package plugin.pretokens.test;
 
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -88,14 +89,14 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements Prerequi
 				}
 				else
 				{ //not a TYPE string
-					final String eqName = eq.getName().toUpperCase();
+					final String eqName = eq.getName().toUpperCase(Locale.ENGLISH);
 
 					if (aString.indexOf('%') >= 0)
 					{
 						//handle wildcards (always assume
 						// they end the line)
 						final int percentPos = aString.indexOf('%');
-						final String substring = aString.substring(0, percentPos).toUpperCase();
+						final String substring = aString.substring(0, percentPos).toUpperCase(Locale.ENGLISH);
 						if ((eqName.startsWith(substring)))
 						{
 							++runningTotal;

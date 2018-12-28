@@ -21,6 +21,7 @@ package plugin.exporttokens;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -564,7 +565,7 @@ public class SpellMemToken extends Token
 			}
 
 			String aDescription = sAlt;
-			final String aSearch = sType.toUpperCase() + ':' + sKey + Constants.LINE_SEPARATOR;
+			final String aSearch = sType.toUpperCase(Locale.ENGLISH) + ':' + sKey + Constants.LINE_SEPARATOR;
 			final int pos = aPC.getDescriptionLst().indexOf(aSearch);
 
 			if (pos >= 0)

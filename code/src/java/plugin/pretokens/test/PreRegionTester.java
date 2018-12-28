@@ -18,6 +18,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.display.CharacterDisplay;
@@ -46,8 +48,8 @@ public class PreRegionTester extends AbstractDisplayPrereqTest implements Prereq
 		throws PrerequisiteException
 	{
 
-		final String requiredRegion = prereq.getKey().toUpperCase();
-		final String characterRegion = display.getFullRegion().toUpperCase();
+		final String requiredRegion = prereq.getKey().toUpperCase(Locale.ENGLISH);
+		final String characterRegion = display.getFullRegion().toUpperCase(Locale.ENGLISH);
 
 		final boolean sameRegion = characterRegion.startsWith(requiredRegion);
 

@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -216,8 +217,8 @@ public abstract class VariableProcessor
 	private Float processBrokenParser(final CharacterSpell aSpell, String aString, String src, int spellLevelTemp)
 	{
 		Float total = new Float(0.0);
-		aString = aString.toUpperCase();
-		src = src.toUpperCase();
+		aString = aString.toUpperCase(Locale.ENGLISH);
+		src = src.toUpperCase(Locale.ENGLISH);
 
 		while (aString.lastIndexOf('(') >= 0)
 		{

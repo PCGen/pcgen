@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import pcgen.cdom.base.Constants;
@@ -54,7 +55,7 @@ public class CharacterFilter implements OutputFilter
 			filterName = filterName.substring(idx + 1);
 		}
 
-		filterName = filterName.toLowerCase();
+		filterName = filterName.toLowerCase(Locale.ENGLISH);
 
 		if (filterName.equals(outputFilterName))
 		{

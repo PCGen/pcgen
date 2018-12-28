@@ -18,6 +18,7 @@
 package pcgen.rules.persistence.token;
 
 import java.io.StringWriter;
+import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -43,7 +44,7 @@ public class PreCompatibilityToken
 
 	public PreCompatibilityToken(String s, PrerequisiteParserInterface prereqToken, boolean inv)
 	{
-		tokenRoot = s.toUpperCase();
+		tokenRoot = s.toUpperCase(Locale.ENGLISH);
 		token = prereqToken;
 		invert = inv;
 		tokenName = (invert ? "!" : "") + "PRE" + tokenRoot;

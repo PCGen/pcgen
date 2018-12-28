@@ -22,6 +22,7 @@ package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -639,7 +640,7 @@ public class WeaponToken extends Token
 	public static int getAmmunitionCountToken(PlayerCharacter pc, Equipment eq)
 	{
 		int ammoCount = 0;
-		String containerCapacity = eq.getContainerCapacityString().toUpperCase();
+		String containerCapacity = eq.getContainerCapacityString().toUpperCase(Locale.ENGLISH);
 
 		for (Equipment equip : pc.getEquipmentListInOutputOrder())
 		{
@@ -2551,7 +2552,7 @@ public class WeaponToken extends Token
 
 		if (eq.isRanged())
 		{
-			weaponProfBonus -= ((int) pc.getBonusDueToType("WEAPONPROF=" + profKey.toUpperCase(), "DAMAGE", "NOTRANGED")
+			weaponProfBonus -= ((int) pc.getBonusDueToType("WEAPONPROF=" + profKey.toUpperCase(Locale.ENGLISH), "DAMAGE", "NOTRANGED")
 				+ getWeaponProfTypeBonuses(pc, eq, "DAMAGE.NOTRANGED", WPTYPEBONUS_PC));
 		}
 

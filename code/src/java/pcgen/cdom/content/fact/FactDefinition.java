@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content.fact;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.enumeration.DataSetID;
@@ -65,9 +67,9 @@ public class FactDefinition<T extends CDOMObject, F> extends ContentDefinition<T
 	{
 		FactKeyActor<?> fca = new FactKeyActor<>(getFactKey());
 		CDOMWrapperInfoFacet wiFacet = FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
-		if (!wiFacet.set(dsID, getUsableLocation(), factName.toLowerCase(), fca))
+		if (!wiFacet.set(dsID, getUsableLocation(), factName.toLowerCase(Locale.ENGLISH), fca))
 		{
-			Logging.errorPrint(getUsableLocation().getSimpleName() + " output " + factName.toLowerCase()
+			Logging.errorPrint(getUsableLocation().getSimpleName() + " output " + factName.toLowerCase(Locale.ENGLISH)
 				+ " already exists, ignoring Visibility to EXPORT for FACT: " + factName);
 		}
 	}

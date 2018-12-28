@@ -22,6 +22,7 @@ package pcgen.io.exporttoken;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -1047,7 +1048,7 @@ public class EqToken extends Token
 	 */
 	public static String getTypeToken(Equipment eq)
 	{
-		return eq.getType().toUpperCase();
+		return eq.getType().toUpperCase(Locale.ENGLISH);
 	}
 
 	/**
@@ -1058,7 +1059,7 @@ public class EqToken extends Token
 	 */
 	public static String getTypeToken(Equipment eq, int num)
 	{
-		return eq.typeIndex(num).toUpperCase();
+		return eq.typeIndex(num).toUpperCase(Locale.ENGLISH);
 	}
 
 	/**

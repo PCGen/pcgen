@@ -23,6 +23,7 @@ package pcgen.persistence.lst.prereq;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import pcgen.core.prereq.Prerequisite;
@@ -72,7 +73,7 @@ public final class PreParserFactory implements PluginLoader
 
 	public PrerequisiteParserInterface getParser(String kind)
 	{
-		return parserLookup.get(kind.toLowerCase());
+		return parserLookup.get(kind.toLowerCase(Locale.ENGLISH));
 	}
 
 	public static void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
@@ -81,7 +82,7 @@ public final class PreParserFactory implements PluginLoader
 
 		for (int i = 0; i < kindsHandled.length; i++)
 		{
-			Object test = parserLookup.get(kindsHandled[i].toLowerCase());
+			Object test = parserLookup.get(kindsHandled[i].toLowerCase(Locale.ENGLISH));
 
 			if (test != null)
 			{
@@ -90,7 +91,7 @@ public final class PreParserFactory implements PluginLoader
 						+ "'. The test is already registered to '" + test.getClass().getName() + "'");
 			}
 
-			parserLookup.put(kindsHandled[i].toLowerCase(), testClass);
+			parserLookup.put(kindsHandled[i].toLowerCase(Locale.ENGLISH), testClass);
 		}
 	}
 

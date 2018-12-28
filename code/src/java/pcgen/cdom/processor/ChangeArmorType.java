@@ -20,6 +20,7 @@ package pcgen.cdom.processor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.cdom.content.Processor;
 
@@ -180,7 +181,7 @@ public class ChangeArmorType implements Processor<String>
 			String mod = applyProcessor(type, null);
 			if (mod != null)
 			{
-				returnList.add(mod.toUpperCase());
+				returnList.add(mod.toUpperCase(Locale.ENGLISH));
 			}
 		}
 		return returnList;

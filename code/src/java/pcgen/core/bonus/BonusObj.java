@@ -21,6 +21,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -91,7 +92,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			sb.append("|ERROR"); //$NON-NLS-1$
 		}
 
-		return sb.toString().toUpperCase();
+		return sb.toString().toUpperCase(Locale.ENGLISH);
 	}
 
 	/**
@@ -210,7 +211,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		bonusFormula = FormulaFactory.getFormulaFor(bValue);
 		if (!bonusFormula.isStatic())
 		{
-			buildDependMap(bValue.toUpperCase());
+			buildDependMap(bValue.toUpperCase(Locale.ENGLISH));
 		}
 		return bonusFormula;
 	}
@@ -258,7 +259,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public void setVariable(final String aString)
 	{
-		varPart = aString.toUpperCase();
+		varPart = aString.toUpperCase(Locale.ENGLISH);
 	}
 
 	/**
@@ -376,7 +377,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		if (bonusType.isEmpty())
 		{
-			bonusType = typeString.toUpperCase();
+			bonusType = typeString.toUpperCase(Locale.ENGLISH);
 
 			return true;
 		}

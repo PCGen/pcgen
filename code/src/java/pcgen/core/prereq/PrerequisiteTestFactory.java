@@ -19,6 +19,7 @@
 package pcgen.core.prereq;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import pcgen.system.LanguageBundle;
@@ -62,7 +63,7 @@ public final class PrerequisiteTestFactory implements PluginLoader
 				LanguageBundle.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
 				testClass.getClass().getName(), kindHandled, test.getClass().getName()));
 		}
-		TEST_LOOKUP.put(kindHandled.toUpperCase(), testClass);
+		TEST_LOOKUP.put(kindHandled.toUpperCase(Locale.ENGLISH), testClass);
 	}
 
 	/**
@@ -80,7 +81,7 @@ public final class PrerequisiteTestFactory implements PluginLoader
 		}
 		else
 		{
-			test = TEST_LOOKUP.get(kind.toUpperCase());
+			test = TEST_LOOKUP.get(kind.toUpperCase(Locale.ENGLISH));
 			if (test == null)
 			{
 				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$

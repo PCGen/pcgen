@@ -35,6 +35,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
+import java.util.Locale;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -176,7 +177,7 @@ public class DebugDialog extends JDialog
 		{
 			if (Desktop.isDesktopSupported())
 			{
-				if (System.getProperty("os.name").toLowerCase().contains("windows"))
+				if (System.getProperty("os.name").toLowerCase(Locale.ENGLISH).contains("windows"))
 				{
 					String cmd = "rundll32 url.dll,FileProtocolHandler " + file.getCanonicalPath();
 					Runtime.getRuntime().exec(cmd);

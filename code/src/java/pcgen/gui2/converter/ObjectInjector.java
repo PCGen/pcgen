@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -68,7 +69,7 @@ public class ObjectInjector
 					{
 						className = "EQUIPMOD";
 					}
-					String fileName = className.toLowerCase() + "_516_conversion.lst";
+					String fileName = className.toLowerCase(Locale.ENGLISH) + "_516_conversion.lst";
 					context.setExtractURI(uri);
 					Collection<String> result = context.unparse(o);
 					String line = o.getDisplayName() + "\t" + StringUtil.join(result, "\t");

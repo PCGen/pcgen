@@ -17,6 +17,7 @@
  */
 package pcgen.core.bonus;
 
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
@@ -68,11 +69,11 @@ public final class Bonus
 		{
 			//Throw away old level value if present
 			Integer.parseInt(bonusName);
-			bonusName = sep.next().toUpperCase();
+			bonusName = sep.next().toUpperCase(Locale.ENGLISH);
 		}
 		catch (NumberFormatException exc)
 		{
-			bonusName = bonusName.toUpperCase();
+			bonusName = bonusName.toUpperCase(Locale.ENGLISH);
 		}
 
 		int equalOffset = -1;
@@ -108,7 +109,7 @@ public final class Bonus
 			return null;
 		}
 
-		bValue = bValue.toUpperCase();
+		bValue = bValue.toUpperCase(Locale.ENGLISH);
 
 		BonusObj aBonus = null;
 		try
@@ -134,7 +135,7 @@ public final class Bonus
 
 		while (sep.hasNext())
 		{
-			final String aString = sep.next().toUpperCase();
+			final String aString = sep.next().toUpperCase(Locale.ENGLISH);
 
 			if (PreParserFactory.isPreReqString(aString))
 			{
@@ -192,7 +193,7 @@ public final class Bonus
 
 		if (!aBonus.requiresRealCaseTarget())
 		{
-			bonusInfo = bonusInfo.toUpperCase();
+			bonusInfo = bonusInfo.toUpperCase(Locale.ENGLISH);
 		}
 		StringTokenizer aTok = new StringTokenizer(bonusInfo, ",");
 

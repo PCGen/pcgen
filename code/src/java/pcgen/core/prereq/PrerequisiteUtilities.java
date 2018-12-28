@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -324,7 +325,7 @@ public final class PrerequisiteUtilities
 		else if (wildCardPos > -1)
 		{
 			String preWildcard =
-					(wildCardPos == 0) ? Constants.EMPTY_STRING : subKey.substring(0, wildCardPos).toUpperCase();
+					(wildCardPos == 0) ? Constants.EMPTY_STRING : subKey.substring(0, wildCardPos).toUpperCase(Locale.ENGLISH);
 			runningTotal = countSubKeyWildcardMatch(character, countMults, preWildcard, ability);
 		}
 
@@ -389,7 +390,7 @@ public final class PrerequisiteUtilities
 
 		for (String assoc : character.getConsolidatedAssociationList(ability))
 		{
-			final String fString = assoc.toUpperCase();
+			final String fString = assoc.toUpperCase(Locale.ENGLISH);
 
 			if (preWilcard.isEmpty() || fString.startsWith(preWilcard))
 			{

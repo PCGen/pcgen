@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -105,7 +106,7 @@ public class DamageReduction extends ConcretePrereqObject implements QualifyingO
 			final String val = tok.nextToken();
 			if (!("or".equalsIgnoreCase(val) || "and".equalsIgnoreCase(val)))
 			{
-				ret.add(val.toLowerCase());
+				ret.add(val.toLowerCase(Locale.ENGLISH));
 			}
 		}
 		return Collections.unmodifiableSet(ret);

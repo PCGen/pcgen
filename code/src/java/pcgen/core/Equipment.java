@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -443,11 +444,11 @@ public final class Equipment extends PObject
 
 		if (aType.startsWith("TYPE=") || aType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
-			myType = aType.substring(5).toUpperCase();
+			myType = aType.substring(5).toUpperCase(Locale.ENGLISH);
 		}
 		else
 		{
-			myType = aType.toUpperCase();
+			myType = aType.toUpperCase(Locale.ENGLISH);
 		}
 
 		//
@@ -2532,9 +2533,9 @@ public final class Equipment extends PObject
 		final boolean bPrimary)
 	{
 
-		StringBuilder sB = new StringBuilder(aType.toUpperCase());
+		StringBuilder sB = new StringBuilder(aType.toUpperCase(Locale.ENGLISH));
 		sB.append('.');
-		sB.append(aName.toUpperCase());
+		sB.append(aName.toUpperCase(Locale.ENGLISH));
 		sB.append('.');
 
 		final String aBonusKey = sB.toString();
@@ -4619,7 +4620,7 @@ public final class Equipment extends PObject
 		{
 			for (String aType : getAssociationList(aEqMod))
 			{
-				aType = aType.toUpperCase();
+				aType = aType.toUpperCase(Locale.ENGLISH);
 
 				if (!calculatedTypeList.contains(aType))
 				{
@@ -4666,7 +4667,7 @@ public final class Equipment extends PObject
 
 			for (String aType : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
 			{
-				aType = aType.toUpperCase();
+				aType = aType.toUpperCase(Locale.ENGLISH);
 
 				// If it's BOTH & MELEE, we cannot add RANGED or THROWN to
 				// it
@@ -4852,14 +4853,14 @@ public final class Equipment extends PObject
 		String displayName = newSize.getDisplayName();
 
 		// Make sure finalSize is a single upper case letter
-		String finalSize = displayName.toUpperCase().substring(0, 1);
+		String finalSize = displayName.toUpperCase(Locale.ENGLISH).substring(0, 1);
 
 		String thisKey = getKeyName();
 
 		if (thisKey.startsWith(Constants.AUTO_RESIZE_PREFIX))
 		{
 			int index = Constants.AUTO_RESIZE_PREFIX.length();
-			String keySize = thisKey.substring(index, index + 1).toUpperCase();
+			String keySize = thisKey.substring(index, index + 1).toUpperCase(Locale.ENGLISH);
 
 			// If the key of this object already has the finalSize in the correct
 			// place then just return it, the item has already been adjusted.
@@ -4899,11 +4900,11 @@ public final class Equipment extends PObject
 
 		String displayName = newSize.getDisplayName();
 		String thisName = getName();
-		String upName = thisName.toUpperCase();
+		String upName = thisName.toUpperCase(Locale.ENGLISH);
 
 		// Get the full name of the current size
 		SizeAdjustment sa1 = getSafe(ObjectKey.SIZE).get();
-		String upThisSize = sa1.getDisplayName().toUpperCase();
+		String upThisSize = sa1.getDisplayName().toUpperCase(Locale.ENGLISH);
 
 		int start = upName.indexOf(upThisSize);
 		int end = start + upThisSize.length();
@@ -5950,7 +5951,7 @@ public final class Equipment extends PObject
 	 */
 	public void setBonusStackFor(final double bonus, String aType)
 	{
-		String bType = (aType != null) ? aType.toUpperCase() : null;
+		String bType = (aType != null) ? aType.toUpperCase(Locale.ENGLISH) : null;
 
 		// Default to non-stacking bonuses
 		int index = -1;
