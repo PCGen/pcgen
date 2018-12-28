@@ -318,22 +318,22 @@ public class ObjectKey<T>
 	static
 	{
 		buildMap();
-		BASESIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
+		BASESIZE = new ObjectKey<>(null)
 		{
 			@Override
 			public CDOMSingleRef<SizeAdjustment> getDefault()
 			{
-				return CDOMDirectSingleRef.getRef(SizeUtilities.getDefaultSizeAdjustment());
+				return CDOMDirectSingleRef.getRef(SizeUtilities.getDefaultSizeAdjustment().get());
 			}
 
 		};
 		map.put("BASESIZE", BASESIZE);
-		SIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
+		SIZE = new ObjectKey<>(null)
 		{
 			@Override
 			public CDOMSingleRef<SizeAdjustment> getDefault()
 			{
-				return CDOMDirectSingleRef.getRef(SizeUtilities.getDefaultSizeAdjustment());
+				return CDOMDirectSingleRef.getRef(SizeUtilities.getDefaultSizeAdjustment().get());
 			}
 
 		};

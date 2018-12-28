@@ -85,7 +85,7 @@ public class FormulaKey implements TypeSafeConstant
 			@Override
 			public Formula getDefault()
 			{
-				SizeAdjustment def = SizeUtilities.getDefaultSizeAdjustment();
+				SizeAdjustment def = SizeUtilities.getDefaultSizeAdjustment().get();
 				CDOMDirectSingleRef<SizeAdjustment> ref = CDOMDirectSingleRef.getRef(def);
 				return new FixedSizeFormula(ref);
 			}

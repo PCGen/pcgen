@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -134,7 +135,7 @@ public final class EquipmentList
 			{
 				final String namePart = modList.get(i);
 
-				if (getModifierNamed(namePart) == null)
+				if (getModifierNamed(namePart).isEmpty())
 				{
 					namList.add(0, namePart); // add to the start as otherwise the list
 												// will be reversed
@@ -581,14 +582,14 @@ public final class EquipmentList
 				gensizesid.add(iSize);
 			}
 
-			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
+			Optional<SizeAdjustment> defaultSize = SizeUtilities.getDefaultSizeAdjustment();
 			Set<SizeAdjustment> gensizes = new HashSet<>();
 			for (Integer i : gensizesid)
 			{
 				gensizes.add(ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(i));
 			}
 			// skip over default size
-			gensizes.remove(defaultSize);
+			gensizes.remove(defaultSize.get());
 
 			PlayerCharacter dummyPc = new PlayerCharacter();
 			for (Equipment eq : ref.getConstructedCDOMObjects(Equipment.class))
@@ -609,18 +610,14 @@ public final class EquipmentList
 		}
 	}
 
-	private static EquipmentModifier getModifierNamed(final String aName)
+	private static Optional<EquipmentModifier> getModifierNamed(final String aName)
 	{
-		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext()
-			.getConstructedCDOMObjects(EquipmentModifier.class))
-		{
-			if (eqMod.getDisplayName().equals(aName))
-			{
-				return eqMod;
-			}
-		}
-
-		return null;
+		return Globals.getContext()
+		              .getReferenceContext()
+		              .getConstructedCDOMObjects(EquipmentModifier.class)
+		              .stream()
+		              .filter(eqMod -> eqMod.getDisplayName().equals(aName))
+		              .findFirst();
 	}
 
 	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq)

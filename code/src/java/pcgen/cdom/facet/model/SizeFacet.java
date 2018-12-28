@@ -77,7 +77,9 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 		SizeFacetInfo info = getInfo(id);
 		if (info == null)
 		{
-			return SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			return SizeUtilities.getDefaultSizeAdjustment()
+			                    .map(adj -> adj.get(IntegerKey.SIZEORDER))
+			                    .get();
 		}
 		return info.racialSizeInt;
 	}
@@ -86,7 +88,9 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	{
 		SizeFacetInfo info = getConstructingInfo(id);
 
-		int iSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+		int iSize = SizeUtilities.getDefaultSizeAdjustment()
+		                         .map(adj -> adj.get(IntegerKey.SIZEORDER))
+		                         .get();
 		Race race = raceFacet.get(id);
 		if (race != null)
 		{
@@ -198,7 +202,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	public SizeAdjustment get(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
-		return info == null ? SizeUtilities.getDefaultSizeAdjustment() : info.sizeAdj;
+		return (info == null) ? SizeUtilities.getDefaultSizeAdjustment().get() : info.sizeAdj;
 	}
 
 	/**

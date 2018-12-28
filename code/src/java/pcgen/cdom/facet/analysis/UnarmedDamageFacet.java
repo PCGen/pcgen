@@ -112,7 +112,7 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	{
 		Race race = raceFacet.get(id);
 		int iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE), race.getQualifiedKey()).intValue();
-		SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
+		SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment().get();
 		SizeAdjustment sizAdj = Globals.getContext().getReferenceContext()
 			.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(iSize);
 		if (sizAdj != null)

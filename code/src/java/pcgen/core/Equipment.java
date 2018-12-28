@@ -184,11 +184,8 @@ public final class Equipment extends PObject
 
 	public Equipment()
 	{
-		final SizeAdjustment sizeAdj = SizeUtilities.getDefaultSizeAdjustment();
-		if (sizeAdj != null)
-		{
-			put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(sizeAdj));
-		}
+		final Optional<SizeAdjustment> sizeAdj = SizeUtilities.getDefaultSizeAdjustment();
+		sizeAdj.ifPresent(sizeAdjustment -> put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(sizeAdjustment)));
 	}
 
 	//

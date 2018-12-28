@@ -17,6 +17,8 @@
  */
 package pcgen.core.analysis;
 
+import java.util.Optional;
+
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
@@ -31,17 +33,14 @@ public final class SizeUtilities
 	 * Get the default size adjustment
 	 * @return the default size adjustment
 	 */
-	public static SizeAdjustment getDefaultSizeAdjustment()
+	public static Optional<SizeAdjustment> getDefaultSizeAdjustment()
 	{
-		for (SizeAdjustment s : Globals.getContext().getReferenceContext()
-			.getConstructedCDOMObjects(SizeAdjustment.class))
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				return s;
-			}
-		}
+		return Globals.getContext()
+		              .getReferenceContext()
+		              .getConstructedCDOMObjects(SizeAdjustment.class)
+		              .stream()
+		              .filter(s -> s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
+		              .findFirst();
 
-		return null;
 	}
 }

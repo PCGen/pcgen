@@ -771,7 +771,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		// resize the damage as if it were a weapon
 		if (adjustForPCSize)
 		{
-			int defSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			int defSize = SizeUtilities.getDefaultSizeAdjustment().get().get(IntegerKey.SIZEORDER);
 			aDamage = Globals.adjustDamage(aDamage, defSize, pcSize);
 		}
 

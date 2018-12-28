@@ -23,6 +23,7 @@ package pcgen.io.exporttoken;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -45,7 +46,6 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -2644,11 +2644,9 @@ public class WeaponToken extends Token
 			 */
 			if (!applySize)
 			{
-				final SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
-				if (defAdj != null)
-				{
-					eqSize = defAdj.get(IntegerKey.SIZEORDER);
-				}
+				final Optional<Integer> defAdj = SizeUtilities.getDefaultSizeAdjustment()
+				                                              .map(adj -> adj.get(IntegerKey.SIZEORDER));
+				eqSize = defAdj.orElse(eqSize);
 			}
 
 			damString = Globals.adjustDamage(damString, eqSize, iMod);
@@ -2698,14 +2696,9 @@ public class WeaponToken extends Token
 
 		for (Equipment equip : pc.getEquipmentListInOutputOrder())
 		{
-			for (String type : equip.typeList())
+			if (equip.typeList().stream().anyMatch(containerCapacity::contains))
 			{
-				if (containerCapacity.contains(type))
-				{
-					++ammoCount;
-
-					break;
-				}
+				++ammoCount;
 			}
 			if (ammoCount == (ammo + 1))
 			{
