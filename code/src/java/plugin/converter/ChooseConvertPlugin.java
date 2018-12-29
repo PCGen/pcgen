@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
@@ -93,7 +94,7 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		String decision = tpe.getDecider()
 			.getConversionInput("Please provide class spell list which " + tpe.getObjectName() + " modifies").trim();
 		String stat = spelllistAnswered.computeIfAbsent(decision, d -> tpe.getDecider()
-			.getConversionInput("Please provide SPELLSTAT (abbreviation) for Class " + d).trim().toUpperCase());
+			.getConversionInput("Please provide SPELLSTAT (abbreviation) for Class " + d).trim().toUpperCase(Locale.ENGLISH));
 		tpe.append(tpe.getKey());
 		tpe.append(":SPELLS|CLASSLIST=");
 		tpe.append(decision);

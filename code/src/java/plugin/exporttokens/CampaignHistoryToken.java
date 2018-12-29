@@ -20,6 +20,7 @@ package plugin.exporttokens;
 
 import java.text.NumberFormat;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.StringUtils;
@@ -105,7 +106,7 @@ public class CampaignHistoryToken extends Token
 			return "";
 		}
 		String token = (aTok.hasMoreTokens()) ? aTok.nextToken() : "TEXT";
-		String value = getChronicleValue(entry, token.toUpperCase());
+		String value = getChronicleValue(entry, token.toUpperCase(Locale.ENGLISH));
 		if (value == null)
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid property '" + token + "'. Token was " + tokenSource);

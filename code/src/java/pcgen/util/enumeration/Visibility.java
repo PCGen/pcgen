@@ -17,6 +17,8 @@
  */
 package pcgen.util.enumeration;
 
+import java.util.Locale;
+
 public enum Visibility
 {
 
@@ -41,7 +43,7 @@ public enum Visibility
 
 	public String getLSTFormat()
 	{
-		return text.toUpperCase();
+		return text.toUpperCase(Locale.ENGLISH);
 	}
 
 	/**

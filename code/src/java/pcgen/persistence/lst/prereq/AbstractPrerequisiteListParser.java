@@ -24,6 +24,7 @@ package pcgen.persistence.lst.prereq;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -196,7 +197,7 @@ public abstract class AbstractPrerequisiteListParser extends AbstractPrerequisit
 				}
 				boolean warnIgnored = isNoWarnElement(thisElement);
 				Prerequisite subreq = new Prerequisite();
-				subreq.setKind(kind.toLowerCase());
+				subreq.setKind(kind.toLowerCase(Locale.ENGLISH));
 				subreq.setCountMultiples(true);
 				if (thisElement.indexOf('=') >= 0)
 				{
@@ -370,7 +371,7 @@ public abstract class AbstractPrerequisiteListParser extends AbstractPrerequisit
 			{
 				subreq.setOperand(elements[0]);
 			}
-			subreq.setKind(kind.toLowerCase());
+			subreq.setKind(kind.toLowerCase(Locale.ENGLISH));
 			subreq.setOperator(PrerequisiteOperator.GTEQ);
 		}
 	}

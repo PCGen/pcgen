@@ -25,6 +25,7 @@ package pcgen.persistence.lst.output.prereq;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import pcgen.persistence.PersistenceLayerException;
@@ -69,7 +70,7 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 		}
 		else
 		{
-			test = parserLookup.get(kind.toLowerCase());
+			test = parserLookup.get(kind.toLowerCase(Locale.ENGLISH));
 			if (test == null)
 			{
 				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
@@ -88,7 +89,7 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 	{
 		String kindHandled = testClass.kindHandled();
 
-		Object test = parserLookup.get(kindHandled.toLowerCase());
+		Object test = parserLookup.get(kindHandled.toLowerCase(Locale.ENGLISH));
 
 		if (test != null)
 		{
@@ -96,7 +97,7 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 				+ kindHandled + "'. The test is already registered to '" + test.getClass().getName() + "'");
 		}
 
-		parserLookup.put(kindHandled.toLowerCase(), testClass);
+		parserLookup.put(kindHandled.toLowerCase(Locale.ENGLISH), testClass);
 	}
 
 	@Override

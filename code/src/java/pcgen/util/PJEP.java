@@ -20,6 +20,7 @@ package pcgen.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Stack;
 
 import org.nfunk.jep.ASTFunNode;
@@ -87,8 +88,8 @@ public final class PJEP extends JEP
 			{
 				PCGenCommand com = aClass.newInstance();
 				localCommandList.add(com);
-				addFunction(com.getFunctionName().toLowerCase(), com);
-				addFunction(com.getFunctionName().toUpperCase(), com);
+				addFunction(com.getFunctionName().toLowerCase(Locale.ENGLISH), com);
+				addFunction(com.getFunctionName().toUpperCase(Locale.ENGLISH), com);
 			}
 			catch (InstantiationException | IllegalAccessException e)
 			{

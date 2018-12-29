@@ -19,6 +19,7 @@ package pcgen.rules.persistence.token;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -261,7 +262,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends Abst
 
 	public final String getPersistentFormat()
 	{
-		return getChooseClass().getSimpleName().toUpperCase();
+		return getChooseClass().getSimpleName().toUpperCase(Locale.ENGLISH);
 	}
 
 	protected abstract String getDefaultTitle();
