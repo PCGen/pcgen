@@ -18,6 +18,8 @@
  */
 package plugin.lsttokens.load;
 
+import java.util.Locale;
+
 import pcgen.core.system.LoadInfo;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -97,7 +99,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo>
 			checkPenalty = 0;
 		}
 
-		info.addLoadMultiplier(tokens[0].toUpperCase(), new Float(mult), moveFormula, checkPenalty);
+		info.addLoadMultiplier(tokens[0].toUpperCase(Locale.ENGLISH), new Float(mult), moveFormula, checkPenalty);
 		return ParseResult.SUCCESS;
 	}
 

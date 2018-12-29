@@ -1,6 +1,7 @@
 package plugin.lsttokens.gamemode;
 
 import java.net.URI;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.core.GameMode;
@@ -30,7 +31,7 @@ public class SpellrangeToken implements GameModeLstToken
 			return false;
 		}
 
-		String aRange = aTok.nextToken().toUpperCase();
+		String aRange = aTok.nextToken().toUpperCase(Locale.ENGLISH);
 		String aFormula = aTok.nextToken();
 		gameMode.addSpellRange(aRange, aFormula);
 		return true;

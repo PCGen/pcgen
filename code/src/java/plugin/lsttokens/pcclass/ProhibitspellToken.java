@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
@@ -139,7 +140,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass> impl
 		{
 			StringBuilder sb = new StringBuilder();
 			ProhibitedSpellType pst = sp.getType();
-			sb.append(pst.toString().toUpperCase());
+			sb.append(pst.toString().toUpperCase(Locale.ENGLISH));
 			sb.append('.');
 			Collection<String> valueSet = sp.getValueList();
 			char joinChar = getJoinChar(pst, valueSet);
