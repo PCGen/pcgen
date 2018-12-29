@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -133,7 +134,7 @@ public class ObjectInjector
 
 	private void writeFile(File f, List<String> lines) throws IOException
 	{
-		FileWriter writer = new FileWriter(f);
+		FileWriter writer = new FileWriter(f, StandardCharsets.UTF_8);
 		writer.write(getFileHeader());
 		for (String line : lines)
 		{

@@ -27,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -92,7 +93,7 @@ public class VariableReport
 
 		for (Entry<ReportFormat, String> reportRequest : reportNameMap.entrySet())
 		{
-			Writer file = new FileWriter(new File(reportRequest.getValue()));
+			Writer file = new FileWriter(new File(reportRequest.getValue()), StandardCharsets.UTF_8);
 			try
 			{
 				outputReport(gameModeVarMap, gameModeVarCountMap, reportRequest.getKey(), file);
@@ -240,7 +241,7 @@ public class VariableReport
 	private void processLstFile(List<VarDefine> varList, Map<String, Integer> varCountMap, File file)
 		throws FileNotFoundException, IOException
 	{
-		try (BufferedReader br = new BufferedReader(new FileReader(file)))
+		try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
 		{
 			Map<String, String> varUseMap = new HashMap<>();
 			String line = br.readLine();
