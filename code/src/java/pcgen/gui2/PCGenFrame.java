@@ -34,12 +34,11 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -1896,33 +1895,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	private static String readTextFromFile(String fileName)
 	{
-		String aString;
-		final File aFile = new File(fileName);
-
-		if (!aFile.exists())
-		{
-			Logging.errorPrint("Could not find license at " + fileName);
-			aString = LanguageBundle.getString("in_licNoInfo"); //$NON-NLS-1$
-
-			return aString;
-		}
-
 		try
 		{
-			BufferedReader theReader = new BufferedReader(new InputStreamReader(new FileInputStream(aFile), "UTF-8"));
-			final int length = (int) aFile.length();
-			final char[] inputLine = new char[length];
-			theReader.read(inputLine, 0, length);
-			theReader.close();
-			aString = new String(inputLine);
-		}
-		catch (IOException e)
+			return Files.readString(Paths.get(fileName));
+		} catch (IOException e)
 		{
 			Logging.errorPrint("Could not read license at " + fileName, e);
-			aString = "No license information found";
+			return LanguageBundle.getString("in_licNoInfo"); //$NON-NLS-1$
 		}
-
-		return aString;
 	}
 
 	/**
