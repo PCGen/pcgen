@@ -1,44 +1,66 @@
 package pcgen.core;
 
 import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import pcgen.PCGenTestCase;
+import java.math.BigDecimal;
+
+import pcgen.ControlTestSupport;
 import pcgen.cdom.content.BaseDice;
+import pcgen.cdom.util.CControl;
+import pcgen.core.system.LoadInfo;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestHelper;
 
-import org.hamcrest.Matchers;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * This class tests global areas of PCGen
  */
 @SuppressWarnings("nls")
-public class GlobalsTest extends PCGenTestCase
+public class GlobalsTest
 {
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		Globals.clearCampaignsForRefresh();
-		super.setUp();
+		final GameMode gamemode = new GameMode("3.5");
+		gamemode.setBonusFeatLevels("3|3");
+		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
+		gamemode.addLevelInfo("Normal", new LevelInfo());
+		gamemode.addXPTableName("Normal");
+		gamemode.setDefaultXPTableName("Normal");
+		gamemode.clearLoadContext();
+		LoadInfo loadable =
+				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
+						LoadInfo.class, gamemode.getName());
+		loadable.addLoadScoreValue(0, BigDecimal.ONE);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
+
 		TestHelper.makeSizeAdjustments();
 	}
 
 	/**
 	 * Test the Preview Tab
 	 */
+	@Test
 	public void testPreviewTab()
 	{
 		// Expect to be initialised false
-		is(SettingsHandler.isPreviewTabShown(), eq(false), "Initialised False");
+		assertThat("Initialised False", SettingsHandler.isPreviewTabShown(), is(false));
 
 		// Set true, expect to get true back
 		SettingsHandler.setPreviewTabShown(true);
-		is(SettingsHandler.isPreviewTabShown(), eq(true), "Show update to True");
+		assertThat("Show update to True", SettingsHandler.isPreviewTabShown(), is(true));
 
 		// Set false again to prove it toggles properly
 		SettingsHandler.setPreviewTabShown(false);
-		is(SettingsHandler.isPreviewTabShown(), eq(false),
-			"Show update to False");
+		assertThat("Show update to False", SettingsHandler.isPreviewTabShown(), is(false));
 	}
 
 //	/**
@@ -369,12 +391,13 @@ public class GlobalsTest extends PCGenTestCase
 //
 //	}
 
+	@Test
 	public void testAdjustDamage()
 	{
 		GameMode gameMode = SettingsHandler.getGame();
 		assertThat("size list initialised",
 				Globals.getContext().getReferenceContext().getConstructedObjectCount(SizeAdjustment.class),
-			Matchers.is(greaterThan(0)));
+			is(greaterThan(0)));
 		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));
@@ -392,7 +415,9 @@ public class GlobalsTest extends PCGenTestCase
 				SizeAdjustment.class, "S");
 		SizeAdjustment medium = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "M");
-		is(Globals.adjustDamage("1d6", medium, small), strEq("1d4"),
-			"reduction of damage due to smaller size");
+		Assert.assertEquals("reduction of damage due to smaller size",
+				"1d4",
+				Globals.adjustDamage("1d6", medium, small)
+		);
 	}
 }
