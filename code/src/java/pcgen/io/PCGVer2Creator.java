@@ -27,6 +27,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -1475,7 +1476,7 @@ public final class PCGVer2Creator
 				if (follower.getRace() != null)
 				{
 					buffer.append(IOConstants.TAG_RACE).append(':');
-					buffer.append(EntityEncoder.encode(follower.getRace().getKeyName().toUpperCase()));
+					buffer.append(EntityEncoder.encode(follower.getRace().getKeyName().toUpperCase(Locale.ENGLISH)));
 					buffer.append('|');
 				}
 				buffer.append(IOConstants.TAG_HITDICE).append(':');
@@ -1878,7 +1879,7 @@ public final class PCGVer2Creator
 		final String pckName = srcClass.getPackage().getName();
 		final String srcName = srcClass.getName().substring(pckName.length() + 1);
 
-		buffer.append(srcName.toUpperCase());
+		buffer.append(srcName.toUpperCase(Locale.ENGLISH));
 		buffer.append('|');
 		buffer.append(IOConstants.TAG_NAME).append(':');
 		buffer.append(source.getKeyName());

@@ -21,6 +21,7 @@ package pcgen.io;
 
 import java.io.File;
 import java.net.URI;
+import java.util.Locale;
 
 import pcgen.cdom.base.Constants;
 
@@ -110,7 +111,7 @@ public final class PCGFile
 			return isPCGenCampaignFile(new File(uri));
 		}
 
-		return uri.getPath() != null && uri.getPath().toLowerCase().endsWith(Constants.EXTENSION_CAMPAIGN_FILE);
+		return uri.getPath() != null && uri.getPath().toLowerCase(Locale.ENGLISH).endsWith(Constants.EXTENSION_CAMPAIGN_FILE);
 	}
 
 	/**
@@ -167,6 +168,6 @@ public final class PCGFile
 	 */
 	private static String getWindowsSafeFilename(final File file)
 	{
-		return file.getName().toLowerCase();
+		return file.getName().toLowerCase(Locale.getDefault());
 	}
 }

@@ -438,7 +438,7 @@ public final class ExportHandler
 	{
 		exportEngine = ExportEngine.PCGEN;
 
-		if (templateFile != null && templateFile.getName().toLowerCase().endsWith(".ftl"))
+		if (templateFile != null && templateFile.getName().toLowerCase(Locale.ENGLISH).endsWith(".ftl"))
 		{
 			exportEngine = ExportEngine.FREEMARKER;
 		}
@@ -853,7 +853,7 @@ public final class ExportHandler
 			{
 				return leftString.equals(rightString.substring(1));
 			}
-			return leftString.toUpperCase().contains(rightString.toUpperCase());
+			return leftString.toUpperCase(Locale.ENGLISH).contains(rightString.toUpperCase(Locale.ENGLISH));
 		}
 	}
 
