@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
@@ -605,8 +606,8 @@ public final class Globals
 		}
 
 		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList().stream()
-			.map(String::toUpperCase).collect(Collectors.toList());
-		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);
+		                                                   .map(s1 -> s1.toUpperCase(Locale.ENGLISH)).collect(Collectors.toList());
+		return typeList.stream().map(s -> s.toUpperCase(Locale.ENGLISH)).anyMatch(resizeTypeList::contains);
 	}
 
 	/**

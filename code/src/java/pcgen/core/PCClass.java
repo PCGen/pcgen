@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.StringJoiner;
@@ -199,13 +200,13 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 			return 0;
 		}
 
-		final String type = argType.toUpperCase();
-		final String mname = argMname.toUpperCase();
+		final String type = argType.toUpperCase(Locale.ENGLISH);
+		final String mname = argMname.toUpperCase(Locale.ENGLISH);
 
 		for (final BonusObj bonus : rawBonusList)
 		{
 			final StringTokenizer breakOnPipes =
-					new StringTokenizer(bonus.toString().toUpperCase(), Constants.PIPE, false);
+					new StringTokenizer(bonus.toString().toUpperCase(Locale.ENGLISH), Constants.PIPE, false);
 			final String theType = breakOnPipes.nextToken();
 
 			if (!theType.equals(type))

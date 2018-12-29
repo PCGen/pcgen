@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.inst;
 
+import java.util.Locale;
+
 /**
  * A DynamicCategory is a method for keeping different Formats of Dynamic objects
  * separated.
@@ -57,6 +59,6 @@ public final class DynamicCategory extends AbstractCategory<Dynamic>
 	@Override
 	public String getPersistentFormat()
 	{
-		return getKeyName().toUpperCase();
+		return getKeyName().toUpperCase(Locale.ENGLISH);
 	}
 }

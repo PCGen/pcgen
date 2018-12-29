@@ -21,6 +21,7 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.StringJoiner;
 import java.util.StringTokenizer;
 
@@ -178,15 +179,15 @@ public class PObject extends CDOMObject
 		}
 		else if (aType.charAt(0) == '!')
 		{
-			myType = aType.substring(1).toUpperCase();
+			myType = aType.substring(1).toUpperCase(Locale.ENGLISH);
 		}
 		else if (aType.startsWith("TYPE=") || aType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
-			myType = aType.substring(5).toUpperCase();
+			myType = aType.substring(5).toUpperCase(Locale.ENGLISH);
 		}
 		else
 		{
-			myType = aType.toUpperCase();
+			myType = aType.toUpperCase(Locale.ENGLISH);
 		}
 
 		//

@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
@@ -516,7 +517,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 		if (plusCalcs != null)
 		{
-			aString = plusCalcs.get(type.toUpperCase());
+			aString = plusCalcs.get(type.toUpperCase(Locale.ENGLISH));
 		}
 
 		return aString;
@@ -797,7 +798,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				plusCalcs = new HashMap<>();
 			}
 
-			plusCalcs.put(aString.substring(0, idx).toUpperCase(), aString.substring(idx + 1));
+			plusCalcs.put(aString.substring(0, idx).toUpperCase(Locale.ENGLISH), aString.substring(idx + 1));
 		}
 	}
 
@@ -2278,8 +2279,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void setEquipTypeIcon(String equipType, String iconPath, int priority)
 	{
-		this.equipTypeIconMap.put(equipType.toUpperCase(), iconPath);
-		this.equipTypeIconPriorityMap.put(equipType.toUpperCase(), priority);
+		this.equipTypeIconMap.put(equipType.toUpperCase(Locale.ENGLISH), iconPath);
+		this.equipTypeIconPriorityMap.put(equipType.toUpperCase(Locale.ENGLISH), priority);
 	}
 
 	/**
@@ -2289,7 +2290,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public String getEquipTypeIcon(String equipType)
 	{
-		return this.equipTypeIconMap.get(equipType.toUpperCase());
+		return this.equipTypeIconMap.get(equipType.toUpperCase(Locale.ENGLISH));
 	}
 
 	/**
@@ -2300,7 +2301,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	int getEquipTypeIconPriority(String equipType)
 	{
-		Integer priority = this.equipTypeIconPriorityMap.get(equipType.toUpperCase());
+		Integer priority = this.equipTypeIconPriorityMap.get(equipType.toUpperCase(Locale.ENGLISH));
 		return priority == null ? 0 : priority;
 	}
 
