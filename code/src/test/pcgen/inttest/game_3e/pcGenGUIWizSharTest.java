@@ -21,28 +21,16 @@ import java.io.IOException;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
+import org.junit.Test;
+
 /**
  * Tests a 3e 1st level Human Wizard.
  * 
  * See the PCG file for details.
  */
-@SuppressWarnings("nls")
 public class pcGenGUIWizSharTest extends PcgenFtlTestCase
 {
-	/**
-	 * standard JUnit style constructor
-	 * @param name 
-	 */
-	public pcGenGUIWizSharTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Run the test.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
+	@Test
 	public void testWizShar() throws IOException
 	{
 		runTest("3e_WizShar", "3e");

@@ -203,7 +203,8 @@ public class FacetDefinitionTest
 			}
 			testString = "class=\"" + packageName + "." + testString + "\"";
 			assertTrue("Unable to find Spring definition for " + srcFile,
-				contextData.indexOf(testString) >= 0);
+					contextData.contains(testString)
+			);
 		}
 	}
 

@@ -13,9 +13,9 @@ import pcgen.util.TestChecker;
 import pcgen.util.testchecker.CompareEqualBoolean;
 import pcgen.util.testchecker.CompareEqualInt;
 import pcgen.util.testchecker.CompareEqualString;
-import pcgen.util.testchecker.CompareNull;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
 
 /**
  * Test case base for PCGen.  This addresses a common bug with JUnit whereby
@@ -58,7 +58,7 @@ public abstract class PCGenTestCase extends TestCase
 	/**
 	 * Constructs a new {@code PCGenTestCase}.
 	 */
-	public PCGenTestCase()
+	protected PCGenTestCase()
 	{
 		// Do Nothing
 	}
@@ -68,21 +68,9 @@ public abstract class PCGenTestCase extends TestCase
 	 *
 	 * @param name The name of the test case
 	 */
-	public PCGenTestCase(final String name)
+	protected PCGenTestCase(final String name)
 	{
 		super(name);
-	}
-
-	protected void is(final Object something, final TestChecker matches)
-	{
-		if (!matches.check(something))
-		{
-
-			final StringBuilder message = new StringBuilder("\nExpected: ");
-			matches.scribe(message);
-			message.append("\nbut got: ").append(something).append('\n');
-			fail(message.toString());
-		}
 	}
 
 	protected void is(final Object something, final TestChecker matches, final String testCase)
@@ -95,11 +83,11 @@ public abstract class PCGenTestCase extends TestCase
 			message.append("\nbut got: ").append(something);
 			message.append(" \nIn test ").append(testCase);
 
-			fail(message.toString());
+			Assert.fail(message.toString());
 		}
 	}
 
-	public static CompareEqualString strEq(final String s)
+	protected static CompareEqualString strEq(final String s)
 	{
 		return new CompareEqualString(s);
 	}
@@ -114,8 +102,4 @@ public abstract class PCGenTestCase extends TestCase
 		return new CompareEqualInt(operand);
 	}
 
-	protected static CompareNull eqnull()
-	{
-		return new CompareNull();
-	}
 }

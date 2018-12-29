@@ -70,7 +70,7 @@ public final class PreParserFactory implements PluginLoader
 		return instance;
 	}
 
-	public PrerequisiteParserInterface getParser(String kind)
+	private PrerequisiteParserInterface getParser(String kind)
 	{
 		return parserLookup.get(kind.toLowerCase());
 	}
@@ -79,18 +79,18 @@ public final class PreParserFactory implements PluginLoader
 	{
 		String[] kindsHandled = testClass.kindsHandled();
 
-		for (int i = 0; i < kindsHandled.length; i++)
+		for (String kind : kindsHandled)
 		{
-			Object test = parserLookup.get(kindsHandled[i].toLowerCase());
+			Object test = parserLookup.get(kind.toLowerCase());
 
 			if (test != null)
 			{
 				throw new PersistenceLayerException(
-					"Error registering '" + testClass.getClass().getName() + "' as test '" + kindsHandled[i]
-						+ "'. The test is already registered to '" + test.getClass().getName() + "'");
+						"Error registering '" + testClass.getClass().getName() + "' as test '" + kind
+								+ "'. The test is already registered to '" + test.getClass().getName() + "'");
 			}
 
-			parserLookup.put(kindsHandled[i].toLowerCase(), testClass);
+			parserLookup.put(kind.toLowerCase(), testClass);
 		}
 	}
 

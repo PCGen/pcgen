@@ -88,12 +88,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String defaultUnitSet = Constants.STANDARD_UNITSET_NAME;
 	private UnitSet selectedUnitSet = null;
 	private String displayName = "";
-	private String displayVariable2Name = "";
-	private String displayVariable2Text = "";
-	private String displayVariable3Name = "";
-	private String displayVariable3Text = "";
-	private String displayVariableName = "";
-	private String displayVariableText = "";
 	private final String folderName;
 	private String levelUpMessage = "";
 	private String name = "";
@@ -660,60 +654,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set a 2nd variable display name.
-	 * @param aString
-	 */
-	public void setVariableDisplay2Name(final String aString)
-	{
-		displayVariable2Name = aString;
-	}
-
-	/**
-	 * Set a 2nd variable display text.
-	 * @param aString
-	 */
-	public void setVariableDisplay2Text(final String aString)
-	{
-		displayVariable2Text = aString;
-	}
-
-	/**
-	 * Set a 3rd variable display name.
-	 * @param aString
-	 */
-	public void setVariableDisplay3Name(final String aString)
-	{
-		displayVariable3Name = aString;
-	}
-
-	/**
-	 * Set a 3rd variable display text.
-	 * @param aString
-	 */
-	public void setVariableDisplay3Text(final String aString)
-	{
-		displayVariable3Text = aString;
-	}
-
-	/**
-	 * Set a variable display name.
-	 * @param aString
-	 */
-	public void setVariableDisplayName(final String aString)
-	{
-		displayVariableName = aString;
-	}
-
-	/**
-	 * Set a 2nd variable display text.
-	 * @param aString
-	 */
-	public void setVariableDisplayText(final String aString)
-	{
-		displayVariableText = aString;
-	}
-
-	/**
 	 * Get the weapon categories.
 	 * @return the weapon categories
 	 */
@@ -1064,40 +1004,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	List<String> getSkillMultiplierLevels()
 	{
 		return skillMultiplierLevels;
-	}
-
-	String getVariableDisplay2Name()
-	{
-		return displayVariable2Name;
-	}
-
-	String getVariableDisplay2Text()
-	{
-		return displayVariable2Text;
-	}
-
-	String getVariableDisplay3Name()
-	{
-		return displayVariable3Name;
-	}
-
-	String getVariableDisplay3Text()
-	{
-		return displayVariable3Text;
-	}
-
-	String getVariableDisplayName()
-	{
-		return displayVariableName;
-	}
-
-	/**
-	 * Variable Display.
-	 * @return variable display text
-	 */
-	String getVariableDisplayText()
-	{
-		return displayVariableText;
 	}
 
 	/**

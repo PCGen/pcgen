@@ -26,10 +26,10 @@ import pcgen.core.term.TermEvaulatorException;
 
 public final class TermUtilities
 {
-	public static final String D_STRING = "(?:NOT|ADD|IS)";
-	public static final Pattern D_PAT = Pattern.compile(D_STRING);
-	public static final String S_STRING = "(?:EQUIPPED|NOTEQUIPPED)";
-	public static final Pattern S_PAT = Pattern.compile(S_STRING);
+	private static final String D_STRING = "(?:NOT|ADD|IS)";
+	private static final Pattern D_PAT = Pattern.compile(D_STRING);
+	private static final String S_STRING = "(?:EQUIPPED|NOTEQUIPPED)";
+	private static final Pattern S_PAT = Pattern.compile(S_STRING);
 
 	private TermUtilities()
 	{
@@ -134,7 +134,7 @@ public final class TermUtilities
 		return expressionString.substring(fixed, expEnd);
 	}
 
-	public static int[] splitAndConvertIntegers(String expressionString, final String clause, int numOfFields)
+	static int[] splitAndConvertIntegers(String expressionString, final String clause, int numOfFields)
 		throws TermEvaulatorException
 	{
 		final String[] sA = clause.split("\\.", numOfFields);

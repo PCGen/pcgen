@@ -39,6 +39,9 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.hamcrest.Matchers;
+import org.junit.Assert;
+
 /**
  * This class tests the handling of DESC fields in PCGen
  */
@@ -70,8 +73,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description(simpleDesc);
 		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
-		assertTrue(
-			desc.getDescription(getCharacter(), singletonAbility).equals(simpleDesc));
+		assertEquals(desc.getDescription(getCharacter(), singletonAbility), simpleDesc);
 	}
 
 	/**
@@ -92,14 +94,14 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addPrerequisite(prereqNE);
 		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
-		is(desc.getDescription(getCharacter(), singletonAbility), strEq(""));
+		Assert.assertThat(desc.getDescription(getCharacter(), singletonAbility), Matchers.is(""));
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
 		Globals.getContext().getReferenceContext().importObject(template);
 		getCharacter().addTemplate(template);
-		is(desc.getDescription(getCharacter(), singletonAbility), strEq(simpleDesc));
+		Assert.assertThat(desc.getDescription(getCharacter(), singletonAbility), Matchers.is(simpleDesc));
 	}
 
 	/**
@@ -113,8 +115,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("\"Variable\"");
 		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
-		assertTrue(
-			desc.getDescription(getCharacter(), singletonAbility).equals("Variable"));
+		assertEquals("Variable", desc.getDescription(getCharacter(), singletonAbility));
 	}
 
 	/**
@@ -128,7 +129,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1");
 		desc.addVariable("%NAME");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
-		assertTrue(getCharacter().getDescription(pobj).equals("PObject"));
+		assertEquals("PObject", getCharacter().getDescription(pobj));
 	}
 
 	/**
@@ -143,10 +144,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1");
 		desc.addVariable("TestVar");
 		dummy.addToListFor(ListKey.DESCRIPTION, desc);
-		assertTrue(getCharacter().getDescription(dummy).equals("0"));
+		assertEquals("0", getCharacter().getDescription(dummy));
 
 		getCharacter().setRace(dummy);
-		assertTrue(getCharacter().getDescription(dummy).equals("2"));
+		assertEquals("2", getCharacter().getDescription(dummy));
 	}
 
 	/**
@@ -165,7 +166,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
-		assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
+		assertEquals("Foo", getCharacter().getDescription(pobj));
 	}
 
 	/**
@@ -184,8 +185,8 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
-		
-		assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
+
+		assertEquals("Foo", getCharacter().getDescription(pobj));
 	}
 
 	/**
@@ -212,10 +213,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%LIST");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).equals("Testing"));
+		assertEquals("Testing", getCharacter().getDescription(pobj));
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
-		assertTrue(getCharacter().getDescription(pobj).equals("Testing"));
+		assertEquals("Testing", getCharacter().getDescription(pobj));
 	}
 
 	/**

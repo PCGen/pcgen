@@ -18,6 +18,7 @@
  */
 package pcgen.core;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.assertThat;
@@ -108,10 +109,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * createKeyForAutoResize Tests
 	 ****************************************************************************/
 
-	// Original Key was what I expected
 	public void testcreateKeyForAutoResize001()
 	{
-		is(this.eq.getKeyName(), strEq(ORIGINAL_KEY));
+		assertThat(this.eq.getKeyName(), Matchers.is(equalTo(ORIGINAL_KEY)));
 	}
 
 	/** 
@@ -125,10 +125,10 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase()
 					+ ORIGINAL_KEY;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		assertThat(this.eq.createKeyForAutoResize(newSize), Matchers.is(equalTo((expectedKey))));
 	}
 
-	/** 
+	/**
 	 * Try upper case word for size
 	 */
 	public void testcreateKeyForAutoResize003()
@@ -139,13 +139,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ ORIGINAL_KEY;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		assertThat(this.eq.createKeyForAutoResize(newSize), Matchers.is(equalTo((expectedKey))));
 	}
 
 	/** Try empty new size */
 	public void testcreateKeyForAutoResize004()
 	{
-		is(this.eq.createKeyForAutoResize(null), strEq(ORIGINAL_KEY));
+		assertThat(this.eq.createKeyForAutoResize(null), Matchers.is(equalTo((ORIGINAL_KEY))));
 	}
 
 	/** Ensure that second customisation will work correctly */
@@ -157,7 +157,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ ORIGINAL_KEY;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		assertThat(this.eq.createKeyForAutoResize(newSize), Matchers.is(equalTo((expectedKey))));
 
 		newSize = diminutive;
 
@@ -165,7 +165,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ ORIGINAL_KEY;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		assertThat(this.eq.createKeyForAutoResize(newSize), Matchers.is(equalTo((expectedKey))));
 	}
 
 	/** Try nonsense abbreviation for Size */
@@ -174,7 +174,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + ORIGINAL_KEY;
 
 		assertThat(unExpectedKey, not(Matchers.is(this.eq.createKeyForAutoResize(null))));
-		is(this.eq.createKeyForAutoResize(null), strEq(ORIGINAL_KEY));
+		assertThat(this.eq.createKeyForAutoResize(null), Matchers.is(equalTo((ORIGINAL_KEY))));
 	}
 
 	/*****************************************************************************
@@ -184,19 +184,19 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Test with Size that exists and is formatted correctly */
 	public void testcreateNameForAutoResize002()
 	{
-		is(this.eq.createNameForAutoResize(large), strEq("Dummy (Large)"));
+		assertThat(this.eq.createNameForAutoResize(large), Matchers.is(equalTo(("Dummy (Large)"))));
 	}
 
 	/** Test with Abbreviation for Size that exists */
 	public void testcreateNameForAutoResize003()
 	{
-		is(this.eq.createNameForAutoResize(fine), strEq("Dummy (Fine)"));
+		assertThat(this.eq.createNameForAutoResize(fine), Matchers.is(equalTo(("Dummy (Fine)"))));
 	}
 
 	/** Test with Nonexistant size */
 	public void testcreateNameForAutoResize004()
 	{
-		is(this.eq.createNameForAutoResize(null), strEq("Dummy"));
+		assertThat(this.eq.createNameForAutoResize(null), Matchers.is(equalTo(("Dummy"))));
 	}
 
 	/** Test that size is replaced correctly */
@@ -211,13 +211,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (Large)"));
-		is(eq.getSize(), strEq("L"));
+		assertThat(eq.getKeyName(), Matchers.is(equalTo((expectedKey))));
+		assertThat(eq.getName(), Matchers.is(equalTo(("Pointy Stick (Large)"))));
+		assertThat(eq.getSize(), Matchers.is(equalTo(("L"))));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(diminutive),
-			strEq("Pointy Stick (Diminutive)"));
+		assertThat(this.eq.createNameForAutoResize(diminutive),
+			Matchers.is(equalTo(("Pointy Stick (Diminutive)"))));
 
 	}
 
@@ -234,13 +234,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (+1/Large)"));
-		is(eq.getSize(), strEq("L"));
+		assertThat(eq.getKeyName(), Matchers.is(equalTo((expectedKey))));
+		assertThat(eq.getName(), Matchers.is(equalTo(("Pointy Stick (+1/Large)"))));
+		assertThat(eq.getSize(), Matchers.is(equalTo(("L"))));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(gargantuan),
-			strEq("Pointy Stick (+1/Gargantuan)"));
+		assertThat(this.eq.createNameForAutoResize(gargantuan),
+			Matchers.is(equalTo(("Pointy Stick (+1/Gargantuan)"))));
 
 	}
 
@@ -256,13 +256,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (+1/Large/Speed)"));
-		is(eq.getSize(), strEq("L"));
+		assertThat(eq.getKeyName(), Matchers.is(equalTo((expectedKey))));
+		assertThat(eq.getName(), Matchers.is(equalTo(("Pointy Stick (+1/Large/Speed)"))));
+		assertThat(eq.getSize(), Matchers.is(equalTo(("L"))));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(colossal),
-			strEq("Pointy Stick (+1/Colossal/Speed)"));
+		assertThat(this.eq.createNameForAutoResize(colossal),
+			Matchers.is(equalTo(("Pointy Stick (+1/Colossal/Speed)"))));
 	}
 
 	/** Test that size is replaced correctly */
@@ -277,13 +277,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + ORIGINAL_KEY;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (+1/Speed)"));
-		is(eq.getSize(), strEq("L"));
+		assertThat(eq.getKeyName(), Matchers.is(equalTo((expectedKey))));
+		assertThat(eq.getName(), Matchers.is(equalTo(("Pointy Stick (+1/Speed)"))));
+		assertThat(eq.getSize(), Matchers.is(equalTo(("L"))));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(colossal),
-			strEq("Pointy Stick (+1/Speed) (Colossal)"));
+		assertThat(this.eq.createNameForAutoResize(colossal),
+			Matchers.is(equalTo(("Pointy Stick (+1/Speed) (Colossal)"))));
 	}
 
 	public void testResizeItem()
