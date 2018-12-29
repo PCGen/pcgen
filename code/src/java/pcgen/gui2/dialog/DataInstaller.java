@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -427,8 +428,8 @@ public class DataInstaller extends JFrame
 		Collection<String> nonStandardFiles = new ArrayList<>();
 		for (String filename : files)
 		{
-			if (!filename.toLowerCase().startsWith(DATA_FOLDER)
-				&& !filename.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
+			if (!filename.toLowerCase(Locale.ENGLISH).startsWith(DATA_FOLDER)
+				&& !filename.toLowerCase(Locale.ENGLISH).startsWith(OUTPUTSHEETS_FOLDER))
 			{
 				nonStandardFiles.add(filename);
 			}
@@ -545,11 +546,11 @@ public class DataInstaller extends JFrame
 	 */
 	private String correctFileName(File destDir, String fileName)
 	{
-		if (fileName.toLowerCase().startsWith(DATA_FOLDER))
+		if (fileName.toLowerCase(Locale.ENGLISH).startsWith(DATA_FOLDER))
 		{
 			fileName = destDir.getAbsolutePath() + fileName.substring(4);
 		}
-		else if (fileName.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
+		else if (fileName.toLowerCase(Locale.ENGLISH).startsWith(OUTPUTSHEETS_FOLDER))
 		{
 			fileName = new File(ConfigurationSettings.getOutputSheetsDir()).getAbsolutePath() + fileName.substring(12);
 		}

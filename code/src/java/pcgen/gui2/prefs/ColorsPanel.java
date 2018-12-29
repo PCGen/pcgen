@@ -24,6 +24,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
@@ -167,7 +168,7 @@ public class ColorsPanel extends PCGenPrefsPanel
 				|| (source == featVirtualColor))
 			{
 				final Color newColor = JColorChooser.showDialog(Globals.getRootFrame(),
-					LanguageBundle.getString("in_Prefs_colorSelect") + source.getText().toLowerCase(),
+					LanguageBundle.getString("in_Prefs_colorSelect") + source.getText().toLowerCase(Locale.ENGLISH),
 					source.getForeground());
 
 				if (newColor != null)

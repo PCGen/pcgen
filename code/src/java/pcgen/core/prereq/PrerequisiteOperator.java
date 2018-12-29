@@ -18,6 +18,8 @@
  */
 package pcgen.core.prereq;
 
+import java.util.Locale;
+
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 
@@ -150,7 +152,7 @@ public enum PrerequisiteOperator
 
 	public String toDisplayString()
 	{
-		return LanguageBundle.getString("PrerequisiteOperator.display." + toString().toLowerCase());
+		return LanguageBundle.getString("PrerequisiteOperator.display." + toString().toLowerCase(Locale.ENGLISH));
 	}
 
 	public int compare(final int leftHandOp, final int rightHandOp)
@@ -178,7 +180,7 @@ public enum PrerequisiteOperator
 	{
 		try
 		{
-			return valueOf(operatorName.toUpperCase());
+			return valueOf(operatorName.toUpperCase(Locale.ENGLISH));
 		}
 		catch (IllegalArgumentException e)
 		{
