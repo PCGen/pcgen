@@ -241,6 +241,8 @@ FACTDEF:ABILITY|Inquisitor_CF_JudgmentPurity			DATAFORMAT:BOOLEAN	REQUIRED:NO	SE
 
 
 # Oracle
+FACTDEF:ABILITY|Oracle_Archetype_Spells				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Spells			EXPLANATION:Determines whether the archetype affects - OraclesSpells
+FACTDEF:ABILITY|Oracle_Archetype_Proficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - OraclesProficiencies
 FACTDEF:ABILITY|Oracle_Archetype_OraclesCurse			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse		EXPLANATION:Determines whether the archetype affects - OraclesCurse
 FACTDEF:ABILITY|Oracle_Archetype_OraclesMystery			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesMystery		EXPLANATION:Determines whether the archetype affects - OraclesMystery
 FACTDEF:ABILITY|Oracle_Archetype_Revelation			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesMystery		EXPLANATION:Determines whether the archetype affects - OraclesMystery
@@ -342,6 +344,7 @@ FACTDEF:ABILITY|Summoner_CF_ShareSpells				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECT
 
 
 # Witch
+FACTDEF:ABILITY|Witch_Archetype_WeaponProficiencies		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:WeaponProficiencies	EXPLANATION:Determines whether the archetype affects - WeaponProficiencies
 FACTDEF:ABILITY|Witch_Archetype_ClassSkills			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:ClassSkills			EXPLANATION:Determines whether the archetype affects - ClassSkills
 FACTDEF:ABILITY|Witch_Archetype_Familiar				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Familiar			EXPLANATION:Determines whether the archetype affects - Familiar
 FACTDEF:ABILITY|Witch_Archetype_Cantrips				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Cantrips			EXPLANATION:Determines whether the archetype affects - Cantrips

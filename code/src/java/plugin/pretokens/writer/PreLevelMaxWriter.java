@@ -59,7 +59,7 @@ public class PreLevelMaxWriter extends AbstractPrerequisiteWriter implements Pre
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

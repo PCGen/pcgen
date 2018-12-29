@@ -104,7 +104,8 @@ CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_WeaponProficiencies|0
 CATEGORY=Class|Barbarian.MOD	DEFINE:Barbarian_CF_ArmorProficiencies|0
 
 CATEGORY=Class|Barbarian.MOD									BONUS:VAR|Barbarian_CF_Proficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Proficiencies=True
-#,Barbarian_CF_WeaponProficiencies=True,Barbarian_CF_ArmorProficiencies=True
+CATEGORY=Class|Barbarian.MOD									BONUS:VAR|Barbarian_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_WeaponProficiencies=True
+CATEGORY=Class|Barbarian.MOD									BONUS:VAR|Barbarian_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_ArmorProficiencies=True
 CATEGORY=Class|Barbarian.MOD									BONUS:VAR|Barbarian_CF_Rage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_Rage=True
 CATEGORY=Class|Barbarian.MOD									BONUS:VAR|Barbarian_CF_FastMovement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_FastMovement=True
 CATEGORY=Class|Barbarian.MOD									BONUS:VAR|Barbarian_CF_RagePowers|1|TYPE=Boolean|PREFACT:1,ABILITIES,Barbarian_CF_RagePowers=True
@@ -663,6 +664,15 @@ CATEGORY=Class|Monk.MOD																										BONUS:VAR|Monk_CF_Proficiencies
 
 # Paladin
 # Ability Name			Define												Modify VAR
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ClassSkills|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencies|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencySimple|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencyMartial|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencies|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyHeavy|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyMedium|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyLight|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ShieldProficiency|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfGood|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_DetectEvil|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_SmiteEvil|0
@@ -671,47 +681,37 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_LayOnHands|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfCourage|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_DivineHealth|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ChannelPositiveEnergy|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_DivineBond|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfResolve|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfJustice|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfFaith|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfRighteousness|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_HolyChampion|0
-
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ClassSkills|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedWeapon|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Spells|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy3|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy6|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy9|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy12|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy15|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Mercy18|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencies|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencies|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyHeavy|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ArmorProficiencyMedium|0
-CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ShieldProficiency|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ChannelPositiveEnergy|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_Spells|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_DivineBond|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedMount|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_BondedWeapon|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfResolve|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfJustice|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfFaith|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_AuraOfRighteousness|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_HolyChampion|0
+CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_CodeOfConduct|0
 
-CATEGORY=Class|Paladin.MOD	DEFINE:AllowHolyAvenger|0	DEFINE:HolyAvengerCL|0	DEFINE:HolyAvengerSR|0	BONUS:VAR|AlignmentAuraLVL|PaladinLVL	BONUS:VAR|AllowHolyAvenger|1	BONUS:VAR|HolyAvengerCL|PaladinLVL	BONUS:VAR|HolyAvengerSR|5+PaladinLVL
+CATEGORY=Class|Paladin.MOD	DEFINE:AllowHolyAvenger|0	DEFINE:HolyAvengerCL|0	DEFINE:HolyAvengerSR|0	DEFINE:Paladin_AuraRange|0	BONUS:VAR|AlignmentAuraLVL|PaladinLVL	BONUS:VAR|AllowHolyAvenger|1	BONUS:VAR|HolyAvengerCL|PaladinLVL	BONUS:VAR|HolyAvengerSR|5+PaladinLVL	BONUS:VAR|Paladin_AuraRange|10|TYPE=Base
 
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ClassSkills=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Spells=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy3=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy6=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy9=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy12=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy15=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy18=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencies=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencySimple,Paladin_CF_WeaponProficiencyMartial|1|TYPE=Boolean|PREVARGTEQ:Paladin_CF_WeaponProficiencies,1
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencySimple|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencySimple=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencyMartial|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencyMartial=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencies=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyHeavy,Paladin_CF_ArmorProficiencyMedium,Paladin_CF_ArmorProficiencyLight|1|TYPE=Boolean|PREVARGTEQ:Paladin_CF_ArmorProficiencies,1
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyHeavy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyHeavy=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyMedium|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyMedium=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyLight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyLight=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ShieldProficiency=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_BondedMount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedMount=True
 
 
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfGood=True
@@ -722,13 +722,23 @@ CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_LayOnHands|1|TYPE=B
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfCourage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfCourage=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineHealth|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineHealth=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy3=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy6=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy9=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy12=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy15=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy18=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ChannelPositiveEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ChannelPositiveEnergy=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Spells=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineBond=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_BondedMount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedMount=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfResolve=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfJustice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfJustice=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfFaith=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfRighteousness=True
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_HolyChampion=True
+CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_CodeOfConduct|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_CodeOfConduct=True
 # Old Style
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfGood
 CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil
@@ -1089,6 +1099,8 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_TransmutationOppositionScho
 
 ###Block: Wizard School Replacement Support
 # Ability Name			Define								Modify VAR
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_SchoolPower1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SchoolPower1=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_SchoolPower8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SchoolPower8=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_AcidDart|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AcidDart=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_AuraOfDespair|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AuraOfDespair=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_BlindingRay|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BlindingRay=True
@@ -1118,6 +1130,8 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_IllusionOppositionSchool|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_NecromancyOppositionSchool|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_TransmutationOppositionSchool|0
 
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SchoolPower1|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SchoolPower8|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AcidDart|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AuraOfDespair|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BlindingRay|0

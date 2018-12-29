@@ -26,7 +26,7 @@ import pcgen.facade.core.UIDelegate;
  * to reduce the core/gui interdependence. Much more work is needed on this...
  * Currently only a SwingChooser has been implemented.
  */
-@Deprecated(forRemoval = true)
+@Deprecated()
 public final class ChooserFactory
 {
 	private static UIDelegate delegate;
@@ -44,7 +44,7 @@ public final class ChooserFactory
 	 * 
 	 * @return The most recently registered ChoiceHandler, if any.
 	 */
-	public static Optional<ChoiceHandler> getChoiceHandler()
+	public static Optional<RandomChooser> getChoiceHandler()
 	{
 		if (useRandomChooser)
 		{

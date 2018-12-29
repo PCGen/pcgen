@@ -52,7 +52,7 @@ ext {
         }
         from('code') {
             include 'LICENSE'
-            include 'pcgen.bat'
+	    include 'pcgen.bat'
             include 'pcgen.sh'
             eachFile{ file ->
                 if(file.getName().endsWith(".sh")) {
@@ -77,9 +77,15 @@ ext {
             include 'characters/*.pcg'
         }
     }
+
+    jreImage = copySpec {
+        from('.') {
+            include 'jre/**'
+        }
+    }
 }
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', 'downloadJRE']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -88,6 +94,7 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
         with libsDistsImage
         with autobuildSpec
         with charactersImage
+        with jreImage
     }
 }
 

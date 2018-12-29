@@ -59,7 +59,7 @@ public class PreSpellCastMemorizeWriter extends AbstractPrerequisiteWriter imple
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 

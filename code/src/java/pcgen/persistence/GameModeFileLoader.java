@@ -202,7 +202,7 @@ public class GameModeFileLoader extends PCGenTask
 			{
 				Logging.errorPrint("Error Initializing PreParserFactory");
 				Logging.errorPrint("  " + ple.getMessage(), ple);
-				throw new UnreachableError();
+				throw new UnreachableError(ple);
 			}
 
 			progress++;

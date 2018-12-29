@@ -25,20 +25,9 @@ import java.awt.Insets;
 
 public class UnstretchingGridLayout extends GridLayout
 {
-
-	public UnstretchingGridLayout()
-	{
-		super();
-	}
-
 	public UnstretchingGridLayout(int arg0, int arg1)
 	{
 		super(arg0, arg1);
-	}
-
-	public UnstretchingGridLayout(int arg0, int arg1, int arg2, int arg3)
-	{
-		super(arg0, arg1, arg2, arg3);
 	}
 
 	@Override
@@ -56,11 +45,11 @@ public class UnstretchingGridLayout extends GridLayout
 			int columnCount = getColumns();
 			if (rowCount > 0)
 			{
-				columnCount = (componentCount + rowCount - 1) / rowCount;
+				columnCount = ((componentCount + rowCount) - 1) / rowCount;
 			}
 			else
 			{
-				rowCount = (componentCount + columnCount - 1) / columnCount;
+				rowCount = ((componentCount + columnCount) - 1) / columnCount;
 			}
 
 			/*
@@ -98,12 +87,12 @@ public class UnstretchingGridLayout extends GridLayout
 				int xLoc = insets.left;
 				for (int column = 0; column < columnCount; column++)
 				{
-					int i = row * columnCount + column;
+					int i = (row * columnCount) + column;
 					if (i < componentCount)
 					{
 						Component component = parent.getComponent(i);
 						Dimension d = component.getPreferredSize();
-						int x = leftToRight ? xLoc : xLoc - d.width;
+						int x = leftToRight ? xLoc : (xLoc - d.width);
 						component.setBounds(x, yLoc, d.width, d.height);
 					}
 					if (leftToRight)

@@ -50,9 +50,4 @@ public class CopyLoader implements Loader
 		return c.getSafeListFor(listkey);
 	}
 
-	public String getLoadName()
-	{
-		return "Copy " + listkey.toString();
-	}
-
 }

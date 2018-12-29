@@ -33,6 +33,14 @@ public final class PersistenceLayerException extends Exception
 	}
 
 	/**
+	 * @param rootCause the root cause of the exception.
+	 */
+	public PersistenceLayerException(Throwable rootCause)
+	{
+		super(rootCause);
+	}
+
+	/**
 	 * Constructs an instance of {@code PersistenceLayerException} with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
 	 * @param msg the detail message.
