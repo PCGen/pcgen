@@ -73,36 +73,7 @@ public class ConvertPanel extends JPanel
 	{
 		super(new BorderLayout());
 		statusLabel = new JLabel();
-		TaskStrategyListener tsl = new TaskStrategyListener()
-		{
-			private String status;
-
-			private long time;
-
-			@Override
-			public void processMessage(Object owner, String string)
-			{
-				JOptionPane.showMessageDialog(null, string);
-			}
-
-			@Override
-			public void processStatus(Object source, String string)
-			{
-				status = string;
-				statusLabel.setText(string);
-			}
-
-			@Override
-			public void processActiveItem(Object source, String string)
-			{
-				long currentTime = System.currentTimeMillis();
-				if ((currentTime - time) > 100)
-				{
-					statusLabel.setText(status + " [" + string + "]");
-					time = currentTime;
-				}
-			}
-		};
+		TaskStrategyListener tsl = (source, string) -> statusLabel.setText(string);
 		TaskStrategyMessage.addTaskStrategyListener(tsl);
 
 		properties = new ObjectCache();
