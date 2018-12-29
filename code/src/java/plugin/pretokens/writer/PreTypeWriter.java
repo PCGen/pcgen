@@ -20,6 +20,7 @@ package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -131,7 +132,7 @@ public class PreTypeWriter extends AbstractPrerequisiteWriter implements Prerequ
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write("PRE" + kindHandled().toUpperCase(Locale.ENGLISH) + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(oper.equals(PrerequisiteOperator.EQ) ? prereq.getOperand() : "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
