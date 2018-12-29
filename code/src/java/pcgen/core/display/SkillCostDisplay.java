@@ -21,6 +21,7 @@ package pcgen.core.display;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 import pcgen.base.lang.StringUtil;
@@ -61,7 +62,7 @@ public final class SkillCostDisplay
 		double bonusObjTotal = 0.0;
 		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
-		String bonusKey = ("SKILL." + keyName).toUpperCase();
+		String bonusKey = ("SKILL." + keyName).toUpperCase(Locale.ENGLISH);
 		for (BonusObj bonus : aPC.getActiveBonusList())
 		{
 			// calculate bonus and add to activeBonusMap
@@ -72,7 +73,7 @@ public final class SkillCostDisplay
 				{
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
-						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 						if (bpKey.equals(bonusKey))
 						{
 							include = true;
@@ -86,7 +87,7 @@ public final class SkillCostDisplay
 					double iBonus = 0;
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
-						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 						if (bpKey.startsWith(bonusKey))
 						{
 							iBonus += bp.resolve(aPC).doubleValue();
@@ -203,7 +204,7 @@ public final class SkillCostDisplay
 	{
 		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
-		String bonusKey = ("SITUATION." + keyName + "=" + situation).toUpperCase();
+		String bonusKey = ("SITUATION." + keyName + "=" + situation).toUpperCase(Locale.ENGLISH);
 		for (BonusObj bonus : aPC.getActiveBonusList())
 		{
 			// calculate bonus and add to activeBonusMap
@@ -214,7 +215,7 @@ public final class SkillCostDisplay
 				{
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
-						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 						if (bpKey.equals(bonusKey))
 						{
 							include = true;
@@ -228,7 +229,7 @@ public final class SkillCostDisplay
 					double iBonus = 0;
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
-						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase(Locale.ENGLISH);
 						if (bpKey.startsWith(bonusKey))
 						{
 							iBonus += bp.resolve(aPC).doubleValue();

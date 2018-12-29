@@ -29,6 +29,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -3227,7 +3228,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		List<Ability> aggregateFeatList = new ArrayList<>();
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC));
 		aggregateFeatList.addAll(aHashMap.values());
-		return getPObjectWithCostBonusTo(aggregateFeatList, aType.toUpperCase(), aName.toUpperCase());
+		return getPObjectWithCostBonusTo(aggregateFeatList, aType.toUpperCase(Locale.ENGLISH), aName.toUpperCase(Locale.ENGLISH));
 	}
 
 	public Ability getMatchingAbility(Category<Ability> abilityCategory, Ability ability, Nature nature)
@@ -3491,7 +3492,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		final List<BonusObj> tempList =
-				BonusUtilities.getBonusFromList(getRace().getBonusList(this), aType.toUpperCase(), aName.toUpperCase());
+				BonusUtilities.getBonusFromList(getRace().getBonusList(this), aType.toUpperCase(Locale.ENGLISH), aName.toUpperCase(
+						Locale.ENGLISH));
 
 		return calcBonusFromList(tempList, getRace());
 	}
@@ -3510,7 +3512,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public double getSizeAdjustmentBonusTo(String aType, String aName)
 	{
-		return getBonusDueToType(aType.toUpperCase(), aName.toUpperCase(), "SIZE");
+		return getBonusDueToType(aType.toUpperCase(Locale.ENGLISH), aName.toUpperCase(Locale.ENGLISH), "SIZE");
 	}
 
 	/**
@@ -3679,7 +3681,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
 		String aSpellClass = aSpell.getVariableSource(this);
 		int rangeInFeet = 0;
-		String aString = SettingsHandler.getGame().getSpellRangeFormula(aRange.toUpperCase());
+		String aString = SettingsHandler.getGame().getSpellRangeFormula(aRange.toUpperCase(Locale.ENGLISH));
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
 		{
@@ -3774,7 +3776,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public double getTemplateBonusTo(String aType, String aName)
 	{
-		return getPObjectWithCostBonusTo(templateFacet.getSet(id), aType.toUpperCase(), aName.toUpperCase());
+		return getPObjectWithCostBonusTo(templateFacet.getSet(id), aType.toUpperCase(Locale.ENGLISH), aName.toUpperCase(
+				Locale.ENGLISH));
 	}
 
 	/**
@@ -5781,8 +5784,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 			final Float fVal = getVariableValue(aSpell, inCalc, aSpellClass);
 			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f) || (inCalc.contains("MIN"))
-				|| (inCalc.contains("MAX")) || inCalc.toUpperCase().contains("MIN(")
-				|| inCalc.toUpperCase().contains("MAX("))
+				|| (inCalc.contains("MAX")) || inCalc.toUpperCase(Locale.ENGLISH).contains("MIN(")
+				|| inCalc.toUpperCase(Locale.ENGLISH).contains("MAX("))
 			{
 				found = true;
 				replacement = String.valueOf(fVal.intValue());
@@ -6075,8 +6078,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return bonus;
 		}
 
-		aType = aType.toUpperCase();
-		aName = aName.toUpperCase();
+		aType = aType.toUpperCase(Locale.ENGLISH);
+		aName = aName.toUpperCase(Locale.ENGLISH);
 
 		for (Equipment eq : getEquippedEquipmentSet())
 		{

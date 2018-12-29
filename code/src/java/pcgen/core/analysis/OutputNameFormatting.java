@@ -19,6 +19,7 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
@@ -64,7 +65,7 @@ public final class OutputNameFormatting
 		while (varTokenizer.hasMoreElements())
 		{
 			final String token = varTokenizer.nextToken();
-			tokenList.add(token.toUpperCase());
+			tokenList.add(token.toUpperCase(Locale.ENGLISH));
 			varArray.add(aPC.getVariableValue(token, ""));
 		}
 
