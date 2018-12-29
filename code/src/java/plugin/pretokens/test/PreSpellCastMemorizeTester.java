@@ -4,6 +4,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
@@ -36,7 +38,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest implem
 	{
 
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
-		final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		final boolean prereqMemorized = prereq.getKey().toUpperCase(Locale.ENGLISH).startsWith("Y"); //$NON-NLS-1$
 		int runningTotal = 0;
 
 		for (PCClass aClass : display.getClassSet())
@@ -54,7 +56,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest implem
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		final boolean prereqMemorized = prereq.getKey().toUpperCase(Locale.ENGLISH).startsWith("Y"); //$NON-NLS-1$
 		final Object[] args = new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()};
 
 		if (prereqMemorized)

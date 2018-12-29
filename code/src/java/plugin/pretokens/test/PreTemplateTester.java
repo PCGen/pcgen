@@ -18,6 +18,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -55,7 +57,7 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 
 		if (display.hasTemplates())
 		{
-			String templateKey = prereq.getKey().toUpperCase();
+			String templateKey = prereq.getKey().toUpperCase(Locale.ENGLISH);
 			final int wildCard = templateKey.indexOf('%');
 			//handle wildcards (always assume they end the line)
 			if (wildCard >= 0)
@@ -63,7 +65,7 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 				templateKey = templateKey.substring(0, wildCard);
 				for (PCTemplate aTemplate : display.getTemplateSet())
 				{
-					if (aTemplate.getKeyName().toUpperCase().startsWith(templateKey))
+					if (aTemplate.getKeyName().toUpperCase(Locale.ENGLISH).startsWith(templateKey))
 					{
 						runningTotal++;
 					}

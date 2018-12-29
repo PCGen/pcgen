@@ -18,6 +18,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
@@ -32,7 +34,7 @@ public class PreSpellBookTester extends AbstractDisplayPrereqTest implements Pre
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		final boolean prereqUsesBook = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		final boolean prereqUsesBook = prereq.getKey().toUpperCase(Locale.ENGLISH).startsWith("Y"); //$NON-NLS-1$
 		int runningTotal = 0;
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 

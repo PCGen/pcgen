@@ -17,6 +17,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PlayerCharacter;
@@ -38,7 +40,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 		int runningTotal = 0;
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
 
-		String requiredSkillKey = prereq.getKey().toUpperCase();
+		String requiredSkillKey = prereq.getKey().toUpperCase(Locale.ENGLISH);
 
 		final boolean isType =
 				(requiredSkillKey.startsWith("TYPE.") //$NON-NLS-1$
@@ -54,14 +56,14 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 		boolean foundMatch = false;
 		for (Skill aSkill : display.getSkillSet())
 		{
-			final String aSkillKey = aSkill.getKeyName().toUpperCase();
+			final String aSkillKey = aSkill.getKeyName().toUpperCase(Locale.ENGLISH);
 			if (isType)
 			{
 				if (percentageSignPosition >= 0)
 				{
 					for (Type type : aSkill.getTrueTypeList(false))
 					{
-						if (type.toString().toUpperCase().startsWith(skillKey.substring(0, percentageSignPosition)))
+						if (type.toString().toUpperCase(Locale.ENGLISH).startsWith(skillKey.substring(0, percentageSignPosition)))
 						{
 							foundMatch = true;
 							break;

@@ -23,6 +23,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -48,10 +49,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 		CharacterDisplay display = character.getDisplay();
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
 		// Compute the skill name from the Prerequisite
-		String requiredSkillKey = prereq.getKey().toUpperCase();
+		String requiredSkillKey = prereq.getKey().toUpperCase(Locale.ENGLISH);
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ')'; //$NON-NLS-1$ 
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase(Locale.ENGLISH) + ')'; //$NON-NLS-1$
 		}
 		final boolean isType =
 				(requiredSkillKey.startsWith("TYPE.")
@@ -71,7 +72,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 		boolean foundSkill = false;
 		for (Skill aSkill : display.getSkillSet())
 		{
-			final String aSkillKey = aSkill.getKeyName().toUpperCase();
+			final String aSkillKey = aSkill.getKeyName().toUpperCase(Locale.ENGLISH);
 			if (isType)
 			{
 				if (percentageSignPosition >= 0)
@@ -121,7 +122,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					{
 						break;
 					}
-					final String aSkillKey = target.getKeyName().toUpperCase();
+					final String aSkillKey = target.getKeyName().toUpperCase(Locale.ENGLISH);
 					if (target.getDisplayName().equalsIgnoreCase(skillKey))
 					{
 						foundSkill = true;
@@ -251,7 +252,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 	{
 		for (Type type : aSkill.getTrueTypeList(false))
 		{
-			if (type.toString().toUpperCase().startsWith(skillKey.substring(0, percentageSignPosition)))
+			if (type.toString().toUpperCase(Locale.ENGLISH).startsWith(skillKey.substring(0, percentageSignPosition)))
 			{
 				found = true;
 				break;
