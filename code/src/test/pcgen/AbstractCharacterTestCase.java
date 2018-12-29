@@ -39,6 +39,8 @@ import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.Assert;
+
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
@@ -185,13 +187,13 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		additionalSetUp();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(ref.resolveReferences(null));
+		Assert.assertTrue(ref.resolveReferences(null));
 		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
 	}
 
-	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)
+	private static <T> void proc(LoadContext context, FormatManager<T> fmtManager)
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
@@ -208,7 +210,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 */
-	public AbstractCharacterTestCase()
+	protected AbstractCharacterTestCase()
 	{
 	}
 
@@ -218,7 +220,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 *
 	 * @param name the test case name
 	 */
-	public AbstractCharacterTestCase(final String name)
+	protected AbstractCharacterTestCase(final String name)
 	{
 		super(name);
 	}
@@ -272,20 +274,14 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 * @return <tt>true</tt> if the character has the ability with the
 	 *         criteria specified.
 	 */
-	public boolean hasAbility(PlayerCharacter pc,
-		final AbilityCategory aCategory, final Nature anAbilityType,
-		final Ability anAbility)
+	protected boolean hasAbility(PlayerCharacter pc,
+	                             final AbilityCategory aCategory, final Nature anAbilityType,
+	                             final Ability anAbility)
 	{
 		Collection<CNAbility> cnabilities = pc.getCNAbilities(aCategory, anAbilityType);
-		for (CNAbility cna : cnabilities)
-		{
-			Ability a = cna.getAbility();
-			if (a.getKeyName().equals(anAbility.getKeyName()))
-			{
-				return true;
-			}
-		}
-		return false;
+		return cnabilities.stream()
+		                  .map(CNAbility::getAbility)
+		                  .anyMatch(a -> a.getKeyName().equals(anAbility.getKeyName()));
 	}
 
 	public static CNAbility applyAbility(PlayerCharacter character,
@@ -293,7 +289,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		if (a.getCDOMCategory() == null)
 		{
-			fail("Attempt to apply an Ability " + a.getKeyName()
+			Assert.fail("Attempt to apply an Ability " + a.getKeyName()
 				+ " that never received a Category");
 		}
 		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
@@ -307,7 +303,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			fail("addAbility takes Mult:NO Abilities");
+			Assert.fail("addAbility takes Mult:NO Abilities");
 		}
 		applyAbility(character, cat, a, null);
 	}
@@ -316,7 +312,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			fail("addAbility takes Mult:NO Abilities");
+			Assert.fail("addAbility takes Mult:NO Abilities");
 		}
 		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
 		character.removeAbility(new CNAbilitySelection(cna, null),
