@@ -20,54 +20,61 @@ package plugin.lsttokens.gamemode;
 import java.net.URI;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 
 /**
  * The Class {@code IconTokenTest} tests that the IconToken class is
  * operating correctly.
- *
- * <br/>
- * 
  */
-public class IconTokenTest extends TestCase
+public class IconTokenTest
 {
 	private URI uri;
 	
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		uri = new URI("http://www.pcgen.org");
-		super.setUp();
 	}
 
+	@Test
 	public void testValidSyntax() throws Exception
 	{
 		GameMode gameMode = SettingsHandler.getGame();
-		assertNull("starting condition, eyegear icon should be null", gameMode
-			.getEquipTypeIcon("Eyegear"));
+		Assert.assertNull("starting condition, eyegear icon should be null", gameMode
+				.getEquipTypeIcon("Eyegear"));
 
 		IconToken token = new IconToken();
-		assertTrue("Parse should succeed", token.parse(gameMode,
-			"Eyegear|preview/summary/images/icon_eye.png", uri));		
+		Assert.assertTrue("Parse should succeed", token.parse(gameMode,
+				"Eyegear|preview/summary/images/icon_eye.png", uri
+		));
 
-		assertEquals("Incorrect icon path",
-			"preview/summary/images/icon_eye.png", gameMode
-				.getEquipTypeIcon("Eyegear"));
-		assertEquals("Case misimatch fails",
-			"preview/summary/images/icon_eye.png", gameMode
-				.getEquipTypeIcon("EyegeaR"));
-		assertNull("Unknown type should be null", gameMode
-			.getEquipTypeIcon("Unknown"));
+		Assert.assertEquals("Incorrect icon path",
+				"preview/summary/images/icon_eye.png", gameMode
+						.getEquipTypeIcon("Eyegear")
+		);
+		Assert.assertEquals("Case misimatch fails",
+				"preview/summary/images/icon_eye.png", gameMode
+						.getEquipTypeIcon("EyegeaR")
+		);
+		Assert.assertNull("Unknown type should be null", gameMode
+				.getEquipTypeIcon("Unknown"));
 	}
 
+	@Test
 	public void testInValidSyntax() throws Exception
 	{
 		GameMode gameMode = SettingsHandler.getGame();
 		IconToken token = new IconToken();
-		assertFalse("Parse should fail", token.parse(gameMode,
-			"Eyegear:preview/summary/images/icon_eye.png", uri));		
-		assertFalse("Parse should fail", token.parse(gameMode,
-			"Eyegear|preview/summary/images|icon_eye.png", uri));		
+		Assert.assertFalse("Parse should fail", token.parse(gameMode,
+				"Eyegear:preview/summary/images/icon_eye.png", uri
+		));
+		Assert.assertFalse("Parse should fail", token.parse(gameMode,
+				"Eyegear|preview/summary/images|icon_eye.png", uri
+		));
 	}
 }
