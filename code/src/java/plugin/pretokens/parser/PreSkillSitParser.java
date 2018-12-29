@@ -19,6 +19,7 @@ package plugin.pretokens.parser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -65,7 +66,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 			else
 			{
 				String preKey = p.getKey();
-				if (preKey.toUpperCase().startsWith("SKILL="))
+				if (preKey.toUpperCase(Locale.ENGLISH).startsWith("SKILL="))
 				{
 					String skillName = preKey.substring(6);
 					if (!skill.isEmpty())
@@ -77,7 +78,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 						throw new PersistenceLayerException("SKILL= must be first in PRESKILLSIT");
 					}
 
-					if (skillName.toUpperCase().trim().equals("ANY"))
+					if (skillName.toUpperCase(Locale.ENGLISH).trim().equals("ANY"))
 					{
 						Logging.errorPrint("ANY not supported in PRESKILLSIT");
 					}

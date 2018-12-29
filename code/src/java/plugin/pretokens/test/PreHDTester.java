@@ -19,6 +19,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
@@ -63,7 +65,7 @@ public class PreHDTester extends AbstractDisplayPrereqTest implements Prerequisi
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final String foo = LanguageBundle.getFormattedString("PreStat.toHtml", //$NON-NLS-1$
-			prereq.getKind().toUpperCase() + ':', prereq.getOperator().toDisplayString(), prereq.getOperand());
+			prereq.getKind().toUpperCase(Locale.ENGLISH) + ':', prereq.getOperator().toDisplayString(), prereq.getOperand());
 		return foo;
 	}
 

@@ -19,6 +19,7 @@ package plugin.pretokens.parser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.core.prereq.Prerequisite;
@@ -143,7 +144,7 @@ public class PreFactSetParser extends AbstractPrerequisiteListParser
 			for (int i = 2; i < elements.length; i++)
 			{
 				Prerequisite subreq = new Prerequisite();
-				subreq.setKind(kind.toLowerCase());
+				subreq.setKind(kind.toLowerCase(Locale.ENGLISH));
 				subreq.setCountMultiples(true);
 				// The element is either of the form "TYPE=foo" or "DEX=9"
 				// if it is the later, we need to extract the '9'

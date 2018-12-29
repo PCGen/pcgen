@@ -23,6 +23,8 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
@@ -39,7 +41,7 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements Prer
 		int runningTotal;
 		final boolean charHasDeity = display.getDeity() != null;
 
-		final String ucOp = prereq.getKey().toUpperCase();
+		final String ucOp = prereq.getKey().toUpperCase(Locale.ENGLISH);
 		final boolean flag =
 				(ucOp.startsWith("Y") && charHasDeity) //$NON-NLS-1$
 				|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$

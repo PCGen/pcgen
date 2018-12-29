@@ -18,6 +18,7 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
@@ -70,7 +71,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 				}
 				else if (targetEquip.startsWith("TYPE=") || targetEquip.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 				{
-					StringTokenizer tok = new StringTokenizer(targetEquip.substring(5).toUpperCase(), ".");
+					StringTokenizer tok = new StringTokenizer(targetEquip.substring(5).toUpperCase(Locale.ENGLISH), ".");
 					boolean match = false;
 					if (tok.hasMoreTokens())
 					{
@@ -100,12 +101,12 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 					String eqName;
 					if (targetEquip.startsWith("BASEITEM=")) //$NON-NLS-1$ 
 					{
-						eqName = eq.getBaseItemName().toUpperCase();
+						eqName = eq.getBaseItemName().toUpperCase(Locale.ENGLISH);
 						targetEquip = targetEquip.substring(targetEquip.indexOf(Constants.EQUALS) + 1);
 					}
 					else
 					{
-						eqName = eq.getName().toUpperCase();
+						eqName = eq.getName().toUpperCase(Locale.ENGLISH);
 					}
 
 					if (targetEquip.indexOf('%') >= 0)
@@ -113,7 +114,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 						//handle wildcards (always assume
 						// they end the line)
 						final int percentPos = targetEquip.indexOf('%');
-						final String substring = targetEquip.substring(0, percentPos).toUpperCase();
+						final String substring = targetEquip.substring(0, percentPos).toUpperCase(Locale.ENGLISH);
 						if ((eqName.startsWith(substring)))
 						{
 							++runningTotal;

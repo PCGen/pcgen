@@ -18,6 +18,7 @@
  */
 package plugin.pretokens.test;
 
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
@@ -56,7 +57,7 @@ public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements Pre
 				{
 
 					String stripped = desiredType.substring(Constants.SUBSTRING_LENGTH_FIVE);
-					StringTokenizer tok = new StringTokenizer(stripped.toUpperCase(), ".");
+					StringTokenizer tok = new StringTokenizer(stripped, ".");
 
 					boolean match = false;
 					if (tok.hasMoreTokens())
@@ -83,7 +84,7 @@ public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements Pre
 				}
 				else
 				{ //not a TYPE string
-					final String eqName = eq.getName().toUpperCase();
+					final String eqName = eq.getName().toUpperCase(Locale.ENGLISH);
 					final int percentPos = desiredType.indexOf('%');
 					if (percentPos >= 0)
 					{
