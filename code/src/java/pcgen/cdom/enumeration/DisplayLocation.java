@@ -19,6 +19,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
@@ -54,9 +55,8 @@ public final class DisplayLocation implements TypeSafeConstant, Comparable<Displ
 
 	private DisplayLocation(String name)
 	{
-		Objects.requireNonNull(name, "Name for Type cannot be null");
+		fieldName = Objects.requireNonNull(name, "Name for Type cannot be null");
 		ordinal = ordinalCount++;
-		fieldName = name;
 	}
 
 	/**
@@ -88,7 +88,7 @@ public final class DisplayLocation implements TypeSafeConstant, Comparable<Displ
 	 */
 	public String getComparisonString()
 	{
-		return fieldName.toUpperCase();
+		return fieldName.toUpperCase(Locale.ENGLISH);
 	}
 
 	/**

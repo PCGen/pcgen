@@ -19,6 +19,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
@@ -111,9 +112,8 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 
 	private Type(String name)
 	{
-		Objects.requireNonNull(name, "Name for Type cannot be null");
+		fieldName = Objects.requireNonNull(name, "Name for Type cannot be null");
 		ordinal = ordinalCount++;
-		fieldName = name;
 	}
 
 	/**
@@ -145,7 +145,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 */
 	public String getComparisonString()
 	{
-		return fieldName.toUpperCase();
+		return fieldName.toUpperCase(Locale.ENGLISH);
 	}
 
 	/**

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.Locale;
+
 /**
  * This is a Typesafe enumeration of legal String Characteristics of a PC.
  * 
@@ -41,6 +43,6 @@ public enum PCStringKey
 
 	public static PCStringKey getStringKey(String s)
 	{
-		return valueOf(s.toUpperCase());
+		return valueOf(s.toUpperCase(Locale.ENGLISH));
 	}
 }

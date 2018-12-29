@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -221,7 +222,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID>
 		}
 		if (ret != -1)
 		{
-			ret += bonusCheckingFacet.getBonus(id, "FOLLOWERS", cl.getKeyName().toUpperCase());
+			ret += bonusCheckingFacet.getBonus(id, "FOLLOWERS", cl.getKeyName().toUpperCase(Locale.ENGLISH));
 		}
 		return ret;
 	}
