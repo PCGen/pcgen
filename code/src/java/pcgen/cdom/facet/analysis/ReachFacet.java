@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Optional;
+
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -48,7 +50,7 @@ public class ReachFacet implements ItemFacet<CharID, Integer>
 	 */
 	public int getReach(CharID id)
 	{
-		final Race aRace = raceFacet.get(id);
+		final Race aRace = raceFacet.get(id).orElse(null);
 		int reach = 0;
 		if (aRace != null)
 		{
@@ -78,9 +80,9 @@ public class ReachFacet implements ItemFacet<CharID, Integer>
 	 *         CharID
 	 */
 	@Override
-	public Integer get(CharID id)
+	public Optional<Integer> get(CharID id)
 	{
-		return getReach(id);
+		return Optional.of(getReach(id));
 	}
 
 	public void setTemplateFacet(TemplateFacet templateFacet)

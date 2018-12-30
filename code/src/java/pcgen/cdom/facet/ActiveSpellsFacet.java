@@ -114,7 +114,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	 */
 	public void process(CharID id)
 	{
-		Race race = raceFacet.get(id);
+		Race race = raceFacet.get(id).orElse(null);
 		removeAll(id, race);
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		for (SpellLikeAbility sla : spellsFacet.getQualifiedSet(id))

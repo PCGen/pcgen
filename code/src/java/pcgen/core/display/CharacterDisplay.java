@@ -578,22 +578,22 @@ public class CharacterDisplay
 
 	public Race getRace()
 	{
-		return raceFacet.get(id);
+		return raceFacet.get(id).orElse(null);
 	}
 
 	public String getCharacterType()
 	{
-		return characterTypeFacet.get(id);
+		return characterTypeFacet.get(id).orElse(null);
 	}
 
 	public String getPreviewSheet()
 	{
-		return previewSheetFacet.get(id);
+		return previewSheetFacet.get(id).orElse(null);
 	}
 
 	public SkillFilter getSkillFilter()
 	{
-		return skillFilterFacet.get(id);
+		return skillFilterFacet.get(id).orElse(null);
 	}
 
 	/**
@@ -677,7 +677,7 @@ public class CharacterDisplay
 
 	public Rectangle getPortraitThumbnailRect()
 	{
-		Rectangle rect = portraitThumbnailRectFacet.get(id);
+		Rectangle rect = portraitThumbnailRectFacet.get(id).orElse(null);
 		return (rect == null) ? null : (Rectangle) rect.clone();
 	}
 
@@ -802,7 +802,7 @@ public class CharacterDisplay
 	 */
 	public Deity getDeity()
 	{
-		return deityFacet.get(id);
+		return deityFacet.get(id).orElse(null);
 	}
 
 	/**
@@ -878,7 +878,7 @@ public class CharacterDisplay
 	 */
 	public Follower getMaster()
 	{
-		return masterFacet.get(id);
+		return masterFacet.get(id).orElse(null);
 	}
 
 	/**
@@ -992,7 +992,7 @@ public class CharacterDisplay
 
 	public String getXPTableName()
 	{
-		return xpTableFacet.get(id).getName();
+		return xpTableFacet.get(id).get().getName();
 	}
 
 	/**
@@ -1271,7 +1271,7 @@ public class CharacterDisplay
 
 	public AgeSet getAgeSet()
 	{
-		return ageSetFacet.get(id);
+		return ageSetFacet.get(id).orElse(null);
 	}
 
 	/**
@@ -1543,7 +1543,7 @@ public class CharacterDisplay
 
 	public BioSet getBioSet()
 	{
-		return bioSetFacet.get(id);
+		return bioSetFacet.get(id).orElse(null);
 	}
 
 	public int getAgeSetIndex()

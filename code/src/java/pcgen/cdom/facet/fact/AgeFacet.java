@@ -44,8 +44,7 @@ public class AgeFacet extends AbstractItemFacet<CharID, Integer> implements Item
 	 */
 	public int getAge(CharID id)
 	{
-		Integer age = get(id);
-		return age == null ? 0 : age;
+		return get(id).orElse(0);
 	}
 
 	public void init()

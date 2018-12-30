@@ -89,9 +89,9 @@ public class GenderFacet extends AbstractItemFacet<CharID, Gender> implements It
 		Gender g = findTemplateGender(id);
 		if (g == null)
 		{
-			g = get(id);
+			g = get(id).orElseGet(Gender::getDefaultValue);
 		}
-		return g == null ? Gender.getDefaultValue() : g;
+		return (g == null) ? Gender.getDefaultValue() : g;
 	}
 
 	/**

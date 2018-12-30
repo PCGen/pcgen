@@ -22,7 +22,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
-import pcgen.core.Race;
 
 /**
  * LegsFacet is a Facet that tracks the number of Legs possessed by a Player
@@ -46,12 +45,10 @@ public class LegsFacet
 	 */
 	public int getLegs(CharID id)
 	{
-		final Race aRace = raceFacet.get(id);
 		int legs = 0;
-		if (aRace != null)
-		{
-			legs = aRace.getSafe(IntegerKey.LEGS);
-		}
+
+		raceFacet.get(id)
+		         .ifPresent(aRace -> aRace.getSafe(IntegerKey.LEGS));
 
 		// Scan templates for any overrides
 		for (PCTemplate template : templateFacet.getSet(id))

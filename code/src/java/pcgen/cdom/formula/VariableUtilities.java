@@ -66,7 +66,7 @@ public class VariableUtilities
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
 		VariableContext varContext =
-				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext();
+				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().get().getVariableContext();
 		VariableID<T> varID =
 				(VariableID<T>) varContext.getVariableID(globalInstance, variableName);
 		return varID;
@@ -86,7 +86,7 @@ public class VariableUtilities
 		VariableListener<T> listener)
 	{
 		VariableID<T> varID = VariableUtilities.getGlobalVariableID(id, variableName);
-		RESULT_FACET.get(id).addVariableListener(0, varID, listener);
+		RESULT_FACET.get(id).get().addVariableListener(0, varID, listener);
 	}
 
 	/**
@@ -104,7 +104,7 @@ public class VariableUtilities
 		VariableListener<T> listener, String variableName)
 	{
 		VariableID<T> varID = VariableUtilities.getGlobalVariableID(id, variableName);
-		RESULT_FACET.get(id).removeVariableListener(0, varID, listener);
+		RESULT_FACET.get(id).get().removeVariableListener(0, varID, listener);
 	}
 
 	/**

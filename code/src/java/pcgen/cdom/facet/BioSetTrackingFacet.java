@@ -60,7 +60,7 @@ public class BioSetTrackingFacet extends AbstractItemFacet<CharID, BioSet>
 
 		if (!pc.isImporting())
 		{
-			bioSetFacet.get(id).randomize("AGE.HT.WT", pc);
+			bioSetFacet.get(id).get().randomize("AGE.HT.WT", pc);
 		}
 
 	}

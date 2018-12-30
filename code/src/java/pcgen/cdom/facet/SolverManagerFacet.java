@@ -43,16 +43,16 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 
 	public <T> List<ProcessStep<T>> diagnose(CharID id, VariableID<T> varID)
 	{
-		return get(id).diagnose(varID);
+		return get(id).get().diagnose(varID);
 	}
 
 	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
 		ScopeInstance source)
 	{
 		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
+		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().get().getVariableContext()
 			.getVariableID(scope, vm.getVarName());
-		return get(id).addModifierAndSolve(varID, modifier, source);
+		return get(id).get().addModifierAndSolve(varID, modifier, source);
 	}
 
 	/**
@@ -62,9 +62,9 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 		ScopeInstance source)
 	{
 		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
+		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().get().getVariableContext()
 			.getVariableID(scope, vm.getVarName());
-		get(id).removeModifier(varID, modifier, source);
+		get(id).get().removeModifier(varID, modifier, source);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)

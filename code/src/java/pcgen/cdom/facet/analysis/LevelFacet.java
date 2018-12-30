@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.EventListener;
 import java.util.EventObject;
+import java.util.Optional;
 
 import javax.swing.event.EventListenerList;
 
@@ -32,7 +33,6 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
 /**
@@ -92,20 +92,20 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements ClassLev
 	 */
 	public int getLevelAdjustment(CharID id)
 	{
-		Race race = raceFacet.get(id);
 		int levelAdj = 0;
 
-		if (race != null)
+		Optional<Race> race = raceFacet.get(id);
+		if (race.isPresent())
 		{
-			Formula raceLA = race.getSafe(FormulaKey.LEVEL_ADJUSTMENT);
+			Formula raceLA = race.get().getSafe(FormulaKey.LEVEL_ADJUSTMENT);
 			levelAdj += formulaResolvingFacet.resolve(id, raceLA, "").intValue();
 		}
 
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			Formula templateLA = template.getSafe(FormulaKey.LEVEL_ADJUSTMENT);
-			levelAdj += formulaResolvingFacet.resolve(id, templateLA, "").intValue();
-		}
+		levelAdj += templateFacet.getSet(id)
+		                         .stream()
+		                         .map(template -> template.getSafe(FormulaKey.LEVEL_ADJUSTMENT))
+		                         .mapToInt(templateLA -> formulaResolvingFacet.resolve(id, templateLA, "").intValue())
+		                         .sum();
 
 		return levelAdj;
 	}

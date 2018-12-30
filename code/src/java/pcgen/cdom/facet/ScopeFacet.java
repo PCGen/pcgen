@@ -44,7 +44,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 */
 	public ScopeInstance getGlobalScope(CharID id)
 	{
-		return get(id).getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+		return get(id).get().getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 */
 	public ScopeInstance get(CharID id, String legalScopeName, VarScoped scopedObject)
 	{
-		return get(id).get(legalScopeName, Optional.of(scopedObject));
+		return get(id).get().get(legalScopeName, Optional.of(scopedObject));
 	}
 
 	public ScopeInstance get(CharID id, VarScoped vs)

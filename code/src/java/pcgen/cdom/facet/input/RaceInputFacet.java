@@ -106,7 +106,7 @@ public class RaceInputFacet
 
 	public <T> boolean directSet(CharID id, Race race, T sel)
 	{
-		Race old = raceFacet.get(id);
+		Race old = raceFacet.get(id).orElse(null);
 		if (raceFacet.set(id, race) && (old != null))
 		{
 			PlayerCharacter pc = trackingFacet.getPC(id);

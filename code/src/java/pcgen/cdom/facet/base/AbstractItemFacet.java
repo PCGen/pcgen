@@ -17,6 +17,9 @@
  */
 package pcgen.cdom.facet.base;
 
+import java.util.Objects;
+import java.util.Optional;
+
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.util.Logging;
@@ -60,7 +63,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends 
 			Logging.errorPrint(getClass() + " received null item: ignoring");
 			return false;
 		}
-		T old = get(id);
+		T old = get(id).orElse(null);
 		if (old == obj)
 		{
 			return false;
@@ -109,10 +112,9 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends 
 	 * @return the item value for this AbstractItemFacet and the Player
 	 *         Character represented by the given PCGenIdentifier.
 	 */
-	@SuppressWarnings("unchecked")
-	public T get(IDT id)
+	public Optional<T> get(IDT id)
 	{
-		return (T) getCache(id);
+		return Optional.ofNullable((T)getCache(id));
 	}
 
 	/**
@@ -135,8 +137,8 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends 
 	 */
 	public boolean matches(IDT id, T obj)
 	{
-		T current = get(id);
-		return ((obj == null) && (current == null)) || ((obj != null) && obj.equals(current));
+		T current = get(id).orElse(null);
+		return Objects.equals(obj, current);
 	}
 
 	/**
@@ -165,10 +167,8 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends 
 	@Override
 	public void copyContents(IDT source, IDT copy)
 	{
-		T obj = get(source);
-		if (obj != null)
-		{
-			setCache(copy, obj);
-		}
+		get(source).ifPresent(obj ->
+				setCache(copy, obj)
+		);
 	}
 }

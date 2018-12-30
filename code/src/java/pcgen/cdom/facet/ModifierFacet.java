@@ -72,7 +72,7 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, PCGenScope
 		VarScoped thisValue)
 	{
 		PCGenScope legalScope = (PCGenScope) source.getLegalScope();
-		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
+		LoadContext context = loadContextFacet.get(id.getDatasetID()).get().get();
 		Modifier<T> returnValue;
 		try
 		{

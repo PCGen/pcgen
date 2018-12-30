@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -79,7 +80,7 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		else
 		{
 			VariableID<Number> varID = getVarID(id, stat, channelName);
-			MonitorableVariableStore varStore = RESULT_FACET.get(id);
+			MonitorableVariableStore varStore = RESULT_FACET.get(id).orElse(null);
 			return varStore.get(varID);
 		}
 	}
@@ -109,7 +110,7 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		else
 		{
 			VariableID<Number> varID = getVarID(id, stat, channelName);
-			MonitorableVariableStore varStore = RESULT_FACET.get(id);
+			MonitorableVariableStore varStore = RESULT_FACET.get(id).orElse(null);
 			old = varStore.get(varID);
 			varStore.put(varID, value);
 		}
@@ -204,19 +205,19 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 	private VariableID<Number> getVarID(CharID id, PCStat stat, String channelName)
 	{
 		String varName = ChannelUtilities.createVarName(channelName);
-		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
+		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id).orElse(null);
 		Optional<String> localScopeName = stat.getLocalScopeName();
 		ScopeInstance scopeInst = instFactory.get(localScopeName.get(), Optional.of(stat));
 		try
 		{
-			VariableID<Number> varID = (VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()
+			VariableID<Number> varID = (VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get().get()
 				.getVariableContext().getVariableID(scopeInst, varName);
 			return varID;
 		}
-		catch (NullPointerException e)
+		catch (NoSuchElementException e)
 		{
 			throw new IllegalArgumentException("Attempt to get channel " + channelName
-				+ " for a STAT was unsuccessful. Was a CHANNEL defined in the Variable file?");
+				+ " for a STAT was unsuccessful. Was a CHANNEL defined in the Variable file?", e);
 		}
 	}
 

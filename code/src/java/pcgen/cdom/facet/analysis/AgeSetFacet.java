@@ -89,7 +89,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 	private void update(CharID id)
 	{
 		Optional<Region> region = regionFacet.getRegion(id);
-		AgeSet ageSet = bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id));
+		AgeSet ageSet = bioSetFacet.get(id).get().getAgeSet(region, getAgeSetIndex(id));
 		if (ageSet == null)
 		{
 			remove(id);
@@ -133,10 +133,10 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 	 */
 	public int getAgeSetIndex(CharID id)
 	{
-		BioSet bioSet = bioSetFacet.get(id);
+		BioSet bioSet = bioSetFacet.get(id).orElse(null);
 		Optional<Region> region = regionFacet.getRegion(id);
-		Race race = raceFacet.get(id);
-		String raceName = race == null ? "" : race.getKeyName().trim();
+		Race race = raceFacet.get(id).orElse(null);
+		String raceName = (race == null) ? "" : race.getKeyName().trim();
 		List<String> values = bioSet.getValueInMaps(region, raceName, "BASEAGE");
 		if (values == null)
 		{
@@ -146,17 +146,10 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet>
 		int pcAge = ageFacet.getAge(id);
 		int ageSet = -1;
 
-		for (String s : values)
-		{
-			int setBaseAge = Integer.parseInt(s);
-
-			if (pcAge < setBaseAge)
-			{
-				break;
-			}
-
-			++ageSet;
-		}
+		ageSet += values.stream()
+		                .mapToInt(Integer::parseInt)
+		                .takeWhile(setBaseAge -> pcAge >= setBaseAge)
+		                .count();
 
 		//
 		// Check to see if character is younger than earliest age group

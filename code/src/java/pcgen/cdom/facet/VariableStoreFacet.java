@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
@@ -29,7 +30,6 @@ import pcgen.cdom.formula.MonitorableVariableStore;
  */
 public class VariableStoreFacet extends AbstractItemFacet<CharID, MonitorableVariableStore>
 {
-
 	/**
 	 * The global LoadContextFacet used to get VariableIDs
 	 */
@@ -37,10 +37,10 @@ public class VariableStoreFacet extends AbstractItemFacet<CharID, MonitorableVar
 
 	public <T> T getValue(CharID id, VariableID<T> varID)
 	{
-		T value = get(id).get(varID);
+		T value = get(id).get().get(varID);
 		if (value == null)
 		{
-			return loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
+			return loadContextFacet.get(id.getDatasetID()).get().get().getVariableContext()
 				.getDefaultValue(varID.getVariableFormat());
 		}
 		return value;
@@ -49,12 +49,10 @@ public class VariableStoreFacet extends AbstractItemFacet<CharID, MonitorableVar
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{
-		MonitorableVariableStore obj = get(source);
-		if (obj != null)
-		{
-			MonitorableVariableStore replacement = new MonitorableVariableStore();
-			replacement.importFrom(get(source));
+		get(source).ifPresent(obj -> {
+			WriteableVariableStore replacement = new MonitorableVariableStore();
+			replacement.importFrom(obj);
 			setCache(copy, replacement);
-		}
+		});
 	}
 }

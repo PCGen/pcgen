@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.base;
 
+import java.util.Optional;
+
 /**
  * An ItemFacet is a Facet that stores a single item per identifier.
  * 
@@ -32,13 +34,10 @@ public interface ItemFacet<IDT, T>
 	/**
 	 * Returns the object stored in the ItemFacet for the given Identifier.
 	 * 
-	 * It is expected that null is a legal response from an ItemFacet, as there
-	 * is no guarantee an item has been set for the given Identifier.
-	 * 
 	 * @param id
 	 *            The identifier used to identify the object to be returned by
 	 *            the ItemFacet
 	 * @return the object stored in the ItemFacet for the given Identifier
 	 */
-	public T get(IDT id);
+	public Optional<T> get(IDT id);
 }

@@ -200,7 +200,7 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 	{
 		// Class Base Hit Die
 		HitDie currDie = pcClass.getSafe(ObjectKey.LEVEL_HITDIE);
-		Processor<HitDie> dieLock = raceFacet.get(id).get(ObjectKey.HITDIE);
+		Processor<HitDie> dieLock = raceFacet.get(id).get().get(ObjectKey.HITDIE);
 		if (dieLock != null)
 		{
 			currDie = dieLock.applyProcessor(currDie, pcClass);
@@ -289,7 +289,7 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 		set(id, classLevel, roll);
 	}
 
-	private boolean maximizeHPatFirstLevel(PCClass pcc, int level)
+	private static boolean maximizeHPatFirstLevel(PCClass pcc, int level)
 	{
 		boolean classAllowsMaxHP = !SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc.isType("PC");
 		return (level == 1) && SettingsHandler.isHPMaxAtFirstLevel() && classAllowsMaxHP;

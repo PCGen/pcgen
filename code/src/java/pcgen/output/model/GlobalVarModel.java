@@ -19,15 +19,16 @@ package pcgen.output.model;
 
 import java.util.Objects;
 
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.VariableUtilities;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * GlobalVarModel provides the services to expose global variables for a Player
@@ -60,8 +61,7 @@ public class GlobalVarModel implements TemplateHashModel
 	 */
 	public GlobalVarModel(CharID id)
 	{
-		Objects.requireNonNull(id, "CharID cannot be null");
-		this.id = id;
+		this.id = Objects.requireNonNull(id, "CharID cannot be null");
 	}
 
 	/**

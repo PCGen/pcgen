@@ -117,7 +117,7 @@ public class ChallengeRatingFacet
 	public Integer calcRaceCR(CharID id)
 	{
 		// Calculate and add the CR from race
-		ChallengeRating cr = raceFacet.get(id).getSafe(ObjectKey.CHALLENGE_RATING);
+		ChallengeRating cr = raceFacet.get(id).get().getSafe(ObjectKey.CHALLENGE_RATING);
 		return cr.toInteger();
 	}
 
@@ -132,7 +132,7 @@ public class ChallengeRatingFacet
 	 */
 	public int getBaseHD(CharID id)
 	{
-		final LevelCommandFactory lcf = raceFacet.get(id).getSafe(ObjectKey.MONSTER_CLASS);
+		final LevelCommandFactory lcf = raceFacet.get(id).get().getSafe(ObjectKey.MONSTER_CLASS);
 		/*
 		 * BUG This converts a formula to a String?  What if it's a formula, NFE?
 		 */
@@ -206,8 +206,10 @@ public class ChallengeRatingFacet
 		int levelsConverted = 0;
 		int threshold = 0;
 
-		List<String> raceRoleList = raceFacet.get(id).getListFor(ListKey.MONSTER_ROLES);
-		if ((raceRoleList == null) || raceRoleList.isEmpty())
+
+		List<String> raceRoleList = raceFacet.get(id).get().getListFor(ListKey.MONSTER_ROLES);
+		if (raceRoleList == null || raceRoleList.isEmpty()
+		)
 		{
 			raceRoleList = SettingsHandler.getGame().getMonsterRoleDefaultList();
 		}
@@ -275,7 +277,7 @@ public class ChallengeRatingFacet
 		{
 			if (SettingsHandler.getGame().getClassTypeByName(classType) != null)
 			{
-				Integer crMod = raceFacet.get(id).get(MapKey.CRMOD, classType);
+				Integer crMod = raceFacet.get(id).get().get(MapKey.CRMOD, classType);
 				if (crMod != null)
 				{
 					return crMod;
@@ -291,7 +293,7 @@ public class ChallengeRatingFacet
 				classType = type.toString();
 				if (SettingsHandler.getGame().getClassTypeByName(classType) != null)
 				{
-					Integer crMod = raceFacet.get(id).get(MapKey.CRMOD, classType);
+					Integer crMod = raceFacet.get(id).get().get(MapKey.CRMOD, classType);
 					if (crMod != null)
 					{
 						return crMod;

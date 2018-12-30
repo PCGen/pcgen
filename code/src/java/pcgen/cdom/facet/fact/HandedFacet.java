@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.fact;
 
+import java.util.Optional;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.facet.base.AbstractItemFacet;
@@ -77,11 +79,11 @@ public class HandedFacet extends AbstractItemFacet<CharID, Handed>
 	 */
 	public Handed getHanded(CharID id)
 	{
-		Handed g = get(id);
+		Optional<Handed> g = get(id);
 		if (Logging.isDebugMode())
 		{
 			Logging.debugPrint("HandedFacet handed value " + g);
 		}
-		return g == null ? HandedCompat.getDefaultHanded() : g;
+		return g.orElseGet(HandedCompat::getDefaultHanded);
 	}
 }

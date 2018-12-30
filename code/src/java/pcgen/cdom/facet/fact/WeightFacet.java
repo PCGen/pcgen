@@ -78,7 +78,6 @@ public class WeightFacet extends AbstractItemFacet<CharID, Integer>
 	 */
 	public int getWeight(CharID id)
 	{
-		Integer weight = get(id);
-		return weight == null ? 0 : weight;
+		return get(id).orElse(0);
 	}
 }

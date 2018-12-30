@@ -105,7 +105,7 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 		ScopeInstance sourceInstance, VarScoped target, ScopeInstance targetInstance)
 	{
 		PCGenScope sourceScope = (PCGenScope) sourceInstance.getLegalScope();
-		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
+		LoadContext context = loadContextFacet.get(id.getDatasetID()).get().get();
 		Modifier<T> returnValue;
 		try
 		{

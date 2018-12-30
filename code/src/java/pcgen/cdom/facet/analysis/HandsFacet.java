@@ -49,7 +49,7 @@ public class HandsFacet
 	 */
 	public int getHands(CharID id)
 	{
-		final Race aRace = raceFacet.get(id);
+		final Race aRace = raceFacet.get(id).orElse(null);
 		int hands = 0;
 		if (aRace != null)
 		{

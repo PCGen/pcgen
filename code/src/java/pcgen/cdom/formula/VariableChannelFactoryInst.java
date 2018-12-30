@@ -59,7 +59,7 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	@Override
 	public VariableChannel<?> getChannel(CharID id, VarScoped owner, String name)
 	{
-		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
+		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id).orElse(null);
 		Optional<String> localScopeName = owner.getLocalScopeName();
 		ScopeInstance scopeInst = instFactory.get(localScopeName.get(), Optional.of(owner));
 		return getChannel(id, scopeInst, name);
@@ -111,8 +111,8 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 		VariableChannel<T> ref = (VariableChannel<T>) channels.get(varID);
 		if (ref == null)
 		{
-			MonitorableVariableStore varStore = RESULT_FACET.get(id);
-			ref = VariableChannel.construct(MGR_FACET.get(id), varStore, varID);
+			MonitorableVariableStore varStore = RESULT_FACET.get(id).orElse(null);
+			ref = VariableChannel.construct(MGR_FACET.get(id).orElse(null), varStore, varID);
 			channels.put(varID, ref);
 			varStore.addVariableListener(varID, ref);
 		}

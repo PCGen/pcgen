@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.model;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
@@ -87,7 +88,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 		SizeFacetInfo info = getConstructingInfo(id);
 
 		int iSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
-		Race race = raceFacet.get(id);
+		Race race = raceFacet.get(id).orElse(null);
 		if (race != null)
 		{
 			// get the base size for the race
@@ -123,7 +124,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 		SizeFacetInfo info = getConstructingInfo(id);
 		int iSize = calcRacialSizeInt(id);
 
-		Race race = raceFacet.get(id);
+		Race race = raceFacet.get(id).orElse(null);
 		if (race != null)
 		{
 			// Now check and see if a class has modified
@@ -169,17 +170,10 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 		if (hda != null)
 		{
 			int limit = race.maxHitDiceAdvancement();
-			for (Integer hitDie : hda)
-			{
-				if (monsterLevelCount <= hitDie)
-				{
-					break;
-				}
-				if (hitDie < limit)
-				{
-					steps++;
-				}
-			}
+			steps = (int) hda.stream()
+			                 .takeWhile(hitDie -> monsterLevelCount > hitDie)
+			                 .filter(hitDie -> hitDie < limit)
+			                 .count();
 		}
 		return steps;
 	}
@@ -195,10 +189,18 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	 *         the given CharID
 	 */
 	@Override
-	public SizeAdjustment get(CharID id)
+	public Optional<SizeAdjustment> get(CharID id)
 	{
 		SizeFacetInfo info = getInfo(id);
-		return info == null ? SizeUtilities.getDefaultSizeAdjustment() : info.sizeAdj;
+		if (info == null)
+		{
+			return Optional.of(SizeUtilities.getDefaultSizeAdjustment());
+		}
+		else
+		{
+			return Optional.of(info.sizeAdj);
+		}
+
 	}
 
 	/**
@@ -213,7 +215,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	 */
 	public String getSizeAbb(CharID id)
 	{
-		return get(id).getKeyName();
+		return get(id).get().getKeyName();
 	}
 
 	/**

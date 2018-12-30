@@ -118,7 +118,7 @@ public class SolverViewFrame extends JFrame
 			return;
 		}
 		ScopeInstance scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
-		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().get().getVariableContext()
 			.isLegalVariableID(scope.getLegalScope(), varNameText))
 		{
 			displayInfo(scope);
@@ -132,7 +132,7 @@ public class SolverViewFrame extends JFrame
 
 	private void displayInfo(ScopeInstance scope)
 	{
-		VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+		VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get().get().getVariableContext()
 			.getVariableID(scope, varNameText);
 		setSteps(varID);
 	}
@@ -211,11 +211,12 @@ public class SolverViewFrame extends JFrame
 		{
 			Object item = identifierChooser.getSelectedItem();
 			activeIdentifier = ((PCRef) item).id;
-			LoadContext loadContext = loadContextFacet.get(activeIdentifier.getDatasetID()).get();
-			for (LegalScope lvs : loadContext.getVariableContext().getScopes())
-			{
-				scopeChooser.addItem(new LegalScopeWrapper(lvs));
-			}
+			LoadContext loadContext = loadContextFacet.get(activeIdentifier.getDatasetID()).get().get();
+			loadContext.getVariableContext()
+			           .getScopes()
+			           .stream()
+			           .map(LegalScopeWrapper::new)
+			           .forEach(scopeChooser::addItem);
 			update();
 		}
 

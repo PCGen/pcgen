@@ -979,7 +979,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public Deity getDeity()
 	{
-		return deityFacet.get(id);
+		return deityFacet.get(id).orElse(null);
 	}
 
 	/**
@@ -1371,7 +1371,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// The equality comparison in AbstractItemFacet doesn't work on BigDecimal, need to use compareTo
-		BigDecimal oldAmt = goldFacet.get(id);
+		BigDecimal oldAmt = goldFacet.get(id).orElse(null);
 		if (oldAmt == null || amt.compareTo(oldAmt) != 0)
 		{
 			goldFacet.set(id, amt);
@@ -1388,7 +1388,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public BigDecimal getGold()
 	{
-		BigDecimal g = goldFacet.get(id);
+		BigDecimal g = goldFacet.get(id).orElse(null);
 		return (g == null) ? BigDecimal.ZERO : g;
 	}
 
@@ -1777,7 +1777,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public PlayerCharacter getMasterPC()
 	{
-		Follower followerMaster = masterFacet.get(id);
+		Follower followerMaster = masterFacet.get(id).orElse(null);
 		if (followerMaster == null)
 		{
 			return null;
@@ -1892,7 +1892,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public Race getRace()
 	{
-		return raceFacet.get(id);
+		return raceFacet.get(id).orElse(null);
 	}
 
 	/**
@@ -3577,7 +3577,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public SkillFilter getSkillFilter()
 	{
-		SkillFilter filter = skillFilterFacet.get(id);
+		SkillFilter filter = skillFilterFacet.get(id).orElse(null);
 		if (filter == null)
 		{
 			filter = SkillFilter.getByValue(PCGenSettings.OPTIONS_CONTEXT.initInt(PCGenSettings.OPTION_SKILL_FILTER,
@@ -6282,7 +6282,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// BioSet
-		list.add(bioSetFacet.get(id));
+		list.add(bioSetFacet.get(id).get());
 
 		list.addAll(checkFacet.getSet(id));
 
@@ -6293,11 +6293,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		list.addAll(companionModFacet.getSet(id));
 
 		// Deity
-		Deity deity = deityFacet.get(id);
-		if (deity != null)
-		{
-			list.add(deity);
-		}
+		deityFacet.get(id)
+		          .ifPresent(list::add);
 
 		// Domain
 		list.addAll(domainFacet.getSet(id));
@@ -6319,11 +6316,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// Race
-		Race race = raceFacet.get(id);
-		if (race != null)
-		{
-			list.add(race);
-		}
+		raceFacet.get(id).ifPresent(list::add);
 
 		// SizeAdjustment
 		SizeAdjustment sa = getSizeAdjustment();
@@ -6716,7 +6709,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		else
 		{
-			return sizeFacet.get(id);
+			return sizeFacet.get(id).orElse(null);
 		}
 	}
 
@@ -7259,10 +7252,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			bean.copyContents(id, aClone.id);
 		}
-		SolverManager sm = solverManagerFacet.get(id);
+		SolverManager sm = solverManagerFacet.get(id).orElse(null);
 		if (sm != null)
 		{
-			SolverManager replacement = sm.createReplacement(variableStoreFacet.get(aClone.id));
+			SolverManager replacement = sm.createReplacement(variableStoreFacet.get(aClone.id).orElse(null));
 			solverManagerFacet.set(aClone.id, replacement);
 		}
 		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
@@ -7271,7 +7264,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			cloneClass.addFeatPoolBonus(aClone);
 		}
-		Follower followerMaster = masterFacet.get(id);
+		Follower followerMaster = masterFacet.get(id).orElse(null);
 		if (followerMaster != null)
 		{
 			aClone.masterFacet.set(id, followerMaster.clone());
@@ -9353,7 +9346,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public Collection<BonusContainer> getBonusContainerList()
 	{
 		List<BonusContainer> list = new ArrayList<>(getCDOMObjectList());
-		list.add(ageSetFacet.get(id));
+		list.add(ageSetFacet.get(id).orElse(null));
 		GameMode gm = SettingsHandler.getGame();
 		if (gm.isPurchaseStatMode())
 		{
@@ -9462,7 +9455,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public BioSet getBioSet()
 	{
-		return bioSetFacet.get(id);
+		return bioSetFacet.get(id).orElse(null);
 	}
 
 	public HitDie getLevelHitDie(PCClass pcClass, final int classLevel)
@@ -9685,7 +9678,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			if (ageFacet.getAge(id) <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
-				bioSetFacet.get(id).randomize("AGE", this);
+				bioSetFacet.get(id).get().randomize("AGE", this);
 			}
 		}
 		else
@@ -9718,10 +9711,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		spMod = Math.max(skillMin, spMod); // Minimum 1, not sure if bonus
 
 		// level can be < 1, better safe than sorry
-		for (PCTemplate template : getTemplateSet())
-		{
-			spMod += template.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS);
-		}
+		spMod += getTemplateSet().stream()
+		                         .mapToInt(template -> template.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS))
+		                         .sum();
 
 		return spMod;
 	}
@@ -9833,8 +9825,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public boolean isAllowDebt()
 	{
-		Boolean ad = allowDebtFacet.get(id);
-		return (ad == null) ? SettingsHandler.getGearTab_AllowDebt() : ad;
+		return allowDebtFacet.get(id)
+		                     .orElseGet(SettingsHandler::getGearTab_AllowDebt);
 	}
 
 	/**
@@ -9842,8 +9834,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public boolean isIgnoreCost()
 	{
-		Boolean ic = ignoreCostFacet.get(id);
-		return (ic == null) ? SettingsHandler.getGearTab_IgnoreCost() : ic;
+		return ignoreCostFacet.get(id)
+		                      .orElseGet(SettingsHandler::getGearTab_IgnoreCost);
 	}
 
 	public Double getSkillRankForClass(Skill sk, PCClass pcc)
@@ -10225,7 +10217,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public <T> T solve(NEPFormula<T> formula)
 	{
-		return solverManagerFacet.get(id).solve(formula);
+		return solverManagerFacet.get(id).get().solve(formula);
 	}
 
 	/**

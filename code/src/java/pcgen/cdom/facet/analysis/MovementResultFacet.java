@@ -190,7 +190,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			movementTypes = Globals.EMPTY_STRING_ARRAY;
 			movements = EMPTY_DOUBLE_ARRAY;
 
-			Race race = raceFacet.get(id);
+			Race race = raceFacet.get(id).orElse(null);
 			if (race == null)
 			{
 				return;

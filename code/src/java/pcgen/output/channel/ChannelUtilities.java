@@ -99,8 +99,8 @@ public final class ChannelUtilities
 	public static void setGlobalChannel(CharID id, String channelName, Object value)
 	{
 		VariableID<Object> varID = getChannelVariableID(id, channelName);
-		RESULT_FACET.get(id).put(varID, value);
-		SOLVER_MANAGER_FACET.get(id).solveChildren(varID);
+		RESULT_FACET.get(id).get().put(varID, value);
+		SOLVER_MANAGER_FACET.get(id).get().solveChildren(varID);
 	}
 
 	/**
@@ -228,14 +228,14 @@ public final class ChannelUtilities
 	{
 		VariableID<T> varID =
 				getChannelVariableID(id, channelName);
-		RESULT_FACET.get(id).addVariableListener(priority, varID,
+		RESULT_FACET.get(id).get().addVariableListener(priority, varID,
 			e -> VariableUtilities.forwardVariableChangeToDFCL(id, e, listener));
 	}
 
 	/**
 	 * Sets up the given Code Control so that if the value on the channel changes, the PC
 	 * is categorized as Dirty.
-	 * 
+	 *
 	 * @param pc
 	 *            The PlayerCharacter on which the channel should be watched
 	 * @param codeControl
@@ -249,7 +249,7 @@ public final class ChannelUtilities
 
 	/**
 	 * Adds a listener to the channel on the given PlayerCharacter.
-	 * 
+	 *
 	 * @param pc
 	 *            The PlayerCharacter on which the listener will be added
 	 * @param control

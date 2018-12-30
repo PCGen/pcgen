@@ -50,7 +50,7 @@ public class RaceTypeFacet
 	public RaceType getRaceType(CharID id)
 	{
 		RaceType raceType = null;
-		Race race = raceFacet.get(id);
+		Race race = raceFacet.get(id).orElse(null);
 		if (race != null)
 		{
 			RaceType rt = race.get(ObjectKey.RACETYPE);

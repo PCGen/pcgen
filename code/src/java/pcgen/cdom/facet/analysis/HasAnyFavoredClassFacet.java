@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Optional;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;
@@ -106,9 +108,9 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<CharID, Bo
 	}
 
 	@Override
-	public Boolean get(CharID id)
+	public Optional<Boolean> get(CharID id)
 	{
-		return contains(id, Boolean.TRUE);
+		return Optional.of(contains(id, Boolean.TRUE));
 	}
 
 }

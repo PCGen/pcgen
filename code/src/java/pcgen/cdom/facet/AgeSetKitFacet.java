@@ -65,10 +65,10 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements Data
 	public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
 	{
 		CharID id = dfce.getCharID();
-		AgeSet ageSet = ageSetFacet.get(id);
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		// TODO Is ageSet null check necessary?
-		if (ageSet == null || pc.isImporting())
+		AgeSet ageSet = ageSetFacet.get(id).orElse(null);
+		if ((ageSet == null) || pc.isImporting())
 		{
 			return;
 		}
@@ -90,7 +90,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements Data
 			if (kits != null)
 			{
 				// Need to do selection
-				BioSet bioSet = bioSetFacet.get(id);
+				BioSet bioSet = bioSetFacet.get(id).orElse(null);
 				for (TransitionChoice<Kit> kit : ageSet.getKits())
 				{
 					Collection<? extends Kit> choice = kit.driveChoice(pc);
