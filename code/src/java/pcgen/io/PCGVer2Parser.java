@@ -26,6 +26,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -144,7 +145,6 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -174,11 +174,9 @@ final class PCGVer2Parser implements PCGParser
 	/**
 	 * DO NOT CHANGE line separator.
 	 * Need to keep the Unix line separator to ensure cross-platform portability.
-	 *
-	 * author: Thomas Behr 2002-11-13
 	 */
 	private final List<String> warnings = new ArrayList<>();
-	private Cache cache;
+	private Map<String, List<String>> cache;
 	private PlayerCharacter thePC;
 	private final Set<String> seenStats = new HashSet<>();
 	private final Set<Language> cachedLanguages = new HashSet<>();
@@ -475,7 +473,7 @@ final class PCGVer2Parser implements PCGParser
 	 */
 	private void initCache(int capacity)
 	{
-		cache = new Cache((capacity * 4) / 3);
+		cache = new HashMap<String, List<String>>((capacity * 4) / 3);
 	}
 
 	private void parseAgeLine(String line)

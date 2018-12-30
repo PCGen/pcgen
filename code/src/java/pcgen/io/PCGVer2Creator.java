@@ -26,13 +26,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-
-import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
@@ -100,6 +99,8 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code PCGVer2Creator}<br>
@@ -773,7 +774,7 @@ public final class PCGVer2Creator
 	 */
 	private void appendClassLines(StringBuilder buffer)
 	{
-		Cache specials = new Cache();
+		Map<String, List<String>> specials = new HashMap<String, List<String>>();
 
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
