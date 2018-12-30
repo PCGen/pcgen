@@ -17,8 +17,6 @@
  */
 package plugin.function;
 
-import org.junit.Test;
-
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.parse.SimpleNode;
@@ -34,6 +32,8 @@ import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.output.channel.ChannelUtilities;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
+
+import org.junit.Test;
 
 public class InputFunctionTest extends AbstractFormulaTestCase
 {
@@ -95,7 +95,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testGlobalChannelStrength()
 	{
-		ScopeInstanceFactory instFactory = scopeFacet.get(id);
+		ScopeInstanceFactory instFactory = scopeFacet.get(id).get();
 		ScopeInstance globalInstance =
 				instFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 		context.getVariableContext().assertLegalVariableID(ChannelUtilities.createVarName("STR"),
