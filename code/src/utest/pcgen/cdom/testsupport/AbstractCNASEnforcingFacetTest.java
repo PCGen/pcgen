@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -23,6 +19,9 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 {

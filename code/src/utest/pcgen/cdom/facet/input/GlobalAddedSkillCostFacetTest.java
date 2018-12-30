@@ -33,6 +33,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
 public class GlobalAddedSkillCostFacetTest
 {
 	protected CharID id;

@@ -30,8 +30,8 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 public class LocalAddedSkillCostFacetTest
 {
@@ -247,32 +247,16 @@ public class LocalAddedSkillCostFacetTest
 		}
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void testRemoveNullSkill()
 	{
-		try
-		{
-			getFacet().remove(id, class1, SkillCost.CLASS, null, source1);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
+		getFacet().remove(id, class1, SkillCost.CLASS, null, source1);
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void testRemoveNullCost()
 	{
-		try
-		{
-			getFacet().remove(id, class1, null, getObject(), source1);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
+		getFacet().remove(id, class1, null, getObject(), source1);
 	}
 
 	@Test

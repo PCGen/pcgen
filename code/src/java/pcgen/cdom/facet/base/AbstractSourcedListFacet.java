@@ -79,6 +79,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T> e
 	 */
 	public void add(IDT id, T obj, Object source)
 	{
+
 		Objects.requireNonNull(obj, "Object to add may not be null");
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set = map.get(obj);

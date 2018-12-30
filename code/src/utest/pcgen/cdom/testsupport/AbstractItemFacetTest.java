@@ -17,11 +17,6 @@
  */
 package pcgen.cdom.testsupport;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -29,10 +24,11 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
+import junit.framework.TestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public abstract class AbstractItemFacetTest<T>
+public abstract class AbstractItemFacetTest<T> extends TestCase
 {
 	private CharID id;
 	private CharID altid;
@@ -77,7 +73,7 @@ public abstract class AbstractItemFacetTest<T>
 	@Test
 	public void testItemUnsetEmpty()
 	{
-		assertNull(getFacet().get(id));
+		assertTrue(getFacet().get(id).isEmpty());
 		assertTrue(getFacet().matches(id, null));
 	}
 
@@ -186,10 +182,10 @@ public abstract class AbstractItemFacetTest<T>
 	{
 		T t1 = getItem();
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertEquals(t1, getFacet().get(id).get());
 		assertEventCount(1, 0);
 		// No cross-pollution
-		assertNull(getFacet().get(altid));
+		assertThat(getFacet().get(altid).isEmpty(), is(true));
 	}
 
 	@Test
@@ -197,11 +193,11 @@ public abstract class AbstractItemFacetTest<T>
 	{
 		T t1 = getItem();
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertEquals(t1, getFacet().get(id).get());
 		assertEventCount(1, 0);
 		// Set same, still only set (and only one event)
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertEquals(t1, getFacet().get(id).get());
 		assertEventCount(1, 0);
 	}
 
@@ -210,19 +206,19 @@ public abstract class AbstractItemFacetTest<T>
 	{
 		T t1 = getItem();
 		getFacet().set(id, t1);
-		assertEquals(t1, getFacet().get(id));
+		assertEquals(t1, getFacet().get(id).get());
 		assertEventCount(1, 0);
 		T t2 = getItem();
 		getFacet().set(id, t2);
-		assertEquals(t2, getFacet().get(id));
+		assertEquals(t2, getFacet().get(id).get());
 		assertEventCount(2, 1);
 		// Remove
 		getFacet().remove(id);
-		assertNull(getFacet().get(id));
+		assertTrue(getFacet().get(id).isEmpty());
 		assertEventCount(2, 2);
 		// But only one remove event
 		getFacet().remove(id);
-		assertNull(getFacet().get(id));
+		assertTrue(getFacet().get(id).isEmpty());
 		assertEventCount(2, 2);
 	}
 
@@ -235,7 +231,7 @@ public abstract class AbstractItemFacetTest<T>
 		assertTrue(getFacet().matches(id, t1));
 		getFacet().remove(id);
 		assertFalse(getFacet().matches(id, t1));
-		assertNull(getFacet().get(id));
+		assertTrue(getFacet().get(id).isEmpty());
 		assertTrue(getFacet().matches(id, null));
 	}
 
@@ -243,7 +239,7 @@ public abstract class AbstractItemFacetTest<T>
 	public void testCopyContentsNone()
 	{
 		getFacet().copyContents(altid, id);
-		assertNull(getFacet().get(id));
+		assertNull(getFacet().get(id).orElse(null));
 		assertTrue(getFacet().matches(id, null));
 	}
 
@@ -254,10 +250,10 @@ public abstract class AbstractItemFacetTest<T>
 		T t2 = getItem();
 		getFacet().set(id, t1);
 		getFacet().copyContents(id, altid);
-		assertEquals(t1, getFacet().get(altid));
+		assertEquals(t1, getFacet().get(altid).get());
 		// Prove independence (remove from id)
 		getFacet().set(id, t2);
-		assertEquals(t1, getFacet().get(altid));
+		assertEquals(t1, getFacet().get(altid).get());
 	}
 
 	@Test
@@ -266,11 +262,11 @@ public abstract class AbstractItemFacetTest<T>
 		T t1 = getItem();
 		getFacet().set(id, t1);
 		getFacet().copyContents(id, altid);
-		assertEquals(t1, getFacet().get(altid));
+		assertEquals(t1, getFacet().get(altid).get());
 		// Prove Independence (remove from altid)
 		getFacet().remove(altid);
-		assertEquals(t1, getFacet().get(id));
-		assertNull(getFacet().get(altid));
+		assertEquals(t1, getFacet().get(id).get());
+		assertNull(getFacet().get(altid).orElse(null));
 		assertTrue(getFacet().matches(altid, null));
 	}
 
