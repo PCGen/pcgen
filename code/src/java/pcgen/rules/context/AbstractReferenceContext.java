@@ -61,7 +61,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
-import pcgen.cdom.util.IntegerKeyComparator;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -449,7 +448,7 @@ public abstract class AbstractReferenceContext
 		WeakReference<List<?>> wr = sortedMap.get(cl, key);
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
 		{
-			returnList = generateList(cl, new IntegerKeyComparator(key));
+			returnList = generateList(cl, Comparator.comparing(o -> o.getSafe(key)));
 			sortedMap.put(cl, key, new WeakReference<>(returnList));
 		}
 		return Collections.unmodifiableList(returnList);

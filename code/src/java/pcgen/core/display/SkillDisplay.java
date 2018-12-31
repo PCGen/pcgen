@@ -54,7 +54,7 @@ public final class SkillDisplay
 	 */
 	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc, final List<Skill> skills)
 	{
-		skills.sort(new Comparator<Skill>()
+		skills.sort(new Comparator<>()
 		{
 			/**
 			 * Comparator will be specific to Skill objects
