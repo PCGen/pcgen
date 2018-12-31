@@ -106,8 +106,8 @@ Section "PCGen" Section1
 	; Set Section Files and Shortcuts
 	SetOutPath "$INSTDIR\${APPDIR}\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}_base\*.*"
-	File /r "${SrcDir}\pcgen_JREx32.bat"
-	File /r "${SrcDir}\pcgen_JREx64.bat"
+
+
 
 	; Set the common files
 	SetOutPath "$INSTDIR\${APPDIR}\data"
@@ -202,7 +202,7 @@ Section "Java 64 Bit" Section5
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /r "${SrcDir}\..\..\jre\jre_x64\*.*"
-	File /r "${SrcDir}\..\..\pcgen_JREx64.bat"
+	File /r "${SrcDir}\..\..\code\pcgen_JREx64.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
@@ -213,7 +213,7 @@ Section "Java 32 Bit" Section6
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /r "${SrcDir}\..\..\jre\jre_x32\*.*"
-	File /r "${SrcDir}\..\..\pcgen_JREx32.bat"
+	File /r "${SrcDir}\..\..\code\pcgen_JREx32.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
