@@ -73,6 +73,16 @@ Icon "${SrcDir}\Local\PCGen2.ico"
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
+; Installer properties
+VIProductVersion "${installerVerNum}.0"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "PCGen"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "PCGen Release"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "PCGen Open Source Project"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" "PCGen Open Source Project, Bryan McRoberts and the PCGen Board of Directors"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© PCGen Open Source Project"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "PCGen Windows OS Supported File"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${installerVerNum}"
+
 Section "PCGen" Section1
 
 	SectionIn RO
@@ -277,18 +287,19 @@ Section Uninstall
 	rmDir $INSTDIR
 
 	;Run the uninstaller
-	uninst:
-  		ClearErrors
-  		ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
+  	ClearErrors
+  	ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
  
-  		IfErrors no_remove_uninstaller done
-    		;You can either use Delete /REBOOTOK in the uninstaller or add some code
-    		;here to remove the uninstaller. Use a registry key to check
-    		;whether the user has chosen to uninstall. If you are using an uninstaller
-    		;components page, make sure all sections are uninstalled.
-  	no_remove_uninstaller:
-
+  	IfErrors no_remove_uninstaller done
+    	;You can either use Delete /REBOOTOK in the uninstaller or add some code
+    	;here to remove the uninstaller. Use a registry key to check
+    	;whether the user has chosen to uninstall. If you are using an uninstaller
+    	;components page, make sure all sections are uninstalled.
 	Delete /REBOOTOK "$INSTDIR\uninstall-${APPDIR}.exe"
+  	
+	no_remove_uninstaller:
+
+	done:
 SectionEnd
 
 Function .onInit
