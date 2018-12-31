@@ -106,6 +106,8 @@ Section "PCGen" Section1
 	; Set Section Files and Shortcuts
 	SetOutPath "$INSTDIR\${APPDIR}\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}_base\*.*"
+	File /r "${SrcDir}\pcgen_JREx32.bat"
+	File /r "${SrcDir}\pcgen_JREx64.bat"
 
 	; Set the common files
 	SetOutPath "$INSTDIR\${APPDIR}\data"
@@ -272,7 +274,6 @@ Section Uninstall
 	RMDir /r "$INSTDIR\${APPDIR}\data"
 	RMDir /r "$INSTDIR\${APPDIR}\docs"
 	RMDir /r "$INSTDIR\${APPDIR}\libs"
-	RMDir /r "$INSTDIR\${APPDIR}_Save"
 
         ;Remove local JRE
         RMDir /r "$INSTDIR\${APPDIR}\jre"
