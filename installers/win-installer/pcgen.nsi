@@ -187,6 +187,7 @@ Section "Java 64 Bit" Section5
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /r "${SrcDir}\..\..\jre\jre_x64\*.*"
+	File /r "${SrcDir}\\pcgen_JREx64.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
@@ -197,6 +198,7 @@ Section "Java 32 Bit" Section6
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /r "${SrcDir}\..\..\jre\jre_x32\*.*"
+	File /r "${SrcDir}\\pcgen_JREx32.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
@@ -273,6 +275,8 @@ Section Uninstall
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.exe"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.sh"
 #	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_low_mem.bat"
+	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_JREx32.bat"
+	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_JREx64.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-batch-convert.jar"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\filepaths.ini"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\config.ini"
