@@ -218,8 +218,8 @@ SectionEnd
 Section -FinishSection
 
 	WriteRegStr HKLM "Software\${APPNAME}\${APPDIR}" "" "$INSTDIR\${APPDIR}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "DisplayName" "${APPDIR}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
+	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPDIR}"
+	WriteRegStr HKLM "${ARP}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
 
 	DetailPrint "Calculating installation size..."
