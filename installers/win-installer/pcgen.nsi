@@ -73,6 +73,18 @@ Icon "${SrcDir}\Local\PCGen2.ico"
 !insertmacro MUI_LANGUAGE "English"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
+!define ARP "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}"
+
+!macro VerifyUserIsAdmin
+UserInfo::GetAccountType
+pop $0
+${If} $0 != "admin" ;Require admin rights on NT4+
+        messageBox mb_iconstop "Administrator rights required!"
+        setErrorLevel 740 ;ERROR_ELEVATION_REQUIRED
+        quit
+${EndIf}
+!macroend
+
 ; Installer properties
 VIProductVersion "${INSTALLER_VERSION}"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "${APPNAMEANDVERSION}"
@@ -155,11 +167,11 @@ Section "-Local" Section4
 	CreateShortCut "$DESKTOP\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
 # We no longer provide the .bat file.
-#	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
+#	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGEN\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
         CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \ 
                                 "-Xmx256M -jar pcgen-batch-convert.jar" \
@@ -210,6 +222,12 @@ Section -FinishSection
 	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
 
+	DetailPrint "Calculating installation size..."
+	${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
+ 	IntFmt $0 "0x%08X" $0
+ 	WriteRegDWORD HKLM "${ARP}" "EstimatedSize" "$0"
+	DetailPrint "Done!"
+
 SectionEnd
 
 ; Modern install component descriptions
@@ -222,14 +240,6 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Section Uninstall
-
-	; Delete self
-	Delete "$INSTDIR\uninstall-${APPDIR}.exe"
-
-	; Remove from registry...
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}"
-	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}_alpha"
 
 	; Delete Desktop Shortcut
 	Delete "$DESKTOP\${APPDIR}.lnk"
@@ -262,6 +272,8 @@ Section Uninstall
 	RMDir /r "$INSTDIR\${APPDIR}\data"
 	RMDir /r "$INSTDIR\${APPDIR}\docs"
 	RMDir /r "$INSTDIR\${APPDIR}\libs"
+	RMDir /r "$INSTDIR\${APPDIR}_Save"
+
         ;Remove local JRE
         RMDir /r "$INSTDIR\${APPDIR}\jre"
 	RMDir /r "$INSTDIR\${APPDIR}\Local"
@@ -288,9 +300,15 @@ Section Uninstall
 	RMDir "$INSTDIR\${APPDIR}"
 
 	# Always delete uninstaller as the last action
+	Delete /REBOOTOK "$INSTDIR\uninstall-${APPDIR}.exe"
 
 	# Try to remove the install directory - this will only happen if it is empty
 	rmDir $INSTDIR
+
+	; Remove from registry...
+	DeleteRegKey HKLM "${ARP}"
+	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
+	DeleteRegKey HKLM "${ARP}_alpha"
 
 	;Run the uninstaller
   	ClearErrors
@@ -301,7 +319,6 @@ Section Uninstall
     	;here to remove the uninstaller. Use a registry key to check
     	;whether the user has chosen to uninstall. If you are using an uninstaller
     	;components page, make sure all sections are uninstalled.
-	Delete /REBOOTOK "$INSTDIR\uninstall-${APPDIR}.exe"
   	
 	no_remove_uninstaller:
 
