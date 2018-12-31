@@ -167,8 +167,7 @@ launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
     jdkPreference = 'preferJre'
-    initialHeapSize = 128
-    maxHeapSize = 512
+    maxHeapPercent = 80
     stayAlive = false
     dontWrapJar = true
     bundledJrePath = 'jre'
