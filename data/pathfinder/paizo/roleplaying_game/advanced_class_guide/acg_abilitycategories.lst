@@ -218,6 +218,7 @@ ABILITYCATEGORY:Bloodrager Elemental Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	E
 ABILITYCATEGORY:Raging Blood Feat Bloodline				VISIBLE:NO	CATEGORY:Raging Blood Feat Bloodline
 
 
+ABILITYCATEGORY:Mutation Warrior Mutagen Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Mutation Warrior Mutagen Selection																		DISPLAYLOCATION:Class Features
 
 
 #
