@@ -74,14 +74,15 @@ Icon "${SrcDir}\Local\PCGen2.ico"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
 ; Installer properties
-VIProductVersion "${installerVerNum}.0"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "PCGen"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "PCGen Release"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "PCGen Open Source Project"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" "PCGen Open Source Project, Bryan McRoberts and the PCGen Board of Directors"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© PCGen Open Source Project"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "PCGen Windows OS Supported File"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${installerVerNum}"
+VIProductVersion "${INSTALLER_VERSION}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "${APPNAMEANDVERSION}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "${APPNAME} Release"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "${APPNAME} Open Source Project"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" "${APPNAME} Open Source Project, Bryan McRoberts and the PCGen Board of Directors"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© ${APPNAME} Open Source Project"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "${APPNAME} Windows OS Supported File"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${INSTALLER_VERSION}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductVersion" "${LONGVER}"
 
 Section "PCGen" Section1
 

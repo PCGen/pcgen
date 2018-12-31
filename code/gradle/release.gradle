@@ -108,6 +108,9 @@ ext {
         }
         into ('/data')
     }
+
+	List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
+	installerVerNum = result.get(0).toInteger() + "." + result.get(1).toInteger() + "." +  result.get(2).toInteger() + ".0"
 }
 
 task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
@@ -416,6 +419,7 @@ task genProjectNsis doLast {
 !define PROJECT_STARTMENU_FOLDER "\$SMPROGRAMS\\SourceForge\\PCGen ${plainVerNum}"
 !define PROJECT_URL "http://pcgen.sourceforge.net/"
 !define PROJECT_VERSION "${plainVerNum}"
+!define INSTALLER_VERSION "${installerVerNum}"
 """)
 
     new File("${projectDir}/installers/win-installer/includes/constants.nsh").write("""
@@ -512,8 +516,4 @@ task updateVersionRelease doLast {
 task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
-}
-
-task sample{
-	println "${installerVerNum}"
 }
