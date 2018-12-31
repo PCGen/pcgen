@@ -224,7 +224,7 @@ Philter of Love	TYPE:Magic.Wondrous	COST:3000	SOURCEPAGE:p.308
 
 ###Block:R
 # Equipment Name			Type					Cost		Weight	Source Page		Modify VAR
-Robes of Arcane Heritage	TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineFeatProgression|-4
+Robe of Arcane Heritage		TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineProgressionLVL|4	BONUS:VAR|BloodlineFeatProgression|-4	BONUS:VAR|EldritchHeritageBloodlineLVL|4
 
 ###Block:S
 # Equipment Name			Type						Contains			Cost		Weight	Source Page		Modify VAR
