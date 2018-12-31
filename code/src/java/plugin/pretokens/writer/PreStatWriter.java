@@ -20,6 +20,7 @@ package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -61,7 +62,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements Prerequ
 			writer.write("PRESTAT");
 			if (!operator.equals(PrerequisiteOperator.GTEQ) && !operator.equals(PrerequisiteOperator.LT))
 			{
-				writer.write(operator.toString().toUpperCase());
+				writer.write(operator.toString().toUpperCase(Locale.ENGLISH));
 			}
 			writer.write(":1," + prereq.getKey() + '=' + prereq.getOperand());
 
@@ -89,7 +90,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements Prerequ
 		writer.write("PRESTAT");
 		if (!operator.equals(PrerequisiteOperator.GTEQ) && !operator.equals(PrerequisiteOperator.LT))
 		{
-			writer.write(operator.toString().toUpperCase());
+			writer.write(operator.toString().toUpperCase(Locale.ENGLISH));
 		}
 		writer.write(':');
 		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand() : "1");
