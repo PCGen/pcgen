@@ -5,6 +5,6 @@
 
 ####COMMENT:Need to add "AlchemistBombModifier" to Alchemist Discovery types in future iterations of PCGen
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:Rogue Bomber Discovery	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistDiscovery	PLURAL:Rogue Bomber Discoveries	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Rogue Bomber Discovery	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistBombModifier	PLURAL:Rogue Bomber Discoveries	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Magus Ranger Trap		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap		PLURAL:Magus Ranger Traps		DISPLAYLOCATION:Class Features
