@@ -1,5 +1,7 @@
 package pcgen.core.term;
 
+import static org.hamcrest.Matchers.instanceOf;
+
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -15,8 +17,9 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.Assert;
+
 /**
- * EvaluatorFactory Tester.
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -32,15 +35,11 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 10/04/2008
  */
 
 public class EvaluatorFactoryTest extends PCGenTestCase
 {
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor001()
 	{
 
@@ -63,24 +62,18 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 					(Map<String, TermEvaluatorBuilderPCVar>) sF.get(EvaluatorFactory.PC);
 
 			// don't need instanceof, would throw ClassCastException
-			is(iVP != null, eq(true), "Pattern is now instantiated");
-			is(eS != null, eq(true), "Map is now instantiated");
+			assertNotNull("Pattern is now instantiated", iVP);
+			assertNotNull("Map is now instantiated", eS);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor001");
+		assertTrue("No illegal access in Constructor001", ok);
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor002()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -101,7 +94,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor002");
+		assertTrue("No illegal access in Constructor002", ok);
 
 		String term = "ACCHECK";
 		Matcher mat = iVP.matcher(term);
@@ -112,9 +105,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
 	public void testConstructor003()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -135,7 +125,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor003");
+		assertTrue("No illegal access in Constructor003", ok);
 
 		String term = "ACHECK";
 		Matcher mat = iVP.matcher(term);
@@ -146,9 +136,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor004()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -169,7 +157,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor004");
+		assertTrue("No illegal access in Constructor004", ok);
 
 		String term = "ARMORACCHECK";
 		Matcher mat = iVP.matcher(term);
@@ -180,9 +168,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor005()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -203,7 +189,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor005");
+		assertTrue("No illegal access in Constructor005", ok);
 
 		String term = "ARMORACHECK";
 		Matcher mat = iVP.matcher(term);
@@ -214,9 +200,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor006()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -237,7 +221,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor006");
+		assertTrue("No illegal access in Constructor006", ok);
 
 		String term = "BAB";
 		Matcher mat = iVP.matcher(term);
@@ -248,9 +232,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor007()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -271,7 +253,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor007");
+		assertTrue("No illegal access in Constructor007", ok);
 
 		String term = "BASESPELLSTAT";
 		Matcher mat = iVP.matcher(term);
@@ -282,9 +264,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor008()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -305,7 +285,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor008");
+		assertTrue("No illegal access in Constructor008", ok);
 
 		String term = "BL";
 		Matcher mat = iVP.matcher(term);
@@ -316,9 +296,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor009()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -339,7 +317,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor009");
+		assertTrue("No illegal access in Constructor009", ok);
 
 		String term = "BL.Wizard";
 		Matcher mat = iVP.matcher(term);
@@ -350,9 +328,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor010()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -373,7 +349,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor010");
+		assertTrue("No illegal access in Constructor010", ok);
 
 		String term = "BL=Cleric";
 		Matcher mat = iVP.matcher(term);
@@ -384,9 +360,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor011()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -407,7 +381,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor011");
+		assertTrue("No illegal access in Constructor011", ok);
 
 		String term = "CASTERLEVEL";
 		Matcher mat = iVP.matcher(term);
@@ -418,9 +392,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor012()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -441,7 +413,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor012");
+		assertTrue("No illegal access in Constructor012", ok);
 
 		String term = "CASTERLEVEL.TOTAL";
 		Matcher mat = iVP.matcher(term);
@@ -452,9 +424,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor013()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -475,7 +445,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor013");
+		assertTrue("No illegal access in Constructor013", ok);
 
 		String term = "CL";
 		Matcher mat = iVP.matcher(term);
@@ -486,9 +456,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor014()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -509,7 +477,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor014");
+		assertTrue("No illegal access in Constructor014", ok);
 
 		String term = "CL.Bard";
 		Matcher mat = iVP.matcher(term);
@@ -520,9 +488,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor015()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -543,7 +509,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor015");
+		assertTrue("No illegal access in Constructor015", ok);
 
 		String term = "CL;BEFORELEVEL.10";
 		Matcher mat = iVP.matcher(term);
@@ -554,9 +520,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor016()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -577,7 +541,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor016");
+		assertTrue("No illegal access in Constructor016", ok);
 
 		String term = "CL;BEFORELEVEL=15";
 		Matcher mat = iVP.matcher(term);
@@ -588,9 +552,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor017()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -611,7 +573,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor017");
+		assertTrue("No illegal access in Constructor017", ok);
 
 		String term = "CL=Rogue";
 		Matcher mat = iVP.matcher(term);
@@ -622,9 +584,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor018()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -645,7 +605,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor018");
+		assertTrue("No illegal access in Constructor018", ok);
 
 		String term = "CLASS.Druid";
 		Matcher mat = iVP.matcher(term);
@@ -656,9 +616,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor019()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -679,7 +637,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor019");
+		assertTrue("No illegal access in Constructor019", ok);
 
 		String term = "CLASS=Paladin";
 		Matcher mat = iVP.matcher(term);
@@ -690,9 +648,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor020()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -713,7 +669,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor020");
+		assertTrue("No illegal access in Constructor020", ok);
 
 		String term = "CLASSLEVEL.Bard";
 		Matcher mat = iVP.matcher(term);
@@ -724,9 +680,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor021()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -747,7 +701,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor021");
+		assertTrue("No illegal access in Constructor021", ok);
 
 		String term = "CLASSLEVEL=Rogue";
 		Matcher mat = iVP.matcher(term);
@@ -758,9 +712,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor022()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -781,7 +733,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor022");
+		assertTrue("No illegal access in Constructor022", ok);
 
 		String term = "COUNT[ATTACKS]";
 		Matcher mat = iVP.matcher(term);
@@ -792,9 +744,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor023()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -815,7 +765,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor023");
+		assertTrue("No illegal access in Constructor023", ok);
 
 		String term = "COUNT[CHECKS]";
 		Matcher mat = iVP.matcher(term);
@@ -826,9 +776,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor024()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -849,7 +797,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor024");
+		assertTrue("No illegal access in Constructor024", ok);
 
 		String term = "COUNT[CLASSES]";
 		Matcher mat = iVP.matcher(term);
@@ -860,9 +808,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor025()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -883,7 +829,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor025");
+		assertTrue("No illegal access in Constructor025", ok);
 
 		String term = "COUNT[CONTAINERS]";
 		Matcher mat = iVP.matcher(term);
@@ -894,9 +840,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor026()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -917,7 +861,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor026");
+		assertTrue("No illegal access in Constructor026", ok);
 
 		String term = "COUNT[DOMAINS]";
 		Matcher mat = iVP.matcher(term);
@@ -928,9 +872,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor027()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -951,7 +893,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor027");
+		assertTrue("No illegal access in Constructor027", ok);
 
 		String term = "COUNT[EQTYPE.MERGENONE.IS.FOO]";
 		Matcher mat = iVP.matcher(term);
@@ -962,9 +904,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor028()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -985,7 +925,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor028");
+		assertTrue("No illegal access in Constructor028", ok);
 
 		String term = "COUNT[EQUIPMENT.MERGENONE.NOT.FOO]";
 		Matcher mat = iVP.matcher(term);
@@ -996,9 +936,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor029()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1019,7 +957,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor029");
+		assertTrue("No illegal access in Constructor029", ok);
 
 		String term = "COUNT[FEATAUTOTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
@@ -1030,9 +968,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor030()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1053,7 +989,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor030");
+		assertTrue("No illegal access in Constructor030", ok);
 
 		String term = "COUNT[FEATAUTOTYPE=VISIBLE]";
 		Matcher mat = iVP.matcher(term);
@@ -1064,9 +1000,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor031()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1087,7 +1021,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor031");
+		assertTrue("No illegal access in Constructor031", ok);
 
 		String term = "COUNT[FEATNAME.Jack of all trades]";
 		Matcher mat = iVP.matcher(term);
@@ -1098,9 +1032,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor032()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1121,7 +1053,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor032");
+		assertTrue("No illegal access in Constructor032", ok);
 
 		String term = "COUNT[FEATNAME=Improved Initiative]";
 		Matcher mat = iVP.matcher(term);
@@ -1132,9 +1064,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor033()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1155,7 +1085,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor033");
+		assertTrue("No illegal access in Constructor033", ok);
 
 		String term = "COUNT[FEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
@@ -1166,9 +1096,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor034()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1189,7 +1117,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor034");
+		assertTrue("No illegal access in Constructor034", ok);
 
 		String term = "COUNT[FEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
@@ -1200,9 +1128,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor035()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1223,7 +1149,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor035");
+		assertTrue("No illegal access in Constructor035", ok);
 
 		String term = "COUNT[FEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
@@ -1234,9 +1160,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor036()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1257,7 +1181,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor036");
+		assertTrue("No illegal access in Constructor036", ok);
 
 		String term = "COUNT[FEATSALL.ALL]";
 		Matcher mat = iVP.matcher(term);
@@ -1268,9 +1192,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor037()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1291,7 +1213,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor037");
+		assertTrue("No illegal access in Constructor037", ok);
 
 		String term = "COUNT[FEATSALL.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
@@ -1302,9 +1224,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor038()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1325,7 +1245,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor038");
+		assertTrue("No illegal access in Constructor038", ok);
 
 		String term = "COUNT[FEATSALL.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
@@ -1336,9 +1256,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor039()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1359,7 +1277,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor039");
+		assertTrue("No illegal access in Constructor039", ok);
 
 		String term = "COUNT[FEATSALL]";
 		Matcher mat = iVP.matcher(term);
@@ -1370,9 +1288,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor040()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1393,7 +1309,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor040");
+		assertTrue("No illegal access in Constructor040", ok);
 
 		String term = "COUNT[FEATSAUTO.ALL]";
 		Matcher mat = iVP.matcher(term);
@@ -1404,9 +1320,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor041()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1427,7 +1341,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor041");
+		assertTrue("No illegal access in Constructor041", ok);
 
 		String term = "COUNT[FEATSAUTO.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
@@ -1438,9 +1352,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor042()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1461,7 +1373,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor042");
+		assertTrue("No illegal access in Constructor042", ok);
 
 		String term = "COUNT[FEATSAUTO.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
@@ -1472,9 +1384,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor043()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1495,7 +1405,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor043");
+		assertTrue("No illegal access in Constructor043", ok);
 
 		String term = "COUNT[FEATSAUTO]";
 		Matcher mat = iVP.matcher(term);
@@ -1506,9 +1416,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor044()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1529,7 +1437,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor044");
+		assertTrue("No illegal access in Constructor044", ok);
 
 		String term = "COUNT[FEATS]";
 		Matcher mat = iVP.matcher(term);
@@ -1540,9 +1448,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor045()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1563,7 +1469,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor045");
+		assertTrue("No illegal access in Constructor045", ok);
 
 		String term = "COUNT[FEATTYPE.BAR]";
 		Matcher mat = iVP.matcher(term);
@@ -1574,9 +1480,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor046()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1597,7 +1501,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor046");
+		assertTrue("No illegal access in Constructor046", ok);
 
 		String term = "COUNT[FEATTYPE.BAZ]";
 		Matcher mat = iVP.matcher(term);
@@ -1608,9 +1512,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor047()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1631,7 +1533,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor047");
+		assertTrue("No illegal access in Constructor047", ok);
 
 		String term = "COUNT[FOLLOWERS]";
 		Matcher mat = iVP.matcher(term);
@@ -1642,9 +1544,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor048()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1665,7 +1565,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor048");
+		assertTrue("No illegal access in Constructor048", ok);
 
 		String term = "COUNT[FOLLOWERTYPE.MOO]";
 		Matcher mat = iVP.matcher(term);
@@ -1676,9 +1576,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor049()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1699,7 +1597,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor049");
+		assertTrue("No illegal access in Constructor049", ok);
 
 		String term = "COUNT[LANGUAGES]";
 		Matcher mat = iVP.matcher(term);
@@ -1710,9 +1608,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor050()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1733,7 +1629,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor050");
+		assertTrue("No illegal access in Constructor050", ok);
 
 		String term = "COUNT[MISC.COMPANIONS]";
 		Matcher mat = iVP.matcher(term);
@@ -1744,9 +1640,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor051()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1767,7 +1661,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor051");
+		assertTrue("No illegal access in Constructor051", ok);
 
 		String term = "COUNT[MISC.FUNDS]";
 		Matcher mat = iVP.matcher(term);
@@ -1778,9 +1672,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor052()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1801,7 +1693,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor052");
+		assertTrue("No illegal access in Constructor052", ok);
 
 		String term = "COUNT[MISC.MAGIC]";
 		Matcher mat = iVP.matcher(term);
@@ -1812,9 +1704,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor053()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1835,7 +1725,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor053");
+		assertTrue("No illegal access in Constructor053", ok);
 
 		String term = "COUNT[MOVE]";
 		Matcher mat = iVP.matcher(term);
@@ -1846,9 +1736,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor054()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1869,7 +1757,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor054");
+		assertTrue("No illegal access in Constructor054", ok);
 
 		String term = "COUNT[NOTES]";
 		Matcher mat = iVP.matcher(term);
@@ -1880,9 +1768,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor055()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1903,7 +1789,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor055");
+		assertTrue("No illegal access in Constructor055", ok);
 
 		String term = "COUNT[RACESUBTYPES]";
 		Matcher mat = iVP.matcher(term);
@@ -1914,9 +1800,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor056()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1937,7 +1821,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor056");
+		assertTrue("No illegal access in Constructor056", ok);
 
 		String term = "COUNT[SA]";
 		Matcher mat = iVP.matcher(term);
@@ -1948,9 +1832,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor057()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1971,7 +1853,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor057");
+		assertTrue("No illegal access in Constructor057", ok);
 
 		String term = "COUNT[SKILLS]";
 		Matcher mat = iVP.matcher(term);
@@ -1982,9 +1864,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor058()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2005,7 +1885,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor058");
+		assertTrue("No illegal access in Constructor058", ok);
 
 		String term = "COUNT[SKILLTYPE.KNOWLEDGE]";
 		Matcher mat = iVP.matcher(term);
@@ -2016,9 +1896,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor059()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2039,7 +1917,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor059");
+		assertTrue("No illegal access in Constructor059", ok);
 
 		String term = "COUNT[SKILLTYPE=PERFORM]";
 		Matcher mat = iVP.matcher(term);
@@ -2050,9 +1928,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor060()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2073,7 +1949,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor060");
+		assertTrue("No illegal access in Constructor060", ok);
 
 		String term = "COUNT[SPELLBOOKS]";
 		Matcher mat = iVP.matcher(term);
@@ -2084,9 +1960,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor061()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2107,7 +1981,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor061");
+		assertTrue("No illegal access in Constructor061", ok);
 
 		String term = "COUNT[SPELLCLASSES]";
 		Matcher mat = iVP.matcher(term);
@@ -2118,9 +1992,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor062()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2141,7 +2013,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor062");
+		assertTrue("No illegal access in Constructor062", ok);
 
 		String term = "COUNT[SPELLRACE]";
 		Matcher mat = iVP.matcher(term);
@@ -2152,9 +2024,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor063()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2175,7 +2045,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor063");
+		assertTrue("No illegal access in Constructor063", ok);
 
 		String term = "COUNT[SPELLSINBOOK]";
 		Matcher mat = iVP.matcher(term);
@@ -2186,9 +2056,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor064()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2209,7 +2077,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor064");
+		assertTrue("No illegal access in Constructor064", ok);
 
 		String term = "COUNT[SPELLSKNOWN]";
 		Matcher mat = iVP.matcher(term);
@@ -2220,9 +2088,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor065()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2243,7 +2109,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor065");
+		assertTrue("No illegal access in Constructor065", ok);
 
 		String term = "COUNT[SPELLSLEVELSINBOOK]";
 		Matcher mat = iVP.matcher(term);
@@ -2254,9 +2120,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor066()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2277,7 +2141,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor066");
+		assertTrue("No illegal access in Constructor066", ok);
 
 		String term = "COUNT[SPELLTIMES]";
 		Matcher mat = iVP.matcher(term);
@@ -2288,9 +2152,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor067()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2311,7 +2173,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor067");
+		assertTrue("No illegal access in Constructor067", ok);
 
 		String term = "COUNT[STATS]";
 		Matcher mat = iVP.matcher(term);
@@ -2322,9 +2184,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor068()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2345,7 +2205,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor068");
+		assertTrue("No illegal access in Constructor068", ok);
 
 		String term = "COUNT[TEMPBONUSNAMES]";
 		Matcher mat = iVP.matcher(term);
@@ -2356,9 +2216,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor069()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2379,7 +2237,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor069");
+		assertTrue("No illegal access in Constructor069", ok);
 
 		String term = "COUNT[TEMPLATES]";
 		Matcher mat = iVP.matcher(term);
@@ -2390,9 +2248,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor070()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2413,7 +2269,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor070");
+		assertTrue("No illegal access in Constructor070", ok);
 
 		String term = "COUNT[VFEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
@@ -2424,9 +2280,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor071()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2447,7 +2301,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor071");
+		assertTrue("No illegal access in Constructor071", ok);
 
 		String term = "COUNT[VFEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
@@ -2458,9 +2312,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor072()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2481,7 +2333,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor072");
+		assertTrue("No illegal access in Constructor072", ok);
 
 		String term = "COUNT[VFEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
@@ -2492,9 +2344,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor073()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2515,7 +2365,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor073");
+		assertTrue("No illegal access in Constructor073", ok);
 
 		String term = "COUNT[VFEATS]";
 		Matcher mat = iVP.matcher(term);
@@ -2526,9 +2376,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor074()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2549,7 +2397,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor074");
+		assertTrue("No illegal access in Constructor074", ok);
 
 		String term = "COUNT[VFEATTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
@@ -2560,9 +2408,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor075()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2583,7 +2429,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor075");
+		assertTrue("No illegal access in Constructor075", ok);
 
 		String term = "COUNT[VFEATTYPE=ALL]";
 		Matcher mat = iVP.matcher(term);
@@ -2594,9 +2440,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor076()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2617,7 +2461,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor076");
+		assertTrue("No illegal access in Constructor076", ok);
 
 		String term = "COUNT[VISIBLETEMPLATES]";
 		Matcher mat = iVP.matcher(term);
@@ -2628,9 +2472,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor077()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2651,7 +2493,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor077");
+		assertTrue("No illegal access in Constructor077", ok);
 
 		String term = "COUNT[VISION]";
 		Matcher mat = iVP.matcher(term);
@@ -2662,9 +2504,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor078()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2685,7 +2525,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor078");
+		assertTrue("No illegal access in Constructor078", ok);
 
 		String term = "ENCUMBERANCE";
 		Matcher mat = iVP.matcher(term);
@@ -2696,9 +2536,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor079()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2719,7 +2557,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor079");
+		assertTrue("No illegal access in Constructor079", ok);
 
 		String term = "EQTYPE.EQUIPPED.IS.FOO";
 		Matcher mat = iVP.matcher(term);
@@ -2730,9 +2568,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor080()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2753,7 +2589,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor080");
+		assertTrue("No illegal access in Constructor080", ok);
 
 		String term = "HASDEITY:Bane";
 		Matcher mat = iVP.matcher(term);
@@ -2764,9 +2600,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor081()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2787,7 +2621,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor081");
+		assertTrue("No illegal access in Constructor081", ok);
 
 		String term = "HASFEAT:Endurance";
 		Matcher mat = iVP.matcher(term);
@@ -2798,9 +2632,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor082()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2821,7 +2653,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor082");
+		assertTrue("No illegal access in Constructor082", ok);
 
 		String term = "HD";
 		Matcher mat = iVP.matcher(term);
@@ -2832,9 +2664,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor083()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2855,7 +2685,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor083");
+		assertTrue("No illegal access in Constructor083", ok);
 
 		String term = "MAXCASTABLE";
 		Matcher mat = iVP.matcher(term);
@@ -2866,9 +2696,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor084()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2889,7 +2717,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor084");
+		assertTrue("No illegal access in Constructor084", ok);
 
 		String term = "MODEQUIPSPELLFAILURE";
 		Matcher mat = iVP.matcher(term);
@@ -2900,9 +2728,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor085()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2923,7 +2749,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor085");
+		assertTrue("No illegal access in Constructor085", ok);
 
 		String term = "MOVEBASE";
 		Matcher mat = iVP.matcher(term);
@@ -2934,9 +2760,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor086()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2957,7 +2781,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor086");
+		assertTrue("No illegal access in Constructor086", ok);
 
 		String term = "MOVE[Walk]";
 		Matcher mat = iVP.matcher(term);
@@ -2968,9 +2792,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor087()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2991,7 +2813,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor087");
+		assertTrue("No illegal access in Constructor087", ok);
 
 		String term = "PC.HEIGHT";
 		Matcher mat = iVP.matcher(term);
@@ -3002,9 +2824,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor088()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3025,7 +2845,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor088");
+		assertTrue("No illegal access in Constructor088", ok);
 
 		String term = "PC.SIZEINT";
 		Matcher mat = iVP.matcher(term);
@@ -3036,9 +2856,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor089()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3059,7 +2877,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor089");
+		assertTrue("No illegal access in Constructor089", ok);
 
 		String term = "PC.WEIGHT";
 		Matcher mat = iVP.matcher(term);
@@ -3070,9 +2888,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor090()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3093,7 +2909,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor090");
+		assertTrue("No illegal access in Constructor090", ok);
 
 		String term = "PROFACCHECK";
 		Matcher mat = iVP.matcher(term);
@@ -3104,9 +2920,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor091()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3127,7 +2941,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor091");
+		assertTrue("No illegal access in Constructor091", ok);
 
 		String term = "RACESIZE";
 		Matcher mat = iVP.matcher(term);
@@ -3138,9 +2952,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor092()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3161,7 +2973,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor092");
+		assertTrue("No illegal access in Constructor092", ok);
 
 		String term = "SCORE";
 		Matcher mat = iVP.matcher(term);
@@ -3172,9 +2984,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor093()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3195,7 +3005,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor093");
+		assertTrue("No illegal access in Constructor093", ok);
 
 		String term = "SHIELDACCHECK";
 		Matcher mat = iVP.matcher(term);
@@ -3206,9 +3016,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor094()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3229,7 +3037,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor094");
+		assertTrue("No illegal access in Constructor094", ok);
 
 		String term = "SHIELDACHECK";
 		Matcher mat = iVP.matcher(term);
@@ -3240,9 +3048,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor095()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3263,7 +3069,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor095");
+		assertTrue("No illegal access in Constructor095", ok);
 
 		String term = "SIZE";
 		Matcher mat = iVP.matcher(term);
@@ -3274,9 +3080,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor096()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3297,7 +3101,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor096");
+		assertTrue("No illegal access in Constructor096", ok);
 
 		String term = "SIZEMOD";
 		Matcher mat = iVP.matcher(term);
@@ -3308,9 +3112,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor097()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3331,7 +3133,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor097");
+		assertTrue("No illegal access in Constructor097", ok);
 
 		String term = "SKILLRANK.Tumble";
 		Matcher mat = iVP.matcher(term);
@@ -3342,9 +3144,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor098()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3365,7 +3165,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor098");
+		assertTrue("No illegal access in Constructor098", ok);
 
 		String term = "SKILLRANK=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
@@ -3376,9 +3176,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor099()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3399,7 +3197,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor099");
+		assertTrue("No illegal access in Constructor099", ok);
 
 		String term = "SKILLTOTAL.Tumble";
 		Matcher mat = iVP.matcher(term);
@@ -3410,9 +3208,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor100()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3433,7 +3229,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor100");
+		assertTrue("No illegal access in Constructor100", ok);
 
 		String term = "SKILLTOTAL=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
@@ -3444,9 +3240,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor101()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3467,7 +3261,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor101");
+		assertTrue("No illegal access in Constructor101", ok);
 
 		String term = "SPELLBASESTAT";
 		Matcher mat = iVP.matcher(term);
@@ -3478,9 +3272,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor102()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3501,7 +3293,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor102");
+		assertTrue("No illegal access in Constructor102", ok);
 
 		String term = "SPELLBASESTATSCORE";
 		Matcher mat = iVP.matcher(term);
@@ -3512,9 +3304,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor103()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3535,7 +3325,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor103");
+		assertTrue("No illegal access in Constructor103", ok);
 
 		String term = "SPELLLEVEL";
 		Matcher mat = iVP.matcher(term);
@@ -3546,9 +3336,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor104()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3569,7 +3357,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor104");
+		assertTrue("No illegal access in Constructor104", ok);
 
 		String term = "TL";
 		Matcher mat = iVP.matcher(term);
@@ -3580,9 +3368,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor105()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3603,7 +3389,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor105");
+		assertTrue("No illegal access in Constructor105", ok);
 
 		String term = "VARDEFINED:MilkyBarsEaten";
 		Matcher mat = iVP.matcher(term);
@@ -3614,9 +3400,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor106()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3637,7 +3421,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor106");
+		assertTrue("No illegal access in Constructor106", ok);
 
 		String term = "WEIGHT.CARRIED";
 		Matcher mat = iVP.matcher(term);
@@ -3648,9 +3432,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
 	public void testConstructor107()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3671,7 +3453,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor107");
+		assertTrue("No illegal access in Constructor107", ok);
 
 		String term = "DEXSCORE";
 		Matcher mat = iVP.matcher(term);
@@ -3711,7 +3493,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator001");
+		assertTrue("No illegal access in getTermEvaluator001", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator001 stored term is correct " + term);
 	}
@@ -3745,7 +3527,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator002");
+		assertTrue("No illegal access in getTermEvaluator002", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator002 stored term is correct " + term);
 	}
@@ -3779,7 +3561,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator003");
+		assertTrue("No illegal access in getTermEvaluator003", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator003 stored term is correct " + term);
 	}
@@ -3813,7 +3595,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator004");
+		assertTrue("No illegal access in getTermEvaluator004", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator004 stored term is correct " + term);
 	}
@@ -3847,7 +3629,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator005");
+		assertTrue("No illegal access in getTermEvaluator005", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator005 stored term is correct " + term);
 	}
@@ -3884,7 +3666,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator006");
+		assertTrue("No illegal access in getTermEvaluator006", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator006 stored term is correct " + term);
 		is(field1, strEq("Foo"), "GetTermEvaluator006 field source is correct ");
@@ -3922,7 +3704,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator007");
+		assertTrue("No illegal access in getTermEvaluator007", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator007 stored term is correct " + term);
 		is(field1, strEq(""), "GetTermEvaluator007 field source is correct ");
@@ -3960,7 +3742,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator008");
+		assertTrue("No illegal access in getTermEvaluator008", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator008 stored term is correct " + term);
 		is(field1, strEq("RACE.Bar"), "GetTermEvaluator008 field source is correct ");
@@ -3998,7 +3780,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator009");
+		assertTrue("No illegal access in getTermEvaluator009", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator009 stored term is correct " + term);
 		is(field1, strEq("Foo"), "GetTermEvaluator009 field source is correct ");
@@ -4033,7 +3815,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator010");
+		assertTrue("No illegal access in getTermEvaluator010", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator010 stored term is correct " + term);
 	}
@@ -4067,7 +3849,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator011");
+		assertTrue("No illegal access in getTermEvaluator011", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator011 stored term is correct " + term);
 	}
@@ -4101,7 +3883,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator012");
+		assertTrue("No illegal access in getTermEvaluator012", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator012 stored term is correct " + term);
 	}
@@ -4135,7 +3917,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator013");
+		assertTrue("No illegal access in getTermEvaluator013", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator013 stored term is correct " + term);
 	}
@@ -4169,7 +3951,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator014");
+		assertTrue("No illegal access in getTermEvaluator014", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator014 stored term is correct " + term);
 	}
@@ -4203,7 +3985,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator015");
+		assertTrue("No illegal access in getTermEvaluator015", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator015 stored term is correct " + term);
 	}
@@ -4237,7 +4019,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator016");
+		assertTrue("No illegal access in getTermEvaluator016", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator016 stored term is correct " + term);
 	}
@@ -4278,11 +4060,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator017");
+		assertTrue("No illegal access in getTermEvaluator017", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator017 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator017 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator017 field visible is correct ");
+		assertTrue("GetTermEvaluator017 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator017 field visible is correct ", field2);
 	}
 
 	/**
@@ -4321,10 +4103,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator018");
+		assertTrue("No illegal access in getTermEvaluator018", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator018 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator018 field hidden is correct ");
+		assertTrue("GetTermEvaluator018 field hidden is correct ", field1);
 		is(field2, eq(false), "GetTermEvaluator018 field visible is correct ");
 	}
 
@@ -4364,11 +4146,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator019");
+		assertTrue("No illegal access in getTermEvaluator019", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator019 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator019 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator019 field visible is correct ");
+		assertTrue("GetTermEvaluator019 field visible is correct ", field2);
 	}
 
 	/**
@@ -4407,11 +4189,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator020");
+		assertTrue("No illegal access in getTermEvaluator020", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator020 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator020 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator020 field visible is correct ");
+		assertTrue("GetTermEvaluator020 field visible is correct ", field2);
 	}
 
 	/**
@@ -4450,11 +4232,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator021");
+		assertTrue("No illegal access in getTermEvaluator021", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator021 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator021 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator021 field visible is correct ");
+		assertTrue("GetTermEvaluator021 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator021 field visible is correct ", field2);
 	}
 
 	/**
@@ -4493,10 +4275,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator022");
+		assertTrue("No illegal access in getTermEvaluator022", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator022 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator022 field hidden is correct ");
+		assertTrue("GetTermEvaluator022 field hidden is correct ", field1);
 		is(field2, eq(false), "GetTermEvaluator022 field visible is correct ");
 	}
 
@@ -4536,11 +4318,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator023");
+		assertTrue("No illegal access in getTermEvaluator023", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator023 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator023 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator023 field visible is correct ");
+		assertTrue("GetTermEvaluator023 field visible is correct ", field2);
 	}
 
 	/**
@@ -4579,11 +4361,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator024");
+		assertTrue("No illegal access in getTermEvaluator024", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator024 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator024 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator024 field visible is correct ");
+		assertTrue("GetTermEvaluator024 field visible is correct ", field2);
 	}
 
 	/**
@@ -4622,11 +4404,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator025");
+		assertTrue("No illegal access in getTermEvaluator025", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator025 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator025 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator025 field visible is correct ");
+		assertTrue("GetTermEvaluator025 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator025 field visible is correct ", field2);
 	}
 
 	/**
@@ -4665,10 +4447,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator026");
+		assertTrue("No illegal access in getTermEvaluator026", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator026 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator026 field hidden is correct ");
+		assertTrue("GetTermEvaluator026 field hidden is correct ", field1);
 		is(field2, eq(false), "GetTermEvaluator026 field visible is correct ");
 	}
 
@@ -4708,11 +4490,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator027");
+		assertTrue("No illegal access in getTermEvaluator027", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator027 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator027 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator027 field visible is correct ");
+		assertTrue("GetTermEvaluator027 field visible is correct ", field2);
 	}
 
 	/**
@@ -4751,11 +4533,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator028");
+		assertTrue("No illegal access in getTermEvaluator028", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator028 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator028 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator028 field visible is correct ");
+		assertTrue("GetTermEvaluator028 field visible is correct ", field2);
 	}
 
 	/**
@@ -4794,11 +4576,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator029");
+		assertTrue("No illegal access in getTermEvaluator029", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator029 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator029 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator029 field visible is correct ");
+		assertTrue("GetTermEvaluator029 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator029 field visible is correct ", field2);
 	}
 
 	/**
@@ -4837,10 +4619,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator030");
+		assertTrue("No illegal access in getTermEvaluator030", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator030 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator030 field hidden is correct ");
+		assertTrue("GetTermEvaluator030 field hidden is correct ", field1);
 		is(field2, eq(false), "GetTermEvaluator030 field visible is correct ");
 	}
 
@@ -4880,11 +4662,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator031");
+		assertTrue("No illegal access in getTermEvaluator031", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator031 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator031 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator031 field visible is correct ");
+		assertTrue("GetTermEvaluator031 field visible is correct ", field2);
 	}
 
 	/**
@@ -4923,11 +4705,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator032");
+		assertTrue("No illegal access in getTermEvaluator032", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator032 stored term is correct " + term);
 		is(field1, eq(false), "GetTermEvaluator032 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator032 field visible is correct ");
+		assertTrue("GetTermEvaluator032 field visible is correct ", field2);
 	}
 
 	/**
@@ -4959,7 +4741,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator033");
+		assertTrue("No illegal access in getTermEvaluator033", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator033 stored term is correct " + term);
 	}
@@ -4993,7 +4775,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator034");
+		assertTrue("No illegal access in getTermEvaluator034", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator034 stored term is correct " + term);
 	}
@@ -5028,7 +4810,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator035");
+		assertTrue("No illegal access in getTermEvaluator035", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator035 stored term is correct " + term);
 	}
@@ -5062,7 +4844,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator036");
+		assertTrue("No illegal access in getTermEvaluator036", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator036 stored term is correct " + term);
 	}
@@ -5096,7 +4878,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator037");
+		assertTrue("No illegal access in getTermEvaluator037", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator037 stored term is correct " + term);
 	}
@@ -5130,7 +4912,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator038");
+		assertTrue("No illegal access in getTermEvaluator038", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator038 stored term is correct " + term);
 	}
@@ -5164,7 +4946,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator039");
+		assertTrue("No illegal access in getTermEvaluator039", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator039 stored term is correct " + term);
 	}
@@ -5199,7 +4981,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator040");
+		assertTrue("No illegal access in getTermEvaluator040", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator040 stored term is correct " + term);
 	}
@@ -5233,7 +5015,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator041");
+		assertTrue("No illegal access in getTermEvaluator041", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator041 stored term is correct " + term);
 	}
@@ -5267,7 +5049,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator042");
+		assertTrue("No illegal access in getTermEvaluator042", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator042 stored term is correct " + term);
 	}
@@ -5302,7 +5084,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator043");
+		assertTrue("No illegal access in getTermEvaluator043", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator043 stored term is correct " + term);
 	}
@@ -5336,7 +5118,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator044");
+		assertTrue("No illegal access in getTermEvaluator044", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator044 stored term is correct " + term);
 	}
@@ -5370,7 +5152,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator045");
+		assertTrue("No illegal access in getTermEvaluator045", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator045 stored term is correct " + term);
 	}
@@ -5405,7 +5187,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator046");
+		assertTrue("No illegal access in getTermEvaluator046", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator046 stored term is correct " + term);
 	}
@@ -5439,7 +5221,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator047");
+		assertTrue("No illegal access in getTermEvaluator047", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator047 stored term is correct " + term);
 	}
@@ -5474,7 +5256,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator048");
+		assertTrue("No illegal access in getTermEvaluator048", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator048 stored term is correct " + term);
 	}
@@ -5508,7 +5290,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator049");
+		assertTrue("No illegal access in getTermEvaluator049", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator049 stored term is correct " + term);
 	}
@@ -5542,7 +5324,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator050");
+		assertTrue("No illegal access in getTermEvaluator050", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator050 stored term is correct " + term);
 	}
@@ -5576,7 +5358,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator051");
+		assertTrue("No illegal access in getTermEvaluator051", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator051 stored term is correct " + term);
 	}
@@ -5610,7 +5392,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in testGetTermEvaluatorHp");
+		assertTrue("No illegal access in testGetTermEvaluatorHp", ok);
 
 		is(field0, strEq(term), "testGetTermEvaluatorHp stored term is correct " + term);
 	}
@@ -5648,7 +5430,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator052");
+		assertTrue("No illegal access in getTermEvaluator052", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator052 stored term is correct " + term);
 		is(field1.getKeyName(), strEq("Bard"), "GetTermEvaluator052 field spellList is correct ");
@@ -5687,7 +5469,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator053");
+		assertTrue("No illegal access in getTermEvaluator053", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator053 stored term is correct " + term);
 		is(field1, strEq("Fire"), "GetTermEvaluator053 field domainKey is correct ");
@@ -5726,7 +5508,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator054");
+		assertTrue("No illegal access in getTermEvaluator054", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator054 stored term is correct " + term);
 		is(field1, strEq("Arcane"), "GetTermEvaluator054 field typeKey is correct ");
@@ -5761,7 +5543,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator055");
+		assertTrue("No illegal access in getTermEvaluator055", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator055 stored term is correct " + term);
 	}
@@ -5809,7 +5591,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator057");
+		assertTrue("No illegal access in getTermEvaluator057", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator057 stored term is correct " + term);
 	}
@@ -5843,7 +5625,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator058");
+		assertTrue("No illegal access in getTermEvaluator058", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator058 stored term is correct " + term);
 	}
@@ -5877,7 +5659,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator059");
+		assertTrue("No illegal access in getTermEvaluator059", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator059 stored term is correct " + term);
 	}
@@ -5914,7 +5696,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator060");
+		assertTrue("No illegal access in getTermEvaluator060", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator060 stored term is correct " + term);
 		is(field1, strEq("Dagger"), "GetTermEvaluator060 field eqKey is correct ");
@@ -5952,7 +5734,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator061");
+		assertTrue("No illegal access in getTermEvaluator061", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator061 stored term is correct " + term);
 		is(field1, strEq(""), "GetTermEvaluator061 field eqKey is correct ");
@@ -5987,7 +5769,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator062");
+		assertTrue("No illegal access in getTermEvaluator062", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator062 stored term is correct " + term);
 	}
@@ -6024,7 +5806,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator063");
+		assertTrue("No illegal access in getTermEvaluator063", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator063 stored term is correct " + term);
 		is(field1, strEq("INT"), "GetTermEvaluator063 field stat is correct ");
@@ -6062,7 +5844,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator064");
+		assertTrue("No illegal access in getTermEvaluator064", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator064 stored term is correct " + term);
 		is(field1, strEq(""), "GetTermEvaluator064 field stat is correct ");
@@ -6097,7 +5879,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator065");
+		assertTrue("No illegal access in getTermEvaluator065", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator065 stored term is correct " + term);
 	}
@@ -6131,7 +5913,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator066");
+		assertTrue("No illegal access in getTermEvaluator066", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator066 stored term is correct " + term);
 	}
@@ -6165,7 +5947,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator067");
+		assertTrue("No illegal access in getTermEvaluator067", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator067 stored term is correct " + term);
 	}
@@ -6199,7 +5981,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator068");
+		assertTrue("No illegal access in getTermEvaluator068", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator068 stored term is correct " + term);
 	}
@@ -6236,7 +6018,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator069");
+		assertTrue("No illegal access in getTermEvaluator069", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator069 stored term is correct " + term);
 		is(field1, strEq("Cleric"), "GetTermEvaluator069 field classKey is correct ");
@@ -6275,7 +6057,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator070");
+		assertTrue("No illegal access in getTermEvaluator070", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator070 stored term is correct " + term);
 		is(field1, strEq("Cleric"), "GetTermEvaluator070 field classKey is correct ");
@@ -6313,7 +6095,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator071");
+		assertTrue("No illegal access in getTermEvaluator071", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator071 stored term is correct " + term);
 		is(field1, strEq(""), "GetTermEvaluator071 field classKey is correct ");
@@ -6352,7 +6134,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator072");
+		assertTrue("No illegal access in getTermEvaluator072", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator072 stored term is correct " + term);
 		is(field1, strEq(""), "GetTermEvaluator072 field classKey is correct ");
@@ -6387,7 +6169,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator073");
+		assertTrue("No illegal access in getTermEvaluator073", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator073 stored term is correct " + term);
 	}
@@ -6421,7 +6203,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator074");
+		assertTrue("No illegal access in getTermEvaluator074", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator074 stored term is correct " + term);
 	}
@@ -6458,7 +6240,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator075");
+		assertTrue("No illegal access in getTermEvaluator075", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator075 stored term is correct " + term);
 		is(field1, strEq("Ranger"), "GetTermEvaluator075 field source is correct ");
@@ -6496,7 +6278,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator076");
+		assertTrue("No illegal access in getTermEvaluator076", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator076 stored term is correct " + term);
 		is(field1, strEq(""), "GetTermEvaluator076 field source is correct ");
@@ -6534,7 +6316,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator077");
+		assertTrue("No illegal access in getTermEvaluator077", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator077 stored term is correct " + term);
 		is(field1, strEq("Wizard"), "GetTermEvaluator077 field source is correct ");
@@ -6572,7 +6354,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator078");
+		assertTrue("No illegal access in getTermEvaluator078", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator078 stored term is correct " + term);
 		is(field1, strEq("Cleric"), "GetTermEvaluator078 field source is correct ");
@@ -6613,7 +6395,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator079");
+		assertTrue("No illegal access in getTermEvaluator079", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator079 stored term is correct " + term);
 		is(field1, strEq("Ranger"), "GetTermEvaluator079 field source is correct ");
@@ -6655,7 +6437,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator080");
+		assertTrue("No illegal access in getTermEvaluator080", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator080 stored term is correct " + term);
 		is(field1, strEq("Druid"), "GetTermEvaluator080 field source is correct ");
@@ -6708,7 +6490,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator082");
+		assertTrue("No illegal access in getTermEvaluator082", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator082 stored term is correct " + term);
 		is(field1, strEq("Bard (Bardiliscious)"), "GetTermEvaluator082 field classKey is correct ");
@@ -6746,7 +6528,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator083");
+		assertTrue("No illegal access in getTermEvaluator083", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator083 stored term is correct " + term);
 		is(field1, strEq("Rogue (Sneaky)"), "GetTermEvaluator083 field classKey is correct ");
@@ -6784,7 +6566,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator084");
+		assertTrue("No illegal access in getTermEvaluator084", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator084 stored term is correct " + term);
 		is(field1, strEq("Druid"), "GetTermEvaluator084 field source is correct ");
@@ -6822,7 +6604,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator085");
+		assertTrue("No illegal access in getTermEvaluator085", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator085 stored term is correct " + term);
 		is(field1, strEq("Paladin"), "GetTermEvaluator085 field source is correct ");
@@ -6860,7 +6642,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator086");
+		assertTrue("No illegal access in getTermEvaluator086", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator086 stored term is correct " + term);
 		is(field1, strEq("Ranger"), "GetTermEvaluator086 field classKey is correct ");
@@ -6912,7 +6694,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator088");
+		assertTrue("No illegal access in getTermEvaluator088", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator088 stored term is correct " + term);
 		is(field1, strEq("Bard"), "GetTermEvaluator088 field classKey is correct ");
@@ -6950,7 +6732,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator089");
+		assertTrue("No illegal access in getTermEvaluator089", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator089 stored term is correct " + term);
 		is(field1, strEq("Rogue"), "GetTermEvaluator089 field classKey is correct ");
@@ -6991,7 +6773,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator090");
+		assertTrue("No illegal access in getTermEvaluator090", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator090 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator090 field types[0] is correct ");
@@ -7033,7 +6815,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator091");
+		assertTrue("No illegal access in getTermEvaluator091", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator091 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator091 field types[0] is correct ");
@@ -7075,7 +6857,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator092");
+		assertTrue("No illegal access in getTermEvaluator092", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator092 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator092 field types[0] is correct ");
@@ -7117,7 +6899,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator093");
+		assertTrue("No illegal access in getTermEvaluator093", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator093 stored term is correct " + term);
 		is(field1[0], strEq("EQUIPPED"), "GetTermEvaluator093 field types[0] is correct ");
@@ -7159,7 +6941,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator094");
+		assertTrue("No illegal access in getTermEvaluator094", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator094 stored term is correct " + term);
 		is(field1[0], strEq("NOTEQUIPPED"), "GetTermEvaluator094 field types[0] is correct ");
@@ -7201,7 +6983,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator095");
+		assertTrue("No illegal access in getTermEvaluator095", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator095 stored term is correct " + term);
 		is(field1[0], strEq("CONTAINER"), "GetTermEvaluator095 field types[0] is correct ");
@@ -7243,7 +7025,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator096");
+		assertTrue("No illegal access in getTermEvaluator096", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator096 stored term is correct " + term);
 		is(field1[0], strEq("WEAPON"), "GetTermEvaluator096 field types[0] is correct ");
@@ -7285,7 +7067,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator097");
+		assertTrue("No illegal access in getTermEvaluator097", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator097 stored term is correct " + term);
 		is(field1[0], strEq("ACITEM"), "GetTermEvaluator097 field types[0] is correct ");
@@ -7327,7 +7109,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator098");
+		assertTrue("No illegal access in getTermEvaluator098", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator098 stored term is correct " + term);
 		is(field1[0], strEq("ARMOR"), "GetTermEvaluator098 field types[0] is correct ");
@@ -7371,7 +7153,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator099");
+		assertTrue("No illegal access in getTermEvaluator099", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator099 stored term is correct " + term);
 		is(field1[0], strEq("QUX"), "GetTermEvaluator099 field types[0] is correct ");
@@ -7415,7 +7197,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator100");
+		assertTrue("No illegal access in getTermEvaluator100", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator100 stored term is correct " + term);
 		is(field1[0], strEq("QUUX"), "GetTermEvaluator100 field types[0] is correct ");
@@ -7459,7 +7241,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator101");
+		assertTrue("No illegal access in getTermEvaluator101", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator101 stored term is correct " + term);
 		is(field1[0], strEq("WEAPON"), "GetTermEvaluator101 field types[0] is correct ");
@@ -7503,7 +7285,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator102");
+		assertTrue("No illegal access in getTermEvaluator102", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator102 stored term is correct " + term);
 		is(field1[0], strEq("WEAPON"), "GetTermEvaluator102 field types[0] is correct ");
@@ -7550,7 +7332,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator103");
+		assertTrue("No illegal access in getTermEvaluator103", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator103 stored term is correct " + term);
 		is(field1[0], strEq("FOO"), "GetTermEvaluator103 field types[0] is correct ");
@@ -7634,7 +7416,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator107");
+		assertTrue("No illegal access in getTermEvaluator107", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator107 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator107 field types[0] is correct ");
@@ -7676,7 +7458,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator108");
+		assertTrue("No illegal access in getTermEvaluator108", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator108 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator108 field types[0] is correct ");
@@ -7718,7 +7500,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator109");
+		assertTrue("No illegal access in getTermEvaluator109", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator109 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator109 field types[0] is correct ");
@@ -7830,7 +7612,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator115");
+		assertTrue("No illegal access in getTermEvaluator115", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator115 stored term is correct " + term);
 		is(field1[0], strEq("IS"), "GetTermEvaluator115 field types[0] is correct ");
@@ -7873,7 +7655,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator116");
+		assertTrue("No illegal access in getTermEvaluator116", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator116 stored term is correct " + term);
 		is(field1[0], strEq("NOT"), "GetTermEvaluator116 field types[0] is correct ");
@@ -7916,7 +7698,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator117");
+		assertTrue("No illegal access in getTermEvaluator117", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator117 stored term is correct " + term);
 		is(field1[0], strEq("ADD"), "GetTermEvaluator117 field types[0] is correct ");
@@ -7978,7 +7760,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	//			ok = false;
 	//		}
 	//
-	//		is(ok, eq(true), "No illegal access in getTermEvaluator119");
+	//		assertTrue("No illegal access in getTermEvaluator119", ok);
 	//
 	//		is(field0, strEq(term), "GetTermEvaluator119 stored term is correct " + term);	       
 	//		is(field1[0], strEq(""), "GetTermEvaluator119 field types[0] is correct ");	       
@@ -8066,11 +7848,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator123");
+		assertTrue("No illegal access in getTermEvaluator123", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator123 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator123 field types[0] is correct ");
-		is(field2, eq(true), "GetTermEvaluator123 field hidden is correct ");
+		assertTrue("GetTermEvaluator123 field hidden is correct ", field2);
 		is(field3, eq(false), "GetTermEvaluator123 field visible is correct ");
 	}
 
@@ -8113,12 +7895,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator124");
+		assertTrue("No illegal access in getTermEvaluator124", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator124 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator124 field types[0] is correct ");
 		is(field2, eq(false), "GetTermEvaluator124 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator124 field visible is correct ");
+		assertTrue("GetTermEvaluator124 field visible is correct ", field3);
 	}
 
 	/**
@@ -8159,12 +7941,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator125");
+		assertTrue("No illegal access in getTermEvaluator125", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator125 stored term is correct " + term);
 		is(field1, strEq("Jack of all trades"), "GetTermEvaluator125 field key is correct ");
 		is(field2, eq(false), "GetTermEvaluator125 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator125 field visible is correct ");
+		assertTrue("GetTermEvaluator125 field visible is correct ", field3);
 	}
 
 	/**
@@ -8205,12 +7987,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator126");
+		assertTrue("No illegal access in getTermEvaluator126", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator126 stored term is correct " + term);
 		is(field1, strEq("Weapon Focus (Dagger)"), "GetTermEvaluator126 field key is correct ");
 		is(field2, eq(false), "GetTermEvaluator126 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator126 field visible is correct ");
+		assertTrue("GetTermEvaluator126 field visible is correct ", field3);
 	}
 
 	/**
@@ -8252,12 +8034,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator127");
+		assertTrue("No illegal access in getTermEvaluator127", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator127 stored term is correct " + term);
 		is(field1[0], strEq("BAR"), "GetTermEvaluator127 field types[0] is correct ");
 		is(field2, eq(false), "GetTermEvaluator127 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator127 field visible is correct ");
+		assertTrue("GetTermEvaluator127 field visible is correct ", field3);
 	}
 
 	/**
@@ -8299,12 +8081,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator128");
+		assertTrue("No illegal access in getTermEvaluator128", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator128 stored term is correct " + term);
 		is(field1[0], strEq("BAZ"), "GetTermEvaluator128 field types[0] is correct ");
 		is(field2, eq(false), "GetTermEvaluator128 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator128 field visible is correct ");
+		assertTrue("GetTermEvaluator128 field visible is correct ", field3);
 	}
 
 	/**
@@ -8346,11 +8128,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator129");
+		assertTrue("No illegal access in getTermEvaluator129", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator129 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator129 field types[0] is correct ");
-		is(field2, eq(true), "GetTermEvaluator129 field hidden is correct ");
+		assertTrue("GetTermEvaluator129 field hidden is correct ", field2);
 		is(field3, eq(false), "GetTermEvaluator129 field visible is correct ");
 	}
 
@@ -8393,12 +8175,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator130");
+		assertTrue("No illegal access in getTermEvaluator130", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator130 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator130 field types[0] is correct ");
-		is(field2, eq(true), "GetTermEvaluator130 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator130 field visible is correct ");
+		assertTrue("GetTermEvaluator130 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator130 field visible is correct ", field3);
 	}
 
 	/**
@@ -8440,7 +8222,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator131");
+		assertTrue("No illegal access in getTermEvaluator131", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator131 stored term is correct " + term);
 		is(field1[0], strEq("FOO"), "GetTermEvaluator131 field types[0] is correct ");
@@ -8448,7 +8230,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		is(field1[2], strEq("BAZ"), "GetTermEvaluator131 field types[2] is correct ");
 		is(field1[3], strEq("QUX"), "GetTermEvaluator131 field types[3] is correct ");
 		is(field2, eq(false), "GetTermEvaluator131 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator131 field visible is correct ");
+		assertTrue("GetTermEvaluator131 field visible is correct ", field3);
 	}
 
 	/**
@@ -8484,7 +8266,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator132");
+		assertTrue("No illegal access in getTermEvaluator132", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator132 stored term is correct " + term);
 		is(field1, strEq("MOO"), "GetTermEvaluator132 field type is correct ");
@@ -8529,7 +8311,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator133");
+		assertTrue("No illegal access in getTermEvaluator133", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator133 stored term is correct " + term);
 		is(field1, eq(0), "GetTermEvaluator133 field index is correct ");
@@ -8597,7 +8379,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator136");
+		assertTrue("No illegal access in getTermEvaluator136", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator136 stored term is correct " + term);
 		is(field1, strEq("KNOWLEDGE"), "GetTermEvaluator136 field type is correct ");
@@ -8635,7 +8417,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator137");
+		assertTrue("No illegal access in getTermEvaluator137", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator137 stored term is correct " + term);
 		is(field1, strEq("PERFORM"), "GetTermEvaluator137 field type is correct ");
@@ -8670,7 +8452,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator138");
+		assertTrue("No illegal access in getTermEvaluator138", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator138 stored term is correct " + term);
 	}
@@ -8722,7 +8504,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator140");
+		assertTrue("No illegal access in getTermEvaluator140", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator140 stored term is correct " + term);
 		is(field1, strEq("1.0"), "GetTermEvaluator140 field book is correct ");
@@ -8774,7 +8556,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator142");
+		assertTrue("No illegal access in getTermEvaluator142", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator142 stored term is correct " + term);
 		is(field1[0], eq(0), "GetTermEvaluator142 field nums[0] is correct ");
@@ -8864,7 +8646,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator146");
+		assertTrue("No illegal access in getTermEvaluator146", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator146 stored term is correct " + term);
 		is(field1, eq(1), "GetTermEvaluator146 field classNum is correct ");
@@ -8909,7 +8691,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator147");
+		assertTrue("No illegal access in getTermEvaluator147", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator147 stored term is correct " + term);
 		is(field1, eq(1), "GetTermEvaluator147 field classNum is correct ");
@@ -9001,7 +8783,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator152");
+		assertTrue("No illegal access in getTermEvaluator152", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator152 stored term is correct " + term);
 	}
@@ -9038,7 +8820,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator153");
+		assertTrue("No illegal access in getTermEvaluator153", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator153 stored term is correct " + term);
 		is(field1, strEq("Bane"), "GetTermEvaluator153 field deity is correct ");
@@ -9076,7 +8858,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator154");
+		assertTrue("No illegal access in getTermEvaluator154", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator154 stored term is correct " + term);
 		is(field1, strEq("Endurance"), "GetTermEvaluator154 field feat is correct ");
@@ -9114,7 +8896,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator155");
+		assertTrue("No illegal access in getTermEvaluator155", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator155 stored term is correct " + term);
 		is(field1, strEq("SPELLFAILURE"), "GetTermEvaluator155 field modEq is correct ");
@@ -9152,7 +8934,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator156");
+		assertTrue("No illegal access in getTermEvaluator156", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator156 stored term is correct " + term);
 		is(field1, strEq("Walk"), "GetTermEvaluator156 field movement is correct ");
@@ -9201,7 +8983,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator158");
+		assertTrue("No illegal access in getTermEvaluator158", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator158 stored term is correct " + term);
 	}
@@ -9238,7 +9020,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator159");
+		assertTrue("No illegal access in getTermEvaluator159", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator159 stored term is correct " + term);
 		is(field1, strEq("Tumble"), "GetTermEvaluator159 field rank is correct ");
@@ -9276,7 +9058,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator160");
+		assertTrue("No illegal access in getTermEvaluator160", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator160 stored term is correct " + term);
 		is(field1, strEq("Perform (Dance)"), "GetTermEvaluator160 field rank is correct ");
@@ -9314,7 +9096,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator161");
+		assertTrue("No illegal access in getTermEvaluator161", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator161 stored term is correct " + term);
 		is(field1, strEq("Perform (Sing)"), "GetTermEvaluator161 field rank is correct ");
@@ -9352,7 +9134,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator162");
+		assertTrue("No illegal access in getTermEvaluator162", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator162 stored term is correct " + term);
 		is(field1, strEq("Tumble"), "GetTermEvaluator162 field total is correct ");
@@ -9390,7 +9172,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator163");
+		assertTrue("No illegal access in getTermEvaluator163", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator163 stored term is correct " + term);
 		is(field1, strEq("Perform (Dance)"), "GetTermEvaluator163 field total is correct ");
@@ -9428,7 +9210,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator164");
+		assertTrue("No illegal access in getTermEvaluator164", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator164 stored term is correct " + term);
 		is(field1, strEq("Perform (Sing)"), "GetTermEvaluator164 field total is correct ");
@@ -9466,7 +9248,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator165");
+		assertTrue("No illegal access in getTermEvaluator165", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator165 stored term is correct " + term);
 		is(field1, strEq("MilkyBarsEaten"), "GetTermEvaluator165 field var is correct ");
@@ -9501,7 +9283,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator166");
+		assertTrue("No illegal access in getTermEvaluator166", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator166 stored term is correct " + term);
 	}
@@ -9535,7 +9317,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator167");
+		assertTrue("No illegal access in getTermEvaluator167", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator167 stored term is correct " + term);
 	}
@@ -9569,7 +9351,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator168");
+		assertTrue("No illegal access in getTermEvaluator168", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator168 stored term is correct " + term);
 	}
@@ -9603,7 +9385,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator169");
+		assertTrue("No illegal access in getTermEvaluator169", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator169 stored term is correct " + term);
 	}
@@ -9633,7 +9415,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator171 evaluator correct for " + term);
+		Assert.assertThat(
+				"GetTermEvaluator171 evaluator correct for " + term,
+				t,
+				instanceOf(PCStatModTermEvaluator.class)
+		);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9649,16 +9435,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator171");
+		assertTrue("No illegal access in getTermEvaluator171", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator171 stored term is correct " + term);
 		is(field1, strEq("STR"), "GetTermEvaluator171 field statAbbrev is correct ");
@@ -9696,7 +9478,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator172");
+		assertTrue("No illegal access in getTermEvaluator172", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator172 stored term is correct " + term);
 		is(field1, strEq("INT"), "GetTermEvaluator172 field statAbbrev is correct ");
@@ -9734,7 +9516,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator173");
+		assertTrue("No illegal access in getTermEvaluator173", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator173 stored term is correct " + term);
 		is(field1, strEq("DEX"), "GetTermEvaluator173 field statAbbrev is correct ");
@@ -9772,7 +9554,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator174");
+		assertTrue("No illegal access in getTermEvaluator174", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator174 stored term is correct " + term);
 		is(field1, strEq("WIS"), "GetTermEvaluator174 field statAbbrev is correct ");
@@ -9810,7 +9592,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator175");
+		assertTrue("No illegal access in getTermEvaluator175", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator175 stored term is correct " + term);
 		is(field1, strEq("CON"), "GetTermEvaluator175 field statAbbrev is correct ");
@@ -9848,7 +9630,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator176");
+		assertTrue("No illegal access in getTermEvaluator176", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator176 stored term is correct " + term);
 		is(field1, strEq("CHA"), "GetTermEvaluator176 field statAbbrev is correct ");
@@ -9886,7 +9668,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator177");
+		assertTrue("No illegal access in getTermEvaluator177", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator177 stored term is correct " + term);
 		is(field1, strEq("STR"), "GetTermEvaluator177 field statAbbrev is correct ");
@@ -9924,7 +9706,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator178");
+		assertTrue("No illegal access in getTermEvaluator178", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator178 stored term is correct " + term);
 		is(field1, strEq("INT"), "GetTermEvaluator178 field statAbbrev is correct ");
@@ -9962,7 +9744,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator179");
+		assertTrue("No illegal access in getTermEvaluator179", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator179 stored term is correct " + term);
 		is(field1, strEq("DEX"), "GetTermEvaluator179 field statAbbrev is correct ");
@@ -10000,7 +9782,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator180");
+		assertTrue("No illegal access in getTermEvaluator180", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator180 stored term is correct " + term);
 		is(field1, strEq("WIS"), "GetTermEvaluator180 field statAbbrev is correct ");
@@ -10038,7 +9820,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator181");
+		assertTrue("No illegal access in getTermEvaluator181", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator181 stored term is correct " + term);
 		is(field1, strEq("CON"), "GetTermEvaluator181 field statAbbrev is correct ");
@@ -10076,7 +9858,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator182");
+		assertTrue("No illegal access in getTermEvaluator182", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator182 stored term is correct " + term);
 		is(field1, strEq("CHA"), "GetTermEvaluator182 field statAbbrev is correct ");
@@ -10114,7 +9896,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator183");
+		assertTrue("No illegal access in getTermEvaluator183", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator183 stored term is correct " + term);
 		is(field1, strEq("STR"), "GetTermEvaluator183 field statAbbrev is correct ");
@@ -10152,7 +9934,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator184");
+		assertTrue("No illegal access in getTermEvaluator184", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator184 stored term is correct " + term);
 		is(field1, strEq("INT"), "GetTermEvaluator184 field statAbbrev is correct ");
@@ -10190,7 +9972,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator185");
+		assertTrue("No illegal access in getTermEvaluator185", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator185 stored term is correct " + term);
 		is(field1, strEq("DEX"), "GetTermEvaluator185 field statAbbrev is correct ");
@@ -10228,7 +10010,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator186");
+		assertTrue("No illegal access in getTermEvaluator186", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator186 stored term is correct " + term);
 		is(field1, strEq("WIS"), "GetTermEvaluator186 field statAbbrev is correct ");
@@ -10266,7 +10048,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator187");
+		assertTrue("No illegal access in getTermEvaluator187", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator187 stored term is correct " + term);
 		is(field1, strEq("CON"), "GetTermEvaluator187 field statAbbrev is correct ");
@@ -10304,7 +10086,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator188");
+		assertTrue("No illegal access in getTermEvaluator188", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator188 stored term is correct " + term);
 		is(field1, strEq("CHA"), "GetTermEvaluator188 field statAbbrev is correct ");
@@ -10342,7 +10124,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator189");
+		assertTrue("No illegal access in getTermEvaluator189", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator189 stored term is correct " + term);
 		is(field1, strEq("STR"), "GetTermEvaluator189 field statAbbrev is correct ");
@@ -10380,7 +10162,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator190");
+		assertTrue("No illegal access in getTermEvaluator190", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator190 stored term is correct " + term);
 		is(field1, strEq("INT"), "GetTermEvaluator190 field statAbbrev is correct ");
@@ -10418,7 +10200,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator191");
+		assertTrue("No illegal access in getTermEvaluator191", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator191 stored term is correct " + term);
 		is(field1, strEq("DEX"), "GetTermEvaluator191 field statAbbrev is correct ");
@@ -10456,7 +10238,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator192");
+		assertTrue("No illegal access in getTermEvaluator192", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator192 stored term is correct " + term);
 		is(field1, strEq("WIS"), "GetTermEvaluator192 field statAbbrev is correct ");
@@ -10494,7 +10276,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator193");
+		assertTrue("No illegal access in getTermEvaluator193", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator193 stored term is correct " + term);
 		is(field1, strEq("CON"), "GetTermEvaluator193 field statAbbrev is correct ");
@@ -10532,7 +10314,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator194");
+		assertTrue("No illegal access in getTermEvaluator194", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator194 stored term is correct " + term);
 		is(field1, strEq("CHA"), "GetTermEvaluator194 field statAbbrev is correct ");
@@ -10651,7 +10433,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator201");
+		assertTrue("No illegal access in getTermEvaluator201", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator201 stored term is correct " + term);
 	}
@@ -10685,7 +10467,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator202");
+		assertTrue("No illegal access in getTermEvaluator202", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator202 stored term is correct " + term);
 	}
@@ -10719,7 +10501,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator203");
+		assertTrue("No illegal access in getTermEvaluator203", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator203 stored term is correct " + term);
 	}
@@ -10753,7 +10535,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator204");
+		assertTrue("No illegal access in getTermEvaluator204", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator204 stored term is correct " + term);
 	}
@@ -10787,7 +10569,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator205");
+		assertTrue("No illegal access in getTermEvaluator205", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator205 stored term is correct " + term);
 	}
@@ -10821,7 +10603,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator206");
+		assertTrue("No illegal access in getTermEvaluator206", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator206 stored term is correct " + term);
 	}
@@ -10855,7 +10637,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator207");
+		assertTrue("No illegal access in getTermEvaluator207", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator207 stored term is correct " + term);
 	}
@@ -10889,7 +10671,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator208");
+		assertTrue("No illegal access in getTermEvaluator208", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator208 stored term is correct " + term);
 	}
@@ -10923,7 +10705,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator209");
+		assertTrue("No illegal access in getTermEvaluator209", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator209 stored term is correct " + term);
 	}
@@ -10958,7 +10740,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in testGetTermEvaluatorAltPlusTotal");
+		assertTrue("No illegal access in testGetTermEvaluatorAltPlusTotal", ok);
 
 		is(field0, strEq(term), "testGetTermEvaluatorAltPlusTotal stored term is correct " + term);
 	}
@@ -10992,7 +10774,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in testGetTermEvaluatorPlusTotal");
+		assertTrue("No illegal access in testGetTermEvaluatorPlusTotal", ok);
 
 		is(field0, strEq(term), "testGetTermEvaluatorPlusTotal stored term is correct " + term);
 	}
@@ -11026,7 +10808,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator210");
+		assertTrue("No illegal access in getTermEvaluator210", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator210 stored term is correct " + term);
 	}
@@ -11060,7 +10842,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator211");
+		assertTrue("No illegal access in getTermEvaluator211", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator211 stored term is correct " + term);
 	}
@@ -11094,7 +10876,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator212");
+		assertTrue("No illegal access in getTermEvaluator212", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator212 stored term is correct " + term);
 	}
@@ -11128,7 +10910,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator213");
+		assertTrue("No illegal access in getTermEvaluator213", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator213 stored term is correct " + term);
 	}
@@ -11162,7 +10944,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator214");
+		assertTrue("No illegal access in getTermEvaluator214", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator214 stored term is correct " + term);
 	}
@@ -11196,7 +10978,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator215");
+		assertTrue("No illegal access in getTermEvaluator215", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator215 stored term is correct " + term);
 	}
@@ -11222,7 +11004,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			"GetTermEvaluator215 t3 evaluator correct for " + term1);
 
 		is(t1.equals(t2), eq(false), "t1 and t2 are different objects");
-		is(t1.equals(t3), eq(true), "t1 and t3 are the Same object");
+		assertTrue("t1 and t3 are the Same object", t1.equals(t3));
 		is(t2.equals(t3), eq(false), "t2 and t3 are different objects");
 
 		String term2 = "CL;BEFORELEVEL=14";
@@ -11238,7 +11020,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		is(t5 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
 			"GetTermEvaluator215 t6 evaluator correct for " + term2);
 
-		is(t4.equals(t6), eq(true), "t4 and t6 are the Same object");
+		assertTrue("t4 and t6 are the Same object", t4.equals(t6));
 		is(t4.equals(t5), eq(false), "t4 and t5 are different objects");
 		is(t6.equals(t5), eq(false), "t6 and t5 are different objects");
 
@@ -11284,7 +11066,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Load and initialise the properties, plugins and GameModes
 	 */
-	public static void loadAll()
+	private static void loadAll()
 	{
 		SettingsHandler.readOptionsProperties();
 		SettingsHandler.getOptionsFromProperties(null);
