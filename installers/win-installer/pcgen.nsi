@@ -88,7 +88,7 @@ ${EndIf}
 ; Installer properties
 VIProductVersion "${INSTALLER_VERSION}"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "${APPNAMEANDVERSION}"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "${APPNAME} Release"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "${APPNAMEANDVERSION} Release"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "${APPNAME} Open Source Project"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" "${APPNAME} Open Source Project, Bryan McRoberts and the PCGen Board of Directors"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© ${APPNAME} Open Source Project"
@@ -169,11 +169,11 @@ Section "-Local" Section4
 	CreateShortCut "$DESKTOP\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
 # We no longer provide the .bat file.
-#	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
+#	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
         CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \ 
                                 "-Xmx256M -jar pcgen-batch-convert.jar" \
