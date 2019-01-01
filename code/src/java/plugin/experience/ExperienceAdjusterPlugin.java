@@ -23,6 +23,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.Collection;
+import java.util.List;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -220,7 +221,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter
 		{
 			try
 			{
-				Object[] list = eaView.getCharacterList().getSelectedValues();
+				List list = eaView.getCharacterList().getSelectedValuesList();
 
 				for (final Object aList : list)
 				{
@@ -325,7 +326,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter
 	{
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getEnemyList().getSelectedValues();
+			List list = eaView.getEnemyList().getSelectedValuesList();
 
 			for (final Object aList : list)
 			{
