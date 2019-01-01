@@ -175,7 +175,6 @@ public final class SettingsHandler
 	private static boolean guiUsesOutputNameEquipment = false;
 	private static boolean guiUsesOutputNameSpells = false;
 	private static int lastTipShown = -1;
-	private static boolean showMemoryArea = false;
 	private static boolean showTipOfTheDay = true;
 	private static boolean showSingleBoxPerBundle = false;
 
@@ -1205,7 +1204,6 @@ public final class SettingsHandler
 		setPCGenOption("printSpellsWithPC", getPrintSpellsWithPC()); //$NON-NLS-1$
 		setPCGenOption("enforceSpendingBeforeLevelUp", getEnforceSpendingBeforeLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
-		setPCGenOption("showMemoryArea", isShowMemoryArea()); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
 		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
@@ -2538,16 +2536,6 @@ public final class SettingsHandler
 	public static void setWindowState(final int argWindowState)
 	{
 		SettingsHandler.windowState = argWindowState;
-	}
-
-	/**
-	 * Shows the program memory use in the status bar if {@code true}.
-	 *
-	 * @return show memory setting for the status bar
-	 */
-	public static boolean isShowMemoryArea()
-	{
-		return showMemoryArea;
 	}
 
 	/**
