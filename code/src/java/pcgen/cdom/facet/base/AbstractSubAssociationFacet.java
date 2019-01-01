@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.cdom.base.PCGenIdentifier;
@@ -31,14 +32,8 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 
 	public A get(IDT id, S1 obj1, S2 obj2)
 	{
-		if (obj1 == null)
-		{
-			throw new IllegalArgumentException("Object for getting association may not be null");
-		}
-		if (obj2 == null)
-		{
-			throw new IllegalArgumentException("Object for getting association may not be null");
-		}
+		Objects.requireNonNull(obj1, "Object for getting association may not be null");
+		Objects.requireNonNull(obj2, "Object for getting association may not be null");
 		Map<S1, Map<S2, A>> map = getCachedMap(id);
 		if (map == null)
 		{
@@ -54,18 +49,9 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 
 	public boolean set(IDT id, S1 obj1, S2 obj2, A association)
 	{
-		if (obj1 == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (obj2 == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (association == null)
-		{
-			throw new IllegalArgumentException("Association may not be null");
-		}
+		Objects.requireNonNull(obj1, "Object to add may not be null");
+		Objects.requireNonNull(obj2, "Object to add may not be null");
+		Objects.requireNonNull(association, "Association may not be null");
 		Map<S2, A> map = getConstructingCachedMap(id, obj1);
 		A old = map.put(obj2, association);
 		return old == null;

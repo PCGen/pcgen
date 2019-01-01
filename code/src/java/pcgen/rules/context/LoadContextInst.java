@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import pcgen.base.formula.inst.NEPFormula;
@@ -106,18 +107,9 @@ abstract class LoadContextInst implements LoadContext
 
 	public LoadContextInst(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
 	{
-		if (rc == null)
-		{
-			throw new IllegalArgumentException("ReferenceContext cannot be null");
-		}
-		if (lc == null)
-		{
-			throw new IllegalArgumentException("ListContext cannot be null");
-		}
-		if (oc == null)
-		{
-			throw new IllegalArgumentException("ObjectContext cannot be null");
-		}
+		Objects.requireNonNull(rc, "ReferenceContext cannot be null");
+		Objects.requireNonNull(lc, "ListContext cannot be null");
+		Objects.requireNonNull(oc, "ObjectContext cannot be null");
 		ref = rc;
 		list = lc;
 		obj = oc;

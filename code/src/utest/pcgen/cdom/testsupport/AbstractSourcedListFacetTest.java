@@ -113,7 +113,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 			getFacet().add(id, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -134,7 +134,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 			getFacet().add(null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -387,7 +387,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 			getFacet().addAll(id, pct, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -657,7 +657,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 			getFacet().removeAll(id, pct, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// OK
 		}

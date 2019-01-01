@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -52,14 +54,8 @@ public class FollowerLimit
 	 */
 	public FollowerLimit(CDOMSingleRef<CompanionList> clRef, Formula limit)
 	{
-		if (clRef == null)
-		{
-			throw new IllegalArgumentException("Reference for FollowerLimit cannot be null");
-		}
-		if (limit == null)
-		{
-			throw new IllegalArgumentException("Formula for FollowerLimit cannot be null");
-		}
+		Objects.requireNonNull(clRef, "Reference for FollowerLimit cannot be null");
+		Objects.requireNonNull(limit, "Formula for FollowerLimit cannot be null");
 		ref = clRef;
 		formula = limit;
 	}

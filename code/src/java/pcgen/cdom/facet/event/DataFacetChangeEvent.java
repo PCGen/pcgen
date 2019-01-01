@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.event;
 
 import java.util.EventObject;
+import java.util.Objects;
 
 import pcgen.cdom.base.PCGenIdentifier;
 
@@ -90,18 +91,9 @@ public class DataFacetChangeEvent<IDT extends PCGenIdentifier, T> extends EventO
 	public DataFacetChangeEvent(IDT id, T cdo, Object source, int type)
 	{
 		super(source);
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source Object cannot be null");
-		}
-		if (id == null)
-		{
-			throw new IllegalArgumentException("PCGenIdentifier cannot be null");
-		}
-		if (cdo == null)
-		{
-			throw new IllegalArgumentException("CDOMObject cannot be null");
-		}
+		Objects.requireNonNull(source, "Source Object cannot be null");
+		Objects.requireNonNull(id, "PCGenIdentifier cannot be null");
+		Objects.requireNonNull(cdo, "CDOMObject cannot be null");
 		charID = id;
 		node = cdo;
 		eventID = type;

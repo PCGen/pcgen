@@ -24,6 +24,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
@@ -56,14 +57,8 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends Abstr
 
 	public void add(IDT id, S scope, T obj, Object source)
 	{
-		if (scope == null)
-		{
-			throw new IllegalArgumentException("Scope cannot be null");
-		}
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object cannot be null");
-		}
+		Objects.requireNonNull(scope, "Scope cannot be null");
+		Objects.requireNonNull(obj, "Object cannot be null");
 		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
 		Map<T, Set<Object>> scopeMap = map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
 		Set<Object> sources = scopeMap.get(obj);
@@ -82,14 +77,8 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends Abstr
 
 	public void addAll(IDT id, S scope, Collection<T> coll, Object source)
 	{
-		if (scope == null)
-		{
-			throw new IllegalArgumentException("Scope cannot be null");
-		}
-		if (coll == null)
-		{
-			throw new IllegalArgumentException("Collection cannot be null");
-		}
+		Objects.requireNonNull(scope, "Scope cannot be null");
+		Objects.requireNonNull(coll, "Collection cannot be null");
 		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
 		Map<T, Set<Object>> scopeMap = map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
 		for (T obj : coll)
@@ -111,14 +100,8 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends Abstr
 
 	public void remove(IDT id, S scope, T obj, Object source)
 	{
-		if (scope == null)
-		{
-			throw new IllegalArgumentException("Scope cannot be null");
-		}
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object cannot be null");
-		}
+		Objects.requireNonNull(scope, "Scope cannot be null");
+		Objects.requireNonNull(obj, "Object cannot be null");
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map == null)
 		{

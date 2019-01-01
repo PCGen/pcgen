@@ -24,6 +24,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Map.Entry;
 import java.util.TreeMap;
@@ -634,10 +635,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 		 * continue that long term? Once tokens are truly tested this may not be
 		 * necessary or desirable.
 		 */
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Cannot request a reference to null identifier");
-		}
+		Objects.requireNonNull(key, "Cannot request a reference to null identifier");
 		if (key.isEmpty())
 		{
 			throw new IllegalArgumentException("Cannot request a reference to an empty identifier");
@@ -1231,10 +1229,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 	@Override
 	public void addDerivativeObject(T obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Derivative Object cannot be null");
-		}
+		Objects.requireNonNull(obj, "Derivative Object cannot be null");
 		derivatives.add(obj);
 	}
 

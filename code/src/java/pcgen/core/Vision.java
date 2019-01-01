@@ -19,6 +19,8 @@
  */
 package pcgen.core;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -45,10 +47,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 
 	public Vision(VisionType type, Formula dist)
 	{
-		if (type == null)
-		{
-			throw new IllegalArgumentException("Vision Type cannot be null");
-		}
+		Objects.requireNonNull(type, "Vision Type cannot be null");
 		visionType = type;
 		if (!dist.isValid())
 		{

@@ -23,6 +23,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -102,10 +103,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID>
 
 	private void add(CharID id, FollowerLimit fo, CDOMObject cdo)
 	{
-		if (fo == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(fo, "Object to add may not be null");
 		CompanionList cl = fo.getCompanionList().get();
 		Map<FollowerLimit, Set<CDOMObject>> foMap = getConstructingCachedMap(id, cl);
 		Set<CDOMObject> set = foMap.get(fo);

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.processor;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.content.Processor;
@@ -63,14 +65,8 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	 */
 	public ContextProcessor(Processor<T> mod, CDOMReference<R> contextRef)
 	{
-		if (mod == null)
-		{
-			throw new IllegalArgumentException("Processor in ContextProcessor cannot be null");
-		}
-		if (contextRef == null)
-		{
-			throw new IllegalArgumentException("Context in ContextProcessor cannot be null");
-		}
+		Objects.requireNonNull(mod, "Processor in ContextProcessor cannot be null");
+		Objects.requireNonNull(contextRef, "Context in ContextProcessor cannot be null");
 		processor = mod;
 		contextItems = contextRef;
 	}

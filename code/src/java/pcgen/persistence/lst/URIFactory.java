@@ -23,6 +23,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Objects;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.utils.CoreUtility;
@@ -75,10 +76,7 @@ public class URIFactory
 	 */
 	public URIFactory(URI root, String offset)
 	{
-		if (root == null)
-		{
-			throw new IllegalArgumentException("root URI cannot be null");
-		}
+		Objects.requireNonNull(root, "root URI cannot be null");
 		if (offset == null || offset.isEmpty())
 		{
 			throw new IllegalArgumentException("URI offset cannot be null");

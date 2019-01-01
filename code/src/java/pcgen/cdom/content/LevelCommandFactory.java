@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -59,14 +61,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements Compara
 	 */
 	public LevelCommandFactory(CDOMSingleRef<PCClass> classRef, Formula lvls)
 	{
-		if (classRef == null)
-		{
-			throw new IllegalArgumentException("Class Reference for LevelCommandFactory cannot be null");
-		}
-		if (lvls == null)
-		{
-			throw new IllegalArgumentException("Level Formula for LevelCommandFactory cannot be null");
-		}
+		Objects.requireNonNull(classRef, "Class Reference for LevelCommandFactory cannot be null");
+		Objects.requireNonNull(lvls, "Level Formula for LevelCommandFactory cannot be null");
 		pcClass = classRef;
 		levels = lvls;
 	}

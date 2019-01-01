@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -50,10 +52,7 @@ public class FixedSizeFormula implements Formula
 	 */
 	public FixedSizeFormula(CDOMSingleRef<SizeAdjustment> sAdj)
 	{
-		if (sAdj == null)
-		{
-			throw new IllegalArgumentException("Size Adjustment for FixedSizeFormula cannot be null");
-		}
+		Objects.requireNonNull(sAdj, "Size Adjustment for FixedSizeFormula cannot be null");
 		size = sAdj;
 	}
 

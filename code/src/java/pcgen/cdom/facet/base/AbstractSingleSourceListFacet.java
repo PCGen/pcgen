@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
@@ -65,14 +66,8 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends AbstractDataF
 	 */
 	public void add(CharID id, T obj, ST source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
+		Objects.requireNonNull(source, "Source may not be null");
 		Map<T, ST> map = getConstructingCachedMap(id);
 		Object oldsource = map.get(obj);
 		boolean fireNew = (oldsource == null);

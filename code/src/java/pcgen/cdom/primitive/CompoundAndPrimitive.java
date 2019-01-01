@@ -18,6 +18,7 @@
 package pcgen.cdom.primitive;
 
 import java.util.Collection;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -38,10 +39,7 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 
 	public CompoundAndPrimitive(Collection<PrimitiveCollection<T>> pcfCollection)
 	{
-		if (pcfCollection == null)
-		{
-			throw new IllegalArgumentException("Collection for CompoundAndPrimitive cannot be null");
-		}
+		Objects.requireNonNull(pcfCollection, "Collection for CompoundAndPrimitive cannot be null");
 		if (pcfCollection.isEmpty())
 		{
 			throw new IllegalArgumentException("Collection for CompoundAndPrimitive cannot be empty");

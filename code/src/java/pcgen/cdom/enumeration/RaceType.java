@@ -19,6 +19,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -54,10 +55,7 @@ public final class RaceType implements TypeSafeConstant
 
 	private RaceType(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name for RaceType cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for RaceType cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}

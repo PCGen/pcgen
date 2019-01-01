@@ -17,6 +17,7 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 import freemarker.template.TemplateModelException;
@@ -40,10 +41,7 @@ public class StringModel implements TemplateScalarModel, Supplier<String>
 	 */
 	public StringModel(String s)
 	{
-		if (s == null)
-		{
-			throw new IllegalArgumentException("String cannot be null");
-		}
+		Objects.requireNonNull(s, "String cannot be null");
 		this.string = s;
 	}
 

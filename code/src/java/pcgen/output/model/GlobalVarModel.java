@@ -17,6 +17,8 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -70,10 +72,7 @@ public class GlobalVarModel implements TemplateHashModel
 	 */
 	public GlobalVarModel(CharID id)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID cannot be null");
-		}
+		Objects.requireNonNull(id, "CharID cannot be null");
 		this.id = id;
 	}
 

@@ -56,7 +56,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -70,7 +70,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -84,7 +84,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -174,7 +174,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -188,7 +188,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -202,7 +202,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

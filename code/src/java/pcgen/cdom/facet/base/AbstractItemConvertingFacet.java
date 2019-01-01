@@ -23,6 +23,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.cdom.enumeration.CharID;
@@ -75,10 +76,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends AbstractDataFace
 	 */
 	public void add(CharID id, S obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
 		Target target = getConstructingCachedSetFor(id, obj);
 		target.set.add(source);
 		if (target.dest == null)
@@ -457,10 +455,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends AbstractDataFace
 	 */
 	private void processRemoval(CharID id, Map<S, Target> componentMap, S obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to remove may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to remove may not be null");
 		Target target = componentMap.get(obj);
 		if (target != null)
 		{

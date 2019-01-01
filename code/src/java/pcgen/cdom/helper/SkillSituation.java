@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Objects;
+
 import pcgen.core.Skill;
 
 public class SkillSituation
@@ -28,14 +30,8 @@ public class SkillSituation
 
 	public SkillSituation(Skill sk, String sit, double sitbonus)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null");
-		}
-		if (sit == null)
-		{
-			throw new IllegalArgumentException("Situation cannot be null");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null");
+		Objects.requireNonNull(sit, "Situation cannot be null");
 		skill = sk;
 		situation = sit;
 		bonus = sitbonus;

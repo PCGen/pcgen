@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
@@ -31,27 +33,15 @@ public class DirectAbilityInputFacet extends AbstractSingleSourceListFacet<CNAbi
 {
 	public void add(CharID id, CDOMObject owner, CNAbilitySelection as)
 	{
-		if (owner == null)
-		{
-			throw new IllegalArgumentException("Owner Object may not be null");
-		}
-		if (as == null)
-		{
-			throw new IllegalArgumentException("CNAbilitySelection to add may not be null");
-		}
+		Objects.requireNonNull(owner, "Owner Object may not be null");
+		Objects.requireNonNull(as, "CNAbilitySelection to add may not be null");
 		add(id, as, owner);
 	}
 
 	public void remove(CharID id, CDOMObject owner, CNAbilitySelection as)
 	{
-		if (owner == null)
-		{
-			throw new IllegalArgumentException("Owner Object may not be null");
-		}
-		if (as == null)
-		{
-			throw new IllegalArgumentException("CNAbilitySelection to add may not be null");
-		}
+		Objects.requireNonNull(owner, "Owner Object may not be null");
+		Objects.requireNonNull(as, "CNAbilitySelection to add may not be null");
 		remove(id, as, owner);
 	}
 }

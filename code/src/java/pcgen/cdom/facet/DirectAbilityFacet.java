@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractCNASEnforcingFacet;
@@ -36,10 +37,7 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 
 	public void removeAll(CharID id, Object source)
 	{
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Attempt to remove object with null source from list");
-		}
+		Objects.requireNonNull(source, "Attempt to remove object with null source from list");
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list == null)
 		{

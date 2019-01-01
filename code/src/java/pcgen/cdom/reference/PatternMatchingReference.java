@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -77,10 +78,7 @@ public class PatternMatchingReference<T extends Loadable> extends CDOMReference<
 	public PatternMatchingReference(CDOMGroupRef<T> startingGroup, String patternText)
 	{
 		super(patternText);
-		if (startingGroup == null)
-		{
-			throw new IllegalArgumentException("Starting Group cannot be null in PatternMatchingReference");
-		}
+		Objects.requireNonNull(startingGroup, "Starting Group cannot be null in PatternMatchingReference");
 		all = startingGroup;
 		String lstPattern = Constants.PERCENT;
 		int patternchar = patternText.length() - lstPattern.length();

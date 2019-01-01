@@ -372,7 +372,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 			primaryProf.put(ObjectKey.EXCHANGE_LEVEL, le);
 			assertBadUnparse();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Good here too :)
 		}

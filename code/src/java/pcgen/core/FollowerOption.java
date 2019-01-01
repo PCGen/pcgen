@@ -20,6 +20,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -42,14 +43,8 @@ public class FollowerOption extends ConcretePrereqObject implements Comparable<F
 
 	public FollowerOption(CDOMReference<Race> race, CDOMSingleRef<CompanionList> listref)
 	{
-		if (race == null)
-		{
-			throw new IllegalArgumentException("Cannot have FollowerOption with null race");
-		}
-		if (listref == null)
-		{
-			throw new IllegalArgumentException("Cannot have FollowerOption with null list reference");
-		}
+		Objects.requireNonNull(race, "Cannot have FollowerOption with null race");
+		Objects.requireNonNull(listref, "Cannot have FollowerOption with null list reference");
 		ref = race;
 		list = listref;
 	}

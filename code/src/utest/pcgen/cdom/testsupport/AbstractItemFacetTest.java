@@ -168,7 +168,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 			getFacet().set(null, t1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

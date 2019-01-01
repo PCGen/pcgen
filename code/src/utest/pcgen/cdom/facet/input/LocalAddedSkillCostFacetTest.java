@@ -64,7 +64,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(null, class1, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -77,7 +77,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -91,7 +91,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, class1, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -105,7 +105,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, class1, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -224,7 +224,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(null, class1, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -238,7 +238,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -252,7 +252,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, class1, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -266,7 +266,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, class1, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

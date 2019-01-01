@@ -24,6 +24,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -98,10 +99,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID>
 
 	private void add(CharID id, FollowerOption fo, CDOMObject cdo)
 	{
-		if (fo == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(fo, "Object to add may not be null");
 		String name = fo.getListRef().getName();
 		Map<FollowerOption, Set<CDOMObject>> foMap = getConstructingCachedMap(id, name);
 		Set<CDOMObject> set = foMap.get(fo);
