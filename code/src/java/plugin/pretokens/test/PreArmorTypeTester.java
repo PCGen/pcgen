@@ -84,11 +84,11 @@ public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements Pre
 				else
 				{ //not a TYPE string
 					final String eqName = eq.getName().toUpperCase();
-					if (desiredType.indexOf('%') >= 0)
+					final int percentPos = desiredType.indexOf('%');
+					if (percentPos >= 0)
 					{
 						//handle wildcards (always assume they
 						// end the line)
-						final int percentPos = desiredType.indexOf('%');
 						final String substring = desiredType.substring(0, percentPos).toUpperCase();
 						if (eqName.startsWith(substring))
 						{
@@ -96,7 +96,7 @@ public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements Pre
 							break;
 						}
 					}
-					else if (desiredType.indexOf("LIST") >= 0) //$NON-NLS-1$
+					else if (desiredType.contains("LIST")) //$NON-NLS-1$
 					{
 						if (display.isProficientWithArmor(eq))
 						{
