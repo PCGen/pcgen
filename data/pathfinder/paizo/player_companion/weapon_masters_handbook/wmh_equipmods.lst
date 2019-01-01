@@ -15,7 +15,7 @@ Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:
 
 ###Block: Optional Rule for custom items
 #Additional Design Points (0 DP): Increase the weapon's available Design Points by 1 and its gp price by 15. This quality can be selected twice for one-handed weapons and ranged weapons, or three times for twohanded weapons.
-#Additional Damage Type (Varies): Select an additional type of damage (B, P, or S). The weapon deals the selected type of damage either separately from its original damage type (such as �P or S�) or simultaneously (such as �P and S�) . This quality costs 1 DP if the types apply separately and 3 DP if they apply simultaneously.
+#Additional Damage Type (Varies): Select an additional type of damage (B, P, or S). The weapon deals the selected type of damage either separately from its original damage type (such as P or S) or simultaneously (such as P and S) . This quality costs 1 DP if the types apply separately and 3 DP if they apply simultaneously.
 #Aerodynamic (1 DP): The weapon has a 10-foot range and can be thrown up to 5 range increments. Only melee weapons can have this quality.
 #Attached (1 DP): The weapon is attached to the wielder's arm and cannot be disarmed. The wielder can wield or carry items in the hand to which this weapon is attached, but she takes a -2 penalty on all precision-based tasks involving that hand (such as opening locks). This penalty can be removed by increasing this quality's cost to 3 DP.
 #Concealed (1 DP): The weapon is easy to hide, granting the wielder a +2 bonus on Sleight of Hand checks to conceal it. Only light and one-handed melee weapons and ranged weapons that need one hand to fire can have this quality.
