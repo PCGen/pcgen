@@ -19,6 +19,7 @@
 package pcgen.persistence.lst;
 
 import java.lang.reflect.Modifier;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
@@ -34,10 +35,7 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 
 	public GenericLoader(Class<T> cl)
 	{
-		if (cl == null)
-		{
-			throw new IllegalArgumentException("Class for GenericLoader cannot be null");
-		}
+		Objects.requireNonNull(cl, "Class for GenericLoader cannot be null");
 		if (Modifier.isAbstract(cl.getModifiers()))
 		{
 			throw new IllegalArgumentException("Class for GenericLoader must not be abstract");

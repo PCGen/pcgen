@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
@@ -73,18 +75,9 @@ public class VarModifier<T>
 	 */
 	public VarModifier(String varName, PCGenScope legalScope, FormulaModifier<T> modifier)
 	{
-		if (varName == null)
-		{
-			throw new IllegalArgumentException("Var Name cannot be null");
-		}
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("PCGenScope cannot be null");
-		}
-		if (modifier == null)
-		{
-			throw new IllegalArgumentException("Modifier cannot be null");
-		}
+		Objects.requireNonNull(varName, "Var Name cannot be null");
+		Objects.requireNonNull(legalScope, "PCGenScope cannot be null");
+		Objects.requireNonNull(modifier, "Modifier cannot be null");
 		this.varName = varName;
 		this.legalScope = legalScope;
 		this.modifier = modifier;

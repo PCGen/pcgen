@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -57,14 +59,8 @@ public class ChangeProf extends ConcretePrereqObject
 	 */
 	public ChangeProf(CDOMReference<WeaponProf> sourceProf, CDOMGroupRef<WeaponProf> resultType)
 	{
-		if (sourceProf == null)
-		{
-			throw new IllegalArgumentException("Source Prof for ChangeProf cannot be null");
-		}
-		if (resultType == null)
-		{
-			throw new IllegalArgumentException("Resulting Prof Type for ChangeProf cannot be null");
-		}
+		Objects.requireNonNull(sourceProf, "Source Prof for ChangeProf cannot be null");
+		Objects.requireNonNull(resultType, "Resulting Prof Type for ChangeProf cannot be null");
 		source = sourceProf;
 		result = resultType;
 	}

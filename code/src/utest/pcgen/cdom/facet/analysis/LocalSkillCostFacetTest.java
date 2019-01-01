@@ -64,7 +64,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(null, class1, getObject(), SkillCost.CLASS);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -77,7 +77,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, null, getObject(), SkillCost.CLASS);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -91,7 +91,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, class1, null, SkillCost.CLASS);
 			fail();
 		}
-		catch (IllegalArgumentException | NullPointerException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -105,7 +105,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, class1, getObject(), null);
 			fail();
 		}
-		catch (IllegalArgumentException | NullPointerException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -217,7 +217,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			removeCosts(null, class1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -238,7 +238,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			getFacet().dataAdded(dfce);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -252,7 +252,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			removeCosts(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

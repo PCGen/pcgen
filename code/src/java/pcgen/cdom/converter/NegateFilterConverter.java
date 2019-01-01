@@ -18,6 +18,7 @@
 package pcgen.cdom.converter;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
@@ -31,10 +32,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 
 	public NegateFilterConverter(Converter<B, R> conv)
 	{
-		if (conv == null)
-		{
-			throw new IllegalArgumentException("Converter cannot be null");
-		}
+		Objects.requireNonNull(conv, "Converter cannot be null");
 		converter = conv;
 	}
 
@@ -66,10 +64,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 
 		private InvertingFilter(PrimitiveFilter<T> fil)
 		{
-			if (fil == null)
-			{
-				throw new IllegalArgumentException("PrimitiveFilter cannot be null");
-			}
+			Objects.requireNonNull(fil, "PrimitiveFilter cannot be null");
 			filter = fil;
 		}
 

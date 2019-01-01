@@ -19,6 +19,7 @@ package pcgen.cdom.content.fact;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
@@ -56,10 +57,7 @@ public class FactParser<T extends CDOMObject, F> extends AbstractNonEmptyToken<T
 	 */
 	public FactParser(FactInfo<T, F> fi)
 	{
-		if (fi == null)
-		{
-			throw new IllegalArgumentException("Fact Info cannot be null");
-		}
+		Objects.requireNonNull(fi, "Fact Info cannot be null");
 		def = fi;
 	}
 

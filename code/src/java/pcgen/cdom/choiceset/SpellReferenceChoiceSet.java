@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -83,10 +84,7 @@ public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObjec
 	 */
 	public SpellReferenceChoiceSet(Collection<CDOMReference<? extends CDOMListObject<Spell>>> listRefCollection)
 	{
-		if (listRefCollection == null)
-		{
-			throw new IllegalArgumentException("Choice Collection cannot be null");
-		}
+		Objects.requireNonNull(listRefCollection, "Choice Collection cannot be null");
 		if (listRefCollection.isEmpty())
 		{
 			throw new IllegalArgumentException("Choice Collection cannot be empty");

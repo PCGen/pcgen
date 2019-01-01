@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -53,10 +55,7 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 	 */
 	public ConditionalSelectionActor(ChooseSelectionActor<T> csa)
 	{
-		if (csa == null)
-		{
-			throw new IllegalArgumentException("Cannot have null ChoiceActor");
-		}
+		Objects.requireNonNull(csa, "Cannot have null ChoiceActor");
 		actor = csa;
 	}
 

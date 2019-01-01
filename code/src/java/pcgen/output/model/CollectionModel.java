@@ -20,6 +20,7 @@ package pcgen.output.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -61,14 +62,8 @@ public class CollectionModel implements TemplateSequenceModel
 	 */
 	public CollectionModel(CharID id, Collection<?> c)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID may not be null");
-		}
-		if (c == null)
-		{
-			throw new IllegalArgumentException("Collection may not be null");
-		}
+		Objects.requireNonNull(id, "CharID may not be null");
+		Objects.requireNonNull(c, "Collection may not be null");
 		this.id = id;
 		this.list = new ArrayList<Object>(c);
 	}

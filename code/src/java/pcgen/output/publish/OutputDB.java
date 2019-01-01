@@ -19,6 +19,7 @@ package pcgen.output.publish;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import freemarker.template.TemplateModel;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -72,10 +73,7 @@ public final class OutputDB
 	 */
 	public static void registerModelFactory(String name, ModelFactory modelFactory)
 	{
-		if (modelFactory == null)
-		{
-			throw new IllegalArgumentException("Model Factory may not be null");
-		}
+		Objects.requireNonNull(modelFactory, "Model Factory may not be null");
 		String[] locationElements = name.split("\\.");
 		if (locationElements.length == 0)
 		{
@@ -196,10 +194,7 @@ public final class OutputDB
 	 */
 	public static void registerMode(String name, ModeModelFactory factory)
 	{
-		if (factory == null)
-		{
-			throw new IllegalArgumentException("Model Factory may not be null");
-		}
+		Objects.requireNonNull(factory, "Model Factory may not be null");
 		int dotLoc = name.indexOf('.');
 		if (dotLoc != -1)
 		{

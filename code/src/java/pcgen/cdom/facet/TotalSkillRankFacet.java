@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeEvent;
@@ -59,14 +60,8 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID>
 	 */
 	public void set(CharID id, Skill sk, Double rank)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null");
-		}
-		if (rank == null)
-		{
-			throw new IllegalArgumentException("Rank cannot be null");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null");
+		Objects.requireNonNull(rank, "Rank cannot be null");
 		Map<Skill, Double> map = getConstructingInfo(id);
 		Double currentRank = map.get(sk);
 		boolean isNew = (currentRank == null) || (rank.doubleValue() != currentRank.doubleValue());
@@ -93,10 +88,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID>
 	 */
 	public void remove(CharID id, Skill sk)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null");
 		Map<Skill, Double> map = getInfo(id);
 		if (map == null)
 		{
@@ -167,10 +159,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID>
 	 */
 	public Double get(CharID id, Skill obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object for getting association may not be null");
-		}
+		Objects.requireNonNull(obj, "Object for getting association may not be null");
 		Map<Skill, Double> map = getInfo(id);
 		if (map != null)
 		{

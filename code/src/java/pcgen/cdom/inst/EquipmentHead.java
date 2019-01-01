@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.inst;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import pcgen.base.formula.base.VarScoped;
@@ -63,10 +64,7 @@ public final class EquipmentHead extends CDOMObject
 	 */
 	public EquipmentHead(VarScoped source, int idx)
 	{
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source for EquipmentHead cannot be null");
-		}
+		Objects.requireNonNull(source, "Source for EquipmentHead cannot be null");
 		index = idx;
 		headSource = source;
 	}

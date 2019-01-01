@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content.factset;
 
+import java.util.Objects;
+
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
@@ -56,10 +58,7 @@ public class FactSetGroupDefinition<T extends CDOMObject, F> implements GroupDef
 	 */
 	public FactSetGroupDefinition(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("Fact Definition cannot be null");
-		}
+		Objects.requireNonNull(fsi, "Fact Definition cannot be null");
 		def = fsi;
 	}
 

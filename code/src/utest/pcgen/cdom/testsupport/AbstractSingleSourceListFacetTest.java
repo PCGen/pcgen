@@ -114,7 +114,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 			getFacet().add(null, getTypeObj(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -133,7 +133,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 			getFacet().add(id, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -152,7 +152,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 			getFacet().add(id, t1, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// OK
 		}
@@ -388,7 +388,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 			getFacet().addAll(id, pct, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

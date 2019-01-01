@@ -30,6 +30,7 @@ import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Vector;
 
 import javax.swing.JOptionPane;
@@ -41,14 +42,14 @@ import javax.swing.text.html.HTMLWriter;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 
-import org.apache.commons.io.FileUtils;
+import pcgen.cdom.base.Constants;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 import gmgen.GMGenSystem;
 import gmgen.gui.ExtendedHTMLDocument;
 import gmgen.gui.ExtendedHTMLEditorKit;
-import pcgen.cdom.base.Constants;
-import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
+import org.apache.commons.io.FileUtils;
 
 /**
  * This defines the preferences tree
@@ -283,10 +284,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	@Override
 	public int getIndex(TreeNode node)
 	{
-		if (node == null)
-		{
-			throw new IllegalArgumentException("argument is null"); //$NON-NLS-1$
-		}
+		Objects.requireNonNull(node, "argument is null");
 
 		if (!hasBeenPopulated)
 		{
@@ -925,17 +923,13 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	@Override
 	public void insert(MutableTreeNode child, int index)
 	{
-		if (!allowsChildren)
+		if (allowsChildren)
+		{
+			Objects.requireNonNull(child, "new child is null");
+		}
+		else
 		{
 			throw new IllegalStateException("node does not allow children");
-		}
-		else if (child == null)
-		{
-			throw new IllegalArgumentException("new child is null");
-		}
-		else if (isNodeAncestor(child))
-		{
-			throw new IllegalArgumentException("new child is an ancestor");
 		}
 
 		if (!hasBeenPopulated)
@@ -1105,10 +1099,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	@Override
 	public void remove(MutableTreeNode node)
 	{
-		if (node == null)
-		{
-			throw new IllegalArgumentException("argument is null");
-		}
+		Objects.requireNonNull(node, "argument is null");
 
 		if (!isNodeChild(node))
 		{

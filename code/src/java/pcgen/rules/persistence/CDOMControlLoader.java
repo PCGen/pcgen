@@ -18,6 +18,7 @@ package pcgen.rules.persistence;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.DefaultVarValue;
@@ -52,10 +53,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 
 	private void addLineLoader(CDOMSubLineLoader<?> loader)
 	{
-		if (loader == null)
-		{
-			throw new IllegalArgumentException("Cannot add null loader to Control Loader");
-		}
+		Objects.requireNonNull(loader, "Cannot add null loader to Control Loader");
 		String prefix = loader.getPrefix();
 		if (loadMap.containsKey(prefix))
 		{

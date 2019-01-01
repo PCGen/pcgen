@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content.fact;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.persistence.lst.LstToken;
@@ -56,10 +58,7 @@ public class FactDefinitionEnforcer<T extends CDOMObject, F> implements Deferred
 	 */
 	public FactDefinitionEnforcer(FactInfo<T, F> fi)
 	{
-		if (fi == null)
-		{
-			throw new IllegalArgumentException("Fact Info cannot be null");
-		}
+		Objects.requireNonNull(fi, "Fact Info cannot be null");
 		def = fi;
 	}
 

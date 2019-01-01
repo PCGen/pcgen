@@ -106,7 +106,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().add(null, getObject());
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -124,7 +124,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().add(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -292,7 +292,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().addAll(id, pct);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -319,7 +319,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().remove(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Expected
 		}
@@ -512,7 +512,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().removeAll(id, pct);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Expected
 		}

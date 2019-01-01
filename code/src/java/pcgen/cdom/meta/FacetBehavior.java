@@ -21,6 +21,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -41,10 +42,7 @@ public final class FacetBehavior
 
 	private FacetBehavior(String type)
 	{
-		if (type == null)
-		{
-			throw new IllegalArgumentException("Type cannot be null");
-		}
+		Objects.requireNonNull(type, "Type cannot be null");
 		this.type = type;
 	}
 

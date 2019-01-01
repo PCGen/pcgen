@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.analysis.ChooseActivation;
 
@@ -28,10 +30,7 @@ public class Selection<BT extends CDOMObject, SEL>
 
 	public Selection(BT obj, SEL sel)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object cannot be null");
-		}
+		Objects.requireNonNull(obj, "Object cannot be null");
 		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			if (sel == null)

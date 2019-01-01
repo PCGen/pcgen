@@ -19,6 +19,7 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -85,18 +86,9 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements C
 	public CategorizedChooseInformation(String name, CDOMSingleRef<? extends Category<T>> cat,
 		PrimitiveChoiceSet<T> choice)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
-		if (cat == null)
-		{
-			throw new IllegalArgumentException("Category cannot be null");
-		}
-		if (choice == null)
-		{
-			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
-		}
+		Objects.requireNonNull(name, "Name cannot be null");
+		Objects.requireNonNull(cat, "Category cannot be null");
+		Objects.requireNonNull(choice, "PrimitiveChoiceSet cannot be null");
 		setName = name;
 		category = cat;
 		pcs = choice;

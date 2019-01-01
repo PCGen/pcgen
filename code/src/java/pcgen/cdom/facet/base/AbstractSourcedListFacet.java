@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
@@ -78,10 +79,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T> e
 	 */
 	public void add(IDT id, T obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set = map.get(obj);
 		boolean fireNew = (set == null);
@@ -477,10 +475,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T> e
 	 */
 	private boolean processRemoval(IDT id, Map<T, Set<Object>> componentMap, T obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to remove may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to remove may not be null");
 		Set<Object> set = componentMap.get(obj);
 		if (set == null)
 		{

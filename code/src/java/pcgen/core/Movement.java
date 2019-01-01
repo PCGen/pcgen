@@ -19,6 +19,7 @@ package pcgen.core;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.util.Logging;
@@ -316,10 +317,7 @@ public class Movement
 	 */
 	public static Movement getMovementFrom(final String moveparse)
 	{
-		if (moveparse == null)
-		{
-			throw new IllegalArgumentException("Null initialization String illegal");
-		}
+		Objects.requireNonNull(moveparse, "Null initialization String illegal");
 		final StringTokenizer moves = new StringTokenizer(moveparse, ",");
 		Movement cm;
 

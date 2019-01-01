@@ -67,9 +67,6 @@ interface IOConstants
 	/** APPLIEDTO */
 	String TAG_APPLIEDTO = "APPLIEDTO";
 
-	/** ARMORPROF */
-	String TAG_ARMORPROF = "ARMORPROF";
-
 	/** ASSOCIATED DATA */
 	String TAG_ASSOCIATEDDATA = "ASSOCIATEDDATA";
 
@@ -204,9 +201,6 @@ interface IOConstants
 	/** DOMAINGRANTS */
 	String TAG_DOMAINGRANTS = "DOMAINGRANTS";
 
-	/** DOMAINSPELLS */
-	String TAG_DOMAINSPELLS = "DOMAINSPELLS";
-
 	/** EquipSet Temporary Bonuses */
 	String TAG_EQSETBONUS = "EQSETBONUS";
 
@@ -215,8 +209,6 @@ interface IOConstants
 	/** Character equipment name */
 	String TAG_EQUIPNAME = "EQUIPNAME";
 
-	/** equipped */
-	String TAG_EQUIPPED = "EQUIPPED";
 	/** EQUIPSET */
 	String TAG_EQUIPSET = "EQUIPSET";
 
@@ -264,8 +256,6 @@ interface IOConstants
 	String TAG_HITDICE = "HITDICE";
 	/** HITPOINTS */
 	String TAG_HITPOINTS = "HITPOINTS";
-	/** HOLYITEM */
-	String TAG_HOLYITEM = "HOLYITEM";
 
 	/** Output Sheets */
 	String TAG_HTMLOUTPUTSHEET = "OUTPUTSHEETHTML";
@@ -296,8 +286,6 @@ interface IOConstants
 
 	/** MONEY */
 	String TAG_MONEY = "MONEY";
-	/** MULTISELECT */
-	String TAG_MULTISELECT = "MULTISELECT";
 	/** NAME */
 	String TAG_NAME = "NAME";
 	/** NOTE */
@@ -343,8 +331,6 @@ interface IOConstants
 
 	/** PROHIBITED */
 	String TAG_PROHIBITED = "PROHIBITED";
-	/** PROMPT */
-	String TAG_PROMPT = "PROMPT";
 	/** PURCHASEPOINTS */
 	String TAG_PURCHASEPOINTS = "PURCHASEPOINTS";
 	/** QUANTITY */

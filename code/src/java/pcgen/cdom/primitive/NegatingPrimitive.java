@@ -19,6 +19,7 @@ package pcgen.cdom.primitive;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -33,14 +34,8 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 
 	public NegatingPrimitive(PrimitiveCollection<T> prim, PrimitiveCollection<T> all)
 	{
-		if (prim == null)
-		{
-			throw new IllegalArgumentException("PrimitiveCollection cannot be null");
-		}
-		if (all == null)
-		{
-			throw new IllegalArgumentException("All Collection cannot be null");
-		}
+		Objects.requireNonNull(prim, "PrimitiveCollection cannot be null");
+		Objects.requireNonNull(all, "All Collection cannot be null");
 		primitive = prim;
 		this.all = all;
 	}

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
@@ -51,14 +53,8 @@ public class StatLock
 	 */
 	public StatLock(CDOMSingleRef<PCStat> stat, Formula formula)
 	{
-		if (stat == null)
-		{
-			throw new IllegalArgumentException("PCStat for LockStat may not be null");
-		}
-		if (formula == null)
-		{
-			throw new IllegalArgumentException("Formula for LockStat may not be null");
-		}
+		Objects.requireNonNull(stat, "PCStat for LockStat may not be null");
+		Objects.requireNonNull(formula, "Formula for LockStat may not be null");
 		lockedStat = stat;
 		lockValue = formula;
 	}
