@@ -330,6 +330,8 @@ Aspect ~ Steel Soul					CATEGORY:Internal			TYPE:DwarfHardy																					
 CATEGORY=Internal|Default.MOD														DEFINE:TempBonus_AspectOfTheFalcon|0																		ABILITY:Internal|AUTOMATIC|SPELL ~ Aspect of the Falcon|PREVARGT:TempBonus_AspectOfTheFalcon,0
 SPELL ~ Aspect of the Falcon				CATEGORY:Internal																																ABILITY:FEAT|AUTOMATIC|Improved Critical(Longbow)|Improved Critical(Shortbow)|Improved Critical(Longbow)|Improved Critical(Crossbow (Light))|Improved Critical(Crossbow (Heavy))|Improved Critical(Crossbow (Hand))|Improved Critical(Crossbow (Repeating Light))|Improved Critical(Crossbow (Repeating Heavy))	BONUS:COMBAT|TOHIT.Ranged|1|TYPE=Competence	BONUS:SKILL|Perception|3|TYPE=Competence
 
+CATEGORY=Internal|Default.MOD	DEFINE:EidolonBypassHDCap|0
+Rule - Bypass Eidolon HD Cap	CATEGORY:Internal	TYPE:Rule.Rules.OptionalRules	BONUS:VAR|EidolonBypassHDCap|1|TYPE=Boolean	
 
 
 #
