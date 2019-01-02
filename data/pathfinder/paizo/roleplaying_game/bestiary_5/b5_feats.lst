@@ -3,6 +3,6 @@ SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9
 
 # Ability Name				Allowed Companions
 CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Clockwork Familiar),Familiar (Aether Wysp),Familiar (Air Wysp),Familiar (Earth Wysp),Familiar (Fire Wysp),Familiar (Water Wysp)|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Liminal Sprite)|PREALIGN:CG,CN,CE|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Esipil)|PREALIGN:CN|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Liminal Sprite)|PREALIGN:CG,CN,CE,NG|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Esipil)|PREALIGN:CN,TN,CG,CE|PREVARGTEQ:FamiliarMasterLVL,7
 CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Xiao)|PREMULT:1,[PRECLASS:1,SPELLCASTER.Arcane=7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
