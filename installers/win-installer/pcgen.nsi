@@ -220,7 +220,7 @@ SectionEnd
 Section -FinishSection
 
 	WriteRegStr HKLM "Software\${APPNAME}\${APPDIR}" "" "$INSTDIR\${APPDIR}"
-	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPDIR}"
+	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPNAMEANDVERSION}"
 	WriteRegStr HKLM "${ARP}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
 
