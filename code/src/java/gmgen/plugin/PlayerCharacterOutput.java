@@ -27,8 +27,7 @@ import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.StringTokenizer;
-
-import org.apache.commons.lang3.math.Fraction;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.content.CNAbility;
@@ -41,7 +40,6 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -53,6 +51,7 @@ import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.util.Delta;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 
 /*
@@ -106,15 +105,7 @@ public class PlayerCharacterOutput
 		float cr = (calcCR == null) ? -1 : calcCR;
 		String retString = "";
 
-		// If the CR is a fractional CR then we convert to a 1/x format
-		if ((cr > 0) && (cr < 1))
-		{
-			Fraction fraction = Fraction.getFraction(cr); // new Fraction(CR);
-			int denominator = fraction.getDenominator();
-			int numerator = fraction.getNumerator();
-			retString = numerator + "/" + denominator;
-		}
-		else if ((cr >= 1) || (cr == 0))
+		if (cr >= 0)
 		{
 			int newCr = -99;
 			String crAsString = Float.toString(cr);
@@ -131,13 +122,10 @@ public class PlayerCharacterOutput
 
 	public String getClasses()
 	{
-		StringBuilder sb = new StringBuilder();
-		for (PCClass mClass : display.getClassSet())
-		{
-			sb.append(mClass.getDisplayName()).append(display.getLevel(mClass)).append(" ");
-		}
-
-		return sb.toString();
+		return display.getClassSet()
+		              .stream()
+		              .map(mClass -> mClass.getDisplayName() + display.getLevel(mClass) + " ")
+		              .collect(Collectors.joining());
 	}
 
 	/**
@@ -197,23 +185,18 @@ public class PlayerCharacterOutput
 			ExportHandler export = new ExportHandler(new File(""));
 			export.replaceTokenSkipMath(pc, token, bufWriter);
 			retWriter.flush();
-
-			try
-			{
-				bufWriter.flush();
-			}
-			catch (IOException e)
-			{
-				// TODO - Handle Exception
-			}
-
+			bufWriter.flush();
 			return retWriter.toString();
 		}
-		catch (Exception e)
+		catch (IOException e)
 		{
-			System.out.println("Failure fetching token: " + token);
-			return "";
+			Logging.debugPrint("exception flushing token: " + token, e);
 		}
+		catch (RuntimeException e)
+		{
+			Logging.errorPrint("Failure fetching token: " + token, e);
+		}
+		return "";
 	}
 
 	String getFeatList()
