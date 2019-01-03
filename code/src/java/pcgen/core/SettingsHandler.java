@@ -97,7 +97,6 @@ public final class SettingsHandler
 	public static GameMode game = new GameMode("default");
 	private static Dimension kitSelectorDimension = null;
 	private static Point kitSelectorLeftUpperCorner = null;
-	private static boolean useWaitCursor = true;
 	private static boolean loadURLs = false;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static boolean hpMaxAtFirstClassLevel = true;
@@ -951,7 +950,6 @@ public final class SettingsHandler
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
-		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.DEFAULT_PRINTOUT_WEAPONPROF));
 
@@ -1196,7 +1194,6 @@ public final class SettingsHandler
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
-		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
 		setPCGenOption("inputUnconstructedMessages", inputUnconstructedMessages()); //$NON-NLS-1$
@@ -1689,16 +1686,6 @@ public final class SettingsHandler
 	public static void setUseHigherLevelSlotsDefault(boolean useHigherLevelSlotsDefault)
 	{
 		SettingsHandler.useHigherLevelSlotsDefault = useHigherLevelSlotsDefault;
-	}
-
-	public static void setUseWaitCursor(final boolean b)
-	{
-		useWaitCursor = b;
-	}
-
-	public static boolean getUseWaitCursor()
-	{
-		return useWaitCursor;
 	}
 
 	public static void setWantToLoadMasterworkAndMagic(final boolean bFlag)
