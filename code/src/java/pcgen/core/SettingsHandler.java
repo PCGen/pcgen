@@ -24,8 +24,6 @@ import java.awt.Point;
 import java.awt.SystemColor;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -43,8 +41,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.ConfigurationSettings;
@@ -369,11 +365,6 @@ public final class SettingsHandler
 	public static boolean getEnforceSpendingBeforeLevelUp()
 	{
 		return enforceSpendingBeforeLevelUp;
-	}
-
-	public static void setFilePaths(final String aString)
-	{
-		getFilepathProp().setProperty("pcgen.filepaths", aString); //$NON-NLS-1$
 	}
 
 	public static String getFilePaths()
@@ -1796,163 +1787,6 @@ public final class SettingsHandler
 			+ Constants.LINE_SEPARATOR;
 	}
 
-	/**
-	 * Writes out filepaths.ini
-	 **/
-	public static void writeFilePaths()
-	{
-		final String fType = getFilePaths();
-		final String header = getPropertiesFileHeader("# filepaths.ini -- location of other .ini files set in pcgen");
-
-		if (!fType.equals("pcgen") && !fType.equals("user") && !fType.equals("mac_user")) //$NON-NLS-1$ //$NON-NLS-2$
-		{
-			if (fType != null)
-			{
-				setFilePaths(fType);
-			}
-		}
-
-		// if it's the users home directory, we need to make sure
-		// that the $HOME/.pcgen directory exists
-		if (fType.equals("user")) //$NON-NLS-1$
-		{
-			final String aLoc = System.getProperty("user.home") + File.separator + ".pcgen"; //$NON-NLS-1$ //$NON-NLS-2$
-			final File aFile = new File(aLoc);
-
-			if (!aFile.exists())
-			{
-				// Directory doesn't exist, so create it
-				aFile.mkdir();
-				Logging.errorPrint(
-					LanguageBundle.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
-			}
-			else if (!aFile.isDirectory())
-			{
-				String notDir = LanguageBundle.getFormattedString("SettingsHandler.is.not.a.directory", aLoc);
-				ShowMessageDelegate.showMessageDialog(notDir, Constants.APPLICATION_NAME, MessageType.ERROR);
-			}
-		}
-
-		// if it's the standard Mac user directory, we need to make sure
-		// that the $HOME/Library/Preferences/pcgen directory exists
-		if (fType.equals("mac_user")) //$NON-NLS-1$
-		{
-			final String aLoc = Globals.DEFAULT_MAC_OPTIONS_PATH;
-			final File aFile = new File(aLoc);
-
-			if (!aFile.exists())
-			{
-				// Directory doesn't exist, so create it
-				aFile.mkdir();
-				Logging.errorPrint(
-					LanguageBundle.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
-			}
-			else if (!aFile.isDirectory())
-			{
-				String notDir = LanguageBundle.getFormattedString("SettingsHandler.is.not.a.directory", aLoc);
-				ShowMessageDelegate.showMessageDialog(notDir, Constants.APPLICATION_NAME, MessageType.ERROR);
-			}
-		}
-
-		FileOutputStream out = null;
-
-		try
-		{
-			out = new FileOutputStream(FILE_LOCATION);
-			getFilepathProp().store(out, header);
-		}
-		catch (FileNotFoundException fnfe)
-		{
-			final File f = new File(FILE_LOCATION);
-			if (!f.canWrite())
-			{
-				Logging
-					.errorPrint(LanguageBundle.getFormattedString(
-						"SettingsHandler.filepaths.readonly", FILE_LOCATION)); //$NON-NLS-1$
-			}
-			else
-			{
-				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.filepaths.write"), fnfe); //$NON-NLS-1$
-			}
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint(LanguageBundle.getString("SettingsHandler.filepaths.write"), e); //$NON-NLS-1$
-		}
-		finally
-		{
-			try
-			{
-				if (out != null)
-				{
-					out.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				// Not much to do about it...
-				Logging.errorPrint(
-					LanguageBundle.getString("SettingsHandler.can.not.close.filepaths.ini.write"), ex); //$NON-NLS-1$
-			}
-		}
-	}
-
-	/**
-	 * Opens (options.ini) for writing and calls {@link SettingsHandler#setOptionsProperties(PlayerCharacter)}.
-	 * @param aPC
-	 */
-	public static void writeOptionsProperties(final PlayerCharacter aPC)
-	{
-		writeFilePaths();
-		writeFilterSettings();
-
-		// Globals.getOptionsPath() will _always_ return a string
-		final String optionsLocation = Globals.getOptionsPath();
-		final String header = getPropertiesFileHeader("# options.ini -- options set in pcgen");
-
-		// Make sure all the Properties are set
-		setOptionsProperties(aPC);
-
-		FileOutputStream out = null;
-
-		try
-		{
-			out = new FileOutputStream(optionsLocation);
-			getOptions().mystore(out, header);
-		}
-		catch (FileNotFoundException fnfe)
-		{
-			final File f = new File(FILE_LOCATION);
-			if (!f.canWrite())
-			{
-				Logging.errorPrint(
-					LanguageBundle.getFormattedString(
-						"SettingsHandler.options.ini.read.only", optionsLocation)); //$NON-NLS-1$
-			}
-			else
-			{
-				Logging.errorPrint(LanguageBundle.getString(
-					"SettingsHandler.can.not.write.options.ini"), fnfe); //$NON-NLS-1$
-			}
-		}
-		finally
-		{
-			try
-			{
-				if (out != null)
-				{
-					out.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				// Not much to do about it...
-				Logging.errorPrint(
-					LanguageBundle.getString("SettingsHandler.can.not.close.options.ini.write"), ex); //$NON-NLS-1$
-			}
-		}
-	}
-
 	static boolean isAutogenExoticMaterial()
 	{
 		return autogenExoticMaterial;
@@ -2372,65 +2206,6 @@ public final class SettingsHandler
 		}
 
 		return path;
-	}
-
-	/**
-	 * Opens the filter.ini file for writing
-	 *
-	 * <br>author: Thomas Behr 10-03-02
-	 */
-	private static void writeFilterSettings()
-	{
-		// Globals.getFilterPath() will _always_ return a string
-		final String filterLocation = Globals.getFilterPath();
-		final String header = getPropertiesFileHeader("# filter.ini -- filters set in pcgen");
-
-		FileOutputStream out = null;
-
-		try
-		{
-			out = new FileOutputStream(filterLocation);
-			getFilterSettings().store(out, header);
-		}
-		catch (FileNotFoundException fnfe)
-		{
-			final File f = new File(FILE_LOCATION);
-			if (!f.canWrite())
-			{
-				Logging.errorPrint(
-					LanguageBundle.getFormattedString(
-						"SettingsHandler.filter.ini.readonly", filterLocation)); //$NON-NLS-1$
-			}
-			else
-			{
-				Logging.errorPrint(
-					LanguageBundle.getString("SettingsHandler.can.not.write.filter.ini"), fnfe); //$NON-NLS-1$
-			}
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.write.filter.ini"), e); //$NON-NLS-1$
-		}
-		finally
-		{
-			try
-			{
-				if (out != null)
-				{
-					out.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				//Not much to do about it...
-				Logging.errorPrint(
-					LanguageBundle.getString("SettingsHandler.can.not.close.filter.ini.write"), ex); //$NON-NLS-1$
-			}
-		}
-
-		// remove old filter stuff!
-		//$NON-NLS-1$
-		getOptions().keySet().removeIf(o -> ((String) o).startsWith("pcgen.filters."));
 	}
 
 	/**
