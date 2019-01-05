@@ -497,13 +497,13 @@ public class ExperienceAdjusterView extends JPanel
 		add(jPanel6);
 	}
 
-	private double calculateRealValue(int i)
+	private static double calculateRealValue(int i)
 	{
 		return 1.0 + (i * 0.1);
 	}
 
-	public double getSliderRealValue()
+	private double getSliderRealValue()
 	{
-		return calculateRealValue(getExperienceMultSlider().getValue());
+		return ExperienceAdjusterView.calculateRealValue(getExperienceMultSlider().getValue());
 	}
 }

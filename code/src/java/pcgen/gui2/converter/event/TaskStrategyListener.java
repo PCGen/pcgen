@@ -20,13 +20,8 @@ package pcgen.gui2.converter.event;
 
 import java.util.EventListener;
 
+@FunctionalInterface
 public interface TaskStrategyListener extends EventListener
 {
-
-	void processMessage(Object owner, String string);
-
 	void processStatus(Object source, String string);
-
-	void processActiveItem(Object source, String string);
-
 }

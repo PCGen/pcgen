@@ -24,7 +24,6 @@ import javax.swing.event.EventListenerList;
 
 public final class TaskStrategyMessage
 {
-
 	private TaskStrategyMessage()
 	{
 	}
