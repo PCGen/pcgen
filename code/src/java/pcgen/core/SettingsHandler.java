@@ -125,16 +125,10 @@ public final class SettingsHandler
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
 
-	/**
-	 * Where to load the system lst files from.
-	 */
-	private static File pcgenOutputSheetDir =
-			new File(Globals.getDefaultPath() + File.separator + "outputsheets"); //$NON-NLS-1$
 	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + "plugins"); //$NON-NLS-1$
 	private static int prereqQualifyColor = Constants.DEFAULT_PREREQ_QUALIFY_COLOUR;
 	private static int prereqFailColor = Constants.DEFAULT_PREREQ_FAIL_COLOUR;
 	private static boolean previewTabShown = false;
-	private static File pcgenPreviewDir = new File(Globals.getDefaultPath() + File.separator + "preview"); //$NON-NLS-1$
 
 	/////////////////////////////////////////////////
 	private static boolean saveCustomInLst = false;
@@ -907,12 +901,6 @@ public final class SettingsHandler
 		setMetamagicAllowedInEqBuilder(getPCGenOption("allowMetamagicInCustomizer", false)); //$NON-NLS-1$
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 			System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenOutputSheetDir(
-			new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenOutputSheetDir", //$NON-NLS-1$
-			System.getProperty("user.dir") + File.separator + "outputsheets")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenPreviewDir(
-			new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenPreviewDir", //$NON-NLS-1$
-			System.getProperty("user.dir") + File.separator + "preview")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setGmgenPluginDir(
 			new File(expandRelativePath(getOptions().getProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
 			System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1282,16 +1270,6 @@ public final class SettingsHandler
 		{
 			path.mkdirs();
 		}
-	}
-
-	public static void setPcgenOutputSheetDir(final File aFile)
-	{
-		pcgenOutputSheetDir = aFile;
-	}
-
-	public static void setPcgenPreviewDir(final File aFile)
-	{
-		pcgenPreviewDir = aFile;
 	}
 
 	/**
