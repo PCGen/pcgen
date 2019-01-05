@@ -19,10 +19,6 @@ package plugin.lsttokens.editcontext.pcclass.level;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-
-import junit.framework.TestCase;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -34,6 +30,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import util.TestURI;
 
 public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
@@ -48,24 +48,18 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected PCClassLevel secondaryProf3;
 	protected static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
 		primaryContext = new EditorLoadContext();

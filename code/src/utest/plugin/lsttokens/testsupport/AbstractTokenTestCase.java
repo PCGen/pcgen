@@ -53,26 +53,20 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	protected LoadContext secondaryContext;
 	protected T primaryProf;
 	protected T secondaryProf;
-	protected int expectedPrimaryMessageCount = 0;
+	private int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();
@@ -105,11 +99,6 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	}
 
 	public abstract Class<? extends T> getCDOMClass();
-
-	public static void addToken(LstToken tok)
-	{
-		TokenLibrary.addToTokenMap(tok);
-	}
 
 	public static void addBonus(Class<? extends BonusObj> clazz)
 	{

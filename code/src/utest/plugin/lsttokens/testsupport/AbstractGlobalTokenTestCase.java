@@ -53,7 +53,6 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	protected CDOMObject primaryProf;
 	protected CDOMObject secondaryProf;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
@@ -61,17 +60,12 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	{
 		Locale.setDefault(Locale.US);
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.register(getReadToken());
 		TokenRegistration.register(getWriteToken());
 		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),

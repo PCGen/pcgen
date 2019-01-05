@@ -17,12 +17,6 @@
  */
 package plugin.lsttokens.skill;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -34,31 +28,19 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static ClassesToken token = new ClassesToken();
 	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
-	private static boolean classSetUpFired = false;
-
 	@BeforeClass
 	public static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreClassParser());
-		classSetUpFired = true;
-	}
-
-	@Override
-	@Before
-	public final void setUp() throws PersistenceLayerException,
-			URISyntaxException
-	{
-		super.setUp();
-		if (!classSetUpFired)
-		{
-			ltClassSetUp();
-		}
 	}
 
 	@Override
