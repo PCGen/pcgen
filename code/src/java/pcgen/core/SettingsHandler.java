@@ -95,8 +95,6 @@ public final class SettingsHandler
 	private static boolean enforceSpendingBeforeLevelUp = false;
 	private static final Properties FILTERSETTINGS = new Properties();
 	public static GameMode game = new GameMode("default");
-	private static boolean grimHPMode = false;
-	private static boolean grittyACMode = false;
 	private static Dimension kitSelectorDimension = null;
 	private static Point kitSelectorLeftUpperCorner = null;
 	private static boolean useWaitCursor = true;
@@ -393,7 +391,7 @@ public final class SettingsHandler
 		{
 			def_type = "mac_user";
 		}
-		return getFilepathProp().getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$ 
+		return getFilepathProp().getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$
 	}
 
 	public static Properties getFilepathProp()
@@ -889,8 +887,6 @@ public final class SettingsHandler
 		setGearTab_BuyRate(buyRate);
 		setGearTab_IgnoreCost(getPCGenOption("GearTab.ignoreCost", false)); //$NON-NLS-1$
 		setGearTab_SellRate(sellRate);
-		setGrimHPMode(getPCGenOption("grimHPMode", false)); //$NON-NLS-1$
-		setGrittyACMode(getPCGenOption("grittyACMode", false)); //$NON-NLS-1$
 		setGUIUsesOutputNameEquipment(getPCGenOption("GUIUsesOutputNameEquipment", false)); //$NON-NLS-1$
 		setGUIUsesOutputNameSpells(getPCGenOption("GUIUsesOutputNameSpells", false)); //$NON-NLS-1$
 		setHideMonsterClasses(getPCGenOption("hideMonsterClasses", false)); //$NON-NLS-1$
@@ -981,7 +977,7 @@ public final class SettingsHandler
 	/**
 	 * Retreive the chosen campaign files from properties for
 	 * use by the rest of PCGen.
-	 * 
+	 *
 	 * @param gameMode The GameMode to reteieve the files for.
 	 */
 	private static void getChosenCampaignFiles(GameMode gameMode)
@@ -1172,8 +1168,6 @@ public final class SettingsHandler
 		setPCGenOption("GearTab.buyRate", getGearTab_BuyRate()); //$NON-NLS-1$
 		setPCGenOption("GearTab.ignoreCost", getGearTab_IgnoreCost()); //$NON-NLS-1$
 		setPCGenOption("GearTab.sellRate", getGearTab_SellRate()); //$NON-NLS-1$
-		setPCGenOption("grimHPMode", isGrimHPMode()); //$NON-NLS-1$
-		setPCGenOption("grittyACMode", isGrittyACMode()); //$NON-NLS-1$
 		setPCGenOption("GUIUsesOutputNameEquipment", guiUsesOutputNameEquipment()); //$NON-NLS-1$
 		setPCGenOption("GUIUsesOutputNameSpells", guiUsesOutputNameSpells()); //$NON-NLS-1$
 		setPCGenOption("hideMonsterClasses", hideMonsterClasses()); //$NON-NLS-1$
@@ -1356,7 +1350,7 @@ public final class SettingsHandler
 
 		if (getPrereqFailColor() != 0)
 		{
-	rString.append("\"#") //$NON-NLS-1$ 
+	rString.append("\"#") //$NON-NLS-1$
 			.append(Integer.toHexString(getPrereqFailColor()))
 			.append("\""); //$NON-NLS-1$
 		}
@@ -2074,26 +2068,6 @@ public final class SettingsHandler
 	private static Properties getFilterSettings()
 	{
 		return FILTERSETTINGS;
-	}
-
-	private static void setGrimHPMode(final boolean argGrimHPMode)
-	{
-		grimHPMode = argGrimHPMode;
-	}
-
-	private static boolean isGrimHPMode()
-	{
-		return grimHPMode;
-	}
-
-	private static void setGrittyACMode(final boolean aBool)
-	{
-		grittyACMode = aBool;
-	}
-
-	private static boolean isGrittyACMode()
-	{
-		return grittyACMode;
 	}
 
 	private static int getOptionTabPlacement(final String optionName, final int defaultValue)
