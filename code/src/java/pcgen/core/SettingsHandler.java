@@ -69,7 +69,6 @@ public final class SettingsHandler
 	private static boolean autogenMagic = false;
 	private static boolean autogenMasterwork = false;
 	private static boolean autogenRacial = false;
-	public static boolean validateBonuses = false;
 
 	//
 	// For EqBuilder
@@ -1216,7 +1215,6 @@ public final class SettingsHandler
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
-		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
 		setPCGenOption("inputUnconstructedMessages", inputUnconstructedMessages()); //$NON-NLS-1$

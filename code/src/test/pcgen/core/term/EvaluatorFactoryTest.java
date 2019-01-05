@@ -11060,7 +11060,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		PCStat cha = rc.constructCDOMObject(PCStat.class, "Charisma");
 		cha.setKeyName("CHA");
 		rc.reassociateKey("CHA", cha);
-		SettingsHandler.validateBonuses = SettingsHandler.getPCGenOption("validateBonuses", false); //$NON-NLS-1$
 	}
 
 	/**
