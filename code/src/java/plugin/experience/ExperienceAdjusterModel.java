@@ -19,6 +19,7 @@ package plugin.experience;
 
 import java.io.File;
 import java.util.Observable;
+import java.util.stream.IntStream;
 
 import gmgen.io.ReadXML;
 import gmgen.plugin.Combatant;
@@ -37,7 +38,7 @@ import plugin.experience.gui.PreferencesExperiencePanel;
 public class ExperienceAdjusterModel extends Observable
 {
 	private ReadXML experienceTable = null;
-	private ExperienceList enemies = new ExperienceList();
+	private final ExperienceList enemies = new ExperienceList();
 	protected ExperienceList party = new ExperienceList();
 	protected InitHolderList combat;
 	protected File dir;
@@ -138,7 +139,7 @@ public class ExperienceAdjusterModel extends Observable
 
 		for (int i = 0; i < party.size(); i++)
 		{
-			Combatant cbt = ((ExperienceListItem) party.get(i)).getCombatant();
+			Combatant cbt = party.get(i).getCombatant();
 			if (expType == PreferencesExperiencePanel.EXPERIENCE_3)
 			{
 				cbt.setXP(cbt.getXP() + (getPartyTotalExperience() / party.size()));
@@ -159,11 +160,9 @@ public class ExperienceAdjusterModel extends Observable
 	 */
 	void clearEnemies()
 	{
-		for (int i = 0; i < enemies.size(); i++)
-		{
-			ExperienceListItem item = (ExperienceListItem) enemies.get(i);
-			combat.remove(item.getCombatant());
-		}
+		IntStream.range(0, enemies.size())
+		         .mapToObj(enemies::get)
+		         .forEach(item -> combat.remove(item.getCombatant()));
 
 		enemies.removeAllElements();
 	}
@@ -178,10 +177,8 @@ public class ExperienceAdjusterModel extends Observable
 			party.removeAllElements();
 			enemies.removeAllElements();
 
-			for (int i = 0; i < combat.size(); i++)
+			for (InitHolder iH : combat)
 			{
-				InitHolder iH = combat.get(i);
-
 				if (iH instanceof Combatant)
 				{
 					Combatant cbt = (Combatant) iH;
@@ -232,7 +229,7 @@ public class ExperienceAdjusterModel extends Observable
 
 		for (int i = 0; i < enemies.size(); i++)
 		{
-			ExperienceListItem item = (ExperienceListItem) enemies.get(i);
+			ExperienceListItem item = enemies.get(i);
 			enemyCR = item.getCombatant().getCR();
 
 			if (enemyCR < 1)
@@ -265,14 +262,14 @@ public class ExperienceAdjusterModel extends Observable
 			}
 		}
 
-		return new Double((experience * multiplier) / party.size()).intValue();
+		return (int)((experience * multiplier) / party.size());
 	}
 
 	/**
 	 * Get party total experience
 	 * @return party total experience
 	 */
-	public int getPartyTotalExperience()
+	private int getPartyTotalExperience()
 	{
 		float enemyCR;
 		int tableCR;
@@ -287,7 +284,7 @@ public class ExperienceAdjusterModel extends Observable
 
 		for (int i = 0; i < enemies.size(); i++)
 		{
-			ExperienceListItem item = (ExperienceListItem) enemies.get(i);
+			ExperienceListItem item = enemies.get(i);
 			enemyCR = item.getCombatant().getCR();
 
 			if (enemyCR < 1)
@@ -320,7 +317,7 @@ public class ExperienceAdjusterModel extends Observable
 			}
 		}
 
-		return new Double(experience * multiplier).intValue();
+		return (int)(experience * multiplier);
 	}
 
 	/**
@@ -345,12 +342,11 @@ public class ExperienceAdjusterModel extends Observable
 		}
 		else
 		{
-			partyExperience = 0;
-			for (int i = 0; i < party.size(); i++)
-			{
-				Combatant cbt = ((ExperienceListItem) party.get(i)).getCombatant();
-				partyExperience += getCombatantExperience(cbt);
-			}
+			partyExperience =  IntStream.range(0, party.size())
+			         .mapToObj(party::get)
+			         .map(ExperienceListItem::getCombatant)
+			         .mapToInt(this::getCombatantExperience)
+			         .sum();
 		}
 	}
 }
