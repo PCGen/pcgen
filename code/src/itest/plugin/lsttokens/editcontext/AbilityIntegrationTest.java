@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
@@ -33,11 +31,13 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.Test;
+
 public class AbilityIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
-	private static AbilityLst token = new AbilityLst();
-	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static final CDOMPrimaryToken<CDOMObject> token = new AbilityLst();
+	private static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -164,6 +164,7 @@ public class AbilityIntegrationTest extends
 		completeRoundRobin(tc);
 	}
 
+	@Test
 	public void testRoundRobinMixedClearDot() throws PersistenceLayerException
 	{
 		verifyCleanStart();
