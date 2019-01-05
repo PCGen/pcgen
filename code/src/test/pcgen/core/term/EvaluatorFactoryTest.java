@@ -1,5 +1,6 @@
 package pcgen.core.term;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
 
 import java.lang.reflect.Field;
@@ -4121,8 +4122,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator019 evaluator correct for " + term);
+		assertThat("GetTermEvaluator019 evaluator correct for " + term, t,
+			instanceOf(PCCountAbilitiesNatureAllTermEvaluator.class));
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -6112,8 +6113,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnu");
 
-		is(t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator, eq(true),
-			"GetTermEvaluator072 evaluator correct for " + term);
+		assertThat("GetTermEvaluator072 evaluator correct for " + term, t,
+				instanceOf((PCSPellBaseStatScoreEvaluatorTermEvaluator.class)));
 
 		Class<?> uClass = PCSPellBaseStatScoreEvaluatorTermEvaluator.class;
 
@@ -11073,5 +11074,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		TestHelper.loadPlugins();
 		EvaluatorFactoryTest.initGameModes();
 	}
+
 
 }
