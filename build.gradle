@@ -13,6 +13,7 @@
 
 // import Ant helper static values to differ system families
 import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'com.gradle.build-scan' version '2.1'
@@ -70,6 +71,12 @@ applicationDistribution.from('system') {
 }
 applicationDistribution.from('preview') {
     into "preview"
+}
+
+if (Os.isFamily(Os.FAMILY_MAC)) {
+    applicationDefaultJvmArgs = ['-Xdock:name=PCGen',
+                                 '-Xdock:icon=installers/win-installer/Local/PCGen2.ico',
+    ]
 }
 
 repositories {
