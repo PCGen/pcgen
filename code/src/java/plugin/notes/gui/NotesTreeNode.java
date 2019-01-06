@@ -42,13 +42,13 @@ import javax.swing.text.html.HTMLWriter;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 
+import gmgen.GMGenSystem;
+import gmgen.gui.ExtendedHTMLDocument;
+import gmgen.gui.ExtendedHTMLEditorKit;
 import pcgen.cdom.base.Constants;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-import gmgen.GMGenSystem;
-import gmgen.gui.ExtendedHTMLDocument;
-import gmgen.gui.ExtendedHTMLEditorKit;
 import org.apache.commons.io.FileUtils;
 
 /**
