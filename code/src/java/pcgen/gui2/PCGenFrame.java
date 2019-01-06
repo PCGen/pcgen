@@ -69,10 +69,10 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterStubFacade;
 import pcgen.facade.core.ChooserFacade;
@@ -374,11 +374,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					return false;
 				}
 
-				List<CampaignFacade> campaigns = new ArrayList<>();
+				List<Campaign> campaigns = new ArrayList<>();
 				String[] sourceNames = sourcesNameString.split("\\|"); //$NON-NLS-1$
-				for (Iterator<CampaignFacade> iterator = FacadeFactory.getCampaigns().iterator(); iterator.hasNext();)
+				for (Iterator<Campaign> iterator = FacadeFactory.getCampaigns().iterator(); iterator.hasNext();)
 				{
-					CampaignFacade camp = iterator.next();
+					Campaign camp = iterator.next();
 					for (String name : sourceNames)
 					{
 						if (name.equals(camp.toString()))
@@ -625,15 +625,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			return false;
 		}
-		ListFacade<CampaignFacade> campaigns1 = source1.getCampaigns();
-		ListFacade<CampaignFacade> campaigns2 = source2.getCampaigns();
+		ListFacade<Campaign> campaigns1 = source1.getCampaigns();
+		ListFacade<Campaign> campaigns2 = source2.getCampaigns();
 		if (campaigns1.getSize() != campaigns2.getSize())
 		{
 			return false;
 		}
-		for (CampaignFacade campaignFacade : campaigns1)
+		for (Campaign campaign : campaigns1)
 		{
-			if (!campaigns2.containsElement(campaignFacade))
+			if (!campaigns2.containsElement(campaign))
 			{
 				return false;
 			}
@@ -1236,7 +1236,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		campList.append("<UL>");
 		int count = 1;
 		final int maxListLen = 6;
-		for (CampaignFacade facade : sources.getCampaigns())
+		for (Campaign facade : sources.getCampaigns())
 		{
 			campList.append("<li>");
 			if (count >= maxListLen && sources.getCampaigns().getSize() > maxListLen)
@@ -1715,7 +1715,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				currentSourceSelection.set(sources);
 
 				StringBuilder sourceString = new StringBuilder(100);
-				ListFacade<CampaignFacade> campaigns = sources.getCampaigns();
+				ListFacade<Campaign> campaigns = sources.getCampaigns();
 				for (int i = 0; i < campaigns.getSize(); i++)
 				{
 					if (i > 0)

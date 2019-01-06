@@ -21,8 +21,6 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.content.CampaignURL.URLKind;
@@ -35,13 +33,14 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.AllowUtilities;
 import pcgen.core.Campaign;
 import pcgen.core.prereq.PrerequisiteUtilities;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CampaignInfoFactory;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code Gui2CampaignInfoFactory} is responsible for producing
@@ -53,7 +52,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 {
 
 	@Override
-	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> testList)
+	public String getHTMLInfo(Campaign campaign, List<Campaign> testList)
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
@@ -62,29 +61,27 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return htmlInfo;
 	}
 
-	private List<URI> setSourcesForPrereqTesting(List<CampaignFacade> testList, PersistenceManager pman)
+	private List<URI> setSourcesForPrereqTesting(List<Campaign> testList, PersistenceManager pman)
 	{
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
 		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : testList)
+		for (Campaign campaign : testList)
 		{
-			uris.add(((Campaign) campaignFacade).getSourceURI());
+			uris.add(campaign.getSourceURI());
 		}
 		pman.setChosenCampaignSourcefiles(uris);
 		return oldList;
 	}
 
 	@Override
-	public String getHTMLInfo(CampaignFacade campaign)
+	public String getHTMLInfo(Campaign campaign)
 	{
-		if (campaign == null || !(campaign instanceof Campaign))
+		if (campaign == null)
 		{
 			return "";
 		}
-		Campaign aCamp = (Campaign) campaign;
-
-		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(aCamp.getDisplayName());
-		appendCampaignInfo(aCamp, infoText);
+		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(campaign.getDisplayName());
+		appendCampaignInfo(campaign, infoText);
 
 		return infoText.toString();
 	}
@@ -238,18 +235,16 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		}
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(selection.toString());
-		for (CampaignFacade campaign : selection.getCampaigns())
+		for (Campaign campaign : selection.getCampaigns())
 		{
-			if (campaign == null || !(campaign instanceof Campaign))
+			if (campaign == null)
 			{
 				continue;
 			}
-			Campaign aCamp = (Campaign) campaign;
-
 			infoText.appendLineBreak();
 			infoText.appendLineBreak();
-			infoText.appendTitleElement(aCamp.getDisplayName());
-			appendCampaignInfo(aCamp, infoText);
+			infoText.appendTitleElement(campaign.getDisplayName());
+			appendCampaignInfo(campaign, infoText);
 		}
 		return infoText.toString();
 	}
@@ -296,19 +291,17 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	}
 
 	@Override
-	public String getRequirementsHTMLString(CampaignFacade campaign, List<CampaignFacade> testList)
+	public String getRequirementsHTMLString(Campaign campaign, List<Campaign> testList)
 	{
-		if (campaign == null || !(campaign instanceof Campaign))
+		if (campaign == null)
 		{
 			return "";
 		}
-		Campaign aCamp = (Campaign) campaign;
-
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
 		StringBuilder sb = new StringBuilder();
-		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(null, null, aCamp.getPrerequisiteList(), false));
-		sb.append(AllowUtilities.getAllowInfo(null, aCamp));
+		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false));
+		sb.append(AllowUtilities.getAllowInfo(null, campaign));
 		pman.setChosenCampaignSourcefiles(oldList);
 
 		return sb.toString();
