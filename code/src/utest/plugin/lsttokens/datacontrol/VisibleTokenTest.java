@@ -20,12 +20,6 @@ package plugin.lsttokens.datacontrol;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.core.Campaign;
@@ -37,9 +31,14 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class VisibleTokenTest extends TestCase
+public class VisibleTokenTest
 {
 
 	static VisibleToken token = new VisibleToken();
@@ -50,7 +49,7 @@ public class VisibleTokenTest extends TestCase
 	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
@@ -58,8 +57,7 @@ public class VisibleTokenTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		if (!classSetUpFired)
@@ -85,65 +83,65 @@ public class VisibleTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString()
 	{
-		assertFalse(token.parseToken(context, cd, null).passed());
+		Assertions.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyString()
 	{
-		assertFalse(token.parseToken(context, cd, "").passed());
+		Assertions.assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
 	public void testValidStringYes()
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "YES").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.DEFAULT, cd.getVisibility());
+		Assertions.assertNull(cd.getVisibility());
+		Assertions.assertTrue(token.parseToken(context, cd, "YES").passed());
+		Assertions.assertNotNull(cd.getVisibility());
+		Assertions.assertEquals(Visibility.DEFAULT, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		Assertions.assertNotNull(unparsed);
+		Assertions.assertEquals(1, unparsed.length);
+		Assertions.assertEquals("YES", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringNo()
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "NO").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.HIDDEN, cd.getVisibility());
+		Assertions.assertNull(cd.getVisibility());
+		Assertions.assertTrue(token.parseToken(context, cd, "NO").passed());
+		Assertions.assertNotNull(cd.getVisibility());
+		Assertions.assertEquals(Visibility.HIDDEN, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("NO", unparsed[0]);
+		Assertions.assertNotNull(unparsed);
+		Assertions.assertEquals(1, unparsed.length);
+		Assertions.assertEquals("NO", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringDisplay()
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "DISPLAY").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.DISPLAY_ONLY, cd.getVisibility());
+		Assertions.assertNull(cd.getVisibility());
+		Assertions.assertTrue(token.parseToken(context, cd, "DISPLAY").passed());
+		Assertions.assertNotNull(cd.getVisibility());
+		Assertions.assertEquals(Visibility.DISPLAY_ONLY, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("DISPLAY", unparsed[0]);
+		Assertions.assertNotNull(unparsed);
+		Assertions.assertEquals(1, unparsed.length);
+		Assertions.assertEquals("DISPLAY", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringExport()
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "EXPORT").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.OUTPUT_ONLY, cd.getVisibility());
+		Assertions.assertNull(cd.getVisibility());
+		Assertions.assertTrue(token.parseToken(context, cd, "EXPORT").passed());
+		Assertions.assertNotNull(cd.getVisibility());
+		Assertions.assertEquals(Visibility.OUTPUT_ONLY, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("EXPORT", unparsed[0]);
+		Assertions.assertNotNull(unparsed);
+		Assertions.assertEquals(1, unparsed.length);
+		Assertions.assertEquals("EXPORT", unparsed[0]);
 	}
 
 }
