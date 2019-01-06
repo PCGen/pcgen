@@ -17,27 +17,25 @@
  */
 package plugin.lsttokens.template;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.lang.ref.WeakReference;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Campaign;
 import pcgen.core.PCTemplate;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -53,24 +51,23 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.orderedpair.SetModifierFactory;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import util.TestURI;
 
-public class FaceTokenTest extends TestCase
+public class FaceTokenTest
 {
 
 	static FaceToken token = new FaceToken();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
-	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
-	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
+	private static final ModifierFactory<OrderedPair> m = new SetModifierFactory();
+	private final FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();
@@ -212,16 +209,14 @@ public class FaceTokenTest extends TestCase
 	protected LoadContext secondaryContext;
 	protected PCTemplate primaryProf;
 	protected PCTemplate secondaryProf;
-	protected int expectedPrimaryMessageCount = 0;
+	private int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	protected void resetContext()
@@ -249,11 +244,6 @@ public class FaceTokenTest extends TestCase
 		return context.getReferenceContext().constructCDOMObject(getCDOMClass(), name);
 	}
 
-	public static void addToken(LstToken tok)
-	{
-		TokenLibrary.addToTokenMap(tok);
-	}
-
 	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
 		try
@@ -279,30 +269,8 @@ public class FaceTokenTest extends TestCase
 		isCDOMEqual(primaryProf, secondaryProf);
 		validateUnparse(unparsed);
 	}
-	
-	/**
-	 * Run a test for conversion of a deprecated format to a supported format.
-	 * @param deprecated The old token format.
-	 * @param target The expected new token format.
-	 * @throws PersistenceLayerException If the parsing 
-	 */
-	public void runMigrationRoundRobin(String deprecated, String target) 
-			throws PersistenceLayerException
-	{
-		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf));
 
-		parse(deprecated);
-		primaryProf.setSourceURI(testCampaign.getURI());
-		String[] unparsed = validateUnparsed(primaryContext, primaryProf, target);
-		parseSecondary(unparsed);
-		// Ensure the objects are the same
-		isCDOMEqual(primaryProf, secondaryProf);
-		validateUnparse(unparsed);
-		
-	}
-
-	protected void validateUnparse(String... unparsed)
+	private void validateUnparse(String... unparsed)
 	{
 		// And that it comes back out the same again
 		String[] sUnparsed = getToken()
@@ -312,7 +280,8 @@ public class FaceTokenTest extends TestCase
 		for (int i = 0; i < unparsed.length; i++)
 		{
 			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]);
+					sUnparsed[i]
+			);
 		}
 		assertCleanConstruction();
 		assertTrue(secondaryContext.getReferenceContext().validate(null));
@@ -357,7 +326,8 @@ public class FaceTokenTest extends TestCase
 		for (int i = 0; i < str.length; i++)
 		{
 			assertEquals("Expected " + i + "th uparsed item to be equal",
-				str[i], unparsed[i]);
+					str[i], unparsed[i]
+			);
 		}
 		return unparsed;
 	}
@@ -417,17 +387,9 @@ public class FaceTokenTest extends TestCase
 	}
 
 	@Test
-	public void testNoStackTrace()
+	public void testNoStackTraceOnNull()
 	{
-		try
-		{
-			getToken().parseToken(primaryContext, primaryProf, null);
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-			fail("Token should not throw an exception with null input");
-		}
+		getToken().parseToken(primaryContext, primaryProf, null);
 	}
 
 	@Test
@@ -448,10 +410,7 @@ public class FaceTokenTest extends TestCase
 		assertTrue(parse(s));
 		s = null;
 		System.gc();
-		if (wr.get() != null)
-		{
-			fail("retained");
-		}
+		assertNull("retained", wr.get());
 	}
 
 	protected static void expectSingle(String[] unparsed, String expected)
@@ -470,24 +429,16 @@ public class FaceTokenTest extends TestCase
 	protected void assertConstructionError()
 	{
 		assertFalse(
-			"Expected one of validate or resolve references to be false.",
-			primaryContext.getReferenceContext().validate(null)
-				&& primaryContext.getReferenceContext().resolveReferences(null));
+				"Expected one of validate or resolve references to be false.",
+				primaryContext.getReferenceContext().validate(null)
+						&& primaryContext.getReferenceContext().resolveReferences(null)
+		);
 	}
 
 	protected void assertCleanConstruction()
 	{
 		assertTrue(primaryContext.getReferenceContext().validate(null));
 		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
-	}
-
-	protected <C extends Categorized<C>> C constructCategorized(LoadContext context,
-		Category<C> cat, String name)
-	{
-		C obj = cat.newInstance();
-		obj.setName(name);
-		context.getReferenceContext().importObject(obj);
-		return obj;
 	}
 
 	@Test
@@ -500,17 +451,11 @@ public class FaceTokenTest extends TestCase
 		WeakReference<LoadContext> wr = new WeakReference<>(context);
 		PCTemplate item = this.get(context, "TestObj");
 		ParseResult pr = getToken().parseToken(context, item, getLegalValue());
-		if (!pr.passed())
-		{
-			fail();
-		}
+		assertTrue(pr.passed());
 		context.commit();
 		assertTrue(pr.passed());
 		context = null;
 		System.gc();
-		if (wr.get() != null)
-		{
-			fail("retained");
-		}
+		assertNull("retained", wr.get());
 	}
 }
