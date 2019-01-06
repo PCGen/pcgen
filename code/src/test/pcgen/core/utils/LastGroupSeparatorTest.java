@@ -16,7 +16,7 @@ public class LastGroupSeparatorTest extends TestCase
 			new LastGroupSeparator(null);
 			fail();
 		}
-		catch (IllegalArgumentException iae)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			// OK
 		}
