@@ -17,14 +17,13 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -36,35 +35,32 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class RequiredTokenTest extends TestCase
+public class RequiredTokenTest
 {
 
-	static RequiredToken token = new RequiredToken();
-	ContentDefinition cd;
+	private static final RequiredToken token = new RequiredToken();
+	private ContentDefinition cd;
 
-	protected LoadContext context;
+	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
+	private static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
@@ -98,12 +94,9 @@ public class RequiredTokenTest extends TestCase
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
-		assertNotNull(cd.getRequired());
-		assertTrue(cd.getRequired().booleanValue());
+		assertTrue(cd.getRequired());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed );
 	}
 
 	@Test
@@ -111,12 +104,9 @@ public class RequiredTokenTest extends TestCase
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "NO").passed());
-		assertNotNull(cd.getRequired());
-		assertFalse(cd.getRequired().booleanValue());
+		assertFalse(cd.getRequired());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("NO", unparsed[0]);
+		assertArrayEquals(new String[]{"NO"}, unparsed );
 	}
 
 }
