@@ -59,7 +59,6 @@ import org.apache.commons.lang3.SystemUtils;
  **/
 public final class SettingsHandler
 {
-	private static boolean autoFeatsRefundable = false;
 	private static boolean autogenExoticMaterial = false;
 	private static boolean autogenMagic = false;
 	private static boolean autogenMasterwork = false;
@@ -844,7 +843,6 @@ public final class SettingsHandler
 			SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
 
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
-		setAutoFeatsRefundable(getPCGenOption("autoFeatsRefundable", false)); //$NON-NLS-1$
 		setAutogenExoticMaterial(getPCGenOption("autoGenerateExoticMaterial", false)); //$NON-NLS-1$
 		setAutogenMagic(getPCGenOption("autoGenerateMagic", false)); //$NON-NLS-1$
 		setAutogenMasterwork(getPCGenOption("autoGenerateMasterwork", false)); //$NON-NLS-1$
@@ -1118,7 +1116,6 @@ public final class SettingsHandler
 
 		setPCGenOption("allowMetamagicInCustomizer", isMetamagicAllowedInEqBuilder()); //$NON-NLS-1$
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
-		setPCGenOption("autoFeatsRefundable", isAutoFeatsRefundable()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateExoticMaterial", isAutogenExoticMaterial()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateMagic", isAutogenMagic()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
@@ -1805,22 +1802,6 @@ public final class SettingsHandler
 	static boolean isPreviewTabShown()
 	{
 		return previewTabShown;
-	}
-
-	/** Sets whether 'automatic' class-granted feats can be turned in for other feats
-	 * @param argAutoFeatsRefundable
-	 */
-	private static void setAutoFeatsRefundable(final boolean argAutoFeatsRefundable)
-	{
-		autoFeatsRefundable = argAutoFeatsRefundable;
-	}
-
-	/** Returns whether 'automatic' class-granted feats can be turned in for other feats
-	 *  @return true if 'automatic' class-granted feats can be turned in for other feats
-	 */
-	private static boolean isAutoFeatsRefundable()
-	{
-		return autoFeatsRefundable;
 	}
 
 	private static void setAutogenExoticMaterial(final boolean aBool)
