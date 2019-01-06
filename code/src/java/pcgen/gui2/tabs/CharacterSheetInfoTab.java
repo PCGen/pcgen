@@ -35,9 +35,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListDataEvent;
 
+import pcgen.core.GameMode;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.event.ListEvent;
@@ -185,7 +185,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		public BoxHandler(CharacterFacade character)
 		{
 			this.character = character;
-			GameModeFacade game = character.getDataSet().getGameMode();
+			GameMode game = character.getDataSet().getGameMode();
 			String previewDir = ConfigurationSettings.getPreviewDir();
 			File sheetDir = new File(previewDir, game.getCharSheetDir());
 			if (sheetDir.exists() && sheetDir.isDirectory())

@@ -36,7 +36,6 @@ import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
@@ -173,7 +172,7 @@ public class MockDataSetFacade implements DataSetFacade
 	}
 	
     @Override
-	public GameModeFacade getGameMode()
+	public GameMode getGameMode()
 	{
 		return game;
 	}

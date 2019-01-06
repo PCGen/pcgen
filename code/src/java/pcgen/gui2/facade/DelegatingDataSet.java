@@ -27,6 +27,7 @@ import java.util.Set;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
 import pcgen.core.Deity;
+import pcgen.core.GameMode;
 import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
@@ -39,7 +40,6 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DelegatingListFacade;
@@ -271,7 +271,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public GameModeFacade getGameMode()
+	public GameMode getGameMode()
 	{
 		return delegate.getGameMode();
 	}

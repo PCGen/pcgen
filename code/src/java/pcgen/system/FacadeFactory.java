@@ -26,8 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -38,7 +36,6 @@ import pcgen.core.SystemCollections;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CampaignInfoFactory;
 import pcgen.facade.core.GameModeDisplayFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.LoadableFacade.LoadingState;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -51,6 +48,8 @@ import pcgen.gui2.facade.Gui2CampaignInfoFactory;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 public final class FacadeFactory
 {
 
@@ -58,12 +57,12 @@ public final class FacadeFactory
 			PCGenSettings.getInstance().createChildContext("customSources");
 	private static DefaultListFacade<SourceSelectionFacade> quickSources = null;
 	private static DefaultListFacade<CampaignFacade> campaigns = null;
-	private static DefaultListFacade<GameModeFacade> gamemodes = null;
+	private static DefaultListFacade<GameMode> gamemodes = null;
 	private static DefaultListFacade<GameModeDisplayFacade> gamemodedisplays = null;
 	private static DefaultListFacade<SourceSelectionFacade> displayedSources = null;
 	private static DefaultListFacade<SourceSelectionFacade> customSources;
 	private static Map<String, CampaignFacade> campaignMap;
-	private static Map<GameModeFacade, DefaultListFacade<CampaignFacade>> campaignListMap = null;
+	private static Map<GameMode, DefaultListFacade<CampaignFacade>> campaignListMap = null;
 	private static final CampaignInfoFactory CAMP_INFO_FACTORY = new Gui2CampaignInfoFactory();
 
 	private FacadeFactory()
@@ -113,19 +112,19 @@ public final class FacadeFactory
 		for (final CampaignFacade campaign : campaigns)
 		{
 			campaignMap.put(campaign.getName(), campaign);
-			ListFacade<GameModeFacade> gameModeList = campaign.getGameModes();
-			for (GameModeFacade gameModeFacade : gameModeList)
+			ListFacade<GameMode> gameModeList = campaign.getGameModes();
+			for (GameMode gameMode : gameModeList)
 			{
-				if (!campaignListMap.containsKey(gameModeFacade))
+				if (!campaignListMap.containsKey(gameMode))
 				{
-					campaignListMap.put(gameModeFacade, new DefaultListFacade<>());
+					campaignListMap.put(gameMode, new DefaultListFacade<>());
 				}
-				DefaultListFacade<CampaignFacade> campaignList = campaignListMap.get(gameModeFacade);
+				DefaultListFacade<CampaignFacade> campaignList = campaignListMap.get(gameMode);
 				if (campaignList.containsElement(campaign))
 				{
 					String sourceUri = ((CDOMObject) campaign).getSourceURI().toString();
 					Logging
-						.errorPrint("Campaign " + sourceUri + " lists GAMEMODE:" + gameModeFacade + " multiple times.");
+						.errorPrint("Campaign " + sourceUri + " lists GAMEMODE:" + gameMode + " multiple times.");
 				}
 				else
 				{
@@ -134,7 +133,7 @@ public final class FacadeFactory
 			}
 			if (campaign.showInMenu() && !gameModeList.isEmpty())
 			{
-				GameModeFacade game = gameModeList.getElementAt(0);
+				GameMode game = gameModeList.getElementAt(0);
 				ListFacade<CampaignFacade> list = new DefaultListFacade<>(Collections.singleton(campaign));
 				quickSources.addElement(new BasicSourceSelectionFacade(campaign.getName(), list, game));
 			}
@@ -294,13 +293,13 @@ public final class FacadeFactory
 		PCGenSettings.getInstance().setStringArray("hiddenSources", hiddenElements);
 	}
 
-	public static SourceSelectionFacade createSourceSelection(GameModeFacade gameMode,
+	public static SourceSelectionFacade createSourceSelection(GameMode gameMode,
 		List<? extends CampaignFacade> campaignList)
 	{
 		return new BasicSourceSelectionFacade(null, new DefaultListFacade(campaignList), gameMode);
 	}
 
-	public static SourceSelectionFacade createSourceSelection(GameModeFacade gameMode,
+	public static SourceSelectionFacade createSourceSelection(GameMode gameMode,
 		List<? extends CampaignFacade> campaignList, String sourceTitle)
 	{
 		return new BasicSourceSelectionFacade(sourceTitle, new DefaultListFacade(campaignList), gameMode);
@@ -330,7 +329,7 @@ public final class FacadeFactory
 		return campaigns;
 	}
 
-	public static ListFacade<GameModeFacade> getGameModes()
+	public static ListFacade<GameMode> getGameModes()
 	{
 		return gamemodes;
 	}
@@ -340,7 +339,7 @@ public final class FacadeFactory
 		return gamemodedisplays;
 	}
 
-	public static ListFacade<CampaignFacade> getSupportedCampaigns(GameModeFacade gameMode)
+	public static ListFacade<CampaignFacade> getSupportedCampaigns(GameMode gameMode)
 	{
 		if (!campaignListMap.containsKey(gameMode))
 		{
@@ -384,15 +383,15 @@ public final class FacadeFactory
 	{
 
 		private final ListFacade<CampaignFacade> campaignModel;
-		private final DefaultReferenceFacade<GameModeFacade> gameModeRef;
+		private final DefaultReferenceFacade<GameMode> gameMode;
 		private final String name;
 
 		private BasicSourceSelectionFacade(String name, ListFacade<CampaignFacade> campaignModel,
-			GameModeFacade gameMode)
+			GameMode gameMode)
 		{
 			this.name = name;
 			this.campaignModel = campaignModel;
-			gameModeRef = new DefaultReferenceFacade<>(gameMode);
+			this.gameMode = new DefaultReferenceFacade<>(gameMode);
 		}
 
 		@Override
@@ -402,7 +401,7 @@ public final class FacadeFactory
 		}
 
 		@Override
-		public void setGameMode(GameModeFacade gameMode)
+		public void setGameMode(GameMode gameMode)
 		{
 			throw new UnsupportedOperationException("Not supported yet.");
 		}
@@ -432,9 +431,9 @@ public final class FacadeFactory
 			{
 				return name;
 			}
-			if (gameModeRef != null && gameModeRef.get() != null)
+			if (gameMode != null && gameMode.get() != null)
 			{
-				return LanguageBundle.getFormattedString("in_source_gamemode", gameModeRef.get().getDisplayName());
+				return LanguageBundle.getFormattedString("in_source_gamemode", gameMode.get().getDisplayName());
 			}
 			return "";
 		}
@@ -446,9 +445,9 @@ public final class FacadeFactory
 		}
 
 		@Override
-		public ReferenceFacade<GameModeFacade> getGameMode()
+		public ReferenceFacade<GameMode> getGameMode()
 		{
-			return gameModeRef;
+			return gameMode;
 		}
 
 	}
@@ -468,7 +467,7 @@ public final class FacadeFactory
 		}
 
 		private final DefaultListFacade<CampaignFacade> campaigns = new DefaultListFacade<>();
-		private final WriteableReferenceFacade<GameModeFacade> gameModeRef = new DefaultReferenceFacade<>();
+		private final WriteableReferenceFacade<GameMode> gameMode = new DefaultReferenceFacade<>();
 
 		@Override
 		public boolean isModifiable()
@@ -489,9 +488,9 @@ public final class FacadeFactory
 		}
 
 		@Override
-		public void setGameMode(GameModeFacade gameMode)
+		public void setGameMode(GameMode gameMode)
 		{
-			gameModeRef.set(gameMode);
+			this.gameMode.set(gameMode);
 			context.setProperty("gamemode", gameMode.getName());
 		}
 
@@ -530,9 +529,9 @@ public final class FacadeFactory
 		}
 
 		@Override
-		public ReferenceFacade<GameModeFacade> getGameMode()
+		public ReferenceFacade<GameMode> getGameMode()
 		{
-			return gameModeRef;
+			return gameMode;
 		}
 
 	}

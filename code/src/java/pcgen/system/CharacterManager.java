@@ -26,13 +26,13 @@ import java.util.Objects;
 import java.util.logging.Level;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterStubFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
@@ -306,7 +306,7 @@ public final class CharacterManager
 		{
 			return null;
 		}
-		GameModeFacade gameMode = null;
+		GameMode gameMode = null;
 		HashSet<CampaignFacade> campaignSet = new HashSet<>();
 		for (final File file : files)
 		{
@@ -316,7 +316,7 @@ public final class CharacterManager
 				Logging.errorPrint("Failed to find sources in: " + file.getAbsolutePath());
 				continue;
 			}
-			GameModeFacade game = selection.getGameMode().get();
+			GameMode game = selection.getGameMode().get();
 			if (gameMode == null)
 			{
 				gameMode = game;

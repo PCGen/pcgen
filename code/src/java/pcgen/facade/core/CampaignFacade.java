@@ -20,6 +20,7 @@ package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.GameMode;
 import pcgen.facade.util.ListFacade;
 
 public interface CampaignFacade
@@ -27,7 +28,7 @@ public interface CampaignFacade
 
 	public boolean showInMenu();
 
-	public ListFacade<GameModeFacade> getGameModes();
+	public ListFacade<GameMode> getGameModes();
 
 	public String getName();
 
