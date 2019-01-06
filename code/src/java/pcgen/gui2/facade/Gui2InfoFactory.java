@@ -32,8 +32,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
@@ -103,7 +101,6 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.DomainFacade;
-import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
@@ -120,6 +117,8 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code Gui2InfoFactory} provides character related information
@@ -1025,15 +1024,14 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(EquipModFacade equipModFacade, EquipmentFacade equipFacade)
+	public String getHTMLInfo(EquipmentModifier equipMod, EquipmentFacade equipFacade)
 	{
-		if (equipModFacade == null || !(equipModFacade instanceof EquipmentModifier) || equipFacade == null
+		if (equipMod == null || equipFacade == null
 			|| !(equipFacade instanceof Equipment))
 		{
 			return EMPTY_STRING;
 		}
 
-		EquipmentModifier equipMod = (EquipmentModifier) equipModFacade;
 		Equipment equip = (Equipment) equipFacade;
 
 		final StringBuilder title = new StringBuilder(50);

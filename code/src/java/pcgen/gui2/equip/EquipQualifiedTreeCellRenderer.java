@@ -23,8 +23,8 @@ import java.awt.Component;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import pcgen.core.EquipmentModifier;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.UIPropertyContext;
@@ -65,7 +65,7 @@ public class EquipQualifiedTreeCellRenderer extends TreeColumnCellRenderer
 			obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 		}
 		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-		if (obj instanceof EquipModFacade && !character.isQualifiedFor(equip, (EquipModFacade) obj))
+		if (obj instanceof EquipmentModifier && !character.isQualifiedFor(equip, (EquipmentModifier) obj))
 		{
 			setForeground(UIPropertyContext.getNotQualifiedColor());
 		}

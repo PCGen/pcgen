@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
@@ -668,10 +669,10 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * Is the modifier able to be added to the item of equipment?
 	 * @param equipFacade The equipment item being modified.
-	 * @param eqModFacade The equipment modifier to be checked.
+	 * @param eqMod The equipment modifier to be checked.
 	 * @return True if it can be added, false if not.
 	 */
-	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade);
+	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipmentModifier eqMod);
 
 	public Nature getAbilityNature(AbilityFacade ability);
 	//
