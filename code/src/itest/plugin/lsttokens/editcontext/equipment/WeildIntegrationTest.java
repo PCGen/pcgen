@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext.equipment;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.core.Equipment;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
@@ -34,11 +32,13 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
 
+import org.junit.Test;
+
 public class WeildIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
-	private static WieldToken token = new WieldToken();
-	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static final CDOMPrimaryToken<Equipment> token = new WieldToken();
+	private static final CDOMLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
