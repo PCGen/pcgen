@@ -27,8 +27,7 @@ import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.StringTokenizer;
-
-import org.apache.commons.lang3.math.Fraction;
+import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.content.CNAbility;
@@ -41,7 +40,6 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -102,41 +100,29 @@ public class PlayerCharacterOutput
 	public String getCR()
 	{
 		Integer calcCR = display.calcCR();
-		float cr = (calcCR == null) ? -1 : calcCR;
 		String retString = "";
-
-		// If the CR is a fractional CR then we convert to a 1/x format
-		if ((cr > 0) && (cr < 1))
+		if (calcCR == null)
 		{
-			Fraction fraction = Fraction.getFraction(cr); // new Fraction(CR);
-			int denominator = fraction.getDenominator();
-			int numerator = fraction.getNumerator();
-			retString = numerator + "/" + denominator;
+			retString = "0";
 		}
-		else if ((cr >= 1) || (cr == 0))
+		else if (calcCR >= 1)
 		{
-			int newCr = -99;
-			String crAsString = Float.toString(cr);
-			String decimalPlaceValue = crAsString.substring(crAsString.length() - 2);
-			if (decimalPlaceValue.equals(".0"))
-			{
-				newCr = (int) cr;
-			}
-
-			retString += ((newCr > -99) ? newCr : cr);
+			retString += calcCR;
 		}
+		else if (calcCR < 1)
+		{
+			retString = SettingsHandler.getGame().getCRSteps().get(calcCR);
+		}
+
 		return retString;
 	}
 
 	public String getClasses()
 	{
-		StringBuilder sb = new StringBuilder();
-		for (PCClass mClass : display.getClassSet())
-		{
-			sb.append(mClass.getDisplayName()).append(display.getLevel(mClass)).append(" ");
-		}
-
-		return sb.toString();
+		return display.getClassSet()
+		              .stream()
+		              .map(mClass -> mClass.getDisplayName() + display.getLevel(mClass) + " ")
+		              .collect(Collectors.joining());
 	}
 
 	/**

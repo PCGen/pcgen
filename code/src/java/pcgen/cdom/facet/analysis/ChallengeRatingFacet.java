@@ -37,8 +37,9 @@ import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.ClassType;
 import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
+
+import org.jetbrains.annotations.Nullable;
 
 /**
  * ChallengeRatingFacet is a Facet that calculates the Challenge Rating of a
@@ -64,6 +65,7 @@ public class ChallengeRatingFacet
 	 * @return The Challenge Rating of the Player Character represented by the
 	 *         given CharID
 	 */
+	@Nullable
 	public Integer getCR(CharID id)
 	{
 		int cr = 0;
@@ -148,14 +150,14 @@ public class ChallengeRatingFacet
 	 */
 	private int getTemplateCR(CharID id)
 	{
-		int cr = 0;
-
 		// Calculate and add the CR from the templates
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			cr += template.getCR(levelFacet.getTotalLevels(id), levelFacet.getMonsterLevelCount(id));
-		}
-		return cr;
+		return templateFacet.getSet(id)
+		                    .stream()
+		                    .mapToInt(template -> template.getCR(
+				                      levelFacet.getTotalLevels(id),
+				                      levelFacet.getMonsterLevelCount(id)
+		                      ))
+		                    .sum();
 	}
 
 	/**
@@ -205,7 +207,7 @@ public class ChallengeRatingFacet
 		int threshold = 0;
 
 		List<String> raceRoleList = raceFacet.get(id).getListFor(ListKey.MONSTER_ROLES);
-		if (raceRoleList == null || raceRoleList.isEmpty())
+		if ((raceRoleList == null) || raceRoleList.isEmpty())
 		{
 			raceRoleList = SettingsHandler.getGame().getMonsterRoleDefaultList();
 		}
@@ -223,25 +225,18 @@ public class ChallengeRatingFacet
 			if (classRoleList != null)
 			{
 				classRoleList.retainAll(raceRoleList);
-				if (!classRoleList.isEmpty())
+				if (classRoleList.isEmpty())
 				{
-					levelsKey += levels;
+					levelsNonKey += levels;
 				}
 				else
 				{
-					levelsNonKey += levels;
+					levelsKey += levels;
 				}
 			}
 			else
 			{
-				if (raceRoleList != null)
-				{
-					levelsNonKey += levels;
-				}
-				else
-				{
-					levelsKey += levels;
-				}
+				levelsNonKey += levels;
 			}
 
 		}
@@ -393,7 +388,7 @@ public class ChallengeRatingFacet
 		return crMod;
 	}
 
-	private int getClassCRModPriority(PCClass cl)
+	private static int getClassCRModPriority(PCClass cl)
 	{
 		int crModPriority = 0;
 
