@@ -17,13 +17,11 @@
  */
 package pcgen.core;
 
-import pcgen.facade.core.ChronicleEntryFacade;
-
 /**
  * The Class {@code ChronicleEntry} contains a record of an
  * event in the character's history.
  */
-public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
+public class ChronicleEntry implements Cloneable
 {
 	private boolean outputEntry = true;
 	private String campaign = "";
@@ -37,7 +35,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the outputEntry
 	 */
-	@Override
 	public boolean isOutputEntry()
 	{
 		return outputEntry;
@@ -46,7 +43,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param outputEntry the outputEntry to set
 	 */
-	@Override
 	public void setOutputEntry(boolean outputEntry)
 	{
 		this.outputEntry = outputEntry;
@@ -55,7 +51,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the campaign
 	 */
-	@Override
 	public String getCampaign()
 	{
 		return campaign;
@@ -64,7 +59,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param campaign the campaign to set
 	 */
-	@Override
 	public void setCampaign(String campaign)
 	{
 		this.campaign = campaign;
@@ -73,7 +67,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the adventure
 	 */
-	@Override
 	public String getAdventure()
 	{
 		return adventure;
@@ -82,7 +75,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param adventure the adventure to set
 	 */
-	@Override
 	public void setAdventure(String adventure)
 	{
 		this.adventure = adventure;
@@ -91,7 +83,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the party
 	 */
-	@Override
 	public String getParty()
 	{
 		return party;
@@ -100,7 +91,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param party the party to set
 	 */
-	@Override
 	public void setParty(String party)
 	{
 		this.party = party;
@@ -109,7 +99,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the date
 	 */
-	@Override
 	public String getDate()
 	{
 		return date;
@@ -118,7 +107,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param date the date to set
 	 */
-	@Override
 	public void setDate(String date)
 	{
 		this.date = date;
@@ -127,7 +115,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the xpField
 	 */
-	@Override
 	public int getXpField()
 	{
 		return xpField;
@@ -136,7 +123,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param xpField the xpField to set
 	 */
-	@Override
 	public void setXpField(int xpField)
 	{
 		this.xpField = xpField;
@@ -145,7 +131,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the gmField
 	 */
-	@Override
 	public String getGmField()
 	{
 		return gmField;
@@ -154,7 +139,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param gmField the gmField to set
 	 */
-	@Override
 	public void setGmField(String gmField)
 	{
 		this.gmField = gmField;
@@ -163,7 +147,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @return the chronicle
 	 */
-	@Override
 	public String getChronicle()
 	{
 		return chronicle;
@@ -172,7 +155,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 	/**
 	 * @param chronicle the chronicle to set
 	 */
-	@Override
 	public void setChronicle(String chronicle)
 	{
 		this.chronicle = chronicle;
