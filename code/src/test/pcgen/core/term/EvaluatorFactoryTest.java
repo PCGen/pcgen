@@ -100,9 +100,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "ACCHECK";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor002 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor002 pattern matches all of " + term);
+		assertEquals("Constructor002 pattern matches all of " + term, term, mat.group(1));
 
-		// "ACCHECK",			   COMPLETE_ACCHECK			    
+		// "ACCHECK",			   COMPLETE_ACCHECK
 
 	}
 
@@ -131,7 +131,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "ACHECK";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor003 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor003 pattern matches all of " + term);
+		assertEquals("Constructor003 pattern matches all of " + term, term, mat.group(1));
 
 		// "ACHECK",			   COMPLETE_ACCHECK
 
@@ -163,7 +163,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "ARMORACCHECK";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor004 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor004 pattern matches all of " + term);
+		assertEquals("Constructor004 pattern matches all of " + term, term, mat.group(1));
 
 		// "ARMORACCHECK",		   COMPLETE_ARMORACCHECK
 
@@ -195,7 +195,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "ARMORACHECK";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor005 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor005 pattern matches all of " + term);
+		assertEquals("Constructor005 pattern matches all of " + term, term, mat.group(1));
 
 		// "ARMORACHECK",		   COMPLETE_ARMORACCHECK
 
@@ -227,7 +227,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "BAB";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor006 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor006 pattern matches all of " + term);
+		assertEquals("Constructor006 pattern matches all of " + term, term, mat.group(1));
 
 		// "BAB",			   COMPLETE_BAB
 
@@ -259,7 +259,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "BASESPELLSTAT";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor007 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor007 pattern matches all of " + term);
+		assertEquals("Constructor007 pattern matches all of " + term, term, mat.group(1));
 
 		// "BASESPELLSTAT",		   COMPLETE_BASESPELLSTAT
 
@@ -387,7 +387,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "CASTERLEVEL";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor011 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor011 pattern matches all of " + term);
+		assertEquals("Constructor011 pattern matches all of " + term, term, mat.group(1));
 
 		// "CASTERLEVEL",		   COMPLETE_CASTERLEVEL
 
@@ -419,7 +419,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "CASTERLEVEL.TOTAL";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor012 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor012 pattern matches all of " + term);
+		assertEquals("Constructor012 pattern matches all of " + term, term, mat.group(1));
 
 		// "CASTERLEVEL.TOTAL",		   COMPLETE_CASTERLEVEL
 
@@ -739,7 +739,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[ATTACKS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor022 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor022 pattern matches all of " + term);
+		assertEquals("Constructor022 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[ATTACKS]",		   COMPLETE_COUNT_ATTACKS
 
@@ -771,7 +771,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[CHECKS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor023 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor023 pattern matches all of " + term);
+		assertEquals("Constructor023 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[CHECKS]",		   COMPLETE_COUNT_CHECKS
 
@@ -803,7 +803,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[CLASSES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor024 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor024 pattern matches all of " + term);
+		assertEquals("Constructor024 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[CLASSES]",		   COMPLETE_COUNT_CLASSES
 
@@ -835,7 +835,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[CONTAINERS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor025 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor025 pattern matches all of " + term);
+		assertEquals("Constructor025 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[CONTAINERS]",		   COMPLETE_COUNT_CONTAINERS
 
@@ -867,7 +867,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[DOMAINS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor026 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor026 pattern matches all of " + term);
+		assertEquals("Constructor026 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[DOMAINS]",		   COMPLETE_COUNT_DOMAINS
 
@@ -1091,7 +1091,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor033 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor033 pattern matches all of " + term);
+		assertEquals("Constructor033 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS.ALL]",		   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1123,7 +1123,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor034 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor034 pattern matches all of " + term);
+		assertEquals("Constructor034 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1155,7 +1155,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor035 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor035 pattern matches all of " + term);
+		assertEquals("Constructor035 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1187,7 +1187,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSALL.ALL]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor036 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor036 pattern matches all of " + term);
+		assertEquals("Constructor036 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL.ALL]",	   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1219,7 +1219,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSALL.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor037 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor037 pattern matches all of " + term);
+		assertEquals("Constructor037 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1251,7 +1251,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSALL.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor038 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor038 pattern matches all of " + term);
+		assertEquals("Constructor038 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1283,7 +1283,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSALL]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor039 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor039 pattern matches all of " + term);
+		assertEquals("Constructor039 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL]",		   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1315,7 +1315,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSAUTO.ALL]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor040 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor040 pattern matches all of " + term);
+		assertEquals("Constructor040 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO.ALL]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1347,7 +1347,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSAUTO.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor041 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor041 pattern matches all of " + term);
+		assertEquals("Constructor041 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1379,7 +1379,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSAUTO.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor042 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor042 pattern matches all of " + term);
+		assertEquals("Constructor042 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1411,7 +1411,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATSAUTO]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor043 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor043 pattern matches all of " + term);
+		assertEquals("Constructor043 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO]",		   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1443,7 +1443,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FEATS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor044 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor044 pattern matches all of " + term);
+		assertEquals("Constructor044 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS]",		   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1539,7 +1539,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[FOLLOWERS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor047 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor047 pattern matches all of " + term);
+		assertEquals("Constructor047 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FOLLOWERS]",		   COMPLETE_COUNT_FOLLOWERS
 
@@ -1603,7 +1603,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[LANGUAGES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor049 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor049 pattern matches all of " + term);
+		assertEquals("Constructor049 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[LANGUAGES]",		   COMPLETE_COUNT_LANGUAGES
 
@@ -1635,7 +1635,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[MISC.COMPANIONS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor050 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor050 pattern matches all of " + term);
+		assertEquals("Constructor050 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MISC.COMPANIONS]",	   COMPLETE_COUNT_MISC_COMPANIONS
 
@@ -1667,7 +1667,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[MISC.FUNDS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor051 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor051 pattern matches all of " + term);
+		assertEquals("Constructor051 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MISC.FUNDS]",		   COMPLETE_COUNT_MISC_FUNDS
 
@@ -1699,7 +1699,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[MISC.MAGIC]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor052 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor052 pattern matches all of " + term);
+		assertEquals("Constructor052 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MISC.MAGIC]",		   COMPLETE_COUNT_MISC_MAGIC
 
@@ -1731,7 +1731,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[MOVE]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor053 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor053 pattern matches all of " + term);
+		assertEquals("Constructor053 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MOVE]",		   COMPLETE_COUNT_MOVE
 
@@ -1763,7 +1763,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[NOTES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor054 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor054 pattern matches all of " + term);
+		assertEquals("Constructor054 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[NOTES]",		   COMPLETE_COUNT_NOTES
 
@@ -1795,7 +1795,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[RACESUBTYPES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor055 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor055 pattern matches all of " + term);
+		assertEquals("Constructor055 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[RACESUBTYPES]",	   COMPLETE_COUNT_RACESUBTYPES
 
@@ -1827,7 +1827,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[SA]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor056 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor056 pattern matches all of " + term);
+		assertEquals("Constructor056 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SA]",			   COMPLETE_COUNT_SA
 
@@ -1859,7 +1859,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[SKILLS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor057 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor057 pattern matches all of " + term);
+		assertEquals("Constructor057 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SKILLS]",		   COMPLETE_COUNT_SKILLS
 
@@ -1987,7 +1987,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[SPELLCLASSES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor061 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor061 pattern matches all of " + term);
+		assertEquals("Constructor061 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SPELLCLASSES]",	   COMPLETE_COUNT_SPELLCLASSES
 
@@ -2019,7 +2019,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[SPELLRACE]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor062 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor062 pattern matches all of " + term);
+		assertEquals("Constructor062 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SPELLRACE]",		   COMPLETE_COUNT_SPELLRACE
 
@@ -2179,7 +2179,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[STATS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor067 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor067 pattern matches all of " + term);
+		assertEquals("Constructor067 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[STATS]",		   COMPLETE_COUNT_STATS
 
@@ -2211,7 +2211,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[TEMPBONUSNAMES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor068 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor068 pattern matches all of " + term);
+		assertEquals("Constructor068 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[TEMPBONUSNAMES]",	   COMPLETE_COUNT_TEMPBONUSNAMES
 
@@ -2243,7 +2243,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[TEMPLATES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor069 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor069 pattern matches all of " + term);
+		assertEquals("Constructor069 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[TEMPLATES]",		   COMPLETE_COUNT_TEMPLATES
 
@@ -2275,7 +2275,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[VFEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor070 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor070 pattern matches all of " + term);
+		assertEquals("Constructor070 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS.ALL]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2307,7 +2307,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[VFEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor071 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor071 pattern matches all of " + term);
+		assertEquals("Constructor071 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2339,7 +2339,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[VFEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor072 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor072 pattern matches all of " + term);
+		assertEquals("Constructor072 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2371,7 +2371,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[VFEATS]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor073 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor073 pattern matches all of " + term);
+		assertEquals("Constructor073 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2467,7 +2467,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[VISIBLETEMPLATES]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor076 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor076 pattern matches all of " + term);
+		assertEquals("Constructor076 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VISIBLETEMPLATES]",	   COMPLETE_COUNT_VISIBLETEMPLATES
 
@@ -2499,7 +2499,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "COUNT[VISION]";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor077 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor077 pattern matches all of " + term);
+		assertEquals("Constructor077 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VISION]",		   COMPLETE_COUNT_VISION
 
@@ -2531,7 +2531,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "ENCUMBERANCE";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor078 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor078 pattern matches all of " + term);
+		assertEquals("Constructor078 pattern matches all of " + term, term, mat.group(1));
 
 		// "ENCUMBERANCE",		   COMPLETE_ENCUMBERANCE
 
@@ -2659,7 +2659,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "HD";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor082 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor082 pattern matches all of " + term);
+		assertEquals("Constructor082 pattern matches all of " + term, term, mat.group(1));
 
 		// "HD",			   COMPLETE_HD
 
@@ -2691,7 +2691,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "MAXCASTABLE";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor083 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor083 pattern matches all of " + term);
+		assertEquals("Constructor083 pattern matches all of " + term, term, mat.group(1));
 
 		// "MAXCASTABLE",		   COMPLETE_MAXCASTABLE
 
@@ -2755,7 +2755,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "MOVEBASE";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor085 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor085 pattern matches all of " + term);
+		assertEquals("Constructor085 pattern matches all of " + term, term, mat.group(1));
 
 		// "MOVEBASE",			   COMPLETE_MOVEBASE
 
@@ -2819,7 +2819,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "PC.HEIGHT";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor087 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor087 pattern matches all of " + term);
+		assertEquals("Constructor087 pattern matches all of " + term, term, mat.group(1));
 
 		// "PC.HEIGHT",			   COMPLETE_PC_HEIGHT
 
@@ -2883,7 +2883,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "PC.WEIGHT";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor089 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor089 pattern matches all of " + term);
+		assertEquals("Constructor089 pattern matches all of " + term, term, mat.group(1));
 
 		// "PC.WEIGHT",			   COMPLETE_PC_WEIGHT
 
@@ -2915,7 +2915,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "PROFACCHECK";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor090 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor090 pattern matches all of " + term);
+		assertEquals("Constructor090 pattern matches all of " + term, term, mat.group(1));
 
 		// "PROFACCHECK",		   COMPLETE_PROFACCHECK
 
@@ -2947,7 +2947,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "RACESIZE";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor091 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor091 pattern matches all of " + term);
+		assertEquals("Constructor091 pattern matches all of " + term, term, mat.group(1));
 
 		// "RACESIZE",			   COMPLETE_RACESIZE
 
@@ -2979,7 +2979,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SCORE";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor092 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor092 pattern matches all of " + term);
+		assertEquals("Constructor092 pattern matches all of " + term, term, mat.group(1));
 
 		// "SCORE",			   COMPLETE_SCORE
 
@@ -3011,7 +3011,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SHIELDACCHECK";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor093 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor093 pattern matches all of " + term);
+		assertEquals("Constructor093 pattern matches all of " + term, term, mat.group(1));
 
 		// "SHIELDACCHECK",		   COMPLETE_SHIELDACCHECK
 
@@ -3043,7 +3043,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SHIELDACHECK";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor094 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor094 pattern matches all of " + term);
+		assertEquals("Constructor094 pattern matches all of " + term, term, mat.group(1));
 
 		// "SHIELDACHECK",		   COMPLETE_SHIELDACCHECK
 
@@ -3075,7 +3075,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SIZE";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor095 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor095 pattern matches all of " + term);
+		assertEquals("Constructor095 pattern matches all of " + term, term, mat.group(1));
 
 		// "SIZE",			   COMPLETE_SIZEMOD
 
@@ -3107,7 +3107,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SIZEMOD";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor096 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor096 pattern matches all of " + term);
+		assertEquals("Constructor096 pattern matches all of " + term, term, mat.group(1));
 
 		// "SIZEMOD",			   COMPLETE_SIZEMOD
 
@@ -3267,7 +3267,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SPELLBASESTAT";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor101 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor101 pattern matches all of " + term);
+		assertEquals("Constructor101 pattern matches all of " + term, term, mat.group(1));
 
 		// "SPELLBASESTAT",		   COMPLETE_SPELLBASESTAT
 
@@ -3299,7 +3299,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SPELLBASESTATSCORE";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor102 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor102 pattern matches all of " + term);
+		assertEquals("Constructor102 pattern matches all of " + term, term, mat.group(1));
 
 		// "SPELLBASESTATSCORE",	   COMPLETE_SPELLBASESTAT
 
@@ -3331,7 +3331,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "SPELLLEVEL";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor103 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor103 pattern matches all of " + term);
+		assertEquals("Constructor103 pattern matches all of " + term, term, mat.group(1));
 
 		// "SPELLLEVEL",		   COMPLETE_SPELLLEVEL
 
@@ -3363,7 +3363,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		String term = "TL";
 		Matcher mat = iVP.matcher(term);
 		assertTrue("Constructor104 pattern matches for " + term, mat.find());
-		is(mat.group(1), strEq(term), "Constructor104 pattern matches all of " + term);
+		assertEquals("Constructor104 pattern matches all of " + term, term, mat.group(1));
 
 		// "TL",			   COMPLETE_TL
 
@@ -3461,7 +3461,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("Constructor107 pattern matches for " + term, mat.find());
 		assertTrue("Constructor107 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
-		// "DEXSCORE",			      START_STAT			       
+		// "DEXSCORE",			      START_STAT
 
 	}
 
@@ -3496,7 +3496,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator001", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator001 stored term is correct " + term);
+		assertEquals("GetTermEvaluator001 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3530,7 +3530,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator002", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator002 stored term is correct " + term);
+		assertEquals("GetTermEvaluator002 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3564,7 +3564,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator003", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator003 stored term is correct " + term);
+		assertEquals("GetTermEvaluator003 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3598,7 +3598,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator004", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator004 stored term is correct " + term);
+		assertEquals("GetTermEvaluator004 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3632,7 +3632,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator005", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator005 stored term is correct " + term);
+		assertEquals("GetTermEvaluator005 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3669,8 +3669,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator006", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator006 stored term is correct " + term);
-		is(field1, strEq("Foo"), "GetTermEvaluator006 field source is correct ");
+		assertEquals("GetTermEvaluator006 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator006 field source is correct ", "Foo", field1);
 	}
 
 	/**
@@ -3707,8 +3707,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator007", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator007 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator007 field source is correct ");
+		assertEquals("GetTermEvaluator007 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator007 field source is correct ", "", field1);
 	}
 
 	/**
@@ -3745,8 +3745,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator008", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator008 stored term is correct " + term);
-		is(field1, strEq("RACE.Bar"), "GetTermEvaluator008 field source is correct ");
+		assertEquals("GetTermEvaluator008 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator008 field source is correct ", "RACE.Bar", field1);
 	}
 
 	/**
@@ -3783,8 +3783,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator009", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator009 stored term is correct " + term);
-		is(field1, strEq("Foo"), "GetTermEvaluator009 field source is correct ");
+		assertEquals("GetTermEvaluator009 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator009 field source is correct ", "Foo", field1);
 	}
 
 	/**
@@ -3818,7 +3818,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator010", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator010 stored term is correct " + term);
+		assertEquals("GetTermEvaluator010 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3852,7 +3852,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator011", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator011 stored term is correct " + term);
+		assertEquals("GetTermEvaluator011 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3886,7 +3886,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator012", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator012 stored term is correct " + term);
+		assertEquals("GetTermEvaluator012 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3920,7 +3920,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator013", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator013 stored term is correct " + term);
+		assertEquals("GetTermEvaluator013 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3954,7 +3954,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator014", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator014 stored term is correct " + term);
+		assertEquals("GetTermEvaluator014 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -3988,7 +3988,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator015", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator015 stored term is correct " + term);
+		assertEquals("GetTermEvaluator015 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4022,7 +4022,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator016", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator016 stored term is correct " + term);
+		assertEquals("GetTermEvaluator016 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4063,7 +4063,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator017", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator017 stored term is correct " + term);
+		assertEquals("GetTermEvaluator017 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator017 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator017 field visible is correct ", field2);
 	}
@@ -4106,7 +4106,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator018", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator018 stored term is correct " + term);
+		assertEquals("GetTermEvaluator018 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator018 field hidden is correct ", field1);
 		assertFalse("GetTermEvaluator018 field visible is correct ", field2);
 	}
@@ -4149,7 +4149,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator019", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator019 stored term is correct " + term);
+		assertEquals("GetTermEvaluator019 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator019 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator019 field visible is correct ", field2);
 	}
@@ -4192,7 +4192,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator020", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator020 stored term is correct " + term);
+		assertEquals("GetTermEvaluator020 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator020 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator020 field visible is correct ", field2);
 	}
@@ -4235,7 +4235,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator021", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator021 stored term is correct " + term);
+		assertEquals("GetTermEvaluator021 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator021 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator021 field visible is correct ", field2);
 	}
@@ -4278,7 +4278,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator022", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator022 stored term is correct " + term);
+		assertEquals("GetTermEvaluator022 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator022 field hidden is correct ", field1);
 		assertFalse("GetTermEvaluator022 field visible is correct ", field2);
 	}
@@ -4321,7 +4321,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator023", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator023 stored term is correct " + term);
+		assertEquals("GetTermEvaluator023 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator023 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator023 field visible is correct ", field2);
 	}
@@ -4364,7 +4364,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator024", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator024 stored term is correct " + term);
+		assertEquals("GetTermEvaluator024 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator024 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator024 field visible is correct ", field2);
 	}
@@ -4407,7 +4407,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator025", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator025 stored term is correct " + term);
+		assertEquals("GetTermEvaluator025 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator025 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator025 field visible is correct ", field2);
 	}
@@ -4450,7 +4450,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator026", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator026 stored term is correct " + term);
+		assertEquals("GetTermEvaluator026 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator026 field hidden is correct ", field1);
 		assertFalse("GetTermEvaluator026 field visible is correct ", field2);
 	}
@@ -4493,7 +4493,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator027", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator027 stored term is correct " + term);
+		assertEquals("GetTermEvaluator027 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator027 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator027 field visible is correct ", field2);
 	}
@@ -4536,7 +4536,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator028", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator028 stored term is correct " + term);
+		assertEquals("GetTermEvaluator028 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator028 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator028 field visible is correct ", field2);
 	}
@@ -4579,7 +4579,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator029", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator029 stored term is correct " + term);
+		assertEquals("GetTermEvaluator029 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator029 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator029 field visible is correct ", field2);
 	}
@@ -4622,7 +4622,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator030", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator030 stored term is correct " + term);
+		assertEquals("GetTermEvaluator030 stored term is correct " + term, term, field0);
 		assertTrue("GetTermEvaluator030 field hidden is correct ", field1);
 		assertFalse("GetTermEvaluator030 field visible is correct ", field2);
 	}
@@ -4665,7 +4665,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator031", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator031 stored term is correct " + term);
+		assertEquals("GetTermEvaluator031 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator031 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator031 field visible is correct ", field2);
 	}
@@ -4708,7 +4708,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator032", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator032 stored term is correct " + term);
+		assertEquals("GetTermEvaluator032 stored term is correct " + term, term, field0);
 		assertFalse("GetTermEvaluator032 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator032 field visible is correct ", field2);
 	}
@@ -4744,7 +4744,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator033", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator033 stored term is correct " + term);
+		assertEquals("GetTermEvaluator033 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4778,7 +4778,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator034", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator034 stored term is correct " + term);
+		assertEquals("GetTermEvaluator034 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4813,7 +4813,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator035", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator035 stored term is correct " + term);
+		assertEquals("GetTermEvaluator035 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4847,7 +4847,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator036", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator036 stored term is correct " + term);
+		assertEquals("GetTermEvaluator036 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4881,7 +4881,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator037", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator037 stored term is correct " + term);
+		assertEquals("GetTermEvaluator037 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4915,7 +4915,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator038", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator038 stored term is correct " + term);
+		assertEquals("GetTermEvaluator038 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4949,7 +4949,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator039", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator039 stored term is correct " + term);
+		assertEquals("GetTermEvaluator039 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -4984,7 +4984,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator040", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator040 stored term is correct " + term);
+		assertEquals("GetTermEvaluator040 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5018,7 +5018,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator041", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator041 stored term is correct " + term);
+		assertEquals("GetTermEvaluator041 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5052,7 +5052,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator042", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator042 stored term is correct " + term);
+		assertEquals("GetTermEvaluator042 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5087,7 +5087,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator043", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator043 stored term is correct " + term);
+		assertEquals("GetTermEvaluator043 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5121,7 +5121,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator044", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator044 stored term is correct " + term);
+		assertEquals("GetTermEvaluator044 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5155,7 +5155,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator045", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator045 stored term is correct " + term);
+		assertEquals("GetTermEvaluator045 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5190,7 +5190,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator046", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator046 stored term is correct " + term);
+		assertEquals("GetTermEvaluator046 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5224,7 +5224,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator047", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator047 stored term is correct " + term);
+		assertEquals("GetTermEvaluator047 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5259,7 +5259,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator048", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator048 stored term is correct " + term);
+		assertEquals("GetTermEvaluator048 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5293,7 +5293,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator049", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator049 stored term is correct " + term);
+		assertEquals("GetTermEvaluator049 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5327,7 +5327,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator050", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator050 stored term is correct " + term);
+		assertEquals("GetTermEvaluator050 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5361,7 +5361,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator051", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator051 stored term is correct " + term);
+		assertEquals("GetTermEvaluator051 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5395,7 +5395,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in testGetTermEvaluatorHp", ok);
 
-		is(field0, strEq(term), "testGetTermEvaluatorHp stored term is correct " + term);
+		assertEquals("testGetTermEvaluatorHp stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5433,8 +5433,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator052", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator052 stored term is correct " + term);
-		is(field1.getKeyName(), strEq("Bard"), "GetTermEvaluator052 field spellList is correct ");
+		assertEquals("GetTermEvaluator052 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator052 field spellList is correct ", "Bard", field1.getKeyName());
 	}
 
 	/**
@@ -5472,8 +5472,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator053", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator053 stored term is correct " + term);
-		is(field1, strEq("Fire"), "GetTermEvaluator053 field domainKey is correct ");
+		assertEquals("GetTermEvaluator053 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator053 field domainKey is correct ", "Fire", field1);
 	}
 
 	/**
@@ -5511,8 +5511,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator054", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator054 stored term is correct " + term);
-		is(field1, strEq("Arcane"), "GetTermEvaluator054 field typeKey is correct ");
+		assertEquals("GetTermEvaluator054 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator054 field typeKey is correct ", "Arcane", field1);
 	}
 
 	/**
@@ -5546,7 +5546,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator055", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator055 stored term is correct " + term);
+		assertEquals("GetTermEvaluator055 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5594,7 +5594,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator057", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator057 stored term is correct " + term);
+		assertEquals("GetTermEvaluator057 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5628,7 +5628,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator058", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator058 stored term is correct " + term);
+		assertEquals("GetTermEvaluator058 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5662,7 +5662,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator059", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator059 stored term is correct " + term);
+		assertEquals("GetTermEvaluator059 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5699,8 +5699,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator060", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator060 stored term is correct " + term);
-		is(field1, strEq("Dagger"), "GetTermEvaluator060 field eqKey is correct ");
+		assertEquals("GetTermEvaluator060 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator060 field eqKey is correct ", "Dagger", field1);
 	}
 
 	/**
@@ -5737,8 +5737,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator061", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator061 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator061 field eqKey is correct ");
+		assertEquals("GetTermEvaluator061 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator061 field eqKey is correct ", "", field1);
 	}
 
 	/**
@@ -5772,7 +5772,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator062", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator062 stored term is correct " + term);
+		assertEquals("GetTermEvaluator062 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5809,8 +5809,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator063", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator063 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator063 field stat is correct ");
+		assertEquals("GetTermEvaluator063 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator063 field stat is correct ", "INT", field1);
 	}
 
 	/**
@@ -5847,8 +5847,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator064", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator064 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator064 field stat is correct ");
+		assertEquals("GetTermEvaluator064 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator064 field stat is correct ", "", field1);
 	}
 
 	/**
@@ -5882,7 +5882,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator065", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator065 stored term is correct " + term);
+		assertEquals("GetTermEvaluator065 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5916,7 +5916,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator066", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator066 stored term is correct " + term);
+		assertEquals("GetTermEvaluator066 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5950,7 +5950,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator067", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator067 stored term is correct " + term);
+		assertEquals("GetTermEvaluator067 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -5984,7 +5984,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator068", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator068 stored term is correct " + term);
+		assertEquals("GetTermEvaluator068 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -6021,8 +6021,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator069", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator069 stored term is correct " + term);
-		is(field1, strEq("Cleric"), "GetTermEvaluator069 field classKey is correct ");
+		assertEquals("GetTermEvaluator069 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator069 field classKey is correct ", "Cleric", field1);
 	}
 
 	/**
@@ -6060,8 +6060,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator070", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator070 stored term is correct " + term);
-		is(field1, strEq("Cleric"), "GetTermEvaluator070 field classKey is correct ");
+		assertEquals("GetTermEvaluator070 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator070 field classKey is correct ", "Cleric", field1);
 	}
 
 	/**
@@ -6098,8 +6098,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator071", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator071 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator071 field classKey is correct ");
+		assertEquals("GetTermEvaluator071 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator071 field classKey is correct ", "", field1);
 	}
 
 	/**
@@ -6137,8 +6137,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator072", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator072 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator072 field classKey is correct ");
+		assertEquals("GetTermEvaluator072 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator072 field classKey is correct ", "", field1);
 	}
 
 	/**
@@ -6172,7 +6172,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator073", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator073 stored term is correct " + term);
+		assertEquals("GetTermEvaluator073 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -6206,7 +6206,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator074", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator074 stored term is correct " + term);
+		assertEquals("GetTermEvaluator074 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -6243,8 +6243,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator075", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator075 stored term is correct " + term);
-		is(field1, strEq("Ranger"), "GetTermEvaluator075 field source is correct ");
+		assertEquals("GetTermEvaluator075 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator075 field source is correct ", "Ranger", field1);
 	}
 
 	/**
@@ -6281,8 +6281,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator076", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator076 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator076 field source is correct ");
+		assertEquals("GetTermEvaluator076 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator076 field source is correct ", "", field1);
 	}
 
 	/**
@@ -6319,8 +6319,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator077", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator077 stored term is correct " + term);
-		is(field1, strEq("Wizard"), "GetTermEvaluator077 field source is correct ");
+		assertEquals("GetTermEvaluator077 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator077 field source is correct ", "Wizard", field1);
 	}
 
 	/**
@@ -6357,8 +6357,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator078", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator078 stored term is correct " + term);
-		is(field1, strEq("Cleric"), "GetTermEvaluator078 field source is correct ");
+		assertEquals("GetTermEvaluator078 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator078 field source is correct ", "Cleric", field1);
 	}
 
 	/**
@@ -6398,8 +6398,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator079", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator079 stored term is correct " + term);
-		is(field1, strEq("Ranger"), "GetTermEvaluator079 field source is correct ");
+		assertEquals("GetTermEvaluator079 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator079 field source is correct ", "Ranger", field1);
 		is(field2, eq(10), "GetTermEvaluator079 field level is correct ");
 	}
 
@@ -6440,8 +6440,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator080", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator080 stored term is correct " + term);
-		is(field1, strEq("Druid"), "GetTermEvaluator080 field source is correct ");
+		assertEquals("GetTermEvaluator080 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator080 field source is correct ", "Druid", field1);
 		is(field2, eq(15), "GetTermEvaluator080 field level is correct ");
 	}
 
@@ -6493,8 +6493,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator082", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator082 stored term is correct " + term);
-		is(field1, strEq("Bard (Bardiliscious)"), "GetTermEvaluator082 field classKey is correct ");
+		assertEquals("GetTermEvaluator082 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator082 field classKey is correct ", "Bard (Bardiliscious)", field1);
 	}
 
 	/**
@@ -6531,8 +6531,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator083", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator083 stored term is correct " + term);
-		is(field1, strEq("Rogue (Sneaky)"), "GetTermEvaluator083 field classKey is correct ");
+		assertEquals("GetTermEvaluator083 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator083 field classKey is correct ", "Rogue (Sneaky)", field1);
 	}
 
 	/**
@@ -6569,8 +6569,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator084", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator084 stored term is correct " + term);
-		is(field1, strEq("Druid"), "GetTermEvaluator084 field source is correct ");
+		assertEquals("GetTermEvaluator084 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator084 field source is correct ", "Druid", field1);
 	}
 
 	/**
@@ -6607,8 +6607,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator085", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator085 stored term is correct " + term);
-		is(field1, strEq("Paladin"), "GetTermEvaluator085 field source is correct ");
+		assertEquals("GetTermEvaluator085 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator085 field source is correct ", "Paladin", field1);
 	}
 
 	/**
@@ -6645,8 +6645,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator086", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator086 stored term is correct " + term);
-		is(field1, strEq("Ranger"), "GetTermEvaluator086 field classKey is correct ");
+		assertEquals("GetTermEvaluator086 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator086 field classKey is correct ", "Ranger", field1);
 	}
 
 	/**
@@ -6697,8 +6697,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator088", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator088 stored term is correct " + term);
-		is(field1, strEq("Bard"), "GetTermEvaluator088 field classKey is correct ");
+		assertEquals("GetTermEvaluator088 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator088 field classKey is correct ", "Bard", field1);
 	}
 
 	/**
@@ -6735,8 +6735,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator089", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator089 stored term is correct " + term);
-		is(field1, strEq("Rogue"), "GetTermEvaluator089 field classKey is correct ");
+		assertEquals("GetTermEvaluator089 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator089 field classKey is correct ", "Rogue", field1);
 	}
 
 	/**
@@ -6776,8 +6776,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator090", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator090 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator090 field types[0] is correct ");
+		assertEquals("GetTermEvaluator090 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator090 field types[0] is correct ", "", field1[0]);
 		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator090 field merge is correct ");
 	}
 
@@ -6818,8 +6818,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator091", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator091 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator091 field types[0] is correct ");
+		assertEquals("GetTermEvaluator091 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator091 field types[0] is correct ", "", field1[0]);
 		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator091 field merge is correct ");
 	}
 
@@ -6860,8 +6860,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator092", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator092 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator092 field types[0] is correct ");
+		assertEquals("GetTermEvaluator092 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator092 field types[0] is correct ", "", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator092 field merge is correct ");
 	}
 
@@ -6902,8 +6902,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator093", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator093 stored term is correct " + term);
-		is(field1[0], strEq("EQUIPPED"), "GetTermEvaluator093 field types[0] is correct ");
+		assertEquals("GetTermEvaluator093 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator093 field types[0] is correct ", "EQUIPPED", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator093 field merge is correct ");
 	}
 
@@ -6944,8 +6944,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator094", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator094 stored term is correct " + term);
-		is(field1[0], strEq("NOTEQUIPPED"), "GetTermEvaluator094 field types[0] is correct ");
+		assertEquals("GetTermEvaluator094 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator094 field types[0] is correct ", "NOTEQUIPPED", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator094 field merge is correct ");
 	}
 
@@ -6986,8 +6986,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator095", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator095 stored term is correct " + term);
-		is(field1[0], strEq("CONTAINER"), "GetTermEvaluator095 field types[0] is correct ");
+		assertEquals("GetTermEvaluator095 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator095 field types[0] is correct ", "CONTAINER", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator095 field merge is correct ");
 	}
 
@@ -7028,8 +7028,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator096", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator096 stored term is correct " + term);
-		is(field1[0], strEq("WEAPON"), "GetTermEvaluator096 field types[0] is correct ");
+		assertEquals("GetTermEvaluator096 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator096 field types[0] is correct ", "WEAPON", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator096 field merge is correct ");
 	}
 
@@ -7070,8 +7070,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator097", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator097 stored term is correct " + term);
-		is(field1[0], strEq("ACITEM"), "GetTermEvaluator097 field types[0] is correct ");
+		assertEquals("GetTermEvaluator097 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator097 field types[0] is correct ", "ACITEM", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator097 field merge is correct ");
 	}
 
@@ -7112,10 +7112,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator098", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator098 stored term is correct " + term);
-		is(field1[0], strEq("ARMOR"), "GetTermEvaluator098 field types[0] is correct ");
-		is(field1[1], strEq("IS"), "GetTermEvaluator098 field types[1] is correct ");
-		is(field1[2], strEq("FOO"), "GetTermEvaluator098 field types[2] is correct ");
+		assertEquals("GetTermEvaluator098 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator098 field types[0] is correct ", "ARMOR", field1[0]);
+		assertEquals("GetTermEvaluator098 field types[1] is correct ", "IS", field1[1]);
+		assertEquals("GetTermEvaluator098 field types[2] is correct ", "FOO", field1[2]);
 		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator098 field merge is correct ");
 	}
 
@@ -7156,10 +7156,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator099", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator099 stored term is correct " + term);
-		is(field1[0], strEq("QUX"), "GetTermEvaluator099 field types[0] is correct ");
-		is(field1[1], strEq("NOT"), "GetTermEvaluator099 field types[1] is correct ");
-		is(field1[2], strEq("BAR"), "GetTermEvaluator099 field types[2] is correct ");
+		assertEquals("GetTermEvaluator099 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator099 field types[0] is correct ", "QUX", field1[0]);
+		assertEquals("GetTermEvaluator099 field types[1] is correct ", "NOT", field1[1]);
+		assertEquals("GetTermEvaluator099 field types[2] is correct ", "BAR", field1[2]);
 		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator099 field merge is correct ");
 	}
 
@@ -7200,10 +7200,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator100", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator100 stored term is correct " + term);
-		is(field1[0], strEq("QUUX"), "GetTermEvaluator100 field types[0] is correct ");
-		is(field1[1], strEq("ADD"), "GetTermEvaluator100 field types[1] is correct ");
-		is(field1[2], strEq("BAZ"), "GetTermEvaluator100 field types[2] is correct ");
+		assertEquals("GetTermEvaluator100 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator100 field types[0] is correct ", "QUUX", field1[0]);
+		assertEquals("GetTermEvaluator100 field types[1] is correct ", "ADD", field1[1]);
+		assertEquals("GetTermEvaluator100 field types[2] is correct ", "BAZ", field1[2]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator100 field merge is correct ");
 	}
 
@@ -7244,10 +7244,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator101", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator101 stored term is correct " + term);
-		is(field1[0], strEq("WEAPON"), "GetTermEvaluator101 field types[0] is correct ");
-		is(field1[1], strEq("IS"), "GetTermEvaluator101 field types[1] is correct ");
-		is(field1[2], strEq("FOO"), "GetTermEvaluator101 field types[2] is correct ");
+		assertEquals("GetTermEvaluator101 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator101 field types[0] is correct ", "WEAPON", field1[0]);
+		assertEquals("GetTermEvaluator101 field types[1] is correct ", "IS", field1[1]);
+		assertEquals("GetTermEvaluator101 field types[2] is correct ", "FOO", field1[2]);
 		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator101 field merge is correct ");
 	}
 
@@ -7288,13 +7288,13 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator102", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator102 stored term is correct " + term);
-		is(field1[0], strEq("WEAPON"), "GetTermEvaluator102 field types[0] is correct ");
-		is(field1[1], strEq("IS"), "GetTermEvaluator102 field types[1] is correct ");
-		is(field1[2], strEq("FOO"), "GetTermEvaluator102 field types[2] is correct ");
-		is(field1[3], strEq("EQUIPPED"), "GetTermEvaluator102 field types[3] is correct ");
-		is(field1[4], strEq("ADD"), "GetTermEvaluator102 field types[4] is correct ");
-		is(field1[5], strEq("BAR"), "GetTermEvaluator102 field types[5] is correct ");
+		assertEquals("GetTermEvaluator102 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator102 field types[0] is correct ", "WEAPON", field1[0]);
+		assertEquals("GetTermEvaluator102 field types[1] is correct ", "IS", field1[1]);
+		assertEquals("GetTermEvaluator102 field types[2] is correct ", "FOO", field1[2]);
+		assertEquals("GetTermEvaluator102 field types[3] is correct ", "EQUIPPED", field1[3]);
+		assertEquals("GetTermEvaluator102 field types[4] is correct ", "ADD", field1[4]);
+		assertEquals("GetTermEvaluator102 field types[5] is correct ", "BAR", field1[5]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator102 field merge is correct ");
 	}
 
@@ -7335,8 +7335,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator103", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator103 stored term is correct " + term);
-		is(field1[0], strEq("FOO"), "GetTermEvaluator103 field types[0] is correct ");
+		assertEquals("GetTermEvaluator103 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator103 field types[0] is correct ", "FOO", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator103 field merge is correct ");
 	}
 
@@ -7419,8 +7419,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator107", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator107 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator107 field types[0] is correct ");
+		assertEquals("GetTermEvaluator107 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator107 field types[0] is correct ", "", field1[0]);
 		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator107 field merge is correct ");
 	}
 
@@ -7461,8 +7461,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator108", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator108 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator108 field types[0] is correct ");
+		assertEquals("GetTermEvaluator108 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator108 field types[0] is correct ", "", field1[0]);
 		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator108 field merge is correct ");
 	}
 
@@ -7503,8 +7503,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator109", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator109 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator109 field types[0] is correct ");
+		assertEquals("GetTermEvaluator109 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator109 field types[0] is correct ", "", field1[0]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator109 field merge is correct ");
 	}
 
@@ -7615,9 +7615,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator115", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator115 stored term is correct " + term);
-		is(field1[0], strEq("IS"), "GetTermEvaluator115 field types[0] is correct ");
-		is(field1[1], strEq("FOO"), "GetTermEvaluator115 field types[1] is correct ");
+		assertEquals("GetTermEvaluator115 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator115 field types[0] is correct ", "IS", field1[0]);
+		assertEquals("GetTermEvaluator115 field types[1] is correct ", "FOO", field1[1]);
 		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator115 field merge is correct ");
 	}
 
@@ -7658,9 +7658,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator116", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator116 stored term is correct " + term);
-		is(field1[0], strEq("NOT"), "GetTermEvaluator116 field types[0] is correct ");
-		is(field1[1], strEq("BAR"), "GetTermEvaluator116 field types[1] is correct ");
+		assertEquals("GetTermEvaluator116 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator116 field types[0] is correct ", "NOT", field1[0]);
+		assertEquals("GetTermEvaluator116 field types[1] is correct ", "BAR", field1[1]);
 		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator116 field merge is correct ");
 	}
 
@@ -7701,9 +7701,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator117", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator117 stored term is correct " + term);
-		is(field1[0], strEq("ADD"), "GetTermEvaluator117 field types[0] is correct ");
-		is(field1[1], strEq("BAZ"), "GetTermEvaluator117 field types[1] is correct ");
+		assertEquals("GetTermEvaluator117 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator117 field types[0] is correct ", "ADD", field1[0]);
+		assertEquals("GetTermEvaluator117 field types[1] is correct ", "BAZ", field1[1]);
 		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator117 field merge is correct ");
 	}
 
@@ -7763,9 +7763,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	//
 	//		assertTrue("No illegal access in getTermEvaluator119", ok);
 	//
-	//		is(field0, strEq(term), "GetTermEvaluator119 stored term is correct " + term);	       
-	//		is(field1[0], strEq(""), "GetTermEvaluator119 field types[0] is correct ");	       
-	//		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator119 field merge is correct ");	       
+	//		assertEquals("GetTermEvaluator119 stored term is correct " + term, term, field0);
+	//		assertEquals("GetTermEvaluator119 field types[0] is correct ", "", field1[0]);
+	//		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator119 field merge is correct ");
 	//	}
 
 	/**
@@ -7851,8 +7851,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator123", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator123 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator123 field types[0] is correct ");
+		assertEquals("GetTermEvaluator123 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator123 field types[0] is correct ", "", field1[0]);
 		assertTrue("GetTermEvaluator123 field hidden is correct ", field2);
 		assertFalse("GetTermEvaluator123 field visible is correct ", field3);
 	}
@@ -7898,8 +7898,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator124", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator124 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator124 field types[0] is correct ");
+		assertEquals("GetTermEvaluator124 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator124 field types[0] is correct ", "", field1[0]);
 		assertFalse("GetTermEvaluator124 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator124 field visible is correct ", field3);
 	}
@@ -7944,8 +7944,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator125", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator125 stored term is correct " + term);
-		is(field1, strEq("Jack of all trades"), "GetTermEvaluator125 field key is correct ");
+		assertEquals("GetTermEvaluator125 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator125 field key is correct ", "Jack of all trades", field1);
 		assertFalse("GetTermEvaluator125 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator125 field visible is correct ", field3);
 	}
@@ -7990,8 +7990,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator126", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator126 stored term is correct " + term);
-		is(field1, strEq("Weapon Focus (Dagger)"), "GetTermEvaluator126 field key is correct ");
+		assertEquals("GetTermEvaluator126 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator126 field key is correct ", "Weapon Focus (Dagger)", field1);
 		assertFalse("GetTermEvaluator126 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator126 field visible is correct ", field3);
 	}
@@ -8037,8 +8037,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator127", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator127 stored term is correct " + term);
-		is(field1[0], strEq("BAR"), "GetTermEvaluator127 field types[0] is correct ");
+		assertEquals("GetTermEvaluator127 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator127 field types[0] is correct ", "BAR", field1[0]);
 		assertFalse("GetTermEvaluator127 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator127 field visible is correct ", field3);
 	}
@@ -8084,8 +8084,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator128", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator128 stored term is correct " + term);
-		is(field1[0], strEq("BAZ"), "GetTermEvaluator128 field types[0] is correct ");
+		assertEquals("GetTermEvaluator128 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator128 field types[0] is correct ", "BAZ", field1[0]);
 		assertFalse("GetTermEvaluator128 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator128 field visible is correct ", field3);
 	}
@@ -8131,8 +8131,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator129", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator129 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator129 field types[0] is correct ");
+		assertEquals("GetTermEvaluator129 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator129 field types[0] is correct ", "", field1[0]);
 		assertTrue("GetTermEvaluator129 field hidden is correct ", field2);
 		assertFalse("GetTermEvaluator129 field visible is correct ", field3);
 	}
@@ -8178,8 +8178,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator130", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator130 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator130 field types[0] is correct ");
+		assertEquals("GetTermEvaluator130 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator130 field types[0] is correct ", "", field1[0]);
 		assertTrue("GetTermEvaluator130 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator130 field visible is correct ", field3);
 	}
@@ -8225,11 +8225,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator131", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator131 stored term is correct " + term);
-		is(field1[0], strEq("FOO"), "GetTermEvaluator131 field types[0] is correct ");
-		is(field1[1], strEq("BAR"), "GetTermEvaluator131 field types[1] is correct ");
-		is(field1[2], strEq("BAZ"), "GetTermEvaluator131 field types[2] is correct ");
-		is(field1[3], strEq("QUX"), "GetTermEvaluator131 field types[3] is correct ");
+		assertEquals("GetTermEvaluator131 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator131 field types[0] is correct ", "FOO", field1[0]);
+		assertEquals("GetTermEvaluator131 field types[1] is correct ", "BAR", field1[1]);
+		assertEquals("GetTermEvaluator131 field types[2] is correct ", "BAZ", field1[2]);
+		assertEquals("GetTermEvaluator131 field types[3] is correct ", "QUX", field1[3]);
 		assertFalse("GetTermEvaluator131 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator131 field visible is correct ", field3);
 	}
@@ -8269,8 +8269,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator132", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator132 stored term is correct " + term);
-		is(field1, strEq("MOO"), "GetTermEvaluator132 field type is correct ");
+		assertEquals("GetTermEvaluator132 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator132 field type is correct ", "MOO", field1);
 	}
 
 	/**
@@ -8314,10 +8314,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator133", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator133 stored term is correct " + term);
+		assertEquals("GetTermEvaluator133 stored term is correct " + term, term, field0);
 		is(field1, eq(0), "GetTermEvaluator133 field index is correct ");
-		is(field2, strEq("COUNT[EQTYPE]"), "GetTermEvaluator133 field newCount is correct ");
-		is(field3, strEq("MOO"), "GetTermEvaluator133 field type is correct ");
+		assertEquals("GetTermEvaluator133 field newCount is correct ", "COUNT[EQTYPE]", field2);
+		assertEquals("GetTermEvaluator133 field type is correct ", "MOO", field3);
 	}
 
 	/**
@@ -8382,8 +8382,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator136", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator136 stored term is correct " + term);
-		is(field1, strEq("KNOWLEDGE"), "GetTermEvaluator136 field type is correct ");
+		assertEquals("GetTermEvaluator136 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator136 field type is correct ", "KNOWLEDGE", field1);
 	}
 
 	/**
@@ -8420,8 +8420,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator137", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator137 stored term is correct " + term);
-		is(field1, strEq("PERFORM"), "GetTermEvaluator137 field type is correct ");
+		assertEquals("GetTermEvaluator137 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator137 field type is correct ", "PERFORM", field1);
 	}
 
 	/**
@@ -8455,7 +8455,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator138", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator138 stored term is correct " + term);
+		assertEquals("GetTermEvaluator138 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -8507,8 +8507,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator140", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator140 stored term is correct " + term);
-		is(field1, strEq("1.0"), "GetTermEvaluator140 field book is correct ");
+		assertEquals("GetTermEvaluator140 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator140 field book is correct ", "1.0", field1);
 	}
 
 	/**
@@ -8559,7 +8559,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator142", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator142 stored term is correct " + term);
+		assertEquals("GetTermEvaluator142 stored term is correct " + term, term, field0);
 		is(field1[0], eq(0), "GetTermEvaluator142 field nums[0] is correct ");
 		is(field1[1], eq(0), "GetTermEvaluator142 field nums[1] is correct ");
 	}
@@ -8649,7 +8649,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator146", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator146 stored term is correct " + term);
+		assertEquals("GetTermEvaluator146 stored term is correct " + term, term, field0);
 		is(field1, eq(1), "GetTermEvaluator146 field classNum is correct ");
 		is(field2, eq(2), "GetTermEvaluator146 field bookNum is correct ");
 		is(field3, eq(3), "GetTermEvaluator146 field spellLevel is correct ");
@@ -8694,7 +8694,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator147", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator147 stored term is correct " + term);
+		assertEquals("GetTermEvaluator147 stored term is correct " + term, term, field0);
 		is(field1, eq(1), "GetTermEvaluator147 field classNum is correct ");
 		is(field2, eq(2), "GetTermEvaluator147 field sbookNum is correct ");
 	}
@@ -8786,7 +8786,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator152", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator152 stored term is correct " + term);
+		assertEquals("GetTermEvaluator152 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -8823,8 +8823,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator153", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator153 stored term is correct " + term);
-		is(field1, strEq("Bane"), "GetTermEvaluator153 field deity is correct ");
+		assertEquals("GetTermEvaluator153 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator153 field deity is correct ", "Bane", field1);
 	}
 
 	/**
@@ -8861,8 +8861,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator154", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator154 stored term is correct " + term);
-		is(field1, strEq("Endurance"), "GetTermEvaluator154 field feat is correct ");
+		assertEquals("GetTermEvaluator154 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator154 field feat is correct ", "Endurance", field1);
 	}
 
 	/**
@@ -8899,8 +8899,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator155", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator155 stored term is correct " + term);
-		is(field1, strEq("SPELLFAILURE"), "GetTermEvaluator155 field modEq is correct ");
+		assertEquals("GetTermEvaluator155 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator155 field modEq is correct ", "SPELLFAILURE", field1);
 	}
 
 	/**
@@ -8937,8 +8937,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator156", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator156 stored term is correct " + term);
-		is(field1, strEq("Walk"), "GetTermEvaluator156 field movement is correct ");
+		assertEquals("GetTermEvaluator156 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator156 field movement is correct ", "Walk", field1);
 	}
 
 	/**
@@ -8986,7 +8986,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator158", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator158 stored term is correct " + term);
+		assertEquals("GetTermEvaluator158 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -9023,8 +9023,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator159", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator159 stored term is correct " + term);
-		is(field1, strEq("Tumble"), "GetTermEvaluator159 field rank is correct ");
+		assertEquals("GetTermEvaluator159 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator159 field rank is correct ", "Tumble", field1);
 	}
 
 	/**
@@ -9061,8 +9061,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator160", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator160 stored term is correct " + term);
-		is(field1, strEq("Perform (Dance)"), "GetTermEvaluator160 field rank is correct ");
+		assertEquals("GetTermEvaluator160 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator160 field rank is correct ", "Perform (Dance)", field1);
 	}
 
 	/**
@@ -9099,8 +9099,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator161", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator161 stored term is correct " + term);
-		is(field1, strEq("Perform (Sing)"), "GetTermEvaluator161 field rank is correct ");
+		assertEquals("GetTermEvaluator161 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator161 field rank is correct ", "Perform (Sing)", field1);
 	}
 
 	/**
@@ -9137,8 +9137,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator162", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator162 stored term is correct " + term);
-		is(field1, strEq("Tumble"), "GetTermEvaluator162 field total is correct ");
+		assertEquals("GetTermEvaluator162 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator162 field total is correct ", "Tumble", field1);
 	}
 
 	/**
@@ -9175,8 +9175,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator163", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator163 stored term is correct " + term);
-		is(field1, strEq("Perform (Dance)"), "GetTermEvaluator163 field total is correct ");
+		assertEquals("GetTermEvaluator163 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator163 field total is correct ", "Perform (Dance)", field1);
 	}
 
 	/**
@@ -9213,8 +9213,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator164", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator164 stored term is correct " + term);
-		is(field1, strEq("Perform (Sing)"), "GetTermEvaluator164 field total is correct ");
+		assertEquals("GetTermEvaluator164 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator164 field total is correct ", "Perform (Sing)", field1);
 	}
 
 	/**
@@ -9251,8 +9251,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator165", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator165 stored term is correct " + term);
-		is(field1, strEq("MilkyBarsEaten"), "GetTermEvaluator165 field var is correct ");
+		assertEquals("GetTermEvaluator165 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator165 field var is correct ", "MilkyBarsEaten", field1);
 	}
 
 	/**
@@ -9286,7 +9286,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator166", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator166 stored term is correct " + term);
+		assertEquals("GetTermEvaluator166 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -9320,7 +9320,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator167", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator167 stored term is correct " + term);
+		assertEquals("GetTermEvaluator167 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -9354,7 +9354,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator168", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator168 stored term is correct " + term);
+		assertEquals("GetTermEvaluator168 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -9388,7 +9388,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator169", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator169 stored term is correct " + term);
+		assertEquals("GetTermEvaluator169 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -9443,8 +9443,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator171", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator171 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator171 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator171 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator171 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
@@ -9481,8 +9481,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator172", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator172 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator172 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator172 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator172 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
@@ -9519,8 +9519,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator173", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator173 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator173 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator173 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator173 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
@@ -9557,8 +9557,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator174", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator174 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator174 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator174 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator174 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
@@ -9595,8 +9595,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator175", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator175 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator175 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator175 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator175 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
@@ -9633,8 +9633,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator176", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator176 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator176 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator176 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator176 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
@@ -9671,8 +9671,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator177", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator177 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator177 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator177 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator177 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
@@ -9709,8 +9709,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator178", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator178 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator178 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator178 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator178 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
@@ -9747,8 +9747,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator179", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator179 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator179 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator179 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator179 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
@@ -9785,8 +9785,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator180", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator180 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator180 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator180 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator180 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
@@ -9823,8 +9823,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator181", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator181 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator181 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator181 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator181 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
@@ -9861,8 +9861,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator182", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator182 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator182 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator182 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator182 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
@@ -9899,8 +9899,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator183", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator183 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator183 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator183 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator183 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
@@ -9937,8 +9937,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator184", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator184 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator184 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator184 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator184 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
@@ -9975,8 +9975,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator185", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator185 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator185 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator185 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator185 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
@@ -10013,8 +10013,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator186", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator186 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator186 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator186 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator186 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
@@ -10051,8 +10051,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator187", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator187 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator187 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator187 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator187 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
@@ -10089,8 +10089,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator188", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator188 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator188 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator188 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator188 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
@@ -10127,8 +10127,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator189", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator189 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator189 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator189 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator189 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
@@ -10165,8 +10165,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator190", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator190 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator190 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator190 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator190 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
@@ -10203,8 +10203,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator191", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator191 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator191 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator191 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator191 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
@@ -10241,8 +10241,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator192", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator192 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator192 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator192 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator192 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
@@ -10279,8 +10279,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator193", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator193 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator193 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator193 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator193 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
@@ -10317,8 +10317,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator194", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator194 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator194 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator194 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator194 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
@@ -10436,7 +10436,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator201", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator201 stored term is correct " + term);
+		assertEquals("GetTermEvaluator201 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10470,7 +10470,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator202", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator202 stored term is correct " + term);
+		assertEquals("GetTermEvaluator202 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10504,7 +10504,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator203", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator203 stored term is correct " + term);
+		assertEquals("GetTermEvaluator203 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10538,7 +10538,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator204", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator204 stored term is correct " + term);
+		assertEquals("GetTermEvaluator204 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10572,7 +10572,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator205", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator205 stored term is correct " + term);
+		assertEquals("GetTermEvaluator205 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10606,7 +10606,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator206", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator206 stored term is correct " + term);
+		assertEquals("GetTermEvaluator206 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10640,7 +10640,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator207", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator207 stored term is correct " + term);
+		assertEquals("GetTermEvaluator207 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10674,7 +10674,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator208", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator208 stored term is correct " + term);
+		assertEquals("GetTermEvaluator208 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10708,7 +10708,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator209", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator209 stored term is correct " + term);
+		assertEquals("GetTermEvaluator209 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10743,7 +10743,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in testGetTermEvaluatorAltPlusTotal", ok);
 
-		is(field0, strEq(term), "testGetTermEvaluatorAltPlusTotal stored term is correct " + term);
+		assertEquals("testGetTermEvaluatorAltPlusTotal stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10777,7 +10777,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in testGetTermEvaluatorPlusTotal", ok);
 
-		is(field0, strEq(term), "testGetTermEvaluatorPlusTotal stored term is correct " + term);
+		assertEquals("testGetTermEvaluatorPlusTotal stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10811,7 +10811,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator210", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator210 stored term is correct " + term);
+		assertEquals("GetTermEvaluator210 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10845,7 +10845,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator211", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator211 stored term is correct " + term);
+		assertEquals("GetTermEvaluator211 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10879,7 +10879,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator212", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator212 stored term is correct " + term);
+		assertEquals("GetTermEvaluator212 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10913,7 +10913,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator213", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator213 stored term is correct " + term);
+		assertEquals("GetTermEvaluator213 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10947,7 +10947,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator214", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator214 stored term is correct " + term);
+		assertEquals("GetTermEvaluator214 stored term is correct " + term, term, field0);
 	}
 
 	/**
@@ -10981,7 +10981,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertTrue("No illegal access in getTermEvaluator215", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator215 stored term is correct " + term);
+		assertEquals("GetTermEvaluator215 stored term is correct " + term, term, field0);
 	}
 
 	/**
