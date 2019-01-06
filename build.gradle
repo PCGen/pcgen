@@ -422,6 +422,10 @@ idea {
     }
 }
 
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
 apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
