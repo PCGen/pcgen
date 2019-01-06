@@ -63,7 +63,6 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Assert;
 import org.junit.Test;
 import util.TestURI;
 

@@ -20,7 +20,6 @@ package plugin.modifier.number;
 import org.junit.Assert;
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;

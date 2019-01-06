@@ -29,7 +29,6 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 
