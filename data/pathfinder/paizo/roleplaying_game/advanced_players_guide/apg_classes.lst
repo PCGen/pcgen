@@ -514,9 +514,9 @@ CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Alchemist 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
 ##Block: Normal Level Progression
-1					ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
-2	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Advanced Mutagen
-3	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Brutality
+1					ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Weapon and Armor Proficiency|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
+2	ADD:SPELLCASTER|Arcane	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Advanced Mutagen
+3	ADD:SPELLCASTER|Arcane	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Brutality
 5	ADD:SPELLCASTER|Arcane
 6	ADD:SPELLCASTER|Arcane
 7	ADD:SPELLCASTER|Arcane
