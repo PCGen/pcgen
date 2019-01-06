@@ -20,13 +20,14 @@ import java.util.IdentityHashMap;
 import java.util.Objects;
 import java.util.Set;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.VariableChangeEvent;
 import pcgen.cdom.formula.VariableListener;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
 
 /**
  * A BridgeListener converts from a VariableListener to then inject items into an
@@ -37,7 +38,7 @@ public class BridgeListener implements VariableListener<Object>
 	/**
 	 * The AbstractSourcedListFacet to which objects will be forwarded
 	 */
-	private final AbstractSourcedListFacet<CharID, CDOMObject> variableBridgeFacet;
+	private final AbstractSourcedListFacet<CharID, PCGenScoped> variableBridgeFacet;
 
 	/**
 	 * The CharID that this BridgeListener is serving
@@ -54,7 +55,7 @@ public class BridgeListener implements VariableListener<Object>
 	 *            The AbstractSourcedListFacet to be used as a bridge to the traditional
 	 *            Facet events
 	 */
-	public BridgeListener(CharID id, AbstractSourcedListFacet<CharID, CDOMObject> variableBridgeFacet)
+	public BridgeListener(CharID id, AbstractSourcedListFacet<CharID, PCGenScoped> variableBridgeFacet)
 	{
 		this.variableBridgeFacet = Objects.requireNonNull(variableBridgeFacet);
 		this.id = Objects.requireNonNull(id);

@@ -292,7 +292,7 @@
 	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<bean id="grantedVarFacet" class="pcgen.cdom.facet.GrantedVarFacet">
-		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
+		<property name="varScopedFacet" ref="varScopedFacet"/>
 		<property name="variableStoreFacet" ref="variableStoreFacet"/>
 	</bean>
 	<!-- H -->
