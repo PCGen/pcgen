@@ -51,7 +51,7 @@ public class HDIntegrationTest extends
 	private static boolean classSetUpFired = false;
 
 	@BeforeClass
-	public static final void ltClassSetUp() throws PersistenceLayerException
+	public static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreLevelWriter());

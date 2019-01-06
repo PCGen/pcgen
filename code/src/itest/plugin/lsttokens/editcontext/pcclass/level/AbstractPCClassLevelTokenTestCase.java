@@ -52,7 +52,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static final void classSetUp()
+	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		classSetUpFired = true;
