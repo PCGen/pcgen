@@ -38,8 +38,6 @@ import java.util.Set;
 
 import javax.swing.undo.UndoManager;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -132,7 +130,6 @@ import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.DescriptionFacade;
 import pcgen.facade.core.DomainFacade;
-import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
@@ -176,6 +173,8 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code CharacterFacadeImpl} is an implementation of
@@ -3622,15 +3621,14 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade)
+	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipmentModifier eqMod)
 	{
-		if (!(equipFacade instanceof Equipment) || !(eqModFacade instanceof EquipmentModifier))
+		if (!(equipFacade instanceof Equipment))
 		{
 			return false;
 		}
 
 		Equipment equip = (Equipment) equipFacade;
-		EquipmentModifier eqMod = (EquipmentModifier) eqModFacade;
 
 		//TODO: Handle second head
 		return equip.canAddModifier(theCharacter, eqMod, true);

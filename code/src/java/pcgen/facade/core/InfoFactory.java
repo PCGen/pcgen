@@ -19,6 +19,7 @@
 package pcgen.facade.core;
 
 import pcgen.core.Deity;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -90,7 +91,7 @@ public interface InfoFactory
 	 * @param equipFacade The equipment item the modifier relates to.
 	 * @return The HTML information string.
 	 */
-	public String getHTMLInfo(EquipModFacade equipmod, EquipmentFacade equipFacade);
+	public String getHTMLInfo(EquipmentModifier equipmod, EquipmentFacade equipFacade);
 
 	public String getHTMLInfo(PCTemplate template);
 

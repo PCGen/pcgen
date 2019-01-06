@@ -24,8 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -41,7 +39,6 @@ import pcgen.core.SpecialProperty;
 import pcgen.core.analysis.EqModSpellInfo;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
@@ -52,6 +49,8 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * EquipmentBuilderFacadeImpl is an implementation of the 
@@ -66,8 +65,8 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 
 	private final UIDelegate delegate;
 	private final Equipment equip;
-	private final Map<EquipmentHead, DefaultListFacade<EquipModFacade>> availListMap;
-	private final Map<EquipmentHead, DefaultListFacade<EquipModFacade>> selectedListMap;
+	private final Map<EquipmentHead, DefaultListFacade<EquipmentModifier>> availListMap;
+	private final Map<EquipmentHead, DefaultListFacade<EquipmentModifier>> selectedListMap;
 	private final PlayerCharacter character;
 	private final Equipment baseEquipment;
 	private final EnumSet<EquipmentHead> equipHeads;
@@ -100,7 +99,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		for (EquipmentHead head : equipHeads)
 		{
 			availListMap.put(head, new DefaultListFacade<>());
-			DefaultListFacade<EquipModFacade> selectedList = new DefaultListFacade<>();
+			DefaultListFacade<EquipmentModifier> selectedList = new DefaultListFacade<>();
 			selectedList.setContents(equip.getEqModifierList(head.isPrimary()));
 			selectedListMap.put(head, selectedList);
 		}
@@ -108,32 +107,30 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	}
 
 	@Override
-	public boolean addModToEquipment(EquipModFacade modifier, EquipmentHead head)
+	public boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head)
 	{
-		if (modifier == null || !(modifier instanceof EquipmentModifier) || head == null)
+		if (modifier == null || head == null)
 		{
 			return false;
 		}
-
-		EquipmentModifier equipMod = (EquipmentModifier) modifier;
 
 		// Trash the cost modifications
 		equip.setCostMod("0");
 
 		// Handle spells
-		if (equipMod.getSafe(StringKey.CHOICE_STRING).startsWith("EQBUILDER.SPELL"))
+		if (modifier.getSafe(StringKey.CHOICE_STRING).startsWith("EQBUILDER.SPELL"))
 		{
-			if (!getSpellChoiceForEqMod(equipMod))
+			if (!getSpellChoiceForEqMod(modifier))
 			{
 				return false;
 			}
 		}
 
-		equip.addEqModifier(equipMod, head.isPrimary(), character);
+		equip.addEqModifier(modifier, head.isPrimary(), character);
 
-		if (equip.isDouble() && equipMod.getSafe(ObjectKey.ASSIGN_TO_ALL))
+		if (equip.isDouble() && modifier.getSafe(ObjectKey.ASSIGN_TO_ALL))
 		{
-			equip.addEqModifier(equipMod, !head.isPrimary(), character);
+			equip.addEqModifier(modifier, !head.isPrimary(), character);
 		}
 
 		equip.nameItemFromModifiers(character);
@@ -145,26 +142,24 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	}
 
 	@Override
-	public boolean removeModFromEquipment(EquipModFacade modifier, EquipmentHead head)
+	public boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head)
 	{
-		if (modifier == null || !(modifier instanceof EquipmentModifier))
+		if (modifier == null)
 		{
 			return false;
 		}
 
-		EquipmentModifier equipMod = (EquipmentModifier) modifier;
-
-		if (baseEquipment.getEqModifierList(true).contains(equipMod))
+		if (baseEquipment.getEqModifierList(true).contains(modifier))
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME,
-				LanguageBundle.getFormattedString("in_eqCust_RemoveBaseErr", equipMod));
+				LanguageBundle.getFormattedString("in_eqCust_RemoveBaseErr", modifier));
 			return false;
 		}
 
 		// Trash the cost modifications
 		equip.setCostMod("0");
 
-		equip.removeEqModifier(equipMod, head.isPrimary(), character);
+		equip.removeEqModifier(modifier, head.isPrimary(), character);
 		equip.nameItemFromModifiers(character);
 
 		refreshAvailList();
@@ -308,13 +303,13 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	}
 
 	@Override
-	public ListFacade<EquipModFacade> getAvailList(EquipmentHead head)
+	public ListFacade<EquipmentModifier> getAvailList(EquipmentHead head)
 	{
 		return availListMap.get(head);
 	}
 
 	@Override
-	public ListFacade<EquipModFacade> getSelectedList(EquipmentHead head)
+	public ListFacade<EquipmentModifier> getSelectedList(EquipmentHead head)
 	{
 		return selectedListMap.get(head);
 	}
@@ -331,7 +326,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 
 		for (EquipmentHead head : equipHeads)
 		{
-			List<EquipModFacade> newEqMods = new ArrayList<>();
+			List<EquipmentModifier> newEqMods = new ArrayList<>();
 			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
@@ -367,15 +362,8 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	}
 
 	@Override
-	public boolean canAddModifier(EquipModFacade eqModFacade, EquipmentHead head)
+	public boolean canAddModifier(EquipmentModifier eqMod, EquipmentHead head)
 	{
-		if (!(eqModFacade instanceof EquipmentModifier))
-		{
-			return false;
-		}
-
-		EquipmentModifier eqMod = (EquipmentModifier) eqModFacade;
-
 		return equip.canAddModifier(character, eqMod, head.isPrimary());
 	}
 
