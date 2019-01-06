@@ -40,14 +40,13 @@ import javax.swing.table.TableColumn;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.facade.EquipNode;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JTreeTable;
@@ -257,7 +256,7 @@ public class EquipmentModel
 		{
 			String text = String.valueOf(value);
 			boolean isEquipNode = value instanceof EquipNode;
-			boolean isPhantomSlot = isEquipNode && ((EquipNode) value).getNodeType() == NodeType.PHANTOM_SLOT;
+			boolean isPhantomSlot = isEquipNode && ((EquipNode) value).getNodeType() == EquipNode.NodeType.PHANTOM_SLOT;
 			if (isPhantomSlot)
 			{
 				text = "Empty slot";
@@ -283,7 +282,7 @@ public class EquipmentModel
 				{
 					setForeground(UIPropertyContext.getQualifiedColor());
 				}
-				if (isEquipNode && ((EquipNode) value).getNodeType() == NodeType.EQUIPMENT)
+				if (isEquipNode && ((EquipNode) value).getNodeType() == EquipNode.NodeType.EQUIPMENT)
 				{
 					equip = ((EquipNode) value).getEquipment();
 
