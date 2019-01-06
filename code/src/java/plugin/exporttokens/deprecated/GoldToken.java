@@ -24,9 +24,11 @@ import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Handle the GOLD token which outputs the amount of unallocated wealth
@@ -55,6 +57,7 @@ public class GoldToken extends Token
 	 */
 	public static BigDecimal getGoldToken(PlayerCharacter pc)
 	{
-		return pc.getGold();
+		return (BigDecimal) ChannelUtilities
+			.readControlledChannel(pc.getCharID(), CControl.GOLDINPUT);
 	}
 }

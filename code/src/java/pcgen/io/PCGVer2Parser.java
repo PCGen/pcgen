@@ -5046,7 +5046,10 @@ final class PCGVer2Parser implements PCGParser
 	 */
 	private void parseMoneyLine(final String line)
 	{
-		thePC.setGold(line.substring(IOConstants.TAG_MONEY.length() + 1));
+		BigDecimal bd = new BigDecimal(
+			line.substring(IOConstants.TAG_MONEY.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.GOLDINPUT, bd);
 	}
 
 	/**

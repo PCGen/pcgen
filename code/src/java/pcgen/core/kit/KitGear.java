@@ -31,6 +31,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.helper.EqModRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.EquipmentUtilities;
@@ -39,6 +40,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.EquipSet;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * {@code KitGear}.
@@ -183,7 +185,8 @@ public final class KitGear extends BaseKit
 		processLookups(aKit, aPC);
 
 		int aBuyRate = aKit.getBuyRate(aPC);
-		final BigDecimal pcGold = aPC.getGold();
+		BigDecimal pcGold = (BigDecimal) ChannelUtilities
+				.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
 		final BigDecimal fixedTotalCost = aKit.getTotalCost(aPC);
 		if (fixedTotalCost != null)
 		{
@@ -317,7 +320,10 @@ public final class KitGear extends BaseKit
                 theCost = eqCost.multiply(new BigDecimal(Integer.toString(--theQty))).multiply(bdBuyRate);
             }
 
-            aPC.setGold(aPC.getGold().subtract(theCost));
+			BigDecimal currentGold = (BigDecimal) ChannelUtilities
+					.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
+			ChannelUtilities.setControlledChannel(aPC.getCharID(),
+				CControl.GOLDINPUT, currentGold.subtract(theCost));
 		}
 
 		boolean outOfFunds = false;
@@ -432,7 +438,10 @@ public final class KitGear extends BaseKit
 		//
 		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, (float) theQty);
 
-		aPC.setGold(aPC.getGold().subtract(theCost));
+		BigDecimal currentGold = (BigDecimal) ChannelUtilities
+				.readControlledChannel(aPC.getCharID(), CControl.GOLDINPUT);
+		ChannelUtilities.setControlledChannel(aPC.getCharID(),
+			CControl.GOLDINPUT, currentGold.subtract(theCost));
 	}
 
 	@Override

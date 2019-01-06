@@ -166,7 +166,6 @@ import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
-import pcgen.cdom.facet.fact.GoldFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
@@ -320,7 +319,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 	private final DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
 	private final LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
-	private final GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
 	private final MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 	private final NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
 	private final QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
@@ -584,7 +582,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		checkFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
-		setGold(BigDecimal.ZERO);
 		setXPTable(SettingsHandler.getGameAsProperty().get().getDefaultXPTableName());
 		setCharacterType(SettingsHandler.getGameAsProperty().get().getDefaultCharacterType());
 		setPreviewSheet(SettingsHandler.getGameAsProperty().get().getDefaultPreviewSheet());
@@ -636,6 +633,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			deityWatchSetup(context);
 		}
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.GOLDINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRSTYLEINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.SKINCOLORINPUT);
@@ -1294,61 +1292,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			genderFacet.set(id, g);
 			setDirty(true);
 		}
-	}
-
-	/**
-	 * Sets the character's wealth.
-	 *
-	 * <p>
-	 * Gold here is used as a character's total purchase power not actual gold
-	 * pieces.
-	 *
-	 * @param aString
-	 *            A String gold amount. TODO - Do this parsing elsewhere.
-	 */
-	public void setGold(final String aString)
-	{
-		BigDecimal gold = new BigDecimal(aString);
-		setGold(gold);
-	}
-
-	/**
-	 * Sets the character's wealth.
-	 *
-	 * <p>
-	 * Gold here is used as a character's total purchase power not actual gold
-	 * pieces.
-	 *
-	 * @param amt
-	 *            A gold amount.
-	 */
-	public final void setGold(final BigDecimal amt)
-	{
-		if (amt == null)
-		{
-			return;
-		}
-
-		// The equality comparison in AbstractItemFacet doesn't work on BigDecimal, need to use compareTo
-		BigDecimal oldAmt = goldFacet.get(id);
-		if (oldAmt == null || amt.compareTo(oldAmt) != 0)
-		{
-			goldFacet.set(id, amt);
-			setDirty(true);
-		}
-	}
-
-	/**
-	 * Returns the character's total wealth.
-	 *
-	 * @see pcgen.core.PlayerCharacter#setGold(String)
-	 *
-	 * @return A <tt>BigDecimal</tt> value for the character's wealth.
-	 */
-	public BigDecimal getGold()
-	{
-		BigDecimal g = goldFacet.get(id);
-		return (g == null) ? BigDecimal.ZERO : g;
 	}
 
 	/**
@@ -4599,12 +4542,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		setDirty(true);
 		return true;
-	}
-
-	public void adjustGold(final double delta)
-	{
-		goldFacet.adjustGold(id, delta);
-		setDirty(true);
 	}
 
 	/**

@@ -22,10 +22,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.math.BigDecimal;
 
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.persistence.SourceFileLoader;
+
 import plugin.exporttokens.deprecated.GoldToken;
 
 import org.junit.jupiter.api.Test;
@@ -48,21 +51,28 @@ public class GoldTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = super.getCharacter();
 		assertEquals("0", goldToken.getToken("", pc, null), "No money");
 		
-		pc.setGold(new BigDecimal("500"));
-		assertEquals("500", goldToken.getToken("", pc, null), "Non decimal money");
-		pc.setGold(new BigDecimal("2500"));
-		assertEquals("2,500", goldToken.getToken("", pc, null), "Non decimal money");
-		pc.setGold(new BigDecimal("1012500"));
-		assertEquals("1,012,500", goldToken.getToken("", pc, null), "Non decimal money");
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.GOLDINPUT, new BigDecimal("500"));
+		assertEquals("Non decimal money", "500", goldToken.getToken("", pc, null));
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.GOLDINPUT, new BigDecimal("2500"));
+		assertEquals("Non decimal money", "2,500", goldToken.getToken("", pc, null));
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.GOLDINPUT, new BigDecimal("1012500"));
+		assertEquals("Non decimal money", "1,012,500", goldToken.getToken("", pc, null));
 		
-		pc.setGold(new BigDecimal("500.76"));
-		assertEquals("500.76", goldToken.getToken("", pc, null), "Decimal money");
-		pc.setGold(new BigDecimal("500.701234"));
-		assertEquals("500.7", goldToken.getToken("", pc, null), "Decimal money");
-		pc.setGold(new BigDecimal("0.701234"));
-		assertEquals("0.7", goldToken.getToken("", pc, null), "Decimal money");
-		pc.setGold(new BigDecimal("0.709934"));
-		assertEquals("0.71", goldToken.getToken("", pc, null), "Decimal money");
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.GOLDINPUT, new BigDecimal("500.76"));
+		assertEquals("Decimal money", "500.76", goldToken.getToken("", pc, null));
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.GOLDINPUT, new BigDecimal("500.701234"));
+		assertEquals("Decimal money", "500.7", goldToken.getToken("", pc, null));
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.GOLDINPUT, new BigDecimal("0.701234"));
+		assertEquals("Decimal money", "0.7", goldToken.getToken("", pc, null));
+		ChannelUtilities.setControlledChannel(pc.getCharID(),
+			CControl.GOLDINPUT, new BigDecimal("0.709934"));
+		assertEquals("Decimal money", "0.71", goldToken.getToken("", pc, null));
 	}
 
 }
