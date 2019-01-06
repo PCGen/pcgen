@@ -17,9 +17,10 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -43,6 +44,8 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.Test;
 
 public class AbilityLstTest extends AbstractGlobalTokenTestCase
 {
@@ -557,7 +560,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		return Constants.PIPE;
 	}
 
-	protected String getClearString()
+	private static String getClearString()
 	{
 		return Constants.LST_DOT_CLEAR;
 	}

@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens;
 
+import static org.junit.Assert.assertFalse;
+
 import java.net.URISyntaxException;
 
 import org.junit.Before;

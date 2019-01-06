@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens;
 
+import static org.junit.Assert.assertFalse;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
@@ -25,12 +27,12 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-
-import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 /**
  * Token parse and unparsing tests for TempValueLst
