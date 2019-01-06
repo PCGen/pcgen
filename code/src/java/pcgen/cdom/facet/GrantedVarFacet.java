@@ -15,15 +15,14 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.formula.VariableUtilities;
 import pcgen.cdom.helper.BridgeListener;
-import pcgen.rules.context.LoadContext;
 
 /**
  * This Facet controls items granted from variables
@@ -36,16 +35,6 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 	 * The source facet to watch for the addition of new objects
 	 */
 	private CDOMObjectSourceFacet cdomSourceFacet;
-
-	/**
-	 * The Scope Facet
-	 */
-	private ScopeFacet scopeFacet;
-
-	/**
-	 * The global LoadContextFacet used to get VariableIDs
-	 */
-	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	/**
 	 * The VariableStore Facet
@@ -63,12 +52,10 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 		}
 		Object source = dfce.getSource();
 		CharID id = dfce.getCharID();
-		ScopeInstance inst = scopeFacet.get(id, cdo);
 		for (String variableName : grantedVariables)
 		{
-			LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
-			VariableID<?> varID = context.getVariableContext()
-				.getVariableID(inst, variableName);
+			VariableID<?> varID =
+					VariableUtilities.getGlobalVariableID(id, variableName);
 			processAdd(id, varID, source);
 		}
 	}
@@ -103,11 +90,9 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 		String[] list = cdo.getGrantedVariableArray();
 		Object source = dfce.getSource();
 		CharID id = dfce.getCharID();
-		ScopeInstance inst = scopeFacet.get(id, cdo);
-		for (String s : list)
+		for (String varName : list)
 		{
-			LoadContext loadContext = loadContextFacet.get(id.getDatasetID()).get();
-			VariableID<?> varID = loadContext.getVariableContext().getVariableID(inst, s);
+			VariableID<?> varID =  VariableUtilities.getGlobalVariableID(id, varName);
 			processRemove(id, varID, source);
 		}
 	}
@@ -132,11 +117,6 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, CDOMObject
 	public void setCdomSourceFacet(CDOMObjectSourceFacet cdomSourceFacet)
 	{
 		this.cdomSourceFacet = cdomSourceFacet;
-	}
-
-	public void setScopeFacet(ScopeFacet scopeFacet)
-	{
-		this.scopeFacet = scopeFacet;
 	}
 
 	public void setVariableStoreFacet(VariableStoreFacet variableStoreFacet)

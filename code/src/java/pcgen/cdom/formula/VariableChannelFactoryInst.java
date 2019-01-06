@@ -25,12 +25,10 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.output.channel.ChannelUtilities;
-import pcgen.rules.context.LoadContext;
 
 /**
  * A VariableChannelFactoryInst is a VariableChannelFactory that will ensure that a
@@ -38,11 +36,6 @@ import pcgen.rules.context.LoadContext;
  */
 public class VariableChannelFactoryInst implements VariableChannelFactory
 {
-	/**
-	 * The LoadContextFacet for VariableID construction.
-	 */
-	private static final LoadContextFacet LOAD_CONTEXT_FACET = FacetLibrary.getFacet(LoadContextFacet.class);
-
 	/**
 	 * The ScopeFacet for VariableID construction.
 	 */
@@ -89,9 +82,7 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	private VariableChannel<?> getChannel(CharID id, ScopeInstance scopeInst, String name)
 	{
 		String varName = ChannelUtilities.createVarName(name);
-		LoadContext loadContext = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
-		VariableID<?> varID =
-				loadContext.getVariableContext().getVariableID(scopeInst, varName);
+		VariableID<?> varID =  VariableUtilities.getGlobalVariableID(id, varName);
 		return getChannel(id, varID);
 	}
 
