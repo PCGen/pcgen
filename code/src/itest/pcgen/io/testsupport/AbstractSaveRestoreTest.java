@@ -277,6 +277,9 @@ public abstract class AbstractSaveRestoreTest
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
+
+		context = Globals.getContext();
+		SourceFileLoader.defineBuiltinVariables(context);
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 			FormulaFactory.getFormulaFor("STRSCORE"));
@@ -328,7 +331,6 @@ public abstract class AbstractSaveRestoreTest
 		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
-		context = Globals.getContext();
 		create(Language.class, "Common");
 		human = create(Race.class, "Human");
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
