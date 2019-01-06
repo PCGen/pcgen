@@ -126,7 +126,6 @@ import pcgen.facade.core.CompanionSupportFacade;
 import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.DescriptionFacade;
-import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
@@ -232,8 +231,8 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<String> carriedWeightRef;
 	private DefaultReferenceFacade<String> loadRef;
 	private DefaultReferenceFacade<String> weightLimitRef;
-	private DefaultListFacade<DomainFacade> domains;
-	private DefaultListFacade<DomainFacade> availDomains;
+	private DefaultListFacade<QualifiedObject<Domain>> domains;
+	private DefaultListFacade<QualifiedObject<Domain>> availDomains;
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
@@ -1847,20 +1846,15 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public void addDomain(DomainFacade domainFacade)
+	public void addDomain(QualifiedObject<Domain> wrappedDomain)
 	{
-		if (!(domainFacade instanceof DomainFacadeImpl))
-		{
-			return;
-		}
-		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
-		Domain domain = domainFI.getRawObject();
+		Domain domain = wrappedDomain.getRawObject();
 		if (charDisplay.hasDomain(domain))
 		{
 			return;
 		}
 
-		if (!isQualifiedFor(domainFacade))
+		if (!isQualifiedFor(wrappedDomain))
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME,
 				LanguageBundle.getFormattedString("in_qualifyMess", domain.getDisplayName()));
@@ -1888,7 +1882,7 @@ public class CharacterFacadeImpl
 
 		if (theCharacter.addDomain(domain))
 		{
-			domains.addElement(domainFI);
+			domains.addElement(wrappedDomain);
 			DomainApplication.applyDomain(theCharacter, domain);
 
 			theCharacter.calcActiveBonuses();
@@ -1901,19 +1895,19 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<DomainFacade> getDomains()
+	public ListFacade<QualifiedObject<Domain>> getDomains()
 	{
 		return domains;
 	}
 
 	@Override
-	public void removeDomain(DomainFacade domain)
+	public void removeDomain(QualifiedObject<Domain> domain)
 	{
 		if (domains.removeElement(domain))
 		{
-			Domain dom = ((DomainFacadeImpl) domain).getRawObject();
+			Domain dom = domain.getRawObject();
 			DomainApplication.removeDomain(theCharacter, dom);
-			theCharacter.removeDomain(((DomainFacadeImpl) domain).getRawObject());
+			theCharacter.removeDomain(dom);
 			remainingDomains.set(theCharacter.getMaxCharacterDomains() - charDisplay.getDomainCount());
 			updateDomainTodo();
 			spellSupportFacade.refreshAvailableKnownSpells();
@@ -1949,7 +1943,7 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ListFacade<DomainFacade> getAvailableDomains()
+	public ListFacade<QualifiedObject<Domain>> getAvailableDomains()
 	{
 		return availDomains;
 	}
@@ -1959,8 +1953,8 @@ public class CharacterFacadeImpl
 	 */
 	private void buildAvailableDomainsList()
 	{
-		List<DomainFacadeImpl> availDomainList = new ArrayList<>();
-		List<DomainFacadeImpl> selDomainList = new ArrayList<>();
+		List<QualifiedObject<Domain>> availDomainList = new ArrayList<>();
+		List<QualifiedObject<Domain>> selDomainList = new ArrayList<>();
 		Deity pcDeity = charDisplay.getDeity();
 
 		if (pcDeity != null)
@@ -1974,7 +1968,7 @@ public class CharacterFacadeImpl
 					{
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
+							availDomainList.add(new QualifiedObject<>(d, apo.getPrerequisiteList()));
 						}
 					}
 				}
@@ -2001,9 +1995,9 @@ public class CharacterFacadeImpl
 		// Loop through the character's selected domains
 		for (Domain d : charDisplay.getDomainSet())
 		{
-			DomainFacadeImpl domainFI = new DomainFacadeImpl(d);
+			QualifiedObject<Domain> domainFI = new QualifiedObject<>(d);
 			boolean found = false;
-			for (DomainFacadeImpl row : availDomainList)
+			for (QualifiedObject<Domain> row : availDomainList)
 			{
 				if (d.equals(row.getRawObject()))
 				{
@@ -2038,9 +2032,9 @@ public class CharacterFacadeImpl
 	 * @param domain The domain to search for.
 	 * @return true if the domain is in the list 
 	 */
-	private boolean isDomainInList(List<DomainFacadeImpl> qualDomainList, Domain domain)
+	private boolean isDomainInList(List<QualifiedObject<Domain>> qualDomainList, Domain domain)
 	{
-		for (DomainFacadeImpl row : qualDomainList)
+		for (QualifiedObject<Domain> row : qualDomainList)
 		{
 			if (domain.equals(row.getRawObject()))
 			{
@@ -2050,7 +2044,7 @@ public class CharacterFacadeImpl
 		return false;
 	}
 
-	private void processAddDomains(CDOMObject cdo, final List<DomainFacadeImpl> availDomainList)
+	private void processAddDomains(CDOMObject cdo, final List<QualifiedObject<Domain>> availDomainList)
 	{
 		Collection<CDOMReference<Domain>> domainRefs = cdo.getListMods(PCClass.ALLOWED_DOMAINS);
 		if (domainRefs != null)
@@ -2069,7 +2063,7 @@ public class CharacterFacadeImpl
 						 */
 						if (!isDomainInList(availDomainList, d))
 						{
-							availDomainList.add(new DomainFacadeImpl(d, apo.getPrerequisiteList()));
+							availDomainList.add(new QualifiedObject<>(d, apo.getPrerequisiteList()));
 						}
 					}
 				}
@@ -2077,7 +2071,7 @@ public class CharacterFacadeImpl
 		}
 	}
 
-	private void processDomainList(CDOMObject obj, final List<DomainFacadeImpl> availDomainList)
+	private void processDomainList(CDOMObject obj, final List<QualifiedObject<Domain>> availDomainList)
 	{
 		for (QualifiedObject<CDOMSingleRef<Domain>> qo : obj.getSafeListFor(ListKey.DOMAIN))
 		{
@@ -2085,7 +2079,7 @@ public class CharacterFacadeImpl
 			Domain domain = ref.get();
 			if (!isDomainInList(availDomainList, domain))
 			{
-				availDomainList.add(new DomainFacadeImpl(domain, qo.getPrerequisiteList()));
+				availDomainList.add(new QualifiedObject<>(domain, qo.getPrerequisiteList()));
 			}
 		}
 	}
@@ -3480,16 +3474,10 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(DomainFacade domainFacade)
+	public boolean isQualifiedFor(QualifiedObject<Domain> wrappedDomain)
 	{
-		if (!(domainFacade instanceof DomainFacadeImpl))
-		{
-			return false;
-		}
-
-		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
-		Domain domain = domainFI.getRawObject();
-        return PrereqHandler.passesAll(domainFI, theCharacter, domain) && theCharacter.isQualified(domain);
+		Domain domain = wrappedDomain.getRawObject();
+        return PrereqHandler.passesAll(wrappedDomain, theCharacter, domain) && theCharacter.isQualified(domain);
     }
 
 	@Override
