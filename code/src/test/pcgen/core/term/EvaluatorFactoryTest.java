@@ -99,7 +99,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "ACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor002 pattern matches for " + term);
+		assertTrue("Constructor002 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor002 pattern matches all of " + term);
 
 		// "ACCHECK",			   COMPLETE_ACCHECK			    
@@ -130,7 +130,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "ACHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor003 pattern matches for " + term);
+		assertTrue("Constructor003 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor003 pattern matches all of " + term);
 
 		// "ACHECK",			   COMPLETE_ACCHECK
@@ -162,7 +162,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "ARMORACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor004 pattern matches for " + term);
+		assertTrue("Constructor004 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor004 pattern matches all of " + term);
 
 		// "ARMORACCHECK",		   COMPLETE_ARMORACCHECK
@@ -194,7 +194,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "ARMORACHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor005 pattern matches for " + term);
+		assertTrue("Constructor005 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor005 pattern matches all of " + term);
 
 		// "ARMORACHECK",		   COMPLETE_ARMORACCHECK
@@ -226,7 +226,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "BAB";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor006 pattern matches for " + term);
+		assertTrue("Constructor006 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor006 pattern matches all of " + term);
 
 		// "BAB",			   COMPLETE_BAB
@@ -258,7 +258,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "BASESPELLSTAT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor007 pattern matches for " + term);
+		assertTrue("Constructor007 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor007 pattern matches all of " + term);
 
 		// "BASESPELLSTAT",		   COMPLETE_BASESPELLSTAT
@@ -290,8 +290,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "BL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor008 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor008 pattern matches start of " + term);
+		assertTrue("Constructor008 pattern matches for " + term, mat.find());
+		assertTrue("Constructor008 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "BL",			   START_BL
 
@@ -322,8 +322,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "BL.Wizard";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor009 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor009 pattern matches start of " + term);
+		assertTrue("Constructor009 pattern matches for " + term, mat.find());
+		assertTrue("Constructor009 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "BL.Wizard",				 START_BL
 
@@ -354,8 +354,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "BL=Cleric";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor010 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor010 pattern matches start of " + term);
+		assertTrue("Constructor010 pattern matches for " + term, mat.find());
+		assertTrue("Constructor010 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "BL=Cleric",				 START_BL
 
@@ -386,7 +386,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CASTERLEVEL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor011 pattern matches for " + term);
+		assertTrue("Constructor011 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor011 pattern matches all of " + term);
 
 		// "CASTERLEVEL",		   COMPLETE_CASTERLEVEL
@@ -418,7 +418,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CASTERLEVEL.TOTAL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor012 pattern matches for " + term);
+		assertTrue("Constructor012 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor012 pattern matches all of " + term);
 
 		// "CASTERLEVEL.TOTAL",		   COMPLETE_CASTERLEVEL
@@ -450,8 +450,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor013 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor013 pattern matches start of " + term);
+		assertTrue("Constructor013 pattern matches for " + term, mat.find());
+		assertTrue("Constructor013 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL",			   START_CL
 
@@ -482,8 +482,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CL.Bard";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor014 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor014 pattern matches start of " + term);
+		assertTrue("Constructor014 pattern matches for " + term, mat.find());
+		assertTrue("Constructor014 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL.Bard",			       START_CL
 
@@ -514,8 +514,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CL;BEFORELEVEL.10";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor015 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor015 pattern matches start of " + term);
+		assertTrue("Constructor015 pattern matches for " + term, mat.find());
+		assertTrue("Constructor015 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL;BEFORELEVEL.10",		     START_CL_BEFORELEVEL
 
@@ -546,8 +546,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CL;BEFORELEVEL=15";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor016 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor016 pattern matches start of " + term);
+		assertTrue("Constructor016 pattern matches for " + term, mat.find());
+		assertTrue("Constructor016 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL;BEFORELEVEL=15",		     START_CL_BEFORELEVEL
 
@@ -578,8 +578,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CL=Rogue";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor017 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor017 pattern matches start of " + term);
+		assertTrue("Constructor017 pattern matches for " + term, mat.find());
+		assertTrue("Constructor017 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL=Rogue",				START_CL
 
@@ -610,8 +610,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CLASS.Druid";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor018 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor018 pattern matches start of " + term);
+		assertTrue("Constructor018 pattern matches for " + term, mat.find());
+		assertTrue("Constructor018 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASS.Druid",			START_CLASS
 
@@ -642,8 +642,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CLASS=Paladin";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor019 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor019 pattern matches start of " + term);
+		assertTrue("Constructor019 pattern matches for " + term, mat.find());
+		assertTrue("Constructor019 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASS=Paladin",			  START_CLASS
 
@@ -674,8 +674,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CLASSLEVEL.Bard";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor020 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor020 pattern matches start of " + term);
+		assertTrue("Constructor020 pattern matches for " + term, mat.find());
+		assertTrue("Constructor020 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASSLEVEL.Bard",		       START_CLASSLEVEL
 
@@ -706,8 +706,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "CLASSLEVEL=Rogue";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor021 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor021 pattern matches start of " + term);
+		assertTrue("Constructor021 pattern matches for " + term, mat.find());
+		assertTrue("Constructor021 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASSLEVEL=Rogue",			START_CLASSLEVEL
 
@@ -738,7 +738,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[ATTACKS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor022 pattern matches for " + term);
+		assertTrue("Constructor022 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor022 pattern matches all of " + term);
 
 		// "COUNT[ATTACKS]",		   COMPLETE_COUNT_ATTACKS
@@ -770,7 +770,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[CHECKS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor023 pattern matches for " + term);
+		assertTrue("Constructor023 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor023 pattern matches all of " + term);
 
 		// "COUNT[CHECKS]",		   COMPLETE_COUNT_CHECKS
@@ -802,7 +802,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[CLASSES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor024 pattern matches for " + term);
+		assertTrue("Constructor024 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor024 pattern matches all of " + term);
 
 		// "COUNT[CLASSES]",		   COMPLETE_COUNT_CLASSES
@@ -834,7 +834,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[CONTAINERS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor025 pattern matches for " + term);
+		assertTrue("Constructor025 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor025 pattern matches all of " + term);
 
 		// "COUNT[CONTAINERS]",		   COMPLETE_COUNT_CONTAINERS
@@ -866,7 +866,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[DOMAINS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor026 pattern matches for " + term);
+		assertTrue("Constructor026 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor026 pattern matches all of " + term);
 
 		// "COUNT[DOMAINS]",		   COMPLETE_COUNT_DOMAINS
@@ -898,8 +898,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[EQTYPE.MERGENONE.IS.FOO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor027 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor027 pattern matches start of " + term);
+		assertTrue("Constructor027 pattern matches for " + term, mat.find());
+		assertTrue("Constructor027 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[EQTYPE.MERGENONE.IS.FOO]",		    START_COUNT_EQTYPE
 
@@ -930,8 +930,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[EQUIPMENT.MERGENONE.NOT.FOO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor028 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor028 pattern matches start of " + term);
+		assertTrue("Constructor028 pattern matches for " + term, mat.find());
+		assertTrue("Constructor028 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[EQUIPMENT.MERGENONE.NOT.FOO]",	      START_COUNT_EQUIPMENT
 
@@ -962,8 +962,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATAUTOTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor029 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor029 pattern matches start of " + term);
+		assertTrue("Constructor029 pattern matches for " + term, mat.find());
+		assertTrue("Constructor029 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATAUTOTYPE.HIDDEN]",	  START_COUNT_FEATTYPE
 
@@ -994,8 +994,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATAUTOTYPE=VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor030 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor030 pattern matches start of " + term);
+		assertTrue("Constructor030 pattern matches for " + term, mat.find());
+		assertTrue("Constructor030 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATAUTOTYPE=VISIBLE]",	   START_COUNT_FEATTYPE
 
@@ -1026,8 +1026,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATNAME.Jack of all trades]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor031 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor031 pattern matches start of " + term);
+		assertTrue("Constructor031 pattern matches for " + term, mat.find());
+		assertTrue("Constructor031 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATNAME.Jack of all trades]",	      START_COUNT_FEATTYPE
 
@@ -1058,8 +1058,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATNAME=Improved Initiative]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor032 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor032 pattern matches start of " + term);
+		assertTrue("Constructor032 pattern matches for " + term, mat.find());
+		assertTrue("Constructor032 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATNAME=Improved Initiative]",	       START_COUNT_FEATTYPE
 
@@ -1090,7 +1090,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor033 pattern matches for " + term);
+		assertTrue("Constructor033 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor033 pattern matches all of " + term);
 
 		// "COUNT[FEATS.ALL]",		   COMPLETE_COUNT_FEATSNATURENORMAL
@@ -1122,7 +1122,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor034 pattern matches for " + term);
+		assertTrue("Constructor034 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor034 pattern matches all of " + term);
 
 		// "COUNT[FEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATURENORMAL
@@ -1154,7 +1154,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor035 pattern matches for " + term);
+		assertTrue("Constructor035 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor035 pattern matches all of " + term);
 
 		// "COUNT[FEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATURENORMAL
@@ -1186,7 +1186,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSALL.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor036 pattern matches for " + term);
+		assertTrue("Constructor036 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor036 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL.ALL]",	   COMPLETE_COUNT_FEATSNATUREALL
@@ -1218,7 +1218,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSALL.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor037 pattern matches for " + term);
+		assertTrue("Constructor037 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor037 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREALL
@@ -1250,7 +1250,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSALL.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor038 pattern matches for " + term);
+		assertTrue("Constructor038 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor038 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREALL
@@ -1282,7 +1282,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor039 pattern matches for " + term);
+		assertTrue("Constructor039 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor039 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL]",		   COMPLETE_COUNT_FEATSNATUREALL
@@ -1314,7 +1314,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSAUTO.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor040 pattern matches for " + term);
+		assertTrue("Constructor040 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor040 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO.ALL]",	   COMPLETE_COUNT_FEATSNATUREAUTO
@@ -1346,7 +1346,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSAUTO.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor041 pattern matches for " + term);
+		assertTrue("Constructor041 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor041 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREAUTO
@@ -1378,7 +1378,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSAUTO.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor042 pattern matches for " + term);
+		assertTrue("Constructor042 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor042 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREAUTO
@@ -1410,7 +1410,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATSAUTO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor043 pattern matches for " + term);
+		assertTrue("Constructor043 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor043 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO]",		   COMPLETE_COUNT_FEATSNATUREAUTO
@@ -1442,7 +1442,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor044 pattern matches for " + term);
+		assertTrue("Constructor044 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor044 pattern matches all of " + term);
 
 		// "COUNT[FEATS]",		   COMPLETE_COUNT_FEATSNATURENORMAL
@@ -1474,8 +1474,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATTYPE.BAR]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor045 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor045 pattern matches start of " + term);
+		assertTrue("Constructor045 pattern matches for " + term, mat.find());
+		assertTrue("Constructor045 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATTYPE.BAR]",	       START_COUNT_FEATTYPE
 
@@ -1506,8 +1506,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FEATTYPE.BAZ]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor046 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor046 pattern matches start of " + term);
+		assertTrue("Constructor046 pattern matches for " + term, mat.find());
+		assertTrue("Constructor046 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATTYPE.BAZ]",	       START_COUNT_FEATTYPE
 
@@ -1538,7 +1538,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FOLLOWERS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor047 pattern matches for " + term);
+		assertTrue("Constructor047 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor047 pattern matches all of " + term);
 
 		// "COUNT[FOLLOWERS]",		   COMPLETE_COUNT_FOLLOWERS
@@ -1570,8 +1570,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[FOLLOWERTYPE.MOO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor048 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor048 pattern matches start of " + term);
+		assertTrue("Constructor048 pattern matches for " + term, mat.find());
+		assertTrue("Constructor048 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FOLLOWERTYPE.MOO]",	       START_COUNT_FOLLOWERTYPE
 
@@ -1602,7 +1602,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[LANGUAGES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor049 pattern matches for " + term);
+		assertTrue("Constructor049 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor049 pattern matches all of " + term);
 
 		// "COUNT[LANGUAGES]",		   COMPLETE_COUNT_LANGUAGES
@@ -1634,7 +1634,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[MISC.COMPANIONS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor050 pattern matches for " + term);
+		assertTrue("Constructor050 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor050 pattern matches all of " + term);
 
 		// "COUNT[MISC.COMPANIONS]",	   COMPLETE_COUNT_MISC_COMPANIONS
@@ -1666,7 +1666,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[MISC.FUNDS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor051 pattern matches for " + term);
+		assertTrue("Constructor051 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor051 pattern matches all of " + term);
 
 		// "COUNT[MISC.FUNDS]",		   COMPLETE_COUNT_MISC_FUNDS
@@ -1698,7 +1698,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[MISC.MAGIC]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor052 pattern matches for " + term);
+		assertTrue("Constructor052 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor052 pattern matches all of " + term);
 
 		// "COUNT[MISC.MAGIC]",		   COMPLETE_COUNT_MISC_MAGIC
@@ -1730,7 +1730,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[MOVE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor053 pattern matches for " + term);
+		assertTrue("Constructor053 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor053 pattern matches all of " + term);
 
 		// "COUNT[MOVE]",		   COMPLETE_COUNT_MOVE
@@ -1762,7 +1762,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[NOTES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor054 pattern matches for " + term);
+		assertTrue("Constructor054 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor054 pattern matches all of " + term);
 
 		// "COUNT[NOTES]",		   COMPLETE_COUNT_NOTES
@@ -1794,7 +1794,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[RACESUBTYPES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor055 pattern matches for " + term);
+		assertTrue("Constructor055 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor055 pattern matches all of " + term);
 
 		// "COUNT[RACESUBTYPES]",	   COMPLETE_COUNT_RACESUBTYPES
@@ -1826,7 +1826,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SA]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor056 pattern matches for " + term);
+		assertTrue("Constructor056 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor056 pattern matches all of " + term);
 
 		// "COUNT[SA]",			   COMPLETE_COUNT_SA
@@ -1858,7 +1858,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SKILLS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor057 pattern matches for " + term);
+		assertTrue("Constructor057 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor057 pattern matches all of " + term);
 
 		// "COUNT[SKILLS]",		   COMPLETE_COUNT_SKILLS
@@ -1890,8 +1890,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SKILLTYPE.KNOWLEDGE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor058 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor058 pattern matches start of " + term);
+		assertTrue("Constructor058 pattern matches for " + term, mat.find());
+		assertTrue("Constructor058 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SKILLTYPE.KNOWLEDGE]",	     START_COUNT_SKILLTYPE
 
@@ -1922,8 +1922,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SKILLTYPE=PERFORM]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor059 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor059 pattern matches start of " + term);
+		assertTrue("Constructor059 pattern matches for " + term, mat.find());
+		assertTrue("Constructor059 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SKILLTYPE=PERFORM]",		   START_COUNT_SKILLTYPE
 
@@ -1954,8 +1954,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SPELLBOOKS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor060 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor060 pattern matches start of " + term);
+		assertTrue("Constructor060 pattern matches for " + term, mat.find());
+		assertTrue("Constructor060 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLBOOKS]",		    START_COUNT_SPELLBOOKS
 
@@ -1986,7 +1986,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SPELLCLASSES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor061 pattern matches for " + term);
+		assertTrue("Constructor061 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor061 pattern matches all of " + term);
 
 		// "COUNT[SPELLCLASSES]",	   COMPLETE_COUNT_SPELLCLASSES
@@ -2018,7 +2018,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SPELLRACE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor062 pattern matches for " + term);
+		assertTrue("Constructor062 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor062 pattern matches all of " + term);
 
 		// "COUNT[SPELLRACE]",		   COMPLETE_COUNT_SPELLRACE
@@ -2050,8 +2050,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SPELLSINBOOK]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor063 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor063 pattern matches start of " + term);
+		assertTrue("Constructor063 pattern matches for " + term, mat.find());
+		assertTrue("Constructor063 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLSINBOOK]",	    START_COUNT_SPELLSINBOOK
 
@@ -2082,8 +2082,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SPELLSKNOWN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor064 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor064 pattern matches start of " + term);
+		assertTrue("Constructor064 pattern matches for " + term, mat.find());
+		assertTrue("Constructor064 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLSKNOWN]",	    START_COUNT_SPELLSKNOWN
 
@@ -2114,8 +2114,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SPELLSLEVELSINBOOK]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor065 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor065 pattern matches start of " + term);
+		assertTrue("Constructor065 pattern matches for " + term, mat.find());
+		assertTrue("Constructor065 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLSLEVELSINBOOK]",     START_COUNT_SPELLSLEVELSINBOOK
 
@@ -2146,8 +2146,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[SPELLTIMES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor066 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor066 pattern matches start of " + term);
+		assertTrue("Constructor066 pattern matches for " + term, mat.find());
+		assertTrue("Constructor066 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLTIMES]",		    START_COUNT_SPELLTIMES
 
@@ -2178,7 +2178,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[STATS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor067 pattern matches for " + term);
+		assertTrue("Constructor067 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor067 pattern matches all of " + term);
 
 		// "COUNT[STATS]",		   COMPLETE_COUNT_STATS
@@ -2210,7 +2210,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[TEMPBONUSNAMES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor068 pattern matches for " + term);
+		assertTrue("Constructor068 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor068 pattern matches all of " + term);
 
 		// "COUNT[TEMPBONUSNAMES]",	   COMPLETE_COUNT_TEMPBONUSNAMES
@@ -2242,7 +2242,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[TEMPLATES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor069 pattern matches for " + term);
+		assertTrue("Constructor069 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor069 pattern matches all of " + term);
 
 		// "COUNT[TEMPLATES]",		   COMPLETE_COUNT_TEMPLATES
@@ -2274,7 +2274,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VFEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor070 pattern matches for " + term);
+		assertTrue("Constructor070 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor070 pattern matches all of " + term);
 
 		// "COUNT[VFEATS.ALL]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
@@ -2306,7 +2306,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VFEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor071 pattern matches for " + term);
+		assertTrue("Constructor071 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor071 pattern matches all of " + term);
 
 		// "COUNT[VFEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
@@ -2338,7 +2338,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VFEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor072 pattern matches for " + term);
+		assertTrue("Constructor072 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor072 pattern matches all of " + term);
 
 		// "COUNT[VFEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
@@ -2370,7 +2370,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VFEATS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor073 pattern matches for " + term);
+		assertTrue("Constructor073 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor073 pattern matches all of " + term);
 
 		// "COUNT[VFEATS]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
@@ -2402,8 +2402,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VFEATTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor074 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor074 pattern matches start of " + term);
+		assertTrue("Constructor074 pattern matches for " + term, mat.find());
+		assertTrue("Constructor074 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[VFEATTYPE.HIDDEN]",		  START_COUNT_FEATTYPE
 
@@ -2434,8 +2434,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VFEATTYPE=ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor075 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor075 pattern matches start of " + term);
+		assertTrue("Constructor075 pattern matches for " + term, mat.find());
+		assertTrue("Constructor075 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[VFEATTYPE=ALL]",	       START_COUNT_FEATTYPE
 
@@ -2466,7 +2466,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VISIBLETEMPLATES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor076 pattern matches for " + term);
+		assertTrue("Constructor076 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor076 pattern matches all of " + term);
 
 		// "COUNT[VISIBLETEMPLATES]",	   COMPLETE_COUNT_VISIBLETEMPLATES
@@ -2498,7 +2498,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "COUNT[VISION]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor077 pattern matches for " + term);
+		assertTrue("Constructor077 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor077 pattern matches all of " + term);
 
 		// "COUNT[VISION]",		   COMPLETE_COUNT_VISION
@@ -2530,7 +2530,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "ENCUMBERANCE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor078 pattern matches for " + term);
+		assertTrue("Constructor078 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor078 pattern matches all of " + term);
 
 		// "ENCUMBERANCE",		   COMPLETE_ENCUMBERANCE
@@ -2562,8 +2562,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "EQTYPE.EQUIPPED.IS.FOO";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor079 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor079 pattern matches start of " + term);
+		assertTrue("Constructor079 pattern matches for " + term, mat.find());
+		assertTrue("Constructor079 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "EQTYPE.EQUIPPED.IS.FOO",			   START_EQTYPE
 
@@ -2594,8 +2594,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "HASDEITY:Bane";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor080 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor080 pattern matches start of " + term);
+		assertTrue("Constructor080 pattern matches for " + term, mat.find());
+		assertTrue("Constructor080 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "HASDEITY:Bane",		       START_HASDEITY
 
@@ -2626,8 +2626,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "HASFEAT:Endurance";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor081 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor081 pattern matches start of " + term);
+		assertTrue("Constructor081 pattern matches for " + term, mat.find());
+		assertTrue("Constructor081 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "HASFEAT:Endurance",			    START_HASFEAT
 
@@ -2658,7 +2658,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "HD";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor082 pattern matches for " + term);
+		assertTrue("Constructor082 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor082 pattern matches all of " + term);
 
 		// "HD",			   COMPLETE_HD
@@ -2690,7 +2690,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "MAXCASTABLE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor083 pattern matches for " + term);
+		assertTrue("Constructor083 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor083 pattern matches all of " + term);
 
 		// "MAXCASTABLE",		   COMPLETE_MAXCASTABLE
@@ -2722,8 +2722,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "MODEQUIPSPELLFAILURE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor084 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor084 pattern matches start of " + term);
+		assertTrue("Constructor084 pattern matches for " + term, mat.find());
+		assertTrue("Constructor084 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "MODEQUIPSPELLFAILURE",		       START_MODEQUIP
 
@@ -2754,7 +2754,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "MOVEBASE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor085 pattern matches for " + term);
+		assertTrue("Constructor085 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor085 pattern matches all of " + term);
 
 		// "MOVEBASE",			   COMPLETE_MOVEBASE
@@ -2786,8 +2786,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "MOVE[Walk]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor086 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor086 pattern matches start of " + term);
+		assertTrue("Constructor086 pattern matches for " + term, mat.find());
+		assertTrue("Constructor086 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "MOVE[Walk]",			START_MOVE
 
@@ -2818,7 +2818,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "PC.HEIGHT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor087 pattern matches for " + term);
+		assertTrue("Constructor087 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor087 pattern matches all of " + term);
 
 		// "PC.HEIGHT",			   COMPLETE_PC_HEIGHT
@@ -2850,8 +2850,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "PC.SIZEINT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor088 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor088 pattern matches start of " + term);
+		assertTrue("Constructor088 pattern matches for " + term, mat.find());
+		assertTrue("Constructor088 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "PC.SIZEINT",		      START_PC_SIZE
 
@@ -2882,7 +2882,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "PC.WEIGHT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor089 pattern matches for " + term);
+		assertTrue("Constructor089 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor089 pattern matches all of " + term);
 
 		// "PC.WEIGHT",			   COMPLETE_PC_WEIGHT
@@ -2914,7 +2914,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "PROFACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor090 pattern matches for " + term);
+		assertTrue("Constructor090 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor090 pattern matches all of " + term);
 
 		// "PROFACCHECK",		   COMPLETE_PROFACCHECK
@@ -2946,7 +2946,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "RACESIZE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor091 pattern matches for " + term);
+		assertTrue("Constructor091 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor091 pattern matches all of " + term);
 
 		// "RACESIZE",			   COMPLETE_RACESIZE
@@ -2978,7 +2978,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SCORE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor092 pattern matches for " + term);
+		assertTrue("Constructor092 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor092 pattern matches all of " + term);
 
 		// "SCORE",			   COMPLETE_SCORE
@@ -3010,7 +3010,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SHIELDACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor093 pattern matches for " + term);
+		assertTrue("Constructor093 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor093 pattern matches all of " + term);
 
 		// "SHIELDACCHECK",		   COMPLETE_SHIELDACCHECK
@@ -3042,7 +3042,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SHIELDACHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor094 pattern matches for " + term);
+		assertTrue("Constructor094 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor094 pattern matches all of " + term);
 
 		// "SHIELDACHECK",		   COMPLETE_SHIELDACCHECK
@@ -3074,7 +3074,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SIZE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor095 pattern matches for " + term);
+		assertTrue("Constructor095 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor095 pattern matches all of " + term);
 
 		// "SIZE",			   COMPLETE_SIZEMOD
@@ -3106,7 +3106,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SIZEMOD";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor096 pattern matches for " + term);
+		assertTrue("Constructor096 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor096 pattern matches all of " + term);
 
 		// "SIZEMOD",			   COMPLETE_SIZEMOD
@@ -3138,8 +3138,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SKILLRANK.Tumble";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor097 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor097 pattern matches start of " + term);
+		assertTrue("Constructor097 pattern matches for " + term, mat.find());
+		assertTrue("Constructor097 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLRANK.Tumble",			 START_SKILLRANK
 
@@ -3170,8 +3170,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SKILLRANK=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor098 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor098 pattern matches start of " + term);
+		assertTrue("Constructor098 pattern matches for " + term, mat.find());
+		assertTrue("Constructor098 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLRANK=Perform (Dance)",			  START_SKILLRANK
 
@@ -3202,8 +3202,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SKILLTOTAL.Tumble";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor099 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor099 pattern matches start of " + term);
+		assertTrue("Constructor099 pattern matches for " + term, mat.find());
+		assertTrue("Constructor099 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLTOTAL.Tumble",			 START_SKILLTOTAL
 
@@ -3234,8 +3234,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SKILLTOTAL=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor100 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor100 pattern matches start of " + term);
+		assertTrue("Constructor100 pattern matches for " + term, mat.find());
+		assertTrue("Constructor100 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLTOTAL=Perform (Dance)",		  START_SKILLTOTAL
 
@@ -3266,7 +3266,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SPELLBASESTAT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor101 pattern matches for " + term);
+		assertTrue("Constructor101 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor101 pattern matches all of " + term);
 
 		// "SPELLBASESTAT",		   COMPLETE_SPELLBASESTAT
@@ -3298,7 +3298,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SPELLBASESTATSCORE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor102 pattern matches for " + term);
+		assertTrue("Constructor102 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor102 pattern matches all of " + term);
 
 		// "SPELLBASESTATSCORE",	   COMPLETE_SPELLBASESTAT
@@ -3330,7 +3330,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "SPELLLEVEL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor103 pattern matches for " + term);
+		assertTrue("Constructor103 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor103 pattern matches all of " + term);
 
 		// "SPELLLEVEL",		   COMPLETE_SPELLLEVEL
@@ -3362,7 +3362,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "TL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor104 pattern matches for " + term);
+		assertTrue("Constructor104 pattern matches for " + term, mat.find());
 		is(mat.group(1), strEq(term), "Constructor104 pattern matches all of " + term);
 
 		// "TL",			   COMPLETE_TL
@@ -3394,8 +3394,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "VARDEFINED:MilkyBarsEaten";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor105 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor105 pattern matches start of " + term);
+		assertTrue("Constructor105 pattern matches for " + term, mat.find());
+		assertTrue("Constructor105 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "VARDEFINED:MilkyBarsEaten",			 START_VARDEFINED
 
@@ -3426,8 +3426,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "WEIGHT.CARRIED";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor106 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor106 pattern matches start of " + term);
+		assertTrue("Constructor106 pattern matches for " + term, mat.find());
+		assertTrue("Constructor106 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "WEIGHT.CARRIED",			  START_WEIGHT
 
@@ -3458,8 +3458,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		String term = "DEXSCORE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor107 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor107 pattern matches start of " + term);
+		assertTrue("Constructor107 pattern matches for " + term, mat.find());
+		assertTrue("Constructor107 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "DEXSCORE",			      START_STAT			       
 
@@ -3476,7 +3476,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCACcheckTermEvaluator, eq(true), "GetTermEvaluator001 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator001 evaluator correct for " + term, t instanceof PCACcheckTermEvaluator);
 
 		Class<?> uClass = PCACcheckTermEvaluator.class;
 
@@ -3510,7 +3510,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCACcheckTermEvaluator, eq(true), "GetTermEvaluator002 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator002 evaluator correct for " + term, t instanceof PCACcheckTermEvaluator);
 
 		Class<?> uClass = PCACcheckTermEvaluator.class;
 
@@ -3544,7 +3544,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCArmourACcheckTermEvaluator, eq(true), "GetTermEvaluator003 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator003 evaluator correct for " + term, t instanceof PCArmourACcheckTermEvaluator);
 
 		Class<?> uClass = PCArmourACcheckTermEvaluator.class;
 
@@ -3578,7 +3578,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCArmourACcheckTermEvaluator, eq(true), "GetTermEvaluator004 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator004 evaluator correct for " + term, t instanceof PCArmourACcheckTermEvaluator);
 
 		Class<?> uClass = PCArmourACcheckTermEvaluator.class;
 
@@ -3612,7 +3612,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCBABTermEvaluator, eq(true), "GetTermEvaluator005 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator005 evaluator correct for " + term, t instanceof PCBABTermEvaluator);
 
 		Class<?> uClass = PCBABTermEvaluator.class;
 
@@ -3646,7 +3646,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Foo");
 
-		is(t instanceof PCBaseSpellStatTermEvaluator, eq(true), "GetTermEvaluator006 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator006 evaluator correct for " + term, t instanceof PCBaseSpellStatTermEvaluator);
 
 		Class<?> uClass = PCBaseSpellStatTermEvaluator.class;
 
@@ -3684,7 +3684,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		is(t instanceof PCBaseSpellStatTermEvaluator, eq(true), "GetTermEvaluator007 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator007 evaluator correct for " + term, t instanceof PCBaseSpellStatTermEvaluator);
 
 		Class<?> uClass = PCBaseSpellStatTermEvaluator.class;
 
@@ -3722,7 +3722,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		is(t instanceof PCCasterLevelRaceTermEvaluator, eq(true), "GetTermEvaluator008 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator008 evaluator correct for " + term, t instanceof PCCasterLevelRaceTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelRaceTermEvaluator.class;
 
@@ -3760,7 +3760,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Foo");
 
-		is(t instanceof PCCasterLevelClassTermEvaluator, eq(true), "GetTermEvaluator009 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator009 evaluator correct for " + term, t instanceof PCCasterLevelClassTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelClassTermEvaluator.class;
 
@@ -3798,7 +3798,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "SPELL:Baz");
 
-		is(t instanceof PCCasterLevelTotalTermEvaluator, eq(true), "GetTermEvaluator010 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator010 evaluator correct for " + term, t instanceof PCCasterLevelTotalTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelTotalTermEvaluator.class;
 
@@ -3832,7 +3832,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		is(t instanceof PCCasterLevelTotalTermEvaluator, eq(true), "GetTermEvaluator011 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator011 evaluator correct for " + term, t instanceof PCCasterLevelTotalTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelTotalTermEvaluator.class;
 
@@ -3866,7 +3866,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAttacksTermEvaluator, eq(true), "GetTermEvaluator012 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator012 evaluator correct for " + term, t instanceof PCCountAttacksTermEvaluator);
 
 		Class<?> uClass = PCCountAttacksTermEvaluator.class;
 
@@ -3900,7 +3900,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountChecksTermEvaluator, eq(true), "GetTermEvaluator013 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator013 evaluator correct for " + term, t instanceof PCCountChecksTermEvaluator);
 
 		Class<?> uClass = PCCountChecksTermEvaluator.class;
 
@@ -3934,7 +3934,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountClassesTermEvaluator, eq(true), "GetTermEvaluator014 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator014 evaluator correct for " + term, t instanceof PCCountClassesTermEvaluator);
 
 		Class<?> uClass = PCCountClassesTermEvaluator.class;
 
@@ -3968,7 +3968,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountContainersTermEvaluator, eq(true), "GetTermEvaluator015 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator015 evaluator correct for " + term, t instanceof PCCountContainersTermEvaluator);
 
 		Class<?> uClass = PCCountContainersTermEvaluator.class;
 
@@ -4002,7 +4002,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountDomainsTermEvaluator, eq(true), "GetTermEvaluator016 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator016 evaluator correct for " + term, t instanceof PCCountDomainsTermEvaluator);
 
 		Class<?> uClass = PCCountDomainsTermEvaluator.class;
 
@@ -4108,7 +4108,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator018 stored term is correct " + term);
 		assertTrue("GetTermEvaluator018 field hidden is correct ", field1);
-		is(field2, eq(false), "GetTermEvaluator018 field visible is correct ");
+		assertFalse("GetTermEvaluator018 field visible is correct ", field2);
 	}
 
 	/**
@@ -4150,7 +4150,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator019", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator019 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator019 field hidden is correct ");
+		assertFalse("GetTermEvaluator019 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator019 field visible is correct ", field2);
 	}
 
@@ -4193,7 +4193,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator020", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator020 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator020 field hidden is correct ");
+		assertFalse("GetTermEvaluator020 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator020 field visible is correct ", field2);
 	}
 
@@ -4280,7 +4280,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator022 stored term is correct " + term);
 		assertTrue("GetTermEvaluator022 field hidden is correct ", field1);
-		is(field2, eq(false), "GetTermEvaluator022 field visible is correct ");
+		assertFalse("GetTermEvaluator022 field visible is correct ", field2);
 	}
 
 	/**
@@ -4322,7 +4322,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator023", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator023 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator023 field hidden is correct ");
+		assertFalse("GetTermEvaluator023 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator023 field visible is correct ", field2);
 	}
 
@@ -4365,7 +4365,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator024", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator024 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator024 field hidden is correct ");
+		assertFalse("GetTermEvaluator024 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator024 field visible is correct ", field2);
 	}
 
@@ -4452,7 +4452,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator026 stored term is correct " + term);
 		assertTrue("GetTermEvaluator026 field hidden is correct ", field1);
-		is(field2, eq(false), "GetTermEvaluator026 field visible is correct ");
+		assertFalse("GetTermEvaluator026 field visible is correct ", field2);
 	}
 
 	/**
@@ -4494,7 +4494,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator027", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator027 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator027 field hidden is correct ");
+		assertFalse("GetTermEvaluator027 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator027 field visible is correct ", field2);
 	}
 
@@ -4537,7 +4537,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator028", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator028 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator028 field hidden is correct ");
+		assertFalse("GetTermEvaluator028 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator028 field visible is correct ", field2);
 	}
 
@@ -4624,7 +4624,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator030 stored term is correct " + term);
 		assertTrue("GetTermEvaluator030 field hidden is correct ", field1);
-		is(field2, eq(false), "GetTermEvaluator030 field visible is correct ");
+		assertFalse("GetTermEvaluator030 field visible is correct ", field2);
 	}
 
 	/**
@@ -4666,7 +4666,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator031", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator031 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator031 field hidden is correct ");
+		assertFalse("GetTermEvaluator031 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator031 field visible is correct ", field2);
 	}
 
@@ -4709,7 +4709,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator032", ok);
 
 		is(field0, strEq(term), "GetTermEvaluator032 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator032 field hidden is correct ");
+		assertFalse("GetTermEvaluator032 field hidden is correct ", field1);
 		assertTrue("GetTermEvaluator032 field visible is correct ", field2);
 	}
 
@@ -4724,7 +4724,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountFollowersTermEvaluator, eq(true), "GetTermEvaluator033 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator033 evaluator correct for " + term, t instanceof PCCountFollowersTermEvaluator);
 
 		Class<?> uClass = PCCountFollowersTermEvaluator.class;
 
@@ -4758,7 +4758,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountLanguagesTermEvaluator, eq(true), "GetTermEvaluator034 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator034 evaluator correct for " + term, t instanceof PCCountLanguagesTermEvaluator);
 
 		Class<?> uClass = PCCountLanguagesTermEvaluator.class;
 
@@ -4827,7 +4827,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMiscFundsTermEvaluator, eq(true), "GetTermEvaluator036 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator036 evaluator correct for " + term, t instanceof PCCountMiscFundsTermEvaluator);
 
 		Class<?> uClass = PCCountMiscFundsTermEvaluator.class;
 
@@ -4861,7 +4861,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMiscMagicTermEvaluator, eq(true), "GetTermEvaluator037 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator037 evaluator correct for " + term, t instanceof PCCountMiscMagicTermEvaluator);
 
 		Class<?> uClass = PCCountMiscMagicTermEvaluator.class;
 
@@ -4895,7 +4895,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMoveTermEvaluator, eq(true), "GetTermEvaluator038 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator038 evaluator correct for " + term, t instanceof PCCountMoveTermEvaluator);
 
 		Class<?> uClass = PCCountMoveTermEvaluator.class;
 
@@ -4929,7 +4929,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountNotesTermEvaluator, eq(true), "GetTermEvaluator039 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator039 evaluator correct for " + term, t instanceof PCCountNotesTermEvaluator);
 
 		Class<?> uClass = PCCountNotesTermEvaluator.class;
 
@@ -4998,7 +4998,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSABTermEvaluator, eq(true), "GetTermEvaluator041 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator041 evaluator correct for " + term, t instanceof PCCountSABTermEvaluator);
 
 		Class<?> uClass = PCCountSABTermEvaluator.class;
 
@@ -5032,7 +5032,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSkillsTermEvaluator, eq(true), "GetTermEvaluator042 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator042 evaluator correct for " + term, t instanceof PCCountSkillsTermEvaluator);
 
 		Class<?> uClass = PCCountSkillsTermEvaluator.class;
 
@@ -5101,7 +5101,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellRaceTermEvaluator, eq(true), "GetTermEvaluator044 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator044 evaluator correct for " + term, t instanceof PCCountSpellRaceTermEvaluator);
 
 		Class<?> uClass = PCCountSpellRaceTermEvaluator.class;
 
@@ -5135,7 +5135,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountStatsTermEvaluator, eq(true), "GetTermEvaluator045 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator045 evaluator correct for " + term, t instanceof PCCountStatsTermEvaluator);
 
 		Class<?> uClass = PCCountStatsTermEvaluator.class;
 
@@ -5204,7 +5204,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountTemplatesTermEvaluator, eq(true), "GetTermEvaluator047 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator047 evaluator correct for " + term, t instanceof PCCountTemplatesTermEvaluator);
 
 		Class<?> uClass = PCCountTemplatesTermEvaluator.class;
 
@@ -5273,7 +5273,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountVisionTermEvaluator, eq(true), "GetTermEvaluator049 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator049 evaluator correct for " + term, t instanceof PCCountVisionTermEvaluator);
 
 		Class<?> uClass = PCCountVisionTermEvaluator.class;
 
@@ -5307,7 +5307,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCEncumberanceTermEvaluator, eq(true), "GetTermEvaluator050 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator050 evaluator correct for " + term, t instanceof PCEncumberanceTermEvaluator);
 
 		Class<?> uClass = PCEncumberanceTermEvaluator.class;
 
@@ -5341,7 +5341,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHDTermEvaluator, eq(true), "GetTermEvaluator051 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator051 evaluator correct for " + term, t instanceof PCHDTermEvaluator);
 
 		Class<?> uClass = PCHDTermEvaluator.class;
 
@@ -5375,7 +5375,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHPTermEvaluator, eq(true), "testGetTermEvaluatorHp evaluator correct for " + term);
+		assertTrue("testGetTermEvaluatorHp evaluator correct for " + term, t instanceof PCHPTermEvaluator);
 
 		Class<?> uClass = PCHPTermEvaluator.class;
 
@@ -5410,7 +5410,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		Globals.getContext().getReferenceContext().constructCDOMObject(ClassSpellList.class, "Bard");
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Bard");
 
-		is(t instanceof PCMaxCastableClassTermEvaluator, eq(true), "GetTermEvaluator052 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator052 evaluator correct for " + term, t instanceof PCMaxCastableClassTermEvaluator);
 
 		Class<?> uClass = PCMaxCastableClassTermEvaluator.class;
 
@@ -5526,7 +5526,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "ANY");
 
-		is(t instanceof PCMaxCastableAnyTermEvaluator, eq(true), "GetTermEvaluator055 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator055 evaluator correct for " + term, t instanceof PCMaxCastableAnyTermEvaluator);
 
 		Class<?> uClass = PCMaxCastableAnyTermEvaluator.class;
 
@@ -5574,7 +5574,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCMoveBaseTermEvaluator, eq(true), "GetTermEvaluator057 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator057 evaluator correct for " + term, t instanceof PCMoveBaseTermEvaluator);
 
 		Class<?> uClass = PCMoveBaseTermEvaluator.class;
 
@@ -5608,7 +5608,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHeightTermEvaluator, eq(true), "GetTermEvaluator058 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator058 evaluator correct for " + term, t instanceof PCHeightTermEvaluator);
 
 		Class<?> uClass = PCHeightTermEvaluator.class;
 
@@ -5642,7 +5642,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCWeightTermEvaluator, eq(true), "GetTermEvaluator059 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator059 evaluator correct for " + term, t instanceof PCWeightTermEvaluator);
 
 		Class<?> uClass = PCWeightTermEvaluator.class;
 
@@ -5676,7 +5676,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "EQ:Dagger");
 
-		is(t instanceof PCProfACCheckTermEvaluator, eq(true), "GetTermEvaluator060 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator060 evaluator correct for " + term, t instanceof PCProfACCheckTermEvaluator);
 
 		Class<?> uClass = PCProfACCheckTermEvaluator.class;
 
@@ -5714,7 +5714,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCProfACCheckTermEvaluator, eq(true), "GetTermEvaluator061 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator061 evaluator correct for " + term, t instanceof PCProfACCheckTermEvaluator);
 
 		Class<?> uClass = PCProfACCheckTermEvaluator.class;
 
@@ -5752,7 +5752,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCRaceSizeTermEvaluator, eq(true), "GetTermEvaluator062 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator062 evaluator correct for " + term, t instanceof PCRaceSizeTermEvaluator);
 
 		Class<?> uClass = PCRaceSizeTermEvaluator.class;
 
@@ -5786,7 +5786,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "STAT:INT");
 
-		is(t instanceof PCScoreTermEvaluator, eq(true), "GetTermEvaluator063 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator063 evaluator correct for " + term, t instanceof PCScoreTermEvaluator);
 
 		Class<?> uClass = PCScoreTermEvaluator.class;
 
@@ -5824,7 +5824,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCScoreTermEvaluator, eq(true), "GetTermEvaluator064 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator064 evaluator correct for " + term, t instanceof PCScoreTermEvaluator);
 
 		Class<?> uClass = PCScoreTermEvaluator.class;
 
@@ -5862,7 +5862,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCShieldACcheckTermEvaluator, eq(true), "GetTermEvaluator065 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator065 evaluator correct for " + term, t instanceof PCShieldACcheckTermEvaluator);
 
 		Class<?> uClass = PCShieldACcheckTermEvaluator.class;
 
@@ -5896,7 +5896,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCShieldACcheckTermEvaluator, eq(true), "GetTermEvaluator066 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator066 evaluator correct for " + term, t instanceof PCShieldACcheckTermEvaluator);
 
 		Class<?> uClass = PCShieldACcheckTermEvaluator.class;
 
@@ -5930,7 +5930,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSizeTermEvaluator, eq(true), "GetTermEvaluator067 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator067 evaluator correct for " + term, t instanceof PCSizeTermEvaluator);
 
 		Class<?> uClass = PCSizeTermEvaluator.class;
 
@@ -5964,7 +5964,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSizeModEvaluatorTermEvaluator, eq(true), "GetTermEvaluator068 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator068 evaluator correct for " + term, t instanceof PCSizeModEvaluatorTermEvaluator);
 
 		Class<?> uClass = PCSizeModEvaluatorTermEvaluator.class;
 
@@ -5998,7 +5998,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Cleric");
 
-		is(t instanceof PCSPellBaseStatTermEvaluator, eq(true), "GetTermEvaluator069 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator069 evaluator correct for " + term, t instanceof PCSPellBaseStatTermEvaluator);
 
 		Class<?> uClass = PCSPellBaseStatTermEvaluator.class;
 
@@ -6075,7 +6075,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnu");
 
-		is(t instanceof PCSPellBaseStatTermEvaluator, eq(true), "GetTermEvaluator071 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator071 evaluator correct for " + term, t instanceof PCSPellBaseStatTermEvaluator);
 
 		Class<?> uClass = PCSPellBaseStatTermEvaluator.class;
 
@@ -6152,7 +6152,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSpellLevelTermEvaluator, eq(true), "GetTermEvaluator073 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator073 evaluator correct for " + term, t instanceof PCSpellLevelTermEvaluator);
 
 		Class<?> uClass = PCSpellLevelTermEvaluator.class;
 
@@ -6186,7 +6186,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCTLTermEvaluator, eq(true), "GetTermEvaluator074 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator074 evaluator correct for " + term, t instanceof PCTLTermEvaluator);
 
 		Class<?> uClass = PCTLTermEvaluator.class;
 
@@ -6220,7 +6220,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator075 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator075 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6258,7 +6258,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnome");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator076 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator076 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6296,7 +6296,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Ice");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator077 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator077 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6334,7 +6334,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Law");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator078 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator078 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6372,7 +6372,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		is(t instanceof PCCLBeforeLevelTermEvaluator, eq(true), "GetTermEvaluator079 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator079 evaluator correct for " + term, t instanceof PCCLBeforeLevelTermEvaluator);
 
 		Class<?> uClass = PCCLBeforeLevelTermEvaluator.class;
 
@@ -6414,7 +6414,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Druid");
 
-		is(t instanceof PCCLBeforeLevelTermEvaluator, eq(true), "GetTermEvaluator080 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator080 evaluator correct for " + term, t instanceof PCCLBeforeLevelTermEvaluator);
 
 		Class<?> uClass = PCCLBeforeLevelTermEvaluator.class;
 
@@ -6470,7 +6470,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator082 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator082 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6508,7 +6508,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator083 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator083 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6546,7 +6546,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Human");
 
-		is(t instanceof PCHasClassTermEvaluator, eq(true), "GetTermEvaluator084 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator084 evaluator correct for " + term, t instanceof PCHasClassTermEvaluator);
 
 		Class<?> uClass = PCHasClassTermEvaluator.class;
 
@@ -6584,7 +6584,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Dwarf");
 
-		is(t instanceof PCHasClassTermEvaluator, eq(true), "GetTermEvaluator085 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator085 evaluator correct for " + term, t instanceof PCHasClassTermEvaluator);
 
 		Class<?> uClass = PCHasClassTermEvaluator.class;
 
@@ -6622,7 +6622,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator086 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator086 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6674,7 +6674,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Elf");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator088 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator088 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6712,7 +6712,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Elf");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator089 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator089 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6750,7 +6750,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator090 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator090 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -6792,7 +6792,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator091 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator091 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -6834,7 +6834,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator092 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator092 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -6876,7 +6876,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator093 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator093 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -6918,7 +6918,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator094 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator094 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -6960,7 +6960,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator095 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator095 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7002,7 +7002,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator096 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator096 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7044,7 +7044,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator097 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator097 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7086,7 +7086,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator098 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator098 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7130,7 +7130,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator099 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator099 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7174,7 +7174,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator100 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator100 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7218,7 +7218,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator101 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator101 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7262,7 +7262,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator102 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator102 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7309,7 +7309,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator103 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator103 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7393,7 +7393,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator107 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator107 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7435,7 +7435,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator108 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator108 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7477,7 +7477,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator109 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator109 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7589,7 +7589,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator115 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator115 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7632,7 +7632,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator116 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator116 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7675,7 +7675,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator117 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator117 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7854,7 +7854,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		is(field0, strEq(term), "GetTermEvaluator123 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator123 field types[0] is correct ");
 		assertTrue("GetTermEvaluator123 field hidden is correct ", field2);
-		is(field3, eq(false), "GetTermEvaluator123 field visible is correct ");
+		assertFalse("GetTermEvaluator123 field visible is correct ", field3);
 	}
 
 	/**
@@ -7900,7 +7900,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator124 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator124 field types[0] is correct ");
-		is(field2, eq(false), "GetTermEvaluator124 field hidden is correct ");
+		assertFalse("GetTermEvaluator124 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator124 field visible is correct ", field3);
 	}
 
@@ -7915,7 +7915,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilityNameTermEvaluator, eq(true), "GetTermEvaluator125 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator125 evaluator correct for " + term, t instanceof PCCountAbilityNameTermEvaluator);
 
 		Class<?> uClass = PCCountAbilityNameTermEvaluator.class;
 
@@ -7946,7 +7946,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator125 stored term is correct " + term);
 		is(field1, strEq("Jack of all trades"), "GetTermEvaluator125 field key is correct ");
-		is(field2, eq(false), "GetTermEvaluator125 field hidden is correct ");
+		assertFalse("GetTermEvaluator125 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator125 field visible is correct ", field3);
 	}
 
@@ -7961,7 +7961,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilityNameTermEvaluator, eq(true), "GetTermEvaluator126 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator126 evaluator correct for " + term, t instanceof PCCountAbilityNameTermEvaluator);
 
 		Class<?> uClass = PCCountAbilityNameTermEvaluator.class;
 
@@ -7992,7 +7992,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator126 stored term is correct " + term);
 		is(field1, strEq("Weapon Focus (Dagger)"), "GetTermEvaluator126 field key is correct ");
-		is(field2, eq(false), "GetTermEvaluator126 field hidden is correct ");
+		assertFalse("GetTermEvaluator126 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator126 field visible is correct ", field3);
 	}
 
@@ -8039,7 +8039,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator127 stored term is correct " + term);
 		is(field1[0], strEq("BAR"), "GetTermEvaluator127 field types[0] is correct ");
-		is(field2, eq(false), "GetTermEvaluator127 field hidden is correct ");
+		assertFalse("GetTermEvaluator127 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator127 field visible is correct ", field3);
 	}
 
@@ -8086,7 +8086,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		is(field0, strEq(term), "GetTermEvaluator128 stored term is correct " + term);
 		is(field1[0], strEq("BAZ"), "GetTermEvaluator128 field types[0] is correct ");
-		is(field2, eq(false), "GetTermEvaluator128 field hidden is correct ");
+		assertFalse("GetTermEvaluator128 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator128 field visible is correct ", field3);
 	}
 
@@ -8134,7 +8134,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		is(field0, strEq(term), "GetTermEvaluator129 stored term is correct " + term);
 		is(field1[0], strEq(""), "GetTermEvaluator129 field types[0] is correct ");
 		assertTrue("GetTermEvaluator129 field hidden is correct ", field2);
-		is(field3, eq(false), "GetTermEvaluator129 field visible is correct ");
+		assertFalse("GetTermEvaluator129 field visible is correct ", field3);
 	}
 
 	/**
@@ -8230,7 +8230,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		is(field1[1], strEq("BAR"), "GetTermEvaluator131 field types[1] is correct ");
 		is(field1[2], strEq("BAZ"), "GetTermEvaluator131 field types[2] is correct ");
 		is(field1[3], strEq("QUX"), "GetTermEvaluator131 field types[3] is correct ");
-		is(field2, eq(false), "GetTermEvaluator131 field hidden is correct ");
+		assertFalse("GetTermEvaluator131 field hidden is correct ", field2);
 		assertTrue("GetTermEvaluator131 field visible is correct ", field3);
 	}
 
@@ -8359,7 +8359,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTypeTermEvaluator, eq(true), "GetTermEvaluator136 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator136 evaluator correct for " + term, t instanceof PCSkillTypeTermEvaluator);
 
 		Class<?> uClass = PCSkillTypeTermEvaluator.class;
 
@@ -8397,7 +8397,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTypeTermEvaluator, eq(true), "GetTermEvaluator137 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator137 evaluator correct for " + term, t instanceof PCSkillTypeTermEvaluator);
 
 		Class<?> uClass = PCSkillTypeTermEvaluator.class;
 
@@ -8435,7 +8435,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellbookTermEvaluator, eq(true), "GetTermEvaluator138 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator138 evaluator correct for " + term, t instanceof PCCountSpellbookTermEvaluator);
 
 		Class<?> uClass = PCCountSpellbookTermEvaluator.class;
 
@@ -8536,7 +8536,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellsKnownTermEvaluator, eq(true), "GetTermEvaluator142 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator142 evaluator correct for " + term, t instanceof PCCountSpellsKnownTermEvaluator);
 
 		Class<?> uClass = PCCountSpellsKnownTermEvaluator.class;
 
@@ -8617,7 +8617,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellTimesTermEvaluator, eq(true), "GetTermEvaluator146 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator146 evaluator correct for " + term, t instanceof PCCountSpellTimesTermEvaluator);
 
 		Class<?> uClass = PCCountSpellTimesTermEvaluator.class;
 
@@ -8766,7 +8766,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCEqTypeTermEvaluator, eq(true), "GetTermEvaluator152 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator152 evaluator correct for " + term, t instanceof PCEqTypeTermEvaluator);
 
 		Class<?> uClass = PCEqTypeTermEvaluator.class;
 
@@ -8800,7 +8800,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHasDeityTermEvaluator, eq(true), "GetTermEvaluator153 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator153 evaluator correct for " + term, t instanceof PCHasDeityTermEvaluator);
 
 		Class<?> uClass = PCHasDeityTermEvaluator.class;
 
@@ -8838,7 +8838,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHasFeatTermEvaluator, eq(true), "GetTermEvaluator154 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator154 evaluator correct for " + term, t instanceof PCHasFeatTermEvaluator);
 
 		Class<?> uClass = PCHasFeatTermEvaluator.class;
 
@@ -8876,7 +8876,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCModEquipTermEvaluator, eq(true), "GetTermEvaluator155 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator155 evaluator correct for " + term, t instanceof PCModEquipTermEvaluator);
 
 		Class<?> uClass = PCModEquipTermEvaluator.class;
 
@@ -8914,7 +8914,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCMovementTermEvaluator, eq(true), "GetTermEvaluator156 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator156 evaluator correct for " + term, t instanceof PCMovementTermEvaluator);
 
 		Class<?> uClass = PCMovementTermEvaluator.class;
 
@@ -8966,7 +8966,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSizeTermEvaluator, eq(true), "GetTermEvaluator158 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator158 evaluator correct for " + term, t instanceof PCSizeTermEvaluator);
 
 		Class<?> uClass = PCSizeTermEvaluator.class;
 
@@ -9000,7 +9000,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillRankTermEvaluator, eq(true), "GetTermEvaluator159 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator159 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -9038,7 +9038,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillRankTermEvaluator, eq(true), "GetTermEvaluator160 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator160 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -9076,7 +9076,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillRankTermEvaluator, eq(true), "GetTermEvaluator161 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator161 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -9114,7 +9114,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTotalTermEvaluator, eq(true), "GetTermEvaluator162 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator162 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -9152,7 +9152,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTotalTermEvaluator, eq(true), "GetTermEvaluator163 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator163 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -9190,7 +9190,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTotalTermEvaluator, eq(true), "GetTermEvaluator164 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator164 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -9228,7 +9228,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCVarDefinedTermEvaluator, eq(true), "GetTermEvaluator165 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator165 evaluator correct for " + term, t instanceof PCVarDefinedTermEvaluator);
 
 		Class<?> uClass = PCVarDefinedTermEvaluator.class;
 
@@ -9266,7 +9266,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCarriedWeightTermEvaluator, eq(true), "GetTermEvaluator166 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator166 evaluator correct for " + term, t instanceof PCCarriedWeightTermEvaluator);
 
 		Class<?> uClass = PCCarriedWeightTermEvaluator.class;
 
@@ -9300,7 +9300,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCarriedWeightTermEvaluator, eq(true), "GetTermEvaluator167 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator167 evaluator correct for " + term, t instanceof PCCarriedWeightTermEvaluator);
 
 		Class<?> uClass = PCCarriedWeightTermEvaluator.class;
 
@@ -9334,7 +9334,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCWeightTermEvaluator, eq(true), "GetTermEvaluator168 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator168 evaluator correct for " + term, t instanceof PCWeightTermEvaluator);
 
 		Class<?> uClass = PCWeightTermEvaluator.class;
 
@@ -9368,7 +9368,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCTotalWeightTermEvaluator, eq(true), "GetTermEvaluator169 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator169 evaluator correct for " + term, t instanceof PCTotalWeightTermEvaluator);
 
 		Class<?> uClass = PCTotalWeightTermEvaluator.class;
 
@@ -9458,7 +9458,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator172 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator172 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9496,7 +9496,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator173 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator173 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9534,7 +9534,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator174 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator174 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9572,7 +9572,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator175 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator175 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9610,7 +9610,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator176 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator176 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9648,7 +9648,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator177 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator177 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -9686,7 +9686,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator178 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator178 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -9724,7 +9724,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator179 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator179 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -9762,7 +9762,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator180 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator180 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -9800,7 +9800,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator181 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator181 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -9838,7 +9838,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator182 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator182 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -9876,7 +9876,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator183 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator183 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -9914,7 +9914,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator184 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator184 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -9952,7 +9952,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator185 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator185 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -9990,7 +9990,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator186 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator186 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10028,7 +10028,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator187 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator187 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10066,7 +10066,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator188 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator188 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10104,7 +10104,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator189 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator189 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10142,7 +10142,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator190 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator190 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10180,7 +10180,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator191 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator191 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10218,7 +10218,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator192 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator192 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10256,7 +10256,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator193 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator193 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10294,7 +10294,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator194 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator194 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10416,7 +10416,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQBaseCostTermEvaluator, eq(true), "GetTermEvaluator201 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator201 evaluator correct for " + term, t instanceof EQBaseCostTermEvaluator);
 
 		Class<?> uClass = EQBaseCostTermEvaluator.class;
 
@@ -10450,7 +10450,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQCritMultTermEvaluator, eq(true), "GetTermEvaluator202 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator202 evaluator correct for " + term, t instanceof EQCritMultTermEvaluator);
 
 		Class<?> uClass = EQCritMultTermEvaluator.class;
 
@@ -10484,7 +10484,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQDamageDiceTermEvaluator, eq(true), "GetTermEvaluator203 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator203 evaluator correct for " + term, t instanceof EQDamageDiceTermEvaluator);
 
 		Class<?> uClass = EQDamageDiceTermEvaluator.class;
 
@@ -10518,7 +10518,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQDamageDieTermEvaluator, eq(true), "GetTermEvaluator204 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator204 evaluator correct for " + term, t instanceof EQDamageDieTermEvaluator);
 
 		Class<?> uClass = EQDamageDieTermEvaluator.class;
 
@@ -10552,7 +10552,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQACCheckTermEvaluator, eq(true), "GetTermEvaluator205 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator205 evaluator correct for " + term, t instanceof EQACCheckTermEvaluator);
 
 		Class<?> uClass = EQACCheckTermEvaluator.class;
 
@@ -10586,7 +10586,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQHandsTermEvaluator, eq(true), "GetTermEvaluator206 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator206 evaluator correct for " + term, t instanceof EQHandsTermEvaluator);
 
 		Class<?> uClass = EQHandsTermEvaluator.class;
 
@@ -10620,7 +10620,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQSpellFailureTermEvaluator, eq(true), "GetTermEvaluator207 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator207 evaluator correct for " + term, t instanceof EQSpellFailureTermEvaluator);
 
 		Class<?> uClass = EQSpellFailureTermEvaluator.class;
 
@@ -10654,7 +10654,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQEquipSizeTermEvaluator, eq(true), "GetTermEvaluator208 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator208 evaluator correct for " + term, t instanceof EQEquipSizeTermEvaluator);
 
 		Class<?> uClass = EQEquipSizeTermEvaluator.class;
 
@@ -10688,7 +10688,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQSizeTermEvaluator, eq(true), "GetTermEvaluator209 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator209 evaluator correct for " + term, t instanceof EQSizeTermEvaluator);
 
 		Class<?> uClass = EQSizeTermEvaluator.class;
 
@@ -10757,7 +10757,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQPlusTotalTermEvaluator, eq(true), "EQPlusTotalTermEvaluator evaluator correct for " + term);
+		assertTrue("EQPlusTotalTermEvaluator evaluator correct for " + term, t instanceof EQPlusTotalTermEvaluator);
 
 		Class<?> uClass = EQPlusTotalTermEvaluator.class;
 
@@ -10791,7 +10791,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "RACE:Gnome");
 
-		is(t instanceof EQRaceReachTermEvaluator, eq(true), "GetTermEvaluator210 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator210 evaluator correct for " + term, t instanceof EQRaceReachTermEvaluator);
 
 		Class<?> uClass = EQRaceReachTermEvaluator.class;
 
@@ -10825,7 +10825,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQRangeTermEvaluator, eq(true), "GetTermEvaluator211 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator211 evaluator correct for " + term, t instanceof EQRangeTermEvaluator);
 
 		Class<?> uClass = EQRangeTermEvaluator.class;
 
@@ -10859,7 +10859,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQReachTermEvaluator, eq(true), "GetTermEvaluator212 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator212 evaluator correct for " + term, t instanceof EQReachTermEvaluator);
 
 		Class<?> uClass = EQReachTermEvaluator.class;
 
@@ -10893,7 +10893,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQReachMultTermEvaluator, eq(true), "GetTermEvaluator213 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator213 evaluator correct for " + term, t instanceof EQReachMultTermEvaluator);
 
 		Class<?> uClass = EQReachMultTermEvaluator.class;
 
@@ -10927,7 +10927,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQSizeTermEvaluator, eq(true), "GetTermEvaluator214 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator214 evaluator correct for " + term, t instanceof EQSizeTermEvaluator);
 
 		Class<?> uClass = EQSizeTermEvaluator.class;
 
@@ -10961,7 +10961,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQWeightTermEvaluator, eq(true), "GetTermEvaluator215 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator215 evaluator correct for " + term, t instanceof EQWeightTermEvaluator);
 
 		Class<?> uClass = EQWeightTermEvaluator.class;
 
@@ -11004,9 +11004,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		is(t3 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
 			"GetTermEvaluator215 t3 evaluator correct for " + term1);
 
-		is(t1.equals(t2), eq(false), "t1 and t2 are different objects");
+		assertFalse("t1 and t2 are different objects", t1.equals(t2));
 		assertTrue("t1 and t3 are the Same object", t1.equals(t3));
-		is(t2.equals(t3), eq(false), "t2 and t3 are different objects");
+		assertFalse("t2 and t3 are different objects", t2.equals(t3));
 
 		String term2 = "CL;BEFORELEVEL=14";
 
@@ -11022,10 +11022,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			"GetTermEvaluator215 t6 evaluator correct for " + term2);
 
 		assertTrue("t4 and t6 are the Same object", t4.equals(t6));
-		is(t4.equals(t5), eq(false), "t4 and t5 are different objects");
-		is(t6.equals(t5), eq(false), "t6 and t5 are different objects");
+		assertFalse("t4 and t5 are different objects", t4.equals(t5));
+		assertFalse("t6 and t5 are different objects", t6.equals(t5));
 
-		is(t1.equals(t4), eq(false), "t1 and t4 are diffferent objects");
+		assertFalse("t1 and t4 are diffferent objects", t1.equals(t4));
 	}
 
 	/**
