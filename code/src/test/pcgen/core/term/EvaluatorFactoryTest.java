@@ -2,6 +2,7 @@ package pcgen.core.term;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
+import static org.junit.Assert.assertNotEquals;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -4036,8 +4037,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator017 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator017 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -4079,8 +4082,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator018 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator018 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -4165,8 +4170,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator020 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator020 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -4208,8 +4215,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator021 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator021 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -4251,8 +4260,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator022 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator022 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -4294,8 +4305,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator023 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator023 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -4337,8 +4350,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator024 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator024 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -4380,8 +4395,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator025 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator025 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -4423,8 +4440,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator026 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator026 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -4466,8 +4485,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator027 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator027 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -4509,8 +4530,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator028 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator028 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -4552,8 +4575,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator029 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator029 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -4595,8 +4620,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator030 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator030 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -4638,8 +4665,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator031 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator031 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -4681,8 +4710,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator032 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator032 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -4792,8 +4823,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMiscCompanionsTermEvaluator, eq(true),
-			"GetTermEvaluator035 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator035 evaluator correct for " + term,
+				t instanceof PCCountMiscCompanionsTermEvaluator
+		);
 
 		Class<?> uClass = PCCountMiscCompanionsTermEvaluator.class;
 
@@ -4963,8 +4996,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountRaceSubTypesTermEvaluator, eq(true),
-			"GetTermEvaluator040 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator040 evaluator correct for " + term, t instanceof PCCountRaceSubTypesTermEvaluator);
 
 		Class<?> uClass = PCCountRaceSubTypesTermEvaluator.class;
 
@@ -5066,8 +5098,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellClassesTermEvaluator, eq(true),
-			"GetTermEvaluator043 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator043 evaluator correct for " + term, t instanceof PCCountSpellClassesTermEvaluator);
 
 		Class<?> uClass = PCCountSpellClassesTermEvaluator.class;
 
@@ -5169,8 +5200,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountTempBonusNamesTermEvaluator, eq(true),
-			"GetTermEvaluator046 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator046 evaluator correct for " + term,
+				t instanceof PCCountTempBonusNamesTermEvaluator
+		);
 
 		Class<?> uClass = PCCountTempBonusNamesTermEvaluator.class;
 
@@ -5238,8 +5271,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountVisibleTemplatesTermEvaluator, eq(true),
-			"GetTermEvaluator048 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator048 evaluator correct for " + term,
+				t instanceof PCCountVisibleTemplatesTermEvaluator
+		);
 
 		Class<?> uClass = PCCountVisibleTemplatesTermEvaluator.class;
 
@@ -5448,8 +5483,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Fire");
 
-		is(t instanceof PCMaxCastableDomainTermEvaluator, eq(true),
-			"GetTermEvaluator053 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator053 evaluator correct for " + term, t instanceof PCMaxCastableDomainTermEvaluator);
 
 		Class<?> uClass = PCMaxCastableDomainTermEvaluator.class;
 
@@ -5487,8 +5521,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "SPELLTYPE:Arcane");
 
-		is(t instanceof PCMaxCastableSpellTypeTermEvaluator, eq(true),
-			"GetTermEvaluator054 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator054 evaluator correct for " + term,
+				t instanceof PCMaxCastableSpellTypeTermEvaluator
+		);
 
 		Class<?> uClass = PCMaxCastableSpellTypeTermEvaluator.class;
 
@@ -6036,8 +6072,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Cleric");
 
-		is(t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator, eq(true),
-			"GetTermEvaluator070 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator070 evaluator correct for " + term,
+				t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator
+		);
 
 		Class<?> uClass = PCSPellBaseStatScoreEvaluatorTermEvaluator.class;
 
@@ -6400,7 +6438,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator079 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator079 field source is correct ", "Ranger", field1);
-		is(field2, eq(10), "GetTermEvaluator079 field level is correct ");
+		assertEquals("GetTermEvaluator079 field level is correct ",
+			10,
+				field2.intValue());
 	}
 
 	/**
@@ -6442,7 +6482,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator080 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator080 field source is correct ", "Druid", field1);
-		is(field2, eq(15), "GetTermEvaluator080 field level is correct ");
+		assertEquals("GetTermEvaluator080 field level is correct ",
+			15,
+			field2.intValue());
 	}
 
 	/**
@@ -6778,7 +6820,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator090 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator090 field types[0] is correct ", "", field1[0]);
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator090 field merge is correct ");
+		assertEquals("GetTermEvaluator090 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
@@ -6820,7 +6864,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator091 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator091 field types[0] is correct ", "", field1[0]);
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator091 field merge is correct ");
+		assertEquals("GetTermEvaluator091 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
@@ -6862,7 +6908,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator092 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator092 field types[0] is correct ", "", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator092 field merge is correct ");
+		assertEquals("GetTermEvaluator092 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -6904,7 +6952,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator093 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator093 field types[0] is correct ", "EQUIPPED", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator093 field merge is correct ");
+		assertEquals("GetTermEvaluator093 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -6946,7 +6996,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator094 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator094 field types[0] is correct ", "NOTEQUIPPED", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator094 field merge is correct ");
+		assertEquals("GetTermEvaluator094 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -6988,7 +7040,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator095 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator095 field types[0] is correct ", "CONTAINER", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator095 field merge is correct ");
+		assertEquals("GetTermEvaluator095 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7030,7 +7084,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator096 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator096 field types[0] is correct ", "WEAPON", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator096 field merge is correct ");
+		assertEquals("GetTermEvaluator096 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7072,7 +7128,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator097 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator097 field types[0] is correct ", "ACITEM", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator097 field merge is correct ");
+		assertEquals("GetTermEvaluator097 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7116,7 +7174,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator098 field types[0] is correct ", "ARMOR", field1[0]);
 		assertEquals("GetTermEvaluator098 field types[1] is correct ", "IS", field1[1]);
 		assertEquals("GetTermEvaluator098 field types[2] is correct ", "FOO", field1[2]);
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator098 field merge is correct ");
+		assertEquals("GetTermEvaluator098 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
@@ -7160,7 +7220,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator099 field types[0] is correct ", "QUX", field1[0]);
 		assertEquals("GetTermEvaluator099 field types[1] is correct ", "NOT", field1[1]);
 		assertEquals("GetTermEvaluator099 field types[2] is correct ", "BAR", field1[2]);
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator099 field merge is correct ");
+		assertEquals("GetTermEvaluator099 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
@@ -7204,7 +7266,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator100 field types[0] is correct ", "QUUX", field1[0]);
 		assertEquals("GetTermEvaluator100 field types[1] is correct ", "ADD", field1[1]);
 		assertEquals("GetTermEvaluator100 field types[2] is correct ", "BAZ", field1[2]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator100 field merge is correct ");
+		assertEquals("GetTermEvaluator100 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7248,7 +7312,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator101 field types[0] is correct ", "WEAPON", field1[0]);
 		assertEquals("GetTermEvaluator101 field types[1] is correct ", "IS", field1[1]);
 		assertEquals("GetTermEvaluator101 field types[2] is correct ", "FOO", field1[2]);
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator101 field merge is correct ");
+		assertEquals("GetTermEvaluator101 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
@@ -7295,7 +7361,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator102 field types[3] is correct ", "EQUIPPED", field1[3]);
 		assertEquals("GetTermEvaluator102 field types[4] is correct ", "ADD", field1[4]);
 		assertEquals("GetTermEvaluator102 field types[5] is correct ", "BAR", field1[5]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator102 field merge is correct ");
+		assertEquals("GetTermEvaluator102 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7337,7 +7405,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator103 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator103 field types[0] is correct ", "FOO", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator103 field merge is correct ");
+		assertEquals("GetTermEvaluator103 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7421,7 +7491,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator107 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator107 field types[0] is correct ", "", field1[0]);
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator107 field merge is correct ");
+		assertEquals("GetTermEvaluator107 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
@@ -7463,7 +7535,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator108 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator108 field types[0] is correct ", "", field1[0]);
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator108 field merge is correct ");
+		assertEquals("GetTermEvaluator108 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
@@ -7505,7 +7579,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertEquals("GetTermEvaluator109 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator109 field types[0] is correct ", "", field1[0]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator109 field merge is correct ");
+		assertEquals("GetTermEvaluator109 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7618,7 +7694,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator115 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator115 field types[0] is correct ", "IS", field1[0]);
 		assertEquals("GetTermEvaluator115 field types[1] is correct ", "FOO", field1[1]);
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator115 field merge is correct ");
+		assertEquals("GetTermEvaluator115 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
@@ -7661,7 +7739,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator116 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator116 field types[0] is correct ", "NOT", field1[0]);
 		assertEquals("GetTermEvaluator116 field types[1] is correct ", "BAR", field1[1]);
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator116 field merge is correct ");
+		assertEquals("GetTermEvaluator116 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
@@ -7704,7 +7784,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertEquals("GetTermEvaluator117 stored term is correct " + term, term, field0);
 		assertEquals("GetTermEvaluator117 field types[0] is correct ", "ADD", field1[0]);
 		assertEquals("GetTermEvaluator117 field types[1] is correct ", "BAZ", field1[1]);
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator117 field merge is correct ");
+		assertEquals("GetTermEvaluator117 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
@@ -7720,53 +7802,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		assertNull("GetTermEvaluator118 evaluator is null", t);
 	}
-
-	/**
-	 * Test 119 is a duplicate of test 109
-	 * Method: getTermEvaluator(String term, String source)
-	 */
-	//	public void testGetTermEvaluator119() {
-	//		TestHelper.loadAll();
-	//
-	//		String term = "COUNT[EQUIPMENT]";
-	//
-	//		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
-	//
-	//		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-	//		   "GetTermEvaluator119 evaluator correct for " + term);
-	//
-	//		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-	//
-	//		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-	//		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-	//		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-	//
-	//		String field0 = "";
-	//		String[] field1 = new String[] {};
-	//		Integer field2 = 0;
-	//		boolean ok;
-	//		try
-	//		{
-	//			ok = true;
-	//			field0 = (String) pF0.get(t);
-	//			field1 = (String[]) pF1.get(t);
-	//			field2 = (Integer) pF2.get(t);
-	//		}
-	//		catch (ClassCastException e)
-	//		{
-	//			ok = false;
-	//		}
-	//		catch (IllegalAccessException e)
-	//		{
-	//			ok = false;
-	//		}
-	//
-	//		assertTrue("No illegal access in getTermEvaluator119", ok);
-	//
-	//		assertEquals("GetTermEvaluator119 stored term is correct " + term, term, field0);
-	//		assertEquals("GetTermEvaluator119 field types[0] is correct ", "", field1[0]);
-	//		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator119 field merge is correct ");
-	//	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
@@ -7821,8 +7856,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator123 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator123 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAutoTermEvaluator.class;
 
@@ -7868,8 +7905,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator124 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator124 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAutoTermEvaluator.class;
 
@@ -8007,8 +8046,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator127 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator127 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
 
@@ -8054,8 +8095,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator128 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator128 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
 
@@ -8101,8 +8144,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator129 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator129 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureVirtualTermEvaluator.class;
 
@@ -8148,8 +8193,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator130 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator130 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureVirtualTermEvaluator.class;
 
@@ -8195,8 +8242,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator131 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator131 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
 
@@ -8245,8 +8294,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountFollowerTypeTermEvaluator, eq(true),
-			"GetTermEvaluator132 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator132 evaluator correct for " + term, t instanceof PCCountFollowerTypeTermEvaluator);
 
 		Class<?> uClass = PCCountFollowerTypeTermEvaluator.class;
 
@@ -8284,8 +8332,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountFollowerTypeTransitiveTermEvaluator, eq(true),
-			"GetTermEvaluator133 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator133 evaluator correct for " + term,
+				t instanceof PCCountFollowerTypeTransitiveTermEvaluator
+		);
 
 		Class<?> uClass = PCCountFollowerTypeTransitiveTermEvaluator.class;
 
@@ -8315,7 +8365,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator133", ok);
 
 		assertEquals("GetTermEvaluator133 stored term is correct " + term, term, field0);
-		is(field1, eq(0), "GetTermEvaluator133 field index is correct ");
+		assertEquals("GetTermEvaluator133 field index is correct ",
+			0,
+			field1.intValue());
 		assertEquals("GetTermEvaluator133 field newCount is correct ", "COUNT[EQTYPE]", field2);
 		assertEquals("GetTermEvaluator133 field type is correct ", "MOO", field3);
 	}
@@ -8483,8 +8535,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellsInbookTermEvaluator, eq(true),
-			"GetTermEvaluator140 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator140 evaluator correct for " + term, t instanceof PCCountSpellsInbookTermEvaluator);
 
 		Class<?> uClass = PCCountSpellsInbookTermEvaluator.class;
 
@@ -8560,8 +8611,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator142", ok);
 
 		assertEquals("GetTermEvaluator142 stored term is correct " + term, term, field0);
-		is(field1[0], eq(0), "GetTermEvaluator142 field nums[0] is correct ");
-		is(field1[1], eq(0), "GetTermEvaluator142 field nums[1] is correct ");
+		assertEquals("GetTermEvaluator142 field nums[0] is correct ",
+			0,
+			field1[0]);
+		assertEquals("GetTermEvaluator142 field nums[1] is correct ",
+			0,
+			field1[1]);
 	}
 
 	/**
@@ -8650,10 +8705,18 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator146", ok);
 
 		assertEquals("GetTermEvaluator146 stored term is correct " + term, term, field0);
-		is(field1, eq(1), "GetTermEvaluator146 field classNum is correct ");
-		is(field2, eq(2), "GetTermEvaluator146 field bookNum is correct ");
-		is(field3, eq(3), "GetTermEvaluator146 field spellLevel is correct ");
-		is(field4, eq(4), "GetTermEvaluator146 field spellNumber is correct ");
+		assertEquals("GetTermEvaluator146 field classNum is correct ",
+			1,
+			field1.intValue());
+		assertEquals("GetTermEvaluator146 field bookNum is correct ",
+			2,
+			field2.intValue());
+		assertEquals("GetTermEvaluator146 field spellLevel is correct ",
+			3,
+			field3.intValue());
+		assertEquals("GetTermEvaluator146 field spellNumber is correct ",
+			4,
+			field4.intValue());
 	}
 
 	/**
@@ -8667,8 +8730,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellsLevelsInBookTermEvaluator, eq(true),
-			"GetTermEvaluator147 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator147 evaluator correct for " + term,
+				t instanceof PCCountSpellsLevelsInBookTermEvaluator
+		);
 
 		Class<?> uClass = PCCountSpellsLevelsInBookTermEvaluator.class;
 
@@ -8695,8 +8760,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		assertTrue("No illegal access in getTermEvaluator147", ok);
 
 		assertEquals("GetTermEvaluator147 stored term is correct " + term, term, field0);
-		is(field1, eq(1), "GetTermEvaluator147 field classNum is correct ");
-		is(field2, eq(2), "GetTermEvaluator147 field sbookNum is correct ");
+		assertEquals("GetTermEvaluator147 field classNum is correct ",
+			1,
+			field1.intValue());
+		assertEquals("GetTermEvaluator147 field sbookNum is correct ",
+			2,
+			field2.intValue());
 	}
 
 	/**
@@ -10722,8 +10791,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQAltPlusTotalTermEvaluator, eq(true),
-			"EQAltPlusTotalTermEvaluator evaluator correct for " + term);
+		assertTrue(
+				"EQAltPlusTotalTermEvaluator evaluator correct for " + term,
+				t instanceof EQAltPlusTotalTermEvaluator
+		);
 
 		Class<?> uClass = EQAltPlusTotalTermEvaluator.class;
 
@@ -10997,16 +11068,13 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		TermEvaluator t2 = EvaluatorFactory.PC.getTermEvaluator(term1, "CLASS:Ranger");
 		TermEvaluator t3 = EvaluatorFactory.PC.getTermEvaluator(term1, "CLASS:Druid");
 
-		is(t1 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t1 evaluator correct for " + term1);
-		is(t2 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t2 evaluator correct for " + term1);
-		is(t3 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t3 evaluator correct for " + term1);
+		assertTrue("GetTermEvaluator215 t1 evaluator correct for " + term1, t1 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t2 evaluator correct for " + term1, t2 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t3 evaluator correct for " + term1, t3 instanceof PCCLBeforeLevelTermEvaluator);
 
-		assertFalse("t1 and t2 are different objects", t1.equals(t2));
-		assertTrue("t1 and t3 are the Same object", t1.equals(t3));
-		assertFalse("t2 and t3 are different objects", t2.equals(t3));
+		assertNotEquals("t1 and t2 are different objects", t1, t2);
+		assertEquals("t1 and t3 are the Same object", t1, t3);
+		assertNotEquals("t2 and t3 are different objects", t2, t3);
 
 		String term2 = "CL;BEFORELEVEL=14";
 
@@ -11014,18 +11082,15 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		TermEvaluator t5 = EvaluatorFactory.PC.getTermEvaluator(term2, "CLASS:Ranger");
 		TermEvaluator t6 = EvaluatorFactory.PC.getTermEvaluator(term2, "CLASS:Druid");
 
-		is(t4 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t4 evaluator correct for " + term2);
-		is(t6 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t5 evaluator correct for " + term2);
-		is(t5 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t6 evaluator correct for " + term2);
+		assertTrue("GetTermEvaluator215 t4 evaluator correct for " + term2, t4 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t5 evaluator correct for " + term2, t6 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t6 evaluator correct for " + term2, t5 instanceof PCCLBeforeLevelTermEvaluator);
 
-		assertTrue("t4 and t6 are the Same object", t4.equals(t6));
-		assertFalse("t4 and t5 are different objects", t4.equals(t5));
-		assertFalse("t6 and t5 are different objects", t6.equals(t5));
+		assertEquals("t4 and t6 are the Same object", t4, t6);
+		assertNotEquals("t4 and t5 are different objects", t4, t5);
+		assertNotEquals("t6 and t5 are different objects", t6, t5);
 
-		assertFalse("t1 and t4 are diffferent objects", t1.equals(t4));
+		assertNotEquals("t1 and t4 are diffferent objects", t1, t4);
 	}
 
 	/**
