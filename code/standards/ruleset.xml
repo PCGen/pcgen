@@ -87,6 +87,8 @@
         <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
         <exclude name="UnnecessaryModifier"/>
         <exclude name="UnnecessaryReturn"/>
+        <!-- Understores not required for readability -->
+        <exclude name="UseUnderscoresInNumericLiterals" />
         <!-- This is excluded because we use "useless" parenthesis for readability -->
         <exclude name="UselessParentheses"/>
         <exclude name="UselessQualifiedThis"/>
