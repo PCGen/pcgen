@@ -75,7 +75,7 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 		switch (SettingsHandler.getHPRollMethod())
 		{
 			case Constants.HP_USER_ROLLED:
-				roll = -1;
+				roll = 1;
 
 				break;
 
