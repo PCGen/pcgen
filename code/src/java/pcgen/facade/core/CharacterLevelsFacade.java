@@ -45,8 +45,6 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 
 	public SkillCost getSkillCost(CharacterLevelFacade level, Skill skill);
 
-	public int getRankCost(CharacterLevelFacade level, SkillCost cost);
-
 	public int getGainedSkillPoints(CharacterLevelFacade level);
 
 	public void setGainedSkillPoints(CharacterLevelFacade level, int points);
@@ -65,10 +63,6 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	public int getHPRolled(CharacterLevelFacade level);
 
 	public void setHPRolled(CharacterLevelFacade level, int hp);
-
-	public int getSkillTotal(CharacterLevelFacade level, Skill skill);
-
-	public int getSkillModifier(CharacterLevelFacade level, Skill skill);
 
 	public float getSkillRanks(CharacterLevelFacade level, Skill skill);
 
@@ -102,8 +96,6 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, Skill skill);
 
 	void addClassListener(ClassListener listener);
-
-	void removeClassListener(ClassListener listener);
 
 	void addHitPointListener(HitPointListener listener);
 
