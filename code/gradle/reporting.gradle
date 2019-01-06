@@ -15,7 +15,7 @@ checkstyle {
 	configProperties = [samedir: "${rootDir}/code/standards"]
 	ignoreFailures = true
 	showViolations = false
-	toolVersion = '8.14'
+	toolVersion = '8.16'
 	sourceSets = []
 }
 
