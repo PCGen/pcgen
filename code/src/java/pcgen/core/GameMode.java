@@ -942,7 +942,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public Map<Integer, String> getCRSteps()
 	{
-		return crStepsMap;
+		return Collections.unmodifiableMap(crStepsMap);
 	}
 
 	/**
