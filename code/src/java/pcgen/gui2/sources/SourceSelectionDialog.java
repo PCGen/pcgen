@@ -57,8 +57,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.core.GameMode;
 import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.LoadableFacade.LoadingState;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.ListFacade;
@@ -288,7 +288,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			{
 				String name = nameField.getText();
 				List<CampaignFacade> selectedCampaigns = advancedPanel.getSelectedCampaigns();
-				GameModeFacade selectedGameMode = advancedPanel.getSelectedGameMode();
+				GameMode selectedGameMode = advancedPanel.getSelectedGameMode();
 
 				SourceSelectionFacade selection = null;
 				for (SourceSelectionFacade sourceSelectionFacade : sources)

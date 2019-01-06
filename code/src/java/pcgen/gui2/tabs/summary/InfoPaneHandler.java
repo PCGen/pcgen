@@ -20,10 +20,10 @@ package pcgen.gui2.tabs.summary;
 
 import javax.swing.JEditorPane;
 
+import pcgen.core.GameMode;
 import pcgen.core.PCStat;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -52,7 +52,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 	public InfoPaneHandler(CharacterFacade character, JEditorPane htmlPane)
 	{
 		this.character = character;
-		GameModeFacade game = character.getDataSet().getGameMode();
+		GameMode game = character.getDataSet().getGameMode();
 		support = new HtmlSheetSupport(character, htmlPane, game.getInfoSheet());
 		support.setMissingSheetMsg(LanguageBundle.getFormattedString("in_sumNoInfoSheet", //$NON-NLS-1$
 			character.getDataSet().getGameMode().getName()));

@@ -376,7 +376,7 @@ public class CharacterFacadeImpl
 			}
 		}
 
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		if (theCharacter.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			alignment = InterfaceChannelUtilities.getReferenceFacade(
@@ -1019,7 +1019,7 @@ public class CharacterFacadeImpl
 
 		//
 		// next do all abilities to get TEMPBONUS:ANYPC only
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		for (AbilityCategory cat : game.getAllAbilityCategories())
 		{
 			if (cat.getParentCategory() == cat)
@@ -1596,7 +1596,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void rollStats()
 	{
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		int rollMethod = game.getRollMethod();
 		if (rollMethod == Constants.CHARACTER_STAT_METHOD_ROLLED && game.getCurrentRollingMethod() == null)
 		{
@@ -2497,7 +2497,7 @@ public class CharacterFacadeImpl
 	 */
 	public void save() throws NullPointerException, IOException
 	{
-		GameMode mode = (GameMode) dataSet.getGameMode();
+		GameMode mode = dataSet.getGameMode();
 		List<CampaignFacade> campaigns = ListFacades.wrap(dataSet.getCampaigns());
 		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.get());
 		theCharacter.setDirty(false);
@@ -2909,7 +2909,7 @@ public class CharacterFacadeImpl
 		{
 			return;
 		}
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		rollMethodRef.set(game.getRollMethod());
 		if (SettingsHandler.getGame().isPurchaseStatMode())
 		{

@@ -47,8 +47,8 @@ import javax.swing.event.ChangeListener;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.util.CControl;
+import pcgen.core.GameMode;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tabs.CharacterInfoTab.ModelMap;
@@ -186,7 +186,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 	 */
 	private void updateTabsForCharacter(CharacterFacade character)
 	{
-		GameModeFacade gameMode = character.getDataSet().getGameMode();
+		GameMode gameMode = character.getDataSet().getGameMode();
 		int tabIndex = 0;
 		for (CharacterInfoTab charInfoTab : fullTabList)
 		{

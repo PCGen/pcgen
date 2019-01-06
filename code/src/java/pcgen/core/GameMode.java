@@ -41,7 +41,6 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.system.LoadInfo;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.GameReferenceContext;
@@ -54,13 +53,12 @@ import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * Handles game modes.
  */
-public final class GameMode implements Comparable<Object>, GameModeFacade
+public final class GameMode implements Comparable<Object>
 {
 	private static PropertyContext prefsContext =
 			PCGenSettings.getInstance().createChildContext("gameMode"); //$NON-NLS-1$
@@ -382,7 +380,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the display name of the game mode.
 	 * @return displayName
 	 */
-	@Override
 	public String getDisplayName()
 	{
 		return displayName;
@@ -484,7 +481,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the game mode name.
 	 * @return game mode name
 	 */
-	@Override
 	public String getName()
 	{
 		return name;
@@ -929,7 +925,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Currency abbreviation.
 	 * @return currency unit abbreviation
 	 */
-	@Override
 	public String getCurrencyDisplay()
 	{
 		return currencyUnitAbbrev;
@@ -967,7 +962,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the default data set list
 	 */
-	@Override
 	public List<String> getDefaultDataSetList()
 	{
 		return defaultDataSetList;
@@ -1127,7 +1121,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get add with meta magic message.
 	 * @return add with meta magic message
 	 */
-	@Override
 	public String getAddWithMetamagicMessage()
 	{
 		return addWithMetamagic;
@@ -2164,20 +2157,17 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the default source title
 	 */
-	@Override
 	public String getDefaultSourceTitle()
 	{
 		return defaultSourceTitle;
 	}
 
-	@Override
 	public String getTabName(Tab tab)
 	{
 		TabInfo ti = getContext().getReferenceContext().silentlyGetConstructedCDOMObject(TabInfo.class, tab.toString());
 		return ti.getResolvedName();
 	}
 
-	@Override
 	public boolean getTabShown(Tab tab)
 	{
 		TabInfo ti = getContext().getReferenceContext().silentlyGetConstructedCDOMObject(TabInfo.class, tab.toString());
@@ -2193,7 +2183,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the file name of the InfoSheet relative to the base pcgen directory
 	 */
-	@Override
 	public String getInfoSheet()
 	{
 		return theInfoSheet;
@@ -2212,7 +2201,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the file name of the skill InfoSheet relative to the base pcgen directory
 	 */
-	@Override
 	public String getInfoSheetSkill()
 	{
 		return theInfoSheetSkill;
@@ -2240,7 +2228,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the directory for output sheets for the current game mode
 	 */
-	@Override
 	public String getOutputSheetDirectory()
 	{
 		return outputSheetDirectory;
@@ -2259,7 +2246,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the directory for output sheets for the current game mode
 	 */
-	@Override
 	public String getOutputSheetDefault(String type)
 	{
 		return outputSheetDefaultMap.get(type);
@@ -2299,25 +2285,21 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return priority == null ? 0 : priority;
 	}
 
-	@Override
 	public String getCharSheetDir()
 	{
 		return thePreviewDir;
 	}
 
-	@Override
 	public String getDefaultCharSheet()
 	{
 		return getDefaultPreviewSheet();
 	}
 
-	@Override
 	public String getHeightUnit()
 	{
 		return "ftin".equals(getUnitSet().getHeightUnit()) ? "inches" : getUnitSet().getHeightUnit();
 	}
 
-	@Override
 	public String getWeightUnit()
 	{
 		return getUnitSet().getWeightUnit();

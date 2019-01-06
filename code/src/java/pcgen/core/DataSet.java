@@ -45,7 +45,6 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -349,7 +348,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public GameModeFacade getGameMode()
+	public GameMode getGameMode()
 	{
 		return gameMode;
 	}
