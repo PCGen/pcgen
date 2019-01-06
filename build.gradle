@@ -354,7 +354,6 @@ task inttest(type: Test, dependsOn: 'jar') {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxParallelForks = 5
     include 'pcgen/inttest/**/*Test.class'
 }
 
@@ -396,6 +395,7 @@ allprojects {
     }
     tasks.withType(Test) {
         maxHeapSize = "512m"
+        maxParallelForks = Runtime.runtime.availableProcessors()
         testLogging {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
