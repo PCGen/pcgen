@@ -53,8 +53,6 @@ ABILITY:support/lod_abilities_race_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventur
 
 
 FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
-FORWARDREF:ABILITY=CLASS|Monk ~ Unchained Class
-
 
 INFOTEXT:Supports 6.07.01
 # ENTRY DATE: 2015-01 (Unknown)

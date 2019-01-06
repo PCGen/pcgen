@@ -38,7 +38,15 @@ ABILITYCATEGORY:Arcanist Bloodline Development	VISIBLE:NO		EDITABLE:NO		EDITPOOL
 #ABILITYCATEGORY:Arcanist Elemental Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistElementalBloodline	PLURAL:Arcanist Elemental Bloodlines	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist School			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistSchool										DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist School Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistSchoolChoice									DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Bloodrager Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:BloodragerBloodline		PLURAL:Bloodrager Bloodlines			DISPLAYLOCATION:Class Features
+
+# New
+ABILITYCATEGORY:Bloodrager Bloodline			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Bloodrager Bloodline
+ABILITYCATEGORY:Crossblooded Rager Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Rager Bloodline
+ABILITYCATEGORY:Bloodrager Bloodline Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal					TYPE:Bloodrager Bloodline Bonus Spell	PLURAL:Bloodrager Bloodline Bonus Spells	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloodrager Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Bloodrager Bloodline Power		PLURAL:Bloodrager Bloodline Powers		DISPLAYLOCATION:Class Features
+
+# OLD
+#ABILITYCATEGORY:Bloodrager Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:BloodragerBloodline		PLURAL:Bloodrager Bloodlines			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Hunter Animal Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HunterAnimalFocusAbility		PLURAL:Hunter Animal Foci			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Hunter Animal Companion Status	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HunterAnimalCompanionStatus	PLURAL:Hunter Animal Companion Statuses	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:InvestigatorTalent			PLURAL:Investigator Talents			DISPLAYLOCATION:Class Features
@@ -60,10 +68,10 @@ ABILITYCATEGORY:Fey Bloodrager Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDIT
 ABILITYCATEGORY:Infernal Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT					TYPE:InfernalBloodragerBloodline		ABILITYLIST:Special Bloodline Feat				PLURAL:Infernal Bloodrager Bloodline Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Undead Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT					TYPE:UndeadBloodragerBloodline		ABILITYLIST:Special Bloodline Feat				PLURAL:Undead Bloodrager Bloodline Feats		DISPLAYLOCATION:Feats
 #
-ABILITYCATEGORY:Crossblooded Rager Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerBloodline											PLURAL:Crossblooded Rager Bloodlines		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Rager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerFeat												PLURAL:Crossblooded Rager Feats			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Rager Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerSpellChoice											PLURAL:Crossblooded Rager Spells			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Crossblooded Rager Bloodline Powers	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerPowerChoice											PLURAL:Crossblooded Rager Bloodline Powers	DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Crossblooded Rager Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerBloodline											PLURAL:Crossblooded Rager Bloodlines		DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Crossblooded Rager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerFeat												PLURAL:Crossblooded Rager Feats			DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Crossblooded Rager Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerSpellChoice											PLURAL:Crossblooded Rager Spells			DISPLAYLOCATION:Class Features
+#ABILITYCATEGORY:Crossblooded Rager Bloodline Powers	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability			TYPE:CrossbloodedRagerPowerChoice											PLURAL:Crossblooded Rager Bloodline Powers	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Bloodrager Draconic Bloodline		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Bloodrager Draconic Bloodline
 
 #
@@ -172,7 +180,7 @@ ABILITYCATEGORY:Witch Channel Energy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 ABILITYCATEGORY:Inspired Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:InspiredInvestigatorTalent										PLURAL:Inspired Investigator Talent				DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Blade Adept Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:AdeptBladeChoice																					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Blade Adept Arcana					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:BladeAdeptArcana																					DISPLAYLOCATION:Class Features
-#ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Sorcerer Bloodline					PLURAL:Sorcerer Bloodlines						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Blood Arcanist Bloodline
 ABILITYCATEGORY:Elemental Master Type				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistElement												PLURAL:Elemental Master Types					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist Savant School				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistSavantSchool											PLURAL:Arcanist Savant Schools				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistSavantOppositionSchool										PLURAL:Arcanist Savant Opposition Schools			DISPLAYLOCATION:Class Features
@@ -200,6 +208,18 @@ ABILITYCATEGORY:Savant Flexible Enhancement Bonus		VISIBLE:QUALIFY	EDITABLE:YES	
 ###Block:
 # Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Display Location
 ABILITYCATEGORY:Evolved Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:Evolved Companion	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:Bloodrager Bloodline Feat	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Bloodrager Draconic Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Bloodrager Draconic Bloodline		TYPE:Bloodrager Draconic Bloodline Choice																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloodrager Elemental Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Bloodrager Elemental Bloodline		TYPE:Bloodrager Elemental Bloodline Choice																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloodrager Elemental Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Bloodrager Elemental Bloodline																				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Raging Blood Feat Bloodline				VISIBLE:NO	CATEGORY:Raging Blood Feat Bloodline
+
+
+ABILITYCATEGORY:Mutation Warrior Mutagen Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Mutation Warrior Mutagen Selection																		DISPLAYLOCATION:Class Features
+
 
 #
 # End
