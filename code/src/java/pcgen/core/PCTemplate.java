@@ -51,12 +51,10 @@ public final class PCTemplate extends PObject implements ChooseDriver, LimitedVa
 	 */
 	public Integer getCR(final int level, final int hitdice)
 	{
-		Integer localCR = getSafe(ObjectKey.CR_MODIFIER).intValue();
-		for (PCTemplate pct : getConditionalTemplates(level, hitdice))
-		{
-			localCR += pct.getSafe(ObjectKey.CR_MODIFIER).intValue();
-		}
-		return localCR;
+		return getSafe(ObjectKey.CR_MODIFIER).intValue()
+				+ getConditionalTemplates(level, hitdice).stream()
+	              .mapToInt(pct -> pct.getSafe(ObjectKey.CR_MODIFIER).intValue())
+	              .sum();
 	}
 
 	/**
