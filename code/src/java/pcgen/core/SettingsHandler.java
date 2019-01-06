@@ -112,7 +112,6 @@ public final class SettingsHandler
 	private static boolean gearTab_AllowDebt = false;
 	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;
 	private static int gearTab_BuyRate = Constants.DEFAULT_GEAR_TAB_BUY_RATE;
-	private static boolean isROG = false;
 	private static Point leftUpperCorner = null;
 	private static int windowState = Frame.NORMAL;
 	private static int looknFeel = 1; // default to Java L&F
@@ -912,7 +911,6 @@ public final class SettingsHandler
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
 		setPrereqQualifyColor(getPCGenOption("prereqQualifyColor", SystemColor.text.getRGB())); //$NON-NLS-1$
 		setPreviewTabShown(getPCGenOption("previewTabShown", true)); //$NON-NLS-1$
-		setROG(getPCGenOption("isROG", false)); //$NON-NLS-1$
 		setSaveCustomInLst(getPCGenOption("saveCustomInLst", false)); //$NON-NLS-1$
 		setSaveOutputSheetWithPC(getPCGenOption("saveOutputSheetWithPC", false)); //$NON-NLS-1$
 		setPrintSpellsWithPC(getPCGenOption("printSpellsWithPC", true)); //$NON-NLS-1$
@@ -1366,15 +1364,6 @@ public final class SettingsHandler
 	public static boolean getPrintSpellsWithPC()
 	{
 		return printSpellsWithPC;
-	}
-
-	/**
-	 * I guess only ROG can document this?
-	 * @return TRUR if ROG, else FALSE
-	 */
-	public static boolean isROG()
-	{
-		return isROG;
 	}
 
 	/**
@@ -2134,15 +2123,6 @@ public final class SettingsHandler
 	private static Double getPCGenOption(final String optionName, final double defaultValue)
 	{
 		return Double.valueOf(getPCGenOption(optionName, Double.toString(defaultValue)));
-	}
-
-	/**
-	 * What does this do???
-	 * @param ROG
-	 */
-	private static void setROG(final boolean ROG)
-	{
-		isROG = ROG;
 	}
 
 	/**

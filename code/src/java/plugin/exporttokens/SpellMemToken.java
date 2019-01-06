@@ -27,7 +27,6 @@ import java.util.TreeSet;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -390,16 +389,15 @@ public class SpellMemToken extends Token
 						}
 						else if (aLabel.startsWith("DESCRIPTION"))
 						{
-							final String sString =
-									getItemDescription("SPELL", aSpell.getKeyName(), aPC.getDescription(aSpell), aPC);
+							final String sString = aPC.getDescription(aSpell);
 
-							if (!altLabel.isEmpty())
+							if (altLabel.isEmpty())
 							{
-								retValue.append(sString.replaceAll("\r?\n", altLabel));
+								retValue.append(sString);
 							}
 							else
 							{
-								retValue.append(sString);
+								retValue.append(sString.replaceAll("\r?\n", altLabel));
 							}
 						}
 						else if (aLabel.startsWith("BONUSSPELL"))
@@ -544,38 +542,6 @@ public class SpellMemToken extends Token
 		}
 
 		return tempSource.toString();
-	}
-
-	/**
-	 * Get the item description
-	 * @param sType
-	 * @param sKey
-	 * @param sAlt
-	 * @param aPC
-	 * @return item description
-	 */
-	public static String getItemDescription(String sType, String sKey, String sAlt, PlayerCharacter aPC)
-	{
-		if (SettingsHandler.isROG())
-		{
-			if ("EMPTY".equals(aPC.getDescriptionLst()))
-			{
-				aPC.loadDescriptionFilesInDirectory("descriptions");
-			}
-
-			String aDescription = sAlt;
-			final String aSearch = sType.toUpperCase() + ':' + sKey + Constants.LINE_SEPARATOR;
-			final int pos = aPC.getDescriptionLst().indexOf(aSearch);
-
-			if (pos >= 0)
-			{
-				aDescription = aPC.getDescriptionLst().substring(pos + aSearch.length());
-				aDescription = aDescription.substring(0, aDescription.indexOf("####") - 1).trim();
-			}
-
-			return aDescription;
-		}
-		return sAlt;
 	}
 
 }
