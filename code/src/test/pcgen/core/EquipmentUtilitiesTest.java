@@ -36,8 +36,9 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 		final String bare = "Bare Thing";
 		final String decoration = "Mad cow";
 
-		is(EquipmentUtilities.appendToName(bare, decoration),
-			strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");
+		assertEquals("Choice appends to name correctly",
+			"Bare Thing (Mad cow)",
+			EquipmentUtilities.appendToName(bare, decoration));
 	}
 
 	public void testFindEquipmentByBaseKey()
