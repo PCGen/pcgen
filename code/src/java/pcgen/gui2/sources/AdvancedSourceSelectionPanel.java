@@ -45,8 +45,11 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Campaign;
 import pcgen.core.GameMode;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.GameModeDisplayFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -82,7 +85,7 @@ import pcgen.util.Logging;
 import org.apache.commons.lang3.StringUtils;
 
 class AdvancedSourceSelectionPanel extends JPanel
-		implements ListSelectionListener, ListListener<CampaignFacade>, ActionListener
+		implements ListSelectionListener, ListListener<Campaign>, ActionListener
 {
 
 	private static final UIPropertyContext CONTEXT = 
@@ -90,8 +93,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private static final String PROP_SELECTED_GAME = "selectedGame"; //$NON-NLS-1$
 	private static final String PROP_SELECTED_SOURCES = "selectedSources."; //$NON-NLS-1$
 
-	private final FilteredTreeViewTable<Object, CampaignFacade> availableTable;
-	private final FilteredTreeViewTable<Object, CampaignFacade> selectedTable;
+	private final FilteredTreeViewTable<Object, Campaign> availableTable;
+	private final FilteredTreeViewTable<Object, Campaign> selectedTable;
 	private final SourceTreeViewModel availTreeViewModel;
 	private final SourceTreeViewModel selTreeViewModel;
 	private final InfoPane infoPane;
@@ -101,7 +104,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private final JButton unloadAllButton;
 	private final JButton addButton;
 	private final JButton removeButton;
-	private final DefaultListFacade<CampaignFacade> selectedCampaigns;
+	private final DefaultListFacade<Campaign> selectedCampaigns;
 	private final PCGenFrame frame;
 
 	/**
@@ -144,7 +147,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		gameModeList.addActionListener(this);
 		panel.add(gameModeList, BorderLayout.CENTER);
 
-		FilterBar<Object, CampaignFacade> bar = new FilterBar<>(false);
+		FilterBar<Object, Campaign> bar = new FilterBar<>(false);
 		bar.add(panel, BorderLayout.WEST);
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		panel = new JPanel(new BorderLayout());
@@ -175,7 +178,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		topPane.setLeftComponent(panel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, CampaignFacade> filterBar = new FilterBar<>();
+		FilterBar<Object, Campaign> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		selectedTable.setDisplayableFilter(filterBar);
 
@@ -252,7 +255,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 			for (String name : sourceNames)
 			{
-				for (CampaignFacade camp : FacadeFactory.getSupportedCampaigns(mode))
+				for (Campaign camp : FacadeFactory.getSupportedCampaigns(mode))
 				{
 					if (name.equals(camp.toString()))
 					{
@@ -269,7 +272,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		return gameMode;
 	}
 
-	public List<CampaignFacade> getSelectedCampaigns()
+	public List<Campaign> getSelectedCampaigns()
 	{
 		return selectedCampaigns.getContents();
 	}
@@ -290,7 +293,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				gameModeList.setSelectedItem(gmdf);
 			}
 		}
-		List<CampaignFacade> wrap = new ArrayList<>(ListFacades.wrap(sources.getCampaigns()));
+		List<Campaign> wrap = new ArrayList<>(ListFacades.wrap(sources.getCampaigns()));
 		wrap.sort(Comparators.toStringIgnoreCaseCollator());
 		selectedCampaigns.setContents(wrap);
 	}
@@ -304,7 +307,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		selectDefaultSources(gameMode);
 	}
 
-	private void setSelectedCampaign(CampaignFacade source)
+	private void setSelectedCampaign(Campaign source)
 	{
 		infoPane.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(source, selectedCampaigns.getContents()));
 	}
@@ -320,9 +323,9 @@ class AdvancedSourceSelectionPanel extends JPanel
 				if (selectedRow != -1)
 				{
 					final Object data = availableTable.getModel().getValueAt(selectedRow, 0);
-					if (data != null && data instanceof CampaignFacade)
+					if (data != null && data instanceof Campaign)
 					{
-						setSelectedCampaign((CampaignFacade) data);
+						setSelectedCampaign((Campaign) data);
 					}
 				}
 			}
@@ -332,9 +335,9 @@ class AdvancedSourceSelectionPanel extends JPanel
 				if (selectedRow != -1)
 				{
 					final Object data = selectedTable.getModel().getValueAt(selectedRow, 0);
-					if (data != null && data instanceof CampaignFacade)
+					if (data != null && data instanceof Campaign)
 					{
-						setSelectedCampaign((CampaignFacade) data);
+						setSelectedCampaign((Campaign) data);
 					}
 				}
 			}
@@ -355,28 +358,28 @@ class AdvancedSourceSelectionPanel extends JPanel
 	}
 
 	@Override
-	public void elementAdded(ListEvent<CampaignFacade> e)
+	public void elementAdded(ListEvent<Campaign> e)
 	{
 		// Refresh displayed rows now that the selection has changed
 		availableTable.updateDisplay();
 	}
 
 	@Override
-	public void elementRemoved(ListEvent<CampaignFacade> e)
+	public void elementRemoved(ListEvent<Campaign> e)
 	{
 		// Refresh displayed rows now that the selection has changed
 		availableTable.updateDisplay();
 	}
 
 	@Override
-	public void elementsChanged(ListEvent<CampaignFacade> e)
+	public void elementsChanged(ListEvent<Campaign> e)
 	{
 		// Refresh displayed rows now that the selection has changed
 		availableTable.updateDisplay();
 	}
 
 	@Override
-	public void elementModified(ListEvent<CampaignFacade> e)
+	public void elementModified(ListEvent<Campaign> e)
 	{
 		availableTable.updateDisplay();
 	}
@@ -409,9 +412,9 @@ class AdvancedSourceSelectionPanel extends JPanel
 			{
 				for (Object obj : list)
 				{
-					if (obj instanceof CampaignFacade)
+					if (obj instanceof Campaign)
 					{
-						CampaignFacade camp = (CampaignFacade) obj;
+						Campaign camp = (Campaign) obj;
 						if (selectedCampaigns.containsElement(camp))
 						{
 							// Already in the list - ignore
@@ -454,9 +457,9 @@ class AdvancedSourceSelectionPanel extends JPanel
 			{
 				for (Object obj : list)
 				{
-					if (obj instanceof CampaignFacade)
+					if (obj instanceof Campaign)
 					{
-						selectedCampaigns.removeElement((CampaignFacade) obj);
+						selectedCampaigns.removeElement((Campaign) obj);
 					}
 				}
 				rememberSelectedSources();
@@ -482,13 +485,13 @@ class AdvancedSourceSelectionPanel extends JPanel
 	}
 
 	private class SourceTreeViewModel
-			implements TreeViewModel<CampaignFacade>, DataView<CampaignFacade>, ListListener<CampaignFacade>
+			implements TreeViewModel<Campaign>, DataView<Campaign>, ListListener<Campaign>
 	{
 
-		private final ListFacade<TreeView<CampaignFacade>> views =
+		private final ListFacade<TreeView<Campaign>> views =
 				new DefaultListFacade<>(Arrays.asList(SourceTreeView.values()));
-		private final DefaultListFacade<CampaignFacade> model;
-		private ListFacade<CampaignFacade> baseModel = null;
+		private final DefaultListFacade<Campaign> model;
+		private ListFacade<Campaign> baseModel = null;
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
 
@@ -501,7 +504,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				new DefaultDataViewColumn("in_src_loaded", String.class, false));
 		}
 
-		public SourceTreeViewModel(DefaultListFacade<CampaignFacade> model)
+		public SourceTreeViewModel(DefaultListFacade<Campaign> model)
 		{
 			this.model = model;
 			this.isAvailModel = false;
@@ -511,7 +514,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 
 		@Override
-		public ListFacade<? extends TreeView<CampaignFacade>> getTreeViews()
+		public ListFacade<? extends TreeView<Campaign>> getTreeViews()
 		{
 			return views;
 		}
@@ -523,28 +526,28 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 
 		@Override
-		public DataView<CampaignFacade> getDataView()
+		public DataView<Campaign> getDataView()
 		{
 			return this;
 		}
 
 		@Override
-		public ListFacade<CampaignFacade> getDataModel()
+		public ListFacade<Campaign> getDataModel()
 		{
 			return model;
 		}
 
 		@Override
-		public Object getData(CampaignFacade obj, int column)
+		public Object getData(Campaign obj, int column)
 		{
 			SourceSelectionFacade sourceFacade = uiContext.getCurrentSourceSelectionRef().get();
 			boolean isLoaded = (sourceFacade != null) && sourceFacade.getCampaigns().containsElement(obj);
 			switch (column)
 			{
 				case 0:
-					return obj.getBookTypes();
+					return obj.getListAsString(ListKey.BOOK_TYPE);
 				case 1:
-					return obj.getStatus();
+					return obj.getSafe(ObjectKey.STATUS).toString();
 				case 2:
 					return isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle.getString("in_no");
 				default:
@@ -553,7 +556,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 
 		@Override
-		public void setData(Object value, CampaignFacade element, int column)
+		public void setData(Object value, Campaign element, int column)
 		{
 		}
 
@@ -575,25 +578,25 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 
 		@Override
-		public void elementAdded(ListEvent<CampaignFacade> e)
+		public void elementAdded(ListEvent<Campaign> e)
 		{
 			model.addElement(e.getIndex(), e.getElement());
 		}
 
 		@Override
-		public void elementRemoved(ListEvent<CampaignFacade> e)
+		public void elementRemoved(ListEvent<Campaign> e)
 		{
 			model.removeElement(e.getIndex());
 		}
 
 		@Override
-		public void elementsChanged(ListEvent<CampaignFacade> e)
+		public void elementsChanged(ListEvent<Campaign> e)
 		{
 			model.setContents(ListFacades.wrap(baseModel));
 		}
 
 		@Override
-		public void elementModified(ListEvent<CampaignFacade> e)
+		public void elementModified(ListEvent<Campaign> e)
 		{
 		}
 
@@ -605,7 +608,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 	}
 
-	private static enum SourceTreeView implements TreeView<CampaignFacade>
+	private static enum SourceTreeView implements TreeView<Campaign>
 	{
 
 		NAME("in_nameLabel"), //$NON-NLS-1$
@@ -626,15 +629,15 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 
 		@Override
-		public List<TreeViewPath<CampaignFacade>> getPaths(CampaignFacade pobj)
+		public List<TreeViewPath<Campaign>> getPaths(Campaign pobj)
 		{
-			String publisher = pobj.getPublisher();
+			String publisher = pobj.get(StringKey.DATA_PRODUCER);
 			if (publisher == null)
 			{
 				publisher = LanguageBundle.getString("in_other"); //$NON-NLS-1$
 			}
-			String setting = pobj.getSetting();
-			String format = pobj.getFormat();
+			String setting = pobj.get(StringKey.CAMPAIGN_SETTING);
+			String format = pobj.get(StringKey.DATA_FORMAT);
 			switch (this)
 			{
 				case NAME:
@@ -643,16 +646,16 @@ class AdvancedSourceSelectionPanel extends JPanel
 					if (format != null && setting != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<CampaignFacade>(pobj, publisher, format, setting));
+							.singletonList(new TreeViewPath<Campaign>(pobj, publisher, format, setting));
 					}
 					if (format != null)
 					{
-						return Collections.singletonList(new TreeViewPath<CampaignFacade>(pobj, publisher, format));
+						return Collections.singletonList(new TreeViewPath<Campaign>(pobj, publisher, format));
 					}
 				case PUBLISHER_SETTING_NAME:
 					if (setting != null)
 					{
-						return Collections.singletonList(new TreeViewPath<CampaignFacade>(pobj, publisher, setting));
+						return Collections.singletonList(new TreeViewPath<Campaign>(pobj, publisher, setting));
 					}
 				case PUBLISHER_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj, publisher));
@@ -686,10 +689,10 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, focus);
 			Object campaignObj = ((DefaultMutableTreeNode) value).getUserObject();
-			if (campaignObj instanceof CampaignFacade)
+			if (campaignObj instanceof Campaign)
 			{
-				CampaignFacade campaign = (CampaignFacade) campaignObj;
-				List<CampaignFacade> testCampaigns = selectedCampaigns.getContents();
+				Campaign campaign = (Campaign) campaignObj;
+				List<Campaign> testCampaigns = selectedCampaigns.getContents();
 				testCampaigns.add(campaign);
 				if (!FacadeFactory.passesPrereqs(testCampaigns))
 				{

@@ -185,7 +185,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 					break;
 				}
 				warning.append("<li>");
-				warning.append(camp.getName());
+				warning.append(camp.getKeyName());
 				warning.append("</li>");
 				i++;
 			}

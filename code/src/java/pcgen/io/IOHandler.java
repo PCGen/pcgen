@@ -27,9 +27,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
+import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.PlayerCharacter;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
@@ -130,7 +130,7 @@ public abstract class IOHandler
 	 * @throws FileNotFoundException the file not found exception
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public final void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
+	public final void write(PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns, String filename)
 			throws FileNotFoundException, IOException
 		
 	{
@@ -193,5 +193,5 @@ public abstract class IOHandler
 	 * @param aPC   the PlayerCharacter to write
 	 * @param out   the stream to be written to
 	 */
-	protected abstract void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, OutputStream out);
+	protected abstract void write(PlayerCharacter aPC, GameMode mode, List<Campaign> campaigns, OutputStream out);
 }

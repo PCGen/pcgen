@@ -25,10 +25,7 @@ import java.util.List;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Status;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -42,7 +39,7 @@ import pcgen.rules.context.RuntimeLoadContext;
  * {@code Campaign} is a source or campaign defined in a *.pcc file.
  *
  */
-public class Campaign extends PObject implements CampaignFacade, NonInteractive
+public class Campaign extends PObject implements NonInteractive
 {
 
 	public Campaign()
@@ -112,15 +109,8 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		}
 	}
 
-	@Override
-	public boolean showInMenu()
-	{
-		return getSafe(ObjectKey.SHOW_IN_MENU);
-	}
-
 	private DefaultListFacade<GameMode> gameModes = null;
 
-	@Override
 	public ListFacade<GameMode> getGameModes()
 	{
 		if (gameModes == null)
@@ -139,54 +129,5 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 			}
 		}
 		return gameModes;
-	}
-
-	@Override
-	public String getName()
-	{
-		return getKeyName();
-	}
-
-	@Override
-	public String getPublisher()
-	{
-		return get(StringKey.DATA_PRODUCER);
-	}
-
-	@Override
-	public String getFormat()
-	{
-		return get(StringKey.DATA_FORMAT);
-	}
-
-	@Override
-	public String getSetting()
-	{
-		return get(StringKey.CAMPAIGN_SETTING);
-	}
-
-	@Override
-	public String getSourceShort()
-	{
-		return get(StringKey.SOURCE_SHORT);
-	}
-
-	@Override
-	public List<String> getBookTypeList()
-	{
-		return getSafeListFor(ListKey.BOOK_TYPE);
-	}
-
-	@Override
-	public String getBookTypes()
-	{
-		return getListAsString(ListKey.BOOK_TYPE);
-	}
-
-	@Override
-	public String getStatus()
-	{
-		Status status = getSafe(ObjectKey.STATUS);
-		return status.toString();
 	}
 }

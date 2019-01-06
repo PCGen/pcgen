@@ -86,7 +86,6 @@ import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
@@ -196,9 +195,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		this.uiDelegate = delegate;
 		selectedCampaigns = new ArrayList<>();
-		for (CampaignFacade campaign : selection.getCampaigns())
+		for (Campaign campaign : selection.getCampaigns())
 		{
-			Campaign camp = Globals.getCampaignKeyed(campaign.getName());
+			Campaign camp = Globals.getCampaignKeyed(campaign.getKeyName());
 			selectedCampaigns.add(camp);
 		}
 		selectedGame = SystemCollections.getGameModeNamed(selection.getGameMode().get().getName());
@@ -468,9 +467,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Globals.emptyLists();
 		PersistenceManager pManager = PersistenceManager.getInstance();
 		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : selectedCampaigns)
+		for (Campaign campaign : selectedCampaigns)
 		{
-			uris.add(((Campaign) campaignFacade).getSourceURI());
+			uris.add(campaign.getSourceURI());
 		}
 		pManager.setChosenCampaignSourcefiles(uris);
 

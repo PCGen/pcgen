@@ -57,8 +57,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.core.Campaign;
 import pcgen.core.GameMode;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.LoadableFacade.LoadingState;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.ListFacade;
@@ -287,7 +287,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			if (ret == JOptionPane.OK_OPTION)
 			{
 				String name = nameField.getText();
-				List<CampaignFacade> selectedCampaigns = advancedPanel.getSelectedCampaigns();
+				List<Campaign> selectedCampaigns = advancedPanel.getSelectedCampaigns();
 				GameMode selectedGameMode = advancedPanel.getSelectedGameMode();
 
 				SourceSelectionFacade selection = null;
@@ -367,7 +367,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		{
 			return;
 		}
-		List<CampaignFacade> campaigns = ListFacades.wrap(selection.getCampaigns());
+		List<Campaign> campaigns = ListFacades.wrap(selection.getCampaigns());
 		if (FacadeFactory.passesPrereqs(campaigns))
 		{
 			setVisible(false);

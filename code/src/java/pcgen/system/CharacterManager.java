@@ -26,10 +26,10 @@ import java.util.Objects;
 import java.util.logging.Level;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterStubFacade;
 import pcgen.facade.core.DataSetFacade;
@@ -307,7 +307,7 @@ public final class CharacterManager
 			return null;
 		}
 		GameMode gameMode = null;
-		HashSet<CampaignFacade> campaignSet = new HashSet<>();
+		HashSet<Campaign> campaignSet = new HashSet<>();
 		for (final File file : files)
 		{
 			SourceSelectionFacade selection = getRequiredSourcesForCharacter(file, delegate);
@@ -327,7 +327,7 @@ public final class CharacterManager
 				return null;
 			}
 
-			for (final CampaignFacade campaign : selection.getCampaigns())
+			for (final Campaign campaign : selection.getCampaigns())
 			{
 				campaignSet.add(campaign);
 			}
