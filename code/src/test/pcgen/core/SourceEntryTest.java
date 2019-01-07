@@ -18,29 +18,28 @@
 
 package pcgen.core;
 
-import javax.xml.transform.Source;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code SourceEntryTest} verifies the function of the SourceEntry class.
  */
-public class SourceEntryTest extends TestCase
+public class SourceEntryTest
 {
 
-	Source source;
-	Campaign campaign;
+	private Campaign campaign;
 	
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
-		
+
 		campaign = new Campaign();
 		campaign.put(StringKey.PUB_NAME_WEB, "PubWeb");
 		campaign.put(StringKey.PUB_NAME_SHORT, "PubShort");
@@ -55,19 +54,20 @@ public class SourceEntryTest extends TestCase
 	 * Test method for
 	 * {@link SourceFormat#getFormattedString(CDOMObject, SourceFormat, boolean)}.
 	 */
+	@Test
 	public void testGetFormattedString()
 	{
 		campaign.put(StringKey.SOURCE_PAGE, "42");
-		assertEquals("Web", "PubWeb - http://website", SourceFormat
-				.getFormattedString(campaign, SourceFormat.WEB, true));
-		assertEquals("Short", "ShortName, 42", SourceFormat.getFormattedString(
-				campaign, SourceFormat.SHORT, true));
-		assertEquals("Medium", "LongName", SourceFormat.getFormattedString(
-				campaign, SourceFormat.MEDIUM, false));
-		assertEquals("Long", "PubLong - LongName, 42", SourceFormat
-				.getFormattedString(campaign, SourceFormat.LONG, true));
+		assertEquals("PubWeb - http://website", SourceFormat
+				.getFormattedString(campaign, SourceFormat.WEB, true), "Web");
+		assertEquals("ShortName, 42", SourceFormat.getFormattedString(
+				campaign, SourceFormat.SHORT, true), "Short");
+		assertEquals("LongName", SourceFormat.getFormattedString(
+				campaign, SourceFormat.MEDIUM, false), "Medium");
+		assertEquals("PubLong - LongName, 42", SourceFormat
+				.getFormattedString(campaign, SourceFormat.LONG, true), "Long");
 		campaign.put(StringKey.PUB_NAME_LONG, "");
-		assertEquals("Long", "LongName, 42", SourceFormat.getFormattedString(
-				campaign, SourceFormat.LONG, true));
+		assertEquals("LongName, 42", SourceFormat.getFormattedString(
+				campaign, SourceFormat.LONG, true), "Long");
 	}
 }
