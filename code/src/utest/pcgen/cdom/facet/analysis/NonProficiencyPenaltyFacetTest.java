@@ -17,9 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -28,7 +26,10 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
 
-public class NonProficiencyPenaltyFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class NonProficiencyPenaltyFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -41,11 +42,10 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	private NonProficiencyPenaltyFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		facet = new NonProficiencyPenaltyFacet();
-		super.setUp();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
