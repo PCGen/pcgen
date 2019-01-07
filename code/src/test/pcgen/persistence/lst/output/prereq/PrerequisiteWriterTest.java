@@ -46,7 +46,7 @@ public class PrerequisiteWriterTest extends TestCase
 {
 	private static final StringManager STR_MGR = new StringManager();
 
-	static String[] testparams = {
+	private static final String[] testparams = {
 	//
 	// Examples from the PCGen documentation - note that there are two columns for each entry below
 	//
@@ -539,40 +539,35 @@ public class PrerequisiteWriterTest extends TestCase
         @Override
 		public void flush() throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void close() throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(char[] cbuf, int off, int len) throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(int c) throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(String str) throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(String str, int off, int len) throws IOException
-		{
-			throwException();
-		}
-
-		private void throwException() throws IOException
 		{
 			throw new IOException("intentionally generated exception");
 		}
