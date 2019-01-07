@@ -17,7 +17,7 @@
  */
 package plugin.function;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
@@ -35,6 +35,9 @@ import pcgen.output.channel.ChannelUtilities;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class InputFunctionTest extends AbstractFormulaTestCase
 {
 
@@ -45,8 +48,9 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 			FacetLibrary.getFacet(SolverManagerFacet.class);
 	private CharID id;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		getFunctionLibrary().addFunction(new InputFunction());
@@ -62,10 +66,10 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		formula = "if(\"a\", \"b\")";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -73,7 +77,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -81,7 +85,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -89,7 +93,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(\"notvalid\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -104,7 +108,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 			.getVariableContext().getGlobalChannel(id, "STR");
 		String formula = "input(\"STR\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		evaluatesTo(formula, node, 0);
 		strChannel.set(2);
