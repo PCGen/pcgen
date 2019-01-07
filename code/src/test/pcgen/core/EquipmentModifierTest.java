@@ -18,6 +18,8 @@
  */
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -27,38 +29,28 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Equipment Modifer Test 
  */
-@SuppressWarnings("nls")
-public class EquipmentModifierTest extends TestCase
+public class EquipmentModifierTest
 {
 	/**
 	 * Starts the system plugins.
 	 */
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		TestHelper.loadPlugins();
-	}
-
-	/**
-	 * Constructs a new {@code EquipmentModifierTest} with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 */
-	public EquipmentModifierTest(final String name)
-	{
-		super(name);
 	}
 
 	/**
 	 * Test +13
 	 */
+	@Test
 	public void test885958A()
 	{
 		LoadContext context = Globals.getContext();
@@ -81,6 +73,7 @@ public class EquipmentModifierTest extends TestCase
 	/**
 	 * Test -2 and +13
 	 */
+	@Test
 	public void test885958B()
 	{
 		LoadContext context = Globals.getContext();
@@ -112,6 +105,7 @@ public class EquipmentModifierTest extends TestCase
 	 * options for the choice are processed in reverse order, we have to check the
 	 * values in reverse order.
 	 */
+	@Test
 	public void testChoice()
 	{
 		LoadContext context = Globals.getContext();
@@ -133,7 +127,7 @@ public class EquipmentModifierTest extends TestCase
 			assertEquals("-2", bonusObj.getValue());
 
 			final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
-			assertEquals("+" + (j+1), prereq.getKey());
+			assertEquals("+" + (j + 1), prereq.getKey());
 			assertEquals("STR", prereq.getOperand());
 		}
 		assertEquals("-2", aBonus.getValue());
