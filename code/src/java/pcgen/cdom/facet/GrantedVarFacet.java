@@ -16,7 +16,6 @@
 package pcgen.cdom.facet;
 
 import pcgen.base.formula.base.VariableID;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -76,12 +75,12 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, PCGenScope
 		{
 			for (Object o : (Object[]) value)
 			{
-				add(id, (CDOMObject) o, source);
+				add(id, (PCGenScoped) o, source);
 			}
 		}
 		else
 		{
-			add(id, (CDOMObject) value, source);
+			add(id, (PCGenScoped) value, source);
 		}
 	}
 
@@ -107,12 +106,12 @@ public class GrantedVarFacet extends AbstractSourcedListFacet<CharID, PCGenScope
 		{
 			for (Object o : (Object[]) value)
 			{
-				remove(id, (CDOMObject) o, source);
+				remove(id, (PCGenScoped) o, source);
 			}
 		}
 		else
 		{
-			remove(id, (CDOMObject) value, source);
+			remove(id, (PCGenScoped) value, source);
 		}
 	}
 
