@@ -17,29 +17,28 @@
  */
 package pcgen.io.migration;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * SourceMigrationTest checks the function of SourceMigration.
- * 
- * 
  */
-public class SourceMigrationTest extends TestCase
+public class SourceMigrationTest
 {
 	
 	private String gameMode;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule sourceRule = new MigrationRule(ObjectType.SOURCE, "OldKey1");
 		sourceRule.setMaxVer("6.0.1");
@@ -61,16 +60,16 @@ public class SourceMigrationTest extends TestCase
 		SystemCollections.addToMigrationRulesList(sourceRuleDiffGame, "modern");
 	}
 
-	@Override
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
-		super.tearDown();
 	}
 
 	/**
 	 * Test that rules for max version only are applied correctly.  
 	 */
+	@Test
 	public void testMaxVer()
 	{
 		assertEquals("NewKey1", SourceMigration.getNewSourceKey("OldKey1", new int[]{6, 0, 0}, gameMode));
@@ -80,6 +79,7 @@ public class SourceMigrationTest extends TestCase
 	/**
 	 * Test that rules for version ranges are applied correctly.  
 	 */
+	@Test
 	public void testMinMaxVer()
 	{
 		assertEquals("LateNewKey", SourceMigration.getNewSourceKey("OldKey2", new int[]{6, 0, 0}, gameMode));
@@ -94,6 +94,7 @@ public class SourceMigrationTest extends TestCase
 	/**
 	 * Check that migration rules for other game modes don't affect each other.  
 	 */
+	@Test
 	public void testNoCrossGameMode()
 	{
 		assertEquals("OldKey3", SourceMigration.getNewSourceKey("OldKey3", new int[]{6, 0, 0}, gameMode));
@@ -103,6 +104,7 @@ public class SourceMigrationTest extends TestCase
 	/**
 	 * Test that matches are case insensitive.  
 	 */
+	@Test
 	public void testCaseInsensitive()
 	{
 		assertEquals("NewKey1", SourceMigration.getNewSourceKey("OldKEY1", new int[]{6, 0, 0}, gameMode));
