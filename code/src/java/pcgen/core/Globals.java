@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,6 +35,7 @@ import java.util.stream.Collectors;
 
 import javax.swing.JFrame;
 
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.content.BaseDice;
@@ -57,6 +59,7 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+import pcgen.util.SortKeyAware;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.VisionType;
@@ -1250,6 +1253,28 @@ public final class Globals
 	public static LoadContext getGlobalContext()
 	{
 		return GLOBAL_CONTEXT;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static <T> List<T> getSortedList(Object[] available,
+		FormatManager<T> formatManager)
+	{
+		List<T> list = new ArrayList<>();
+		Arrays.stream(available).forEach(o -> list.add((T) o));
+		Class<T> underlying = formatManager.getManagedClass();
+		if (SortKeyAware.class.isAssignableFrom(underlying))
+		{
+			((List<SortKeyAware>) list).sort(SortKeyAware.SORT_KEY_COMPARATOR);
+		}
+		else if (PObject.class.isAssignableFrom(underlying))
+		{
+			((List<PObject>) list).sort(P_OBJECT_NAME_COMP);
+		}
+		else if (Comparable.class.isAssignableFrom(underlying))
+		{
+			list.sort(null);
+		}
+		return list;
 	}
 
 }
