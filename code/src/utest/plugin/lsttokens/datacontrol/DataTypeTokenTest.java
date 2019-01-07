@@ -17,14 +17,15 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
@@ -38,9 +39,13 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class DataTypeTokenTest extends TestCase
+public class DataTypeTokenTest
 {
 
 	static DataFormatToken token = new DataFormatToken();
@@ -51,7 +56,7 @@ public class DataTypeTokenTest extends TestCase
 	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
@@ -59,8 +64,7 @@ public class DataTypeTokenTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		if (!classSetUpFired)
