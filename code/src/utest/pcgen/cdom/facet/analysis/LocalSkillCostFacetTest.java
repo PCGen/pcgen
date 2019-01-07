@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -34,7 +34,10 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-public class LocalSkillCostFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class LocalSkillCostFacetTest
 {
 	protected CharID id;
 	protected CharID altid;
@@ -43,10 +46,9 @@ public class LocalSkillCostFacetTest extends TestCase
 	private PCClass class1;
 	private PCClass class2;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -70,6 +72,7 @@ public class LocalSkillCostFacetTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAddNullClass()
 	{
 		try
@@ -123,7 +126,8 @@ public class LocalSkillCostFacetTest extends TestCase
 		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
 		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t1));
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS,
-			getObject()));
+				getObject()
+		));
 	}
 
 	@Test
@@ -206,7 +210,8 @@ public class LocalSkillCostFacetTest extends TestCase
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t2));
 		//No cross pollution
 		assertFalse(getFacet().contains(altid, class1, SkillCost.CROSS_CLASS,
-			t2));
+				t2
+		));
 	}
 
 	@Test
