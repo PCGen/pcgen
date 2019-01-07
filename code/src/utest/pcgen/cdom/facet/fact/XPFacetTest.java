@@ -17,19 +17,20 @@
  */
 package pcgen.cdom.facet.fact;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelTableFacet;
 
-public class XPFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class XPFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -37,10 +38,9 @@ public class XPFacetTest extends TestCase
 	private int adjustment;
 	private Map<Integer, Integer> minXP;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
