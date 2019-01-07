@@ -78,6 +78,13 @@ public class ModifierValueStore implements ValueStore
 		return (Modifier<T>) defaultModifierMap.get(formatManager);
 	}
 
+	/**
+	 * Returns a Set of the FormatManager objects representing the formats for which this
+	 * MidifierValueStore has a default value.
+	 * 
+	 * @return A Set of the FormatManager objects representing the formats for which this
+	 *         MidifierValueStore has a default value
+	 */
 	public Set<FormatManager<?>> getStoredFormats()
 	{
 		return Collections.unmodifiableSet(defaultModifierMap.keySet());

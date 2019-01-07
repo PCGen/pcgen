@@ -37,6 +37,13 @@ public class SimpleSolverFactory implements SolverFactory
 	 */
 	private final ModifierValueStore valueStore;
 
+	/**
+	 * Constructs a new SimpleSolverFactory using the given ModifierValueStore as the
+	 * underlying ValueStore.
+	 * 
+	 * @param valueStore
+	 *            The ModifierValueStore to be used as the underlying ValueStore
+	 */
 	public SimpleSolverFactory(ModifierValueStore valueStore)
 	{
 		this.valueStore = Objects.requireNonNull(valueStore);

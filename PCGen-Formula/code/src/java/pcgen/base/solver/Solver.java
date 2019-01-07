@@ -383,5 +383,5 @@ public class Solver<T>
 		replacement.modifierList.addAllLists(modifierList);
 		replacement.sourceList.addAllLists(sourceList);
 		return replacement;
-	}	
+	}
 }
