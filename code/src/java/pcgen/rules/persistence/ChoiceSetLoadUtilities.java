@@ -466,7 +466,7 @@ public final class ChoiceSetLoadUtilities
 	 * @return A GroupingCollection based on the given GroupingInfo interpreted within the
 	 *         given LoadContext
 	 */
-	public static <T, G> GroupingCollection<?> getDynamicGroup(LoadContext context,
+	public static <T, G> GroupingCollection<G> getDynamicGroup(LoadContext context,
 		GroupingInfo<G> info)
 	{
 		Class<G> groupingClass = info.getManagedClass(context);
