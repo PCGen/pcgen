@@ -17,31 +17,37 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-
-@SuppressWarnings("nls")
-public class PreReqHandlerTest extends TestCase
+public class PreReqHandlerTest
 {
 
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 */
-	@Override
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		super.setUp();
 		TestHelper.loadPlugins();
+	}
+
+	@AfterEach
+	void tearDown()
+	{
+		LocaleDependentTestCase.after();
 	}
 
 	/**
@@ -49,6 +55,7 @@ public class PreReqHandlerTest extends TestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testToHtml() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
@@ -63,10 +70,12 @@ public class PreReqHandlerTest extends TestCase
 		final String htmlString = PrereqHandler.toHtmlString(list);
 		System.out.println(htmlString);
 		assertEquals(
-			"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of type "
-					+ "Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of "
-					+ "( at least 1 ranks in TYPE.Knowledge )",
-			htmlString);
-		EnUsLocaleDependentTestCase.after();
+				"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of "
+						+ "type "
+						+ "Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of "
+						+ "( at least 1 ranks in TYPE.Knowledge )",
+				htmlString
+		);
+
 	}
 }
