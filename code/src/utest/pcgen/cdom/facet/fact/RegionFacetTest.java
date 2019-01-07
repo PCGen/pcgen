@@ -17,11 +17,11 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -32,7 +32,10 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class RegionFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class RegionFacetTest
 {
 	private static final String TEST_REGION_NAME = "TestRegion";
 	private static final String TEST_SUB_REGION_NAME = "TestSubRegion";
@@ -50,11 +53,10 @@ public class RegionFacetTest extends TestCase
 	private RegionFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		facet = new RegionFacet();
-		super.setUp();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -153,8 +155,10 @@ public class RegionFacetTest extends TestCase
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
-		assertEquals(Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
-				facet.getFullRegion(id));
+		assertEquals(
+				Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
+				facet.getFullRegion(id)
+		);
 		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
@@ -186,8 +190,10 @@ public class RegionFacetTest extends TestCase
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
-		assertEquals(Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
-				facet.getFullRegion(id));
+		assertEquals(
+				Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
+				facet.getFullRegion(id)
+		);
 	}
 
 	@Test
