@@ -98,6 +98,7 @@ import pcgen.core.spell.Spell;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
@@ -1534,7 +1535,7 @@ public final class PCGVer2Creator
 	private void appendHairColorLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HAIRCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR)));
+		buffer.append(EntityEncoder.encode(HairColorCompat.getCurrentHairColor(thePC.getCharID())));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

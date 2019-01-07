@@ -635,6 +635,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.GOLDINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRSTYLEINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRCOLORINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.SKINCOLORINPUT);
 	}

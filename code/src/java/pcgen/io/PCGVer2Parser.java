@@ -135,6 +135,7 @@ import pcgen.io.migration.SpellMigration;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AgeCompat;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -2922,8 +2923,8 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseHairColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.HAIRCOLOR,
-			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRCOLOR.length() + 1)));
+		HairColorCompat.setCurrentHairColor(thePC.getCharID(), 
+				EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRCOLOR.length() + 1)));
 	}
 
 	private void parseHairStyleLine(final String line)

@@ -435,7 +435,6 @@ public abstract class AbstractSaveRestoreTest
 		pc.setStringFor(PCStringKey.BIRTHPLACE, "");
 		pc.setStringFor(PCStringKey.ASSETS, "");
 		pc.setStringFor(PCStringKey.SPEECHTENDENCY, "");
-		pc.setStringFor(PCStringKey.HAIRCOLOR, "");
 		pc.setStringFor(PCStringKey.PERSONALITY2, "");
 		pc.setStringFor(PCStringKey.TABNAME, "");
 	}

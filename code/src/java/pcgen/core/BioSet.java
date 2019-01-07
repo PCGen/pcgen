@@ -34,11 +34,11 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
-import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.util.CControl;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AgeCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.util.Logging;
 
 public final class BioSet extends PObject implements NonInteractive
@@ -192,7 +192,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("HAIR"))
 		{
-			pc.setPCAttribute(PCStringKey.HAIRCOLOR, generateBioValue("HAIR", pc));
+			HairColorCompat.setCurrentHairColor(pc.getCharID(), generateBioValue("HAIR", pc));
 		}
 
 		if (ranList.contains("SKIN"))
