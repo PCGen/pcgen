@@ -18,6 +18,8 @@
 
 package pcgen.util;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -150,5 +152,18 @@ public final class StringPClassUtil
 	public static Class<? extends Category<?>> getCategoryClassFor(String className)
 	{
 		return catClassMap.get(className);
+	}
+
+	/**
+	 * Returns a Collection of the "Base" Classes in StringPClassUtil. These are the
+	 * "basic" CDOMObject classes that are simple to convert/unconvert and not
+	 * significantly dependent on other items (e.g. no Ability, no EquipmentModifier,
+	 * etc.)
+	 * 
+	 * @return A Collection of the "Base" Classes in StringPClassUtil.
+	 */
+	public static Collection<Class<? extends Loadable>> getBaseClasses()
+	{
+		return Collections.unmodifiableCollection(baseMap.values());
 	}
 }

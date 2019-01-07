@@ -38,6 +38,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
@@ -50,6 +51,13 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 
 	protected RuntimeReferenceContext()
 	{
+	}
+
+	@Override
+	public void initialize()
+	{
+		super.initialize();
+		StringPClassUtil.getBaseClasses().forEach(c -> importCDOMToFormat(c));
 	}
 
 	@Override
