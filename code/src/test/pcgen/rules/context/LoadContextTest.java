@@ -17,8 +17,11 @@
  */
 package pcgen.rules.context;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Collection;
-import junit.framework.TestCase;
+
 import pcgen.base.format.StringManager;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
@@ -33,30 +36,31 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code LoadContextTest} checks the function of the LoadCOntext class.
- *
- * <br/>
- * 
  */
-public class LoadContextTest extends TestCase
+public class LoadContextTest
 {
 
 	/**
 	 * Test CloneInMasterListsSimple
 	 */
+	@Test
 	public final void testCloneInMasterListsSimple()
 	{
 		Spell testSpell = TestHelper.makeSpell("LoadContextTest");
 		Spell newSpell = Globals.getContext().performCopy(testSpell, "New Spell");
-		assertEquals("Old spell name incorrect", "LoadContextTest", testSpell.getDisplayName());
-		assertEquals("New spell name incorrect", "New Spell", newSpell.getDisplayName());
+		assertEquals("LoadContextTest", testSpell.getDisplayName(), "Old spell name incorrect");
+		assertEquals("New Spell", newSpell.getDisplayName(), "New spell name incorrect");
 	}
 
 	/**
 	 * Verify that associations from other objects to the object being cloned 
 	 * are copied over. 
 	 */
+	@Test
 	public final void testCloneInMasterListsAssoc()
 	{
 		final LoadContext context = Globals.getContext();
@@ -77,24 +81,24 @@ public class LoadContextTest extends TestCase
 		
 		Spell newSpell = context.performCopy(testSpell, "New Spell");
 		context.commit();
-		assertEquals("Old spell name incorrect", "LoadContextTest", testSpell.getDisplayName());
-		assertEquals("New spell name incorrect", "New Spell", newSpell.getDisplayName());
+		assertEquals("LoadContextTest", testSpell.getDisplayName(), "Old spell name incorrect");
+		assertEquals("New Spell", newSpell.getDisplayName(), "New spell name incorrect");
 		
 		// Check associations
 		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		Collection<AssociatedPrereqObject> assoc =
 				masterLists.getAssociations(ref, testSpell);
-		assertEquals("Incorrect size of assoc list for orig spell", 1, assoc.size());
+		assertEquals(1, assoc.size(), "Incorrect size of assoc list for orig spell");
 		AssociatedPrereqObject apo = assoc.iterator().next();
-		assertEquals("Incorrect level", 1, apo.getAssociation(
-			AssociationKey.SPELL_LEVEL).intValue());
+		assertEquals(1, apo.getAssociation(
+				AssociationKey.SPELL_LEVEL).intValue(), "Incorrect level");
 
 		assoc = masterLists.getAssociations(ref, newSpell);
-		assertEquals("Incorrect size of assoc list for new spell", 1, assoc
-			.size());
+		assertEquals(1, assoc
+				.size(), "Incorrect size of assoc list for new spell");
 		apo = assoc.iterator().next();
-		assertEquals("Incorrect level", 1, apo.getAssociation(
-			AssociationKey.SPELL_LEVEL).intValue());
+		assertEquals(1, apo.getAssociation(
+				AssociationKey.SPELL_LEVEL).intValue(), "Incorrect level");
 	}
 
 }
