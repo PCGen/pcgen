@@ -29,7 +29,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
