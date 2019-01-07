@@ -17,9 +17,9 @@
  */
 package plugin.modifier.number;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import junit.framework.TestCase;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
@@ -30,7 +30,9 @@ import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
-public class MaxNumberModifierTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+public class MaxNumberModifierTest
 {
 	private final PCGenScope varScope = new GlobalScope();
 	private final FormatManager<Number> numManager = new NumberManager();
@@ -197,7 +199,7 @@ public class MaxNumberModifierTest extends TestCase
 		FormulaModifier<Number> modifier =
 				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
 		modifier.addAssociation("PRIORITY=35");
-		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertEquals((35L << 32) + factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 		assertEquals(9.3, modifier.process(EvalManagerUtilities.getInputEM(9.3)));
