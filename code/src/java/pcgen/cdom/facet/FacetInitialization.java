@@ -67,6 +67,7 @@ public final class FacetInitialization
 	{
 		doOtherInitialization();
 		doBridges();
+		ScopedDistributionFacet scopedDistributionFacet = FacetLibrary.getFacet(ScopedDistributionFacet.class);
 		GrantedVarFacet grantedVarFacet = FacetLibrary.getFacet(GrantedVarFacet.class);
 		TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
@@ -150,6 +151,8 @@ public final class FacetInitialization
 
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
+		grantedVarFacet.addDataFacetChangeListener(scopedDistributionFacet); //model done
+
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		globalModifierFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done
@@ -180,7 +183,6 @@ public final class FacetInitialization
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 		cdomSourceFacet.addDataFacetChangeListener(dynamicWatchingFacet);
 
-		grantedVarFacet.addDataFacetChangeListener(varScopedFacet);
 		charObjectFacet.addDataFacetChangeListener(varScopedFacet);
 		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done
 	}

@@ -20,7 +20,6 @@ import java.util.IdentityHashMap;
 import java.util.Objects;
 import java.util.Set;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.formula.PCGenScoped;
@@ -77,20 +76,20 @@ public class BridgeListener implements VariableListener<Object>
 			ImmutablePair<Set<Object>, Set<Object>> t = processIdentityDeltas((Object[]) oldValue, (Object[]) newValue);
 			for (Object o : t.getLeft())
 			{
-				variableBridgeFacet.remove(id, (CDOMObject) o, vcEvent.getSource());
+				variableBridgeFacet.remove(id, (PCGenScoped) o, vcEvent.getSource());
 			}
 			for (Object o : t.getRight())
 			{
-				variableBridgeFacet.add(id, (CDOMObject) o, vcEvent.getSource());
+				variableBridgeFacet.add(id, (PCGenScoped) o, vcEvent.getSource());
 			}
 		}
 		else
 		{
 			if (oldValue != null)
 			{
-				variableBridgeFacet.remove(id, (CDOMObject) oldValue, vcEvent.getSource());
+				variableBridgeFacet.remove(id, (PCGenScoped) oldValue, vcEvent.getSource());
 			}
-			variableBridgeFacet.add(id, (CDOMObject) newValue, vcEvent.getSource());
+			variableBridgeFacet.add(id, (PCGenScoped) newValue, vcEvent.getSource());
 		}
 	}
 

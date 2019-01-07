@@ -519,6 +519,10 @@
 	<bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet" />
 	<bean id="savedAbilitiesFacet" class="pcgen.cdom.facet.SavedAbilitiesFacet" />
 	<bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet"/>
+	<bean id="scopedDistributionFacet" class="pcgen.cdom.facet.ScopedDistributionFacet">
+		<property name="characterConsolidationFacet" ref="characterConsolidationFacet"/>
+		<property name="varScopedFacet" ref="varScopedFacet"/>
+	</bean>
 	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
