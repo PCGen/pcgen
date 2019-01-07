@@ -17,18 +17,22 @@
  */
 package pcgen.cdom.facet.fact;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 {
 	private CharID id;
 	private WeightFacet facet = new WeightFacet();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
