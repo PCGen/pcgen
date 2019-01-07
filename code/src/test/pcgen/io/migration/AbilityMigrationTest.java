@@ -17,27 +17,29 @@
  */
 package pcgen.io.migration;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * AbilityMigrationTest checks the function of AbilityMigration.
- * 
- * 
  */
-public class AbilityMigrationTest extends TestCase
+public class AbilityMigrationTest
 {
 	
 	private String gameMode;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule abilityRule = new MigrationRule(ObjectType.ABILITY, "OldCat", "OldKey1");
 		abilityRule.setMaxVer("6.0.1");
@@ -60,16 +62,16 @@ public class AbilityMigrationTest extends TestCase
 		SystemCollections.addToMigrationRulesList(abilityRuleDiffGame, "modern");
 	}
 
-	@Override
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
-		super.tearDown();
 	}
 
 	/**
 	 * Test that rules for max version only are applied correctly.  
 	 */
+	@Test
 	public void testMaxVer()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6, 0, 0}, gameMode);
@@ -83,6 +85,7 @@ public class AbilityMigrationTest extends TestCase
 	/**
 	 * Test that rules for category changes are applied correctly.  
 	 */
+	@Test
 	public void testCatChange()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey2", new int[]{5, 17, 5}, gameMode);
@@ -93,6 +96,7 @@ public class AbilityMigrationTest extends TestCase
 	/**
 	 * Test that matches are case insensitive.  
 	 */
+	@Test
 	public void testCaseInsensitive()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCAT", "OldKey1", new int[]{6, 0, 0}, gameMode);
