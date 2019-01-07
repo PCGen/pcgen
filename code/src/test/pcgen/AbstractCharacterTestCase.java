@@ -4,6 +4,7 @@
  */
 package pcgen;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 import pcgen.base.calculation.FormulaModifier;
@@ -19,17 +20,21 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
+import pcgen.core.LevelInfo;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.SystemCollections;
+import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -82,11 +87,25 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		final GameMode gamemode = new GameMode("3.5");
+		gamemode.setBonusFeatLevels("3|3");
+		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
+		gamemode.addLevelInfo("Normal", new LevelInfo());
+		gamemode.addXPTableName("Normal");
+		gamemode.setDefaultXPTableName("Normal");
+		gamemode.clearLoadContext();
+		LoadInfo loadable =
+				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
+						LoadInfo.class, gamemode.getName());
+		loadable.addLoadScoreValue(0, BigDecimal.ONE);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
 		TestHelper.loadPlugins();
 
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
-		final GameMode gamemode = SettingsHandler.getGame();
+
 		LoadContext context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
 		

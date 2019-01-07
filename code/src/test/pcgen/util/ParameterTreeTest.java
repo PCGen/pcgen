@@ -18,21 +18,18 @@
 
 package pcgen.util;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.regex.Matcher;
 
-import pcgen.PCGenTestCase;
-
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.nfunk.jep.ParseException;
 
-/**
- * {@code ParameterTreeTest} is ...
- */
-public class ParameterTreeTest extends PCGenTestCase 
+class ParameterTreeTest
 {
 	/**
 	 * Test method for {@link pcgen.util.ParameterTree#ParameterTree(java.lang.String)}.
@@ -41,154 +38,107 @@ public class ParameterTreeTest extends PCGenTestCase
 	public final void testParameterTree()
 	{
         final ParameterTree t1 = new ParameterTree("Test Node1");
-        assertEquals("New ParameterTree has correct contents", "Test Node1", t1.getContents());
-		assertNull("New ParameterTree has null left subtree", t1.getLeftTree());
-		assertNull("New ParameterTree has null right subtree", t1.getRightTree());
+        assertEquals("Test Node1", t1.getContents(), "New ParameterTree has correct contents");
+		assertNull(t1.getLeftTree(), "New ParameterTree has null left subtree");
+		assertNull(t1.getRightTree(), "New ParameterTree has null right subtree");
 
 		final ParameterTree t2 = new ParameterTree("Test Node2");
 		t2.setLeftTree(t1);
-		assertEquals("New ParameterTree has correct contents", "Test Node2", t2.getContents());
-		assertEquals("New ParameterTree has null left subtree", "Test Node1", t2.getLeftTree().getContents());
-		assertNull("New ParameterTree has null right subtree", t1.getRightTree());
+		assertEquals("Test Node2", t2.getContents(), "New ParameterTree has correct contents");
+		assertEquals("Test Node1", t2.getLeftTree().getContents(), "New ParameterTree has null left subtree");
+		assertNull(t1.getRightTree(), "New ParameterTree has null right subtree");
 	}
 
 	@Test
-	public final void testMakeTree1()
+	public final void testMakeTree1() throws ParseException
 	{
 		final String s = "TYPE=Foo";
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
-
-		ParameterTree t1 = new ParameterTree("Foo");
-		try
-		{
-			t1 = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
-
-		assertEquals("New ParamterTree has correct contents", s, t1.getContents());
+		ParameterTree t1 = ParameterTree.makeTree(s);
+		assertEquals(s, t1.getContents(), "New ParamterTree has correct contents");
 	}
 
 	@Test
-	public final void testMakeTree2()
+	public final void testMakeTree2() throws ParseException
 	{
 		final String s = "(TYPE=Foo)";
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
-		ParameterTree t1 = new ParameterTree("Foo");
-		try
-		{
-			t1 = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
-
-		assertEquals("New ParamterTree has correct contents", "TYPE=Foo", t1.getContents());
+		ParameterTree t1 = ParameterTree.makeTree(s);
+		assertEquals("TYPE=Foo", t1.getContents(), "New ParamterTree has correct contents");
 	}
 
 	@Test
-	public final void testMakeTree3()
+	public final void testMakeTree3() throws ParseException
 	{
 		final String s = "((TYPE=Foo))";
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
-
-		ParameterTree t1 = new ParameterTree("Foo");
-		try
-		{
-			t1 = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
-
-		assertEquals("New ParamterTree has correct contents", "TYPE=Foo", t1.getContents());
+		ParameterTree t1 = ParameterTree.makeTree(s);
+		assertEquals("TYPE=Foo", t1.getContents(), "New ParamterTree has correct contents");
 	}
 
 	@Test
-	public final void testMakeTree4()
+	public final void testMakeTree4() throws ParseException
 	{
 		final String s = "TYPE=Foo[or]TYPE=Bar";
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
-		ParameterTree t1 = new ParameterTree("Foo");
-		try
-		{
-			t1 = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
+		ParameterTree t1 = ParameterTree.makeTree(s);
 
-		assertEquals("New ParamterTree has correct contents", "[or]", t1.getContents());
-		assertEquals("New ParamterTree has correct left tree contents", "TYPE=Foo", t1.getLeftTree().getContents());
-		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getLeftTree().getLeftTree());
-		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getLeftTree().getRightTree());
+		assertEquals("[or]", t1.getContents(), "New ParamterTree has correct contents");
+		assertEquals("TYPE=Foo", t1.getLeftTree().getContents(),
+				"New ParamterTree has correct left tree contents");
+		assertNull(t1.getLeftTree().getLeftTree(),
+				"New ParamterTree has correct left tree, left tree contents");
+		assertNull(t1.getLeftTree().getRightTree(),
+				"New ParamterTree has correct left tree, right tree contents");
 
-		assertEquals("New ParamterTree has correct right tree contents", "TYPE=Bar", t1.getRightTree().getContents());
-		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getRightTree().getLeftTree());
-		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getRightTree().getRightTree());
+		assertEquals("TYPE=Bar", t1.getRightTree().getContents(),
+				"New ParamterTree has correct right tree contents");
+		assertNull(t1.getRightTree().getLeftTree(),
+				"New ParamterTree has correct left tree, left tree contents");
+		assertNull(t1.getRightTree().getRightTree(),
+				"New ParamterTree has correct left tree, right tree contents");
 	}
 
 
 	@Test
-	public final void testMakeTree5()
+	public final void testMakeTree5() throws ParseException
 	{
 		final String s = "(TYPE=Foo[or]TYPE=Bar)";
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
-		ParameterTree t1 = new ParameterTree("Foo");
-		try
-		{
-			t1 = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
+		ParameterTree t1 = ParameterTree.makeTree(s);
 
-		assertEquals("New ParamterTree has correct contents", "[or]", t1.getContents());
-		assertEquals("New ParamterTree has correct left tree contents", "TYPE=Foo", t1.getLeftTree().getContents());
-		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getLeftTree().getLeftTree());
-		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getLeftTree().getRightTree());
+		assertEquals("[or]", t1.getContents(), "New ParamterTree has correct contents");
+		assertEquals("TYPE=Foo", t1.getLeftTree().getContents(),
+				"New ParamterTree has correct left tree contents");
+		assertNull(t1.getLeftTree().getLeftTree(),
+				"New ParamterTree has correct left tree, left tree contents");
+		assertNull(t1.getLeftTree().getRightTree(),
+				"New ParamterTree has correct left tree, right tree contents");
 
-		assertEquals("New ParamterTree has correct right tree contents", "TYPE=Bar", t1.getRightTree().getContents());
-		assertNull("New ParamterTree has correct left tree, left tree contents", t1.getRightTree().getLeftTree());
-		assertNull("New ParamterTree has correct left tree, right tree contents", t1.getRightTree().getRightTree());
+		assertEquals("TYPE=Bar", t1.getRightTree().getContents(),
+				"New ParamterTree has correct right tree contents");
+		assertNull(t1.getRightTree().getLeftTree(),
+				"New ParamterTree has correct left tree, left tree contents");
+		assertNull(t1.getRightTree().getRightTree(),
+				"New ParamterTree has correct left tree, right tree contents");
 	}
 
 	@Test
-	public final void testMakeTree6()
+	public final void testMakeTree6() throws ParseException
 	{
 		final String s = "(TYPE=Foo[or]TYPE=Bar[and]String3)";
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
-		ParameterTree t = new ParameterTree("Foo");
-		try
-		{
-			t = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
+		ParameterTree t = ParameterTree.makeTree(s);
 
 		final ParameterTree tl  = t.getLeftTree();
 		final ParameterTree tr  = t.getRightTree();
@@ -196,27 +146,27 @@ public class ParameterTreeTest extends PCGenTestCase
 		final ParameterTree tlr = tl.getRightTree();
 
 		// expected branch nodes
-		assertEquals("t1 ParamterTree has correct contents", "[and]", t.getContents());
-		assertEquals("tl ParamterTree has correct contents", "[or]", tl.getContents());
+		assertEquals("[and]", t.getContents(), "t1 ParamterTree has correct contents");
+		assertEquals("[or]", tl.getContents(), "tl ParamterTree has correct contents");
 
 		// expected leaf nodes
-		assertEquals("tr ParamterTree has correct contents", "String3", tr.getContents());
-		assertEquals("tll ParamterTree has correct contents", "TYPE=Foo", tll.getContents());
-		assertEquals("tlr ParamterTree has correct contents", "TYPE=Bar", tlr.getContents());
+		assertEquals("String3", tr.getContents(), "tr ParamterTree has correct contents");
+		assertEquals("TYPE=Foo", tll.getContents(), "tll ParamterTree has correct contents");
+		assertEquals("TYPE=Bar", tlr.getContents(), "tlr ParamterTree has correct contents");
 
 		// check that leaves really are leaves
-		assertNull("tr left tree is null (i.e. is a leaf node)", tr.getLeftTree());
-		assertNull("tr right tree is null (i.e. is a leaf node)", tr.getRightTree());
+		assertNull(tr.getLeftTree(), "tr left tree is null (i.e. is a leaf node)");
+		assertNull(tr.getRightTree(), "tr right tree is null (i.e. is a leaf node)");
 
-		assertNull("tll left tree is null (i.e. is a leaf node)", tll.getLeftTree());
-		assertNull("tll right tree is null (i.e. is a leaf node)", tll.getRightTree());
+		assertNull(tll.getLeftTree(), "tll left tree is null (i.e. is a leaf node)");
+		assertNull(tll.getRightTree(), "tll right tree is null (i.e. is a leaf node)");
 
-		assertNull("tlr left tree is null (i.e. is a leaf node)", tlr.getLeftTree());
-		assertNull("tlr right tree is null (i.e. is a leaf node)", tlr.getRightTree());
+		assertNull(tlr.getLeftTree(), "tlr left tree is null (i.e. is a leaf node)");
+		assertNull(tlr.getRightTree(), "tlr right tree is null (i.e. is a leaf node)");
 	}
 
 	@Test
-	public final void testMakeTree7()
+	public final void testMakeTree7() throws ParseException
 	{
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 7 --- \n\n");
@@ -225,16 +175,7 @@ public class ParameterTreeTest extends PCGenTestCase
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
-		ParameterTree t = new ParameterTree("Foo");
-		try
-		{
-			t = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
+		ParameterTree t = ParameterTree.makeTree(s);
 
 		final ParameterTree tl  = t.getLeftTree();
 		final ParameterTree tr  = t.getRightTree();
@@ -245,32 +186,32 @@ public class ParameterTreeTest extends PCGenTestCase
 		assertThat("t  not null", t, notNullValue());
 		assertThat("tr  not null", tr, notNullValue());
 
-		assertEquals("t  has correct contents '[or]'", "[or]", t.getContents());
-		assertEquals("tr has correct contents '[and]'", "[and]", tr.getContents());
+		assertEquals("[or]", t.getContents(), "t  has correct contents '[or]'");
+		assertEquals("[and]", tr.getContents(), "tr has correct contents '[and]'");
 
 		// expected leaf nodes
-		Assert.assertNotNull("tl  not null", tl);
-		Assert.assertNotNull("trl  not null", trl);
-		Assert.assertNotNull("trr  not null", trr);
+		assertNotNull(tl, "tl  not null");
+		assertNotNull(trl, "trl  not null");
+		assertNotNull(trr, "trr  not null");
 
-		assertEquals("tl  has correct contents 'TYPE=Foo'", "TYPE=Foo", tl.getContents());
-		assertEquals("trl has correct contents 'TYPE=Bar'", "TYPE=Bar", trl.getContents());
-		assertEquals("trr has correct contents 'String3'", "String3", trr.getContents());
+		assertEquals("TYPE=Foo", tl.getContents(), "tl  has correct contents 'TYPE=Foo'");
+		assertEquals("TYPE=Bar", trl.getContents(), "trl has correct contents 'TYPE=Bar'");
+		assertEquals("String3", trr.getContents(), "trr has correct contents 'String3'");
 
 		// check that leaves really are leaves
-		assertNull("tl left tree is null (i.e. is a leaf node)", tl.getLeftTree());
-		assertNull("tl right tree is null (i.e. is a leaf node)", tl.getRightTree());
+		assertNull(tl.getLeftTree(), "tl left tree is null (i.e. is a leaf node)");
+		assertNull(tl.getRightTree(), "tl right tree is null (i.e. is a leaf node)");
 
-		assertNull("trl left tree is null (i.e. is a leaf node)", trl.getLeftTree());
-		assertNull("trl right tree is null (i.e. is a leaf node)", trl.getRightTree());
+		assertNull(trl.getLeftTree(), "trl left tree is null (i.e. is a leaf node)");
+		assertNull(trl.getRightTree(), "trl right tree is null (i.e. is a leaf node)");
 
-		assertNull("trr left tree is null (i.e. is a leaf node)", trr.getLeftTree());
-		assertNull("trr right tree is null (i.e. is a leaf node)", trr.getRightTree());
+		assertNull(trr.getLeftTree(), "trr left tree is null (i.e. is a leaf node)");
+		assertNull(trr.getRightTree(), "trr right tree is null (i.e. is a leaf node)");
 	}
 
 
 	@Test
-	public final void testMakeTree8()
+	public final void testMakeTree8() throws ParseException
 	{
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 8 --- \n\n");
@@ -279,17 +220,7 @@ public class ParameterTreeTest extends PCGenTestCase
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
-		ParameterTree t = new ParameterTree("Foo");
-		try
-		{
-			t = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			fail("Threw a parse exception");
-		}
-
+		ParameterTree t = ParameterTree.makeTree(s);
 
 		final ParameterTree tl  = t.getLeftTree();
 		final ParameterTree tr  = t.getRightTree();
@@ -300,62 +231,49 @@ public class ParameterTreeTest extends PCGenTestCase
 		final ParameterTree trll = trl.getLeftTree();
 		final ParameterTree trlr = trl.getRightTree();
 
-		Assert.assertNotNull("t not null", t);
-		Assert.assertNotNull("tr not null", tr);
-		Assert.assertNotNull("trl not null", trl);
+		assertNotNull(t, "t not null");
+		assertNotNull(tr, "tr not null");
+		assertNotNull(trl, "trl not null");
 
-		assertEquals("t  has correct contents '[or]'", "[or]", t.getContents());
-		assertEquals("tr has correct contents '[and]'", "[and]", tr.getContents());
-		assertEquals("trl has correct contents '[or]'", "[or]", trl.getContents());
+		assertEquals("[or]", t.getContents(), "t  has correct contents '[or]'");
+		assertEquals("[and]", tr.getContents(), "tr has correct contents '[and]'");
+		assertEquals("[or]", trl.getContents(), "trl has correct contents '[or]'");
 
 		// expected leaf nodes
-		Assert.assertNotNull("tl not null", tl);
-		Assert.assertNotNull("trr not null", trr);
+		assertNotNull(tl, "tl not null");
+		assertNotNull(trr, "trr not null");
 
-		Assert.assertNotNull("trll not null", trll);
-		Assert.assertNotNull("trlr not null", trlr);
+		assertNotNull(trll, "trll not null");
+		assertNotNull(trlr, "trlr not null");
 
-		assertEquals("tl  has correct contents 'TYPE=Foo'", "TYPE=Foo", tl.getContents());
-		assertEquals("trr has correct contents 'TYPE=Bar'", "TYPE=Bar", trr.getContents());
+		assertEquals("TYPE=Foo", tl.getContents(), "tl  has correct contents 'TYPE=Foo'");
+		assertEquals("TYPE=Bar", trr.getContents(), "trr has correct contents 'TYPE=Bar'");
 
-		assertEquals("trl has correct contents 'CATEGORY=FEAT'", "CATEGORY=FEAT", trll.getContents());
-		assertEquals("trl has correct contents 'NATURE=AUTO'", "NATURE=AUTO", trlr.getContents());
+		assertEquals("CATEGORY=FEAT", trll.getContents(), "trl has correct contents 'CATEGORY=FEAT'");
+		assertEquals("NATURE=AUTO", trlr.getContents(), "trl has correct contents 'NATURE=AUTO'");
 
 		// check that leaves really are leaves
-		assertNull("tl left tree is null (i.e. is a leaf node)", tl.getLeftTree());
-		assertNull("tl right tree is null (i.e. is a leaf node)", tl.getRightTree());
+		assertNull(tl.getLeftTree(), "tl left tree is null (i.e. is a leaf node)");
+		assertNull(tl.getRightTree(), "tl right tree is null (i.e. is a leaf node)");
 
-		assertNull("trr left tree is null (i.e. is a leaf node)", trr.getLeftTree());
-		assertNull("trr right tree is null (i.e. is a leaf node)", trr.getRightTree());
+		assertNull(trr.getLeftTree(), "trr left tree is null (i.e. is a leaf node)");
+		assertNull(trr.getRightTree(), "trr right tree is null (i.e. is a leaf node)");
 
-		assertNull("trl left tree is null (i.e. is a leaf node)", trll.getLeftTree());
-		assertNull("trl right tree is null (i.e. is a leaf node)", trll.getRightTree());
+		assertNull(trll.getLeftTree(), "trl left tree is null (i.e. is a leaf node)");
+		assertNull(trll.getRightTree(), "trl right tree is null (i.e. is a leaf node)");
 
-		assertNull("trll left tree is null (i.e. is a leaf node)", trlr.getLeftTree());
-		assertNull("trlr right tree is null (i.e. is a leaf node)", trlr.getRightTree());
+		assertNull(trlr.getLeftTree(), "trll left tree is null (i.e. is a leaf node)");
+		assertNull(trlr.getRightTree(), "trlr right tree is null (i.e. is a leaf node)");
 	}
 
 	@Test
-	public final void testMakeTree9()
+	public final void testMakeTree9() throws ParseException
 	{
-//		verbose = true;
-//		Logging.errorPrint("\n\n --- Start Test Make tree 9 --- \n\n");
-
 		final String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO[or]CATEGORY=SA)[and]TYPE=Bar)";
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 
-		ParameterTree t = new ParameterTree("Foo");
-		try
-		{
-			t = ParameterTree.makeTree(s);
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-			Assert.fail("Threw a parse exception");
-		}
-
+		ParameterTree t = ParameterTree.makeTree(s);
 
 		final ParameterTree tl    = t.getLeftTree();
 		final ParameterTree tr    = t.getRightTree();
@@ -370,46 +288,46 @@ public class ParameterTreeTest extends PCGenTestCase
 		final ParameterTree trllr = trll.getRightTree();
 
 		// expected branch nodes
-		Assert.assertNotNull("t not null", t);
-		Assert.assertNotNull("tr not null", tr);
-		Assert.assertNotNull("trl not null", trl);
-		Assert.assertNotNull("trll not null", trll);
+		assertNotNull(t, "t not null");
+		assertNotNull(tr, "tr not null");
+		assertNotNull(trl, "trl not null");
+		assertNotNull(trll, "trll not null");
 
-		assertEquals("t    has correct contents '[or]'", "[or]", t.getContents());
-		assertEquals("tr   has correct contents '[and]'", "[and]", tr.getContents());
-		assertEquals("trl  has correct contents '[or]'", "[or]", trl.getContents());
-		assertEquals("trll has correct contents '[or]'", "[or]", trll.getContents());
+		assertEquals("[or]", t.getContents(), "t    has correct contents '[or]'");
+		assertEquals("[and]", tr.getContents(), "tr   has correct contents '[and]'");
+		assertEquals("[or]", trl.getContents(), "trl  has correct contents '[or]'");
+		assertEquals("[or]", trll.getContents(), "trll has correct contents '[or]'");
 
 		// expected leaf nodes
-		Assert.assertNotNull("tl not null", tl);
-		Assert.assertNotNull("trr not null", trr);
+		assertNotNull(tl, "tl not null");
+		assertNotNull(trr, "trr not null");
 
-		Assert.assertNotNull("trlr not null", trlr);
-		Assert.assertNotNull("trlll not null", trlll);
-		Assert.assertNotNull("trllr not null", trllr);
+		assertNotNull(trlr, "trlr not null");
+		assertNotNull(trlll, "trlll not null");
+		assertNotNull(trllr, "trllr not null");
 
-		assertEquals("tl  has correct contents 'TYPE=Foo'", "TYPE=Foo", tl.getContents());
-		assertEquals("trr has correct contents 'TYPE=Bar'", "TYPE=Bar", trr.getContents());
+		assertEquals("TYPE=Foo", tl.getContents(), "tl  has correct contents 'TYPE=Foo'");
+		assertEquals("TYPE=Bar", trr.getContents(), "trr has correct contents 'TYPE=Bar'");
 
-		assertEquals("trlr has correct contents 'CATEGORY=SA'", "CATEGORY=SA", trlr.getContents());
-		assertEquals("trlr has correct contents 'CATEGORY=FEAT'", "CATEGORY=FEAT", trlll.getContents());
-		assertEquals("trlr has correct contents 'NATURE=AUTO'", "NATURE=AUTO", trllr.getContents());
+		assertEquals("CATEGORY=SA", trlr.getContents(), "trlr has correct contents 'CATEGORY=SA'");
+		assertEquals("CATEGORY=FEAT", trlll.getContents(), "trlr has correct contents 'CATEGORY=FEAT'");
+		assertEquals("NATURE=AUTO", trllr.getContents(), "trlr has correct contents 'NATURE=AUTO'");
 
 		
 		// check that leaves really are leaves
-		assertNull("tl left tree is null (i.e. is a leaf node)", tl.getLeftTree());;
-		assertNull("tl right tree is null (i.e. is a leaf node)", tl.getRightTree());;
+		assertNull(tl.getLeftTree(), "tl left tree is null (i.e. is a leaf node)");;
+		assertNull(tl.getRightTree(), "tl right tree is null (i.e. is a leaf node)");;
 
-		assertNull("trr left tree is null (i.e. is a leaf node)", trr.getLeftTree());;
-		assertNull("trr right tree is null (i.e. is a leaf node)", trr.getRightTree());;
+		assertNull(trr.getLeftTree(), "trr left tree is null (i.e. is a leaf node)");;
+		assertNull(trr.getRightTree(), "trr right tree is null (i.e. is a leaf node)");;
 
-		assertNull("trll left tree is null (i.e. is a leaf node)", trlr.getLeftTree());;
-		assertNull("trlr right tree is null (i.e. is a leaf node)", trlr.getRightTree());
+		assertNull(trlr.getLeftTree(), "trll left tree is null (i.e. is a leaf node)");;
+		assertNull(trlr.getRightTree(), "trlr right tree is null (i.e. is a leaf node)");
 
-		assertNull("trlll left tree is null (i.e. is a leaf node)", trlll.getLeftTree());
-		assertNull("trlll right tree is null (i.e. is a leaf node)", trlll.getRightTree());
+		assertNull(trlll.getLeftTree(), "trlll left tree is null (i.e. is a leaf node)");
+		assertNull(trlll.getRightTree(), "trlll right tree is null (i.e. is a leaf node)");
 
-		assertNull("trlll left tree is null (i.e. is a leaf node)", trllr.getLeftTree());
-		assertNull("trlll right tree is null (i.e. is a leaf node)", trllr.getRightTree());
+		assertNull(trllr.getLeftTree(), "trlll left tree is null (i.e. is a leaf node)");
+		assertNull(trllr.getRightTree(), "trlll right tree is null (i.e. is a leaf node)");
 	}
 }
