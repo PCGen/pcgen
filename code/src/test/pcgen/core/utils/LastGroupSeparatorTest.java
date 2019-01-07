@@ -1,11 +1,14 @@
 package pcgen.core.utils;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 
-import junit.framework.TestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class LastGroupSeparatorTest extends TestCase
+public class LastGroupSeparatorTest
 {
 
 	@Test
