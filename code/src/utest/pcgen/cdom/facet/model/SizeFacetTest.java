@@ -552,7 +552,9 @@ class SizeFacetTest
 		assertEquals(1, facet.sizesToAdvance(race, 6), "Size increase post last change wrong");
 	}
 
-	SizeFacet getMockFacet() throws NoSuchFieldException, IllegalAccessException
+	SizeFacet getMockFacet() throws
+			NoSuchFieldException,
+			IllegalAccessException
 	{
 		SizeFacet f = new SizeFacet();
 		Field field = SizeFacet.class.getDeclaredField("bonusCheckingFacet");
