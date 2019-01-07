@@ -26,6 +26,7 @@ import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 
 /**
@@ -133,5 +134,12 @@ public class VariableUtilities
 				new DataFacetChangeEvent<>(id, vcEvent.getNewValue(),
 					RESULT_FACET, DataFacetChangeEvent.DATA_ADDED);
 		listener.dataAdded(addEvent);
+	}
+
+	public static VariableID<?> getLocalVariableID(CharID id,
+		ScopeInstance scopeInst, String name)
+	{
+		LoadContext loadContext = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
+		return loadContext.getVariableContext().getVariableID(scopeInst, name);
 	}
 }
