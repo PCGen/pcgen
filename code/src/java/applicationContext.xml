@@ -296,7 +296,6 @@
 		<property name="variableStoreFacet" ref="variableStoreFacet"/>
 	</bean>
 	<!-- H -->
-	<bean id="handedFacet" class="pcgen.cdom.facet.fact.HandedFacet"/>
 	<bean id="handsFacet" class="pcgen.cdom.facet.analysis.HandsFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>

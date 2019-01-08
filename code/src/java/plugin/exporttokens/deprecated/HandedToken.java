@@ -22,6 +22,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.output.channel.compat.HandedCompat;
 
 /**
  * Deals with HANDED token
@@ -40,7 +41,7 @@ public class HandedToken extends AbstractExportToken
 		String retString = "";
 		if (!display.getSuppressBioField(BiographyField.HANDED))
 		{
-			retString = display.getHandedObject().toString();
+			retString = HandedCompat.getCurrentHandedness(display.getCharID()).toString();
 		}
 		return retString;
 	}
