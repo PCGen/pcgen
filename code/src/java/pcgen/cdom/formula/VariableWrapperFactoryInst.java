@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2018.
+ * Copyright (c) Thomas Parker, 2018-9.
  * 
  * This program is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
@@ -24,13 +24,12 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
-import pcgen.output.channel.ChannelUtilities;
 
 /**
- * A VariableChannelFactoryInst is a VariableChannelFactory that will ensure that a
- * VariableChannel is only produced once per VariableID.
+ * A VariableWrapperFactoryInst is a VariableWrapperFactory that will ensure that a
+ * VariableWrapper is only produced once per VariableID.
  */
-public class VariableChannelFactoryInst implements VariableChannelFactory
+public class VariableWrapperFactoryInst implements VariableWrapperFactory
 {
 	/**
 	 * The SolverManagerFacet for VariableID construction.
@@ -43,58 +42,56 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);
 
 	/**
-	 * The VariableChannel objects produced by this VariableChannelFactoryInst.
+	 * The VariableWrapper objects produced by this VariableWrapperFactoryInst.
 	 */
-	private Map<VariableID<?>, VariableChannel<?>> channels = new HashMap<>();
+	private Map<VariableID<?>, VariableWrapper<?>> wrappers = new HashMap<>();
 
 	@Override
-	public VariableChannel<?> getChannel(CharID id, VarScoped owner, String name)
+	public VariableWrapper<?> getWrapper(CharID id, VarScoped owner, String name)
 	{
-		String varName = ChannelUtilities.createVarName(name);
-		return getChannel(id, VariableUtilities.getLocalVariableID(id, owner, varName));
+		return getWrapper(id, VariableUtilities.getLocalVariableID(id, owner, name));
 	}
 
 	@Override
-	public VariableChannel<?> getGlobalChannel(CharID id, String name)
+	public VariableWrapper<?> getGlobalWrapper(CharID id, String name)
 	{
-		String varName = ChannelUtilities.createVarName(name);
-		return getChannel(id, VariableUtilities.getGlobalVariableID(id, varName));
+		return getWrapper(id, VariableUtilities.getGlobalVariableID(id, name));
 	}
 
 	@Override
-	public void disconnect(VariableChannel<?> variableChannel)
+	public void disconnect(VariableWrapper<?> variableWrapper)
 	{
-		channels.remove(variableChannel.getVariableID());
-		variableChannel.disconnect();
+		wrappers.remove(variableWrapper.getVariableID());
+		variableWrapper.disconnect();
 	}
 
 	/**
-	 * Gets a VariableChannel linked to the given VariableID on the PlayerCharacter
+	 * Gets a VariableWrapper linked to the given VariableID on the PlayerCharacter
 	 * represented by the given CharID.
 	 * 
-	 * As a note on object cleanup: The returned VariableChannel is a listener to the
-	 * given MonitorableVariableStore. Should use of this VariableChannel be no longer
+	 * As a note on object cleanup: The returned VariableWrapper is a listener to the
+	 * given MonitorableVariableStore. Should use of this VariableWrapper be no longer
 	 * necessary, then the disconnect() method should be called in order to disconnect the
-	 * VariableChannel from the WriteableVariableStore.
+	 * VariableWrapper from the WriteableVariableStore.
 	 * 
 	 * @param id
-	 *            The CharID representing the PlayerCharacter for which a VariableChannel
+	 *            The CharID representing the PlayerCharacter for which a VariableWrapper
 	 *            should be returned
 	 * @param varID
-	 *            The VariableID indicating to which Variable this VariableChannel is
+	 *            The VariableID indicating to which Variable this VariableWrapper is
 	 *            providing an interface
-	 * @return A VariableChannel linked to the given VariableID on the PlayerCharacter
+	 * @return A VariableWrapper linked to the given VariableID on the PlayerCharacter
 	 *         represented by the given CharID
 	 */
-	private <T> VariableChannel<T> getChannel(CharID id, VariableID<T> varID)
+	private <T> VariableWrapper<T> getWrapper(CharID id, VariableID<T> varID)
 	{
 		@SuppressWarnings("unchecked")
-		VariableChannel<T> ref = (VariableChannel<T>) channels.get(varID);
+		VariableWrapper<T> ref = (VariableWrapper<T>) wrappers.get(varID);
 		if (ref == null)
 		{
 			MonitorableVariableStore varStore = RESULT_FACET.get(id);
-			ref = VariableChannel.construct(MGR_FACET.get(id), varStore, varID);
-			channels.put(varID, ref);
+			ref = VariableWrapper.construct(MGR_FACET.get(id), varStore, varID);
+			wrappers.put(varID, ref);
 			varStore.addVariableListener(varID, ref);
 		}
 		return ref;
