@@ -24,8 +24,6 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
 
-import javax.swing.undo.UndoManager;
-
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
@@ -73,8 +71,6 @@ public interface CharacterFacade extends CompanionFacade
 {
 
 	public InfoFactory getInfoFactory();
-
-	public UndoManager getUndoManager();
 
 	public ReferenceFacade<Gender> getGenderRef();
 
