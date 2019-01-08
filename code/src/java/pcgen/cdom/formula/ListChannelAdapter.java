@@ -15,11 +15,15 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.util.ArrayUtilities;
 import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.WriteableListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 
 /**
  * A ListChannelAdapter is an Adapter that presents a ListFacade interface to the UI,
@@ -29,7 +33,7 @@ import pcgen.facade.util.WriteableListFacade;
  *            The type of object in the list/underlying array
  */
 public class ListChannelAdapter<T> extends AbstractListFacade<T>
-		implements WriteableListFacade<T>
+		implements WriteableListFacade<T>, ReferenceListener<T[]>
 {
 
 	/**
@@ -46,6 +50,7 @@ public class ListChannelAdapter<T> extends AbstractListFacade<T>
 	public ListChannelAdapter(VariableChannel<T[]> underlyingChannel)
 	{
 		this.variableChannel = Objects.requireNonNull(underlyingChannel);
+		variableChannel.addReferenceListener(this);
 	}
 
 	@Override
@@ -67,7 +72,6 @@ public class ListChannelAdapter<T> extends AbstractListFacade<T>
 				variableChannel.getVariableID().getVariableFormat();
 		variableChannel.set(ArrayUtilities.addOnCopy(variableChannel.get(),
 			element, (Class<T>) variableFormat.getComponentType()));
-		fireElementAdded(this, element, getSize());
 	}
 
 	@Override
@@ -77,7 +81,6 @@ public class ListChannelAdapter<T> extends AbstractListFacade<T>
 				variableChannel.getVariableID().getVariableFormat();
 		variableChannel.set(ArrayUtilities.addOnCopy(variableChannel.get(),
 			index, element, (Class<T>) variableFormat.getComponentType()));
-		fireElementAdded(this, element, index);
 	}
 
 	@Override
@@ -106,9 +109,30 @@ public class ListChannelAdapter<T> extends AbstractListFacade<T>
 	public void removeElement(int index)
 	{
 		T[] array = variableChannel.get();
-		T element = array[index];
 		variableChannel.set(ArrayUtilities.removeOnCopy(array, index));
-		fireElementRemoved(this, element, index);
+	}
+
+	@Override
+	public void referenceChanged(ReferenceEvent<T[]> e)
+	{
+		T[] oldArray = e.getOldReference();
+		List<T> oldList = Arrays.asList(oldArray);
+		T[] newArray = e.getNewReference();
+		List<T> newList = Arrays.asList(newArray);
+		for (int i = oldArray.length; i >= 0 ; i--)
+		{
+			if (!newList.contains(oldArray[i]))
+			{
+				fireElementRemoved(this, oldArray[i], i);
+			}
+		}
+		for (int i = 0; i < newArray.length; i++)
+		{
+			if (!oldList.contains(newArray[i]))
+			{
+				fireElementAdded(this, newArray[i], i);
+			}
+		}
 	}
 
 }
