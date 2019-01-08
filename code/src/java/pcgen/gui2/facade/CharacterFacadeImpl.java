@@ -36,8 +36,6 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.swing.undo.UndoManager;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -198,7 +196,6 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<Gender> availGenders;
 	private DefaultListFacade<Handed> availHands;
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
-	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<Race> race;
 	private DefaultReferenceFacade<Deity> deity;
@@ -285,7 +282,6 @@ public class CharacterFacadeImpl
 		dataSet = new DelegatingDataSet(dataSetFacade);
 		buildAgeCategories();
 		initForCharacter();
-		undoManager = new UndoManager();
 	}
 
 	@Override
@@ -1663,12 +1659,6 @@ public class CharacterFacadeImpl
 		int poolPointsUsed = poolPointsTotal - theCharacter.getSkillPoints();
 
 		poolPointText.set(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
-	}
-
-	@Override
-	public UndoManager getUndoManager()
-	{
-		return undoManager;
 	}
 
 	@Override
