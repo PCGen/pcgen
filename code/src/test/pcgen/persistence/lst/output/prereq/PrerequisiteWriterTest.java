@@ -17,11 +17,16 @@
  */
 package pcgen.persistence.lst.output.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 
 import pcgen.base.format.StringManager;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.core.GameMode;
@@ -34,19 +39,18 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.Alignment;
 
 /**
  * Tests PrerequisiteWriter code
  */
-public class PrerequisiteWriterTest extends TestCase
+final class PrerequisiteWriterTest
 {
-	private static final StringManager STR_MGR = new StringManager();
+	private static final FormatManager<String> STR_MGR = new StringManager();
 
-	static String[] testparams = {
+	private static final String[] testparams = {
 	//
 	// Examples from the PCGen documentation - note that there are two columns for each entry below
 	//
@@ -396,47 +400,9 @@ public class PrerequisiteWriterTest extends TestCase
 "PRESRGTEQ:should_be_numeric",													"",
 "PREDUMMYKIND:1,arg",															""
 	};
-	private String preString = "";
-	private String postString = "";
 
-	/**
-	 * Constructs a test case with the given name.
-	 * @param name
-	 */
-	public PrerequisiteWriterTest(String name)
-	{
-		super(name);
-	}
-	
-	private PrerequisiteWriterTest(final int idx)
-	{
-		super("Test_" + testparams[idx << 1]);
-		preString = testparams[idx << 1];
-		postString = testparams[(idx << 1) + 1];
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		TestSuite suite = new TestSuite();
-		for (int i = 0; i < testparams.length >> 1; ++i)
-		{
-			suite.addTest(new PrerequisiteWriterTest(i));
-		}
-		return suite;
-	}
-
-    @Override
-	protected void runTest() throws Throwable
-	{
-		setName(preString);
-		PreTest(preString, postString);
-	}
-
-    @Override
-	protected void setUp() throws Exception
+    @BeforeEach
+    void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
 		Globals.setUseGUI(false);
@@ -456,127 +422,83 @@ public class PrerequisiteWriterTest extends TestCase
 	 * @param aPreString
 	 * @param expectedOutput
 	 */
-	private void PreTest(final String aPreString, final String expectedOutput)
+	@Test
+	void testPreWriter(final String aPreString, final String expectedOutput) throws PersistenceLayerException
 	{
-		Prerequisite prereq = null;
-		boolean bExceptionThrown = false;
-		boolean bExceptionExpected = expectedOutput.isEmpty();
-		try
+		for (int idx = 0; idx < (testparams.length >> 1); ++idx)
 		{
-			prereq = PreParserFactory.getInstance().parse(aPreString);
-		}
-		catch (PersistenceLayerException ple)
-		{
-			if (!bExceptionExpected)
+			Prerequisite prereq = null;
+			if (expectedOutput.isEmpty())
 			{
-				ple.printStackTrace();
-				fail("parse caused PersistenceLayerException: "
-					+ ple.toString());
+				assertThrows(PersistenceLayerException.class, () -> PreParserFactory.getInstance().parse(aPreString));
 			}
-			bExceptionThrown = true;
-		}
-
-		//
-		// Did we expect an exception to be thrown?
-		//
-		if (bExceptionExpected)
-		{
-			if (!bExceptionThrown)
+			else
 			{
-				if (prereq != null)
-				{
-					System.out.println(prereq.toString());
-				}
-				fail("exception expected but not thrown");
+				prereq = PreParserFactory.getInstance().parse(aPreString);
+				assertNotNull(prereq);
 			}
-			return;
-		}
 
-		if (prereq == null)
-		{
-			fail("Could not parse prereq: '" + aPreString + "'");
-		}
-
-		StringWriter sw = new StringWriter();
-		PrerequisiteWriter writer = new PrerequisiteWriter();
-		try
-		{
+			StringWriter sw = new StringWriter();
+			PrerequisiteWriter writer = new PrerequisiteWriter();
 			writer.write(sw, prereq);
-		}
-		catch (PersistenceLayerException ple)
-		{
-			fail("write caused PersistenceLayerException: " + ple.toString());
-		}
-		final String writerOutput = sw.toString();
-		System.out.println("'" + aPreString + "' returned '" + writerOutput
-			+ "'");
-		assertTrue(aPreString + " returned '" + writerOutput + "' (expected '"
-			+ expectedOutput + "'). " + prereq.toString(), expectedOutput
-			.equals(writerOutput));
+			final String writerOutput = sw.toString();
+			System.out.println("'" + aPreString + "' returned '" + writerOutput
+					+ "'");
+			assertEquals(expectedOutput, writerOutput);
 
-		//
-		// Test .lst output
-		//
-		pcgen.core.PObject pobj = new pcgen.core.PObject();
-		pobj.addPrerequisite(prereq);
-		assertTrue("PrerequisiteWriter.prereqsToString failure",
-			PrerequisiteWriter.prereqsToString(pobj).equals(expectedOutput));
-
-		try
-		{
-			writer.write(new myWriter(), prereq);
-		}
-		catch (PersistenceLayerException ple)
-		{
+			//
+			// Test .lst output
+			//
+			pcgen.core.PObject pobj = new pcgen.core.PObject();
+			pobj.addPrerequisite(prereq);
+			assertEquals(
+					"PrerequisiteWriter.prereqsToString failure",
+					PrerequisiteWriter.prereqsToString(pobj),
+					expectedOutput
+			);
 			// expect a PersistenceLayerException as passed custom writer that throws IOExceptions
-			return;
+			Prerequisite finalPrereq = prereq;
+			assertThrows(PersistenceLayerException.class, () -> writer.write(new myWriter(), finalPrereq));
 		}
-		fail("test writer failed to throw PersistenceLayerException");
 	}
 
-	private class myWriter extends Writer
+	private static class myWriter extends Writer
 	{
         @Override
 		public void flush() throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void close() throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(char[] cbuf, int off, int len) throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(int c) throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(String str) throws IOException
 		{
-			throwException();
+			throw new IOException("intentionally generated exception");
 		}
 
         @Override
 		public void write(String str, int off, int len) throws IOException
 		{
-			throwException();
-		}
-
-		private void throwException() throws IOException
-		{
 			throw new IOException("intentionally generated exception");
 		}
-
 	}
 
 }

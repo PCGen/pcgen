@@ -36,6 +36,12 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		Globals.getContext().loadCampaignFacets();
+	}
+
+	@Override
+	protected void additionalSetUp()
+	{
 		LoadContext context = Globals.getContext();
 		wiz = context.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		BuildUtilities.setFact(wiz, "SpellType", "Arcane");
