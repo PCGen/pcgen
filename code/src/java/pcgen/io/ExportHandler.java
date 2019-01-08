@@ -2481,7 +2481,7 @@ public final class ExportHandler
 		// Filter out SUBREGION
 		if ("SUBREGION".equals(aString.substring(1)))
 		{
-			if (display.getSubRegion().equals(Constants.NONE))
+			if (display.getSubRegion().isEmpty())
 			{
 				canWrite = false;
 			}
