@@ -18,7 +18,7 @@ package pcgen.gui2.facade;
 import java.util.Objects;
 
 import pcgen.facade.util.AbstractListFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
@@ -40,7 +40,7 @@ public class DelegatingSingleton<E> extends AbstractListFacade<E>
 	/**
 	 * The underlying DefaultReferenceFacade for this DelegatingSingleton.
 	 */
-	private final DefaultReferenceFacade<E> underlying;
+	private final ReferenceFacade<E> underlying;
 
 	/**
 	 * Constructs a new DelegatingSingleton given the underlying DefaultReferenceFacade.
@@ -48,7 +48,7 @@ public class DelegatingSingleton<E> extends AbstractListFacade<E>
 	 * @param underlying
 	 *            The DefaultReferenceFacade for this DelegatingSingleton
 	 */
-	public DelegatingSingleton(DefaultReferenceFacade<E> underlying)
+	public DelegatingSingleton(ReferenceFacade<E> underlying)
 	{
 		this.underlying = Objects.requireNonNull(underlying);
 		underlying.addReferenceListener(this);

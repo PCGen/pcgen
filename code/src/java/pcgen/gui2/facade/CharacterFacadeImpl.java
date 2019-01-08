@@ -241,7 +241,6 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
-	private ListFacade<Race> raceList;
 	private DefaultListFacade<Kit> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
@@ -357,7 +356,6 @@ public class CharacterFacadeImpl
 		tabName = new DefaultReferenceFacade<>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
-		raceList = new DelegatingSingleton<>(race);
 		handedness = new DefaultReferenceFacade<>();
 		gender = new DefaultReferenceFacade<>();
 
@@ -1677,15 +1675,6 @@ public class CharacterFacadeImpl
 	public ReferenceFacade<Race> getRaceRef()
 	{
 		return race;
-	}
-
-	/**
-	 * @return A reference to a list containing the character's race.
-	 */
-	@Override
-	public ListFacade<Race> getRaceAsList()
-	{
-		return raceList;
 	}
 
 	@Override

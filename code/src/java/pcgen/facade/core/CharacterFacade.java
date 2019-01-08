@@ -331,11 +331,6 @@ public interface CharacterFacade extends CompanionFacade
 	public ReferenceFacade<Race> getRaceRef();
 
 	/**
-	 * @return A reference to a list containing the character's race.
-	 */
-	public ListFacade<Race> getRaceAsList();
-
-	/**
 	 * Sets this character's race
 	 * @param race
 	 */
