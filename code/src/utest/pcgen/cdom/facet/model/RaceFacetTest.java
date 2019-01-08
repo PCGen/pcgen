@@ -22,6 +22,8 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.Test;
+
 public class RaceFacetTest extends AbstractItemFacetTest<Race>
 {
 
@@ -43,6 +45,7 @@ public class RaceFacetTest extends AbstractItemFacetTest<Race>
 		return r;
 	}
 
+	@Test
 	public void testEmptyRemoval()
 	{
 		Listener newL = new Listener();
