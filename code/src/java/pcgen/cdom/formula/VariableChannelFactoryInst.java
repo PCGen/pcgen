@@ -82,7 +82,8 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	private VariableChannel<?> getChannel(CharID id, ScopeInstance scopeInst, String name)
 	{
 		String varName = ChannelUtilities.createVarName(name);
-		VariableID<?> varID =  VariableUtilities.getGlobalVariableID(id, varName);
+		VariableID<?> varID =
+				VariableUtilities.getLocalVariableID(id, scopeInst, varName);
 		return getChannel(id, varID);
 	}
 

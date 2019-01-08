@@ -63,7 +63,7 @@ public class ResultFacet
 				+ " had no VariableScope");
 			return null;
 		}
-		VariableID<?> varID =  VariableUtilities.getGlobalVariableID(id, varName);
+		VariableID<?> varID =  VariableUtilities.getLocalVariableID(id, scope, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
