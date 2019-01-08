@@ -1922,7 +1922,7 @@ public final class PCGVer2Creator
 	private void appendExperienceLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_EXPERIENCE).append(':');
-		buffer.append(charDisplay.getXP());
+		buffer.append(thePC.getXP());
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
