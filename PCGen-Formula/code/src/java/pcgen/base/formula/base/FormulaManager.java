@@ -66,7 +66,7 @@ public interface FormulaManager
 	/**
 	 * Returns the default value for a given FormatManager.
 	 * 
-	 * @param format
+	 * @param formatManager
 	 *            The FormatManager for which the default value should be returned
 	 * @return The default value for a given FormatManager
 	 */

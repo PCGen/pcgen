@@ -47,13 +47,13 @@ public class ModifierValueStore implements ValueStore
 			new CaseInsensitiveMap<>();
 
 	/**
-	 * Adds a new modifier to this ValueStore for the given Identifier.
+	 * Adds a new modifier to this ValueStore for the given FormatManager.
 	 * 
-	 * @param identifier
-	 *            The Identifier for which the given value should be added
+	 * @param formatManager
+	 *            The FormatManager for which the given value should be added
 	 * @param modifier
 	 *            The Modifier used to set the value for the given Identifier
-	 * @return The previous modifier for the given identifier, if any
+	 * @return The previous modifier for the given FormatManager, if any
 	 */
 	public Object addValueFor(FormatManager<?> formatManager,
 		Modifier<?> modifier)
