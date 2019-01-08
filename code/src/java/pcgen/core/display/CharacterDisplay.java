@@ -111,7 +111,6 @@ import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SkillFilterFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
-import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
@@ -217,7 +216,6 @@ public class CharacterDisplay
 	private AutoLanguageUnconditionalFacet autoLangUnconditionalFacet =
 			FacetLibrary.getFacet(AutoLanguageUnconditionalFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
-	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
@@ -981,11 +979,6 @@ public class CharacterDisplay
 	public int getWeight()
 	{
 		return weightFacet.getWeight(id);
-	}
-
-	public int getXP()
-	{
-		return xpFacet.getXP(id);
 	}
 
 	public String getXPTableName()

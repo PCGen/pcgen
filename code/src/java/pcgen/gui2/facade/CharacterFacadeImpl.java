@@ -385,7 +385,7 @@ public class CharacterFacadeImpl
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
 		updateAgeCategoryForAge();
-		currentXP = new DefaultReferenceFacade<>(charDisplay.getXP());
+		currentXP = new DefaultReferenceFacade<>(theCharacter.getXP());
 		xpListener = new XPListener();
 		FacetLibrary.getFacet(XPFacet.class).addDataFacetChangeListener(xpListener);
 		xpForNextlevel = new DefaultReferenceFacade<>(charDisplay.minXPForNextECL());
@@ -762,7 +762,7 @@ public class CharacterFacadeImpl
 		refreshKitList();
 		refreshAvailableTempBonuses();
 		refreshEquipment();
-		currentXP.set(charDisplay.getXP());
+		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
@@ -835,7 +835,7 @@ public class CharacterFacadeImpl
 	 */
 	private void updateLevelTodo()
 	{
-		if (charDisplay.getXP() >= charDisplay.minXPForNextECL())
+		if (theCharacter.getXP() >= charDisplay.minXPForNextECL())
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Class", "in_clTodoLevelUp", 120));
 		}
@@ -1709,7 +1709,7 @@ public class CharacterFacadeImpl
 		updateAgeCategoryForAge();
 		refreshHeightWeight();
 		characterAbilities.rebuildAbilityLists();
-		currentXP.set(charDisplay.getXP());
+		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
@@ -2591,10 +2591,10 @@ public class CharacterFacadeImpl
 
 	private void checkForNewLevel()
 	{
-		currentXP.set(charDisplay.getXP());
+		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 
-		if (charDisplay.getXP() >= charDisplay.minXPForNextECL())
+		if (theCharacter.getXP() >= charDisplay.minXPForNextECL())
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME, SettingsHandler.getGame().getLevelUpMessage());
 		}

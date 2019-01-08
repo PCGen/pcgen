@@ -678,10 +678,7 @@
 	</bean>
 	<bean id="weightFacet" class="pcgen.cdom.facet.fact.WeightFacet"/>
 	<!-- X -->
-	<bean id="xpFacet" class="pcgen.cdom.facet.fact.XPFacet">
-		<property name="levelFacet" ref="levelFacet"/>
-		<property name="levelTableFacet" ref="levelTableFacet"/>
-	</bean>
+	<bean id="xpFacet" class="pcgen.cdom.facet.fact.XPFacet"/>
 	<bean id="xpTableFacet" class="pcgen.cdom.facet.XPTableFacet"/>
 	<!-- Y -->
 	<!-- Z -->

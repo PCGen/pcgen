@@ -286,7 +286,7 @@ public class PcgCombatant extends Combatant
 	@Override
 	public int getXP()
 	{
-		return display.getXP();
+		return pc.getXP();
 	}
 
 	/**
