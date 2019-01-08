@@ -118,38 +118,6 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 				break;
 		}
 
-		//		if (SettingsHandler.getShowHPDialogAtLevelUp())
-		//		{
-		//			final Object[] rollChoices = new Object[max - min + 2];
-		//			rollChoices[0] = Constants.NONESELECTED;
-		//
-		//			for (int i = min; i <= max; ++i)
-		//			{
-		//				rollChoices[i - min + 1] = i;
-		//			}
-		//
-		//			while (min <= max)
-		//			{
-		//				//TODO: This must be refactored away. Core shouldn't know about gui.
-		//				final InputInterface ii = InputFactory.getInputInstance();
-		//				final Object selectedValue = ii.showInputDialog(Globals.getRootFrame(),
-		//					"Randomly generate a number between " + min + " and " + max
-		//						+ "." + Constants.LINE_SEPARATOR
-		//						+ "Select it from the box below.",
-		//					SettingsHandler.getGame().getHPText() + " for "
-		//						+ CoreUtility.ordinal(level) + " level of " + name,
-		//					MessageType.INFORMATION,
-		//					rollChoices, roll);
-		//
-		//				if ((selectedValue != null) && (selectedValue instanceof Integer))
-		//				{
-		//					roll = (Integer) selectedValue;
-		//
-		//					break;
-		//				}
-		//			}
-		//		}
-
 		return roll;
 	}
 
