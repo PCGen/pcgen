@@ -5,3 +5,9 @@ SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
 CATEGORY=Internal|Race Traits ~ Orsheval.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Ant Haul
 CATEGORY=Internal|Race Traits ~ Hesperian.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=6|Beguiling Gift,11+CHA
 CATEGORY=Internal|Race Traits ~ Xocothian.MOD				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=6|Alter Winds		SPELLS:Innate|TIMES=1|CASTERLEVEL=6|Hydraulic Torrent,13+CHA
+CATEGORY=Internal|Race Traits ~ The Stabbing Beast.MOD		SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SLA_CL|Absorbing Touch|Alchemical Allocation
+CATEGORY=Internal|Race Traits ~ Karumzek.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=SLA_CL|Alchemical Allocation|Vomit Swarm			ABILITY:Special Ability|AUTOMATIC|Karumzek ~ Negate Aroma
+
+
+### Additional abilities dependent on the APG
+Negate Aroma			KEY:Karumzek ~ Negate Aroma				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike											DESC:A karumzek is constantly under the effect of the Negate Aroma spell.

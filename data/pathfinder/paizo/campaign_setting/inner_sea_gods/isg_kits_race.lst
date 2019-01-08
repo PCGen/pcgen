@@ -451,7 +451,7 @@ ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 
 # COMMENT: Don't know how to add Improved Drag conditionally based on whether the APG is loaded or not. User can add it manually if needed.
-STARTPACK:Yethazmari Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yethazmari],[!PRERACE:1,%]	SOURCEPAGE:p.278
+STARTPACK:Yethazmari Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yethazmari],[!PRERACE:1,%]	SOURCEPAGE:p.296
 ALIGN:CE
 RACE:Yethazmari	!PRERACE:1,%
 NAME:Yethazmari
@@ -475,6 +475,132 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
 LANGBONUS:Abyssal|Common|Infernal
+
+
+STARTPACK:Demon (Swaithe) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Swaithe)],[!PRERACE:1,%]	SOURCEPAGE:p.297
+ALIGN:CE
+RACE:Demon (Swaithe)	!PRERACE:1,%
+NAME:Swaithe Demon
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Handle Animal				RANK:5
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Arcana)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Ride						RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+LANGBONUS:Orc
+
+
+STARTPACK:Arcanotheign Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Arcanotheign],[!PRERACE:1,%]	SOURCEPAGE:p.298
+ALIGN:TN
+RACE:Arcanotheign	!PRERACE:1,%
+NAME:Arcanotheign
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Craft (Alchemy)			RANK:17
+SKILL:Diplomacy					RANK:17
+SKILL:Fly						RANK:17
+SKILL:Heal						RANK:17
+SKILL:Intimidate				RANK:17
+SKILL:Knowledge (Arcana)		RANK:17
+SKILL:Knowledge (History)		RANK:17
+SKILL:Knowledge (Planes)		RANK:17
+SKILL:Knowledge (Religion)		RANK:17
+SKILL:Linguistics				RANK:17
+SKILL:Perception				RANK:17
+SKILL:Perform (Sing)			RANK:17
+SKILL:Sense Motive				RANK:17
+SKILL:Spellcraft				RANK:17
+SKILL:Stealth					RANK:17
+SKILL:Use Magic Device			RANK:17
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Command Undead
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Greater Spell Penetration
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Spell Penetration
+LANGBONUS:Abyssal|Ancient Osiriani|Celestial|Common|Draconic|Infernal|Protean
+
+
+STARTPACK:Burleev Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Burleev],[!PRERACE:1,%]	SOURCEPAGE:p.299
+ALIGN:TN
+RACE:Burleev	!PRERACE:1,%
+NAME:Burleev
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Arcana)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Spellcraft				RANK:5
+SKILL:Use Magic Device			RANK:5
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Chill Touch
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sleep
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+
+
+STARTPACK:The Stabbing Beast Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Stabbing Beast],[!PRERACE:1,%]	SOURCEPAGE:p.298
+ALIGN:NE
+RACE:The Stabbing Beast	!PRERACE:1,%
+NAME:The Stabbing Beast
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Appraise					RANK:8
+SKILL:Bluff						RANK:9
+SKILL:Climb						RANK:8
+SKILL:Craft (Alchemy)			RANK:9
+SKILL:Knowledge (Arcana)		RANK:9
+SKILL:Knowledge (Local)			RANK:9
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Knowledge (Planes)		RANK:8
+SKILL:Knowledge (Religion)		RANK:8
+SKILL:Perception				RANK:17
+SKILL:Sense Motive				RANK:8
+SKILL:Stealth					RANK:17
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+LANGBONUS:Protean
+GEAR:Sword (Short)	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon
+GEAR:Sword (Short)	SIZE:M	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon
+
+
+STARTPACK:Karumzek Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Karumzek],[!PRERACE:1,%]	SOURCEPAGE:p.299
+ALIGN:NE
+RACE:Karumzek	!PRERACE:1,%
+NAME:Karumzek
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Craft (Alchemy)			RANK:5
+SKILL:Knowledge (Nature)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+
 
 
 
