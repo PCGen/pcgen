@@ -45,6 +45,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.gui2.facade.DelegatingSingleton;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
@@ -527,7 +528,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 			else
 			{
-				return character.getRaceAsList();
+				return new DelegatingSingleton<>(character.getRaceRef());
 			}
 		}
 
