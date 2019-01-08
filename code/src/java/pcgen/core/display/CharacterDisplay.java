@@ -49,6 +49,7 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
+import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.facet.ActiveSpellsFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
 import pcgen.cdom.facet.AutoLanguageUnconditionalFacet;
@@ -514,7 +515,7 @@ public class CharacterDisplay
 	 * 
 	 * @return character sub region
 	 */
-	public String getSubRegion()
+	public Optional<SubRegion> getSubRegion()
 	{
 		return regionFacet.getSubRegion(id);
 	}
