@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -37,37 +38,31 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 public class DisplayNameTokenTest
 {
 
-	static DisplayNameToken token = new DisplayNameToken();
-	ContentDefinition cd;
+	private static final DisplayNameToken token = new DisplayNameToken();
+	private ContentDefinition cd;
 
-	protected LoadContext context;
+	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
+	private static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
@@ -105,8 +100,7 @@ public class DisplayNameTokenTest
 		assertEquals("YES", cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed);
 	}
 
 	@Test
@@ -119,8 +113,7 @@ public class DisplayNameTokenTest
 		assertEquals(str, cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals(str, unparsed[0]);
+		assertArrayEquals(new String[]{str}, unparsed);
 	}
 
 }
