@@ -23,7 +23,7 @@ import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
 /**
- * A DelegatingSingleton is wraps a DefaultReferenceFacade to allow that singleton object
+ * A DelegatingSingleton is wraps a ReferenceFacade to allow that singleton object
  * reference to instead appear as a ListFacade.
  * 
  * This class is useful because certain items which are recognized by most game modes as a
@@ -38,15 +38,15 @@ public class DelegatingSingleton<E> extends AbstractListFacade<E>
 {
 
 	/**
-	 * The underlying DefaultReferenceFacade for this DelegatingSingleton.
+	 * The underlying ReferenceFacade for this DelegatingSingleton.
 	 */
 	private final ReferenceFacade<E> underlying;
 
 	/**
-	 * Constructs a new DelegatingSingleton given the underlying DefaultReferenceFacade.
+	 * Constructs a new DelegatingSingleton given the underlying ReferenceFacade.
 	 * 
 	 * @param underlying
-	 *            The DefaultReferenceFacade for this DelegatingSingleton
+	 *            The ReferenceFacade for this DelegatingSingleton
 	 */
 	public DelegatingSingleton(ReferenceFacade<E> underlying)
 	{
