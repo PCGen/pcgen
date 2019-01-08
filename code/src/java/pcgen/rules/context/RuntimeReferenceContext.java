@@ -57,7 +57,8 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	public void initialize()
 	{
 		super.initialize();
-		StringPClassUtil.getBaseClasses().forEach(c -> importCDOMToFormat(c));
+		StringPClassUtil.getBaseClasses()
+			.forEach(baseClass -> importCDOMToFormat(baseClass));
 	}
 
 	@Override
