@@ -390,7 +390,8 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	@Override
 	public List<V> getSafeListFor(K key)
 	{
-		return Optional.ofNullable(getListFor(key)).orElse(Collections.emptyList());
+		return Optional.ofNullable(getListFor(key))
+			.orElseGet(() -> Collections.emptyList());
 	}
 
 	/**
