@@ -56,7 +56,7 @@ public class TableFormatFactory implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<?> build(String subFormatName, FormatManagerLibrary library)
+	public FormatManager<DataTable> build(String subFormatName, FormatManagerLibrary library)
 	{
 		Objects.requireNonNull(subFormatName, "Table Format cannot be built from no instructions");
 		if (SUB_PATTERN.matcher(subFormatName).find())

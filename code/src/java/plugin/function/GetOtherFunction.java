@@ -137,7 +137,7 @@ public class GetOtherFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
 	{
 		String legalScopeName = ((ASTQuotString) args[0]).getText();
 		TrainingStrategy ts = new TrainingStrategy();
@@ -150,8 +150,8 @@ public class GetOtherFunction implements FormulaFunction
 		DynamicDependency dd = new DynamicDependency(ts.getControlVar(), LegalScope.getFullName(legalScope));
 		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);
 		DependencyManager dynamic = fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
-		dynamic = dynamic.getWith(DependencyManager.SCOPE, legalScope);
+		dynamic = dynamic.getWith(DependencyManager.SCOPE, Optional.of(legalScope));
 		//Rest of Equation
-		return (FormatManager<?>) args[2].jjtAccept(visitor, dynamic);
+		return (Optional<FormatManager<?>>) args[2].jjtAccept(visitor, dynamic);
 	}
 }

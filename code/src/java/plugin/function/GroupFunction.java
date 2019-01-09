@@ -144,7 +144,7 @@ public class GroupFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor,
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
 		@SuppressWarnings("PMD.PrematureDeclaration")
@@ -152,7 +152,7 @@ public class GroupFunction implements FormulaFunction
 		AbstractReferenceContext refContext =
 				manager.get(ManagerKey.CONTEXT).getReferenceContext();
 		FormatManager<?> formatManager = refContext.getFormatManager(format);
-		return formatManager;
+		return Optional.of(formatManager);
 	}
 
 }

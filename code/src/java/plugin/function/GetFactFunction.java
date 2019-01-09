@@ -127,7 +127,7 @@ public class GetFactFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
 	{
 		String formatName = ((ASTQuotString) args[0]).getText();
 		LoadContext context = fdm.get(ManagerKey.CONTEXT);
@@ -137,6 +137,6 @@ public class GetFactFunction implements FormulaFunction
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		FactDefinition<?, ?> factDef =
 				refContext.silentlyGetConstructedCDOMObject(FactDefinition.class, formatName + "." + factName);
-		return factDef.getFormatManager();
+		return Optional.of(factDef.getFormatManager());
 	}
 }

@@ -44,6 +44,7 @@ import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import util.FormatSupport;
 import util.TestURI;
 
 public abstract class AbstractGlobalTokenTestCase extends TestCase
@@ -326,6 +327,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected void additionalSetup(LoadContext context)
 	{
+		FormatSupport.addBasicDefaults(context);
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 

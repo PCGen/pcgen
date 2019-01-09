@@ -89,6 +89,7 @@ public class SetSolverManagerTest
 	@Before
 	public void setUp() throws Exception
 	{
+		ModifierValueStore mvs = new ModifierValueStore();
 		WriteableFunctionLibrary fl = new SimpleFunctionLibrary();
 		fl.addFunction(new GetOtherFunction());
 		OperatorLibrary ol = new SimpleOperatorLibrary();
@@ -101,7 +102,7 @@ public class SetSolverManagerTest
 		SkillScope skillScope = new SkillScope();
 		skillScope.setParent(globalScope);
 		vsLib.registerScope(skillScope);
-		sl = new VariableManager(vsLib);
+		sl = new VariableManager(vsLib, mvs);
 		arrayManager = new ArrayFormatManager<>(stringManager, '\n', ',');
 		context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
@@ -109,31 +110,31 @@ public class SetSolverManagerTest
 		skillManager = context.getReferenceContext().getManufacturer(Skill.class);
 		managerFactory = new MyManagerFactory(context);
 		siFactory = new SimpleScopeInstanceFactory(vsLib);
-		fm = new SimpleFormulaManager(ol, sl, siFactory, vc, new SolverFactory());
+		fm = new SimpleFormulaManager(ol, sl, siFactory, vc, mvs);
 		fm = fm.getWith(FormulaManager.FUNCTION, fl);
-		SolverFactory solverFactory = new SolverFactory();
+		SolverFactory solverFactory = new SimpleSolverFactory(mvs);
 		ModifierFactory am1 = new plugin.modifier.set.SetModifierFactory<>();
 		FormulaModifier emptyArrayMod =
 				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
-		solverFactory.addSolverFormat(arrayManager.getManagedClass(),
+		solverFactory.addSolverFormat(arrayManager,
 			new ModifierDecoration<>(emptyArrayMod));
 		
 		ProcessCalculation calc =
 				new ProcessCalculation<>(new Skill(), new BasicSet(), skillManager);
 		CalculationModifier em = new CalculationModifier<>(calc, skillManager);
-		solverFactory.addSolverFormat(Skill.class, new ModifierDecoration<>(em));
+		solverFactory.addSolverFormat(skillManager, new ModifierDecoration<>(em));
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
 		FormulaModifier mod =
 				mfn.getModifier("0", managerFactory, null, globalScope, numberManager);
 		mod.addAssociation("PRIORITY=0");
-		solverFactory.addSolverFormat(numberManager.getManagedClass(),
+		solverFactory.addSolverFormat(numberManager,
 			new ModifierDecoration<>(mod));
 		ModifierFactory mfs = new plugin.modifier.string.SetModifierFactory();
 		FormulaModifier mods =
 				mfs.getModifier("", managerFactory, null, globalScope, stringManager);
-		solverFactory.addSolverFormat(stringManager.getManagedClass(),
+		solverFactory.addSolverFormat(stringManager,
 			new ModifierDecoration<>(mods));
 	}
 

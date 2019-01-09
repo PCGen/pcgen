@@ -47,6 +47,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -58,6 +59,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import util.FormatSupport;
 import util.TestURI;
 
 public class FaceTokenTest
@@ -233,6 +235,7 @@ public class FaceTokenTest
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		FormatSupport.addBasicDefaults(context);
 		context.getVariableContext().assertLegalVariableID(
 			CControl.FACE.getDefaultValue(), context.getActiveScope(), opManager);
 	}

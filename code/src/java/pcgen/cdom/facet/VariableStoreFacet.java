@@ -41,7 +41,7 @@ public class VariableStoreFacet extends AbstractItemFacet<CharID, MonitorableVar
 		if (value == null)
 		{
 			return loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
-				.getDefaultValue(varID.getVariableFormat());
+				.getDefaultValue(varID.getFormatManager());
 		}
 		return value;
 	}

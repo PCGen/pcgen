@@ -17,8 +17,6 @@
  */
 package tokenmodel.testsupport;
 
-import junit.framework.TestCase;
-import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
@@ -45,7 +43,6 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
-import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -59,10 +56,9 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMToken;
-import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.chooser.ChooserFactory;
+
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.ability.MultToken;
@@ -72,6 +68,9 @@ import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
+
+import junit.framework.TestCase;
+import util.FormatSupport;
 
 public abstract class AbstractTokenModelTest extends TestCase
 {
@@ -226,7 +225,16 @@ public abstract class AbstractTokenModelTest extends TestCase
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
-		BuildUtilities.buildUnselectedRace(Globals.getContext());
+
+		context = Globals.getContext();
+		AbstractReferenceContext ref = context.getReferenceContext();
+		BuildUtilities.buildUnselectedRace(context);
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
+		FormatSupport.addBasicDefaults(context);
+		SourceFileLoader.defineBuiltinVariables(context);
 
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
@@ -239,7 +247,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -258,7 +265,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		ref.importObject(cn);
 		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		gamemode.setBonusFeatLevels("3|3");
@@ -292,17 +298,8 @@ public abstract class AbstractTokenModelTest extends TestCase
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		proc(fmtManager);
+		FormatSupport.addNoneAsDefault(context, fmtManager);
 		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
-	}
-
-	private <T> void proc(FormatManager<T> fmtManager)
-	{
-		Class<T> cl = fmtManager.getManagedClass();
-		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl,
-			new ModifierDecoration<>(defaultModifier));
 	}
 
 	public abstract CDOMToken<?> getToken();

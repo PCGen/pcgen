@@ -19,7 +19,6 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Optional;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -40,7 +39,6 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.LoadContextFacet;
@@ -51,7 +49,9 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import pcgen.rules.context.VariableContext;
+
+import junit.framework.TestCase;
+import util.FormatSupport;
 
 public abstract class AbstractFormulaTestCase extends TestCase
 {
@@ -71,9 +71,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			new ConsolidatedListCommitStrategy());
 		FacetLibrary.getFacet(LoadContextFacet.class).set(context.getDataSetID(),
 			new WeakReference<>(context));
-		VariableContext varContext = context.getVariableContext();
-		varContext.addDefault(Number.class, getDMod(0, numberManager));
-		varContext.addDefault(String.class, getDMod("", stringManager));
+		FormatSupport.addBasicDefaults(context);
 	}
 
 	/**
@@ -255,48 +253,4 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.getWith(EvaluationManager.ASSERTED, Optional.of(FormatUtilities.NUMBER_MANAGER))
 			.getWith(ManagerKey.CONTEXT, context);
 	}
-
-	private <T> Modifier<T> getDMod(T o, final FormatManager<T> f)
-	{
-		return new Modifier<T>()
-		{
-
-			@Override
-			public T process(EvaluationManager manager)
-			{
-				return o;
-			}
-
-			@Override
-			public void getDependencies(DependencyManager dependencyManager)
-			{
-				//No dependencies
-			}
-
-			@Override
-			public long getPriority()
-			{
-				return 0;
-			}
-
-			@Override
-			public FormatManager<T> getVariableFormat()
-			{
-				return f;
-			}
-
-			@Override
-			public String getIdentification()
-			{
-				return "SET";
-			}
-
-			@Override
-			public String getInstructions()
-			{
-				return "DEFAULT";
-			}
-		};
-	}
-
 }

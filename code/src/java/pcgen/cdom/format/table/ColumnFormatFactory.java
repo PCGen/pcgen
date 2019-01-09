@@ -56,7 +56,7 @@ public class ColumnFormatFactory implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<?> build(String subFormatName, FormatManagerLibrary library)
+	public FormatManager<TableColumn> build(String subFormatName, FormatManagerLibrary library)
 	{
 		Objects.requireNonNull(subFormatName, "Column Format cannot be built from no instructions");
 		if (SUB_PATTERN.matcher(subFormatName).find())

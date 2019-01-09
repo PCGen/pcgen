@@ -17,6 +17,7 @@ package pcgen.cdom.formula.local;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -102,9 +103,9 @@ public class DefinedFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
-		return formatManager;
+		return Optional.of(formatManager);
 	}
 
 }

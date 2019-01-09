@@ -17,21 +17,25 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
-import org.junit.Test;
-
 import pcgen.cdom.content.DefaultVarValue;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.number.SetModifierFactory;
+
+import org.junit.Test;
 
 public class DefaultVariableValueTokenTest extends
 		AbstractTokenTestCase<DefaultVarValue>
@@ -184,4 +188,12 @@ public class DefaultVariableValueTokenTest extends
 		return ConsolidationRule.OVERWRITE;
 	}
 
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		URI testURI = testCampaign.getURI();
+		context.setSourceURI(testURI);
+		context.setExtractURI(testURI);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
 }
