@@ -17,6 +17,8 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -52,14 +54,8 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 	 */
 	public CNAbilitySelectionModel(CharID id, CNAbilitySelection cnas)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID cannot be null");
-		}
-		if (cnas == null)
-		{
-			throw new IllegalArgumentException("CNAbilitySelection cannot be null");
-		}
+		Objects.requireNonNull(id, "CharID cannot be null");
+		Objects.requireNonNull(cnas, "CNAbilitySelection cannot be null");
 		this.id = id;
 		this.cnas = cnas;
 	}

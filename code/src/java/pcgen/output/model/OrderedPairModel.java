@@ -17,6 +17,7 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 import freemarker.template.TemplateModel;
@@ -45,10 +46,7 @@ public class OrderedPairModel implements TemplateScalarModel, TemplateSequenceMo
 	 */
 	public OrderedPairModel(OrderedPair point)
 	{
-		if (point == null)
-		{
-			throw new IllegalArgumentException("OrderedPair cannot be null");
-		}
+		Objects.requireNonNull(point, "OrderedPair cannot be null");
 		this.point = point;
 	}
 

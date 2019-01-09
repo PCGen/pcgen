@@ -3,6 +3,8 @@
  */
 package pcgen.persistence.lst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -14,18 +16,18 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import junit.framework.TestCase;
-import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * JUnit testcases for {@code pcgen.core.Feat}.
  */
-public class FeatTest extends TestCase
+public class FeatTest
 {
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 */
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
@@ -37,6 +39,7 @@ public class FeatTest extends TestCase
 	 * 
 	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
+	@Test
 	public void testAlertness() throws PersistenceLayerException
 	{
 		Ability alertnessFeat;
@@ -58,7 +61,7 @@ public class FeatTest extends TestCase
 				Globals.getContext(),
 				alertnessFeat,
 				"Alertness	TYPE:General	DESC:+2 on Listen and Spot checks	BONUS:SKILL|Listen,Spot|2", source);
-		Assert.assertEquals("Alertness", alertnessFeat.getKeyName());
+		assertEquals("Alertness", alertnessFeat.getKeyName());
 	}
 
 	/**
@@ -66,6 +69,7 @@ public class FeatTest extends TestCase
 	 * 
 	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
+	@Test
 	public void testAmbidexterity() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
@@ -86,7 +90,7 @@ public class FeatTest extends TestCase
 				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	"
 			+ "DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4",
 				source);
-		Assert.assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
+		assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
 	}
 
 	/**
@@ -94,6 +98,7 @@ public class FeatTest extends TestCase
 	 * 
 	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
+	@Test
 	public void testSimpleWeapon() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
@@ -115,6 +120,6 @@ public class FeatTest extends TestCase
 				simpleWeaponFeat,
 				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. "
 						+ "Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple", source);
-		Assert.assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());
+		assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());
 	}
 }

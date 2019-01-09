@@ -19,6 +19,7 @@
 package pcgen.core;
 
 import java.net.URI;
+import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -160,10 +161,7 @@ public final class PaperInfo implements Loadable, SortKeyRequired
 
 	public void setSortKey(String value)
 	{
-		if (value == null)
-		{
-			throw new IllegalArgumentException("SortKey cannot be null");
-		}
+		Objects.requireNonNull(value, "SortKey cannot be null");
 		sortKey = value;
 	}
 

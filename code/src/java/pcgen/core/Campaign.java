@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -119,10 +118,10 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		return getSafe(ObjectKey.SHOW_IN_MENU);
 	}
 
-	private DefaultListFacade<GameModeFacade> gameModes = null;
+	private DefaultListFacade<GameMode> gameModes = null;
 
 	@Override
-	public ListFacade<GameModeFacade> getGameModes()
+	public ListFacade<GameMode> getGameModes()
 	{
 		if (gameModes == null)
 		{

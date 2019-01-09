@@ -45,11 +45,9 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import org.apache.commons.lang3.StringUtils;
-
+import pcgen.core.GameMode;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.GameModeDisplayFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
@@ -81,6 +79,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
 
+import org.apache.commons.lang3.StringUtils;
+
 class AdvancedSourceSelectionPanel extends JPanel
 		implements ListSelectionListener, ListListener<CampaignFacade>, ActionListener
 {
@@ -95,7 +95,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private final SourceTreeViewModel availTreeViewModel;
 	private final SourceTreeViewModel selTreeViewModel;
 	private final InfoPane infoPane;
-	private GameModeFacade gameMode;
+	private GameMode gameMode;
 	private final JComboBox gameModeList;
 	private final InfoPaneLinkAction linkAction;
 	private final JButton unloadAllButton;
@@ -234,7 +234,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	 * to the selected list.  
 	 * @param mode The game mode being selected
 	 */
-	private void selectDefaultSources(GameModeFacade mode)
+	private void selectDefaultSources(GameMode mode)
 	{
 		if (mode != null)
 		{
@@ -264,7 +264,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 	}
 
-	public GameModeFacade getSelectedGameMode()
+	public GameMode getSelectedGameMode()
 	{
 		return gameMode;
 	}
@@ -281,7 +281,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			Logging.errorPrint("Invalid source selection " + sources + "- ignoring.");
 			return;
 		}
-		GameModeFacade selectedGame = sources.getGameMode().get();
+		GameMode selectedGame = sources.getGameMode().get();
 		for (int i = 0; i < gameModeList.getModel().getSize(); i++)
 		{
 			GameModeDisplayFacade gmdf = (GameModeDisplayFacade) gameModeList.getModel().getElementAt(i);
@@ -563,7 +563,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			return columns;
 		}
 
-		public void setGameModel(GameModeFacade gameMode)
+		public void setGameModel(GameMode gameMode)
 		{
 			if (baseModel != null)
 			{

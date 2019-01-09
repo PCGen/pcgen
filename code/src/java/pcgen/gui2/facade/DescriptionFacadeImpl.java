@@ -32,7 +32,6 @@ import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.facade.core.ChronicleEntryFacade;
 import pcgen.facade.core.DescriptionFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
@@ -40,7 +39,6 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.system.LanguageBundle;
-
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -67,7 +65,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private final DefaultListFacade<ChronicleEntryFacade> chronicleEntries;
+	private final DefaultListFacade<ChronicleEntry> chronicleEntries;
 	private final DefaultListFacade<NoteItem> notes;
 
 	private final Map<BiographyField, WriteableReferenceFacade<String>> bioData = new EnumMap<>(BiographyField.class);
@@ -158,7 +156,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public ChronicleEntryFacade createChronicleEntry()
+	public ChronicleEntry createChronicleEntry()
 	{
 		ChronicleEntry chronicleEntry = new ChronicleEntry();
 		theCharacter.addChronicleEntry(chronicleEntry);
@@ -167,17 +165,14 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void removeChronicleEntry(ChronicleEntryFacade chronicleEntry)
+	public void removeChronicleEntry(ChronicleEntry chronicleEntry)
 	{
-		if (chronicleEntry instanceof ChronicleEntry)
-		{
-			theCharacter.removeChronicleEntry((ChronicleEntry) chronicleEntry);
-		}
+		theCharacter.removeChronicleEntry(chronicleEntry);
 		chronicleEntries.removeElement(chronicleEntry);
 	}
 
 	@Override
-	public ListFacade<ChronicleEntryFacade> getChronicleEntries()
+	public ListFacade<ChronicleEntry> getChronicleEntries()
 	{
 		return chronicleEntries;
 	}

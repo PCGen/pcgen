@@ -1,19 +1,20 @@
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import junit.framework.TestCase;
 import pcgen.base.util.RandomUtil;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code RollingMethodsTest} check that the Rollingmethods class is functioning
  * correctly.
- *
- * <br/>
- * 
  */
-public class RollingMethodsTest extends TestCase
+public class RollingMethodsTest
 {
 
 	static final int SIDES = 6;
@@ -22,6 +23,7 @@ public class RollingMethodsTest extends TestCase
 	static final int REROLL = 1;
 	static final long SEED = -5450594;
 
+	@Test
 	public final void testRoll()
 	{
 		final Random random = new Random(SEED);
@@ -45,6 +47,7 @@ public class RollingMethodsTest extends TestCase
 		assertEquals(sum, testSum);
 	}
 
+	@Test
 	public final void testTopRoll()
 	{
 		final Random random = new Random(SEED);
@@ -79,6 +82,7 @@ public class RollingMethodsTest extends TestCase
 
 	}
 
+	@Test
 	public final void testRerollRoll()
 	{
 		final Random random = new Random(SEED);

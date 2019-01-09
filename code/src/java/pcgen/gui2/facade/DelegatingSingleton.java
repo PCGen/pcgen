@@ -18,12 +18,12 @@ package pcgen.gui2.facade;
 import java.util.Objects;
 
 import pcgen.facade.util.AbstractListFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
 /**
- * A DelegatingSingleton is wraps a DefaultReferenceFacade to allow that singleton object
+ * A DelegatingSingleton is wraps a ReferenceFacade to allow that singleton object
  * reference to instead appear as a ListFacade.
  * 
  * This class is useful because certain items which are recognized by most game modes as a
@@ -38,17 +38,17 @@ public class DelegatingSingleton<E> extends AbstractListFacade<E>
 {
 
 	/**
-	 * The underlying DefaultReferenceFacade for this DelegatingSingleton.
+	 * The underlying ReferenceFacade for this DelegatingSingleton.
 	 */
-	private final DefaultReferenceFacade<E> underlying;
+	private final ReferenceFacade<E> underlying;
 
 	/**
-	 * Constructs a new DelegatingSingleton given the underlying DefaultReferenceFacade.
+	 * Constructs a new DelegatingSingleton given the underlying ReferenceFacade.
 	 * 
 	 * @param underlying
-	 *            The DefaultReferenceFacade for this DelegatingSingleton
+	 *            The ReferenceFacade for this DelegatingSingleton
 	 */
-	public DelegatingSingleton(DefaultReferenceFacade<E> underlying)
+	public DelegatingSingleton(ReferenceFacade<E> underlying)
 	{
 		this.underlying = Objects.requireNonNull(underlying);
 		underlying.addReferenceListener(this);

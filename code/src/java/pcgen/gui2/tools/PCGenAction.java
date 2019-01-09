@@ -81,14 +81,7 @@ public class PCGenAction extends AbstractAction
 			}
 			else if (aString.equalsIgnoreCase("alt"))
 			{
-				if (System.getProperty("mrj.version") != null)
-				{
-					iShortCut = menuShortcutKeyMask | InputEvent.ALT_MASK;
-				}
-				else
-				{
-					iShortCut = InputEvent.ALT_MASK;
-				}
+				iShortCut = InputEvent.ALT_MASK;
 			}
 			else if (aString.equalsIgnoreCase("shift-shortcut"))
 			{

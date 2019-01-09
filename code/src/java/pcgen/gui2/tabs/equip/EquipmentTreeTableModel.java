@@ -31,12 +31,12 @@ import javax.swing.tree.TreePath;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode;
 import pcgen.facade.core.EquipmentSetFacade.EquipmentTreeEvent;
 import pcgen.facade.core.EquipmentSetFacade.EquipmentTreeListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.facade.EquipNode;
 import pcgen.gui2.util.treetable.TreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.CollectionMaps;

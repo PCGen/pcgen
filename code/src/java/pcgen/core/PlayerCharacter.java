@@ -2303,17 +2303,62 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return pointBuyPoints;
 	}
 
-	public void setXP(final int xp)
+	/**
+	 * Sets the total Experience Points for the Player Character to the given value.
+	 * 
+	 * Note this sets earned Experience Points as a side effect (calculated based on the
+	 * level-adjusted Experience Points the Player Character may have). If the given xp
+	 * value is less than the level-adjusted Experience Points possessed by the Player
+	 * Character, then an error will be logged, and the earned Experience Points will be
+	 * set to 0.
+	 * 
+	 * @param xp
+	 *            The total Experience Points for the Player Character
+	 */
+	public void setXP(int xp)
 	{
-		if (xpFacet.setXP(id, xp))
+		// Remove the effect of LEVELADJ when storing our
+		// internal notion of experience
+		int realXP = xp - getLAXP();
+
+		if (realXP < 0)
+		{
+			Logging.errorPrint("ERROR: too little experience: " + realXP);
+			realXP = 0;
+		}
+
+		if (xpFacet.set(id, realXP))
 		{
 			setDirty(true);
 		}
 	}
 
+	/**
+	 * Return the total Experience Points for the Player Character.
+	 * 
+	 * @return The total Experience Points for the Player Character
+	 */
 	public int getXP()
 	{
-		return xpFacet.getXP(id);
+		// Add the effect of LEVELADJ when showing our external notion of XP.
+		Integer earnedXP = xpFacet.get(id);
+		return ((earnedXP == null) ? 0 : earnedXP) + getLAXP();
+	}
+
+	/**
+	 * Returns the level-adjusted Experience Points for the Player Character.
+	 * 
+	 * @return The level-adjusted Experience Points for the Player Character
+	 */
+	private int getLAXP()
+	{
+		/*
+		 * Why +1? Adjustments are deltas, not absolute levels, so are not
+		 * subject to the "back off one" element of the algorithm in
+		 * minXPForLevel. This still means that levelAdjustment of 0 gives you 0
+		 * XP, but we need LA of 1 to give us 1,000 XP.
+		 */
+		return levelTableFacet.minXPForLevel(levelFacet.getLevelAdjustment(id) + 1, id);
 	}
 
 	public final void setXPTable(final String xpTableName)

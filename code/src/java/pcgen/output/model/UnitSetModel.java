@@ -17,6 +17,8 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -44,10 +46,7 @@ public class UnitSetModel implements TemplateHashModel, TemplateScalarModel
 	 */
 	public UnitSetModel(UnitSet set)
 	{
-		if (set == null)
-		{
-			throw new IllegalArgumentException("UnitSet may not be null");
-		}
+		Objects.requireNonNull(set, "UnitSet may not be null");
 		this.unitSet = set;
 	}
 

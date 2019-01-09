@@ -46,8 +46,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.util.CControl;
+import pcgen.core.GameMode;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tabs.CharacterInfoTab.ModelMap;
@@ -185,7 +186,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 	 */
 	private void updateTabsForCharacter(CharacterFacade character)
 	{
-		GameModeFacade gameMode = character.getDataSet().getGameMode();
+		GameMode gameMode = character.getDataSet().getGameMode();
 		int tabIndex = 0;
 		for (CharacterInfoTab charInfoTab : fullTabList)
 		{
@@ -216,20 +217,17 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 
 			}
 		}
-		if (character != null)
+		if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
 		{
-			if (character.getDataSet().hasDeityDomain())
-			{
-				TabTitle tabTitle = domainInfoTab.getTabTitle();
-				String title = (String) tabTitle.getValue(TabTitle.TITLE);
-				String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
-				Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
-				insertTab(title, icon, domainInfoTab, tooltip, domainTabLocation);
-			}
-			else
-			{
-				remove(domainInfoTab);
-			}
+			TabTitle tabTitle = domainInfoTab.getTabTitle();
+			String title = (String) tabTitle.getValue(TabTitle.TITLE);
+			String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
+			Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
+			insertTab(title, icon, domainInfoTab, tooltip, domainTabLocation);
+		}
+		else
+		{
+			remove(domainInfoTab);
 		}
 	}
 
@@ -367,15 +365,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 		{
 			if (timingMap.containsKey(o1) && timingMap.containsKey(o2))
 			{
-				long dif = timingMap.get(o1) - timingMap.get(o2);
-				if (dif < 0)
-				{
-					return -1;
-				}
-				if (dif > 0)
-				{
-					return 1;
-				}
+				return Long.compare(timingMap.get(o1), timingMap.get(o2));
 			}
 			else if (timingMap.containsKey(o1))
 			{

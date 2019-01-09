@@ -17,29 +17,63 @@
  */
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.PCGenTestCase;
+import pcgen.ControlTestSupport;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.core.system.LoadInfo;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.Test;
 
-public class EquipmentUtilitiesTest extends PCGenTestCase
+class EquipmentUtilitiesTest
 {
+	/**
+	 * Sets up some basic stuff that must be present for tests to work.
+	 */
+	protected void setUp() throws Exception
+	{
+		final GameMode gamemode = new GameMode("3.5");
+		gamemode.setBonusFeatLevels("3|3");
+		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
+		gamemode.addLevelInfo("Normal", new LevelInfo());
+		gamemode.addXPTableName("Normal");
+		gamemode.setDefaultXPTableName("Normal");
+		gamemode.clearLoadContext();
+		LoadInfo loadable =
+				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
+						LoadInfo.class, gamemode.getName());
+		loadable.addLoadScoreValue(0, BigDecimal.ONE);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
+	}
+
 	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.appendToName(String, String)'
 	 */
+	@Test
 	public void testAppendToName()
 	{
 		final String bare = "Bare Thing";
 		final String decoration = "Mad cow";
 
-		is(EquipmentUtilities.appendToName(bare, decoration),
-			strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");
+		assertEquals(
+				"Bare Thing (Mad cow)",
+				EquipmentUtilities.appendToName(bare, decoration),
+				"Choice appends to name correctly"
+		);
 	}
 
+	@Test
 	public void testFindEquipmentByBaseKey()
 	{
 		TestHelper.makeSizeAdjustments();
@@ -58,11 +92,16 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 		List<Equipment> eqList = new ArrayList<>();
 		eqList.add(towel);
 		eqList.add(backpackSml);
-		assertEquals("Expected to find backpack", backpackSml,
-			EquipmentUtilities.findEquipmentByBaseKey(eqList, "backpack"));
-		assertEquals("Expected not to find torch", null,
-			EquipmentUtilities.findEquipmentByBaseKey(eqList, "torch"));
-		assertEquals("Expected to find towel", towel,
-			EquipmentUtilities.findEquipmentByBaseKey(eqList, "ToWeL"));
+		assertEquals(
+				backpackSml,
+				EquipmentUtilities.findEquipmentByBaseKey(eqList, "backpack"),
+				"Expected to find backpack"
+		);
+		assertNull(EquipmentUtilities.findEquipmentByBaseKey(eqList, "torch"), "Expected not to find torch");
+		assertEquals(
+				towel,
+				EquipmentUtilities.findEquipmentByBaseKey(eqList, "ToWeL"),
+				"Expected to find towel"
+		);
 	}
 }

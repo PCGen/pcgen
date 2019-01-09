@@ -25,7 +25,6 @@ import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
@@ -37,11 +36,6 @@ import pcgen.output.channel.ChannelUtilities;
  */
 public class VariableChannelFactoryInst implements VariableChannelFactory
 {
-	/**
-	 * The LoadContextFacet for VariableID construction.
-	 */
-	private static final LoadContextFacet LOAD_CONTEXT_FACET = FacetLibrary.getFacet(LoadContextFacet.class);
-
 	/**
 	 * The ScopeFacet for VariableID construction.
 	 */
@@ -89,7 +83,7 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 	{
 		String varName = ChannelUtilities.createVarName(name);
 		VariableID<?> varID =
-				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext().getVariableID(scopeInst, varName);
+				VariableUtilities.getLocalVariableID(id, scopeInst, varName);
 		return getChannel(id, varID);
 	}
 

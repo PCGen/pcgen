@@ -85,6 +85,17 @@ ${If} $0 != "admin" ;Require admin rights on NT4+
 ${EndIf}
 !macroend
 
+; Installer properties
+VIProductVersion "${INSTALLER_VERSION}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "${APPNAMEANDVERSION}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "${APPNAMEANDVERSION} Release"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "${APPNAME} Open Source Project"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalTrademarks" "${APPNAME} Open Source Project, Bryan McRoberts and the PCGen Board of Directors"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "© ${APPNAME} Open Source Project"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "${APPNAME} Windows OS Supported File"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${INSTALLER_VERSION}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductVersion" "${LONGVER}"
+
 Section "PCGen" Section1
 
 	SectionIn RO
@@ -95,6 +106,8 @@ Section "PCGen" Section1
 	; Set Section Files and Shortcuts
 	SetOutPath "$INSTDIR\${APPDIR}\"
 	File /r "${SrcDir}\PCGen_${SIMPVER}_base\*.*"
+
+
 
 	; Set the common files
 	SetOutPath "$INSTDIR\${APPDIR}\data"
@@ -156,11 +169,11 @@ Section "-Local" Section4
 	CreateShortCut "$DESKTOP\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen2.ico" 0 SW_SHOWMINIMIZED
 # We no longer provide the .bat file.
-#	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
+#	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPDIR}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
         CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \ 
                                 "-Xmx256M -jar pcgen-batch-convert.jar" \
@@ -189,6 +202,7 @@ Section "Java 64 Bit" Section5
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /r "${SrcDir}\..\..\jre\jre_x64\*.*"
+	File /r "${SrcDir}\..\..\code\pcgen_JREx64.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
@@ -199,13 +213,14 @@ Section "Java 32 Bit" Section6
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
         File /r "${SrcDir}\..\..\jre\jre_x32\*.*"
+	File /r "${SrcDir}\..\..\code\pcgen_JREx32.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
 
 Section -FinishSection
 
 	WriteRegStr HKLM "Software\${APPNAME}\${APPDIR}" "" "$INSTDIR\${APPDIR}"
-	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPDIR}"
+	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPNAMEANDVERSION}"
 	WriteRegStr HKLM "${ARP}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
 
@@ -259,7 +274,7 @@ Section Uninstall
 	RMDir /r "$INSTDIR\${APPDIR}\data"
 	RMDir /r "$INSTDIR\${APPDIR}\docs"
 	RMDir /r "$INSTDIR\${APPDIR}\libs"
-	RMDir /r "$INSTDIR\${APPDIR}_Save"
+
         ;Remove local JRE
         RMDir /r "$INSTDIR\${APPDIR}\jre"
 	RMDir /r "$INSTDIR\${APPDIR}\Local"
@@ -273,8 +288,10 @@ Section Uninstall
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.exe"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.sh"
-	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.bat"
 #	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_low_mem.bat"
+	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.bat"
+	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_JREx32.bat"
+	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_JREx64.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-batch-convert.jar"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\filepaths.ini"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\config.ini"
@@ -284,7 +301,7 @@ Section Uninstall
 	RMDir "$INSTDIR\${APPDIR}"
 
 	# Always delete uninstaller as the last action
-	delete $INSTDIR\uninstall-${APPDIR}.exe
+	Delete /REBOOTOK "$INSTDIR\uninstall-${APPDIR}.exe"
 
 	# Try to remove the install directory - this will only happen if it is empty
 	rmDir $INSTDIR
@@ -294,6 +311,19 @@ Section Uninstall
 	DeleteRegKey HKLM "Software\${APPNAME}\${APPDIR}"
 	DeleteRegKey HKLM "${ARP}_alpha"
 
+	;Run the uninstaller
+  	ClearErrors
+  	ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
+ 
+  	IfErrors no_remove_uninstaller done
+    	;You can either use Delete /REBOOTOK in the uninstaller or add some code
+    	;here to remove the uninstaller. Use a registry key to check
+    	;whether the user has chosen to uninstall. If you are using an uninstaller
+    	;components page, make sure all sections are uninstalled.
+  	
+	no_remove_uninstaller:
+
+	done:
 SectionEnd
 
 Function .onInit

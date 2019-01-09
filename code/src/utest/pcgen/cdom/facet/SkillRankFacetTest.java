@@ -99,7 +99,7 @@ public class SkillRankFacetTest
 			facet.set(null, s1, cl1, 4.0);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -116,7 +116,7 @@ public class SkillRankFacetTest
 			facet.set(id, null, cl1, 4.0);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -252,7 +252,7 @@ public class SkillRankFacetTest
 			facet.remove(null, s1, cl1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -269,7 +269,7 @@ public class SkillRankFacetTest
 			facet.remove(id, null, cl1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

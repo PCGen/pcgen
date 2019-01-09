@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet.input;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -30,7 +30,10 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public class GlobalAddedSkillCostFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class GlobalAddedSkillCostFacetTest
 {
 	protected CharID id;
 	protected CharID altid;
@@ -38,7 +41,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 	private GlobalAddedSkillCostFacet facet = new GlobalAddedSkillCostFacet();
 	private PCTemplate source1 = new PCTemplate();
 
-	@Override
+	@BeforeEach
 	public void setUp()
 	{
 		DataSetID cid = DataSetID.getID();
@@ -56,7 +59,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -70,7 +73,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -84,7 +87,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -174,7 +177,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -188,7 +191,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -202,7 +205,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -250,6 +253,7 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 		assertTrue(getFacet().contains(id, SkillCost.CLASS, t1));
 	}
 
+	@Test
 	public void testTypeRemoveDiffCost()
 	{
 		Skill t1 = getObject();

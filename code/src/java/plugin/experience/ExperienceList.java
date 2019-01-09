@@ -24,7 +24,7 @@ import gmgen.plugin.Combatant;
 /**
  * ExperienceList. This class holds all the characters that are to be displayed in a JList.
  */
-class ExperienceList extends DefaultListModel
+class ExperienceList extends DefaultListModel<ExperienceListItem>
 {
 
 	/**
@@ -38,7 +38,7 @@ class ExperienceList extends DefaultListModel
 
 		for (int i = 0; i < size(); i++)
 		{
-			Combatant cbt = ((ExperienceListItem) get(i)).getCombatant();
+			Combatant cbt = get(i).getCombatant();
 			groupLevel += cbt.getCR();
 			num++;
 		}

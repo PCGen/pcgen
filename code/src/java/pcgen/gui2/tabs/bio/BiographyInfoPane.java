@@ -54,6 +54,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
@@ -199,7 +200,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				bioItems.add(new AlignmentItem(character));
 			}
-			if (character.getDataSet().hasDeityDomain())
+			if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
 			{
 				bioItems.add(new DeityItem(character));
 			}

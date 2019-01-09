@@ -1,5 +1,4 @@
 /*
- * TextToken.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,6 +21,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
+import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -54,7 +54,6 @@ public class TextToken extends Token
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String retString = "";
 
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken(); //this should be VAR
@@ -91,17 +90,17 @@ public class TextToken extends Token
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			Logging.errorPrint("TextToken error", e);
 		}
-		retString = writer.getBuffer().toString();
+		String retString = writer.getBuffer().toString();
 
 		if (action.equalsIgnoreCase("UPPER") || action.equalsIgnoreCase("UPPERCASE"))
 		{
-			retString = retString.toUpperCase();
+			retString = retString.toUpperCase(Locale.getDefault());
 		}
 		else if (action.equalsIgnoreCase("LOWER") || action.equalsIgnoreCase("LOWERCASE"))
 		{
-			retString = retString.toLowerCase();
+			retString = retString.toLowerCase(Locale.getDefault());
 		}
 		else if (action.equalsIgnoreCase("SENTENCE") || action.equalsIgnoreCase("SENTENCECASE"))
 		{
@@ -139,7 +138,7 @@ public class TextToken extends Token
 					break;
 				}
 				String temp = args.substring(0, patternEnd - 1);
-				args = temp + args.substring(patternEnd, args.length());
+				args = temp + args.substring(patternEnd);
 			}
 			if (patternEnd <= 0)
 			{
@@ -167,9 +166,9 @@ public class TextToken extends Token
 	 * @param value The value to be modified. 
 	 * @return The value in sentence case.
 	 */
-	private String changeToSentenceCase(String value)
+	private static String changeToSentenceCase(String value)
 	{
-		String temp = value.toLowerCase();
+		String temp = value.toLowerCase(Locale.getDefault());
 		String[] sentence = temp.split("\\.");
 		StringBuilder res = new StringBuilder(value.length());
 		Pattern p = Pattern.compile("\\s*");
@@ -189,9 +188,9 @@ public class TextToken extends Token
 				}
 				if (pos > 0)
 				{
-					res.append(sentence[i].substring(0, pos));
+					res.append(sentence[i], 0, pos);
 				}
-				res.append(sentence[i].substring(pos, pos + 1).toUpperCase());
+				res.append(sentence[i].substring(pos, pos + 1).toUpperCase(Locale.getDefault()));
 				res.append(sentence[i].substring(pos + 1));
 			}
 			else
@@ -208,16 +207,16 @@ public class TextToken extends Token
 	 * @param value The value to be modified. 
 	 * @return The value in sentence case.
 	 */
-	private String changeToTitleCase(String value)
+	private static String changeToTitleCase(String value)
 	{
-		String temp = value.toLowerCase();
+		String temp = value.toLowerCase(Locale.getDefault());
 		char[] chars = temp.toCharArray();
 		StringBuilder res = new StringBuilder(value.length());
 		boolean start = true;
-		for (int i = 0; i < chars.length; i++)
+		for (char c : chars)
 		{
-			char c = chars[i];
-			boolean whiteSpace = (c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r');
+			boolean whiteSpace = Character.isWhitespace(c);
+
 			if (start && !whiteSpace)
 			{
 				res.append(Character.toUpperCase(c));
@@ -238,15 +237,15 @@ public class TextToken extends Token
 	 * @param number The number to generate the suffix for.
 	 * @return The suffix (or an empty string if not a number)
 	 */
-	private String buildNumSuffix(String number)
+	private static String buildNumSuffix(String number)
 	{
-		String result = "";
-		int intVal = 0;
+		String result;
+		int intVal;
 		try
 		{
 			intVal = new BigDecimal(number).intValue();
 		}
-		catch (Exception e)
+		catch (NumberFormatException e)
 		{
 			// Not a number, so no suffix
 			return "";

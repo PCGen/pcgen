@@ -18,6 +18,7 @@
 package pcgen.cdom.choiceset;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -31,10 +32,7 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 
 	public CollectionToChoiceSet(PrimitiveCollection<T> prim)
 	{
-		if (prim == null)
-		{
-			throw new IllegalArgumentException("PrimitiveCollection cannot be null");
-		}
+		Objects.requireNonNull(prim, "PrimitiveCollection cannot be null");
 		primitive = prim;
 	}
 

@@ -69,6 +69,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.CampaignFacade;
@@ -78,7 +79,6 @@ import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellBuilderFacade;
@@ -358,10 +358,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				{
 					return false;
 				}
-				GameModeFacade gameMode = null;
-				for (Iterator<GameModeFacade> iterator = FacadeFactory.getGameModes().iterator(); iterator.hasNext();)
+				GameMode gameMode = null;
+				for (Iterator<GameMode> iterator = FacadeFactory.getGameModes().iterator(); iterator.hasNext();)
 				{
-					GameModeFacade facade = iterator.next();
+					GameMode facade = iterator.next();
 					if (gameModeName.equals(facade.toString()))
 					{
 						gameMode = facade;
@@ -620,7 +620,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			return false;
 		}
-		//we use reference equality since GameModeFacades come from a fixed database
+		//we use reference equality since GameModes come from a fixed database
 		if (source1.getGameMode().get() != source2.getGameMode().get())
 		{
 			return false;
@@ -651,7 +651,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			return false;
 		}
-		//we use reference equality since GameModeFacades come from a fixed database
+		//we use reference equality since GameModes come from a fixed database
 		if (source1.getGameMode().get() != source2.getGameMode().get())
 		{
 			return false;

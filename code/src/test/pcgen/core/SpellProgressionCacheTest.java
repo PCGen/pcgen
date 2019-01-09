@@ -1,25 +1,32 @@
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class SpellProgressionCacheTest extends TestCase
+public class SpellProgressionCacheTest
 {
 
 	public SpellProgressionCache spi;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		spi = new SpellProgressionCache();
 	}
 
+	@Test
 	public void testKnown()
 	{
 		// Test it starts out empty
@@ -95,6 +102,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertEquals(3, spi.getHighestKnownSpellLevel());
 	}
 
+	@Test
 	public void testSetKnownErrors()
 	{
 		List<Formula> l = new ArrayList<>();
@@ -147,6 +155,7 @@ public class SpellProgressionCacheTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testSpecialtyKnown()
 	{
 		// Test it starts out empty
@@ -220,6 +229,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertEquals("50", spi.getSpecialtyKnownForLevel(3).get(1).toString());
 	}
 
+	@Test
 	public void testSetSpecialtyKnownErrors()
 	{
 		List<Formula> l = new ArrayList<>();
@@ -272,6 +282,7 @@ public class SpellProgressionCacheTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testCast()
 	{
 		// Test it starts out empty
@@ -347,6 +358,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertEquals(3, spi.getHighestCastSpellLevel());
 	}
 
+	@Test
 	public void testSetCastErrors()
 	{
 		List<Formula> l = new ArrayList<>();
@@ -399,6 +411,7 @@ public class SpellProgressionCacheTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testGetMinLevelForSpellLevel()
 	{
 		// Works for known
@@ -465,6 +478,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertEquals(-1, spi2.getMinLevelForSpellLevel(4, true));
 	}
 
+	@Test
 	public void testMaxSpellLevelForClassLevel()
 	{
 		// Works for known
@@ -529,6 +543,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertEquals(4, spi2.getMaxSpellLevelForClassLevel(6));
 	}
 
+	@Test
 	public void testAvoidCrossPollution()
 	{
 		assertFalse(spi.hasKnownProgression());
@@ -562,6 +577,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertFalse(spi3.hasSpecialtyKnownProgression());
 	}
 
+	@Test
 	public void testClone()
 	{
 		List<Formula> l = new ArrayList<>();

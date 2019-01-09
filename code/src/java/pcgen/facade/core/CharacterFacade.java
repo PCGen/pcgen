@@ -24,8 +24,6 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
 
-import javax.swing.undo.UndoManager;
-
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
@@ -35,6 +33,7 @@ import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
@@ -72,8 +71,6 @@ public interface CharacterFacade extends CompanionFacade
 {
 
 	public InfoFactory getInfoFactory();
-
-	public UndoManager getUndoManager();
 
 	public ReferenceFacade<Gender> getGenderRef();
 
@@ -328,11 +325,6 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	@Override
 	public ReferenceFacade<Race> getRaceRef();
-
-	/**
-	 * @return A reference to a list containing the character's race.
-	 */
-	public ListFacade<Race> getRaceAsList();
 
 	/**
 	 * Sets this character's race
@@ -668,10 +660,10 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * Is the modifier able to be added to the item of equipment?
 	 * @param equipFacade The equipment item being modified.
-	 * @param eqModFacade The equipment modifier to be checked.
+	 * @param eqMod The equipment modifier to be checked.
 	 * @return True if it can be added, false if not.
 	 */
-	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade);
+	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipmentModifier eqMod);
 
 	public Nature getAbilityNature(AbilityFacade ability);
 	//
@@ -882,4 +874,10 @@ public interface CharacterFacade extends CompanionFacade
 	public boolean isQualifiedFor(PCTemplate element);
 
 	public boolean isQualifiedFor(Kit element);
+
+	/**
+	 * Return true if the feature with the given name is enabled for this PC; false
+	 * otherwise.
+	 */
+	public boolean isFeatureEnabled(String feature);
 }

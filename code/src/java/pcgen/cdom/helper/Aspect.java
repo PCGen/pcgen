@@ -22,6 +22,7 @@ package pcgen.cdom.helper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -73,14 +74,8 @@ public class Aspect extends ConcretePrereqObject
 	 */
 	public Aspect(final String name, final String aString)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name for Aspect cannot be null");
-		}
-		if (aString == null)
-		{
-			throw new IllegalArgumentException("Value for Aspect cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for Aspect cannot be null");
+		Objects.requireNonNull(aString, "Value for Aspect cannot be null");
 		this.key = AspectName.getConstant(name);
 
 		parseAspectString(aString);
@@ -94,14 +89,8 @@ public class Aspect extends ConcretePrereqObject
 	 */
 	public Aspect(final AspectName key, final String aString)
 	{
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Key for Aspect cannot be null");
-		}
-		if (aString == null)
-		{
-			throw new IllegalArgumentException("Value for Aspect cannot be null");
-		}
+		Objects.requireNonNull(key, "Key for Aspect cannot be null");
+		Objects.requireNonNull(aString, "Value for Aspect cannot be null");
 		this.key = key;
 
 		parseAspectString(aString);

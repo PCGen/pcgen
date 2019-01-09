@@ -1,8 +1,14 @@
 package pcgen.util;
 
-import pcgen.PCGenTestCase;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.core.term.TermEvaulatorException;
 
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -23,7 +29,7 @@ import org.junit.Test;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-public class TermUtilitiesTest extends PCGenTestCase
+public class TermUtilitiesTest
 {
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
@@ -42,7 +48,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray01 Single Type EQUIPPED");
+		assertTrue("EqtypesTypesArray01 Single Type EQUIPPED", ok);
 	}
 
 	/**
@@ -62,7 +68,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray02 Single Type NOTEQUIPPED");
+		assertTrue("EqtypesTypesArray02 Single Type NOTEQUIPPED", ok);
 	}
 
 	/**
@@ -82,7 +88,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EqtypesTypesArray03 EQUIPPED with spurious type");
+		assertFalse("EqtypesTypesArray03 EQUIPPED with spurious type", ok);
 	}
 
 	/**
@@ -102,7 +108,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray04 Exclude FOO");
+		assertTrue("EqtypesTypesArray04 Exclude FOO", ok);
 	}
 
 	/**
@@ -122,7 +128,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray05 Include FOO");
+		assertTrue("EqtypesTypesArray05 Include FOO", ok);
 	}
 
 	/**
@@ -142,7 +148,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray06 Only FOO");
+		assertTrue("EqtypesTypesArray06 Only FOO", ok);
 	}
 
 	/**
@@ -162,7 +168,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray07 All options");
+		assertTrue("EqtypesTypesArray07 All options", ok);
 	}
 
 	/**
@@ -182,7 +188,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EqtypesTypesArray08 All options with spurious");
+		assertFalse("EqtypesTypesArray08 All options with spurious", ok);
 	}
 
 	/**
@@ -202,7 +208,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray01 Single Type EQUIPPED");
+		assertFalse("EquipmentTypesArray01 Single Type EQUIPPED", ok);
 	}
 
 	/**
@@ -222,7 +228,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray02 Single Type NOTEQUIPPED");
+		assertFalse("EquipmentTypesArray02 Single Type NOTEQUIPPED", ok);
 	}
 
 	/**
@@ -242,7 +248,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray03 EQUIPPED with spurious type");
+		assertFalse("EquipmentTypesArray03 EQUIPPED with spurious type", ok);
 	}
 
 	/**
@@ -262,7 +268,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray04 Exclude FOO");
+		assertTrue("EquipmentTypesArray04 Exclude FOO", ok);
 	}
 
 	/**
@@ -282,7 +288,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray05 Include FOO");
+		assertTrue("EquipmentTypesArray05 Include FOO", ok);
 	}
 
 	/**
@@ -302,7 +308,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray06 Only FOO");
+		assertTrue("EquipmentTypesArray06 Only FOO", ok);
 	}
 
 	/**
@@ -322,7 +328,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray07 All options");
+		assertTrue("EquipmentTypesArray07 All options", ok);
 	}
 
 	/**
@@ -342,7 +348,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray08 All options with spurious");
+		assertFalse("EquipmentTypesArray08 All options with spurious", ok);
 	}
 
 
@@ -363,8 +369,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "one int is ok");
-		is(nums[0], eq(3), "one int is ok:first");
+		assertTrue("one int is ok", ok);
+		Assert.assertThat("one int is ok:first", nums[0], Matchers.is(3));
 	}
 
 	/**
@@ -385,9 +391,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "two ints is ok");
-		is(nums[0], eq(3), "two ints is ok:first");
-		is(nums[1], eq(57), "two ints is ok:second");
+		assertTrue("two ints is ok", ok);
+		assertArrayEquals(nums, new int[]{3, 57});
 	}
 
 	/**
@@ -408,10 +413,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "three ints is ok");
-		is(nums[0], eq(3), "three ints is ok:first");
-		is(nums[1], eq(57), "three ints is ok:second");
-		is(nums[2], eq(67), "three ints is ok:second");
+		assertTrue("three ints is ok", ok);
+		assertArrayEquals(nums, new int[]{3, 57, 67});
 	}
 
 	/**
@@ -432,7 +435,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(false), "three ints plus spurious non-int fails");
+		assertFalse("three ints plus spurious non-int fails", ok);
 	}
 
 	/**
@@ -456,8 +459,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "Extracts Text correctly");		
-		is(inside, strEq("MARSHMALLOWS.FOO"), "Text is correct ExtractContentsOfBrackets01");
+		assertTrue("Extracts Text correctly", ok);
+		assertEquals("Text is correct ExtractContentsOfBrackets01", "MARSHMALLOWS.FOO", inside);
 	}
 
 	/**
@@ -480,7 +483,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(false), "Fail, no ] found");		
+		assertFalse("Fail, no ] found", ok);
 	}
 
 	/**
@@ -503,7 +506,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(false), "Fail, ] not the last char");		
+		assertFalse("Fail, ] not the last char", ok);
 	}
 
 
@@ -525,8 +528,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "ConvertToIntegers: one int is ok");
-		is(nums[0], eq(1), "ConvertToIntegers: one int is ok - first");
+		assertTrue("ConvertToIntegers: one int is ok", ok);
+		assertEquals("ConvertToIntegers: one int is ok - first", 1, nums[0]);
 	}
 
 	/**
@@ -547,9 +550,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "ConvertToIntegers: two ints is ok");
-		is(nums[0], eq(1), "ConvertToIntegers: two ints is ok:first");
-		is(nums[1], eq(2), "ConvertToIntegers: two ints is ok:second");
+		assertTrue("ConvertToIntegers: two ints is ok", ok);
+		assertArrayEquals(nums, new int[] {1, 2});
 	}
 
 	/**
@@ -570,10 +572,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "ConvertToIntegers: three ints is ok");
-		is(nums[0], eq(1), "ConvertToIntegers: three ints is ok:first");
-		is(nums[1], eq(2), "ConvertToIntegers: three ints is ok:second");
-		is(nums[2], eq(3), "ConvertToIntegers: three ints is ok:third");
+		assertTrue("ConvertToIntegers: three ints is ok", ok);
+		assertArrayEquals(nums, new int[] {1, 2, 3});
 	}
 
 	/**
@@ -593,7 +593,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "ConvertToIntegers: three ints plus spurious non-int fails");
+		assertFalse("ConvertToIntegers: three ints plus spurious non-int fails", ok);
 	}
 
 	/**
@@ -613,7 +613,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "ConvertToIntegers: ask for three with four present fails");
+		assertFalse("ConvertToIntegers: ask for three with four present fails", ok);
+		assertFalse("ConvertToIntegers: ask for three with four present fails", ok);
 	}
 
 

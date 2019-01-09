@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.processor;
 
+import java.util.Objects;
+
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Processor;
 
@@ -45,10 +47,7 @@ public class HitDieLock implements Processor<HitDie>
 	 */
 	public HitDieLock(HitDie die)
 	{
-		if (die == null)
-		{
-			throw new IllegalArgumentException("Die for HitDieLock cannot be null");
-		}
+		Objects.requireNonNull(die, "Die for HitDieLock cannot be null");
 		hitDie = die;
 	}
 

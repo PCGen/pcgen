@@ -130,7 +130,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 			getFacet().add(id, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -151,7 +151,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 			getFacet().add(null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -171,7 +171,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 			getFacet().add(id, getObject(), null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -281,7 +281,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 			getFacet().add(null, getObject(), source1);
 			//ignored
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep this is good too!
 		}

@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.MissingResourceException;
+import java.util.Objects;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
@@ -218,14 +219,7 @@ public final class PCGenPropBundle
 		// Set a missing string if the value is missing		
 		if (result == null)
 		{
-			if (fallback != null)
-			{
-				result = fallback;
-			}
-			else
-			{
-				result = "Missing property " + propName;
-			}
+			result = Objects.requireNonNullElseGet(fallback, () -> "Missing property " + propName);
 		}
 
 		return result;

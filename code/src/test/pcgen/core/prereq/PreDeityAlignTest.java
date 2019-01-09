@@ -81,10 +81,4 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 	}
 
-    @Override
-	protected void tearDown() throws Exception
-	{
-		// TODO Auto-generated method stub
-		super.tearDown();
-	}
 }

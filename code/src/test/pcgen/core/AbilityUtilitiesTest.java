@@ -39,8 +39,9 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 	 */
 	public void testRemoveChoicesFromName()
 	{
-		is(AbilityUtilities.removeChoicesFromName("Bare Thing (Mad cow)"),
-			strEq("Bare Thing"), "Choice is removed from name correctly");
+		assertEquals("Choice is removed from name correctly",
+			"Bare Thing",
+			AbilityUtilities.removeChoicesFromName("Bare Thing (Mad cow)"));
 	}
 
 	/**
@@ -52,13 +53,12 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		specifics.add("quxx");
 
 		final String name = "foo (bar, baz)";
-		is(AbilityUtilities.getUndecoratedName(name, specifics),
-			strEq("foo"), "Got correct undecorated name");
-		is(specifics.size(), eq(2), "First extracted decoration is correct");
-		is(specifics.get(0), strEq("bar"),
-			"First extracted decoration is correct");
-		is(specifics.get(1), strEq("baz"),
-			"Second extracted decoration is correct");
+		assertEquals("Got correct undecorated name",
+			"foo",
+			AbilityUtilities.getUndecoratedName(name, specifics));
+		assertEquals("Size of extracted decoration", 2, specifics.size());
+		assertEquals("First extracted decoration is correct", "bar", specifics.get(0));
+		assertEquals("Second extracted decoration is correct", "baz", specifics.get(1));
 	}
 	
 	/**

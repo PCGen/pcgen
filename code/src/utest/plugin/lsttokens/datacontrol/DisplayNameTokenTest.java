@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -36,35 +36,33 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class DisplayNameTokenTest extends TestCase
+public class DisplayNameTokenTest
 {
 
-	static DisplayNameToken token = new DisplayNameToken();
-	ContentDefinition cd;
+	private static final DisplayNameToken token = new DisplayNameToken();
+	private ContentDefinition cd;
 
-	protected LoadContext context;
+	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
+	private static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
@@ -84,13 +82,13 @@ public class DisplayNameTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString()
 	{
-		assertFalse(token.parseToken(context, cd, null).passed());
+		Assertions.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyString()
 	{
-		assertFalse(token.parseToken(context, cd, "").passed());
+		Assertions.assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
@@ -102,8 +100,7 @@ public class DisplayNameTokenTest extends TestCase
 		assertEquals("YES", cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed);
 	}
 
 	@Test
@@ -116,8 +113,7 @@ public class DisplayNameTokenTest extends TestCase
 		assertEquals(str, cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals(str, unparsed[0]);
+		assertArrayEquals(new String[]{str}, unparsed);
 	}
 
 }

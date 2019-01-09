@@ -366,15 +366,4 @@ public class PObjectTest extends AbstractCharacterTestCase
 			Nature.AUTOMATIC, ab2));
 	}
 
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	@Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
 }

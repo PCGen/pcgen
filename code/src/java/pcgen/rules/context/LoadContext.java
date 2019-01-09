@@ -208,7 +208,7 @@ public interface LoadContext
 	public void addDeferredMethodController(DeferredMethodController<?> controller);
 
 	/**
-	 * Returns a GroupingCollection<T> based on the given scope name and grouping name.
+	 * Returns a GroupingCollection based on the given scope name and grouping name.
 	 * 
 	 * Note: This is used to for new Grouping items (MODIFY) and is the strategic
 	 * direction for grouping in LoadContext.
@@ -217,8 +217,8 @@ public interface LoadContext
 	 *            The scope used to determine the contents of the Grouping
 	 * @param instructions
 	 *            The instructions used to determine the contents of the Grouping
-	 * @return A GroupingCollection<T> based on the given scope name and Group
+	 * @return A GroupingCollection based on the given scope name and Group
 	 *         instructions
 	 */
-	public <T> GroupingCollection<?> getGrouping(PCGenScope scope, String instructions);
+	public GroupingCollection<?> getGrouping(PCGenScope scope, String instructions);
 }

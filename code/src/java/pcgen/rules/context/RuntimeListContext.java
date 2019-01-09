@@ -19,6 +19,8 @@
 
 package pcgen.rules.context;
 
+import java.util.Objects;
+
 class RuntimeListContext extends AbstractListContext
 {
 
@@ -26,10 +28,7 @@ class RuntimeListContext extends AbstractListContext
 
 	protected RuntimeListContext(ListCommitStrategy commitStrategy)
 	{
-		if (commitStrategy == null)
-		{
-			throw new IllegalArgumentException("Commit Strategy cannot be null");
-		}
+		Objects.requireNonNull(commitStrategy, "Commit Strategy cannot be null");
 		commit = commitStrategy;
 	}
 

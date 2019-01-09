@@ -28,6 +28,8 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.bonustokens.Combat;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
 {
 	private AppliedBonusFacet facet = new AppliedBonusFacet();
@@ -40,6 +42,7 @@ public class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
 
 	private LoadContext context;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

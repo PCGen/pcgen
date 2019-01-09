@@ -102,7 +102,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	/**
 	 * Tidy up character listeners when closing the character. 
 	 */
-	protected void closeCharacter()
+	void closeCharacter()
 	{
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		skillFacet.removeDataFacetChangeListener(this);
@@ -237,9 +237,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		if (aClass != null)
 		{
 			final int clsLvl = charDisplay.getLevelInfoClassLevel(lvlIdx);
-			PCClassLevel pcl = charDisplay.getActiveClassLevel(aClass, clsLvl - 1);
-
-			return pcl;
+			return charDisplay.getActiveClassLevel(aClass, clsLvl - 1);
 		}
 
 		return null;
@@ -347,12 +345,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public int getRankCost(CharacterLevelFacade level, SkillCost cost)
-	{
-		return cost.getCost();
-	}
-
-	@Override
 	public SkillCost getSkillCost(CharacterLevelFacade level, Skill skill)
 	{
 		if (level != null && level instanceof CharacterLevelFacadeImpl && charDisplay != null)
@@ -387,12 +379,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public int getSkillModifier(CharacterLevelFacade level, Skill skill)
-	{
-		return SkillModifier.modifier(skill, theCharacter);
-	}
-
-	@Override
 	public float getSkillRanks(@Nullable CharacterLevelFacade level, @Nullable Skill skill)
 	{
 		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed
@@ -401,15 +387,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 			return 0;
 		}
 		return SkillRankControl.getTotalRank(theCharacter, skill);
-	}
-
-	@Override
-	public int getSkillTotal(CharacterLevelFacade level, Skill skill)
-	{
-		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed
-		Float ranks = SkillRankControl.getTotalRank(theCharacter, skill);
-		Integer mods = SkillModifier.modifier(skill, theCharacter);
-		return mods + ranks.intValue();
 	}
 
 	@Override
@@ -703,7 +680,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		return (rank != null) && (rank > 0.0d);
 	}
 
-	protected void updateSkillsTodo()
+	void updateSkillsTodo()
 	{
 		int remainingPoints = calcRemainingSkillPoints();
 		if (remainingPoints < 0)
@@ -728,12 +705,9 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	 */
 	private int calcRemainingSkillPoints()
 	{
-		int numRemaining = 0;
-		for (CharacterLevelFacade clf : charLevels)
-		{
-			numRemaining += getRemainingSkillPoints(clf);
-		}
-		return numRemaining;
+		return charLevels.stream()
+		                 .mapToInt(this::getRemainingSkillPoints)
+		                 .sum();
 	}
 
 	@Override
@@ -808,12 +782,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	}
 
 	@Override
-	public void removeClassListener(ClassListener listener)
-	{
-		listenerList.remove(ClassListener.class, listener);
-	}
-
-	@Override
 	public void removeHitPointListener(HitPointListener listener)
 	{
 		listenerList.remove(HitPointListener.class, listener);
@@ -831,7 +799,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		listenerList.remove(SkillPointListener.class, listener);
 	}
 
-	protected void fireClassChangedEvent(Object source, int baseLevelIndex, boolean stacks)
+	private void fireClassChangedEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;
@@ -848,7 +816,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		}
 	}
 
-	protected void fireHitPointEvent(Object source, int baseLevelIndex, boolean stacks)
+	private void fireHitPointEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;
@@ -865,7 +833,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		}
 	}
 
-	protected void fireSkillPointEvent(Object source, int baseLevelIndex, boolean stacks)
+	private void fireSkillPointEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;
@@ -882,7 +850,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		}
 	}
 
-	protected void fireSkillBonusEvent(Object source, int baseLevelIndex, boolean stacks)
+	void fireSkillBonusEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;

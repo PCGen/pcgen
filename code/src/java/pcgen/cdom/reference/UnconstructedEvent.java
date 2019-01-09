@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.EventObject;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMReference;
 
@@ -46,10 +47,7 @@ public class UnconstructedEvent extends EventObject
 	public UnconstructedEvent(Object source, CDOMReference<?> ref)
 	{
 		super(source);
-		if (ref == null)
-		{
-			throw new IllegalArgumentException("UnconstructedEvent cannot be null");
-		}
+		Objects.requireNonNull(ref, "UnconstructedEvent cannot be null");
 		reference = ref;
 	}
 

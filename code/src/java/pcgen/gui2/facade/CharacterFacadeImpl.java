@@ -36,10 +36,6 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.swing.undo.UndoManager;
-
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -132,7 +128,6 @@ import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.DescriptionFacade;
 import pcgen.facade.core.DomainFacade;
-import pcgen.facade.core.EquipModFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
@@ -177,6 +172,8 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * The Class {@code CharacterFacadeImpl} is an implementation of
  * the {@link CharacterFacade} interface for the new user interface. It is 
@@ -199,7 +196,6 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<Gender> availGenders;
 	private DefaultListFacade<Handed> availHands;
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
-	private final UndoManager undoManager;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<Race> race;
 	private DefaultReferenceFacade<Deity> deity;
@@ -242,7 +238,6 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Integer> maxDomains;
 	private DefaultReferenceFacade<Integer> remainingDomains;
 	private DefaultListFacade<PCTemplate> templates;
-	private ListFacade<Race> raceList;
 	private DefaultListFacade<Kit> kitList;
 	private DefaultReferenceFacade<File> portrait;
 	private RectangleReference cropRect;
@@ -287,7 +282,6 @@ public class CharacterFacadeImpl
 		dataSet = new DelegatingDataSet(dataSetFacade);
 		buildAgeCategories();
 		initForCharacter();
-		undoManager = new UndoManager();
 	}
 
 	@Override
@@ -358,7 +352,6 @@ public class CharacterFacadeImpl
 		tabName = new DefaultReferenceFacade<>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
-		raceList = new DelegatingSingleton<>(race);
 		handedness = new DefaultReferenceFacade<>();
 		gender = new DefaultReferenceFacade<>();
 
@@ -393,7 +386,7 @@ public class CharacterFacadeImpl
 			}
 		}
 
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		if (theCharacter.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			alignment = InterfaceChannelUtilities.getReferenceFacade(
@@ -402,7 +395,7 @@ public class CharacterFacadeImpl
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<>();
 		updateAgeCategoryForAge();
-		currentXP = new DefaultReferenceFacade<>(charDisplay.getXP());
+		currentXP = new DefaultReferenceFacade<>(theCharacter.getXP());
 		xpListener = new XPListener();
 		FacetLibrary.getFacet(XPFacet.class).addDataFacetChangeListener(xpListener);
 		xpForNextlevel = new DefaultReferenceFacade<>(charDisplay.minXPForNextECL());
@@ -779,7 +772,7 @@ public class CharacterFacadeImpl
 		refreshKitList();
 		refreshAvailableTempBonuses();
 		refreshEquipment();
-		currentXP.set(charDisplay.getXP());
+		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
@@ -852,7 +845,7 @@ public class CharacterFacadeImpl
 	 */
 	private void updateLevelTodo()
 	{
-		if (charDisplay.getXP() >= charDisplay.minXPForNextECL())
+		if (theCharacter.getXP() >= charDisplay.minXPForNextECL())
 		{
 			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Class", "in_clTodoLevelUp", 120));
 		}
@@ -1036,7 +1029,7 @@ public class CharacterFacadeImpl
 
 		//
 		// next do all abilities to get TEMPBONUS:ANYPC only
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		for (AbilityCategory cat : game.getAllAbilityCategories())
 		{
 			if (cat.getParentCategory() == cat)
@@ -1613,7 +1606,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void rollStats()
 	{
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		int rollMethod = game.getRollMethod();
 		if (rollMethod == Constants.CHARACTER_STAT_METHOD_ROLLED && game.getCurrentRollingMethod() == null)
 		{
@@ -1669,24 +1662,9 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public UndoManager getUndoManager()
-	{
-		return undoManager;
-	}
-
-	@Override
 	public ReferenceFacade<Race> getRaceRef()
 	{
 		return race;
-	}
-
-	/**
-	 * @return A reference to a list containing the character's race.
-	 */
-	@Override
-	public ListFacade<Race> getRaceAsList()
-	{
-		return raceList;
 	}
 
 	@Override
@@ -1749,7 +1727,7 @@ public class CharacterFacadeImpl
 		updateAgeCategoryForAge();
 		refreshHeightWeight();
 		characterAbilities.rebuildAbilityLists();
-		currentXP.set(charDisplay.getXP());
+		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 		xpTableName.set(charDisplay.getXPTableName());
 		hpRef.set(theCharacter.hitPoints());
@@ -2538,7 +2516,7 @@ public class CharacterFacadeImpl
 	 */
 	public void save() throws NullPointerException, IOException
 	{
-		GameMode mode = (GameMode) dataSet.getGameMode();
+		GameMode mode = dataSet.getGameMode();
 		List<CampaignFacade> campaigns = ListFacades.wrap(dataSet.getCampaigns());
 		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.get());
 		theCharacter.setDirty(false);
@@ -2632,10 +2610,10 @@ public class CharacterFacadeImpl
 
 	private void checkForNewLevel()
 	{
-		currentXP.set(charDisplay.getXP());
+		currentXP.set(theCharacter.getXP());
 		xpForNextlevel.set(charDisplay.minXPForNextECL());
 
-		if (charDisplay.getXP() >= charDisplay.minXPForNextECL())
+		if (theCharacter.getXP() >= charDisplay.minXPForNextECL())
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME, SettingsHandler.getGame().getLevelUpMessage());
 		}
@@ -2950,7 +2928,7 @@ public class CharacterFacadeImpl
 		{
 			return;
 		}
-		GameMode game = (GameMode) dataSet.getGameMode();
+		GameMode game = dataSet.getGameMode();
 		rollMethodRef.set(game.getRollMethod());
 		if (SettingsHandler.getGame().isPurchaseStatMode())
 		{
@@ -3622,15 +3600,14 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade)
+	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipmentModifier eqMod)
 	{
-		if (!(equipFacade instanceof Equipment) || !(eqModFacade instanceof EquipmentModifier))
+		if (!(equipFacade instanceof Equipment))
 		{
 			return false;
 		}
 
 		Equipment equip = (Equipment) equipFacade;
-		EquipmentModifier eqMod = (EquipmentModifier) eqModFacade;
 
 		//TODO: Handle second head
 		return equip.canAddModifier(theCharacter, eqMod, true);
@@ -4229,5 +4206,11 @@ public class CharacterFacadeImpl
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean isFeatureEnabled(String feature)
+	{
+		return theCharacter.isFeatureEnabled(feature);
 	}
 }

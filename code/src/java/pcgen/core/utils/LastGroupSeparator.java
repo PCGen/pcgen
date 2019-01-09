@@ -17,6 +17,7 @@
  */
 package pcgen.core.utils;
 
+import java.util.Objects;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -28,10 +29,7 @@ public class LastGroupSeparator
 
 	public LastGroupSeparator(String baseString)
 	{
-		if (baseString == null)
-		{
-			throw new IllegalArgumentException("Choose Separator cannot take null initialization String");
-		}
+		Objects.requireNonNull(baseString, "Choose Separator cannot take null initialization String");
 		startingString = baseString;
 	}
 

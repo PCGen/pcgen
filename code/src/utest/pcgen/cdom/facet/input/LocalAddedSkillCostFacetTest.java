@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet.input;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -30,7 +30,10 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public class LocalAddedSkillCostFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class LocalAddedSkillCostFacetTest
 {
 	protected CharID id;
 	protected CharID altid;
@@ -41,10 +44,9 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	private PCClass class2;
 	private PCClass class3;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -64,12 +66,13 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(null, class1, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
 	}
 
+	@Test
 	public void testAddNullClass()
 	{
 		try
@@ -77,7 +80,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -91,7 +94,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, class1, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -105,7 +108,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().add(id, class1, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -224,7 +227,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(null, class1, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -238,7 +241,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -252,7 +255,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, class1, SkillCost.CLASS, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -266,7 +269,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 			getFacet().remove(id, class1, null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -351,6 +354,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
+	@Test
 	public void testRemoveDiffCost()
 	{
 		Skill t1 = getObject();

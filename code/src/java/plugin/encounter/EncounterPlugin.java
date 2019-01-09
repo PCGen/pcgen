@@ -332,11 +332,10 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 	{
 		if (!theView.getEncounterCreatures().isSelectionEmpty())
 		{
-			Object[] values = theView.getEncounterCreatures().getSelectedValues();
-
-			for (int i = 0; i < values.length; i++)
+			List values = theView.getEncounterCreatures().getSelectedValuesList();
+			for (Object value : values)
 			{
-				theModel.removeElement(values[i]);
+				theModel.removeElement(value);
 			}
 
 			updateUI();

@@ -16,10 +16,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.facade.util.ListFacade;
-import pcgen.gui2.facade.EquipmentSetFacadeImpl.EquipNodeImpl;
 import pcgen.util.TestHelper;
 
 /**
@@ -92,27 +89,27 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 					equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
 		assertFalse("Expected a non empty path set", nodeList.isEmpty());
-		EquipNodeImpl node = (EquipNodeImpl) nodeList.getElementAt(0);
+		EquipNode node = nodeList.getElementAt(0);
 		assertEquals("Incorrect body struct name", Constants.EQUIP_LOCATION_EQUIPPED, node.toString());
-		assertEquals("Incorrect body struct type", NodeType.BODY_SLOT, node.getNodeType());
+		assertEquals("Incorrect body struct type", EquipNode.NodeType.BODY_SLOT, node.getNodeType());
 		assertEquals("Incorrect sort key", "00", node.getSortKey());
 		assertEquals("Incorrect parent", null, node.getParent());
-		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes);
+		node = nodeList.getElementAt(adjustedBaseNodes);
 		assertEquals("Incorrect container name", item.getName(), node.toString());
-		assertEquals("Incorrect container type", NodeType.EQUIPMENT, node.getNodeType());
+		assertEquals("Incorrect container type", EquipNode.NodeType.EQUIPMENT, node.getNodeType());
 		assertEquals("Incorrect sort key", "00|"+item.getName(), node.getSortKey());
 		assertEquals("Incorrect parent", nodeList.getElementAt(0), node.getParent());
-		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes+2);
+		node = nodeList.getElementAt(adjustedBaseNodes+2);
 		assertEquals("Incorrect item name", item2.getName(), node.toString());
-		assertEquals("Incorrect item type", NodeType.EQUIPMENT, node.getNodeType());
+		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, node.getNodeType());
 		assertEquals("Incorrect sort key", "00|"+item.getName()+"|"+item2.getName(), node.getSortKey());
 		assertEquals("Incorrect parent", nodeList.getElementAt(adjustedBaseNodes), node.getParent());
-		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes+1);
+		node = nodeList.getElementAt(adjustedBaseNodes+1);
 		assertEquals("Incorrect item name", item3.getName(), node.toString());
-		assertEquals("Incorrect item type", NodeType.EQUIPMENT, node.getNodeType());
+		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, node.getNodeType());
 		assertEquals("Incorrect sort key", "01|"+item3.getName(), node.getSortKey());
 		assertEquals("Incorrect parent", LOC_HANDS, node.getParent().toString());
-		node = (EquipNodeImpl) nodeList.getElementAt(adjustedBaseNodes+2);
+		node = nodeList.getElementAt(adjustedBaseNodes+2);
 		EquipNode parent = node.getParent();
 		assertEquals("Root incorrect", Constants.EQUIP_LOCATION_EQUIPPED, parent.getParent().toString());
 		assertEquals("Leaf incorrect", item.getName(), parent.toString());
@@ -190,7 +187,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
 		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());
 		assertEquals("generated equip set id", "0.1.01",
-			((EquipNodeImpl) esfi.getNodes().getElementAt(NUM_BASE_NODES)).getIdPath());
+			esfi.getNodes().getElementAt(NUM_BASE_NODES).getIdPath());
 
 		Equipment secondEquip = (Equipment) esfi.addEquipment(root, item, 1);
 		assertEquals("Second add num carried", 3, secondEquip.getCarried(), 0.01);
@@ -338,15 +335,15 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
 		assertFalse("Expected a non empty path set", nodeList.isEmpty());
-		EquipNodeImpl quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
+		EquipNode quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
 		//assertEquals("Incorrect item name", item3.getName(), quarterstaffNode.toString());
-		assertEquals("Incorrect item type", NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
+		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
 		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
 		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
 		
-		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);
+		EquipNode bookNode = getEquipNodeByName(nodeList, BOOK);
 		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
-		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);
+		EquipNode satchelNode = getEquipNodeByName(nodeList, SATCHEL);
 		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
 		
 		assertTrue("Move up failed unexpectedly", esfi.moveEquipment(quarterstaffNode, -1));
@@ -363,17 +360,17 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
 		assertFalse("Expected a non empty path set", nodeList.isEmpty());
-		EquipNodeImpl quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
+		EquipNode quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
 		//assertEquals("Incorrect item name", item3.getName(), quarterstaffNode.toString());
-		assertEquals("Incorrect item type", NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
+		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
 		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
 		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
 		
-		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);
+		EquipNode bookNode = getEquipNodeByName(nodeList, BOOK);
 		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
-		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);
+		EquipNode satchelNode = getEquipNodeByName(nodeList, SATCHEL);
 		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
-		EquipNodeImpl bedrollNode = getEquipNodeByName(nodeList, BEDROLL);
+		EquipNode bedrollNode = getEquipNodeByName(nodeList, BEDROLL);
 		assertEquals("Incorrect path", "0.1.03", bedrollNode.getIdPath());
 		
 		assertTrue("Move down failed unexpectedly",
@@ -423,14 +420,14 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			dataset, equipmentList, todoManager, null);
 	}
 	
-	private EquipNodeImpl getEquipNodeByName(ListFacade<EquipNode> nodeList,
+	private EquipNode getEquipNodeByName(ListFacade<EquipNode> nodeList,
 		String name)
 	{
 		for (EquipNode equipNode : nodeList)
 		{
 			if (name.equals(equipNode.toString()))
 			{
-				return (EquipNodeImpl) equipNode;
+				return equipNode;
 			}
 		}
 		

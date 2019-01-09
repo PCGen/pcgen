@@ -27,15 +27,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.IOUtils;
@@ -49,9 +49,6 @@ import org.junit.Test;
  * the il8n properties. Currently it is a utility class masquerading as a unit 
  * test but after completion of localisation work it will be used as means of 
  * verifying the properties files.  
- *
- * <br/>
- * 
  */
 
 public class ScanForUnusedIl8nKeys
@@ -73,11 +70,10 @@ public class ScanForUnusedIl8nKeys
 		//Read in bundle, grab all keys
 		Properties p = new Properties();
 		p.load(new FileInputStream(CODE_PATH + PROPERTIES_PATH + PROPERTIES_FILE));
-		Set<String> keys = new TreeSet<>();
-		for (Entry e : p.entrySet())
-		{
-			keys.add((String) e.getKey());
-		}
+		Set<String> keys =
+				p.entrySet().stream()
+				 .map(e -> (String) e.getKey())
+				 .collect(Collectors.toCollection(TreeSet::new));
 
 		// Grab a list of files to be scanned
 		List<File> fileList = buildFileList();
@@ -91,10 +87,7 @@ public class ScanForUnusedIl8nKeys
 		}
 		
 		// Report all missing entries
-		for (String key : missingKeys)
-		{
-			//System.out.println("Found unused key '" + key + "'.");
-		}
+		// missingKeys.stream().map(key -> "Found unused key '" + key + "'.").forEach(System.out::println);
 		System.out.println("Total unused keys: " + missingKeys.size()
 			+ " from a set of " + keys.size() + " defined keys. "
 			+ ((missingKeys.size() * 100.0) / keys.size()) + "%");
@@ -117,19 +110,14 @@ public class ScanForUnusedIl8nKeys
 	 * 
 	 * @param missingKeys The list of missing keys
 	 */
-	private void actionWhitelistedKeys(Set<String> missingKeys)
+	private static void actionWhitelistedKeys(Collection<String> missingKeys)
 	{
-		for (Iterator<String> iterator = missingKeys.iterator(); iterator.hasNext();)
-		{
-			String key = iterator.next();
-			if (key.startsWith("in_mnu") || key.startsWith("in_mn_mnu")
+		missingKeys.removeIf(key ->
+				key.startsWith("in_mnu")
+				|| key.startsWith("in_mn_mnu")
 				|| key.startsWith("in_EqBuilder_")
-				|| key.startsWith("PrerequisiteOperator.display"))
-			{
-				iterator.remove();
-			}
-		}
-		
+				|| key.startsWith("PrerequisiteOperator.display")
+		);
 	}
 
 	/**
@@ -137,22 +125,16 @@ public class ScanForUnusedIl8nKeys
 	 * @param missingKeys
 	 * @throws IOException 
 	 */
-	private void scanJavaFileForKeys(File file, Set<String> missingKeys) throws IOException
+	private static void scanJavaFileForKeys(File file, Collection<String> missingKeys) throws IOException
 	{
-		Reader reader = new BufferedReader(new FileReader(file));
-		List<String> lines = IOUtils.readLines(reader);
-		reader.close();
+		List<String> lines;
+		try (Reader reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
+		{
+			lines = IOUtils.readLines(reader);
+		}
 		for (String line : lines)
 		{
-			for (Iterator<String> i = missingKeys.iterator(); i.hasNext();)
-			{
-				String key = i.next();
-				if (line.contains("\"" + key + "\""))
-				{
-					i.remove();
-				}
-			}
-			
+			missingKeys.removeIf(key -> line.contains("\"" + key + "\""));
 		}
 	}
 
@@ -162,13 +144,13 @@ public class ScanForUnusedIl8nKeys
 	 * @param unusedKeys
 	 * @throws IOException 
 	 */
-	private void outputCleanedProperties(File inputPropsFile, File cleanPropsFile,
-		Set<String> unusedKeys) throws IOException
+	private static void outputCleanedProperties(File inputPropsFile, File cleanPropsFile,
+	                                            Collection<String> unusedKeys) throws IOException
 	{
-		Reader reader = new BufferedReader(new FileReader(inputPropsFile));
+		Reader reader = new BufferedReader(new FileReader(inputPropsFile, StandardCharsets.UTF_8));
 		List<String> lines = IOUtils.readLines(reader);
 		reader.close();
-		Writer writer = new BufferedWriter(new PrintWriter(cleanPropsFile, "ISO-8859-1"));
+		Writer writer = new BufferedWriter(new PrintWriter(cleanPropsFile, StandardCharsets.UTF_8));
 		writer.write("# " + PROPERTIES_FILE
 			+ " with all unused keys removed as at "
 			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(new Date())
@@ -176,22 +158,12 @@ public class ScanForUnusedIl8nKeys
 		boolean lastLineBlank = false;
 		for (String line : lines)
 		{
-			boolean found = false;
+			boolean found;
 			if (lastLineBlank && line.trim().isEmpty())
 			{
 				continue;
 			}
-			else
-			{
-				for (String key : unusedKeys)
-				{
-					if (line.startsWith(key+"="))
-					{
-						found = true;
-						break;
-					}
-				}
-			}
+			found = unusedKeys.stream().anyMatch(key -> line.startsWith(key + '='));
 			if (!found)
 			{
 				lastLineBlank = line.trim().isEmpty();
@@ -213,12 +185,12 @@ public class ScanForUnusedIl8nKeys
 	 * @throws IOException 
 	 */
 	private void outputUnusedProperties(File inputPropsFile, File unusedPropsFile,
-		Set<String> unusedKeys) throws IOException
+	                                    Collection<String> unusedKeys) throws IOException
 	{
-		Reader reader = new BufferedReader(new FileReader(inputPropsFile));
+		Reader reader = new BufferedReader(new FileReader(inputPropsFile, StandardCharsets.UTF_8));
 		List<String> lines = IOUtils.readLines(reader);
 		reader.close();
-		Writer writer = new BufferedWriter(new FileWriter(unusedPropsFile));
+		Writer writer = new BufferedWriter(new FileWriter(unusedPropsFile, StandardCharsets.UTF_8));
 		writer.write("# " + PROPERTIES_FILE
 			+ " with all used keys removed as at "
 			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(new Date())
@@ -226,7 +198,7 @@ public class ScanForUnusedIl8nKeys
 		boolean lastLineBlank = false;
 		for (String line : lines)
 		{
-			boolean found = false;
+			boolean found;
 			if (lastLineBlank && line.trim().isEmpty())
 			{
 				continue;
@@ -237,14 +209,7 @@ public class ScanForUnusedIl8nKeys
 			}
 			else
 			{
-				for (String key : unusedKeys)
-				{
-					if (line.startsWith(key+"="))
-					{
-						found = true;
-						break;
-					}
-				}
+				found = unusedKeys.stream().anyMatch(key -> line.startsWith(key + "="));
 			}
 			if (found)
 			{
@@ -259,7 +224,7 @@ public class ScanForUnusedIl8nKeys
 	 * @return A file list
 	 * @throws IOException 
 	 */
-	private List<File> buildFileList() throws IOException
+	private static List<File> buildFileList() throws IOException
 	{
 		List<File> allFiles = new ArrayList<>();
 		JavaFileLister lister = new JavaFileLister();
@@ -272,18 +237,18 @@ public class ScanForUnusedIl8nKeys
 		return allFiles;
 	}
 
-	private static class JavaFileLister extends DirectoryWalker
+	private static class JavaFileLister extends DirectoryWalker<File>
 	{
 
-		private List getJavaFileList(File startDirectory) throws IOException
+		private List<File> getJavaFileList(File startDirectory) throws IOException
 		{
-			List results = new ArrayList();
+			List<File> results = new ArrayList<>();
 			walk(startDirectory, results);
 			return results;
 		}
 
         @Override
-		protected void handleFile(File file, int depth, Collection results)
+		protected void handleFile(File file, int depth, Collection<File> results)
 		{
 			if (file.getName().endsWith(".java"))
 			{

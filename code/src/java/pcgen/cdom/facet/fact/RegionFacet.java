@@ -20,7 +20,6 @@ package pcgen.cdom.facet.fact;
 import java.util.Objects;
 import java.util.Optional;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
@@ -181,19 +180,14 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		Optional<Region> charRegion = getCharacterRegion(id);
 		return charRegion.orElse(getTemplateRegion(id).orElse(Region.NONE)).toString();
 	}
-	
+
 	private Optional<Region> getTemplateRegion(CharID id)
 	{
 		return templateFacet.getSet(id)
 				.stream()
-				.map(this::getTemplateRegion)
+				.map(template -> Optional.ofNullable(template.get(ObjectKey.REGION)))
 				.filter(Optional::isPresent)
 				.reduce(Optional.empty(), (current, next) -> next);
-	}
-	
-	private Optional<Region> getTemplateRegion(PCTemplate template)
-	{
-		return Optional.ofNullable(template.get(ObjectKey.REGION));
 	}
 
 	/**
@@ -236,15 +230,15 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 *         Character represented by the given CharID; "NONE" if no character
 	 *         SubRegion is set for the Player Character
 	 */
-	public String getCharacterSubRegion(CharID id)
+	public Optional<SubRegion> getCharacterSubRegion(CharID id)
 	{
 		RegionCacheInfo rci = getInfo(id);
 		// character's subregion trumps any from templates
 		if (rci != null && rci.subregion != null)
 		{
-			return rci.subregion.toString();
+			return Optional.of(rci.subregion);
 		}
-		return Constants.NONE;
+		return Optional.empty();
 	}
 
 	/**
@@ -259,43 +253,20 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 *         represented by the given CharID; "NONE" if no SubRegion is set
 	 *         for the Player Character
 	 */
-	public String getSubRegion(CharID id)
+	public Optional<SubRegion> getSubRegion(CharID id)
 	{
 		RegionCacheInfo rci = getInfo(id);
 		// character's subregion trumps any from templates
 		if (rci != null && rci.subregion != null)
 		{
-			return rci.subregion.toString();
+			return Optional.of(rci.subregion);
 		}
 
-		String s = Constants.NONE;
-
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			final String tempSubRegion = getTemplateSubRegion(template);
-
-			if (!tempSubRegion.equals(Constants.NONE))
-			{
-				s = tempSubRegion;
-			}
-		}
-
-		return s;
-	}
-
-	private String getTemplateSubRegion(PCTemplate template)
-	{
-		/*
-		 * TODO This should be made type safe to return a SubRegion. Will
-		 * require a change in the SUBREGION token to suppress load of "None"
-		 * (corner case)
-		 */
-		SubRegion sr = template.get(ObjectKey.SUBREGION);
-		if (sr == null)
-		{
-			return Constants.NONE;
-		}
-		return sr.toString();
+		return templateFacet.getSet(id).stream()
+			.map(
+				template -> Optional.ofNullable(template.get(ObjectKey.SUBREGION)))
+			.filter(Optional::isPresent)
+			.reduce(Optional.empty(), (current, next) -> next);
 	}
 
 	/**
@@ -312,12 +283,12 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 */
 	public String getFullRegion(CharID id)
 	{
-		final String sub = getSubRegion(id);
-		final StringBuilder tempRegName = new StringBuilder(40).append(getRegionString(id));
+		Optional<SubRegion> sub = getSubRegion(id);
+		StringBuilder tempRegName = new StringBuilder(40).append(getRegionString(id));
 
-		if (!sub.equals(Constants.NONE))
+		if (sub.isPresent())
 		{
-			tempRegName.append(" (").append(sub).append(')');
+			tempRegName.append(" (").append(sub.get().toString()).append(')');
 		}
 
 		return tempRegName.toString();

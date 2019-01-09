@@ -17,17 +17,17 @@
  */
 package pcgen.output.actor;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ObjectWrapperFacet;
-import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.formula.VariableUtilities;
 import pcgen.output.base.OutputActor;
 
 /**
@@ -45,19 +45,9 @@ import pcgen.output.base.OutputActor;
 public class VariableActor<T> implements OutputActor<CDOMObject>
 {
 	/**
-	 * The global LoadContextFacet used to get VariableIDs
-	 */
-	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
-
-	/**
 	 * The global VariableStore Facet used to get VariableID values
 	 */
 	private final VariableStoreFacet variableStoreFacet = FacetLibrary.getFacet(VariableStoreFacet.class);
-
-	/**
-	 * The global ScopeFacet used to get VariableScopes
-	 */
-	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
 
 	/**
 	 * The global ObjectWrapperFacet used to wrap the current value of a
@@ -79,19 +69,14 @@ public class VariableActor<T> implements OutputActor<CDOMObject>
 	 */
 	public VariableActor(String varName)
 	{
-		if (varName == null)
-		{
-			throw new IllegalArgumentException("Variable Name cannot be null");
-		}
+		Objects.requireNonNull(varName, "Variable Name cannot be null");
 		this.varName = varName;
 	}
 
 	@Override
 	public TemplateModel process(CharID id, CDOMObject obj) throws TemplateModelException
 	{
-		ScopeInstance varScope = scopeFacet.getGlobalScope(id);
-		VariableID<?> varID =
-				loadContextFacet.get(id.getDatasetID()).get().getVariableContext().getVariableID(varScope, varName);
+		VariableID<?> varID = VariableUtilities.getGlobalVariableID(id, varName);
 		Object value = variableStoreFacet.getValue(id, varID);
 		return wrapperFacet.wrap(id, value);
 	}

@@ -19,6 +19,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
@@ -216,10 +217,7 @@ public class IntegerKey
 
 	private IntegerKey(String name, int def)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name for IntegerKey cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for IntegerKey cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 		defaultValue = def;

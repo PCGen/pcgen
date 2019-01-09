@@ -54,11 +54,10 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode.NodeType;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.facade.EquipNode;
 import pcgen.gui2.filter.DisplayableFilter;
 import pcgen.gui2.filter.FilterHandler;
 import pcgen.gui2.tools.Icons;
@@ -182,7 +181,7 @@ public class EquipmentModels
 		for (int row : rows)
 		{
 			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(row, 0);
-			if (path.getNodeType() == NodeType.EQUIPMENT)
+			if (path.getNodeType() == EquipNode.NodeType.EQUIPMENT)
 			{
 				paths.add(path);
 			}

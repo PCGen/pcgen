@@ -17,6 +17,8 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -59,14 +61,8 @@ public class FactFacetModel implements TemplateHashModel
 	 */
 	public FactFacetModel(CharID id, FactFacet facet)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID may not be null");
-		}
-		if (facet == null)
-		{
-			throw new IllegalArgumentException("FactFacet may not be null");
-		}
+		Objects.requireNonNull(id, "CharID may not be null");
+		Objects.requireNonNull(facet, "FactFacet may not be null");
 		this.id = id;
 		this.facet = facet;
 	}

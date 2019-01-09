@@ -20,6 +20,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -54,10 +55,7 @@ public final class AspectName implements TypeSafeConstant, Comparable<AspectName
 	 */
 	private AspectName(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name for AspectName cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for AspectName cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}

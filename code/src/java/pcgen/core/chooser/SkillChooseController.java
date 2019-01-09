@@ -17,6 +17,8 @@
  */
 package pcgen.core.chooser;
 
+import java.util.Objects;
+
 import pcgen.core.Ability;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -29,10 +31,7 @@ public class SkillChooseController extends ChooseController<Ability>
 
 	public SkillChooseController(Skill sk, PlayerCharacter aPC)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null for SkillChooseController");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null for SkillChooseController");
 		skill = sk;
 		pc = aPC;
 	}

@@ -253,8 +253,9 @@ ABILITYCATEGORY:Point Blank Master			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 
 ###Block:
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object				Specific choices list					Plural description for UI			Display Location
+ABILITYCATEGORY:Master Chymist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability	TYPE:Master Chymist Class Feature									PLURAL:Master Chymist Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Master Chymist Advanced Mutagen	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:MasterChymistAdvancedMutagen									PLURAL:Master Chymist Advanced Mutagens	DISPLAYLOCATION:Class Features
-
+ABILITYCATEGORY:Draconic Mutagen Choice		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Draconic Mutagen Choice
 
 ABILITYCATEGORY:Select Beast Master Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:Select Beast Master Companion									PLURAL:Select Beast Master Companions	DISPLAYLOCATION:Feats
 

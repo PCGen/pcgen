@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
@@ -78,14 +79,8 @@ public class SpellLevelChooseInformation implements ChooseInformation<SpellLevel
 	 */
 	public SpellLevelChooseInformation(String name, List<SpellLevelInfo> choice)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
-		if (choice == null)
-		{
-			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
-		}
+		Objects.requireNonNull(name, "Name cannot be null");
+		Objects.requireNonNull(choice, "PrimitiveChoiceSet cannot be null");
 		// Need to populate info first to avoid thread issues
 		info = new ArrayList<>(choice);
 		if (info.isEmpty())

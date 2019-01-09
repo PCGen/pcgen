@@ -17,6 +17,8 @@
  */
 package pcgen.base.calculation;
 
+import java.util.Objects;
+
 /**
  * An AbstractNEPCalculationis a basic template for creating a NEPCalculation.
  * No attempt is made to implement the process method (since a calculation with
@@ -45,10 +47,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 */
 	protected AbstractNEPCalculation(BasicCalculation<T> calc)
 	{
-		if (calc == null)
-		{
-			throw new IllegalArgumentException("BasicCalculation cannot be null");
-		}
+		Objects.requireNonNull(calc, "BasicCalculation cannot be null");
 		basicCalc = calc;
 	}
 

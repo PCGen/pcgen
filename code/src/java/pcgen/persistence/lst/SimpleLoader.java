@@ -18,6 +18,7 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Loadable;
@@ -31,10 +32,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 
 	public SimpleLoader(Class<T> cl)
 	{
-		if (cl == null)
-		{
-			throw new IllegalArgumentException("Loaded Class cannot be null");
-		}
+		Objects.requireNonNull(cl, "Loaded Class cannot be null");
 		loadClass = cl;
 	}
 

@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -79,14 +80,8 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends CDOMRefere
 		V expectedValue)
 	{
 		super(unparse);
-		if (startingGroup == null)
-		{
-			throw new IllegalArgumentException("Starting Group cannot be null in ObjectMatchingReference");
-		}
-		if (targetKey == null)
-		{
-			throw new IllegalArgumentException("Target Key cannot be null in ObjectMatchingReference");
-		}
+		Objects.requireNonNull(startingGroup, "Starting Group cannot be null in ObjectMatchingReference");
+		Objects.requireNonNull(targetKey, "Target Key cannot be null in ObjectMatchingReference");
 		all = startingGroup;
 		key = targetKey;
 		value = expectedValue;

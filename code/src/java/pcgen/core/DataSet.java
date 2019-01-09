@@ -33,6 +33,7 @@ import java.util.TreeMap;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -44,26 +45,30 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.util.AbstractMapFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
+import pcgen.facade.util.SortedListFacade;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.View;
 
 public class DataSet implements DataSetFacade
 {
 
-	private final DefaultListFacade<Race> races;
-	private final DefaultListFacade<PCClass> classes;
+	private final DefaultListFacade<Race> unsortedRaces;
+	private final ListFacade<Race> races;
+	private final DefaultListFacade<PCClass> unsortedClasses;
+	private final ListFacade<PCClass> classes;
 	private final DefaultListFacade<Deity> deities;
 	private final DefaultListFacade<Skill> skills;
 	private final DefaultListFacade<PCTemplate> templates;
-	private final DefaultListFacade<PCAlignment> alignments;
+	private final DefaultListFacade<PCAlignment> unsortedAlignments;
+	private final ListFacade<PCAlignment> alignments;
 	private final DefaultListFacade<Kit> kits;
-	private final DefaultListFacade<PCStat> stats;
+	private final DefaultListFacade<PCStat> unsortedStats;
+	private final ListFacade<PCStat> stats;
 	private final AbilityMap abilityMap;
 	private final LoadContext context;
 	private final GameMode gameMode;
@@ -74,24 +79,30 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<String> xpTableNames;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
 	private final DefaultListFacade<String> characterTypes;
-	private final DefaultListFacade<SizeAdjustment> sizes;
+	private final DefaultListFacade<SizeAdjustment> unsortedSizes;
+	private final ListFacade<SizeAdjustment> sizes;
 
 	public DataSet(LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
-		races = new DefaultListFacade<>();
-		classes = new DefaultListFacade<>();
+		unsortedRaces = new DefaultListFacade<>();
+		races = new SortedListFacade<>(new RaceComparator(), unsortedRaces);
+		unsortedClasses = new DefaultListFacade<>();
+		classes = new SortedListFacade<>(new PCClassComparator(), unsortedClasses);
 		deities = new DefaultListFacade<>();
 		skills = new DefaultListFacade<>();
 		templates = new DefaultListFacade<>();
-		alignments = new DefaultListFacade<>();
-		stats = new DefaultListFacade<>();
+		unsortedAlignments = new DefaultListFacade<>();
+		alignments = new SortedListFacade<>(Comparator.comparing(SortKeyRequired::getSortKey), unsortedAlignments);
+		unsortedStats = new DefaultListFacade<>();
+		stats = new SortedListFacade<>(Comparator.comparing(SortKeyRequired::getSortKey), unsortedStats);
 		abilityMap = new AbilityMap();
 		bodyStructures = new DefaultListFacade<>();
 		equipment = new DefaultListFacade<>();
 		xpTableNames = new DefaultListFacade<>();
 		characterTypes = new DefaultListFacade<>();
 		kits = new DefaultListFacade<>();
-		sizes = new DefaultListFacade<>();
+		unsortedSizes = new DefaultListFacade<>();
+		sizes = new SortedListFacade<>(Comparator.comparing(size -> size.getSafe(IntegerKey.SIZEORDER)), unsortedSizes);
 		this.context = context;
 		this.gameMode = gameMode;
 		this.campaigns = campaigns;
@@ -101,23 +112,21 @@ public class DataSet implements DataSetFacade
 	private void initLists()
 	{
 		List<Race> raceList = new ArrayList<>(context.getReferenceContext().getConstructedCDOMObjects(Race.class));
-		raceList.sort(new RaceComparator());
 		for (Race race : raceList)
 		{
 			if (race.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 			{
-				races.addElement(race);
+				unsortedRaces.addElement(race);
 			}
 		}
 
 		List<PCClass> classList =
 				new ArrayList<>(context.getReferenceContext().getConstructedCDOMObjects(PCClass.class));
-		classList.sort(new PCClassComparator());
 		for (PCClass pcClass : classList)
 		{
 			if (pcClass.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
 			{
-				classes.addElement(pcClass);
+				unsortedClasses.addElement(pcClass);
 			}
 		}
 
@@ -143,13 +152,13 @@ public class DataSet implements DataSetFacade
 		{
 			kits.addElement(kit);
 		}
-		for (PCAlignment alignment : context.getReferenceContext().getSortkeySortedCDOMObjects(PCAlignment.class))
+		for (PCAlignment alignment : context.getReferenceContext().getConstructedCDOMObjects(PCAlignment.class))
 		{
-			alignments.addElement(alignment);
+			unsortedAlignments.addElement(alignment);
 		}
-		for (PCStat stat : context.getReferenceContext().getSortkeySortedCDOMObjects(PCStat.class))
+		for (PCStat stat : context.getReferenceContext().getConstructedCDOMObjects(PCStat.class))
 		{
-			stats.addElement(stat);
+			unsortedStats.addElement(stat);
 		}
 		for (AbilityCategory category : gameMode.getAllAbilityCategories())
 		{
@@ -212,10 +221,9 @@ public class DataSet implements DataSetFacade
 		{
 			characterTypes.addElement(characterType);
 		}
-		for (SizeAdjustment size : context.getReferenceContext().getSortedList(SizeAdjustment.class,
-			IntegerKey.SIZEORDER))
+		for (SizeAdjustment size : context.getReferenceContext().getConstructedCDOMObjects(SizeAdjustment.class))
 		{
-			sizes.addElement(size);
+			unsortedSizes.addElement(size);
 		}
 
 		createGearBuySellSchemes();
@@ -340,7 +348,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public GameModeFacade getGameMode()
+	public GameMode getGameMode()
 	{
 		return gameMode;
 	}
@@ -667,11 +675,5 @@ public class DataSet implements DataSetFacade
 	public String toString()
 	{
 		return "DataSet [gameMode=" + gameMode + ", campaigns=" + campaigns + "]";
-	}
-
-	@Override
-	public boolean hasDeityDomain()
-	{
-		return gameMode.hasDeityDomain();
 	}
 }

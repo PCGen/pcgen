@@ -29,7 +29,8 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * The Class {@code DataSetTest} check that the Dataset class is functioning
@@ -39,9 +40,10 @@ import junit.framework.TestCase;
  * 
  */
 @SuppressWarnings("nls")
-public class DataSetTest extends TestCase
+public class DataSetTest
 {
 
+	@Test
 	public final void testGetEquipmentLocationsAll()
 	{
 		// if getEquipmentLocations is done first, the defaultonly test fails.
@@ -57,14 +59,20 @@ public class DataSetTest extends TestCase
 	{
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
 		ListFacade<BodyStructure> locations = dataset.getEquipmentLocations();
-		assertNotNull("Body Structure should not be null", locations);
-		assertTrue("Expected to find Equipped",
-			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
-		assertTrue("Expected to find Carried",
-			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
-		assertTrue("Expected to find Not Carried",
-			checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
-		assertEquals("Incorrect size of body structures list", 3, locations.getSize());
+		Assert.assertNotNull("Body Structure should not be null", locations);
+		Assert.assertTrue(
+				"Expected to find Equipped",
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED)
+		);
+		Assert.assertTrue(
+				"Expected to find Carried",
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED)
+		);
+		Assert.assertTrue(
+				"Expected to find Not Carried",
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED)
+		);
+		Assert.assertEquals("Incorrect size of body structures list", 3, locations.getSize());
 	}
 
 	/**
@@ -80,19 +88,20 @@ public class DataSetTest extends TestCase
 						new DefaultListFacade<>());
 		ListFacade<BodyStructure> locations =
 				dataset.getEquipmentLocations();
-		assertNotNull("Body Structure should not be null", locations);
+		Assert.assertNotNull("Body Structure should not be null", locations);
 		// TODO i18n this. It should be the same value as structname, not the localized value.
-		assertTrue(
-			"Expected to find added body structure '" + structName + "'",
-			checkBodyStructurePresent(locations, "Teststruct"));
-		assertTrue("Expected to find Equipped", checkBodyStructurePresent(
-			locations, Constants.EQUIP_LOCATION_EQUIPPED));
-		assertTrue("Expected to find Carried", checkBodyStructurePresent(
-			locations, Constants.EQUIP_LOCATION_CARRIED));
-		assertTrue("Expected to find Not Carried", checkBodyStructurePresent(
-			locations, Constants.EQUIP_LOCATION_NOTCARRIED));
-		assertEquals("Incorrect size of body structures list", 4, locations
-			.getSize());
+		Assert.assertTrue(
+				"Expected to find added body structure '" + structName + "'",
+				checkBodyStructurePresent(locations, "Teststruct")
+		);
+		Assert.assertTrue("Expected to find Equipped", checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_EQUIPPED));
+		Assert.assertTrue("Expected to find Carried", checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_CARRIED));
+		Assert.assertTrue("Expected to find Not Carried", checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_NOTCARRIED));
+		Assert.assertEquals("Incorrect size of body structures list", 4, locations
+				.getSize());
 	}
 
 	/**
@@ -100,6 +109,7 @@ public class DataSetTest extends TestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testGetPrereqAbilities() throws PersistenceLayerException
 	{
 		Ability acrobatics = TestHelper.makeAbility("Acrobatics", BuildUtilities.getFeatCat(), "general");
@@ -120,16 +130,16 @@ public class DataSetTest extends TestCase
 			new DataSet(Globals.getContext(), SettingsHandler.getGame(),
 					new DefaultListFacade<>());
 		List<AbilityFacade> abilities = dataset.getPrereqAbilities(acrobatics);
-		assertEquals("Acrobatics prereq should be empty", 0, abilities.size());
+		Assert.assertEquals("Acrobatics prereq should be empty", 0, abilities.size());
 		abilities = dataset.getPrereqAbilities(dodge);
-		assertEquals("Dodge prereq should be empty", 0, abilities.size());
+		Assert.assertEquals("Dodge prereq should be empty", 0, abilities.size());
 		abilities = dataset.getPrereqAbilities(mobility);
-		assertEquals("Mobility prereq should not be empty", 1, abilities.size());
-		assertEquals("Mobility prereq should be dodge", dodge, abilities.get(0));
+		Assert.assertEquals("Mobility prereq should not be empty", 1, abilities.size());
+		Assert.assertEquals("Mobility prereq should be dodge", dodge, abilities.get(0));
 		abilities = dataset.getPrereqAbilities(springAttack);
-		assertEquals("Spring Attack prereq should not be empty", 2, abilities.size());
-		assertEquals("Spring Attack prereq should be dodge", dodge, abilities.get(0));
-		assertEquals("Spring Attack prereq should be mobility", mobility, abilities.get(1));
+		Assert.assertEquals("Spring Attack prereq should not be empty", 2, abilities.size());
+		Assert.assertEquals("Spring Attack prereq should be dodge", dodge, abilities.get(0));
+		Assert.assertEquals("Spring Attack prereq should be mobility", mobility, abilities.get(1));
 	}
 	
 	/**

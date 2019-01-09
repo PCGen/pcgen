@@ -17,9 +17,11 @@
  */
 package pcgen.cdom.testsupport;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -27,7 +29,10 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
-public abstract class AbstractItemFacetTest<T> extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public abstract class AbstractItemFacetTest<T>
 {
 	private CharID id;
 	private CharID altid;
@@ -37,8 +42,8 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	public class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
-		public int addEventCount;
-		public int removeEventCount;
+		private int addEventCount;
+		private int removeEventCount;
 
         @Override
 		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
@@ -54,10 +59,9 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 
 	}
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -77,6 +81,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		assertTrue(getFacet().matches(id, null));
 	}
 
+	@Test
 	public void testListeners()
 	{
 		Listener newL = new Listener();
@@ -168,7 +173,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 			getFacet().set(null, t1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

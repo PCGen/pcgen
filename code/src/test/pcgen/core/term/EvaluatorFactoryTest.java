@@ -1,11 +1,19 @@
 package pcgen.core.term;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.instanceOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
@@ -15,8 +23,10 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
- * EvaluatorFactory Tester.
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -32,15 +42,12 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 10/04/2008
  */
 
-public class EvaluatorFactoryTest extends PCGenTestCase
+public class EvaluatorFactoryTest
 {
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor001()
 	{
 
@@ -63,24 +70,19 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 					(Map<String, TermEvaluatorBuilderPCVar>) sF.get(EvaluatorFactory.PC);
 
 			// don't need instanceof, would throw ClassCastException
-			is(iVP != null, eq(true), "Pattern is now instantiated");
-			is(eS != null, eq(true), "Map is now instantiated");
+			assertNotNull("Pattern is now instantiated", iVP);
+			assertNotNull("Map is now instantiated", eS);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor001");
+		assertTrue("No illegal access in Constructor001", ok);
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor002()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -96,29 +98,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor002");
+		assertTrue("No illegal access in Constructor002", ok);
 
 		String term = "ACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor002 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor002 pattern matches all of " + term);
+		assertTrue("Constructor002 pattern matches for " + term, mat.find());
+		assertEquals("Constructor002 pattern matches all of " + term, term, mat.group(1));
 
-		// "ACCHECK",			   COMPLETE_ACCHECK			    
+		// "ACCHECK",			   COMPLETE_ACCHECK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+	@Test
 	public void testConstructor003()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -134,29 +130,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor003");
+		assertTrue("No illegal access in Constructor003", ok);
 
 		String term = "ACHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor003 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor003 pattern matches all of " + term);
+		assertTrue("Constructor003 pattern matches for " + term, mat.find());
+		assertEquals("Constructor003 pattern matches all of " + term, term, mat.group(1));
 
 		// "ACHECK",			   COMPLETE_ACCHECK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor004()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -172,29 +163,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor004");
+		assertTrue("No illegal access in Constructor004", ok);
 
 		String term = "ARMORACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor004 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor004 pattern matches all of " + term);
+		assertTrue("Constructor004 pattern matches for " + term, mat.find());
+		assertEquals("Constructor004 pattern matches all of " + term, term, mat.group(1));
 
 		// "ARMORACCHECK",		   COMPLETE_ARMORACCHECK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor005()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -210,29 +196,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor005");
+		assertTrue("No illegal access in Constructor005", ok);
 
 		String term = "ARMORACHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor005 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor005 pattern matches all of " + term);
+		assertTrue("Constructor005 pattern matches for " + term, mat.find());
+		assertEquals("Constructor005 pattern matches all of " + term, term, mat.group(1));
 
 		// "ARMORACHECK",		   COMPLETE_ARMORACCHECK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor006()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -248,29 +229,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor006");
+		assertTrue("No illegal access in Constructor006", ok);
 
 		String term = "BAB";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor006 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor006 pattern matches all of " + term);
+		assertTrue("Constructor006 pattern matches for " + term, mat.find());
+		assertEquals("Constructor006 pattern matches all of " + term, term, mat.group(1));
 
 		// "BAB",			   COMPLETE_BAB
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor007()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -286,29 +262,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor007");
+		assertTrue("No illegal access in Constructor007", ok);
 
 		String term = "BASESPELLSTAT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor007 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor007 pattern matches all of " + term);
+		assertTrue("Constructor007 pattern matches for " + term, mat.find());
+		assertEquals("Constructor007 pattern matches all of " + term, term, mat.group(1));
 
 		// "BASESPELLSTAT",		   COMPLETE_BASESPELLSTAT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor008()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -324,29 +295,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor008");
+		assertTrue("No illegal access in Constructor008", ok);
 
 		String term = "BL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor008 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor008 pattern matches start of " + term);
+		assertTrue("Constructor008 pattern matches for " + term, mat.find());
+		assertTrue("Constructor008 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "BL",			   START_BL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor009()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -362,29 +328,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor009");
+		assertTrue("No illegal access in Constructor009", ok);
 
 		String term = "BL.Wizard";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor009 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor009 pattern matches start of " + term);
+		assertTrue("Constructor009 pattern matches for " + term, mat.find());
+		assertTrue("Constructor009 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "BL.Wizard",				 START_BL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor010()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -400,29 +361,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor010");
+		assertTrue("No illegal access in Constructor010", ok);
 
 		String term = "BL=Cleric";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor010 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor010 pattern matches start of " + term);
+		assertTrue("Constructor010 pattern matches for " + term, mat.find());
+		assertTrue("Constructor010 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "BL=Cleric",				 START_BL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor011()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -438,29 +394,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor011");
+		assertTrue("No illegal access in Constructor011", ok);
 
 		String term = "CASTERLEVEL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor011 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor011 pattern matches all of " + term);
+		assertTrue("Constructor011 pattern matches for " + term, mat.find());
+		assertEquals("Constructor011 pattern matches all of " + term, term, mat.group(1));
 
 		// "CASTERLEVEL",		   COMPLETE_CASTERLEVEL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor012()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -476,29 +427,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor012");
+		assertTrue("No illegal access in Constructor012", ok);
 
 		String term = "CASTERLEVEL.TOTAL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor012 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor012 pattern matches all of " + term);
+		assertTrue("Constructor012 pattern matches for " + term, mat.find());
+		assertEquals("Constructor012 pattern matches all of " + term, term, mat.group(1));
 
 		// "CASTERLEVEL.TOTAL",		   COMPLETE_CASTERLEVEL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor013()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -514,29 +460,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor013");
+		assertTrue("No illegal access in Constructor013", ok);
 
 		String term = "CL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor013 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor013 pattern matches start of " + term);
+		assertTrue("Constructor013 pattern matches for " + term, mat.find());
+		assertTrue("Constructor013 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL",			   START_CL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor014()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -552,29 +493,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor014");
+		assertTrue("No illegal access in Constructor014", ok);
 
 		String term = "CL.Bard";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor014 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor014 pattern matches start of " + term);
+		assertTrue("Constructor014 pattern matches for " + term, mat.find());
+		assertTrue("Constructor014 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL.Bard",			       START_CL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor015()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -590,29 +526,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor015");
+		assertTrue("No illegal access in Constructor015", ok);
 
 		String term = "CL;BEFORELEVEL.10";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor015 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor015 pattern matches start of " + term);
+		assertTrue("Constructor015 pattern matches for " + term, mat.find());
+		assertTrue("Constructor015 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL;BEFORELEVEL.10",		     START_CL_BEFORELEVEL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor016()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -628,29 +559,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor016");
+		assertTrue("No illegal access in Constructor016", ok);
 
 		String term = "CL;BEFORELEVEL=15";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor016 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor016 pattern matches start of " + term);
+		assertTrue("Constructor016 pattern matches for " + term, mat.find());
+		assertTrue("Constructor016 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL;BEFORELEVEL=15",		     START_CL_BEFORELEVEL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor017()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -666,29 +592,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor017");
+		assertTrue("No illegal access in Constructor017", ok);
 
 		String term = "CL=Rogue";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor017 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor017 pattern matches start of " + term);
+		assertTrue("Constructor017 pattern matches for " + term, mat.find());
+		assertTrue("Constructor017 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CL=Rogue",				START_CL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor018()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -704,29 +625,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor018");
+		assertTrue("No illegal access in Constructor018", ok);
 
 		String term = "CLASS.Druid";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor018 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor018 pattern matches start of " + term);
+		assertTrue("Constructor018 pattern matches for " + term, mat.find());
+		assertTrue("Constructor018 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASS.Druid",			START_CLASS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor019()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -742,29 +658,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor019");
+		assertTrue("No illegal access in Constructor019", ok);
 
 		String term = "CLASS=Paladin";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor019 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor019 pattern matches start of " + term);
+		assertTrue("Constructor019 pattern matches for " + term, mat.find());
+		assertTrue("Constructor019 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASS=Paladin",			  START_CLASS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor020()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -780,29 +691,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor020");
+		assertTrue("No illegal access in Constructor020", ok);
 
 		String term = "CLASSLEVEL.Bard";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor020 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor020 pattern matches start of " + term);
+		assertTrue("Constructor020 pattern matches for " + term, mat.find());
+		assertTrue("Constructor020 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASSLEVEL.Bard",		       START_CLASSLEVEL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor021()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -818,29 +724,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor021");
+		assertTrue("No illegal access in Constructor021", ok);
 
 		String term = "CLASSLEVEL=Rogue";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor021 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor021 pattern matches start of " + term);
+		assertTrue("Constructor021 pattern matches for " + term, mat.find());
+		assertTrue("Constructor021 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "CLASSLEVEL=Rogue",			START_CLASSLEVEL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor022()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -856,29 +757,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor022");
+		assertTrue("No illegal access in Constructor022", ok);
 
 		String term = "COUNT[ATTACKS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor022 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor022 pattern matches all of " + term);
+		assertTrue("Constructor022 pattern matches for " + term, mat.find());
+		assertEquals("Constructor022 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[ATTACKS]",		   COMPLETE_COUNT_ATTACKS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor023()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -894,29 +790,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor023");
+		assertTrue("No illegal access in Constructor023", ok);
 
 		String term = "COUNT[CHECKS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor023 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor023 pattern matches all of " + term);
+		assertTrue("Constructor023 pattern matches for " + term, mat.find());
+		assertEquals("Constructor023 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[CHECKS]",		   COMPLETE_COUNT_CHECKS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor024()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -932,29 +823,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor024");
+		assertTrue("No illegal access in Constructor024", ok);
 
 		String term = "COUNT[CLASSES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor024 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor024 pattern matches all of " + term);
+		assertTrue("Constructor024 pattern matches for " + term, mat.find());
+		assertEquals("Constructor024 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[CLASSES]",		   COMPLETE_COUNT_CLASSES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor025()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -970,29 +856,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor025");
+		assertTrue("No illegal access in Constructor025", ok);
 
 		String term = "COUNT[CONTAINERS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor025 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor025 pattern matches all of " + term);
+		assertTrue("Constructor025 pattern matches for " + term, mat.find());
+		assertEquals("Constructor025 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[CONTAINERS]",		   COMPLETE_COUNT_CONTAINERS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor026()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1008,29 +889,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor026");
+		assertTrue("No illegal access in Constructor026", ok);
 
 		String term = "COUNT[DOMAINS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor026 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor026 pattern matches all of " + term);
+		assertTrue("Constructor026 pattern matches for " + term, mat.find());
+		assertEquals("Constructor026 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[DOMAINS]",		   COMPLETE_COUNT_DOMAINS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor027()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1046,29 +922,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor027");
+		assertTrue("No illegal access in Constructor027", ok);
 
 		String term = "COUNT[EQTYPE.MERGENONE.IS.FOO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor027 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor027 pattern matches start of " + term);
+		assertTrue("Constructor027 pattern matches for " + term, mat.find());
+		assertTrue("Constructor027 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[EQTYPE.MERGENONE.IS.FOO]",		    START_COUNT_EQTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor028()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1084,29 +955,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor028");
+		assertTrue("No illegal access in Constructor028", ok);
 
 		String term = "COUNT[EQUIPMENT.MERGENONE.NOT.FOO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor028 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor028 pattern matches start of " + term);
+		assertTrue("Constructor028 pattern matches for " + term, mat.find());
+		assertTrue("Constructor028 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[EQUIPMENT.MERGENONE.NOT.FOO]",	      START_COUNT_EQUIPMENT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor029()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1122,29 +988,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor029");
+		assertTrue("No illegal access in Constructor029", ok);
 
 		String term = "COUNT[FEATAUTOTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor029 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor029 pattern matches start of " + term);
+		assertTrue("Constructor029 pattern matches for " + term, mat.find());
+		assertTrue("Constructor029 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATAUTOTYPE.HIDDEN]",	  START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor030()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1160,29 +1021,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor030");
+		assertTrue("No illegal access in Constructor030", ok);
 
 		String term = "COUNT[FEATAUTOTYPE=VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor030 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor030 pattern matches start of " + term);
+		assertTrue("Constructor030 pattern matches for " + term, mat.find());
+		assertTrue("Constructor030 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATAUTOTYPE=VISIBLE]",	   START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor031()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1198,29 +1054,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor031");
+		assertTrue("No illegal access in Constructor031", ok);
 
 		String term = "COUNT[FEATNAME.Jack of all trades]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor031 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor031 pattern matches start of " + term);
+		assertTrue("Constructor031 pattern matches for " + term, mat.find());
+		assertTrue("Constructor031 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATNAME.Jack of all trades]",	      START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor032()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1236,29 +1087,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor032");
+		assertTrue("No illegal access in Constructor032", ok);
 
 		String term = "COUNT[FEATNAME=Improved Initiative]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor032 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor032 pattern matches start of " + term);
+		assertTrue("Constructor032 pattern matches for " + term, mat.find());
+		assertTrue("Constructor032 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATNAME=Improved Initiative]",	       START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor033()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1274,29 +1120,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor033");
+		assertTrue("No illegal access in Constructor033", ok);
 
 		String term = "COUNT[FEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor033 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor033 pattern matches all of " + term);
+		assertTrue("Constructor033 pattern matches for " + term, mat.find());
+		assertEquals("Constructor033 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS.ALL]",		   COMPLETE_COUNT_FEATSNATURENORMAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor034()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1312,29 +1153,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor034");
+		assertTrue("No illegal access in Constructor034", ok);
 
 		String term = "COUNT[FEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor034 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor034 pattern matches all of " + term);
+		assertTrue("Constructor034 pattern matches for " + term, mat.find());
+		assertEquals("Constructor034 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATURENORMAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor035()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1350,29 +1186,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor035");
+		assertTrue("No illegal access in Constructor035", ok);
 
 		String term = "COUNT[FEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor035 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor035 pattern matches all of " + term);
+		assertTrue("Constructor035 pattern matches for " + term, mat.find());
+		assertEquals("Constructor035 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATURENORMAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor036()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1388,29 +1219,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor036");
+		assertTrue("No illegal access in Constructor036", ok);
 
 		String term = "COUNT[FEATSALL.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor036 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor036 pattern matches all of " + term);
+		assertTrue("Constructor036 pattern matches for " + term, mat.find());
+		assertEquals("Constructor036 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL.ALL]",	   COMPLETE_COUNT_FEATSNATUREALL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor037()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1426,29 +1252,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor037");
+		assertTrue("No illegal access in Constructor037", ok);
 
 		String term = "COUNT[FEATSALL.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor037 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor037 pattern matches all of " + term);
+		assertTrue("Constructor037 pattern matches for " + term, mat.find());
+		assertEquals("Constructor037 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREALL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor038()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1464,29 +1285,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor038");
+		assertTrue("No illegal access in Constructor038", ok);
 
 		String term = "COUNT[FEATSALL.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor038 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor038 pattern matches all of " + term);
+		assertTrue("Constructor038 pattern matches for " + term, mat.find());
+		assertEquals("Constructor038 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREALL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor039()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1502,29 +1318,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor039");
+		assertTrue("No illegal access in Constructor039", ok);
 
 		String term = "COUNT[FEATSALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor039 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor039 pattern matches all of " + term);
+		assertTrue("Constructor039 pattern matches for " + term, mat.find());
+		assertEquals("Constructor039 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSALL]",		   COMPLETE_COUNT_FEATSNATUREALL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor040()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1540,29 +1351,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor040");
+		assertTrue("No illegal access in Constructor040", ok);
 
 		String term = "COUNT[FEATSAUTO.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor040 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor040 pattern matches all of " + term);
+		assertTrue("Constructor040 pattern matches for " + term, mat.find());
+		assertEquals("Constructor040 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO.ALL]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor041()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1578,29 +1384,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor041");
+		assertTrue("No illegal access in Constructor041", ok);
 
 		String term = "COUNT[FEATSAUTO.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor041 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor041 pattern matches all of " + term);
+		assertTrue("Constructor041 pattern matches for " + term, mat.find());
+		assertEquals("Constructor041 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor042()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1616,29 +1417,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor042");
+		assertTrue("No illegal access in Constructor042", ok);
 
 		String term = "COUNT[FEATSAUTO.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor042 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor042 pattern matches all of " + term);
+		assertTrue("Constructor042 pattern matches for " + term, mat.find());
+		assertEquals("Constructor042 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor043()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1654,29 +1450,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor043");
+		assertTrue("No illegal access in Constructor043", ok);
 
 		String term = "COUNT[FEATSAUTO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor043 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor043 pattern matches all of " + term);
+		assertTrue("Constructor043 pattern matches for " + term, mat.find());
+		assertEquals("Constructor043 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATSAUTO]",		   COMPLETE_COUNT_FEATSNATUREAUTO
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor044()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1692,29 +1483,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor044");
+		assertTrue("No illegal access in Constructor044", ok);
 
 		String term = "COUNT[FEATS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor044 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor044 pattern matches all of " + term);
+		assertTrue("Constructor044 pattern matches for " + term, mat.find());
+		assertEquals("Constructor044 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FEATS]",		   COMPLETE_COUNT_FEATSNATURENORMAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor045()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1730,29 +1516,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor045");
+		assertTrue("No illegal access in Constructor045", ok);
 
 		String term = "COUNT[FEATTYPE.BAR]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor045 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor045 pattern matches start of " + term);
+		assertTrue("Constructor045 pattern matches for " + term, mat.find());
+		assertTrue("Constructor045 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATTYPE.BAR]",	       START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor046()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1768,29 +1549,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor046");
+		assertTrue("No illegal access in Constructor046", ok);
 
 		String term = "COUNT[FEATTYPE.BAZ]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor046 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor046 pattern matches start of " + term);
+		assertTrue("Constructor046 pattern matches for " + term, mat.find());
+		assertTrue("Constructor046 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FEATTYPE.BAZ]",	       START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor047()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1806,29 +1582,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor047");
+		assertTrue("No illegal access in Constructor047", ok);
 
 		String term = "COUNT[FOLLOWERS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor047 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor047 pattern matches all of " + term);
+		assertTrue("Constructor047 pattern matches for " + term, mat.find());
+		assertEquals("Constructor047 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[FOLLOWERS]",		   COMPLETE_COUNT_FOLLOWERS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor048()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1844,29 +1615,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor048");
+		assertTrue("No illegal access in Constructor048", ok);
 
 		String term = "COUNT[FOLLOWERTYPE.MOO]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor048 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor048 pattern matches start of " + term);
+		assertTrue("Constructor048 pattern matches for " + term, mat.find());
+		assertTrue("Constructor048 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[FOLLOWERTYPE.MOO]",	       START_COUNT_FOLLOWERTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor049()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1882,29 +1648,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor049");
+		assertTrue("No illegal access in Constructor049", ok);
 
 		String term = "COUNT[LANGUAGES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor049 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor049 pattern matches all of " + term);
+		assertTrue("Constructor049 pattern matches for " + term, mat.find());
+		assertEquals("Constructor049 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[LANGUAGES]",		   COMPLETE_COUNT_LANGUAGES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor050()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1920,29 +1681,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor050");
+		assertTrue("No illegal access in Constructor050", ok);
 
 		String term = "COUNT[MISC.COMPANIONS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor050 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor050 pattern matches all of " + term);
+		assertTrue("Constructor050 pattern matches for " + term, mat.find());
+		assertEquals("Constructor050 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MISC.COMPANIONS]",	   COMPLETE_COUNT_MISC_COMPANIONS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor051()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1958,29 +1714,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor051");
+		assertTrue("No illegal access in Constructor051", ok);
 
 		String term = "COUNT[MISC.FUNDS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor051 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor051 pattern matches all of " + term);
+		assertTrue("Constructor051 pattern matches for " + term, mat.find());
+		assertEquals("Constructor051 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MISC.FUNDS]",		   COMPLETE_COUNT_MISC_FUNDS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor052()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -1996,29 +1747,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor052");
+		assertTrue("No illegal access in Constructor052", ok);
 
 		String term = "COUNT[MISC.MAGIC]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor052 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor052 pattern matches all of " + term);
+		assertTrue("Constructor052 pattern matches for " + term, mat.find());
+		assertEquals("Constructor052 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MISC.MAGIC]",		   COMPLETE_COUNT_MISC_MAGIC
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor053()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2034,29 +1780,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor053");
+		assertTrue("No illegal access in Constructor053", ok);
 
 		String term = "COUNT[MOVE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor053 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor053 pattern matches all of " + term);
+		assertTrue("Constructor053 pattern matches for " + term, mat.find());
+		assertEquals("Constructor053 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[MOVE]",		   COMPLETE_COUNT_MOVE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor054()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2072,29 +1813,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor054");
+		assertTrue("No illegal access in Constructor054", ok);
 
 		String term = "COUNT[NOTES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor054 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor054 pattern matches all of " + term);
+		assertTrue("Constructor054 pattern matches for " + term, mat.find());
+		assertEquals("Constructor054 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[NOTES]",		   COMPLETE_COUNT_NOTES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor055()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2110,29 +1846,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor055");
+		assertTrue("No illegal access in Constructor055", ok);
 
 		String term = "COUNT[RACESUBTYPES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor055 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor055 pattern matches all of " + term);
+		assertTrue("Constructor055 pattern matches for " + term, mat.find());
+		assertEquals("Constructor055 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[RACESUBTYPES]",	   COMPLETE_COUNT_RACESUBTYPES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor056()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2148,29 +1879,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor056");
+		assertTrue("No illegal access in Constructor056", ok);
 
 		String term = "COUNT[SA]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor056 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor056 pattern matches all of " + term);
+		assertTrue("Constructor056 pattern matches for " + term, mat.find());
+		assertEquals("Constructor056 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SA]",			   COMPLETE_COUNT_SA
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor057()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2186,29 +1912,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor057");
+		assertTrue("No illegal access in Constructor057", ok);
 
 		String term = "COUNT[SKILLS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor057 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor057 pattern matches all of " + term);
+		assertTrue("Constructor057 pattern matches for " + term, mat.find());
+		assertEquals("Constructor057 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SKILLS]",		   COMPLETE_COUNT_SKILLS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor058()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2224,29 +1945,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor058");
+		assertTrue("No illegal access in Constructor058", ok);
 
 		String term = "COUNT[SKILLTYPE.KNOWLEDGE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor058 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor058 pattern matches start of " + term);
+		assertTrue("Constructor058 pattern matches for " + term, mat.find());
+		assertTrue("Constructor058 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SKILLTYPE.KNOWLEDGE]",	     START_COUNT_SKILLTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor059()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2262,29 +1978,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor059");
+		assertTrue("No illegal access in Constructor059", ok);
 
 		String term = "COUNT[SKILLTYPE=PERFORM]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor059 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor059 pattern matches start of " + term);
+		assertTrue("Constructor059 pattern matches for " + term, mat.find());
+		assertTrue("Constructor059 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SKILLTYPE=PERFORM]",		   START_COUNT_SKILLTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor060()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2300,29 +2011,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor060");
+		assertTrue("No illegal access in Constructor060", ok);
 
 		String term = "COUNT[SPELLBOOKS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor060 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor060 pattern matches start of " + term);
+		assertTrue("Constructor060 pattern matches for " + term, mat.find());
+		assertTrue("Constructor060 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLBOOKS]",		    START_COUNT_SPELLBOOKS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor061()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2338,29 +2044,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor061");
+		assertTrue("No illegal access in Constructor061", ok);
 
 		String term = "COUNT[SPELLCLASSES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor061 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor061 pattern matches all of " + term);
+		assertTrue("Constructor061 pattern matches for " + term, mat.find());
+		assertEquals("Constructor061 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SPELLCLASSES]",	   COMPLETE_COUNT_SPELLCLASSES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor062()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2376,29 +2077,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor062");
+		assertTrue("No illegal access in Constructor062", ok);
 
 		String term = "COUNT[SPELLRACE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor062 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor062 pattern matches all of " + term);
+		assertTrue("Constructor062 pattern matches for " + term, mat.find());
+		assertEquals("Constructor062 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[SPELLRACE]",		   COMPLETE_COUNT_SPELLRACE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor063()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2414,29 +2110,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor063");
+		assertTrue("No illegal access in Constructor063", ok);
 
 		String term = "COUNT[SPELLSINBOOK]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor063 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor063 pattern matches start of " + term);
+		assertTrue("Constructor063 pattern matches for " + term, mat.find());
+		assertTrue("Constructor063 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLSINBOOK]",	    START_COUNT_SPELLSINBOOK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor064()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2452,29 +2143,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor064");
+		assertTrue("No illegal access in Constructor064", ok);
 
 		String term = "COUNT[SPELLSKNOWN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor064 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor064 pattern matches start of " + term);
+		assertTrue("Constructor064 pattern matches for " + term, mat.find());
+		assertTrue("Constructor064 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLSKNOWN]",	    START_COUNT_SPELLSKNOWN
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor065()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2490,29 +2176,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor065");
+		assertTrue("No illegal access in Constructor065", ok);
 
 		String term = "COUNT[SPELLSLEVELSINBOOK]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor065 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor065 pattern matches start of " + term);
+		assertTrue("Constructor065 pattern matches for " + term, mat.find());
+		assertTrue("Constructor065 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLSLEVELSINBOOK]",     START_COUNT_SPELLSLEVELSINBOOK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor066()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2528,29 +2209,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor066");
+		assertTrue("No illegal access in Constructor066", ok);
 
 		String term = "COUNT[SPELLTIMES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor066 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor066 pattern matches start of " + term);
+		assertTrue("Constructor066 pattern matches for " + term, mat.find());
+		assertTrue("Constructor066 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[SPELLTIMES]",		    START_COUNT_SPELLTIMES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor067()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2566,29 +2242,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor067");
+		assertTrue("No illegal access in Constructor067", ok);
 
 		String term = "COUNT[STATS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor067 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor067 pattern matches all of " + term);
+		assertTrue("Constructor067 pattern matches for " + term, mat.find());
+		assertEquals("Constructor067 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[STATS]",		   COMPLETE_COUNT_STATS
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor068()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2604,29 +2275,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor068");
+		assertTrue("No illegal access in Constructor068", ok);
 
 		String term = "COUNT[TEMPBONUSNAMES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor068 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor068 pattern matches all of " + term);
+		assertTrue("Constructor068 pattern matches for " + term, mat.find());
+		assertEquals("Constructor068 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[TEMPBONUSNAMES]",	   COMPLETE_COUNT_TEMPBONUSNAMES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor069()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2642,29 +2308,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor069");
+		assertTrue("No illegal access in Constructor069", ok);
 
 		String term = "COUNT[TEMPLATES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor069 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor069 pattern matches all of " + term);
+		assertTrue("Constructor069 pattern matches for " + term, mat.find());
+		assertEquals("Constructor069 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[TEMPLATES]",		   COMPLETE_COUNT_TEMPLATES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor070()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2680,29 +2341,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor070");
+		assertTrue("No illegal access in Constructor070", ok);
 
 		String term = "COUNT[VFEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor070 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor070 pattern matches all of " + term);
+		assertTrue("Constructor070 pattern matches for " + term, mat.find());
+		assertEquals("Constructor070 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS.ALL]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor071()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2718,29 +2374,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor071");
+		assertTrue("No illegal access in Constructor071", ok);
 
 		String term = "COUNT[VFEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor071 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor071 pattern matches all of " + term);
+		assertTrue("Constructor071 pattern matches for " + term, mat.find());
+		assertEquals("Constructor071 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor072()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2756,29 +2407,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor072");
+		assertTrue("No illegal access in Constructor072", ok);
 
 		String term = "COUNT[VFEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor072 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor072 pattern matches all of " + term);
+		assertTrue("Constructor072 pattern matches for " + term, mat.find());
+		assertEquals("Constructor072 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor073()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2794,29 +2440,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor073");
+		assertTrue("No illegal access in Constructor073", ok);
 
 		String term = "COUNT[VFEATS]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor073 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor073 pattern matches all of " + term);
+		assertTrue("Constructor073 pattern matches for " + term, mat.find());
+		assertEquals("Constructor073 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VFEATS]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor074()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2832,29 +2473,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor074");
+		assertTrue("No illegal access in Constructor074", ok);
 
 		String term = "COUNT[VFEATTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor074 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor074 pattern matches start of " + term);
+		assertTrue("Constructor074 pattern matches for " + term, mat.find());
+		assertTrue("Constructor074 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[VFEATTYPE.HIDDEN]",		  START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor075()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2870,29 +2506,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor075");
+		assertTrue("No illegal access in Constructor075", ok);
 
 		String term = "COUNT[VFEATTYPE=ALL]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor075 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor075 pattern matches start of " + term);
+		assertTrue("Constructor075 pattern matches for " + term, mat.find());
+		assertTrue("Constructor075 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "COUNT[VFEATTYPE=ALL]",	       START_COUNT_FEATTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor076()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2908,29 +2539,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor076");
+		assertTrue("No illegal access in Constructor076", ok);
 
 		String term = "COUNT[VISIBLETEMPLATES]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor076 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor076 pattern matches all of " + term);
+		assertTrue("Constructor076 pattern matches for " + term, mat.find());
+		assertEquals("Constructor076 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VISIBLETEMPLATES]",	   COMPLETE_COUNT_VISIBLETEMPLATES
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor077()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2946,29 +2572,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor077");
+		assertTrue("No illegal access in Constructor077", ok);
 
 		String term = "COUNT[VISION]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor077 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor077 pattern matches all of " + term);
+		assertTrue("Constructor077 pattern matches for " + term, mat.find());
+		assertEquals("Constructor077 pattern matches all of " + term, term, mat.group(1));
 
 		// "COUNT[VISION]",		   COMPLETE_COUNT_VISION
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor078()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -2984,29 +2605,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor078");
+		assertTrue("No illegal access in Constructor078", ok);
 
 		String term = "ENCUMBERANCE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor078 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor078 pattern matches all of " + term);
+		assertTrue("Constructor078 pattern matches for " + term, mat.find());
+		assertEquals("Constructor078 pattern matches all of " + term, term, mat.group(1));
 
 		// "ENCUMBERANCE",		   COMPLETE_ENCUMBERANCE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor079()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3022,29 +2638,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor079");
+		assertTrue("No illegal access in Constructor079", ok);
 
 		String term = "EQTYPE.EQUIPPED.IS.FOO";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor079 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor079 pattern matches start of " + term);
+		assertTrue("Constructor079 pattern matches for " + term, mat.find());
+		assertTrue("Constructor079 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "EQTYPE.EQUIPPED.IS.FOO",			   START_EQTYPE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor080()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3060,29 +2671,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor080");
+		assertTrue("No illegal access in Constructor080", ok);
 
 		String term = "HASDEITY:Bane";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor080 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor080 pattern matches start of " + term);
+		assertTrue("Constructor080 pattern matches for " + term, mat.find());
+		assertTrue("Constructor080 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "HASDEITY:Bane",		       START_HASDEITY
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor081()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3098,29 +2704,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor081");
+		assertTrue("No illegal access in Constructor081", ok);
 
 		String term = "HASFEAT:Endurance";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor081 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor081 pattern matches start of " + term);
+		assertTrue("Constructor081 pattern matches for " + term, mat.find());
+		assertTrue("Constructor081 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "HASFEAT:Endurance",			    START_HASFEAT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor082()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3136,29 +2737,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor082");
+		assertTrue("No illegal access in Constructor082", ok);
 
 		String term = "HD";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor082 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor082 pattern matches all of " + term);
+		assertTrue("Constructor082 pattern matches for " + term, mat.find());
+		assertEquals("Constructor082 pattern matches all of " + term, term, mat.group(1));
 
 		// "HD",			   COMPLETE_HD
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor083()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3174,29 +2770,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor083");
+		assertTrue("No illegal access in Constructor083", ok);
 
 		String term = "MAXCASTABLE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor083 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor083 pattern matches all of " + term);
+		assertTrue("Constructor083 pattern matches for " + term, mat.find());
+		assertEquals("Constructor083 pattern matches all of " + term, term, mat.group(1));
 
 		// "MAXCASTABLE",		   COMPLETE_MAXCASTABLE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor084()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3212,29 +2803,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor084");
+		assertTrue("No illegal access in Constructor084", ok);
 
 		String term = "MODEQUIPSPELLFAILURE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor084 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor084 pattern matches start of " + term);
+		assertTrue("Constructor084 pattern matches for " + term, mat.find());
+		assertTrue("Constructor084 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "MODEQUIPSPELLFAILURE",		       START_MODEQUIP
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor085()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3250,29 +2836,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor085");
+		assertTrue("No illegal access in Constructor085", ok);
 
 		String term = "MOVEBASE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor085 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor085 pattern matches all of " + term);
+		assertTrue("Constructor085 pattern matches for " + term, mat.find());
+		assertEquals("Constructor085 pattern matches all of " + term, term, mat.group(1));
 
 		// "MOVEBASE",			   COMPLETE_MOVEBASE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor086()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3288,29 +2869,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor086");
+		assertTrue("No illegal access in Constructor086", ok);
 
 		String term = "MOVE[Walk]";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor086 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor086 pattern matches start of " + term);
+		assertTrue("Constructor086 pattern matches for " + term, mat.find());
+		assertTrue("Constructor086 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "MOVE[Walk]",			START_MOVE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor087()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3326,29 +2902,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor087");
+		assertTrue("No illegal access in Constructor087", ok);
 
 		String term = "PC.HEIGHT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor087 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor087 pattern matches all of " + term);
+		assertTrue("Constructor087 pattern matches for " + term, mat.find());
+		assertEquals("Constructor087 pattern matches all of " + term, term, mat.group(1));
 
 		// "PC.HEIGHT",			   COMPLETE_PC_HEIGHT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor088()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3364,29 +2935,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor088");
+		assertTrue("No illegal access in Constructor088", ok);
 
 		String term = "PC.SIZEINT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor088 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor088 pattern matches start of " + term);
+		assertTrue("Constructor088 pattern matches for " + term, mat.find());
+		assertTrue("Constructor088 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "PC.SIZEINT",		      START_PC_SIZE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor089()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3402,29 +2968,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor089");
+		assertTrue("No illegal access in Constructor089", ok);
 
 		String term = "PC.WEIGHT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor089 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor089 pattern matches all of " + term);
+		assertTrue("Constructor089 pattern matches for " + term, mat.find());
+		assertEquals("Constructor089 pattern matches all of " + term, term, mat.group(1));
 
 		// "PC.WEIGHT",			   COMPLETE_PC_WEIGHT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor090()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3440,29 +3001,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor090");
+		assertTrue("No illegal access in Constructor090", ok);
 
 		String term = "PROFACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor090 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor090 pattern matches all of " + term);
+		assertTrue("Constructor090 pattern matches for " + term, mat.find());
+		assertEquals("Constructor090 pattern matches all of " + term, term, mat.group(1));
 
 		// "PROFACCHECK",		   COMPLETE_PROFACCHECK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor091()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3478,29 +3034,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor091");
+		assertTrue("No illegal access in Constructor091", ok);
 
 		String term = "RACESIZE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor091 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor091 pattern matches all of " + term);
+		assertTrue("Constructor091 pattern matches for " + term, mat.find());
+		assertEquals("Constructor091 pattern matches all of " + term, term, mat.group(1));
 
 		// "RACESIZE",			   COMPLETE_RACESIZE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor092()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3516,29 +3067,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor092");
+		assertTrue("No illegal access in Constructor092", ok);
 
 		String term = "SCORE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor092 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor092 pattern matches all of " + term);
+		assertTrue("Constructor092 pattern matches for " + term, mat.find());
+		assertEquals("Constructor092 pattern matches all of " + term, term, mat.group(1));
 
 		// "SCORE",			   COMPLETE_SCORE
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor093()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3554,29 +3100,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor093");
+		assertTrue("No illegal access in Constructor093", ok);
 
 		String term = "SHIELDACCHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor093 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor093 pattern matches all of " + term);
+		assertTrue("Constructor093 pattern matches for " + term, mat.find());
+		assertEquals("Constructor093 pattern matches all of " + term, term, mat.group(1));
 
 		// "SHIELDACCHECK",		   COMPLETE_SHIELDACCHECK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor094()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3592,29 +3133,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor094");
+		assertTrue("No illegal access in Constructor094", ok);
 
 		String term = "SHIELDACHECK";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor094 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor094 pattern matches all of " + term);
+		assertTrue("Constructor094 pattern matches for " + term, mat.find());
+		assertEquals("Constructor094 pattern matches all of " + term, term, mat.group(1));
 
 		// "SHIELDACHECK",		   COMPLETE_SHIELDACCHECK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor095()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3630,29 +3166,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor095");
+		assertTrue("No illegal access in Constructor095", ok);
 
 		String term = "SIZE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor095 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor095 pattern matches all of " + term);
+		assertTrue("Constructor095 pattern matches for " + term, mat.find());
+		assertEquals("Constructor095 pattern matches all of " + term, term, mat.group(1));
 
 		// "SIZE",			   COMPLETE_SIZEMOD
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor096()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3668,29 +3199,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor096");
+		assertTrue("No illegal access in Constructor096", ok);
 
 		String term = "SIZEMOD";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor096 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor096 pattern matches all of " + term);
+		assertTrue("Constructor096 pattern matches for " + term, mat.find());
+		assertEquals("Constructor096 pattern matches all of " + term, term, mat.group(1));
 
 		// "SIZEMOD",			   COMPLETE_SIZEMOD
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor097()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3706,29 +3232,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor097");
+		assertTrue("No illegal access in Constructor097", ok);
 
 		String term = "SKILLRANK.Tumble";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor097 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor097 pattern matches start of " + term);
+		assertTrue("Constructor097 pattern matches for " + term, mat.find());
+		assertTrue("Constructor097 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLRANK.Tumble",			 START_SKILLRANK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor098()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3744,29 +3265,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor098");
+		assertTrue("No illegal access in Constructor098", ok);
 
 		String term = "SKILLRANK=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor098 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor098 pattern matches start of " + term);
+		assertTrue("Constructor098 pattern matches for " + term, mat.find());
+		assertTrue("Constructor098 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLRANK=Perform (Dance)",			  START_SKILLRANK
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor099()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3782,29 +3298,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor099");
+		assertTrue("No illegal access in Constructor099", ok);
 
 		String term = "SKILLTOTAL.Tumble";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor099 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor099 pattern matches start of " + term);
+		assertTrue("Constructor099 pattern matches for " + term, mat.find());
+		assertTrue("Constructor099 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLTOTAL.Tumble",			 START_SKILLTOTAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor100()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3820,29 +3331,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor100");
+		assertTrue("No illegal access in Constructor100", ok);
 
 		String term = "SKILLTOTAL=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor100 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor100 pattern matches start of " + term);
+		assertTrue("Constructor100 pattern matches for " + term, mat.find());
+		assertTrue("Constructor100 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "SKILLTOTAL=Perform (Dance)",		  START_SKILLTOTAL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor101()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3858,29 +3364,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor101");
+		assertTrue("No illegal access in Constructor101", ok);
 
 		String term = "SPELLBASESTAT";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor101 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor101 pattern matches all of " + term);
+		assertTrue("Constructor101 pattern matches for " + term, mat.find());
+		assertEquals("Constructor101 pattern matches all of " + term, term, mat.group(1));
 
 		// "SPELLBASESTAT",		   COMPLETE_SPELLBASESTAT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor102()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3896,29 +3397,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor102");
+		assertTrue("No illegal access in Constructor102", ok);
 
 		String term = "SPELLBASESTATSCORE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor102 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor102 pattern matches all of " + term);
+		assertTrue("Constructor102 pattern matches for " + term, mat.find());
+		assertEquals("Constructor102 pattern matches all of " + term, term, mat.group(1));
 
 		// "SPELLBASESTATSCORE",	   COMPLETE_SPELLBASESTAT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor103()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3934,29 +3430,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor103");
+		assertTrue("No illegal access in Constructor103", ok);
 
 		String term = "SPELLLEVEL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor103 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor103 pattern matches all of " + term);
+		assertTrue("Constructor103 pattern matches for " + term, mat.find());
+		assertEquals("Constructor103 pattern matches all of " + term, term, mat.group(1));
 
 		// "SPELLLEVEL",		   COMPLETE_SPELLLEVEL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor104()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -3972,29 +3463,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor104");
+		assertTrue("No illegal access in Constructor104", ok);
 
 		String term = "TL";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor104 pattern matches for " + term);
-		is(mat.group(1), strEq(term), "Constructor104 pattern matches all of " + term);
+		assertTrue("Constructor104 pattern matches for " + term, mat.find());
+		assertEquals("Constructor104 pattern matches all of " + term, term, mat.group(1));
 
 		// "TL",			   COMPLETE_TL
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor105()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4010,29 +3496,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor105");
+		assertTrue("No illegal access in Constructor105", ok);
 
 		String term = "VARDEFINED:MilkyBarsEaten";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor105 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor105 pattern matches start of " + term);
+		assertTrue("Constructor105 pattern matches for " + term, mat.find());
+		assertTrue("Constructor105 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "VARDEFINED:MilkyBarsEaten",			 START_VARDEFINED
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor106()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4048,29 +3529,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor106");
+		assertTrue("No illegal access in Constructor106", ok);
 
 		String term = "WEIGHT.CARRIED";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor106 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor106 pattern matches start of " + term);
+		assertTrue("Constructor106 pattern matches for " + term, mat.find());
+		assertTrue("Constructor106 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
 		// "WEIGHT.CARRIED",			  START_WEIGHT
 
 	}
 
-	/**
-	 * Method: constructor()
-	 */
+
+	@Test
 	public void testConstructor107()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4086,29 +3562,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in Constructor107");
+		assertTrue("No illegal access in Constructor107", ok);
 
 		String term = "DEXSCORE";
 		Matcher mat = iVP.matcher(term);
-		is(mat.find(), eq(true), "Constructor107 pattern matches for " + term);
-		is(term.startsWith(mat.group(1)), eq(true), "Constructor107 pattern matches start of " + term);
+		assertTrue("Constructor107 pattern matches for " + term, mat.find());
+		assertTrue("Constructor107 pattern matches start of " + term, term.startsWith(mat.group(1)));
 
-		// "DEXSCORE",			      START_STAT			       
+		// "DEXSCORE",			      START_STAT
 
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator001()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4117,7 +3590,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCACcheckTermEvaluator, eq(true), "GetTermEvaluator001 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator001 evaluator correct for " + term, t instanceof PCACcheckTermEvaluator);
 
 		Class<?> uClass = PCACcheckTermEvaluator.class;
 
@@ -4130,23 +3603,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator001");
+		assertTrue("No illegal access in getTermEvaluator001", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator001 stored term is correct " + term);
+		assertEquals("GetTermEvaluator001 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator002()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4155,7 +3625,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCACcheckTermEvaluator, eq(true), "GetTermEvaluator002 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator002 evaluator correct for " + term, t instanceof PCACcheckTermEvaluator);
 
 		Class<?> uClass = PCACcheckTermEvaluator.class;
 
@@ -4168,23 +3638,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator002");
+		assertTrue("No illegal access in getTermEvaluator002", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator002 stored term is correct " + term);
+		assertEquals("GetTermEvaluator002 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator003()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4193,7 +3660,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCArmourACcheckTermEvaluator, eq(true), "GetTermEvaluator003 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator003 evaluator correct for " + term, t instanceof PCArmourACcheckTermEvaluator);
 
 		Class<?> uClass = PCArmourACcheckTermEvaluator.class;
 
@@ -4206,23 +3673,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator003");
+		assertTrue("No illegal access in getTermEvaluator003", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator003 stored term is correct " + term);
+		assertEquals("GetTermEvaluator003 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator004()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4231,7 +3695,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCArmourACcheckTermEvaluator, eq(true), "GetTermEvaluator004 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator004 evaluator correct for " + term, t instanceof PCArmourACcheckTermEvaluator);
 
 		Class<?> uClass = PCArmourACcheckTermEvaluator.class;
 
@@ -4244,23 +3708,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator004");
+		assertTrue("No illegal access in getTermEvaluator004", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator004 stored term is correct " + term);
+		assertEquals("GetTermEvaluator004 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator005()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4269,7 +3730,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCBABTermEvaluator, eq(true), "GetTermEvaluator005 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator005 evaluator correct for " + term, t instanceof PCBABTermEvaluator);
 
 		Class<?> uClass = PCBABTermEvaluator.class;
 
@@ -4282,23 +3743,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator005");
+		assertTrue("No illegal access in getTermEvaluator005", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator005 stored term is correct " + term);
+		assertEquals("GetTermEvaluator005 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator006()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4307,7 +3765,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Foo");
 
-		is(t instanceof PCBaseSpellStatTermEvaluator, eq(true), "GetTermEvaluator006 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator006 evaluator correct for " + term, t instanceof PCBaseSpellStatTermEvaluator);
 
 		Class<?> uClass = PCBaseSpellStatTermEvaluator.class;
 
@@ -4323,24 +3781,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator006");
+		assertTrue("No illegal access in getTermEvaluator006", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator006 stored term is correct " + term);
-		is(field1, strEq("Foo"), "GetTermEvaluator006 field source is correct ");
+		assertEquals("GetTermEvaluator006 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator006 field source is correct ", "Foo", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator007()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4349,7 +3804,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		is(t instanceof PCBaseSpellStatTermEvaluator, eq(true), "GetTermEvaluator007 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator007 evaluator correct for " + term, t instanceof PCBaseSpellStatTermEvaluator);
 
 		Class<?> uClass = PCBaseSpellStatTermEvaluator.class;
 
@@ -4365,24 +3820,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator007");
+		assertTrue("No illegal access in getTermEvaluator007", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator007 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator007 field source is correct ");
+		assertEquals("GetTermEvaluator007 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator007 field source is correct ", "", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator008()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4391,7 +3843,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		is(t instanceof PCCasterLevelRaceTermEvaluator, eq(true), "GetTermEvaluator008 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator008 evaluator correct for " + term, t instanceof PCCasterLevelRaceTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelRaceTermEvaluator.class;
 
@@ -4407,24 +3859,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator008");
+		assertTrue("No illegal access in getTermEvaluator008", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator008 stored term is correct " + term);
-		is(field1, strEq("RACE.Bar"), "GetTermEvaluator008 field source is correct ");
+		assertEquals("GetTermEvaluator008 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator008 field source is correct ", "RACE.Bar", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator009()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4433,7 +3882,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Foo");
 
-		is(t instanceof PCCasterLevelClassTermEvaluator, eq(true), "GetTermEvaluator009 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator009 evaluator correct for " + term, t instanceof PCCasterLevelClassTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelClassTermEvaluator.class;
 
@@ -4449,24 +3898,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator009");
+		assertTrue("No illegal access in getTermEvaluator009", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator009 stored term is correct " + term);
-		is(field1, strEq("Foo"), "GetTermEvaluator009 field source is correct ");
+		assertEquals("GetTermEvaluator009 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator009 field source is correct ", "Foo", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator010()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4475,7 +3921,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "SPELL:Baz");
 
-		is(t instanceof PCCasterLevelTotalTermEvaluator, eq(true), "GetTermEvaluator010 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator010 evaluator correct for " + term, t instanceof PCCasterLevelTotalTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelTotalTermEvaluator.class;
 
@@ -4488,23 +3934,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator010");
+		assertTrue("No illegal access in getTermEvaluator010", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator010 stored term is correct " + term);
+		assertEquals("GetTermEvaluator010 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator011()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4513,7 +3956,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		is(t instanceof PCCasterLevelTotalTermEvaluator, eq(true), "GetTermEvaluator011 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator011 evaluator correct for " + term, t instanceof PCCasterLevelTotalTermEvaluator);
 
 		Class<?> uClass = PCCasterLevelTotalTermEvaluator.class;
 
@@ -4526,23 +3969,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator011");
+		assertTrue("No illegal access in getTermEvaluator011", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator011 stored term is correct " + term);
+		assertEquals("GetTermEvaluator011 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator012()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4551,7 +3991,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAttacksTermEvaluator, eq(true), "GetTermEvaluator012 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator012 evaluator correct for " + term, t instanceof PCCountAttacksTermEvaluator);
 
 		Class<?> uClass = PCCountAttacksTermEvaluator.class;
 
@@ -4564,23 +4004,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator012");
+		assertTrue("No illegal access in getTermEvaluator012", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator012 stored term is correct " + term);
+		assertEquals("GetTermEvaluator012 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator013()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4589,7 +4026,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountChecksTermEvaluator, eq(true), "GetTermEvaluator013 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator013 evaluator correct for " + term, t instanceof PCCountChecksTermEvaluator);
 
 		Class<?> uClass = PCCountChecksTermEvaluator.class;
 
@@ -4602,23 +4039,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator013");
+		assertTrue("No illegal access in getTermEvaluator013", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator013 stored term is correct " + term);
+		assertEquals("GetTermEvaluator013 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator014()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4627,7 +4061,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountClassesTermEvaluator, eq(true), "GetTermEvaluator014 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator014 evaluator correct for " + term, t instanceof PCCountClassesTermEvaluator);
 
 		Class<?> uClass = PCCountClassesTermEvaluator.class;
 
@@ -4640,23 +4074,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator014");
+		assertTrue("No illegal access in getTermEvaluator014", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator014 stored term is correct " + term);
+		assertEquals("GetTermEvaluator014 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator015()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4665,7 +4096,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountContainersTermEvaluator, eq(true), "GetTermEvaluator015 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator015 evaluator correct for " + term, t instanceof PCCountContainersTermEvaluator);
 
 		Class<?> uClass = PCCountContainersTermEvaluator.class;
 
@@ -4678,23 +4109,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator015");
+		assertTrue("No illegal access in getTermEvaluator015", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator015 stored term is correct " + term);
+		assertEquals("GetTermEvaluator015 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator016()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4703,7 +4131,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountDomainsTermEvaluator, eq(true), "GetTermEvaluator016 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator016 evaluator correct for " + term, t instanceof PCCountDomainsTermEvaluator);
 
 		Class<?> uClass = PCCountDomainsTermEvaluator.class;
 
@@ -4716,23 +4144,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator016");
+		assertTrue("No illegal access in getTermEvaluator016", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator016 stored term is correct " + term);
+		assertEquals("GetTermEvaluator016 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator017()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4741,8 +4166,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator017 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator017 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -4761,25 +4188,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator017");
+		assertTrue("No illegal access in getTermEvaluator017", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator017 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator017 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator017 field visible is correct ");
+		assertEquals("GetTermEvaluator017 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator017 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator017 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator018()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4788,8 +4212,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator018 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator018 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -4808,25 +4234,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator018");
+		assertTrue("No illegal access in getTermEvaluator018", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator018 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator018 field hidden is correct ");
-		is(field2, eq(false), "GetTermEvaluator018 field visible is correct ");
+		assertEquals("GetTermEvaluator018 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator018 field hidden is correct ", field1);
+		assertFalse("GetTermEvaluator018 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator019()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4835,8 +4258,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator019 evaluator correct for " + term);
+		assertThat("GetTermEvaluator019 evaluator correct for " + term, t,
+			instanceOf(PCCountAbilitiesNatureAllTermEvaluator.class));
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -4855,25 +4278,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator019");
+		assertTrue("No illegal access in getTermEvaluator019", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator019 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator019 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator019 field visible is correct ");
+		assertEquals("GetTermEvaluator019 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator019 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator019 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator020()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4882,8 +4302,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator020 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator020 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
 
@@ -4902,25 +4324,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator020");
+		assertTrue("No illegal access in getTermEvaluator020", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator020 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator020 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator020 field visible is correct ");
+		assertEquals("GetTermEvaluator020 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator020 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator020 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator021()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4929,8 +4348,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator021 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator021 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -4949,25 +4370,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator021");
+		assertTrue("No illegal access in getTermEvaluator021", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator021 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator021 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator021 field visible is correct ");
+		assertEquals("GetTermEvaluator021 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator021 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator021 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator022()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -4976,8 +4394,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator022 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator022 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -4996,25 +4416,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator022");
+		assertTrue("No illegal access in getTermEvaluator022", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator022 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator022 field hidden is correct ");
-		is(field2, eq(false), "GetTermEvaluator022 field visible is correct ");
+		assertEquals("GetTermEvaluator022 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator022 field hidden is correct ", field1);
+		assertFalse("GetTermEvaluator022 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator023()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5023,8 +4440,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator023 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator023 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -5043,25 +4462,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator023");
+		assertTrue("No illegal access in getTermEvaluator023", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator023 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator023 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator023 field visible is correct ");
+		assertEquals("GetTermEvaluator023 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator023 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator023 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator024()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5070,8 +4486,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator024 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator024 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
 
@@ -5090,25 +4508,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator024");
+		assertTrue("No illegal access in getTermEvaluator024", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator024 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator024 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator024 field visible is correct ");
+		assertEquals("GetTermEvaluator024 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator024 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator024 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator025()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5117,8 +4532,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator025 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator025 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -5137,25 +4554,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator025");
+		assertTrue("No illegal access in getTermEvaluator025", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator025 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator025 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator025 field visible is correct ");
+		assertEquals("GetTermEvaluator025 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator025 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator025 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator026()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5164,8 +4578,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator026 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator026 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -5184,25 +4600,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator026");
+		assertTrue("No illegal access in getTermEvaluator026", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator026 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator026 field hidden is correct ");
-		is(field2, eq(false), "GetTermEvaluator026 field visible is correct ");
+		assertEquals("GetTermEvaluator026 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator026 field hidden is correct ", field1);
+		assertFalse("GetTermEvaluator026 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator027()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5211,8 +4624,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator027 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator027 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -5231,25 +4646,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator027");
+		assertTrue("No illegal access in getTermEvaluator027", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator027 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator027 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator027 field visible is correct ");
+		assertEquals("GetTermEvaluator027 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator027 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator027 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator028()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5258,8 +4670,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureNormalTermEvaluator, eq(true),
-			"GetTermEvaluator028 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator028 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
 
@@ -5278,25 +4692,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator028");
+		assertTrue("No illegal access in getTermEvaluator028", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator028 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator028 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator028 field visible is correct ");
+		assertEquals("GetTermEvaluator028 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator028 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator028 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator029()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5305,8 +4716,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator029 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator029 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -5325,25 +4738,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator029");
+		assertTrue("No illegal access in getTermEvaluator029", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator029 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator029 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator029 field visible is correct ");
+		assertEquals("GetTermEvaluator029 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator029 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator029 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator030()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5352,8 +4762,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator030 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator030 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -5372,25 +4784,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator030");
+		assertTrue("No illegal access in getTermEvaluator030", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator030 stored term is correct " + term);
-		is(field1, eq(true), "GetTermEvaluator030 field hidden is correct ");
-		is(field2, eq(false), "GetTermEvaluator030 field visible is correct ");
+		assertEquals("GetTermEvaluator030 stored term is correct " + term, term, field0);
+		assertTrue("GetTermEvaluator030 field hidden is correct ", field1);
+		assertFalse("GetTermEvaluator030 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator031()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5399,8 +4808,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator031 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator031 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -5419,25 +4830,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator031");
+		assertTrue("No illegal access in getTermEvaluator031", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator031 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator031 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator031 field visible is correct ");
+		assertEquals("GetTermEvaluator031 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator031 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator031 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator032()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5446,8 +4854,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator032 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator032 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
 
@@ -5466,25 +4876,22 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Boolean) pF1.get(t);
 			field2 = (Boolean) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator032");
+		assertTrue("No illegal access in getTermEvaluator032", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator032 stored term is correct " + term);
-		is(field1, eq(false), "GetTermEvaluator032 field hidden is correct ");
-		is(field2, eq(true), "GetTermEvaluator032 field visible is correct ");
+		assertEquals("GetTermEvaluator032 stored term is correct " + term, term, field0);
+		assertFalse("GetTermEvaluator032 field hidden is correct ", field1);
+		assertTrue("GetTermEvaluator032 field visible is correct ", field2);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator033()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5493,7 +4900,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountFollowersTermEvaluator, eq(true), "GetTermEvaluator033 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator033 evaluator correct for " + term, t instanceof PCCountFollowersTermEvaluator);
 
 		Class<?> uClass = PCCountFollowersTermEvaluator.class;
 
@@ -5506,23 +4913,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator033");
+		assertTrue("No illegal access in getTermEvaluator033", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator033 stored term is correct " + term);
+		assertEquals("GetTermEvaluator033 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator034()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5531,7 +4935,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountLanguagesTermEvaluator, eq(true), "GetTermEvaluator034 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator034 evaluator correct for " + term, t instanceof PCCountLanguagesTermEvaluator);
 
 		Class<?> uClass = PCCountLanguagesTermEvaluator.class;
 
@@ -5544,23 +4948,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator034");
+		assertTrue("No illegal access in getTermEvaluator034", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator034 stored term is correct " + term);
+		assertEquals("GetTermEvaluator034 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator035()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5569,8 +4970,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMiscCompanionsTermEvaluator, eq(true),
-			"GetTermEvaluator035 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator035 evaluator correct for " + term,
+				t instanceof PCCountMiscCompanionsTermEvaluator
+		);
 
 		Class<?> uClass = PCCountMiscCompanionsTermEvaluator.class;
 
@@ -5583,23 +4986,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator035");
+		assertTrue("No illegal access in getTermEvaluator035", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator035 stored term is correct " + term);
+		assertEquals("GetTermEvaluator035 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator036()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5608,7 +5008,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMiscFundsTermEvaluator, eq(true), "GetTermEvaluator036 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator036 evaluator correct for " + term, t instanceof PCCountMiscFundsTermEvaluator);
 
 		Class<?> uClass = PCCountMiscFundsTermEvaluator.class;
 
@@ -5621,23 +5021,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator036");
+		assertTrue("No illegal access in getTermEvaluator036", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator036 stored term is correct " + term);
+		assertEquals("GetTermEvaluator036 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator037()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5646,7 +5043,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMiscMagicTermEvaluator, eq(true), "GetTermEvaluator037 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator037 evaluator correct for " + term, t instanceof PCCountMiscMagicTermEvaluator);
 
 		Class<?> uClass = PCCountMiscMagicTermEvaluator.class;
 
@@ -5659,23 +5056,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator037");
+		assertTrue("No illegal access in getTermEvaluator037", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator037 stored term is correct " + term);
+		assertEquals("GetTermEvaluator037 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator038()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5684,7 +5078,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountMoveTermEvaluator, eq(true), "GetTermEvaluator038 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator038 evaluator correct for " + term, t instanceof PCCountMoveTermEvaluator);
 
 		Class<?> uClass = PCCountMoveTermEvaluator.class;
 
@@ -5697,23 +5091,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator038");
+		assertTrue("No illegal access in getTermEvaluator038", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator038 stored term is correct " + term);
+		assertEquals("GetTermEvaluator038 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator039()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5722,7 +5113,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountNotesTermEvaluator, eq(true), "GetTermEvaluator039 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator039 evaluator correct for " + term, t instanceof PCCountNotesTermEvaluator);
 
 		Class<?> uClass = PCCountNotesTermEvaluator.class;
 
@@ -5735,23 +5126,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator039");
+		assertTrue("No illegal access in getTermEvaluator039", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator039 stored term is correct " + term);
+		assertEquals("GetTermEvaluator039 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator040()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5760,8 +5148,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountRaceSubTypesTermEvaluator, eq(true),
-			"GetTermEvaluator040 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator040 evaluator correct for " + term, t instanceof PCCountRaceSubTypesTermEvaluator);
 
 		Class<?> uClass = PCCountRaceSubTypesTermEvaluator.class;
 
@@ -5774,23 +5161,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator040");
+		assertTrue("No illegal access in getTermEvaluator040", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator040 stored term is correct " + term);
+		assertEquals("GetTermEvaluator040 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator041()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5799,7 +5183,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSABTermEvaluator, eq(true), "GetTermEvaluator041 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator041 evaluator correct for " + term, t instanceof PCCountSABTermEvaluator);
 
 		Class<?> uClass = PCCountSABTermEvaluator.class;
 
@@ -5812,23 +5196,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator041");
+		assertTrue("No illegal access in getTermEvaluator041", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator041 stored term is correct " + term);
+		assertEquals("GetTermEvaluator041 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator042()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5837,7 +5218,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSkillsTermEvaluator, eq(true), "GetTermEvaluator042 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator042 evaluator correct for " + term, t instanceof PCCountSkillsTermEvaluator);
 
 		Class<?> uClass = PCCountSkillsTermEvaluator.class;
 
@@ -5850,23 +5231,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator042");
+		assertTrue("No illegal access in getTermEvaluator042", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator042 stored term is correct " + term);
+		assertEquals("GetTermEvaluator042 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator043()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5875,8 +5253,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellClassesTermEvaluator, eq(true),
-			"GetTermEvaluator043 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator043 evaluator correct for " + term, t instanceof PCCountSpellClassesTermEvaluator);
 
 		Class<?> uClass = PCCountSpellClassesTermEvaluator.class;
 
@@ -5889,23 +5266,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator043");
+		assertTrue("No illegal access in getTermEvaluator043", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator043 stored term is correct " + term);
+		assertEquals("GetTermEvaluator043 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator044()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5914,7 +5288,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellRaceTermEvaluator, eq(true), "GetTermEvaluator044 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator044 evaluator correct for " + term, t instanceof PCCountSpellRaceTermEvaluator);
 
 		Class<?> uClass = PCCountSpellRaceTermEvaluator.class;
 
@@ -5927,23 +5301,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator044");
+		assertTrue("No illegal access in getTermEvaluator044", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator044 stored term is correct " + term);
+		assertEquals("GetTermEvaluator044 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator045()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5952,7 +5323,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountStatsTermEvaluator, eq(true), "GetTermEvaluator045 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator045 evaluator correct for " + term, t instanceof PCCountStatsTermEvaluator);
 
 		Class<?> uClass = PCCountStatsTermEvaluator.class;
 
@@ -5965,23 +5336,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator045");
+		assertTrue("No illegal access in getTermEvaluator045", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator045 stored term is correct " + term);
+		assertEquals("GetTermEvaluator045 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator046()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -5990,8 +5358,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountTempBonusNamesTermEvaluator, eq(true),
-			"GetTermEvaluator046 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator046 evaluator correct for " + term,
+				t instanceof PCCountTempBonusNamesTermEvaluator
+		);
 
 		Class<?> uClass = PCCountTempBonusNamesTermEvaluator.class;
 
@@ -6004,23 +5374,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator046");
+		assertTrue("No illegal access in getTermEvaluator046", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator046 stored term is correct " + term);
+		assertEquals("GetTermEvaluator046 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator047()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6029,7 +5396,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountTemplatesTermEvaluator, eq(true), "GetTermEvaluator047 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator047 evaluator correct for " + term, t instanceof PCCountTemplatesTermEvaluator);
 
 		Class<?> uClass = PCCountTemplatesTermEvaluator.class;
 
@@ -6042,23 +5409,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator047");
+		assertTrue("No illegal access in getTermEvaluator047", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator047 stored term is correct " + term);
+		assertEquals("GetTermEvaluator047 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator048()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6067,8 +5431,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountVisibleTemplatesTermEvaluator, eq(true),
-			"GetTermEvaluator048 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator048 evaluator correct for " + term,
+				t instanceof PCCountVisibleTemplatesTermEvaluator
+		);
 
 		Class<?> uClass = PCCountVisibleTemplatesTermEvaluator.class;
 
@@ -6081,23 +5447,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator048");
+		assertTrue("No illegal access in getTermEvaluator048", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator048 stored term is correct " + term);
+		assertEquals("GetTermEvaluator048 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator049()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6106,7 +5469,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountVisionTermEvaluator, eq(true), "GetTermEvaluator049 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator049 evaluator correct for " + term, t instanceof PCCountVisionTermEvaluator);
 
 		Class<?> uClass = PCCountVisionTermEvaluator.class;
 
@@ -6119,23 +5482,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator049");
+		assertTrue("No illegal access in getTermEvaluator049", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator049 stored term is correct " + term);
+		assertEquals("GetTermEvaluator049 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator050()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6144,7 +5504,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCEncumberanceTermEvaluator, eq(true), "GetTermEvaluator050 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator050 evaluator correct for " + term, t instanceof PCEncumberanceTermEvaluator);
 
 		Class<?> uClass = PCEncumberanceTermEvaluator.class;
 
@@ -6157,23 +5517,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator050");
+		assertTrue("No illegal access in getTermEvaluator050", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator050 stored term is correct " + term);
+		assertEquals("GetTermEvaluator050 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator051()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6182,7 +5539,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHDTermEvaluator, eq(true), "GetTermEvaluator051 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator051 evaluator correct for " + term, t instanceof PCHDTermEvaluator);
 
 		Class<?> uClass = PCHDTermEvaluator.class;
 
@@ -6195,23 +5552,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator051");
+		assertTrue("No illegal access in getTermEvaluator051", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator051 stored term is correct " + term);
+		assertEquals("GetTermEvaluator051 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluatorHp()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6220,7 +5574,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHPTermEvaluator, eq(true), "testGetTermEvaluatorHp evaluator correct for " + term);
+		assertTrue("testGetTermEvaluatorHp evaluator correct for " + term, t instanceof PCHPTermEvaluator);
 
 		Class<?> uClass = PCHPTermEvaluator.class;
 
@@ -6233,23 +5587,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in testGetTermEvaluatorHp");
+		assertTrue("No illegal access in testGetTermEvaluatorHp", ok);
 
-		is(field0, strEq(term), "testGetTermEvaluatorHp stored term is correct " + term);
+		assertEquals("testGetTermEvaluatorHp stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator052()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6259,7 +5610,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		Globals.getContext().getReferenceContext().constructCDOMObject(ClassSpellList.class, "Bard");
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Bard");
 
-		is(t instanceof PCMaxCastableClassTermEvaluator, eq(true), "GetTermEvaluator052 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator052 evaluator correct for " + term, t instanceof PCMaxCastableClassTermEvaluator);
 
 		Class<?> uClass = PCMaxCastableClassTermEvaluator.class;
 
@@ -6275,24 +5626,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (ClassSpellList) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator052");
+		assertTrue("No illegal access in getTermEvaluator052", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator052 stored term is correct " + term);
-		is(field1.getKeyName(), strEq("Bard"), "GetTermEvaluator052 field spellList is correct ");
+		assertEquals("GetTermEvaluator052 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator052 field spellList is correct ", "Bard", field1.getKeyName());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator053()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6301,8 +5649,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Fire");
 
-		is(t instanceof PCMaxCastableDomainTermEvaluator, eq(true),
-			"GetTermEvaluator053 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator053 evaluator correct for " + term, t instanceof PCMaxCastableDomainTermEvaluator);
 
 		Class<?> uClass = PCMaxCastableDomainTermEvaluator.class;
 
@@ -6318,24 +5665,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator053");
+		assertTrue("No illegal access in getTermEvaluator053", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator053 stored term is correct " + term);
-		is(field1, strEq("Fire"), "GetTermEvaluator053 field domainKey is correct ");
+		assertEquals("GetTermEvaluator053 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator053 field domainKey is correct ", "Fire", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator054()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6344,8 +5688,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "SPELLTYPE:Arcane");
 
-		is(t instanceof PCMaxCastableSpellTypeTermEvaluator, eq(true),
-			"GetTermEvaluator054 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator054 evaluator correct for " + term,
+				t instanceof PCMaxCastableSpellTypeTermEvaluator
+		);
 
 		Class<?> uClass = PCMaxCastableSpellTypeTermEvaluator.class;
 
@@ -6361,24 +5707,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator054");
+		assertTrue("No illegal access in getTermEvaluator054", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator054 stored term is correct " + term);
-		is(field1, strEq("Arcane"), "GetTermEvaluator054 field typeKey is correct ");
+		assertEquals("GetTermEvaluator054 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator054 field typeKey is correct ", "Arcane", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator055()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6387,7 +5730,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "ANY");
 
-		is(t instanceof PCMaxCastableAnyTermEvaluator, eq(true), "GetTermEvaluator055 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator055 evaluator correct for " + term, t instanceof PCMaxCastableAnyTermEvaluator);
 
 		Class<?> uClass = PCMaxCastableAnyTermEvaluator.class;
 
@@ -6400,23 +5743,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator055");
+		assertTrue("No illegal access in getTermEvaluator055", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator055 stored term is correct " + term);
+		assertEquals("GetTermEvaluator055 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator056()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6431,6 +5771,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator057()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6439,7 +5780,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCMoveBaseTermEvaluator, eq(true), "GetTermEvaluator057 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator057 evaluator correct for " + term, t instanceof PCMoveBaseTermEvaluator);
 
 		Class<?> uClass = PCMoveBaseTermEvaluator.class;
 
@@ -6452,23 +5793,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator057");
+		assertTrue("No illegal access in getTermEvaluator057", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator057 stored term is correct " + term);
+		assertEquals("GetTermEvaluator057 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator058()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6477,7 +5815,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHeightTermEvaluator, eq(true), "GetTermEvaluator058 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator058 evaluator correct for " + term, t instanceof PCHeightTermEvaluator);
 
 		Class<?> uClass = PCHeightTermEvaluator.class;
 
@@ -6490,23 +5828,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator058");
+		assertTrue("No illegal access in getTermEvaluator058", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator058 stored term is correct " + term);
+		assertEquals("GetTermEvaluator058 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator059()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6515,7 +5850,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCWeightTermEvaluator, eq(true), "GetTermEvaluator059 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator059 evaluator correct for " + term, t instanceof PCWeightTermEvaluator);
 
 		Class<?> uClass = PCWeightTermEvaluator.class;
 
@@ -6528,23 +5863,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator059");
+		assertTrue("No illegal access in getTermEvaluator059", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator059 stored term is correct " + term);
+		assertEquals("GetTermEvaluator059 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator060()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6553,7 +5885,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "EQ:Dagger");
 
-		is(t instanceof PCProfACCheckTermEvaluator, eq(true), "GetTermEvaluator060 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator060 evaluator correct for " + term, t instanceof PCProfACCheckTermEvaluator);
 
 		Class<?> uClass = PCProfACCheckTermEvaluator.class;
 
@@ -6569,24 +5901,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator060");
+		assertTrue("No illegal access in getTermEvaluator060", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator060 stored term is correct " + term);
-		is(field1, strEq("Dagger"), "GetTermEvaluator060 field eqKey is correct ");
+		assertEquals("GetTermEvaluator060 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator060 field eqKey is correct ", "Dagger", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator061()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6595,7 +5924,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCProfACCheckTermEvaluator, eq(true), "GetTermEvaluator061 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator061 evaluator correct for " + term, t instanceof PCProfACCheckTermEvaluator);
 
 		Class<?> uClass = PCProfACCheckTermEvaluator.class;
 
@@ -6611,24 +5940,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator061");
+		assertTrue("No illegal access in getTermEvaluator061", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator061 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator061 field eqKey is correct ");
+		assertEquals("GetTermEvaluator061 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator061 field eqKey is correct ", "", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator062()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6637,7 +5963,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCRaceSizeTermEvaluator, eq(true), "GetTermEvaluator062 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator062 evaluator correct for " + term, t instanceof PCRaceSizeTermEvaluator);
 
 		Class<?> uClass = PCRaceSizeTermEvaluator.class;
 
@@ -6650,23 +5976,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator062");
+		assertTrue("No illegal access in getTermEvaluator062", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator062 stored term is correct " + term);
+		assertEquals("GetTermEvaluator062 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator063()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6675,7 +5998,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "STAT:INT");
 
-		is(t instanceof PCScoreTermEvaluator, eq(true), "GetTermEvaluator063 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator063 evaluator correct for " + term, t instanceof PCScoreTermEvaluator);
 
 		Class<?> uClass = PCScoreTermEvaluator.class;
 
@@ -6691,24 +6014,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator063");
+		assertTrue("No illegal access in getTermEvaluator063", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator063 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator063 field stat is correct ");
+		assertEquals("GetTermEvaluator063 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator063 field stat is correct ", "INT", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator064()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6717,7 +6037,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCScoreTermEvaluator, eq(true), "GetTermEvaluator064 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator064 evaluator correct for " + term, t instanceof PCScoreTermEvaluator);
 
 		Class<?> uClass = PCScoreTermEvaluator.class;
 
@@ -6733,24 +6053,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator064");
+		assertTrue("No illegal access in getTermEvaluator064", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator064 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator064 field stat is correct ");
+		assertEquals("GetTermEvaluator064 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator064 field stat is correct ", "", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator065()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6759,7 +6076,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCShieldACcheckTermEvaluator, eq(true), "GetTermEvaluator065 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator065 evaluator correct for " + term, t instanceof PCShieldACcheckTermEvaluator);
 
 		Class<?> uClass = PCShieldACcheckTermEvaluator.class;
 
@@ -6772,23 +6089,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator065");
+		assertTrue("No illegal access in getTermEvaluator065", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator065 stored term is correct " + term);
+		assertEquals("GetTermEvaluator065 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator066()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6797,7 +6111,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCShieldACcheckTermEvaluator, eq(true), "GetTermEvaluator066 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator066 evaluator correct for " + term, t instanceof PCShieldACcheckTermEvaluator);
 
 		Class<?> uClass = PCShieldACcheckTermEvaluator.class;
 
@@ -6810,23 +6124,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator066");
+		assertTrue("No illegal access in getTermEvaluator066", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator066 stored term is correct " + term);
+		assertEquals("GetTermEvaluator066 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator067()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6835,7 +6146,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSizeTermEvaluator, eq(true), "GetTermEvaluator067 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator067 evaluator correct for " + term, t instanceof PCSizeTermEvaluator);
 
 		Class<?> uClass = PCSizeTermEvaluator.class;
 
@@ -6848,23 +6159,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator067");
+		assertTrue("No illegal access in getTermEvaluator067", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator067 stored term is correct " + term);
+		assertEquals("GetTermEvaluator067 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator068()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6873,7 +6181,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSizeModEvaluatorTermEvaluator, eq(true), "GetTermEvaluator068 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator068 evaluator correct for " + term, t instanceof PCSizeModEvaluatorTermEvaluator);
 
 		Class<?> uClass = PCSizeModEvaluatorTermEvaluator.class;
 
@@ -6886,23 +6194,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator068");
+		assertTrue("No illegal access in getTermEvaluator068", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator068 stored term is correct " + term);
+		assertEquals("GetTermEvaluator068 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator069()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6911,7 +6216,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Cleric");
 
-		is(t instanceof PCSPellBaseStatTermEvaluator, eq(true), "GetTermEvaluator069 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator069 evaluator correct for " + term, t instanceof PCSPellBaseStatTermEvaluator);
 
 		Class<?> uClass = PCSPellBaseStatTermEvaluator.class;
 
@@ -6927,24 +6232,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator069");
+		assertTrue("No illegal access in getTermEvaluator069", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator069 stored term is correct " + term);
-		is(field1, strEq("Cleric"), "GetTermEvaluator069 field classKey is correct ");
+		assertEquals("GetTermEvaluator069 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator069 field classKey is correct ", "Cleric", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator070()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6953,8 +6255,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Cleric");
 
-		is(t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator, eq(true),
-			"GetTermEvaluator070 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator070 evaluator correct for " + term,
+				t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator
+		);
 
 		Class<?> uClass = PCSPellBaseStatScoreEvaluatorTermEvaluator.class;
 
@@ -6970,24 +6274,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator070");
+		assertTrue("No illegal access in getTermEvaluator070", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator070 stored term is correct " + term);
-		is(field1, strEq("Cleric"), "GetTermEvaluator070 field classKey is correct ");
+		assertEquals("GetTermEvaluator070 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator070 field classKey is correct ", "Cleric", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator071()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -6996,7 +6297,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnu");
 
-		is(t instanceof PCSPellBaseStatTermEvaluator, eq(true), "GetTermEvaluator071 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator071 evaluator correct for " + term, t instanceof PCSPellBaseStatTermEvaluator);
 
 		Class<?> uClass = PCSPellBaseStatTermEvaluator.class;
 
@@ -7012,24 +6313,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator071");
+		assertTrue("No illegal access in getTermEvaluator071", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator071 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator071 field classKey is correct ");
+		assertEquals("GetTermEvaluator071 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator071 field classKey is correct ", "", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator072()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7038,8 +6336,8 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnu");
 
-		is(t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator, eq(true),
-			"GetTermEvaluator072 evaluator correct for " + term);
+		assertThat("GetTermEvaluator072 evaluator correct for " + term, t,
+				instanceOf((PCSPellBaseStatScoreEvaluatorTermEvaluator.class)));
 
 		Class<?> uClass = PCSPellBaseStatScoreEvaluatorTermEvaluator.class;
 
@@ -7055,24 +6353,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator072");
+		assertTrue("No illegal access in getTermEvaluator072", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator072 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator072 field classKey is correct ");
+		assertEquals("GetTermEvaluator072 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator072 field classKey is correct ", "", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator073()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7081,7 +6376,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSpellLevelTermEvaluator, eq(true), "GetTermEvaluator073 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator073 evaluator correct for " + term, t instanceof PCSpellLevelTermEvaluator);
 
 		Class<?> uClass = PCSpellLevelTermEvaluator.class;
 
@@ -7094,23 +6389,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator073");
+		assertTrue("No illegal access in getTermEvaluator073", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator073 stored term is correct " + term);
+		assertEquals("GetTermEvaluator073 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator074()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7119,7 +6411,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCTLTermEvaluator, eq(true), "GetTermEvaluator074 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator074 evaluator correct for " + term, t instanceof PCTLTermEvaluator);
 
 		Class<?> uClass = PCTLTermEvaluator.class;
 
@@ -7132,23 +6424,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator074");
+		assertTrue("No illegal access in getTermEvaluator074", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator074 stored term is correct " + term);
+		assertEquals("GetTermEvaluator074 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator075()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7157,7 +6446,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator075 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator075 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -7173,24 +6462,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator075");
+		assertTrue("No illegal access in getTermEvaluator075", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator075 stored term is correct " + term);
-		is(field1, strEq("Ranger"), "GetTermEvaluator075 field source is correct ");
+		assertEquals("GetTermEvaluator075 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator075 field source is correct ", "Ranger", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator076()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7199,7 +6485,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnome");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator076 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator076 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -7215,24 +6501,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator076");
+		assertTrue("No illegal access in getTermEvaluator076", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator076 stored term is correct " + term);
-		is(field1, strEq(""), "GetTermEvaluator076 field source is correct ");
+		assertEquals("GetTermEvaluator076 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator076 field source is correct ", "", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator077()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7241,7 +6524,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Ice");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator077 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator077 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -7257,24 +6540,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator077");
+		assertTrue("No illegal access in getTermEvaluator077", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator077 stored term is correct " + term);
-		is(field1, strEq("Wizard"), "GetTermEvaluator077 field source is correct ");
+		assertEquals("GetTermEvaluator077 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator077 field source is correct ", "Wizard", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator078()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7283,7 +6563,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Law");
 
-		is(t instanceof PCBLTermEvaluator, eq(true), "GetTermEvaluator078 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator078 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -7299,24 +6579,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator078");
+		assertTrue("No illegal access in getTermEvaluator078", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator078 stored term is correct " + term);
-		is(field1, strEq("Cleric"), "GetTermEvaluator078 field source is correct ");
+		assertEquals("GetTermEvaluator078 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator078 field source is correct ", "Cleric", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator079()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7325,7 +6602,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		is(t instanceof PCCLBeforeLevelTermEvaluator, eq(true), "GetTermEvaluator079 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator079 evaluator correct for " + term, t instanceof PCCLBeforeLevelTermEvaluator);
 
 		Class<?> uClass = PCCLBeforeLevelTermEvaluator.class;
 
@@ -7344,25 +6621,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator079");
+		assertTrue("No illegal access in getTermEvaluator079", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator079 stored term is correct " + term);
-		is(field1, strEq("Ranger"), "GetTermEvaluator079 field source is correct ");
-		is(field2, eq(10), "GetTermEvaluator079 field level is correct ");
+		assertEquals("GetTermEvaluator079 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator079 field source is correct ", "Ranger", field1);
+		assertEquals("GetTermEvaluator079 field level is correct ",
+			10,
+				field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator080()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7371,7 +6647,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Druid");
 
-		is(t instanceof PCCLBeforeLevelTermEvaluator, eq(true), "GetTermEvaluator080 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator080 evaluator correct for " + term, t instanceof PCCLBeforeLevelTermEvaluator);
 
 		Class<?> uClass = PCCLBeforeLevelTermEvaluator.class;
 
@@ -7390,25 +6666,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator080");
+		assertTrue("No illegal access in getTermEvaluator080", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator080 stored term is correct " + term);
-		is(field1, strEq("Druid"), "GetTermEvaluator080 field source is correct ");
-		is(field2, eq(15), "GetTermEvaluator080 field level is correct ");
+		assertEquals("GetTermEvaluator080 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator080 field source is correct ", "Druid", field1);
+		assertEquals("GetTermEvaluator080 field level is correct ",
+			15,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator081()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7423,6 +6698,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator082()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7431,7 +6707,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator082 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator082 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -7447,24 +6723,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator082");
+		assertTrue("No illegal access in getTermEvaluator082", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator082 stored term is correct " + term);
-		is(field1, strEq("Bard (Bardiliscious)"), "GetTermEvaluator082 field classKey is correct ");
+		assertEquals("GetTermEvaluator082 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator082 field classKey is correct ", "Bard (Bardiliscious)", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator083()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7473,7 +6746,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator083 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator083 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -7489,24 +6762,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator083");
+		assertTrue("No illegal access in getTermEvaluator083", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator083 stored term is correct " + term);
-		is(field1, strEq("Rogue (Sneaky)"), "GetTermEvaluator083 field classKey is correct ");
+		assertEquals("GetTermEvaluator083 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator083 field classKey is correct ", "Rogue (Sneaky)", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator084()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7515,7 +6785,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Human");
 
-		is(t instanceof PCHasClassTermEvaluator, eq(true), "GetTermEvaluator084 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator084 evaluator correct for " + term, t instanceof PCHasClassTermEvaluator);
 
 		Class<?> uClass = PCHasClassTermEvaluator.class;
 
@@ -7531,24 +6801,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator084");
+		assertTrue("No illegal access in getTermEvaluator084", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator084 stored term is correct " + term);
-		is(field1, strEq("Druid"), "GetTermEvaluator084 field source is correct ");
+		assertEquals("GetTermEvaluator084 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator084 field source is correct ", "Druid", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator085()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7557,7 +6824,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Dwarf");
 
-		is(t instanceof PCHasClassTermEvaluator, eq(true), "GetTermEvaluator085 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator085 evaluator correct for " + term, t instanceof PCHasClassTermEvaluator);
 
 		Class<?> uClass = PCHasClassTermEvaluator.class;
 
@@ -7573,24 +6840,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator085");
+		assertTrue("No illegal access in getTermEvaluator085", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator085 stored term is correct " + term);
-		is(field1, strEq("Paladin"), "GetTermEvaluator085 field source is correct ");
+		assertEquals("GetTermEvaluator085 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator085 field source is correct ", "Paladin", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator086()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7599,7 +6863,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator086 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator086 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -7615,24 +6879,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator086");
+		assertTrue("No illegal access in getTermEvaluator086", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator086 stored term is correct " + term);
-		is(field1, strEq("Ranger"), "GetTermEvaluator086 field classKey is correct ");
+		assertEquals("GetTermEvaluator086 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator086 field classKey is correct ", "Ranger", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator087()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7647,6 +6908,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator088()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7655,7 +6917,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Elf");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator088 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator088 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -7671,24 +6933,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator088");
+		assertTrue("No illegal access in getTermEvaluator088", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator088 stored term is correct " + term);
-		is(field1, strEq("Bard"), "GetTermEvaluator088 field classKey is correct ");
+		assertEquals("GetTermEvaluator088 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator088 field classKey is correct ", "Bard", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator089()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7697,7 +6956,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Elf");
 
-		is(t instanceof PCCLTermEvaluator, eq(true), "GetTermEvaluator089 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator089 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -7713,24 +6972,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator089");
+		assertTrue("No illegal access in getTermEvaluator089", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator089 stored term is correct " + term);
-		is(field1, strEq("Rogue"), "GetTermEvaluator089 field classKey is correct ");
+		assertEquals("GetTermEvaluator089 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator089 field classKey is correct ", "Rogue", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator090()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7739,7 +6995,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator090 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator090 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7758,25 +7014,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator090");
+		assertTrue("No illegal access in getTermEvaluator090", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator090 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator090 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator090 field merge is correct ");
+		assertEquals("GetTermEvaluator090 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator090 field types[0] is correct ", "", field1[0]);
+		assertEquals("GetTermEvaluator090 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator091()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7785,7 +7040,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator091 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator091 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7804,25 +7059,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator091");
+		assertTrue("No illegal access in getTermEvaluator091", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator091 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator091 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator091 field merge is correct ");
+		assertEquals("GetTermEvaluator091 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator091 field types[0] is correct ", "", field1[0]);
+		assertEquals("GetTermEvaluator091 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator092()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7831,7 +7085,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator092 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator092 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7850,25 +7104,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator092");
+		assertTrue("No illegal access in getTermEvaluator092", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator092 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator092 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator092 field merge is correct ");
+		assertEquals("GetTermEvaluator092 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator092 field types[0] is correct ", "", field1[0]);
+		assertEquals("GetTermEvaluator092 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator093()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7877,7 +7130,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator093 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator093 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7896,25 +7149,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator093");
+		assertTrue("No illegal access in getTermEvaluator093", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator093 stored term is correct " + term);
-		is(field1[0], strEq("EQUIPPED"), "GetTermEvaluator093 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator093 field merge is correct ");
+		assertEquals("GetTermEvaluator093 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator093 field types[0] is correct ", "EQUIPPED", field1[0]);
+		assertEquals("GetTermEvaluator093 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator094()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7923,7 +7175,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator094 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator094 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7942,25 +7194,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator094");
+		assertTrue("No illegal access in getTermEvaluator094", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator094 stored term is correct " + term);
-		is(field1[0], strEq("NOTEQUIPPED"), "GetTermEvaluator094 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator094 field merge is correct ");
+		assertEquals("GetTermEvaluator094 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator094 field types[0] is correct ", "NOTEQUIPPED", field1[0]);
+		assertEquals("GetTermEvaluator094 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator095()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -7969,7 +7220,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator095 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator095 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7988,25 +7239,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator095");
+		assertTrue("No illegal access in getTermEvaluator095", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator095 stored term is correct " + term);
-		is(field1[0], strEq("CONTAINER"), "GetTermEvaluator095 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator095 field merge is correct ");
+		assertEquals("GetTermEvaluator095 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator095 field types[0] is correct ", "CONTAINER", field1[0]);
+		assertEquals("GetTermEvaluator095 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator096()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8015,7 +7265,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator096 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator096 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8034,25 +7284,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator096");
+		assertTrue("No illegal access in getTermEvaluator096", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator096 stored term is correct " + term);
-		is(field1[0], strEq("WEAPON"), "GetTermEvaluator096 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator096 field merge is correct ");
+		assertEquals("GetTermEvaluator096 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator096 field types[0] is correct ", "WEAPON", field1[0]);
+		assertEquals("GetTermEvaluator096 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator097()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8061,7 +7310,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator097 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator097 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8080,25 +7329,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator097");
+		assertTrue("No illegal access in getTermEvaluator097", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator097 stored term is correct " + term);
-		is(field1[0], strEq("ACITEM"), "GetTermEvaluator097 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator097 field merge is correct ");
+		assertEquals("GetTermEvaluator097 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator097 field types[0] is correct ", "ACITEM", field1[0]);
+		assertEquals("GetTermEvaluator097 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator098()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8107,7 +7355,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator098 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator098 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8126,27 +7374,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator098");
+		assertTrue("No illegal access in getTermEvaluator098", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator098 stored term is correct " + term);
-		is(field1[0], strEq("ARMOR"), "GetTermEvaluator098 field types[0] is correct ");
-		is(field1[1], strEq("IS"), "GetTermEvaluator098 field types[1] is correct ");
-		is(field1[2], strEq("FOO"), "GetTermEvaluator098 field types[2] is correct ");
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator098 field merge is correct ");
+		assertEquals("GetTermEvaluator098 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator098 field types[0] is correct ", "ARMOR", field1[0]);
+		assertEquals("GetTermEvaluator098 field types[1] is correct ", "IS", field1[1]);
+		assertEquals("GetTermEvaluator098 field types[2] is correct ", "FOO", field1[2]);
+		assertEquals("GetTermEvaluator098 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator099()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8155,7 +7402,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator099 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator099 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8174,27 +7421,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator099");
+		assertTrue("No illegal access in getTermEvaluator099", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator099 stored term is correct " + term);
-		is(field1[0], strEq("QUX"), "GetTermEvaluator099 field types[0] is correct ");
-		is(field1[1], strEq("NOT"), "GetTermEvaluator099 field types[1] is correct ");
-		is(field1[2], strEq("BAR"), "GetTermEvaluator099 field types[2] is correct ");
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator099 field merge is correct ");
+		assertEquals("GetTermEvaluator099 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator099 field types[0] is correct ", "QUX", field1[0]);
+		assertEquals("GetTermEvaluator099 field types[1] is correct ", "NOT", field1[1]);
+		assertEquals("GetTermEvaluator099 field types[2] is correct ", "BAR", field1[2]);
+		assertEquals("GetTermEvaluator099 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator100()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8203,7 +7449,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator100 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator100 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8222,27 +7468,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator100");
+		assertTrue("No illegal access in getTermEvaluator100", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator100 stored term is correct " + term);
-		is(field1[0], strEq("QUUX"), "GetTermEvaluator100 field types[0] is correct ");
-		is(field1[1], strEq("ADD"), "GetTermEvaluator100 field types[1] is correct ");
-		is(field1[2], strEq("BAZ"), "GetTermEvaluator100 field types[2] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator100 field merge is correct ");
+		assertEquals("GetTermEvaluator100 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator100 field types[0] is correct ", "QUUX", field1[0]);
+		assertEquals("GetTermEvaluator100 field types[1] is correct ", "ADD", field1[1]);
+		assertEquals("GetTermEvaluator100 field types[2] is correct ", "BAZ", field1[2]);
+		assertEquals("GetTermEvaluator100 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator101()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8251,7 +7496,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator101 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator101 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8270,27 +7515,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator101");
+		assertTrue("No illegal access in getTermEvaluator101", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator101 stored term is correct " + term);
-		is(field1[0], strEq("WEAPON"), "GetTermEvaluator101 field types[0] is correct ");
-		is(field1[1], strEq("IS"), "GetTermEvaluator101 field types[1] is correct ");
-		is(field1[2], strEq("FOO"), "GetTermEvaluator101 field types[2] is correct ");
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator101 field merge is correct ");
+		assertEquals("GetTermEvaluator101 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator101 field types[0] is correct ", "WEAPON", field1[0]);
+		assertEquals("GetTermEvaluator101 field types[1] is correct ", "IS", field1[1]);
+		assertEquals("GetTermEvaluator101 field types[2] is correct ", "FOO", field1[2]);
+		assertEquals("GetTermEvaluator101 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator102()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8299,7 +7543,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator102 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator102 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8318,30 +7562,29 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator102");
+		assertTrue("No illegal access in getTermEvaluator102", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator102 stored term is correct " + term);
-		is(field1[0], strEq("WEAPON"), "GetTermEvaluator102 field types[0] is correct ");
-		is(field1[1], strEq("IS"), "GetTermEvaluator102 field types[1] is correct ");
-		is(field1[2], strEq("FOO"), "GetTermEvaluator102 field types[2] is correct ");
-		is(field1[3], strEq("EQUIPPED"), "GetTermEvaluator102 field types[3] is correct ");
-		is(field1[4], strEq("ADD"), "GetTermEvaluator102 field types[4] is correct ");
-		is(field1[5], strEq("BAR"), "GetTermEvaluator102 field types[5] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator102 field merge is correct ");
+		assertEquals("GetTermEvaluator102 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator102 field types[0] is correct ", "WEAPON", field1[0]);
+		assertEquals("GetTermEvaluator102 field types[1] is correct ", "IS", field1[1]);
+		assertEquals("GetTermEvaluator102 field types[2] is correct ", "FOO", field1[2]);
+		assertEquals("GetTermEvaluator102 field types[3] is correct ", "EQUIPPED", field1[3]);
+		assertEquals("GetTermEvaluator102 field types[4] is correct ", "ADD", field1[4]);
+		assertEquals("GetTermEvaluator102 field types[5] is correct ", "BAR", field1[5]);
+		assertEquals("GetTermEvaluator102 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator103()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8350,7 +7593,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEqTypeTermEvaluator, eq(true), "GetTermEvaluator103 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator103 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -8369,25 +7612,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator103");
+		assertTrue("No illegal access in getTermEvaluator103", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator103 stored term is correct " + term);
-		is(field1[0], strEq("FOO"), "GetTermEvaluator103 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator103 field merge is correct ");
+		assertEquals("GetTermEvaluator103 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator103 field types[0] is correct ", "FOO", field1[0]);
+		assertEquals("GetTermEvaluator103 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator104()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8402,6 +7644,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator105()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8416,6 +7659,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator106()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8430,6 +7674,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator107()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8438,7 +7683,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator107 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator107 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -8457,25 +7702,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator107");
+		assertTrue("No illegal access in getTermEvaluator107", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator107 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator107 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator107 field merge is correct ");
+		assertEquals("GetTermEvaluator107 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator107 field types[0] is correct ", "", field1[0]);
+		assertEquals("GetTermEvaluator107 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator108()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8484,7 +7728,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator108 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator108 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -8503,25 +7747,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator108");
+		assertTrue("No illegal access in getTermEvaluator108", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator108 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator108 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator108 field merge is correct ");
+		assertEquals("GetTermEvaluator108 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator108 field types[0] is correct ", "", field1[0]);
+		assertEquals("GetTermEvaluator108 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator109()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8530,7 +7773,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator109 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator109 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -8549,25 +7792,24 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator109");
+		assertTrue("No illegal access in getTermEvaluator109", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator109 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator109 field types[0] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator109 field merge is correct ");
+		assertEquals("GetTermEvaluator109 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator109 field types[0] is correct ", "", field1[0]);
+		assertEquals("GetTermEvaluator109 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator110()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8582,6 +7824,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator111()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8596,6 +7839,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator112()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8610,6 +7854,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator113()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8624,6 +7869,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator114()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8638,6 +7884,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator115()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8646,7 +7893,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator115 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator115 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -8665,26 +7912,25 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator115");
+		assertTrue("No illegal access in getTermEvaluator115", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator115 stored term is correct " + term);
-		is(field1[0], strEq("IS"), "GetTermEvaluator115 field types[0] is correct ");
-		is(field1[1], strEq("FOO"), "GetTermEvaluator115 field types[1] is correct ");
-		is(field2, eq(Constants.MERGE_NONE), "GetTermEvaluator115 field merge is correct ");
+		assertEquals("GetTermEvaluator115 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator115 field types[0] is correct ", "IS", field1[0]);
+		assertEquals("GetTermEvaluator115 field types[1] is correct ", "FOO", field1[1]);
+		assertEquals("GetTermEvaluator115 field merge is correct ",
+			Constants.MERGE_NONE,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator116()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8693,7 +7939,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator116 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator116 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -8712,26 +7958,25 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator116");
+		assertTrue("No illegal access in getTermEvaluator116", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator116 stored term is correct " + term);
-		is(field1[0], strEq("NOT"), "GetTermEvaluator116 field types[0] is correct ");
-		is(field1[1], strEq("BAR"), "GetTermEvaluator116 field types[1] is correct ");
-		is(field2, eq(Constants.MERGE_LOCATION), "GetTermEvaluator116 field merge is correct ");
+		assertEquals("GetTermEvaluator116 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator116 field types[0] is correct ", "NOT", field1[0]);
+		assertEquals("GetTermEvaluator116 field types[1] is correct ", "BAR", field1[1]);
+		assertEquals("GetTermEvaluator116 field merge is correct ",
+			Constants.MERGE_LOCATION,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator117()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8740,7 +7985,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountEquipmentTermEvaluator, eq(true), "GetTermEvaluator117 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator117 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -8759,26 +8004,25 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (String[]) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator117");
+		assertTrue("No illegal access in getTermEvaluator117", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator117 stored term is correct " + term);
-		is(field1[0], strEq("ADD"), "GetTermEvaluator117 field types[0] is correct ");
-		is(field1[1], strEq("BAZ"), "GetTermEvaluator117 field types[1] is correct ");
-		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator117 field merge is correct ");
+		assertEquals("GetTermEvaluator117 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator117 field types[0] is correct ", "ADD", field1[0]);
+		assertEquals("GetTermEvaluator117 field types[1] is correct ", "BAZ", field1[1]);
+		assertEquals("GetTermEvaluator117 field merge is correct ",
+			Constants.MERGE_ALL,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator118()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8791,55 +8035,9 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	}
 
 	/**
-	 * Test 119 is a duplicate of test 109
 	 * Method: getTermEvaluator(String term, String source)
 	 */
-	//	public void testGetTermEvaluator119() {
-	//		TestHelper.loadAll();
-	//
-	//		String term = "COUNT[EQUIPMENT]";
-	//
-	//		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
-	//
-	//		is(t instanceof PCCountEquipmentTermEvaluator, eq(true),
-	//		   "GetTermEvaluator119 evaluator correct for " + term);
-	//
-	//		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
-	//
-	//		Field pF0 = (Field) TestHelper.findField(uClass, "originalText");
-	//		Field pF1 = (Field) TestHelper.findField(uClass, "types");
-	//		Field pF2 = (Field) TestHelper.findField(uClass, "merge");
-	//
-	//		String field0 = "";
-	//		String[] field1 = new String[] {};
-	//		Integer field2 = 0;
-	//		boolean ok;
-	//		try
-	//		{
-	//			ok = true;
-	//			field0 = (String) pF0.get(t);
-	//			field1 = (String[]) pF1.get(t);
-	//			field2 = (Integer) pF2.get(t);
-	//		}
-	//		catch (ClassCastException e)
-	//		{
-	//			ok = false;
-	//		}
-	//		catch (IllegalAccessException e)
-	//		{
-	//			ok = false;
-	//		}
-	//
-	//		is(ok, eq(true), "No illegal access in getTermEvaluator119");
-	//
-	//		is(field0, strEq(term), "GetTermEvaluator119 stored term is correct " + term);	       
-	//		is(field1[0], strEq(""), "GetTermEvaluator119 field types[0] is correct ");	       
-	//		is(field2, eq(Constants.MERGE_ALL), "GetTermEvaluator119 field merge is correct ");	       
-	//	}
-
-	/**
-	 * Method: getTermEvaluator(String term, String source)
-	 */
+	@Test
 	public void testGetTermEvaluator120()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8854,6 +8052,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator121()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8868,6 +8067,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator122()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8882,6 +8082,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator123()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8890,8 +8091,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator123 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator123 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAutoTermEvaluator.class;
 
@@ -8913,26 +8116,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator123");
+		assertTrue("No illegal access in getTermEvaluator123", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator123 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator123 field types[0] is correct ");
-		is(field2, eq(true), "GetTermEvaluator123 field hidden is correct ");
-		is(field3, eq(false), "GetTermEvaluator123 field visible is correct ");
+		assertEquals("GetTermEvaluator123 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator123 field types[0] is correct ", "", field1[0]);
+		assertTrue("GetTermEvaluator123 field hidden is correct ", field2);
+		assertFalse("GetTermEvaluator123 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator124()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8941,8 +8141,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator, eq(true),
-			"GetTermEvaluator124 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator124 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAutoTermEvaluator.class;
 
@@ -8964,26 +8166,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator124");
+		assertTrue("No illegal access in getTermEvaluator124", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator124 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator124 field types[0] is correct ");
-		is(field2, eq(false), "GetTermEvaluator124 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator124 field visible is correct ");
+		assertEquals("GetTermEvaluator124 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator124 field types[0] is correct ", "", field1[0]);
+		assertFalse("GetTermEvaluator124 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator124 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator125()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -8992,7 +8191,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilityNameTermEvaluator, eq(true), "GetTermEvaluator125 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator125 evaluator correct for " + term, t instanceof PCCountAbilityNameTermEvaluator);
 
 		Class<?> uClass = PCCountAbilityNameTermEvaluator.class;
 
@@ -9014,26 +8213,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator125");
+		assertTrue("No illegal access in getTermEvaluator125", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator125 stored term is correct " + term);
-		is(field1, strEq("Jack of all trades"), "GetTermEvaluator125 field key is correct ");
-		is(field2, eq(false), "GetTermEvaluator125 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator125 field visible is correct ");
+		assertEquals("GetTermEvaluator125 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator125 field key is correct ", "Jack of all trades", field1);
+		assertFalse("GetTermEvaluator125 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator125 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator126()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9042,7 +8238,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilityNameTermEvaluator, eq(true), "GetTermEvaluator126 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator126 evaluator correct for " + term, t instanceof PCCountAbilityNameTermEvaluator);
 
 		Class<?> uClass = PCCountAbilityNameTermEvaluator.class;
 
@@ -9064,26 +8260,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator126");
+		assertTrue("No illegal access in getTermEvaluator126", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator126 stored term is correct " + term);
-		is(field1, strEq("Weapon Focus (Dagger)"), "GetTermEvaluator126 field key is correct ");
-		is(field2, eq(false), "GetTermEvaluator126 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator126 field visible is correct ");
+		assertEquals("GetTermEvaluator126 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator126 field key is correct ", "Weapon Focus (Dagger)", field1);
+		assertFalse("GetTermEvaluator126 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator126 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator127()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9092,8 +8285,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator127 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator127 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
 
@@ -9115,26 +8310,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator127");
+		assertTrue("No illegal access in getTermEvaluator127", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator127 stored term is correct " + term);
-		is(field1[0], strEq("BAR"), "GetTermEvaluator127 field types[0] is correct ");
-		is(field2, eq(false), "GetTermEvaluator127 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator127 field visible is correct ");
+		assertEquals("GetTermEvaluator127 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator127 field types[0] is correct ", "BAR", field1[0]);
+		assertFalse("GetTermEvaluator127 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator127 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator128()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9143,8 +8335,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator128 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator128 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
 
@@ -9166,26 +8360,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator128");
+		assertTrue("No illegal access in getTermEvaluator128", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator128 stored term is correct " + term);
-		is(field1[0], strEq("BAZ"), "GetTermEvaluator128 field types[0] is correct ");
-		is(field2, eq(false), "GetTermEvaluator128 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator128 field visible is correct ");
+		assertEquals("GetTermEvaluator128 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator128 field types[0] is correct ", "BAZ", field1[0]);
+		assertFalse("GetTermEvaluator128 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator128 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator129()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9194,8 +8385,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator129 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator129 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureVirtualTermEvaluator.class;
 
@@ -9217,26 +8410,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator129");
+		assertTrue("No illegal access in getTermEvaluator129", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator129 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator129 field types[0] is correct ");
-		is(field2, eq(true), "GetTermEvaluator129 field hidden is correct ");
-		is(field3, eq(false), "GetTermEvaluator129 field visible is correct ");
+		assertEquals("GetTermEvaluator129 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator129 field types[0] is correct ", "", field1[0]);
+		assertTrue("GetTermEvaluator129 field hidden is correct ", field2);
+		assertFalse("GetTermEvaluator129 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator130()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9245,8 +8435,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator, eq(true),
-			"GetTermEvaluator130 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator130 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureVirtualTermEvaluator.class;
 
@@ -9268,26 +8460,23 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator130");
+		assertTrue("No illegal access in getTermEvaluator130", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator130 stored term is correct " + term);
-		is(field1[0], strEq(""), "GetTermEvaluator130 field types[0] is correct ");
-		is(field2, eq(true), "GetTermEvaluator130 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator130 field visible is correct ");
+		assertEquals("GetTermEvaluator130 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator130 field types[0] is correct ", "", field1[0]);
+		assertTrue("GetTermEvaluator130 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator130 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator131()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9296,8 +8485,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator, eq(true),
-			"GetTermEvaluator131 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator131 evaluator correct for " + term,
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
 
@@ -9319,29 +8510,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (Boolean) pF2.get(t);
 			field3 = (Boolean) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator131");
+		assertTrue("No illegal access in getTermEvaluator131", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator131 stored term is correct " + term);
-		is(field1[0], strEq("FOO"), "GetTermEvaluator131 field types[0] is correct ");
-		is(field1[1], strEq("BAR"), "GetTermEvaluator131 field types[1] is correct ");
-		is(field1[2], strEq("BAZ"), "GetTermEvaluator131 field types[2] is correct ");
-		is(field1[3], strEq("QUX"), "GetTermEvaluator131 field types[3] is correct ");
-		is(field2, eq(false), "GetTermEvaluator131 field hidden is correct ");
-		is(field3, eq(true), "GetTermEvaluator131 field visible is correct ");
+		assertEquals("GetTermEvaluator131 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator131 field types[0] is correct ", "FOO", field1[0]);
+		assertEquals("GetTermEvaluator131 field types[1] is correct ", "BAR", field1[1]);
+		assertEquals("GetTermEvaluator131 field types[2] is correct ", "BAZ", field1[2]);
+		assertEquals("GetTermEvaluator131 field types[3] is correct ", "QUX", field1[3]);
+		assertFalse("GetTermEvaluator131 field hidden is correct ", field2);
+		assertTrue("GetTermEvaluator131 field visible is correct ", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator132()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9350,8 +8538,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountFollowerTypeTermEvaluator, eq(true),
-			"GetTermEvaluator132 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator132 evaluator correct for " + term, t instanceof PCCountFollowerTypeTermEvaluator);
 
 		Class<?> uClass = PCCountFollowerTypeTermEvaluator.class;
 
@@ -9367,24 +8554,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator132");
+		assertTrue("No illegal access in getTermEvaluator132", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator132 stored term is correct " + term);
-		is(field1, strEq("MOO"), "GetTermEvaluator132 field type is correct ");
+		assertEquals("GetTermEvaluator132 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator132 field type is correct ", "MOO", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator133()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9393,8 +8577,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountFollowerTypeTransitiveTermEvaluator, eq(true),
-			"GetTermEvaluator133 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator133 evaluator correct for " + term,
+				t instanceof PCCountFollowerTypeTransitiveTermEvaluator
+		);
 
 		Class<?> uClass = PCCountFollowerTypeTransitiveTermEvaluator.class;
 
@@ -9416,26 +8602,25 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field2 = (String) pF2.get(t);
 			field3 = (String) pF3.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator133");
+		assertTrue("No illegal access in getTermEvaluator133", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator133 stored term is correct " + term);
-		is(field1, eq(0), "GetTermEvaluator133 field index is correct ");
-		is(field2, strEq("COUNT[EQTYPE]"), "GetTermEvaluator133 field newCount is correct ");
-		is(field3, strEq("MOO"), "GetTermEvaluator133 field type is correct ");
+		assertEquals("GetTermEvaluator133 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator133 field index is correct ",
+			0,
+			field1.intValue());
+		assertEquals("GetTermEvaluator133 field newCount is correct ", "COUNT[EQTYPE]", field2);
+		assertEquals("GetTermEvaluator133 field type is correct ", "MOO", field3);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator134()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9450,6 +8635,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator135()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9464,6 +8650,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator136()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9472,7 +8659,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTypeTermEvaluator, eq(true), "GetTermEvaluator136 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator136 evaluator correct for " + term, t instanceof PCSkillTypeTermEvaluator);
 
 		Class<?> uClass = PCSkillTypeTermEvaluator.class;
 
@@ -9488,24 +8675,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator136");
+		assertTrue("No illegal access in getTermEvaluator136", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator136 stored term is correct " + term);
-		is(field1, strEq("KNOWLEDGE"), "GetTermEvaluator136 field type is correct ");
+		assertEquals("GetTermEvaluator136 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator136 field type is correct ", "KNOWLEDGE", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator137()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9514,7 +8698,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTypeTermEvaluator, eq(true), "GetTermEvaluator137 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator137 evaluator correct for " + term, t instanceof PCSkillTypeTermEvaluator);
 
 		Class<?> uClass = PCSkillTypeTermEvaluator.class;
 
@@ -9530,24 +8714,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator137");
+		assertTrue("No illegal access in getTermEvaluator137", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator137 stored term is correct " + term);
-		is(field1, strEq("PERFORM"), "GetTermEvaluator137 field type is correct ");
+		assertEquals("GetTermEvaluator137 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator137 field type is correct ", "PERFORM", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator138()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9556,7 +8737,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellbookTermEvaluator, eq(true), "GetTermEvaluator138 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator138 evaluator correct for " + term, t instanceof PCCountSpellbookTermEvaluator);
 
 		Class<?> uClass = PCCountSpellbookTermEvaluator.class;
 
@@ -9569,23 +8750,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator138");
+		assertTrue("No illegal access in getTermEvaluator138", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator138 stored term is correct " + term);
+		assertEquals("GetTermEvaluator138 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator139()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9600,6 +8778,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator140()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9608,8 +8787,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellsInbookTermEvaluator, eq(true),
-			"GetTermEvaluator140 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator140 evaluator correct for " + term, t instanceof PCCountSpellsInbookTermEvaluator);
 
 		Class<?> uClass = PCCountSpellsInbookTermEvaluator.class;
 
@@ -9625,24 +8803,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator140");
+		assertTrue("No illegal access in getTermEvaluator140", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator140 stored term is correct " + term);
-		is(field1, strEq("1.0"), "GetTermEvaluator140 field book is correct ");
+		assertEquals("GetTermEvaluator140 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator140 field book is correct ", "1.0", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator141()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9657,6 +8832,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator142()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9665,7 +8841,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellsKnownTermEvaluator, eq(true), "GetTermEvaluator142 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator142 evaluator correct for " + term, t instanceof PCCountSpellsKnownTermEvaluator);
 
 		Class<?> uClass = PCCountSpellsKnownTermEvaluator.class;
 
@@ -9681,25 +8857,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (int[]) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator142");
+		assertTrue("No illegal access in getTermEvaluator142", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator142 stored term is correct " + term);
-		is(field1[0], eq(0), "GetTermEvaluator142 field nums[0] is correct ");
-		is(field1[1], eq(0), "GetTermEvaluator142 field nums[1] is correct ");
+		assertEquals("GetTermEvaluator142 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator142 field nums[0] is correct ",
+			0,
+			field1[0]);
+		assertEquals("GetTermEvaluator142 field nums[1] is correct ",
+			0,
+			field1[1]);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator143()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9714,6 +8891,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator144()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9728,6 +8906,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator145()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9742,6 +8921,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator146()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9750,7 +8930,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellTimesTermEvaluator, eq(true), "GetTermEvaluator146 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator146 evaluator correct for " + term, t instanceof PCCountSpellTimesTermEvaluator);
 
 		Class<?> uClass = PCCountSpellTimesTermEvaluator.class;
 
@@ -9775,27 +8955,32 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field3 = (Integer) pF3.get(t);
 			field4 = (Integer) pF4.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator146");
+		assertTrue("No illegal access in getTermEvaluator146", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator146 stored term is correct " + term);
-		is(field1, eq(1), "GetTermEvaluator146 field classNum is correct ");
-		is(field2, eq(2), "GetTermEvaluator146 field bookNum is correct ");
-		is(field3, eq(3), "GetTermEvaluator146 field spellLevel is correct ");
-		is(field4, eq(4), "GetTermEvaluator146 field spellNumber is correct ");
+		assertEquals("GetTermEvaluator146 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator146 field classNum is correct ",
+			1,
+			field1.intValue());
+		assertEquals("GetTermEvaluator146 field bookNum is correct ",
+			2,
+			field2.intValue());
+		assertEquals("GetTermEvaluator146 field spellLevel is correct ",
+			3,
+			field3.intValue());
+		assertEquals("GetTermEvaluator146 field spellNumber is correct ",
+			4,
+			field4.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator147()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9804,8 +8989,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCountSpellsLevelsInBookTermEvaluator, eq(true),
-			"GetTermEvaluator147 evaluator correct for " + term);
+		assertTrue(
+				"GetTermEvaluator147 evaluator correct for " + term,
+				t instanceof PCCountSpellsLevelsInBookTermEvaluator
+		);
 
 		Class<?> uClass = PCCountSpellsLevelsInBookTermEvaluator.class;
 
@@ -9824,25 +9011,26 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field1 = (Integer) pF1.get(t);
 			field2 = (Integer) pF2.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator147");
+		assertTrue("No illegal access in getTermEvaluator147", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator147 stored term is correct " + term);
-		is(field1, eq(1), "GetTermEvaluator147 field classNum is correct ");
-		is(field2, eq(2), "GetTermEvaluator147 field sbookNum is correct ");
+		assertEquals("GetTermEvaluator147 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator147 field classNum is correct ",
+			1,
+			field1.intValue());
+		assertEquals("GetTermEvaluator147 field sbookNum is correct ",
+			2,
+			field2.intValue());
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator148()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9857,6 +9045,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator149()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9871,6 +9060,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator150()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9885,6 +9075,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator151()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9899,6 +9090,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator152()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9907,7 +9099,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCEqTypeTermEvaluator, eq(true), "GetTermEvaluator152 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator152 evaluator correct for " + term, t instanceof PCEqTypeTermEvaluator);
 
 		Class<?> uClass = PCEqTypeTermEvaluator.class;
 
@@ -9920,23 +9112,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator152");
+		assertTrue("No illegal access in getTermEvaluator152", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator152 stored term is correct " + term);
+		assertEquals("GetTermEvaluator152 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator153()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9945,7 +9134,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHasDeityTermEvaluator, eq(true), "GetTermEvaluator153 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator153 evaluator correct for " + term, t instanceof PCHasDeityTermEvaluator);
 
 		Class<?> uClass = PCHasDeityTermEvaluator.class;
 
@@ -9961,24 +9150,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator153");
+		assertTrue("No illegal access in getTermEvaluator153", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator153 stored term is correct " + term);
-		is(field1, strEq("Bane"), "GetTermEvaluator153 field deity is correct ");
+		assertEquals("GetTermEvaluator153 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator153 field deity is correct ", "Bane", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator154()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -9987,7 +9173,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCHasFeatTermEvaluator, eq(true), "GetTermEvaluator154 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator154 evaluator correct for " + term, t instanceof PCHasFeatTermEvaluator);
 
 		Class<?> uClass = PCHasFeatTermEvaluator.class;
 
@@ -10003,24 +9189,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator154");
+		assertTrue("No illegal access in getTermEvaluator154", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator154 stored term is correct " + term);
-		is(field1, strEq("Endurance"), "GetTermEvaluator154 field feat is correct ");
+		assertEquals("GetTermEvaluator154 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator154 field feat is correct ", "Endurance", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator155()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10029,7 +9212,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCModEquipTermEvaluator, eq(true), "GetTermEvaluator155 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator155 evaluator correct for " + term, t instanceof PCModEquipTermEvaluator);
 
 		Class<?> uClass = PCModEquipTermEvaluator.class;
 
@@ -10045,24 +9228,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator155");
+		assertTrue("No illegal access in getTermEvaluator155", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator155 stored term is correct " + term);
-		is(field1, strEq("SPELLFAILURE"), "GetTermEvaluator155 field modEq is correct ");
+		assertEquals("GetTermEvaluator155 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator155 field modEq is correct ", "SPELLFAILURE", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator156()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10071,7 +9251,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCMovementTermEvaluator, eq(true), "GetTermEvaluator156 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator156 evaluator correct for " + term, t instanceof PCMovementTermEvaluator);
 
 		Class<?> uClass = PCMovementTermEvaluator.class;
 
@@ -10087,24 +9267,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator156");
+		assertTrue("No illegal access in getTermEvaluator156", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator156 stored term is correct " + term);
-		is(field1, strEq("Walk"), "GetTermEvaluator156 field movement is correct ");
+		assertEquals("GetTermEvaluator156 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator156 field movement is correct ", "Walk", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator157()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10119,6 +9296,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator158()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10127,7 +9305,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSizeTermEvaluator, eq(true), "GetTermEvaluator158 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator158 evaluator correct for " + term, t instanceof PCSizeTermEvaluator);
 
 		Class<?> uClass = PCSizeTermEvaluator.class;
 
@@ -10140,23 +9318,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator158");
+		assertTrue("No illegal access in getTermEvaluator158", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator158 stored term is correct " + term);
+		assertEquals("GetTermEvaluator158 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator159()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10165,7 +9340,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillRankTermEvaluator, eq(true), "GetTermEvaluator159 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator159 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -10181,24 +9356,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator159");
+		assertTrue("No illegal access in getTermEvaluator159", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator159 stored term is correct " + term);
-		is(field1, strEq("Tumble"), "GetTermEvaluator159 field rank is correct ");
+		assertEquals("GetTermEvaluator159 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator159 field rank is correct ", "Tumble", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator160()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10207,7 +9379,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillRankTermEvaluator, eq(true), "GetTermEvaluator160 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator160 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -10223,24 +9395,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator160");
+		assertTrue("No illegal access in getTermEvaluator160", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator160 stored term is correct " + term);
-		is(field1, strEq("Perform (Dance)"), "GetTermEvaluator160 field rank is correct ");
+		assertEquals("GetTermEvaluator160 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator160 field rank is correct ", "Perform (Dance)", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator161()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10249,7 +9418,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillRankTermEvaluator, eq(true), "GetTermEvaluator161 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator161 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -10265,24 +9434,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator161");
+		assertTrue("No illegal access in getTermEvaluator161", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator161 stored term is correct " + term);
-		is(field1, strEq("Perform (Sing)"), "GetTermEvaluator161 field rank is correct ");
+		assertEquals("GetTermEvaluator161 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator161 field rank is correct ", "Perform (Sing)", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator162()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10291,7 +9457,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTotalTermEvaluator, eq(true), "GetTermEvaluator162 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator162 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -10307,24 +9473,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator162");
+		assertTrue("No illegal access in getTermEvaluator162", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator162 stored term is correct " + term);
-		is(field1, strEq("Tumble"), "GetTermEvaluator162 field total is correct ");
+		assertEquals("GetTermEvaluator162 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator162 field total is correct ", "Tumble", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator163()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10333,7 +9496,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTotalTermEvaluator, eq(true), "GetTermEvaluator163 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator163 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -10349,24 +9512,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator163");
+		assertTrue("No illegal access in getTermEvaluator163", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator163 stored term is correct " + term);
-		is(field1, strEq("Perform (Dance)"), "GetTermEvaluator163 field total is correct ");
+		assertEquals("GetTermEvaluator163 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator163 field total is correct ", "Perform (Dance)", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator164()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10375,7 +9535,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCSkillTotalTermEvaluator, eq(true), "GetTermEvaluator164 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator164 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -10391,24 +9551,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator164");
+		assertTrue("No illegal access in getTermEvaluator164", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator164 stored term is correct " + term);
-		is(field1, strEq("Perform (Sing)"), "GetTermEvaluator164 field total is correct ");
+		assertEquals("GetTermEvaluator164 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator164 field total is correct ", "Perform (Sing)", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator165()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10417,7 +9574,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCVarDefinedTermEvaluator, eq(true), "GetTermEvaluator165 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator165 evaluator correct for " + term, t instanceof PCVarDefinedTermEvaluator);
 
 		Class<?> uClass = PCVarDefinedTermEvaluator.class;
 
@@ -10433,24 +9590,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator165");
+		assertTrue("No illegal access in getTermEvaluator165", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator165 stored term is correct " + term);
-		is(field1, strEq("MilkyBarsEaten"), "GetTermEvaluator165 field var is correct ");
+		assertEquals("GetTermEvaluator165 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator165 field var is correct ", "MilkyBarsEaten", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator166()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10459,7 +9613,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCarriedWeightTermEvaluator, eq(true), "GetTermEvaluator166 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator166 evaluator correct for " + term, t instanceof PCCarriedWeightTermEvaluator);
 
 		Class<?> uClass = PCCarriedWeightTermEvaluator.class;
 
@@ -10472,23 +9626,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator166");
+		assertTrue("No illegal access in getTermEvaluator166", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator166 stored term is correct " + term);
+		assertEquals("GetTermEvaluator166 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator167()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10497,7 +9648,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCCarriedWeightTermEvaluator, eq(true), "GetTermEvaluator167 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator167 evaluator correct for " + term, t instanceof PCCarriedWeightTermEvaluator);
 
 		Class<?> uClass = PCCarriedWeightTermEvaluator.class;
 
@@ -10510,23 +9661,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator167");
+		assertTrue("No illegal access in getTermEvaluator167", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator167 stored term is correct " + term);
+		assertEquals("GetTermEvaluator167 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator168()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10535,7 +9683,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCWeightTermEvaluator, eq(true), "GetTermEvaluator168 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator168 evaluator correct for " + term, t instanceof PCWeightTermEvaluator);
 
 		Class<?> uClass = PCWeightTermEvaluator.class;
 
@@ -10548,23 +9696,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator168");
+		assertTrue("No illegal access in getTermEvaluator168", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator168 stored term is correct " + term);
+		assertEquals("GetTermEvaluator168 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator169()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10573,7 +9718,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCTotalWeightTermEvaluator, eq(true), "GetTermEvaluator169 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator169 evaluator correct for " + term, t instanceof PCTotalWeightTermEvaluator);
 
 		Class<?> uClass = PCTotalWeightTermEvaluator.class;
 
@@ -10586,23 +9731,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator169");
+		assertTrue("No illegal access in getTermEvaluator169", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator169 stored term is correct " + term);
+		assertEquals("GetTermEvaluator169 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator170()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10617,6 +9759,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator171()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10625,7 +9768,11 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator171 evaluator correct for " + term);
+		Assert.assertThat(
+				"GetTermEvaluator171 evaluator correct for " + term,
+				t,
+				instanceOf(PCStatModTermEvaluator.class)
+		);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -10641,24 +9788,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator171");
+		assertTrue("No illegal access in getTermEvaluator171", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator171 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator171 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator171 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator171 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator172()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10667,7 +9811,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator172 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator172 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -10683,24 +9827,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator172");
+		assertTrue("No illegal access in getTermEvaluator172", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator172 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator172 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator172 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator172 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator173()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10709,7 +9850,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator173 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator173 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -10725,24 +9866,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator173");
+		assertTrue("No illegal access in getTermEvaluator173", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator173 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator173 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator173 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator173 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator174()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10751,7 +9889,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator174 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator174 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -10767,24 +9905,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator174");
+		assertTrue("No illegal access in getTermEvaluator174", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator174 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator174 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator174 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator174 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator175()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10793,7 +9928,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator175 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator175 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -10809,24 +9944,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator175");
+		assertTrue("No illegal access in getTermEvaluator175", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator175 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator175 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator175 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator175 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator176()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10835,7 +9967,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatModTermEvaluator, eq(true), "GetTermEvaluator176 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator176 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -10851,24 +9983,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator176");
+		assertTrue("No illegal access in getTermEvaluator176", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator176 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator176 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator176 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator176 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator177()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10877,7 +10006,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator177 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator177 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10893,24 +10022,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator177");
+		assertTrue("No illegal access in getTermEvaluator177", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator177 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator177 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator177 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator177 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator178()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10919,7 +10045,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator178 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator178 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10935,24 +10061,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator178");
+		assertTrue("No illegal access in getTermEvaluator178", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator178 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator178 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator178 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator178 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator179()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -10961,7 +10084,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator179 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator179 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10977,24 +10100,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator179");
+		assertTrue("No illegal access in getTermEvaluator179", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator179 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator179 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator179 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator179 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator180()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11003,7 +10123,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator180 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator180 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -11019,24 +10139,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator180");
+		assertTrue("No illegal access in getTermEvaluator180", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator180 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator180 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator180 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator180 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator181()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11045,7 +10162,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator181 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator181 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -11061,24 +10178,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator181");
+		assertTrue("No illegal access in getTermEvaluator181", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator181 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator181 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator181 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator181 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator182()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11087,7 +10201,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatTotalTermEvaluator, eq(true), "GetTermEvaluator182 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator182 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -11103,24 +10217,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator182");
+		assertTrue("No illegal access in getTermEvaluator182", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator182 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator182 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator182 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator182 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator183()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11129,7 +10240,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator183 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator183 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11145,24 +10256,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator183");
+		assertTrue("No illegal access in getTermEvaluator183", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator183 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator183 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator183 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator183 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator184()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11171,7 +10279,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator184 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator184 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11187,24 +10295,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator184");
+		assertTrue("No illegal access in getTermEvaluator184", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator184 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator184 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator184 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator184 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator185()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11213,7 +10318,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator185 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator185 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11229,24 +10334,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator185");
+		assertTrue("No illegal access in getTermEvaluator185", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator185 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator185 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator185 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator185 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator186()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11255,7 +10357,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator186 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator186 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11271,24 +10373,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator186");
+		assertTrue("No illegal access in getTermEvaluator186", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator186 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator186 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator186 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator186 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator187()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11297,7 +10396,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator187 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator187 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11313,24 +10412,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator187");
+		assertTrue("No illegal access in getTermEvaluator187", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator187 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator187 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator187 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator187 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator188()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11339,7 +10435,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator188 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator188 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11355,24 +10451,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator188");
+		assertTrue("No illegal access in getTermEvaluator188", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator188 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator188 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator188 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator188 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator189()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11381,7 +10474,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator189 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator189 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11397,24 +10490,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator189");
+		assertTrue("No illegal access in getTermEvaluator189", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator189 stored term is correct " + term);
-		is(field1, strEq("STR"), "GetTermEvaluator189 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator189 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator189 field statAbbrev is correct ", "STR", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator190()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11423,7 +10513,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator190 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator190 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11439,24 +10529,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator190");
+		assertTrue("No illegal access in getTermEvaluator190", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator190 stored term is correct " + term);
-		is(field1, strEq("INT"), "GetTermEvaluator190 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator190 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator190 field statAbbrev is correct ", "INT", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator191()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11465,7 +10552,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator191 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator191 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11481,24 +10568,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator191");
+		assertTrue("No illegal access in getTermEvaluator191", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator191 stored term is correct " + term);
-		is(field1, strEq("DEX"), "GetTermEvaluator191 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator191 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator191 field statAbbrev is correct ", "DEX", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator192()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11507,7 +10591,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator192 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator192 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11523,24 +10607,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator192");
+		assertTrue("No illegal access in getTermEvaluator192", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator192 stored term is correct " + term);
-		is(field1, strEq("WIS"), "GetTermEvaluator192 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator192 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator192 field statAbbrev is correct ", "WIS", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator193()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11549,7 +10630,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator193 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator193 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11565,24 +10646,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator193");
+		assertTrue("No illegal access in getTermEvaluator193", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator193 stored term is correct " + term);
-		is(field1, strEq("CON"), "GetTermEvaluator193 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator193 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator193 field statAbbrev is correct ", "CON", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator194()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11591,7 +10669,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		is(t instanceof PCStatBaseTermEvaluator, eq(true), "GetTermEvaluator194 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator194 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -11607,24 +10685,21 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			field0 = (String) pF0.get(t);
 			field1 = (String) pF1.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator194");
+		assertTrue("No illegal access in getTermEvaluator194", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator194 stored term is correct " + term);
-		is(field1, strEq("CHA"), "GetTermEvaluator194 field statAbbrev is correct ");
+		assertEquals("GetTermEvaluator194 stored term is correct " + term, term, field0);
+		assertEquals("GetTermEvaluator194 field statAbbrev is correct ", "CHA", field1);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator195()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11639,6 +10714,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator196()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11653,6 +10729,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator197()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11667,6 +10744,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator198()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11681,6 +10759,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator199()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11695,6 +10774,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator200()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11709,6 +10789,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator201()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11717,7 +10798,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQBaseCostTermEvaluator, eq(true), "GetTermEvaluator201 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator201 evaluator correct for " + term, t instanceof EQBaseCostTermEvaluator);
 
 		Class<?> uClass = EQBaseCostTermEvaluator.class;
 
@@ -11730,23 +10811,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator201");
+		assertTrue("No illegal access in getTermEvaluator201", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator201 stored term is correct " + term);
+		assertEquals("GetTermEvaluator201 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator202()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11755,7 +10833,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQCritMultTermEvaluator, eq(true), "GetTermEvaluator202 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator202 evaluator correct for " + term, t instanceof EQCritMultTermEvaluator);
 
 		Class<?> uClass = EQCritMultTermEvaluator.class;
 
@@ -11768,23 +10846,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator202");
+		assertTrue("No illegal access in getTermEvaluator202", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator202 stored term is correct " + term);
+		assertEquals("GetTermEvaluator202 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator203()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11793,7 +10868,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQDamageDiceTermEvaluator, eq(true), "GetTermEvaluator203 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator203 evaluator correct for " + term, t instanceof EQDamageDiceTermEvaluator);
 
 		Class<?> uClass = EQDamageDiceTermEvaluator.class;
 
@@ -11806,23 +10881,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator203");
+		assertTrue("No illegal access in getTermEvaluator203", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator203 stored term is correct " + term);
+		assertEquals("GetTermEvaluator203 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator204()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11831,7 +10903,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQDamageDieTermEvaluator, eq(true), "GetTermEvaluator204 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator204 evaluator correct for " + term, t instanceof EQDamageDieTermEvaluator);
 
 		Class<?> uClass = EQDamageDieTermEvaluator.class;
 
@@ -11844,23 +10916,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator204");
+		assertTrue("No illegal access in getTermEvaluator204", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator204 stored term is correct " + term);
+		assertEquals("GetTermEvaluator204 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator205()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11869,7 +10938,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQACCheckTermEvaluator, eq(true), "GetTermEvaluator205 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator205 evaluator correct for " + term, t instanceof EQACCheckTermEvaluator);
 
 		Class<?> uClass = EQACCheckTermEvaluator.class;
 
@@ -11882,23 +10951,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator205");
+		assertTrue("No illegal access in getTermEvaluator205", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator205 stored term is correct " + term);
+		assertEquals("GetTermEvaluator205 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator206()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11907,7 +10973,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQHandsTermEvaluator, eq(true), "GetTermEvaluator206 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator206 evaluator correct for " + term, t instanceof EQHandsTermEvaluator);
 
 		Class<?> uClass = EQHandsTermEvaluator.class;
 
@@ -11920,23 +10986,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator206");
+		assertTrue("No illegal access in getTermEvaluator206", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator206 stored term is correct " + term);
+		assertEquals("GetTermEvaluator206 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator207()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11945,7 +11008,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQSpellFailureTermEvaluator, eq(true), "GetTermEvaluator207 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator207 evaluator correct for " + term, t instanceof EQSpellFailureTermEvaluator);
 
 		Class<?> uClass = EQSpellFailureTermEvaluator.class;
 
@@ -11958,23 +11021,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator207");
+		assertTrue("No illegal access in getTermEvaluator207", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator207 stored term is correct " + term);
+		assertEquals("GetTermEvaluator207 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator208()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -11983,7 +11043,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQEquipSizeTermEvaluator, eq(true), "GetTermEvaluator208 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator208 evaluator correct for " + term, t instanceof EQEquipSizeTermEvaluator);
 
 		Class<?> uClass = EQEquipSizeTermEvaluator.class;
 
@@ -11996,23 +11056,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator208");
+		assertTrue("No illegal access in getTermEvaluator208", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator208 stored term is correct " + term);
+		assertEquals("GetTermEvaluator208 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator209()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12021,7 +11078,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQSizeTermEvaluator, eq(true), "GetTermEvaluator209 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator209 evaluator correct for " + term, t instanceof EQSizeTermEvaluator);
 
 		Class<?> uClass = EQSizeTermEvaluator.class;
 
@@ -12034,23 +11091,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator209");
+		assertTrue("No illegal access in getTermEvaluator209", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator209 stored term is correct " + term);
+		assertEquals("GetTermEvaluator209 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluatorAltPlusTotal()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12059,8 +11113,10 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQAltPlusTotalTermEvaluator, eq(true),
-			"EQAltPlusTotalTermEvaluator evaluator correct for " + term);
+		assertTrue(
+				"EQAltPlusTotalTermEvaluator evaluator correct for " + term,
+				t instanceof EQAltPlusTotalTermEvaluator
+		);
 
 		Class<?> uClass = EQAltPlusTotalTermEvaluator.class;
 
@@ -12073,23 +11129,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in testGetTermEvaluatorAltPlusTotal");
+		assertTrue("No illegal access in testGetTermEvaluatorAltPlusTotal", ok);
 
-		is(field0, strEq(term), "testGetTermEvaluatorAltPlusTotal stored term is correct " + term);
+		assertEquals("testGetTermEvaluatorAltPlusTotal stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluatorPlusTotal()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12098,7 +11151,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQPlusTotalTermEvaluator, eq(true), "EQPlusTotalTermEvaluator evaluator correct for " + term);
+		assertTrue("EQPlusTotalTermEvaluator evaluator correct for " + term, t instanceof EQPlusTotalTermEvaluator);
 
 		Class<?> uClass = EQPlusTotalTermEvaluator.class;
 
@@ -12111,23 +11164,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in testGetTermEvaluatorPlusTotal");
+		assertTrue("No illegal access in testGetTermEvaluatorPlusTotal", ok);
 
-		is(field0, strEq(term), "testGetTermEvaluatorPlusTotal stored term is correct " + term);
+		assertEquals("testGetTermEvaluatorPlusTotal stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator210()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12136,7 +11186,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "RACE:Gnome");
 
-		is(t instanceof EQRaceReachTermEvaluator, eq(true), "GetTermEvaluator210 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator210 evaluator correct for " + term, t instanceof EQRaceReachTermEvaluator);
 
 		Class<?> uClass = EQRaceReachTermEvaluator.class;
 
@@ -12149,23 +11199,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator210");
+		assertTrue("No illegal access in getTermEvaluator210", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator210 stored term is correct " + term);
+		assertEquals("GetTermEvaluator210 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator211()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12174,7 +11221,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQRangeTermEvaluator, eq(true), "GetTermEvaluator211 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator211 evaluator correct for " + term, t instanceof EQRangeTermEvaluator);
 
 		Class<?> uClass = EQRangeTermEvaluator.class;
 
@@ -12187,23 +11234,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator211");
+		assertTrue("No illegal access in getTermEvaluator211", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator211 stored term is correct " + term);
+		assertEquals("GetTermEvaluator211 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator212()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12212,7 +11256,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQReachTermEvaluator, eq(true), "GetTermEvaluator212 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator212 evaluator correct for " + term, t instanceof EQReachTermEvaluator);
 
 		Class<?> uClass = EQReachTermEvaluator.class;
 
@@ -12225,23 +11269,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator212");
+		assertTrue("No illegal access in getTermEvaluator212", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator212 stored term is correct " + term);
+		assertEquals("GetTermEvaluator212 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator213()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12250,7 +11291,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQReachMultTermEvaluator, eq(true), "GetTermEvaluator213 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator213 evaluator correct for " + term, t instanceof EQReachMultTermEvaluator);
 
 		Class<?> uClass = EQReachMultTermEvaluator.class;
 
@@ -12263,23 +11304,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator213");
+		assertTrue("No illegal access in getTermEvaluator213", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator213 stored term is correct " + term);
+		assertEquals("GetTermEvaluator213 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator214()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12288,7 +11326,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQSizeTermEvaluator, eq(true), "GetTermEvaluator214 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator214 evaluator correct for " + term, t instanceof EQSizeTermEvaluator);
 
 		Class<?> uClass = EQSizeTermEvaluator.class;
 
@@ -12301,23 +11339,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator214");
+		assertTrue("No illegal access in getTermEvaluator214", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator214 stored term is correct " + term);
+		assertEquals("GetTermEvaluator214 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator215()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12326,7 +11361,7 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		is(t instanceof EQWeightTermEvaluator, eq(true), "GetTermEvaluator215 evaluator correct for " + term);
+		assertTrue("GetTermEvaluator215 evaluator correct for " + term, t instanceof EQWeightTermEvaluator);
 
 		Class<?> uClass = EQWeightTermEvaluator.class;
 
@@ -12339,23 +11374,20 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 			ok = true;
 			field0 = (String) pF0.get(t);
 		}
-		catch (ClassCastException e)
-		{
-			ok = false;
-		}
-		catch (IllegalAccessException e)
+		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		is(ok, eq(true), "No illegal access in getTermEvaluator215");
+		assertTrue("No illegal access in getTermEvaluator215", ok);
 
-		is(field0, strEq(term), "GetTermEvaluator215 stored term is correct " + term);
+		assertEquals("GetTermEvaluator215 stored term is correct " + term, term, field0);
 	}
 
 	/**
 	 * Method: getTermEvaluator(String term, String source)
 	 */
+	@Test
 	public void testGetTermEvaluator216()
 	{
 		EvaluatorFactoryTest.loadAll();
@@ -12366,16 +11398,13 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		TermEvaluator t2 = EvaluatorFactory.PC.getTermEvaluator(term1, "CLASS:Ranger");
 		TermEvaluator t3 = EvaluatorFactory.PC.getTermEvaluator(term1, "CLASS:Druid");
 
-		is(t1 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t1 evaluator correct for " + term1);
-		is(t2 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t2 evaluator correct for " + term1);
-		is(t3 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t3 evaluator correct for " + term1);
+		assertTrue("GetTermEvaluator215 t1 evaluator correct for " + term1, t1 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t2 evaluator correct for " + term1, t2 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t3 evaluator correct for " + term1, t3 instanceof PCCLBeforeLevelTermEvaluator);
 
-		is(t1.equals(t2), eq(false), "t1 and t2 are different objects");
-		is(t1.equals(t3), eq(true), "t1 and t3 are the Same object");
-		is(t2.equals(t3), eq(false), "t2 and t3 are different objects");
+		assertNotEquals("t1 and t2 are different objects", t1, t2);
+		assertEquals("t1 and t3 are the Same object", t1, t3);
+		assertNotEquals("t2 and t3 are different objects", t2, t3);
 
 		String term2 = "CL;BEFORELEVEL=14";
 
@@ -12383,18 +11412,15 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		TermEvaluator t5 = EvaluatorFactory.PC.getTermEvaluator(term2, "CLASS:Ranger");
 		TermEvaluator t6 = EvaluatorFactory.PC.getTermEvaluator(term2, "CLASS:Druid");
 
-		is(t4 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t4 evaluator correct for " + term2);
-		is(t6 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t5 evaluator correct for " + term2);
-		is(t5 instanceof PCCLBeforeLevelTermEvaluator, eq(true),
-			"GetTermEvaluator215 t6 evaluator correct for " + term2);
+		assertTrue("GetTermEvaluator215 t4 evaluator correct for " + term2, t4 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t5 evaluator correct for " + term2, t6 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue("GetTermEvaluator215 t6 evaluator correct for " + term2, t5 instanceof PCCLBeforeLevelTermEvaluator);
 
-		is(t4.equals(t6), eq(true), "t4 and t6 are the Same object");
-		is(t4.equals(t5), eq(false), "t4 and t5 are different objects");
-		is(t6.equals(t5), eq(false), "t6 and t5 are different objects");
+		assertEquals("t4 and t6 are the Same object", t4, t6);
+		assertNotEquals("t4 and t5 are different objects", t4, t5);
+		assertNotEquals("t6 and t5 are different objects", t6, t5);
 
-		is(t1.equals(t4), eq(false), "t1 and t4 are diffferent objects");
+		assertNotEquals("t1 and t4 are diffferent objects", t1, t4);
 	}
 
 	/**
@@ -12430,13 +11456,12 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		PCStat cha = rc.constructCDOMObject(PCStat.class, "Charisma");
 		cha.setKeyName("CHA");
 		rc.reassociateKey("CHA", cha);
-		SettingsHandler.validateBonuses = SettingsHandler.getPCGenOption("validateBonuses", false); //$NON-NLS-1$
 	}
 
 	/**
 	 * Load and initialise the properties, plugins and GameModes
 	 */
-	public static void loadAll()
+	private static void loadAll()
 	{
 		SettingsHandler.readOptionsProperties();
 		SettingsHandler.getOptionsFromProperties(null);
@@ -12444,5 +11469,6 @@ public class EvaluatorFactoryTest extends PCGenTestCase
 		TestHelper.loadPlugins();
 		EvaluatorFactoryTest.initGameModes();
 	}
+
 
 }

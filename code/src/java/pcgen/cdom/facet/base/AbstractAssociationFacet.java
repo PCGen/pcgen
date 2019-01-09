@@ -20,6 +20,7 @@ package pcgen.cdom.facet.base;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
@@ -59,10 +60,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	public A get(IDT id, S obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object for getting association may not be null");
-		}
+		Objects.requireNonNull(obj, "Object for getting association may not be null");
 		Map<S, A> map = getCachedMap(id);
 		if (map != null)
 		{
@@ -86,14 +84,8 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	public void set(IDT id, S obj, A association)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (association == null)
-		{
-			throw new IllegalArgumentException("Association may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
+		Objects.requireNonNull(association, "Association may not be null");
 		A old = getConstructingCachedMap(id).put(obj, association);
 		if (old != null)
 		{

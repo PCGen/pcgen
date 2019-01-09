@@ -20,6 +20,7 @@
 package pcgen.cdom.base;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
@@ -103,14 +104,8 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements SelectableSet<
 	 */
 	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice, boolean any)
 	{
-		if (choice == null)
-		{
-			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
-		}
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
+		Objects.requireNonNull(choice, "PrimitiveChoiceSet cannot be null");
+		Objects.requireNonNull(name, "Name cannot be null");
 		pcs = choice;
 		setName = name;
 		useAny = any;

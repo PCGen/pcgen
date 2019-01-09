@@ -20,9 +20,7 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -56,13 +54,13 @@ public class SpecialAbilityToken extends Token
 
 			if ("DESCRIPTION".equals(subToken))
 			{
-				return getDescriptionToken(pc, i);
+				return "";
 			}
 		}
 		return getSpecialAbilityToken(pc, i);
 	}
 
-	public static String getSpecialAbilityToken(PlayerCharacter pc, int specialIndex)
+	private static String getSpecialAbilityToken(PlayerCharacter pc, int specialIndex)
 	{
 		if (specialIndex >= 0 && specialIndex < pc.getSpecialAbilityTimesList().size())
 		{
@@ -71,31 +69,4 @@ public class SpecialAbilityToken extends Token
 		return "";
 	}
 
-	public static String getDescriptionToken(PlayerCharacter pc, int specialIndex)
-	{
-		if (specialIndex >= 0 && specialIndex < pc.getSpecialAbilityTimesList().size())
-		{
-			if (SettingsHandler.isROG())
-			{
-				if ("EMPTY".equals(pc.getDescriptionLst()))
-				{
-					pc.loadDescriptionFilesInDirectory("descriptions");
-				}
-
-				String description = "";
-				String search =
-						"SA" + ':' + pc.getSpecialAbilityTimesList().get(specialIndex) + Constants.LINE_SEPARATOR;
-				int pos = pc.getDescriptionLst().indexOf(search);
-
-				if (pos >= 0)
-				{
-					description = pc.getDescriptionLst().substring(pos + search.length());
-					description = description.substring(0, description.indexOf("####") - 1).trim();
-				}
-
-				return description;
-			}
-		}
-		return "";
-	}
 }

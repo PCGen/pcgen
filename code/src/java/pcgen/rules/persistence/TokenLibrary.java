@@ -17,6 +17,7 @@
  */
 package pcgen.rules.persistence;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -439,7 +440,7 @@ public final class TokenLibrary implements PluginLoader
 				nextToken = grabToken(family, actingClass, tokenKey);
 				while (nextToken == null && actingClass != null && !actingClass.equals(stopClass))
 				{
-					actingClass = actingClass.getSuperclass();
+					actingClass = getSuperClass(actingClass);
 					nextToken = grabToken(family, actingClass, tokenKey);
 				}
 				if (stopClass == null)
@@ -448,6 +449,11 @@ public final class TokenLibrary implements PluginLoader
 				}
 				needNewToken = nextToken == null;
 			}
+		}
+
+		protected Class<?> getSuperClass(Class<?> actingClass)
+		{
+			return actingClass.getSuperclass();
 		}
 
 		protected abstract T grabToken(TokenFamily family, Class<?> cl, String key);
@@ -601,6 +607,17 @@ public final class TokenLibrary implements PluginLoader
 			return (T) MODIFIER_MAP.get(cl, key);
 		}
 
+		@Override
+		protected Class<?> getSuperClass(Class<?> actingClass)
+		{
+			if (actingClass.isArray())
+			{
+				Class<?> component = actingClass.getComponentType();
+				Class<?> parentComponent = getSuperClass(component);
+				return Array.newInstance(parentComponent, 0).getClass();
+			}
+			return super.getSuperClass(actingClass);
+		}
 	}
 
 	static class PreTokenIterator extends TokenLibrary.AbstractTokenIterator<CDOMObject, PrerequisiteParserInterface>

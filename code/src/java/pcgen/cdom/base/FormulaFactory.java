@@ -129,10 +129,7 @@ public final class FormulaFactory
 		 */
 		private NumberFormula(Number intValue)
 		{
-			if (intValue == null)
-			{
-				throw new IllegalArgumentException("Cannot create an NumberFormula with a null Number");
-			}
+			Objects.requireNonNull(intValue, "Cannot create an NumberFormula with a null Number");
 			number = intValue;
 		}
 

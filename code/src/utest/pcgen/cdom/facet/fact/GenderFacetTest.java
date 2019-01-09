@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -28,7 +28,11 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class GenderFacetTest extends TestCase
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+
+class GenderFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -39,13 +43,12 @@ public class GenderFacetTest extends TestCase
 	private CharID id;
 	private CharID altid;
 	private GenderFacet facet;
-	private TemplateFacet tfacet = new TemplateFacet();
+	private final TemplateFacet tfacet = new TemplateFacet();
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		facet = new GenderFacet();
-		super.setUp();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);

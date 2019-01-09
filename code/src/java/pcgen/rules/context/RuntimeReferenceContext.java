@@ -19,9 +19,9 @@ package pcgen.rules.context;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -38,6 +38,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import pcgen.util.StringPClassUtil;
 
 public class RuntimeReferenceContext extends AbstractReferenceContext
 {
@@ -50,6 +51,14 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 
 	protected RuntimeReferenceContext()
 	{
+	}
+
+	@Override
+	public void initialize()
+	{
+		super.initialize();
+		StringPClassUtil.getBaseClasses()
+			.forEach(baseClass -> importCDOMToFormat(baseClass));
 	}
 
 	@Override
@@ -94,8 +103,8 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> list = new ArrayList<>(map.values());
-		Collections.sort(list, new IdentitySorter());
+		List<ReferenceManufacturer<?>> list = new ArrayList<>(map.values());
+		list.sort(IdentitySorter);
 		return list;
 	}
 
@@ -105,18 +114,10 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	 * categories to the end of the list, so that things they depend upon (such as
 	 * AbilityCategory) are resolved first.
 	 */
-	private class IdentitySorter implements Comparator<ReferenceManufacturer<?>>
-	{
-		@Override
-		public int compare(ReferenceManufacturer<?> o1, ReferenceManufacturer<?> o2)
-		{
-			ClassIdentity<?> identity1 = o1.getReferenceIdentity();
-			ClassIdentity<?> identity2 = o2.getReferenceIdentity();
-			int int1 = CATEGORIZED_CLASS.isAssignableFrom(identity1.getReferenceClass()) ? 1 : 0;
-			int int2 = CATEGORIZED_CLASS.isAssignableFrom(identity2.getReferenceClass()) ? 1 : 0;
-			return int1 - int2;
-		}
-	}
+	private static final Comparator<ReferenceManufacturer<?>> IdentitySorter = Comparator.comparing(
+			referenceManufacturer -> CATEGORIZED_CLASS.isAssignableFrom(
+					referenceManufacturer.getReferenceIdentity().getReferenceClass())
+	);
 
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(ManufacturableFactory<T> factory)

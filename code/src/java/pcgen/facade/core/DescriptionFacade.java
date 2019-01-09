@@ -18,6 +18,7 @@
 package pcgen.facade.core;
 
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
@@ -35,19 +36,19 @@ public interface DescriptionFacade
 	 * Remove a chronicle entry.
 	 * @param chronicleEntry The entry to be removed.
 	 */
-	public void removeChronicleEntry(ChronicleEntryFacade chronicleEntry);
+	public void removeChronicleEntry(ChronicleEntry chronicleEntry);
 
 	/**
 	 * Retrieve the set of the character's chronicle entries.
 	 * @return The character's chronicle entries.
 	 */
-	public ListFacade<ChronicleEntryFacade> getChronicleEntries();
+	public ListFacade<ChronicleEntry> getChronicleEntries();
 
 	/**
 	 * Create a new Chronicle Entry and add it to the character's list.
 	 * @return The new ChronicleEntry.
 	 */
-	public ChronicleEntryFacade createChronicleEntry();
+	public ChronicleEntry createChronicleEntry();
 
 	/**
 	 * Retrieve the set of notes defined for the character.

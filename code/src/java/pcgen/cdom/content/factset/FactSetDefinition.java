@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content.factset;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.enumeration.DataSetID;
@@ -98,10 +100,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends ContentDefinitio
 	 */
 	public void setFactSetName(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Fact Set Name cannot be null");
-		}
+		Objects.requireNonNull(name, "Fact Set Name cannot be null");
 		if (name.isEmpty())
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be empty");

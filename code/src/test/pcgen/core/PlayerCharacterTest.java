@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -64,15 +63,13 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.Test;
 import util.TestURI;
 
 /**
  * The Class {@code PlayerCharacterTest} is responsible for testing
  * that PlayerCharacter is working correctly.
- * 
- * 
  */
-@SuppressWarnings("nls")
 public class PlayerCharacterTest extends AbstractCharacterTestCase
 {
 	Race giantRace = null;
@@ -283,6 +280,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Note: As PCClass grants feats which do not exist, the feat pool gets 
 	 * incremented instead.
 	 */
+	@Test
 	public void testGetMonsterBonusFeatsForNewLevel1()
 	{
 		readyToRun();
@@ -290,16 +288,23 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		character.setRace(giantRace);
 		character.incrementClassLevel(1, pcClass, true);
-		is((int) character.getRemainingFeatPoints(true), eq(2),
-			"One level of PCClass, PC has one feat for levels of monster class and one for a missing feat.");
+		assertEquals(
+				"One level of PCClass, PC has one feat for levels of monster class and one for a missing feat.",
+				2,
+				(int)character.getRemainingFeatPoints(true)
+		);
 		character.incrementClassLevel(1, pcClass, true);
-		is((int) character.getRemainingFeatPoints(true), eq(3),
-			"Three levels of PCClass (6 total), feats increment");
+		assertEquals(
+				"Three levels of PCClass (6 total), feats increment",
+				3,
+				(int)character.getRemainingFeatPoints(true)
+		);
 	}
 
 	/**
 	 * Test level per feat bonus to feats. 
 	 */
+	@Test
 	public void testGetNumFeatsFromLevels()
 	{
 		readyToRun();
@@ -331,29 +336,34 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * levelsperfeat progression. Stacking should only occur within like 
 	 * leveltypes or within standard progression.
 	 */
+	@Test
 	public void testGetMonsterBonusFeatsForNewLevel2()
 	{
 		readyToRun();
 		final PlayerCharacter pc = new PlayerCharacter();
 
 		pc.setRace(giantRace);
-		is((int) pc.getRemainingFeatPoints(true), eq(2),
-			"Four levels from race (4/3), PC has one racial feat.");
-		
+		assertEquals("Four levels from race (4/3), PC has one racial feat.",
+				2, pc.getRemainingFeatPoints(true), 0.0
+		);
+
 		pc.incrementClassLevel(1, class3LpfM, true);
-		is((int) pc.getRemainingFeatPoints(true), eq(2),
-			"One level of 3LpfM (1/3), four levels from race(4/3), PC has one racial feat.");
+		assertEquals("One level of 3LpfM (1/3), four levels from race(4/3), PC has one racial feat.",
+			2, (int)pc.getRemainingFeatPoints(true));
 		pc.incrementClassLevel(1, class3LpfM, true);
-		is((int) pc.getRemainingFeatPoints(true), eq(2),
-			"Two level of 3LpfM (2/3), four levels from race(4/3), PC has one racial feat.");
+		assertEquals("Two level of 3LpfM (2/3), four levels from race(4/3), PC has one racial feat.",
+				2, (int)pc.getRemainingFeatPoints(true)
+				);
 		pc.incrementClassLevel(1, class3LpfM, true);
-		is((int) pc.getRemainingFeatPoints(true), eq(3),
-			"Three level of 3LpfM (3/3), four levels from race(4/3), PC has one racial feat.");
+		assertEquals("Three level of 3LpfM (3/3), four levels from race(4/3), PC has one racial feat.",
+				3, (int)pc.getRemainingFeatPoints(true)
+		);
 	}
 	
 	/**
 	 * Tests getVariableValue.
 	 */
+	@Test
 	public void testGetVariableValue1()
 	{
 		readyToRun();
@@ -376,9 +386,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(giantRace);
 		character.incrementClassLevel(4, giantClass, true);
 
-		assertEquals(new Float(15.0), character.getVariableValue("GiantVar1",
+		assertEquals(15.0f, character.getVariableValue("GiantVar1",
 			"CLASS:Giant"));
-		assertEquals(new Float(8.0), character.getVariableValue("GiantClass1",
+		assertEquals(8.0f, character.getVariableValue("GiantClass1",
 			"CLASS:Giant"));
 
 	}
@@ -421,6 +431,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Test out the caching of variable values.
 	 */
+	@Test
 	public void testGetVariableCaching()
 	{
 		readyToRun();
@@ -449,6 +460,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test the processing of modFeat. Checks that when in select single and
 	 * close mode, only one instance of a feat with a sub-choice is added.
 	 */
+	@Test
 	public void testModFeat()
 	{
 		readyToRun();
@@ -459,11 +471,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 		ChooserFactory.useRandomChooser();
 
-		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
+		assertEquals("Start with 2 feats",
+				2, (int)character.getRemainingFeatPoints(true)
+		);
 		try
 		{
 			AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), toughness, "");
-			is((int) character.getRemainingFeatPoints(true), eq(1), "Only 1 feat used");
 		}
 		catch (HeadlessException e)
 		{
@@ -473,11 +486,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		{
 			ChooserFactory.stopUsingRandomChooser();
 		}
+		assertEquals("Only 1 feat used", 1, (int)character.getRemainingFeatPoints(true));
 	}
 
 	/**
 	 * Test that multiple exotic weapon proficiencies work correctly.
 	 */
+	@Test
 	public void testExoticWpnProf()
 	{
 		readyToRun();
@@ -510,6 +525,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Tests CL variable.
 	 */
+	@Test
 	public void testGetClassVar()
 	{
 		readyToRun();
@@ -597,6 +613,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test the skills visibility functionality. We want to ensure that
 	 * each call retrieves the right set of skills.
 	 */
+	@Test
 	public void testSkillsVisibility()
 	{
 		readyToRun();
@@ -647,6 +664,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Tests adding a spell.
 	 */
+	@Test
 	public void testAddSpells()
 	{
 		readyToRun();
@@ -757,6 +775,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Tests available spell slot calculations for a divine caster who 
 	 * memorizes spells.
 	 */
+	@Test
 	public void testAvailableSpellsMemorizedDivine()
 	{
 		readyToRun();
@@ -856,6 +875,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		}
 	}
 
+	@Test
 	public void testIsNonAbility()
 	{
 		readyToRun();
@@ -900,6 +920,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test the stacking of the same ability added via different abiltiy 
 	 * categories.
 	 */
+	@Test
 	public void testStackDifferentAbiltyCat()
 	{
 		readyToRun();
@@ -936,6 +957,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Verify that bested abilities are processed correctly.
 	 */
+	@Test
 	public void testNestedAbilities()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -968,7 +990,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertFalse("Character should have the third feat", pc.getMatchingCNAbilities(resToAcidOutputAuto).isEmpty());
 		
 	}
-	
+
+	@Test
 	public void testGetPartialStatFor()
 	{
 		readyToRun();
@@ -1006,6 +1029,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Validate the getAvailableFollowers function.
 	 */
+	@Test
 	public void testGetAvailableFollowers()
 	{
 		readyToRun();
@@ -1053,7 +1077,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 	}
-	
+
+	@Test
 	public void testGetAggregateAbilityList()
 	{
 		Ability resToAcid =
@@ -1091,6 +1116,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Test the processing and order of operations of the adjustMoveRates method.
 	 */
+	@Test
 	public void testAdjustMoveRates()
 	{
 		Ability quickFlySlowSwim =
@@ -1144,7 +1170,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals(30.0, display.movementOfType("Fly"), 0.1);
 		assertEquals(60.0, display.movementOfType("Dig"), 0.1);
 	}
-	
+
+	@Test
 	public void testMakeIntoExClass()
 	{
 		// Prepare class and ex-class
@@ -1178,6 +1205,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Hp at first level incorrect", 10, (int) pc.getHP(pcLvl1));
 	}
 
+	@Test
 	public void testGetVariableCachingRollTopNode()
 	{
 		readyToRun();
@@ -1206,6 +1234,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Validate the checkSkillModChange correctly handles non bonused
 	 * skill pools.
 	 */
+	@Test
 	public void testCheckSkillModChangeNoBonus()
 	{
 		readyToRun();
@@ -1242,6 +1271,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	/**
 	 * Validate the checkSkillModChange correctly handles SKILLPOOL bonuses
 	 */
+	@Test
 	public void testCheckSkillModChangeWithBonus()
 	{
 		readyToRun();
@@ -1295,6 +1325,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 *
 	 * TODO Testing at epic levels 21+ needs to be fixed.
 	 */
+	@Test
 	public void testbaseAttackBonusAndgetNumAttacks() throws Exception 
 	{
 		readyToRun();

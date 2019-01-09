@@ -34,7 +34,7 @@ public final class ProxyUtilities
 	private static StagingInfoFactory stagingFactory;
 
 	/**
-	 * Constructs a new TokenSupport object.
+	 * Returns a singleton (and initialized) StagingInfoFactory object.
 	 */
 	public static StagingInfoFactory getStagingFactory()
 	{

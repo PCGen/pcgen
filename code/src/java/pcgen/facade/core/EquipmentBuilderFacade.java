@@ -19,6 +19,7 @@ package pcgen.facade.core;
 
 import java.util.EnumSet;
 
+import pcgen.core.EquipmentModifier;
 import pcgen.core.SizeAdjustment;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
@@ -48,9 +49,9 @@ public interface EquipmentBuilderFacade
 		}
 	}
 
-	public boolean addModToEquipment(EquipModFacade modifier, EquipmentHead head);
+	public boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head);
 
-	public boolean removeModFromEquipment(EquipModFacade modifier, EquipmentHead head);
+	public boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head);
 
 	public boolean setName(String name);
 
@@ -60,19 +61,19 @@ public interface EquipmentBuilderFacade
 
 	public boolean setWeight(String newWeight);
 
-	public ListFacade<EquipModFacade> getAvailList(EquipmentHead head);
+	public ListFacade<EquipmentModifier> getAvailList(EquipmentHead head);
 
-	public ListFacade<EquipModFacade> getSelectedList(EquipmentHead head);
+	public ListFacade<EquipmentModifier> getSelectedList(EquipmentHead head);
 
 	public EquipmentFacade getEquipment();
 
 	/**
 	 * Is the modifier able to be added to the item of equipment?
-	 * @param eqModFacade The equipment modifier to be checked.
+	 * @param eqMod The equipment modifier to be checked.
 	 * @param head The equipment head that is being modified.
 	 * @return True if it can be added, false if not.
 	 */
-	public boolean canAddModifier(EquipModFacade eqModFacade, EquipmentHead head);
+	public boolean canAddModifier(EquipmentModifier eqMod, EquipmentHead head);
 
 	/**
 	 * Can this item of equipment be resized?

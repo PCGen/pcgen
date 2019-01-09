@@ -119,7 +119,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 			getFacet().add(null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -138,7 +138,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 			getFacet().add(id, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -391,7 +391,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 			getFacet().addAll(id, pct, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -661,7 +661,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 			getFacet().removeAll(id, pct, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// OK
 		}

@@ -21,6 +21,7 @@ package pcgen.cdom.choiceset;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.WeightedCollection;
@@ -72,10 +73,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public ReferenceChoiceSet(Collection<? extends CDOMReference<T>> col)
 	{
-		if (col == null)
-		{
-			throw new IllegalArgumentException("Choice Collection cannot be null");
-		}
+		Objects.requireNonNull(col, "Choice Collection cannot be null");
 		if (col.isEmpty())
 		{
 			throw new IllegalArgumentException("Choice Collection cannot be empty");
