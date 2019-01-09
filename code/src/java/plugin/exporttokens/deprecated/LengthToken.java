@@ -18,10 +18,14 @@
  */
 package plugin.exporttokens.deprecated;
 
-import pcgen.cdom.enumeration.PCStringKey;
+import java.util.Optional;
+
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * LENGTH.HAIR Token
@@ -41,7 +45,9 @@ public class LengthToken extends AbstractExportToken
 
 		if ("LENGTH.HAIR".equals(tokenSource))
 		{
-			retString = display.getSafeStringFor(PCStringKey.HAIRSTYLE);
+			String hairStyle = (String) ChannelUtilities
+					.readControlledChannel(display.getCharID(), CControl.HAIRSTYLEINPUT);
+			retString = Optional.ofNullable(hairStyle).orElse(Constants.EMPTY_STRING);
 		}
 
 		return retString;

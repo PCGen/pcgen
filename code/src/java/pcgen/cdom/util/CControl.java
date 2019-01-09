@@ -130,6 +130,11 @@ public final class CControl
 	public static final String DOMAINFEATURE = "DOMAINFEATURE";
 
 	/**
+	 * Code Control for the Hair Style Input Channel.
+	 */
+	public static final CControl HAIRSTYLEINPUT = new CControl("HAIRSTYLEINPUT", "HairStyle", Optional.empty(), "STRING", true, false);
+	
+	/**
 	 * Code control for the Handedness of a PC.
 	 */
 	public static final CControl HANDEDINPUT = new CControl("HANDEDINPUT", "Handed", Optional.empty(), "HANDED", true, false);

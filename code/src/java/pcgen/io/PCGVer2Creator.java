@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -93,6 +94,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.output.channel.compat.HandedCompat;
 import pcgen.system.PCGenPropBundle;
@@ -1532,7 +1534,10 @@ public final class PCGVer2Creator
 	private void appendHairStyleLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HAIRSTYLE).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
+		String hairStyle = (String) ChannelUtilities
+			.readControlledChannel(thePC.getCharID(), CControl.HAIRSTYLEINPUT);
+		buffer.append(EntityEncoder.encode(
+			Optional.ofNullable(hairStyle).orElse(Constants.EMPTY_STRING)));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

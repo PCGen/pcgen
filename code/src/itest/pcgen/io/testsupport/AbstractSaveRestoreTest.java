@@ -401,7 +401,6 @@ public abstract class AbstractSaveRestoreTest
 		pc.setStringFor(PCStringKey.PERSONALITY1, "");
 		pc.setStringFor(PCStringKey.EYECOLOR, "");
 		pc.setStringFor(PCStringKey.PLAYERSNAME, "");
-		pc.setStringFor(PCStringKey.HAIRSTYLE, "");
 		pc.setStringFor(PCStringKey.PHOBIAS, "");
 		pc.setStringFor(PCStringKey.LOCATION, "");
 		pc.setStringFor(PCStringKey.NAME, "");
