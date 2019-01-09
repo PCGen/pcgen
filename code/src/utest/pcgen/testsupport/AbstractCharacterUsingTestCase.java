@@ -127,6 +127,11 @@ public abstract class AbstractCharacterUsingTestCase
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
 		LoadContext context = Globals.getContext();
 		
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
 		FormatSupport.addBasicDefaults(context);
 		SourceFileLoader.defineBuiltinVariables(context);
 
@@ -141,7 +146,6 @@ public abstract class AbstractCharacterUsingTestCase
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");

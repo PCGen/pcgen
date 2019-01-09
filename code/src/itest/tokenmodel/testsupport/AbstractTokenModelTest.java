@@ -17,7 +17,6 @@
  */
 package tokenmodel.testsupport;
 
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -43,7 +42,6 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
-import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -289,9 +287,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		fd.setSelectable(true);
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
-		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		FormatSupport.addNoneAsDefault(context, fmtManager);
-		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
 	}
 
 	public abstract CDOMToken<?> getToken();

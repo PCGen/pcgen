@@ -22,7 +22,6 @@ import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -216,8 +215,6 @@ public abstract class AbstractJunit4CharacterTestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
-		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		FormatSupport.addNoneAsDefault(context, fmtManager);
 
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
