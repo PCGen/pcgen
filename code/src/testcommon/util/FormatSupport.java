@@ -17,11 +17,9 @@ package util;
 
 import java.util.Objects;
 
-import pcgen.base.format.HandedManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.enumeration.Handed;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 
@@ -64,9 +62,6 @@ public class FormatSupport
 			new SimpleSetModifier<>(FormatUtilities.NUMBER_MANAGER, 0));
 		varContext.addDefault(FormatUtilities.STRING_MANAGER,
 			new SimpleSetModifier<>(FormatUtilities.STRING_MANAGER, ""));
-		HandedManager handedManager = new HandedManager();
-		varContext.addDefault(handedManager,
-			new SimpleSetModifier<>(handedManager, Handed.Right));
 	}
 
 }

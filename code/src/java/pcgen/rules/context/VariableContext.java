@@ -18,6 +18,7 @@
 package pcgen.rules.context;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.calculation.FormulaModifier;
@@ -423,6 +424,12 @@ public class VariableContext implements VariableChannelFactory,
 	public void assertLegalVariableID(String varName, LegalScope varScope, FormatManager<?> formatManager)
 	{
 		variableManager.assertLegalVariableID(varName, varScope, formatManager);
+	}
+
+	@Override
+	public List<FormatManager<?>> getInvalidFormats()
+	{
+		return variableManager.getInvalidFormats();
 	}
 	/*
 	 * End: (Delegated) Items part of VariableLibrary interface
