@@ -27,7 +27,6 @@ import pcgen.cdom.base.Loadable;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -352,6 +351,5 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
-		SourceFileLoader.defineBuiltinVariables(context);
 	}
 }

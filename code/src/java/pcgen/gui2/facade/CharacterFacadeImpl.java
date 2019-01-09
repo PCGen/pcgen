@@ -148,7 +148,6 @@ import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.util.WriteableListFacade;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.facade.util.event.ChangeListener;
 import pcgen.facade.util.event.ListEvent;
@@ -195,7 +194,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Gender> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
 	private DefaultListFacade<Gender> availGenders;
-	private WriteableListFacade<Handed> availHands;
+	private DefaultListFacade<Handed> availHands;
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<Race> race;
@@ -209,7 +208,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<Language> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
 	private DefaultReferenceFacade<File> file;
-	private WriteableReferenceFacade<Handed> handedness;
+	private DefaultReferenceFacade<Handed> handedness;
 	private final UIDelegate delegate;
 	private Set<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
@@ -353,12 +352,15 @@ public class CharacterFacadeImpl
 		tabName = new DefaultReferenceFacade<>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
-		handedness = InterfaceChannelUtilities
-			.getReferenceFacade(theCharacter.getCharID(), CControl.HANDEDINPUT);
+		handedness = new DefaultReferenceFacade<>();
 		gender = new DefaultReferenceFacade<>();
 
-		availHands = HandedCompat.getAvailableHandedness(theCharacter.getCharID());
+		availHands = new DefaultListFacade<>();
 		availGenders = new DefaultListFacade<>();
+		for (Handed handed : HandedCompat.getAvailableHanded())
+		{
+			availHands.addElement(handed);
+		}
 		for (Gender availableGender : GenderCompat.getAvailableGenders())
 		{
 			availGenders.addElement(availableGender);
@@ -366,6 +368,14 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
+			for (Handed handed : availHands)
+			{
+				if (handed.equals(charDisplay.getHandedObject()))
+				{
+					handedness.set(handed);
+					break;
+				}
+			}
 			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
@@ -1694,6 +1704,14 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
+			for (Handed handed : availHands)
+			{
+				if (handed.toString().equals(charDisplay.getHanded()))
+				{
+					handedness.set(handed);
+					break;
+				}
+			}
 			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
@@ -2459,7 +2477,8 @@ public class CharacterFacadeImpl
 	@Override
 	public void setHanded(Handed handedness)
 	{
-		HandedCompat.setCurrentHandedness(theCharacter.getCharID(), handedness);
+		this.handedness.set(handedness);
+		theCharacter.setHanded(handedness);
 	}
 
 	@Override
