@@ -282,7 +282,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
-		context = Globals.getContext();
 		create(Language.class, "Common");
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
 		FactDefinition<?, String> fd =

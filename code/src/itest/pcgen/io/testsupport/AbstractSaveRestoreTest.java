@@ -95,7 +95,6 @@ import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.language.PCToken;
 
 import compare.InequalityTesterInst;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -325,7 +324,6 @@ public abstract class AbstractSaveRestoreTest
 		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
-		context = Globals.getContext();
 		create(Language.class, "Common");
 		human = create(Race.class, "Human");
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
