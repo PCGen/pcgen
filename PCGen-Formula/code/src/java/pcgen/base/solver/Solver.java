@@ -237,6 +237,8 @@ public class Solver<T>
 
 	/**
 	 * Carries the Default Value information for display in diagnosis.
+	 * 
+	 * @param <T> The format (class) of object contained in this SetModifier
 	 */
 	private static final class SetModifier<T> implements Modifier<T>
 	{

@@ -72,6 +72,13 @@ public class ModifierValueStore implements ValueStore
 		return defaultModifier.process(null);
 	}
 
+	/**
+	 * Returns the default Modifier (unresolved) for the given FormatManager.
+	 * 
+	 * @param formatManager
+	 *            The FormatManager for which the default Modifier should be returned
+	 * @return The default Modifier for the given FormatManager
+	 */
 	@SuppressWarnings("unchecked")
 	public <T> Modifier<T> get(FormatManager<T> formatManager)
 	{
