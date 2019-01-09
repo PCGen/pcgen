@@ -395,7 +395,6 @@ allprojects {
     }
     tasks.withType(Test) {
         maxHeapSize = "512m"
-        maxParallelForks = Runtime.runtime.availableProcessors() - 2
         testLogging {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
