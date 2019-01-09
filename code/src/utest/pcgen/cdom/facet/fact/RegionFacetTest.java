@@ -69,7 +69,7 @@ public class RegionFacetTest
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(Constants.NONE, facet.getFullRegion(id));
 	}
 
@@ -80,19 +80,19 @@ public class RegionFacetTest
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(Constants.NONE, facet.getFullRegion(id));
 		facet.setRegion(id, Region.getConstant(TEST_REGION_NAME));
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(TEST_REGION_NAME, facet.getCharacterRegion(id).get().toString());
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
 		facet.setSubRegion(id, SubRegion.getConstant(TEST_SUB_REGION_NAME));
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(TEST_REGION_NAME, facet.getCharacterRegion(id).get().toString());
-		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get());
-		assertEquals(TEST_SUB_REGION_NAME, facet.getCharacterSubRegion(id));
+		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get().toString());
+		assertEquals(TEST_SUB_REGION_NAME, facet.getCharacterSubRegion(id).get().toString());
 		assertEquals(TEST_FULL_REGION_NAME, facet.getFullRegion(id));
 	}
 
@@ -105,13 +105,13 @@ public class RegionFacetTest
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
 		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(Constants.NONE, facet.getFullRegion(id));
 	}
 
@@ -125,7 +125,7 @@ public class RegionFacetTest
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
 		PCTemplate pct2 = new PCTemplate();
 		pct2.setName("Other");
@@ -134,13 +134,13 @@ public class RegionFacetTest
 		assertEquals("TestRegionToo", facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals("TestRegionToo", facet.getFullRegion(id));
 		tfacet.remove(id, pct2, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
 	}
 
@@ -153,8 +153,8 @@ public class RegionFacetTest
 		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
-		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get().toString());
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(
 				Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
 				facet.getFullRegion(id)
@@ -163,7 +163,7 @@ public class RegionFacetTest
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(Constants.NONE, facet.getFullRegion(id));
 	}
 
@@ -181,15 +181,15 @@ public class RegionFacetTest
 		tfacet.add(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
-		assertEquals("TestRegionToo", facet.getSubRegion(id).get());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertEquals("TestRegionToo", facet.getSubRegion(id).get().toString());
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(Constants.NONE + " (TestRegionToo)", facet
 				.getFullRegion(id));
 		tfacet.remove(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
-		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get().toString());
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(
 				Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
 				facet.getFullRegion(id)
@@ -206,14 +206,14 @@ public class RegionFacetTest
 		tfacet.add(id, pct, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
-		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get().toString());
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(TEST_FULL_REGION_NAME, facet.getFullRegion(id));
 		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(Constants.NONE, facet.getFullRegion(id));
 	}
 
@@ -233,24 +233,24 @@ public class RegionFacetTest
 				.put(ObjectKey.SUBREGION, SubRegion
 						.getConstant("TestSubRegionToo"));
 		tfacet.add(id, pct2, this);
-		assertEquals("TestRegionToo", facet.getRegionString(id));
+		assertEquals("TestRegionToo", facet.getRegionString(id).toString());
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
-		assertEquals("TestSubRegionToo", facet.getSubRegion(id).get());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertEquals("TestSubRegionToo", facet.getSubRegion(id).get().toString());
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals("TestRegionToo (TestSubRegionToo)", facet
 				.getFullRegion(id));
 		tfacet.remove(id, pct, this);
 		assertEquals("TestRegionToo", facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
-		assertEquals("TestSubRegionToo", facet.getSubRegion(id).get());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertEquals("TestSubRegionToo", facet.getSubRegion(id).get().toString());
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals("TestRegionToo (TestSubRegionToo)", facet
 				.getFullRegion(id));
 		tfacet.remove(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
 		assertFalse(facet.getSubRegion(id).isPresent());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals(Constants.NONE, facet.getFullRegion(id));
 	}
 
@@ -269,24 +269,24 @@ public class RegionFacetTest
 				.put(ObjectKey.SUBREGION, SubRegion
 						.getConstant("TestSubRegionToo"));
 		tfacet.add(id, pct2, this);
-		assertEquals("TestRegionToo", facet.getRegionString(id));
+		assertEquals("TestRegionToo", facet.getRegionString(id).toString());
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
-		assertEquals("TestSubRegionToo", facet.getSubRegion(id).get());
-		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
+		assertEquals("TestSubRegionToo", facet.getSubRegion(id).get().toString());
+		assertFalse(facet.getCharacterSubRegion(id).isPresent());
 		assertEquals("TestRegionToo (TestSubRegionToo)", facet
 				.getFullRegion(id));
 		facet.setRegion(id, Region.getConstant(TEST_REGION_NAME));
 		facet.setSubRegion(id, SubRegion.getConstant(TEST_SUB_REGION_NAME));
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(TEST_REGION_NAME, facet.getCharacterRegion(id).get().toString());
-		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get());
-		assertEquals(TEST_SUB_REGION_NAME, facet.getCharacterSubRegion(id));
+		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get().toString());
+		assertEquals(TEST_SUB_REGION_NAME, facet.getCharacterSubRegion(id).get().toString());
 		assertEquals(TEST_FULL_REGION_NAME, facet.getFullRegion(id));
 		tfacet.remove(id, pct2, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegionString(id));
 		assertEquals(TEST_REGION_NAME, facet.getCharacterRegion(id).get().toString());
-		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get());
-		assertEquals(TEST_SUB_REGION_NAME, facet.getCharacterSubRegion(id));
+		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id).get().toString());
+		assertEquals(TEST_SUB_REGION_NAME, facet.getCharacterSubRegion(id).get().toString());
 		assertEquals(TEST_FULL_REGION_NAME, facet.getFullRegion(id));
 	}
 

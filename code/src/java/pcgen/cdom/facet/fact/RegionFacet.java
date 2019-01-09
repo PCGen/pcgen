@@ -185,9 +185,9 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	{
 		return templateFacet.getSet(id)
 				.stream()
-				.map(template -> template.get(ObjectKey.REGION))
-				.filter(Objects::nonNull)
-				.findFirst();
+				.map(template -> Optional.ofNullable(template.get(ObjectKey.REGION)))
+				.filter(Optional::isPresent)
+				.reduce(Optional.empty(), (current, next) -> next);
 	}
 
 	/**
@@ -263,9 +263,10 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		}
 
 		return templateFacet.getSet(id).stream()
-			.map(template -> template.get(ObjectKey.SUBREGION))
-			.filter(Objects::nonNull)
-			.findFirst();
+			.map(
+				template -> Optional.ofNullable(template.get(ObjectKey.SUBREGION)))
+			.filter(Optional::isPresent)
+			.reduce(Optional.empty(), (current, next) -> next);
 	}
 
 	/**
