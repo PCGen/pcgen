@@ -26,15 +26,21 @@ import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
+import pcgen.base.math.OrderedPair;
+import pcgen.base.solver.Modifier;
 import pcgen.base.solver.ModifierValueStore;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.testsupport.SimpleVarScoped;
+import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
 
 public class VariableManagerTest extends TestCase
 {
@@ -44,14 +50,15 @@ public class VariableManagerTest extends TestCase
 	private ScopeInstanceFactory instanceFactory;
 	private ScopeManagerInst legalScopeManager;
 	private VariableLibrary variableLibrary;
+	private ModifierValueStore valueStore;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		valueStore = new ModifierValueStore();
 		legalScopeManager = new ScopeManagerInst();
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
-		ModifierValueStore valueStore = new ModifierValueStore();
 		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER,
 			AbstractModifier.setNumber(0, 0));
 		valueStore.addValueFor(FormatUtilities.STRING_MANAGER,
@@ -537,5 +544,93 @@ public class VariableManagerTest extends TestCase
 		assertFalse(vidf.equals(vidm));
 
 	}
-	
+
+	@Test
+	public void testOrderOfOps()
+	{
+		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
+		legalScopeManager.registerScope(globalScope);
+		DeferredIndirect def = new DeferredIndirect();
+		valueStore.addValueFor(FormatUtilities.ORDEREDPAIR_MANAGER,
+			new IndirectModifier<>(FormatUtilities.ORDEREDPAIR_MANAGER, def));
+		variableLibrary.assertLegalVariableID("Walk", globalScope,
+			FormatUtilities.ORDEREDPAIR_MANAGER);
+		assertFalse(variableLibrary.getInvalidFormats().isEmpty());
+		def.setPair(new OrderedPair(0, 0));
+		assertTrue(variableLibrary.getInvalidFormats().isEmpty());
+	}
+
+	private static final class DeferredIndirect implements Indirect<OrderedPair>
+	{
+
+		private OrderedPair pair;
+		
+		public void setPair(OrderedPair pair)
+		{
+			this.pair = pair;
+		}
+
+		@Override
+		public OrderedPair get()
+		{
+			return pair;
+		}
+
+		@Override
+		public String getUnconverted()
+		{
+			return pair.toString();
+		}
+		
+	}
+
+	private static final class IndirectModifier<T> implements Modifier<T>
+	{
+
+		private final Indirect<T> indirect;
+		private final FormatManager<T> formatManager;
+
+		public IndirectModifier(FormatManager<T> formatManager,
+			Indirect<T> indirect)
+		{
+			this.formatManager = formatManager;
+			this.indirect = indirect;
+		}
+
+		@Override
+		public T process(EvaluationManager manager)
+		{
+			return indirect.get();
+		}
+
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+		}
+
+		@Override
+		public long getPriority()
+		{
+			return 0;
+		}
+
+		@Override
+		public FormatManager<T> getVariableFormat()
+		{
+			return formatManager;
+		}
+
+		@Override
+		public String getIdentification()
+		{
+			return "SET";
+		}
+
+		@Override
+		public String getInstructions()
+		{
+			return indirect.getUnconverted();
+		}
+	}
+
 }

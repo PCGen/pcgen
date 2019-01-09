@@ -16,9 +16,11 @@
 package pcgen.base.formula.inst;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import pcgen.base.formula.base.LegalScope;
@@ -57,7 +59,7 @@ public class VariableManager implements VariableLibrary
 	 * variable.
 	 */
 	@SuppressWarnings("PMD.LooseCoupling")
-	private final DoubleKeyMap<String, LegalScope, FormatManager<?>> variableDefs =
+	private final DoubleKeyMap<Object, LegalScope, FormatManager<?>> variableDefs =
 			new DoubleKeyMap<>(CaseInsensitiveMap.class, HashMap.class);
 
 	/**
@@ -87,7 +89,6 @@ public class VariableManager implements VariableLibrary
 				+ " was not registered with LegalScopeManager");
 		}
 		VariableID.checkLegalVarName(varName);
-		Objects.requireNonNull(formatManager.initializeFrom(defaultStore));
 		if (!variableDefs.containsKey(varName))
 		{
 			//Can't be a conflict
@@ -218,5 +219,19 @@ public class VariableManager implements VariableLibrary
 		}
 		//Recursively check parent scope
 		return getVarIDMessaged(scopeInst.getParentScope().get(), varName, messageScope);
+	}
+
+	@Override
+	public List<FormatManager<?>> getInvalidFormats()
+	{
+		Set<FormatManager<?>> formats = new HashSet<FormatManager<?>>();
+		variableDefs.getKeySet().stream()
+			.map(Object::toString)
+			.map(variableDefs::values)
+			.forEach(formats::addAll);
+		return formats.stream()
+			.filter(formatManager -> Objects
+				.isNull(formatManager.initializeFrom(defaultStore)))
+			.collect(Collectors.toList());
 	}
 }

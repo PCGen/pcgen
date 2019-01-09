@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.List;
+
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 
@@ -119,4 +121,16 @@ public interface VariableLibrary
 	 *             not a legal combination
 	 */
 	public VariableID<?> getVariableID(ScopeInstance scopeInst, String varName);
+	
+	/**
+	 * Returns a List of FormatManager objects indicating Formats for which a legal
+	 * VariableID was asserted, but for which the VariableLibrary cannot construct a
+	 * default value. Returns an empty list if all asserted Variables have a valid default
+	 * value.
+	 * 
+	 * @return A List of FormatManager objects indicating Formats for which a legal
+	 *         VariableID was asserted, but for which the VariableLibrary cannot construct
+	 *         a default value
+	 */
+	public List<FormatManager<?>> getInvalidFormats();
 }
