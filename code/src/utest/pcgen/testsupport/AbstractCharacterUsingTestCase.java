@@ -127,9 +127,7 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
-		LoadContext context = Globals.getContext();
 
-		SourceFileLoader.defineBuiltinVariables(context);
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"), FormulaFactory
 			.getFormulaFor("STRSCORE"));
@@ -141,6 +139,7 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
+		LoadContext context = Globals.getContext();
 		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);

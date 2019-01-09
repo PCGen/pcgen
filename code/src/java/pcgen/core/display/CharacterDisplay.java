@@ -40,6 +40,7 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -104,6 +105,7 @@ import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
+import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
@@ -243,6 +245,7 @@ public class CharacterDisplay
 	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
+	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet =
 			FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
@@ -646,6 +649,11 @@ public class CharacterDisplay
 	public int processOldInitiativeMod()
 	{
 		return initiativeFacet.getInitiative(id);
+	}
+
+	public Handed getHandedObject()
+	{
+		return handedFacet.getHanded(id);
 	}
 
 	public SortedSet<WeaponProf> getSortedWeaponProfs()

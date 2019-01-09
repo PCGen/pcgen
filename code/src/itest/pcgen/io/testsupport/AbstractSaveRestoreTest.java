@@ -73,7 +73,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
-import pcgen.output.channel.compat.HandedCompat;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -277,9 +276,6 @@ public abstract class AbstractSaveRestoreTest
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
-
-		context = Globals.getContext();
-		SourceFileLoader.defineBuiltinVariables(context);
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 			FormulaFactory.getFormulaFor("STRSCORE"));
@@ -331,6 +327,7 @@ public abstract class AbstractSaveRestoreTest
 		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
+		context = Globals.getContext();
 		create(Language.class, "Common");
 		human = create(Race.class, "Human");
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
@@ -406,7 +403,7 @@ public abstract class AbstractSaveRestoreTest
 		pc.setHeight(0);
 		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
 		pc.setAllowDebt(false);
-		HandedCompat.setCurrentHandedness(pc.getCharID(), Handed.Right);
+		pc.setHanded(Handed.Right);
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 0);
