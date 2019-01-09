@@ -17,11 +17,13 @@
  */
 package plugin.lsttokens.race;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.ref.WeakReference;
 import java.net.URI;
@@ -51,9 +53,9 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.orderedpair.SetModifierFactory;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 public class FaceTokenTest
@@ -61,11 +63,11 @@ public class FaceTokenTest
 
 	static FaceToken token = new FaceToken();
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
-	private static ModifierFactory<OrderedPair> m = new SetModifierFactory();
-	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
+	private static final ModifierFactory<OrderedPair> m = new SetModifierFactory();
+	private final FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	@BeforeEach
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
@@ -201,7 +203,7 @@ public class FaceTokenTest
 
 	public static void isCDOMEqual(Race cdo1, Race cdo2)
 	{
-		assertTrue("Not equal " + cdo1 + " and " + cdo2, cdo1.isCDOMEqual(cdo2));
+		assertTrue(cdo1.isCDOMEqual(cdo2), "Not equal " + cdo1 + " and " + cdo2);
 	}
 
 	protected LoadContext primaryContext;
@@ -212,7 +214,7 @@ public class FaceTokenTest
 
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
@@ -274,14 +276,7 @@ public class FaceTokenTest
 		// And that it comes back out the same again
 		String[] sUnparsed = getToken()
 				.unparse(secondaryContext, secondaryProf);
-		assertEquals(unparsed.length, sUnparsed.length);
-
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]
-			);
-		}
+		assertArrayEquals(sUnparsed, unparsed);
 		assertCleanConstruction();
 		assertTrue(secondaryContext.getReferenceContext().validate(null));
 		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
@@ -310,7 +305,7 @@ public class FaceTokenTest
 		// Set value
 		for (String s : str)
 		{
-			assertTrue("Failed to parse " + s, parse(s));
+			assertTrue(parse(s), "Failed to parse " + s);
 		}
 	}
 
@@ -324,8 +319,9 @@ public class FaceTokenTest
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + "th uparsed item to be equal",
-					str[i], unparsed[i]
+			assertEquals(
+					str[i], unparsed[i],
+					"Expected " + i + "th uparsed item to be equal"
 			);
 		}
 		return unparsed;
@@ -349,7 +345,7 @@ public class FaceTokenTest
 			Logging.addParseMessage(
 				Logging.LST_ERROR,
 				"Token generated an IllegalArgumentException: "
-					+ e.getLocalizedMessage());
+					+ e.getLocalizedMessage(), e.getStackTrace());
 			pr = new ParseResult.Fail("Token processing failed");
 		}
 
@@ -388,7 +384,7 @@ public class FaceTokenTest
 	@Test
 	public void testNoStackTraceOnNull()
 	{
-		getToken().parseToken(primaryContext, primaryProf, null);
+		assertDoesNotThrow(() -> getToken().parseToken(primaryContext, primaryProf, null));
 	}
 
 	@Test
@@ -409,14 +405,12 @@ public class FaceTokenTest
 		assertTrue(parse(s));
 		s = null;
 		System.gc();
-		assertNull("retained", wr.get());
+		assertNull(wr.get(), "retained");
 	}
 
 	protected static void expectSingle(String[] unparsed, String expected)
 	{
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		assertArrayEquals(new String[]{expected}, unparsed);
 	}
 
 	protected void assertBadUnparse()
@@ -428,9 +422,9 @@ public class FaceTokenTest
 	protected void assertConstructionError()
 	{
 		assertFalse(
-				"Expected one of validate or resolve references to be false.",
 				primaryContext.getReferenceContext().validate(null)
-						&& primaryContext.getReferenceContext().resolveReferences(null)
+						&& primaryContext.getReferenceContext().resolveReferences(null),
+				"Expected one of validate or resolve references to be false."
 		);
 	}
 
@@ -455,6 +449,6 @@ public class FaceTokenTest
 		assertTrue(pr.passed());
 		context = null;
 		System.gc();
-		assertNull("retained", wr.get());
+		assertNull(wr.get(), "retained");
 	}
 }
