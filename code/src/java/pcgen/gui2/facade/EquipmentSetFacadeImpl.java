@@ -476,7 +476,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 		Map<String, EquipNode> pathMap = new HashMap<>();
 		for (EquipNode node : getNodeList())
 		{
-			if ((node instanceof EquipNode) && (node.getIdPath() != null))
+			if (node.getIdPath() != null)
 			{
 				EquipNode eni = node;
 				pathMap.put(eni.idPath, eni);
@@ -509,10 +509,6 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	@Override
 	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity, EquipNode beforeNode)
 	{
-		if (!(node instanceof EquipNode))
-		{
-			return null;
-		}
 		if (!(equipment instanceof Equipment))
 		{
 			return null;
@@ -594,7 +590,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 
 		// Create equip set for the item
 		String id;
-		if ((beforeNode != null) && (beforeNode instanceof EquipNode))
+		if (beforeNode != null)
 		{
 			id = shiftEquipSetsDown(parentEs, beforeNode, buildPathNodeMap(), buildPathEquipSetMap());
 		}
@@ -641,7 +637,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	public boolean moveEquipment(EquipNode node, int numRowsToMove)
 	{
 		// Confirm our assumptions
-		if (!(node instanceof EquipNode) || (node.getBodyStructure() == null)
+		if ((node.getBodyStructure() == null)
 			|| (node.getNodeType() != EquipNode.NodeType.EQUIPMENT) || (node.getParent() == null))
 		{
 			return false;
@@ -710,7 +706,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	public boolean sortEquipment(EquipNode parentNode)
 	{
 		// Confirm our assumptions
-		if (!(parentNode instanceof EquipNode) || (parentNode.getBodyStructure() == null)
+		if ((parentNode.getBodyStructure() == null)
 			|| ((parentNode.getNodeType() != EquipNode.NodeType.EQUIPMENT) && (parentNode.getNodeType() != EquipNode.NodeType.BODY_SLOT)))
 		{
 			return false;
@@ -899,7 +895,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	@Override
 	public EquipmentFacade removeEquipment(EquipNode node, int quantity)
 	{
-		if (!(node instanceof EquipNode) || (node.getNodeType() != EquipNode.NodeType.EQUIPMENT))
+		if (node.getNodeType() != EquipNode.NodeType.EQUIPMENT)
 		{
 			return null;
 		}
@@ -966,7 +962,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	 */
 	private void removeChildren(EquipNode parentNode)
 	{
-		if (!(parentNode instanceof EquipNode) || (parentNode.getNodeType() != EquipNode.NodeType.EQUIPMENT))
+		if (parentNode.getNodeType() != EquipNode.NodeType.EQUIPMENT)
 		{
 			return;
 		}
