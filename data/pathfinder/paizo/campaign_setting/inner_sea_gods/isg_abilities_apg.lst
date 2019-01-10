@@ -10,6 +10,7 @@ CATEGORY=Internal|Race Traits ~ Karumzek.MOD				SPELLS:Innate|TIMES=3|CASTERLEVE
 CATEGORY=Internal|Race Traits ~ Ahmuuth Psychopomp.MOD		SPELLS:Innate|TIMES=3|CASTERLEVEL=SLA_CL|Ghostbane Dirge,12+CHA
 CATEGORY=Internal|Race Traits ~ Thognorok.MOD				SPELLS:Innate|TIMES=3|CASTERLEVEL=SLA_CL|Vomit Swarm
 CATEGORY=Internal|Race Traits ~ Dapsara.MOD					SPELLS:Innate|TIMES=3|CASTERLEVEL=SLA_CL|Saving Finale		SPELLS:Innate|TIMES=1|CASTERLEVEL=SLA_CL|Gallant Inspiration|Ghostbane Dirge,12+CHA
+CATEGORY=Internal|Race Traits ~ Chalkost.MOD				SPELLS:Innate|TIMES=1|CASTERLEVEL=SLA_CL|Crafter's Fortune
 
 ### Additional abilities dependent on the APG
 Negate Aroma			KEY:Karumzek ~ Negate Aroma				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike											DESC:A karumzek is constantly under the effect of the Negate Aroma spell.

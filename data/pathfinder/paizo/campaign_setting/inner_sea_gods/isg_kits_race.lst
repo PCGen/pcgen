@@ -781,3 +781,47 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
+STARTPACK:The Grand Defender Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Grand Defender],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LG
+RACE:The Grand Defender	!PRERACE:1,%
+NAME:The Grand Defender
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Knowledge (Dungeoneering)	RANK:9
+SKILL:Knowledge (Engineering)	RANK:9
+SKILL:Knowledge (History)		RANK:9
+SKILL:Knowledge (Local)			RANK:9
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Knowledge (Religion)		RANK:9
+SKILL:Perception				RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Stand Still
+ABILITY:CATEGORY=FEAT|Throw Anything
+ABILITY:CATEGORY=FEAT|Toughness
+LANGBONUS:Ignan|Terran
+GEAR:Warhammer	SIZE:H	LOCATION:Primary Hand
+GEAR:Heavy Steel Shield (Base)	SIZE:H	LOCATION:Equipped		EQMOD:Special Ability ~ +3 ~ Shield
+
+
+STARTPACK:Chalkost Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chalkost],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:LG
+RACE:Chalkost	!PRERACE:1,%
+NAME:Chalkost
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:TYPE=Craft				RANK:5
+SKILL:Disable Device			RANK:5
+SKILL:Knowledge (Dungeoneering)	RANK:5
+SKILL:Knowledge (Engineering)	RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+GEAR:Cestus		SIZE:M	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+
+
