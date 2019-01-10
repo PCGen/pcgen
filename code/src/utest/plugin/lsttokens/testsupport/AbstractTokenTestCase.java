@@ -40,6 +40,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 import junit.framework.TestCase;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -77,6 +78,16 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		TokenRegistration.register(getToken());
 		resetContext();
 		expectedPrimaryMessageCount = 0;
+	}
+
+	@Override
+	@After
+	public void tearDown() throws Exception
+	{
+		primaryContext = null;
+		secondaryContext = null;
+		primaryProf = null;
+		secondaryProf = null;
 	}
 
 	protected void resetContext()
