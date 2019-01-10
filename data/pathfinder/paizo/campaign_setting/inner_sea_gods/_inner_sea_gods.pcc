@@ -10,6 +10,8 @@ SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Bestiary 4
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -53,9 +55,6 @@ DATACONTROL:isg__datacontrols.lst
 
 # Advanced Player Guide Support
 ABILITY:isg_abilities_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-
-# Ultimate Magic Support
-ABILITY:isg_abilities_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
 # Data files
 ABILITY:isg_abilities.lst

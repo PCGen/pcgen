@@ -556,7 +556,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 
 
-STARTPACK:The Stabbing Beast Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Stabbing Beast],[!PRERACE:1,%]	SOURCEPAGE:p.298
+STARTPACK:The Stabbing Beast Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Stabbing Beast],[!PRERACE:1,%]	SOURCEPAGE:p.300
 ALIGN:NE
 RACE:The Stabbing Beast	!PRERACE:1,%
 NAME:The Stabbing Beast
@@ -587,7 +587,7 @@ GEAR:Sword (Short)	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Wea
 GEAR:Sword (Short)	SIZE:M	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon
 
 
-STARTPACK:Karumzek Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Karumzek],[!PRERACE:1,%]	SOURCEPAGE:p.299
+STARTPACK:Karumzek Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Karumzek],[!PRERACE:1,%]	SOURCEPAGE:p.301
 ALIGN:NE
 RACE:Karumzek	!PRERACE:1,%
 NAME:Karumzek
@@ -602,8 +602,52 @@ ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
 
 
+STARTPACK:Steward of the Skein Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Steward of the Skein],[!PRERACE:1,%]	SOURCEPAGE:p.302
+ALIGN:TN
+RACE:Steward of the Skein	!PRERACE:1,%
+NAME:Steward of the Skein
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Bluff						RANK:10
+SKILL:Diplomacy					RANK:10
+SKILL:Fly						RANK:9
+SKILL:Handle Animal				RANK:10
+SKILL:Heal						RANK:19
+SKILL:Intimidate				RANK:19
+SKILL:Knowledge (History)		RANK:19
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Knowledge (Planes)		RANK:19
+SKILL:Knowledge (Religion)		RANK:19
+SKILL:Perception				RANK:19
+SKILL:Sense Motive				RANK:19
+SKILL:Stealth					RANK:9
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spell Penetration
+LANGBONUS:Common|Draconic
 
 
+STARTPACK:Psychopomp (Ahmuuth) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Ahmuuth)],[!PRERACE:1,%]	SOURCEPAGE:p.303
+ALIGN:TN
+RACE:Psychopomp (Ahmuuth)	!PRERACE:1,%
+NAME:Ahmuuth Psychopomp
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Sense Motive				RANK:6
+SKILL:Stealth					RANK:6
+SKILL:Survival					RANK:6
+SKILL:Use Magic Device			RANK:6
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Focus (Dagger)
+GEAR:Dagger		SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Returning ~ Thrown.Special Ability ~ Bane ~ Weapon|Undead Bane
 
 
 STARTPACK:Tarrasque (Spawn of Rovagug)	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Tarrasque],[!PRERACE:1,%]		SOURCEPAGE:p.304
@@ -628,3 +672,112 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Run
 ABILITY:CATEGORY=FEAT|Staggering Critical
 TEMPLATE:Tarrasque (Spawn of Rovagug)
+
+
+STARTPACK:Qlippoth (Thognorok) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Qlippoth (Thognorok)],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:CE
+RACE:Qlippoth (Thognorok)	!PRERACE:1,%
+NAME:Thognorok Qlippoth
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Climb						RANK:5
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Ability Focus (Acid Web)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+
+
+STARTPACK:Sunlord Thalachos Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Sunlord Thalachos],[!PRERACE:1,%]	SOURCEPAGE:p.300
+ALIGN:NG
+RACE:Sunlord Thalachos	!PRERACE:1,%
+NAME:Sunlord Thalachos
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:15
+SKILL:Diplomacy					RANK:15
+SKILL:Heal						RANK:15
+SKILL:Intimidate				RANK:15
+SKILL:Knowledge (History)		RANK:15
+SKILL:Knowledge (Planes)		RANK:15
+SKILL:Knowledge (Religion)		RANK:15
+SKILL:Perception				RANK:15
+SKILL:Sense Motive				RANK:15
+SKILL:Stealth					RANK:15
+ABILITY:CATEGORY=FEAT|Double Slice
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Greater Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
+GEAR:Scimitar		SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Holy ~ Weapon.Special Ability ~ Flaming ~ Weapon
+GEAR:Scimitar		SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Holy ~ Weapon.Special Ability ~ Flaming ~ Weapon
+GEAR:Longbow (Composite)	SIZE:L	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Holy ~ Weapon.Special Ability ~ Flaming ~ Weapon.Special Quality ~ Composite Bow Strength Rating|7
+
+
+STARTPACK:Yhohm Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yhohm],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:NG
+RACE:Yhohm	!PRERACE:1,%
+NAME:Yhohm
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Fly						RANK:5
+SKILL:Heal						RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Perform (Sing)			RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:The Spirit of Adoration Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Spirit of Adoration],[!PRERACE:1,%]	SOURCEPAGE:p.300
+ALIGN:NG
+RACE:The Spirit of Adoration	!PRERACE:1,%
+NAME:The Spirit of Adoration
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics				RANK:8
+SKILL:Bluff						RANK:8
+SKILL:Diplomacy					RANK:8
+SKILL:Disguise					RANK:8
+SKILL:Fly						RANK:8
+SKILL:Handle Animal				RANK:8
+SKILL:Heal						RANK:8
+SKILL:Intimidate				RANK:8
+SKILL:Knowledge (Religion)		RANK:8
+SKILL:Perception				RANK:16
+SKILL:Perform (Dance)			RANK:16
+SKILL:Sense Motive				RANK:16
+SKILL:Spellcraft				RANK:16
+SKILL:Stealth					RANK:16
+SKILL:Use Magic Device			RANK:8
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Weapon Focus (Glaive)
+ABILITY:CATEGORY=FEAT|Wind Stance
+LANGBONUS:Auran|Common|Ignan|Shadowtongue
+GEAR:Glaive			SIZE:L	LOCATION:Both Hands		EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Dancing ~ Melee
+
+
+STARTPACK:Dapsara Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dapsara],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:NG
+RACE:Dapsara	!PRERACE:1,%
+NAME:Dapsara
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:5
+SKILL:Knowledge (History)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:TYPE=Perform				RANK:5
+SKILL:Sense Motive				RANK:5
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
