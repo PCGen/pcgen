@@ -1,5 +1,5 @@
 /*
- * Copyright James Dempsey, 2015
+* Copyright James Dempsey, 2015
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -34,11 +34,12 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 {
 
 	@Override
-	protected void additionalSetUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		LoadContext context = Globals.getContext();
 		BuildUtilities.createFactSet(context, "PANTHEON", Deity.class);
-		super.additionalSetUp();
+		finishLoad();
 	}
 
 	/**
@@ -73,5 +74,11 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 
 		assertTrue("Character's deity should match pantheon", PrereqHandler.passes(prereq,
 			character, null));
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

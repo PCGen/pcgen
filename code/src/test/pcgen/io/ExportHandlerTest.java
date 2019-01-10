@@ -92,8 +92,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
-		LoadContext context = Globals.getContext();
 
 		final LevelInfo levelInfo = new LevelInfo();
 		levelInfo.setLevelString("LEVEL");
@@ -102,9 +100,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.addLevelInfo("Default", levelInfo);
 
-		//Stats
-		setPCStat(character, dex, 16);
-		setPCStat(character, intel, 17);
+		LoadContext context = Globals.getContext();
+
 		BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
 		
 		if (aBonus != null)
@@ -112,16 +109,14 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			intel.addToListFor(ListKey.BONUS, aBonus);
 		}
 
-		// Race
 		Race testRace = new Race();
 		testRace.setName("TestRace");
-		character.setRace(testRace);
+		context.getReferenceContext().importObject(testRace);
 
-		// Class
 		PCClass myClass = new PCClass();
-		myClass.setName("My Class");
+		myClass.setName("MyClass");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		character.incrementClassLevel(5, myClass, true);
+		context.getReferenceContext().importObject(myClass);
 
 		// Skills
 		knowledge = new Skill[2];
@@ -131,18 +126,14 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		CDOMDirectSingleRef<PCStat> intelRef = CDOMDirectSingleRef.getRef(intel);
 		knowledge[0].put(ObjectKey.KEY_STAT, intelRef);
-		character.setSkillOrder(knowledge[0], 2);
 		Globals.getContext().getReferenceContext().importObject(knowledge[0]);
-		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
 		context.unconditionallyProcess(knowledge[1], "CLASSES", "MyClass");
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intelRef);
-		character.setSkillOrder(knowledge[1], 3);
 		Globals.getContext().getReferenceContext().importObject(knowledge[1]);
-		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
 		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
@@ -150,16 +141,13 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		CDOMDirectSingleRef<PCStat> dexRef = CDOMDirectSingleRef.getRef(dex);
 		tumble.put(ObjectKey.KEY_STAT, dexRef);
-		character.setSkillOrder(tumble, 4);
 		Globals.getContext().getReferenceContext().importObject(tumble);
-		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
 		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		balance.put(ObjectKey.KEY_STAT, dexRef);
-		character.setSkillOrder(balance, 1);
 		aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		
 		if (aBonus != null)
@@ -167,10 +155,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().getReferenceContext().importObject(balance);
-		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
-
-		character.calcActiveBonuses();
-
+		
 		weapon = new Equipment();
 		weapon.setName("TestWpn");
 		weapon.addToListFor(ListKey.TYPE, Type.WEAPON);
@@ -184,8 +169,31 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		armor.setName("TestArmorSuit");
 		TestHelper.addType(armor, "armor.suit");
 
-		context.getReferenceContext().buildDerivedObjects();
-		context.getReferenceContext().resolveReferences(null);
+		finishLoad();
+
+		PlayerCharacter character = getCharacter();
+		//Stats
+		setPCStat(character, dex, 16);
+		setPCStat(character, intel, 17);
+
+		// Race
+		character.setRace(testRace);
+
+		// Class
+		character.incrementClassLevel(5, myClass, true);
+
+		character.setSkillOrder(balance, 1);
+		character.setSkillOrder(knowledge[0], 2);
+		character.setSkillOrder(knowledge[1], 3);
+		character.setSkillOrder(tumble, 4);
+		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
+
+		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
+		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
+
+		character.calcActiveBonuses();
+
 	}
 
 	@Override
@@ -473,4 +481,12 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 		return retWriter.toString();
 	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//We will handle this locally
+	}
+	
+	
 }

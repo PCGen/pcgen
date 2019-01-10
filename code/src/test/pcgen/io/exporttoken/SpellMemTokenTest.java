@@ -73,12 +73,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		Globals.getContext().loadCampaignFacets();
-	}
-
-    @Override
-	protected void additionalSetUp() throws Exception
-	{
 		LoadContext context = Globals.getContext();
 
 		// Human
@@ -116,6 +110,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		context.getReferenceContext().constructCDOMObject(Domain.class, "Fire");
 		
 		context.getReferenceContext().importObject(divineClass);
+		finishLoad();
 	}
 
     @Override
@@ -211,5 +206,11 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		assertEquals("Retrieve spell from prepared list of divine caster.",
 			"Test Spell", token.getToken("SPELLMEM.0.2.1.0.NAME", character,
 				null));
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

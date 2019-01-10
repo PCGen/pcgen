@@ -34,12 +34,12 @@ public class PreFactTest extends AbstractCharacterTestCase
 {
 
 	@Override
-	protected void additionalSetUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		LoadContext context = Globals.getContext();
 		BuildUtilities.createFact(context, "Abb", Race.class);
-		
-		super.additionalSetUp();
+		finishLoad();
 	}
 
 	/**
@@ -68,5 +68,11 @@ public class PreFactTest extends AbstractCharacterTestCase
 
 		assertTrue("Character should be a matching race", PrereqHandler.passes(prereq,
 			character, null));
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

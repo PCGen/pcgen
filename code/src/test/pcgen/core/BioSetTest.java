@@ -63,10 +63,12 @@ public class BioSetTest extends AbstractCharacterTestCase
 	}
 
     @Override
-	protected void additionalSetUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA,
 			new BioSetLoader());
+		finishLoad();
 	}
 
 	@Override
@@ -153,5 +155,11 @@ public class BioSetTest extends AbstractCharacterTestCase
 		Optional<Region> region = pc.getDisplay().getRegion();
 		SettingsHandler.getGame().getBioSet().getAgeSet(region, idx);
 
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }
