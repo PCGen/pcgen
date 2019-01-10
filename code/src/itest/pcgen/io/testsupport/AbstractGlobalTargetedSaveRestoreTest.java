@@ -575,11 +575,11 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		abil.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Object o = prepare(target);
 		finishLoad();
-		assertEquals(0.0, (double) SkillRankControl.getTotalRank(pc, granted), 1.0);
+		assertEquals(0.0, SkillRankControl.getTotalRank(pc, granted), 1.0);
 		applyObject(target);
 		pc.setDirty(true);
 		pc.calcActiveBonuses();
-		assertEquals(1.0, (double) SkillRankControl.getTotalRank(pc, granted), 1.0);
+		assertEquals(1.0, SkillRankControl.getTotalRank(pc, granted), 1.0);
 		runRoundRobin(getPreEqualityCleanup());
 		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
 		Assert.assertThat((double) SkillRankControl.getTotalRank(reloadedPC, granted), closeTo(1.0f, 0.1));
