@@ -84,6 +84,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testFireNameChangedVariable()
 	{
+		finishLoad();
 		final PCClass myClass = new PCClass();
 		myClass.setName("myClass");
 		myClass.put(StringKey.KEY_NAME, "KEY_myClass");
@@ -123,6 +124,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testMonsterSkillPoints()
 	{
+		finishLoad();
 		// Create a medium bugbear first level
 		PlayerCharacter bugbear = new PlayerCharacter();
 		bugbear.setRace(bugbearRace);
@@ -230,6 +232,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aNqClass.getOriginalClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 
+		finishLoad();
+
 		// Setup character without prereqs
 		final PlayerCharacter character = getCharacter();
 
@@ -315,6 +319,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aNqClass.getOriginalClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 
+		finishLoad();
+
 		// Setup character without prereqs
 		final PlayerCharacter character = getCharacter();
 
@@ -358,6 +364,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testQualifies()
 	{
+		finishLoad();
 		// Setup character without prereqs
 		final PlayerCharacter character = getCharacter();
 
@@ -471,6 +478,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
 
+		finishLoad();
+
 		final PlayerCharacter character = getCharacter();
 		assertEquals("Highest spell level for class", 10,
 			character.getSpellSupport(megaCasterClass).getHighestLevelSpell());
@@ -539,8 +548,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
-		context.getReferenceContext().buildDerivedObjects();
-		context.loadCampaignFacets();
+
+		finishLoad();
 
 		final PlayerCharacter character = getCharacter();
 
@@ -625,8 +634,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
-		context.getReferenceContext().buildDerivedObjects();
-		context.loadCampaignFacets();
+
+		finishLoad();
 
 		final PlayerCharacter character = getCharacter();
 
@@ -732,7 +741,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					AbilityCategory.class, "TestCat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+
+		finishLoad();
+
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> mods = pcclass.getListMods(autoList);
 		assertEquals(1, mods.size());
@@ -774,6 +785,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testDefaultLevelsPerFeatMonster()
 	{
+		finishLoad();
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
@@ -791,6 +803,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testLevelsPerFeatMonster()
 	{
+		finishLoad();
 		PlayerCharacter pc = getCharacter();
 		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
@@ -810,6 +823,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testDefaultLevelsPerFeatNonMonster()
 	{
+		finishLoad();
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
@@ -827,6 +841,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testLevelsPerFeatNonMonster()
 	{
+		finishLoad();
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		humanoidClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
@@ -970,5 +985,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);
 		nqClass.getOriginalClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
+	}
+	
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

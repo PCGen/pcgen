@@ -63,8 +63,9 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	private PCClass companionClass;
 
 	@Override
-	protected void additionalSetUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		GameMode gameMode = SettingsHandler.getGame();
 		gameMode.addCRstep(0, "1/2");
 		gameMode.addCRstep(-1, "1/3");
@@ -163,15 +164,12 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		companionClass = classLoader.parseLine(context, null, companionClassLine, source);
 		context.getReferenceContext().importObject(companionClass);
 
-		context.commit();
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
 		FactDefinition<?, String> fd =
 				BuildUtilities.createFact(context, "SpellType", PCClass.class);
 		fd.setSelectable(true);
 
-		SourceFileLoader.processFactDefinitions(context);
-		context.getReferenceContext().buildDerivedObjects();
-		context.resolveDeferredTokens();
+		finishLoad();
 	}
 
 	/**
@@ -479,5 +477,11 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(centipedeRace);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/8"), pc.getDisplay().calcCR(), 0.0);
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

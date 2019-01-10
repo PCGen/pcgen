@@ -55,8 +55,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	private CampaignSourceEntry source;
 
 	@Override
-	public void additionalSetUp() throws PersistenceLayerException
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		try
 		{
 			source = new CampaignSourceEntry(new Campaign(),
@@ -102,7 +103,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		SettingsHandler.getGame().addPlusCalculation(
 			"WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)");
-
+		
+		finishLoad();
 	}
 
 	/*****************************************************************************
@@ -609,5 +611,11 @@ assertNotNull("Eqmod should be present", eqMod);
 		Equipment aEquip = eq.clone();
 		aEquip.addEqModifier(eqMod, true, null);
 		assertSame("Eqmod parent should be the equipment", aEquip, eqMod.getVariableParent().get());
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

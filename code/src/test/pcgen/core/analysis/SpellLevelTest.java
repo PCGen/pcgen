@@ -85,11 +85,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Spell bonanza");
 
 		// Do the post parsing cleanup
-		context.resolveDeferredTokens();
-		context.getReferenceContext().buildDeferredObjects();
-		context.getReferenceContext().buildDerivedObjects();
-		context.getReferenceContext().validate(null);
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		finishLoad();
 
 		PlayerCharacter aPC = getCharacter();
 
@@ -108,4 +104,9 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		
 	}
 
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
+	}
 }
