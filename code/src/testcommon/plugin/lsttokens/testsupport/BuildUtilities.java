@@ -122,7 +122,7 @@ public final class BuildUtilities
 	{
 		FactDefinition<?, String> fd = new FactDefinition<>();
 		fd.setUsableLocation(cls);
-		fd.setName("*" + factname);
+		fd.setName("TS_" + factname);
 		fd.setFactName(factname);
 		fd.setFormatManager(new StringManager());
 		context.getReferenceContext().importObject(fd);
@@ -141,7 +141,7 @@ public final class BuildUtilities
 	{
 		FactSetDefinition<?, String> fd = new FactSetDefinition<>();
 		fd.setUsableLocation(cls);
-		fd.setName("*" + factsetname);
+		fd.setName("TS_" + factsetname);
 		fd.setFactSetName(factsetname);
 		fd.setFormatManager(new StringManager());
 		context.getReferenceContext().importObject(fd);

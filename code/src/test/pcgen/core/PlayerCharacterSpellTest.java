@@ -55,12 +55,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		Globals.getContext().loadCampaignFacets();
-	}
-
-	@Override
-	protected void additionalSetUp() throws Exception
-	{
 		LoadContext context = Globals.getContext();
 		CampaignSourceEntry source = TestHelper.createSource(getClass());
 
@@ -79,7 +73,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 			source);
 		classLoader.parseClassLevelLine(context, divineClass, 1, source,
 			"CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
-		context.getReferenceContext().importObject(divineClass);
 		
 		final String domainLine = "Sun	SPELLLEVEL:DOMAIN|Sun=1|KEY_domainSpell";
 		GenericLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
@@ -92,7 +85,8 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 				context.getListContext().addToMasterList("CLASSES", classSpell,
 					ref, classSpell);
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
-		context.commit();
+
+		finishLoad();
 	}
 
 	/**
@@ -127,5 +121,11 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect number of spell lists in class list", 1, spellLists.size());
 		int level = SpellLevel.getFirstLevelForKey(classSpell, spellLists, pc);
 		assertEquals("Incorrect spell level in class list", 1, level);
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

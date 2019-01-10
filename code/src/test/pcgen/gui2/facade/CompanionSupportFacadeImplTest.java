@@ -56,6 +56,8 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		
+		companionList = Globals.getContext().getReferenceContext().constructNowIfNecessary(CompanionList.class,
+				"Familiar");
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();
 		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<>();
@@ -69,6 +71,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 			companionList.getKeyName());
 		FollowerOption option = new FollowerOption(race, ref);
 		masterRace.addToListFor(ListKey.COMPANIONLIST, option);
+		finishLoad();
 	}
 
 	/**
@@ -106,10 +109,8 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	}
 
 	@Override
-	protected void additionalSetUp() throws Exception
+	protected void defaultSetupEnd()
 	{
-		companionList = Globals.getContext().getReferenceContext().constructNowIfNecessary(CompanionList.class,
-			"Familiar");
+		//Nothing, we will trigger ourselves
 	}
-
 }
