@@ -221,11 +221,10 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		context.resolveDeferredTokens();
 		ref.buildDeferredObjects();
 		ref.buildDerivedObjects();
-		context.resolveDeferredTokens();
-//		Assert.assertTrue(ref.validate(null));
+		Assert.assertTrue(ref.validate(null));
 		Assert.assertTrue(ref.resolveReferences(null));
+		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
-		Globals.getContext().loadCampaignFacets();
 		character = new PlayerCharacter();
 	}
 
