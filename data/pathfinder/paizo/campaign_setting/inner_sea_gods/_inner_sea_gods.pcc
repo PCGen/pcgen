@@ -8,6 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PRECAMPAIGN:1,INCLUDES=Bestiary
@@ -52,9 +53,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea G
 #EXTRAFILE:OGL.txt
 
 DATACONTROL:isg__datacontrols.lst
-
-# Advanced Player Guide Support
-ABILITY:isg_abilities_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 
 # Data files
 ABILITY:isg_abilities.lst
