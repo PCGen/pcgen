@@ -865,4 +865,41 @@ ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
+STARTPACK:The Prince in Chains Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Prince in Chains],[!PRERACE:1,%]	SOURCEPAGE:p.296
+ALIGN:LE
+RACE:The Prince in Chains	!PRERACE:1,%
+NAME:The Prince in Chains
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:15
+SKILL:Climb						RANK:8
+SKILL:Intimidate				RANK:15
+SKILL:Knowledge (Planes)		RANK:15
+SKILL:Knowledge (Religion)		RANK:7
+SKILL:Perception				RANK:15
+SKILL:Stealth					RANK:15
+SKILL:Survival					RANK:15
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+LANGBONUS:Sylvan
 
+
+STARTPACK:Kyton (Lampadarius) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton (Lampadarius)],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:LE
+RACE:Kyton (Lampadarius)	!PRERACE:1,%
+NAME:Lapidarius Kyton
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Heal						RANK:5
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Arcana)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
