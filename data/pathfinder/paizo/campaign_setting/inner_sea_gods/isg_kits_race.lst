@@ -824,4 +824,45 @@ ABILITY:CATEGORY=FEAT|Power Attack
 GEAR:Cestus		SIZE:M	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
+STARTPACK:Mother's Maw Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mother's Maw],[!PRERACE:1,%]	SOURCEPAGE:p.296
+ALIGN:NE
+RACE:Mother's Maw	!PRERACE:1,%
+NAME:Mother's Maw
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:18
+SKILL:Fly						RANK:18
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:18
+SKILL:Perception				RANK:18
+SKILL:Profession (Cook)			RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Stealth					RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Staggering Critical
+LANGBONUS:Abyssal|Common|Infernal|Necril
+
+
+STARTPACK:Sarcovalt Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Sarcovalt],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:NE
+RACE:Sarcovalt	!PRERACE:1,%
+NAME:Sarcovalt
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Intimidate				RANK:4
+SKILL:Knowledge (Nature)		RANK:4
+SKILL:Knowledge (Religion)		RANK:4
+SKILL:Perception				RANK:4
+SKILL:Stealth					RANK:4
+SKILL:Survival					RANK:4
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
 
