@@ -32,4 +32,9 @@ spotbugs {
     toolVersion = "3.1.8"
 }
 
+buildScan {
+        termsOfServiceUrl = 'https://gradle.com/terms-of-service';
+        termsOfServiceAgree = 'yes'
+}
+
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }
