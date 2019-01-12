@@ -4,8 +4,6 @@
  * called from the main build.gradle file.
  *
  * Usage: gradle allReports
- * 
- * Author: James Dempsey 
  */
 
 checkstyle {
@@ -38,6 +36,11 @@ tasks.withType(SpotBugsTask) {
         xml.enabled = false
         html.enabled = true
     }
+}
+
+buildScan {
+        termsOfServiceUrl = 'https://gradle.com/terms-of-service';
+        termsOfServiceAgree = 'yes'
 }
 
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }
