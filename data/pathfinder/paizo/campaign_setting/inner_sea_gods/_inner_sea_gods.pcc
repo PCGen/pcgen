@@ -8,8 +8,11 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Bestiary 4
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -55,12 +58,16 @@ DATACONTROL:isg__datacontrols.lst
 ABILITY:isg_abilities.lst
 ABILITY:isg_abilities_faith.lst
 ABILITY:isg_abilities_feat.lst
+ABILITY:isg_abilities_races.lst
 ABILITYCATEGORY:isg_abilitycategories.lst
 CLASS:isg_classes.lst
 DEITY:isg_deities.lst
 DOMAIN:isg_domains.lst
 EQUIPMENT:isg_equip.lst
+KIT:isg_kits_race.lst
+RACE:isg_races.lst
 SPELL:isg_spells.lst
+TEMPLATE:isg_templates.lst
 
 # ENTRY DATE: 2015-02
 # LST MONKEY: Andrew Maitland
