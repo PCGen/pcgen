@@ -591,6 +591,7 @@ public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC ex
 		}
 	}
 
+	//TODO: This is commented out due to a design issue in the tokens that do not persist removal references
 //	@Test
 //	public void testInputInvalidClearDot()
 //	{
