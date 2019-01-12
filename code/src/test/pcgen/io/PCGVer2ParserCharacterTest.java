@@ -38,15 +38,16 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {
 
 	@Override
-	protected void additionalSetUp() throws Exception
+	protected void setUp() throws Exception
 	{
-		super.additionalSetUp();
+		super.setUp();
 		LoadContext context = Globals.getContext();
 		Race rakshasha =
 				context.getReferenceContext().constructCDOMObject(Race.class, "Rakshasa");
 		context
 			.unconditionallyProcess(rakshasha, "ADD", "SPELLCASTER|Sorcerer");
 		context.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
+		finishLoad();
 	}
 
 	/**
@@ -72,5 +73,11 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 		PersistentTransitionChoice<?> tc = rakshasha.getListFor(ListKey.ADD).get(0);
 		List<Object> assocList = pc.getAssocList(tc, AssociationListKey.ADD);
 		assertEquals("Number of associations for ADD " + assocList, 1, assocList.size());
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

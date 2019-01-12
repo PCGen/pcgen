@@ -42,11 +42,11 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Assert;
-
 import junit.framework.TestCase;
+import org.junit.Assert;
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
@@ -78,6 +78,7 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	protected SizeAdjustment tiny;
 	protected SizeAdjustment diminutive;
 	protected SizeAdjustment fine;
+	private LoadContext context;
 
 	/**
 	 * Sets up the absolute minimum amount of data to create a PlayerCharacter
@@ -107,7 +108,7 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 
-		LoadContext context = Globals.getContext();
+		context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
 		
 		SourceFileLoader.defineBuiltinVariables(context);
@@ -204,12 +205,26 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(BuildUtilities.getFeatCat());
-		additionalSetUp();
-		context.getReferenceContext().buildDerivedObjects();
-		context.resolveDeferredTokens();
-		Assert.assertTrue(ref.resolveReferences(null));
-		context.loadCampaignFacets();
+		defaultSetupEnd();
+	}
 
+	protected void defaultSetupEnd()
+	{
+		finishLoad();
+	}
+
+	protected void finishLoad()
+	{
+		context.commit();
+		AbstractReferenceContext ref = context.getReferenceContext();
+		SourceFileLoader.processFactDefinitions(context);
+		context.resolveDeferredTokens();
+		ref.buildDeferredObjects();
+		ref.buildDerivedObjects();
+		Assert.assertTrue(ref.validate(null));
+		Assert.assertTrue(ref.resolveReferences(null));
+		context.resolvePostDeferredTokens();
+		context.loadCampaignFacets();
 		character = new PlayerCharacter();
 	}
 
@@ -220,11 +235,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
 		context.getVariableContext().addDefault(cl,
 			new ModifierDecoration<>(defaultModifier));
-	}
-
-	protected void additionalSetUp() throws Exception
-	{
-		//override to provide info
 	}
 
 	/**
@@ -249,6 +259,8 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	protected void tearDown() throws Exception
 	{
 		character = null;
+		context = null;
+		SystemCollections.clearGameModeList();
 		super.tearDown();
 	}
 

@@ -72,6 +72,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		rideSkill.setName("Ride");
 		rideSkill.put(StringKey.KEY_NAME, "Ride");
 		rideSkill.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
+		context.getReferenceContext().importObject(rideSkill);
 		final Ability skillFocus = new Ability();
 		skillFocus.setName("Skill Focus");
 		skillFocus.put(StringKey.KEY_NAME, "Skill Focus");
@@ -84,11 +85,15 @@ public class BonusTest extends AbstractCharacterTestCase
 		saddle.setName("Saddle, Test");
 		saddle.addToListFor(ListKey.TYPE, Type.getConstant("SADDLE"));
 
+		finishLoad();
+
 		final PlayerCharacter pc = getCharacter();
 		BonusActivation.activateBonuses(rideSkill, pc);
 		double iBonus = saddleBonus.resolve(pc, "").doubleValue();
 		assertEquals("Bonus value", -5.0, iBonus, 0.05);
-		assertTrue("No saddle, should have a penalty", pc.isApplied(saddleBonus));
+		BonusObj appliedBonus = rideSkill.getListFor(ListKey.BONUS).get(0);
+		assertTrue("No saddle, should have a penalty", pc.isApplied(appliedBonus));
+		assertEquals(appliedBonus.toString(), saddleBonus.toString());
 
 		pc.addEquipment(saddle);
 		final EquipSet eqSet = new EquipSet("Test", "Test", "", saddle);
@@ -110,7 +115,6 @@ public class BonusTest extends AbstractCharacterTestCase
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
 		dummyFeat.setCDOMCategory(BuildUtilities.getFeatCat());
-		final PlayerCharacter pc = getCharacter();
 
 		// Create a variable
 		dummyFeat.put(VariableKey.getConstant("NegLevels"), FormulaFactory.ZERO);
@@ -135,6 +139,9 @@ public class BonusTest extends AbstractCharacterTestCase
 			equip.addToListFor(ListKey.BONUS, aBonus);
 		}
 
+		finishLoad();
+
+		final PlayerCharacter pc = getCharacter();
 		assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat);
@@ -207,6 +214,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 */
 	public void testBonuswithLISTValue()
 	{
+		finishLoad();
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 
@@ -235,6 +243,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 	public void testBonuswithLISTValueTwoAssoc()
 	{
+		finishLoad();
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 
@@ -272,6 +281,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 	public void testBonuswithLISTValueTwoAssocInfoList()
 	{
+		finishLoad();
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 
@@ -315,9 +325,10 @@ public class BonusTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellKnownBonusWithLISTValue()
 	{
-		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 		context.getReferenceContext().constructNowIfNecessary(PCClass.class, "Wizard");
+		finishLoad();
+		final PlayerCharacter character = getCharacter();
 
 		BonusObj bonus = Bonus.newBonus(context, "SPELLKNOWN|%LIST|1");
 		List<BonusObj> bonusList = new ArrayList<>();
@@ -337,5 +348,11 @@ public class BonusTest extends AbstractCharacterTestCase
 		assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
 		assertEquals("SPELLKNOWN.CLASS.Wizard;LEVEL.1", bp.fullyQualifiedBonusType);
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

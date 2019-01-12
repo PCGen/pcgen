@@ -36,12 +36,6 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		Globals.getContext().loadCampaignFacets();
-	}
-
-	@Override
-	protected void additionalSetUp() throws Exception
-	{
 		LoadContext context = Globals.getContext();
 		wiz = context.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		BuildUtilities.setFact(wiz, "SpellType", "Arcane");
@@ -83,6 +77,8 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
 		context.unconditionallyProcess(cure, "SCHOOL", "Useful");
+		
+		finishLoad();
 	}
 
 	public void testSimpleSchool() throws Exception
@@ -168,5 +164,11 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }
