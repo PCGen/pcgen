@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.datacontrol;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -49,9 +49,9 @@ public class SelectableTokenTest
 
 	private static SelectableToken token = new SelectableToken();
 	private static CampaignSourceEntry testCampaign;
-
-	private ContentDefinition cd;
 	private LoadContext context;
+	private ContentDefinition cd;
+
 
 	@BeforeAll
 	public static void classSetUp()
@@ -112,11 +112,9 @@ public class SelectableTokenTest
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getSelectable());
-		assertTrue(cd.getSelectable().booleanValue());
+		assertTrue(cd.getSelectable());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed);
 	}
 
 	@Test
@@ -125,11 +123,9 @@ public class SelectableTokenTest
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "NO").passed());
 		assertNotNull(cd.getSelectable());
-		assertFalse(cd.getSelectable().booleanValue());
+		assertFalse(cd.getSelectable());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("NO", unparsed[0]);
+		assertArrayEquals(new String[]{"NO"}, unparsed);
 	}
 
 }
