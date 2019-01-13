@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -230,7 +231,7 @@ public final class ExportHandler
 		try
 		{
 			FileInputStream fis = new FileInputStream(templateFile);
-			InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
+			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
 			br = new BufferedReader(isr);
 
 			// A Buffer to hold the result of the preparation
@@ -3302,7 +3303,7 @@ public final class ExportHandler
 
 		try
 		{
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(templateFile), "UTF-8"));
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(templateFile), StandardCharsets.UTF_8));
 
 			boolean betweenPipes = false;
 			StringBuilder textBetweenPipes = new StringBuilder();
