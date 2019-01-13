@@ -31,6 +31,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -275,7 +276,7 @@ public final class PCGIOHandler extends IOHandler
 
 		try
 		{
-			br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+			br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
 
 			String aLine;
 
@@ -327,7 +328,7 @@ public final class PCGIOHandler extends IOHandler
 
 		try
 		{
-			bw = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+			bw = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8));
 			bw.write(pcgString);
 			bw.flush();
 
@@ -378,7 +379,7 @@ public final class PCGIOHandler extends IOHandler
 		try
 		{
 			FileOutputStream out = new FileOutputStream(outFile);
-			bw = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+			bw = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8));
 			bw.write(pcgString);
 			bw.flush();
 
