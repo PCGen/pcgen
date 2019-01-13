@@ -154,7 +154,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
-import pcgen.gui2.util.InterfaceChannelUtilities;
+import pcgen.gui2.util.CoreInterfaceUtilities;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
@@ -389,7 +389,7 @@ public class CharacterFacadeImpl
 		GameMode game = dataSet.getGameMode();
 		if (theCharacter.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
-			alignment = InterfaceChannelUtilities.getReferenceFacade(
+			alignment = CoreInterfaceUtilities.getReferenceFacade(
 				theCharacter.getCharID(), CControl.ALIGNMENTINPUT);
 		}
 		age = new DefaultReferenceFacade<>(charDisplay.getAge());

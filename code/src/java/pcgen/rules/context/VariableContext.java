@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-9 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -49,6 +49,9 @@ import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.VariableChannel;
 import pcgen.cdom.formula.VariableChannelFactory;
 import pcgen.cdom.formula.VariableChannelFactoryInst;
+import pcgen.cdom.formula.VariableWrapper;
+import pcgen.cdom.formula.VariableWrapperFactory;
+import pcgen.cdom.formula.VariableWrapperFactoryInst;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.MasterModifierFactory;
@@ -59,7 +62,8 @@ import pcgen.util.Logging;
  * and (in some cases) subsequently while the data set associated with the parent
  * LoadContext is operating.
  */
-public class VariableContext implements VariableChannelFactory, VariableLibrary
+public class VariableContext implements VariableChannelFactory,
+		VariableWrapperFactory, VariableLibrary
 {
 	/**
 	 * This is the FormulaSetupFactory for this VariableContext. This is used to generate
@@ -129,6 +133,13 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 * VariableContext.
 	 */
 	private VariableChannelFactoryInst variableChannelFactory = new VariableChannelFactoryInst();
+
+	/**
+	 * Contains a VariableWrapperFactory used to develop VariableWrappers for this
+	 * VariableContext.
+	 */
+	private VariableWrapperFactoryInst variableWrapperFactory =
+			new VariableWrapperFactoryInst();
 
 	/**
 	 * Constructs a new VariableContext with the given ManagerFactory.
@@ -437,5 +448,29 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	}
 	/*
 	 * End: (Delegated) Items part of VariableChannelFactory interface
+	 */
+
+	/*
+	 * Begin: (Delegated) Items part of VariableWrapperFactory interface
+	 */
+	@Override
+	public VariableWrapper<?> getWrapper(CharID id, VarScoped owner, String name)
+	{
+		return variableWrapperFactory.getWrapper(id, owner, name);
+	}
+
+	@Override
+	public VariableWrapper<?> getGlobalWrapper(CharID id, String name)
+	{
+		return variableWrapperFactory.getGlobalWrapper(id, name);
+	}
+
+	@Override
+	public void disconnect(VariableWrapper<?> variableWrapper)
+	{
+		variableWrapperFactory.disconnect(variableWrapper);
+	}
+	/*
+	 * End: (Delegated) Items part of VariableWrapperFactory interface
 	 */
 }
