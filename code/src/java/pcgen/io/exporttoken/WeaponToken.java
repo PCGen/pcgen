@@ -89,23 +89,21 @@ public class WeaponToken extends Token
 	// of the weapon and calculates all data
 	// with that setting
 	/** total hit = 0 */
-	public static final int HITMODE_TOTALHIT = 0;
+	private static final int HITMODE_TOTALHIT = 0;
 	/** One weapon = 1 */
-	public static final int HITMODE_BASEHIT = 1;
+	private static final int HITMODE_BASEHIT = 1;
 	/** Two weapons, this is primary, off-hand heavy = 2 */
-	public static final int HITMODE_TWPHITH = 2;
+	private static final int HITMODE_TWPHITH = 2;
 	/** Two weapons, this is primary, off-hand light = 3 */
-	public static final int HITMODE_TWPHITL = 3;
+	private static final int HITMODE_TWPHITL = 3;
 	/** Two weapons, this is off-hand (heavy) = 4 */
-	public static final int HITMODE_TWOHIT = 4;
-	/** Two weapons, this is off-hand (heavy) = 4 */
-	public static final int HITMODE_TWFOHH = 4;
+	private static final int HITMODE_TWOHIT = 4;
 	/** Two weapons, this is off-hand (light) = 5 */
-	public static final int HITMODE_TWFOHL = 5;
+	private static final int HITMODE_TWFOHL = 5;
 	/** One weapon, off-hand = 6 */
-	public static final int HITMODE_OHHIT = 6;
+	private static final int HITMODE_OHHIT = 6;
 	/** One weapon, both-hands = 7 */
-	public static final int HITMODE_THHIT = 7;
+	private static final int HITMODE_THHIT = 7;
 
 	@Override
 	public String getTokenName()
@@ -1550,7 +1548,7 @@ public class WeaponToken extends Token
 			else
 			{
 				// offhand heavy
-				hitMode = HITMODE_TWFOHH;
+				hitMode = HITMODE_TWOHIT;
 			}
 		}
 		// Just a single off-hand weapon
@@ -1887,8 +1885,8 @@ public class WeaponToken extends Token
 				baseBonus += pc.getOffHandLightBonus();
 			}
 
-			if ((hitMode == HITMODE_TWOHIT) || (hitMode == HITMODE_OHHIT) || (hitMode == HITMODE_TWFOHL)
-				|| (hitMode == HITMODE_TWFOHH))
+			if ((hitMode == HITMODE_OHHIT) || (hitMode == HITMODE_TWFOHL)
+					|| (hitMode == HITMODE_TWOHIT))
 			{
 				secondaryBonus = (int) pc.getTotalBonusTo("COMBAT", "TOHIT-SECONDARY");
 
@@ -1939,8 +1937,8 @@ public class WeaponToken extends Token
 			baseBonus += primaryBonus;
 		}
 
-		if (hitMode == HITMODE_TWOHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWFOHL
-			|| hitMode == HITMODE_TWFOHH)
+		if (hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWFOHL
+				|| hitMode == HITMODE_TWOHIT)
 		{
 			baseBonus += secondaryBonus;
 		}
