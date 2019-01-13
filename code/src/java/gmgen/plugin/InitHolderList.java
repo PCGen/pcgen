@@ -39,7 +39,10 @@ public class InitHolderList extends ArrayList<InitHolder>
 	 */
 	public int getMaxInit()
 	{
-		return this.stream().mapToInt(holder -> holder.getInitiative().getCurrentInitiative()).max().orElse(20);
+		return this.stream()
+		           .mapToInt(holder -> holder.getInitiative().getCurrentInitiative())
+		           .max()
+		           .orElse(20);
 	}
 
 	/**
@@ -172,8 +175,10 @@ public class InitHolderList extends ArrayList<InitHolder>
 	public boolean initValid(int init)
 	{
 
-		return this.stream().filter(c -> c.getStatus() != State.Dead)
-			.mapToInt(c -> c.getInitiative().getCurrentInitiative()).anyMatch(cInit -> cInit == init);
+		return this.stream()
+		           .filter(c -> c.getStatus() != State.Dead)
+		           .mapToInt(c -> c.getInitiative().getCurrentInitiative())
+			       .anyMatch(cInit -> cInit == init);
 	}
 
 	/** sorts the list based on initiative */

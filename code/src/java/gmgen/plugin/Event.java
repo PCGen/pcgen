@@ -24,9 +24,9 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.Vector;
 
-import org.jdom2.Element;
-
 import pcgen.util.Logging;
+
+import org.jdom2.Element;
 
 /**
  */
@@ -38,7 +38,7 @@ public class Event implements InitHolder
 	protected String name;
 	protected String player;
 	protected State status = State.Active;
-	protected boolean alert;
+	private boolean alert;
 	protected int duration;
 
 	/**
@@ -331,7 +331,7 @@ public class Event implements InitHolder
 	{
 		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
-		Integer intData = Integer.valueOf(strData);
+		int intData = Integer.parseInt(strData);
 		
 		switch (columnName)
 		{
@@ -345,10 +345,10 @@ public class Event implements InitHolder
 				setStatus(State.getStateLocalised(strData));
 				break;
 			case "Init": // Spell's Initiative
-				init.setCurrentInitiative(intData.intValue());
+				init.setCurrentInitiative(intData);
 				break;
 			case "Dur": // Spell's duration
-				setDuration(intData.intValue());
+				setDuration(intData);
 				break;
 			default:
 				//Case not caught, should this cause an error?
