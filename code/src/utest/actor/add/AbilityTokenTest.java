@@ -37,11 +37,13 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
+
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.After;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -55,12 +57,22 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 
 	protected LoadContext context;
 
+	@Override
 	@BeforeEach
-	void setUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@After
+	@Override
+	protected void tearDown() throws Exception
+	{
+		context = null;
+		super.tearDown();
 	}
 
 	@Test
