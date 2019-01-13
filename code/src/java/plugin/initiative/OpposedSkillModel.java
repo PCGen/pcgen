@@ -33,16 +33,7 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 
 /**
- * <p>
  * Overrides OpposedSkillBasicModel to provide basic skill rolling abilities.
- * </p>
- *
- * <p>
- * </p>
- * <p>
- * </p>
- * <p>
- * </p>
  */
 public class OpposedSkillModel extends OpposedSkillBasicModel
 {
