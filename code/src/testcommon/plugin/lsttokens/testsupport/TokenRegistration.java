@@ -22,7 +22,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.prereq.PrerequisiteTestFactory;
+import pcgen.gui2.converter.TokenConverter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.persistence.PersistenceLayerException;
@@ -32,10 +35,12 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.pluginmgr.PluginManager;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
+import pcgen.util.PJEP;
 
 public final class TokenRegistration
 {
@@ -53,7 +58,7 @@ public final class TokenRegistration
 		if (!PPI_SET.contains(s))
 		{
 //			try {
-				PreParserFactory.register(ppi);
+				PreParserFactory.getInstance().register(ppi);
 				PPI_SET.add(s);
 				TokenLibrary.addToTokenMap(ppi);
 //			} catch (PersistenceLayerException e) {
@@ -101,6 +106,14 @@ public final class TokenRegistration
 		TOKEN_SET.clear();
 		PPI_SET.clear();
 		PreParserFactory.clear();
+		PrerequisiteTestFactory.clear();
+		PrerequisiteWriterFactory.clear();
+		PJEP.clear();
+		ExportHandler.clear();
+		TokenConverter.clear();
+		TokenConverter.clearConstants();
+		PluginManager.clear();
+		PluginFunctionLibrary.clear();
 	}
 
 	public static final Set<String> PW_SET = new HashSet<>();
@@ -111,7 +124,7 @@ public final class TokenRegistration
 		String s = writer.kindHandled();
 		if (!PW_SET.contains(s))
 		{
-			PrerequisiteWriterFactory.register(writer);
+			PrerequisiteWriterFactory.getInstance().register(writer);
 			PW_SET.add(s);
 		}
 	}

@@ -58,7 +58,7 @@ public final class TokenStore implements PluginLoader
 
 	public static void reset()
 	{
-		inst = new TokenStore();
+		inst = null;
 	}
 
 	private void populateTokenTypeList()

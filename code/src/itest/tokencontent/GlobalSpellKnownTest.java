@@ -58,7 +58,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	{
 		if (!hasPreSetup)
 		{
-			PrerequisiteTestFactory.register(new PreVariableTester());
+			PrerequisiteTestFactory.getInstance().register(new PreVariableTester());
 			hasPreSetup = true;
 		}
 	}

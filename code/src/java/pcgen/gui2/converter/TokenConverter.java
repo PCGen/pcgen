@@ -230,4 +230,11 @@ public class TokenConverter
 		VariableKey.clearConstants();
 	}
 
+	public static void clear()
+	{
+		MAP.clear();
+		TOKEN_CACHE.clear();
+		CACHED.clear();
+	}
+
 }

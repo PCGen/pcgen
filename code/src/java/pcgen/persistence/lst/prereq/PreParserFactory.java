@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 public final class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;
-	private static Map<String, PrerequisiteParserInterface> parserLookup = new HashMap<>();
+	private Map<String, PrerequisiteParserInterface> parserLookup = new HashMap<>();
 
 	private PreParserFactory() throws PersistenceLayerException
 	{
@@ -75,7 +75,7 @@ public final class PreParserFactory implements PluginLoader
 		return parserLookup.get(kind.toLowerCase());
 	}
 
-	public static void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
+	public void register(PrerequisiteParserInterface testClass) throws PersistenceLayerException
 	{
 		String[] kindsHandled = testClass.kindsHandled();
 
@@ -184,18 +184,6 @@ public final class PreParserFactory implements PluginLoader
 
 	public static void clear()
 	{
-		parserLookup.clear();
-		if (instance != null)
-		{
-			try
-			{
-				register(new PreMultParser());
-			}
-			catch (PersistenceLayerException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		instance = null;
 	}
 }

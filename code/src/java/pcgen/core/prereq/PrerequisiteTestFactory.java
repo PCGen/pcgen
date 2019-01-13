@@ -28,7 +28,7 @@ import pcgen.util.Logging;
 public final class PrerequisiteTestFactory implements PluginLoader
 {
 	private static PrerequisiteTestFactory instance = null;
-	private static final Map<String, PrerequisiteTest> TEST_LOOKUP = new HashMap<>();
+	private final Map<String, PrerequisiteTest> TEST_LOOKUP = new HashMap<>();
 
 	/**
 	 * @return Returns the instance.
@@ -52,7 +52,7 @@ public final class PrerequisiteTestFactory implements PluginLoader
 	 * Registers this PrerequisiteTest as handling a kind of prereq
 	 * @param testClass PrerequisiteTest to register.
 	 */
-	public static void register(final PrerequisiteTest testClass)
+	public void register(final PrerequisiteTest testClass)
 	{
 		final String kindHandled = testClass.kindHandled();
 		final PrerequisiteTest test = TEST_LOOKUP.get(kindHandled);
@@ -99,5 +99,10 @@ public final class PrerequisiteTestFactory implements PluginLoader
 	public Class<?>[] getPluginClasses()
 	{
 		return new Class[]{PrerequisiteTest.class};
+	}
+
+	public static void clear()
+	{
+		instance = null;
 	}
 }

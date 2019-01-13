@@ -66,6 +66,7 @@ public class AbilityMigrationTest
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
+		gameMode = null;
 	}
 
 	/**
