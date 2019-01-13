@@ -146,13 +146,14 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 		assertNoSideEffects();
 	}
 
-	@Test
-    @Override
-	public void testInputInvalidClearDot()
-	{
-		assertFalse(parse(".CLEAR."));
-		assertNoSideEffects();
-	}
+	//TODO: This is *weird*.  Types shouldn't require preconstruction, so this test shouldn't need to be overridden... but this test implies it DOES need preconstruction :/
+//	@Test
+//    @Override
+//	public void testInputInvalidClearDot()
+//	{
+//		assertFalse(parse(".CLEAR."));
+//		assertNoSideEffects();
+//	}
 
 	@Test
 	public void testInputInvalidEmbeddedClear()
