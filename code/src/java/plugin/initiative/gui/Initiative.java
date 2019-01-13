@@ -2772,7 +2772,7 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	private void combatantUpdated(Combatant cbt)
 	{
-		messageHandler.handleMessage(new CombatantHasBeenUpdatedMessage(GMGenSystem.inst, cbt));
+		messageHandler.handleMessage(new CombatantHasBeenUpdatedMessage(GMGenSystem.inst));
 	}
 
 	//** End Other Variables **
