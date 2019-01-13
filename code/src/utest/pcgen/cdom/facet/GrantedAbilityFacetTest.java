@@ -21,7 +21,7 @@ import pcgen.cdom.testsupport.AbstractCNASEnforcingFacetTest;
 
 public class GrantedAbilityFacetTest extends AbstractCNASEnforcingFacetTest
 {
-	private GrantedAbilityFacet facet = new GrantedAbilityFacet();
+	private final GrantedAbilityFacet facet = new GrantedAbilityFacet();
 
 	@Override
 	protected GrantedAbilityFacet getFacet()
