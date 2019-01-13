@@ -68,7 +68,7 @@ public final class Utils
 				{
 					if (evt.getNewValue() != null && evt.getNewValue() instanceof Boolean)
 					{
-						if (((Boolean) evt.getNewValue()).booleanValue())
+						if ((Boolean) evt.getNewValue())
 						{
 							returnValue.setBorder(m_originalBorder);
 						}
