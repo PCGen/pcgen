@@ -510,17 +510,19 @@ public class PrerequisiteWriterTest extends TestCase
 		final String writerOutput = sw.toString();
 		System.out.println("'" + aPreString + "' returned '" + writerOutput
 			+ "'");
-		assertTrue(aPreString + " returned '" + writerOutput + "' (expected '"
-			+ expectedOutput + "'). " + prereq.toString(), expectedOutput
-			.equals(writerOutput));
+		assertEquals(aPreString + " returned '" + writerOutput + "' (expected '"
+				+ expectedOutput + "'). " + prereq.toString(), expectedOutput, writerOutput);
 
 		//
 		// Test .lst output
 		//
 		pcgen.core.PObject pobj = new pcgen.core.PObject();
 		pobj.addPrerequisite(prereq);
-		assertTrue("PrerequisiteWriter.prereqsToString failure",
-			PrerequisiteWriter.prereqsToString(pobj).equals(expectedOutput));
+		assertEquals(
+				"PrerequisiteWriter.prereqsToString failure",
+				PrerequisiteWriter.prereqsToString(pobj),
+				expectedOutput
+		);
 
 		try
 		{

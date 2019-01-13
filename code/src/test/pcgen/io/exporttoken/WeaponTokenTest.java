@@ -434,18 +434,20 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		//	1H-P
 		assertEquals("1H-P - BASEHIT", "+14/+9/+4/-1", token.getToken(
 			"WEAPON.0.BASEHIT", character, null));
-		assertEquals("1H-P - BASEHIT-H1", null, token.getToken(
-			"WEAPON.1.BASEHIT", character, null));
-		assertEquals("1H-P - BASEHIT-H2", null, token.getToken(
-			"WEAPON.2.BASEHIT", character, null));
+		assertNull("1H-P - BASEHIT-H1", token.getToken(
+				"WEAPON.1.BASEHIT", character, null));
+		assertNull("1H-P - BASEHIT-H2", token.getToken(
+				"WEAPON.2.BASEHIT", character, null));
 
 		//	1H-O
 		assertEquals("1H-O - OHHIT", "+10/+5/+0/-5", token.getToken(
 			"WEAPON.0.OHHIT", character, null));
-		assertEquals("1H-O - OHHIT-H1", null, token.getToken("WEAPON.1.OHHIT",
-			character, null));
-		assertEquals("1H-O - OHHIT-H2", null, token.getToken("WEAPON.2.OHHIT",
-			character, null));
+		assertNull("1H-O - OHHIT-H1", token.getToken("WEAPON.1.OHHIT",
+				character, null
+		));
+		assertNull("1H-O - OHHIT-H2", token.getToken("WEAPON.2.OHHIT",
+				character, null
+		));
 
 		//	2H
 		assertEquals("2H - THHIT", "+14/+9/+4/-1", token.getToken(
@@ -458,10 +460,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		//	2W-P-(OH)
 		assertEquals("2W-P-(OH) - TWPHITH", "+8/+3/-2/-7", token.getToken(
 			"WEAPON.0.TWPHITH", character, null));
-		assertEquals("2W-P-(OH) - TWPHITH-H1", null, token.getToken(
-			"WEAPON.1.TWPHITH", character, null));
-		assertEquals("2W-P-(OH) - TWPHITH-H2", null, token.getToken(
-			"WEAPON.2.TWPHITH", character, null));
+		assertNull("2W-P-(OH) - TWPHITH-H1", token.getToken(
+				"WEAPON.1.TWPHITH", character, null));
+		assertNull("2W-P-(OH) - TWPHITH-H2", token.getToken(
+				"WEAPON.2.TWPHITH", character, null));
 
 		//	2W-P-(OL)
 		assertEquals("2W-P-(OL) - TWPHITL", "+10/+5/+0/-5", token.getToken(
@@ -565,8 +567,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponToken token = new WeaponToken();
 		assertEquals("Name", "Sword, Bastard", token.getToken("WEAPON.3.NAME",
 			character, null));
-		assertEquals("Not possible to weild the bastard sword one handed.",
-			null, token.getToken("WEAPON.3.BASEHIT", character, null));
+		assertNull(
+				"Not possible to weild the bastard sword one handed.",
+				token.getToken("WEAPON.3.BASEHIT", character, null)
+		);
 		assertEquals("No penalty to weild the bastard sword two handed.",
 			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
 	}
@@ -594,8 +598,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			"WEAPON.3.NAME", character, null));
 		assertEquals("Large sword - Two handed should be fine",
 			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
-		assertEquals("Large sword - can't be wielded one handed", null, token
-			.getToken("WEAPON.3.BASEHIT", character, null));
+		assertNull("Large sword - can't be wielded one handed", token
+				.getToken("WEAPON.3.BASEHIT", character, null));
 	}
 
 	/**
@@ -638,8 +642,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 				.getToken("WEAPON.3.BASEHIT", character, null));
 		character.removeTemplate(longswordTemplate);
 		character.calcActiveBonuses();
-		assertEquals("Large sword - can't be wielded one handed", null, token
-			.getToken("WEAPON.3.BASEHIT", character, null));
+		assertNull("Large sword - can't be wielded one handed", token
+				.getToken("WEAPON.3.BASEHIT", character, null));
 
 		PCTemplate martialTemplate = new PCTemplate();
 		martialTemplate.setName("Martial Bonus");

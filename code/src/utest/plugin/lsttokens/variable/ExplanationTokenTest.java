@@ -94,14 +94,9 @@ public class ExplanationTokenTest extends
 	{
 		assertEquals("Display Name not equal " + dv1 + " and " + dv2, dv1
 				.getDisplayName(), dv2.getDisplayName());
-		assertTrue("Format not equal " + dv1 + " and " + dv2,
-			Objects.equals(dv1.getFormat(), dv2.getFormat()));
-		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
-			Objects.equals(dv1.getScope(), dv2.getScope()));
-		assertTrue("Source URI not equal " + dv1 + " and " + dv2,
-			Objects.equals(dv1.getSourceURI(), dv2.getSourceURI()));
-		assertTrue(
-			"Explanation not equal " + dv1 + " and " + dv2,
-			Objects.equals(dv1.getExplanation(), dv2.getExplanation()));
+		assertEquals("Format not equal " + dv1 + " and " + dv2, dv1.getFormat(), dv2.getFormat());
+		assertEquals("Scope Name not equal " + dv1 + " and " + dv2, dv1.getScope(), dv2.getScope());
+		assertEquals("Source URI not equal " + dv1 + " and " + dv2, dv1.getSourceURI(), dv2.getSourceURI());
+		assertEquals("Explanation not equal " + dv1 + " and " + dv2, dv1.getExplanation(), dv2.getExplanation());
 	}
 }

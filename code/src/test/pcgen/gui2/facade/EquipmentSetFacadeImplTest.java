@@ -93,7 +93,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect body struct name", Constants.EQUIP_LOCATION_EQUIPPED, node.toString());
 		assertEquals("Incorrect body struct type", EquipNode.NodeType.BODY_SLOT, node.getNodeType());
 		assertEquals("Incorrect sort key", "00", node.getSortKey());
-		assertEquals("Incorrect parent", null, node.getParent());
+		assertNull("Incorrect parent", node.getParent());
 		node = nodeList.getElementAt(adjustedBaseNodes);
 		assertEquals("Incorrect container name", item.getName(), node.toString());
 		assertEquals("Incorrect container type", EquipNode.NodeType.EQUIPMENT, node.getNodeType());
@@ -194,14 +194,14 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Second add num equipped", 3, secondEquip.getNumberEquipped());
 		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
 		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
-		assertTrue("Same equipment item should have been used", addedEquip == secondEquip);
+		assertSame("Same equipment item should have been used", addedEquip, secondEquip);
 		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());
 
 		EquipNode target =  esfi.getNodes().getElementAt(NUM_BASE_NODES);
 		Equipment removedEquip = (Equipment) esfi.removeEquipment(target, 2);
 		assertEquals("First add num carried", 1, removedEquip.getCarried(), 0.01);
 		assertEquals("First add num equipped", 1, removedEquip.getNumberEquipped());
-		assertTrue("Same equipment item should have been used", addedEquip == removedEquip);
+		assertSame("Same equipment item should have been used", addedEquip, removedEquip);
 		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
 		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
 		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());

@@ -20,6 +20,7 @@ package pcgen.cdom.content;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
@@ -42,13 +43,13 @@ public class DamageReductionTest
 				.getFormulaFor(5), "magic");
 		DamageReduction dr2 = new DamageReduction(FormulaFactory
 				.getFormulaFor(5), "-");
-		assertFalse(dr1.equals(dr2));
+		assertNotEquals(dr1, dr2);
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(5), "Magic");
 		assertEquals(dr1, dr2);
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(10), "magic");
-		assertFalse(dr1.equals(dr2));
+		assertNotEquals(dr1, dr2);
 
 		dr1 = new DamageReduction(FormulaFactory.getFormulaFor(10),
 				"magic and good");
