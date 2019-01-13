@@ -31,6 +31,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -66,6 +67,17 @@ public class RaceTypeFacetTest
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		rfacet = null;
+		tfacet = null;
+		cfacet = null;
 	}
 
 	@Test

@@ -34,6 +34,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -56,6 +57,16 @@ public class LocalSkillCostFacetTest
 		class1.setName("Cl1");
 		class2 = new PCClass();
 		class2.setName("Cl2");
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		class1 = null;
+		class2  = null;
 	}
 
 	@Test

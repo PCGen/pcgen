@@ -27,6 +27,7 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -54,6 +55,16 @@ public class HandsFacetTest
 		altid = CharID.getID(cid);
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		rfacet = null;
+		tfacet = null;
 	}
 
 	@Test
