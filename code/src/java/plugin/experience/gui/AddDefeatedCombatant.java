@@ -35,10 +35,8 @@ import plugin.experience.ExperienceAdjusterModel;
 import plugin.experience.ExperienceAdjusterPlugin;
 import plugin.experience.ExperienceListItem;
 
-public class AddDefeatedCombatant extends AbstractDialog
+public final class AddDefeatedCombatant extends AbstractDialog
 {
-	// End of variables declaration//GEN-END:variables
-
 	private static final String OPTION_NAME_DBMAXNUM = ExperienceAdjusterPlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
 
 	/**  Description of the Field */
@@ -98,21 +96,21 @@ public class AddDefeatedCombatant extends AbstractDialog
 		}
 	}
 
-	private float checkCRField(javax.swing.JTextField tf, float def)
+	private static float checkCRField(javax.swing.JTextField tf, float def)
 	{
-		float value;
 
 		try
 		{
-			value = Float.parseFloat(tf.getText());
+			float value = Float.parseFloat(tf.getText());
 
 			/*
 			 * CONSIDER What is this trying to do, and is there a clear way 
 			 * to perform that action?  Is this a Math.floor? - thpr 10/21/06
 			 */
+
 			if (value > 1.0)
 			{
-				value = ((int) value / 1);
+				value = ((int) value);
 			}
 
 			return value;
