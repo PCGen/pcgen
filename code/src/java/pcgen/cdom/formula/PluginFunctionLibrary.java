@@ -91,7 +91,10 @@ public final class PluginFunctionLibrary implements PluginLoader
 
 	public static void clear()
 	{
-		instance = null;
+		if (instance != null)
+		{
+			instance.list.clear();
+		}
 	}
 
 }

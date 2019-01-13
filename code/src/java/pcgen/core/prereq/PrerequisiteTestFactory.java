@@ -103,6 +103,9 @@ public final class PrerequisiteTestFactory implements PluginLoader
 
 	public static void clear()
 	{
-		instance = null;
+		if (instance != null)
+		{
+			instance.TEST_LOOKUP.clear();
+		}
 	}
 }

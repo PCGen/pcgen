@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.base.lang.UnreachableError;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
@@ -184,6 +185,17 @@ public final class PreParserFactory implements PluginLoader
 
 	public static void clear()
 	{
-		instance = null;
+		if (instance != null)
+		{
+			instance.parserLookup.clear();
+			try
+			{
+				instance.register(new PreMultParser());
+			}
+			catch (PersistenceLayerException e)
+			{
+				throw new UnreachableError("Should be impossible", e);
+			}
+		}
 	}
 }

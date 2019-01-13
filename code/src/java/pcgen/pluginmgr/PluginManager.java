@@ -173,6 +173,10 @@ public final class PluginManager implements pcgen.system.PluginLoader
 
 	public static void clear()
 	{
-		instance = null;
+		if (instance != null)
+		{
+			instance.infoList.clear();
+			instance.pluginMap.clear();
+		}
 	}
 }

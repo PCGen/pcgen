@@ -114,6 +114,9 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 	
 	public static void clear()
 	{
-		instance = null;
+		if (instance != null)
+		{
+			instance.parserLookup.clear();
+		}
 	}
 }

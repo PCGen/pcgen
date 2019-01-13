@@ -46,6 +46,10 @@ public final class TokenRegistration
 {
 
 	public static final Set<String> PPI_SET = new HashSet<>();
+	public static final Set<String> PW_SET = new HashSet<>();
+	public static final Set<LstToken> TOKEN_SET = new HashSet<>();
+	public static final Set<Token> EXPORT_SET = new HashSet<>();
+	public static final Set<ModifierFactory<?>> M_SET = new HashSet<>();
 
 	private TokenRegistration()
 	{
@@ -68,8 +72,6 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<LstToken> TOKEN_SET = new HashSet<>();
-
 	public static void register(LstToken token)
 	{
 		if (!TOKEN_SET.contains(token))
@@ -88,8 +90,6 @@ public final class TokenRegistration
 		}
 	}
 
-	public static final Set<Token> EXPORT_SET = new HashSet<>();
-
 	public static void register(Token token)
 	{
 		if (!EXPORT_SET.contains(token))
@@ -105,6 +105,9 @@ public final class TokenRegistration
 		TokenStore.reset();
 		TOKEN_SET.clear();
 		PPI_SET.clear();
+		PW_SET.clear();
+		EXPORT_SET.clear();
+		M_SET.clear();
 		PreParserFactory.clear();
 		PrerequisiteTestFactory.clear();
 		PrerequisiteWriterFactory.clear();
@@ -115,8 +118,6 @@ public final class TokenRegistration
 		PluginManager.clear();
 		PluginFunctionLibrary.clear();
 	}
-
-	public static final Set<String> PW_SET = new HashSet<>();
 
 	public static void register(PrerequisiteWriterInterface writer)
 		throws PersistenceLayerException
@@ -140,8 +141,6 @@ public final class TokenRegistration
 			e.printStackTrace();
 		}
 	}
-
-	public static final Set<ModifierFactory<?>> M_SET = new HashSet<>();
 
 	public static void register(ModifierFactory<?> m)
 	{

@@ -226,7 +226,7 @@ public class TokenConverter
 		SubClassCategory.clearConstants();
 		SubRace.clearConstants();
 		SubRegion.clearConstants();
-		Type.clearConstants();
+		Type.buildMap();
 		VariableKey.clearConstants();
 	}
 
