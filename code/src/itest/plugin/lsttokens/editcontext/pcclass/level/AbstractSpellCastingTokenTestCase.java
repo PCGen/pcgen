@@ -17,9 +17,14 @@
  */
 package plugin.lsttokens.editcontext.pcclass.level;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractSpellCastingTokenTestCase extends
 		AbstractPCClassLevelTokenTestCase
@@ -45,15 +50,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		assertNull(getToken().unparse(primaryContext, primaryProf1));
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
-
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-				unparsed[i]);
-		}
+		assertArrayEquals(str, unparsed);
 
 		// And doesn't overwrite subsequent levels
 		assertNull(getToken().unparse(primaryContext, primaryProf3));
@@ -82,13 +79,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
 		String[] sUnparsed =
 				getToken().unparse(secondaryContext, secondaryProf2);
-		assertEquals(unparsed.length, sUnparsed.length);
-
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-				sUnparsed[i]);
-		}
+		assertArrayEquals(sUnparsed, unparsed);
 	}
 
 //	@Test
