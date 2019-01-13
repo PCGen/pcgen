@@ -1,4 +1,4 @@
-7/*
+/*
  * PCGen build using the Gradle tool. This file specifies the core build tasks
  * and refers to other files in the code/gradle directory for additional tasks
  * for specific output.
