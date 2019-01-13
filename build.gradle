@@ -1,4 +1,4 @@
-/*
+7/*
  * PCGen build using the Gradle tool. This file specifies the core build tasks
  * and refers to other files in the code/gradle directory for additional tasks
  * for specific output.
@@ -81,7 +81,7 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
 
 repositories {
     mavenCentral()
-     ivy {
+    ivy {
         url "http://pcgen.sourceforge.net/mvnrepo"
         patternLayout {
             artifact "[organisation]/jars/[artifact]-[revision].[ext]"
