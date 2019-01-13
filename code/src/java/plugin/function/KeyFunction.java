@@ -79,10 +79,10 @@ public class KeyFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
 		args[0].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, Optional.empty()));
-		return FormatUtilities.STRING_MANAGER;
+		return Optional.of(FormatUtilities.STRING_MANAGER);
 	}
 
 }

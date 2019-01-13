@@ -92,8 +92,7 @@ public class DefaultVariableValueToken extends AbstractNonEmptyToken<DefaultVarV
 	private <T> ParseResult subProcess(LoadContext context, DefaultVarValue dvv, String defaultValue,
 		FormatManager<T> fmtManager)
 	{
-		Class<T> cl = fmtManager.getManagedClass();
-		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
+		ModifierFactory<T> m = TokenLibrary.getModifier(fmtManager.getManagedClass(), "SET");
 		if (m == null)
 		{
 			return new ParseResult.Fail("ModifierType " + fmtManager.getIdentifierType() + " requires a SET modifier");
@@ -112,7 +111,7 @@ public class DefaultVariableValueToken extends AbstractNonEmptyToken<DefaultVarV
 		}
 		defaultModifier.addAssociation("PRIORITY=0");
 		dvv.setModifier(defaultModifier);
-		context.getVariableContext().addDefault(cl, new ModifierDecoration<>(defaultModifier));
+		context.getVariableContext().addDefault(fmtManager, new ModifierDecoration<>(defaultModifier));
 		return ParseResult.SUCCESS;
 	}
 

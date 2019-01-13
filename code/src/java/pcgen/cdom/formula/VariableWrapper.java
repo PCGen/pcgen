@@ -92,7 +92,7 @@ public final class VariableWrapper<T>
 		T value = varStore.get(varID);
 		if (value == null)
 		{
-			return manager.getDefaultValue(varID.getVariableFormat());
+			return manager.getDefaultValue(varID.getFormatManager());
 		}
 		return value;
 	}

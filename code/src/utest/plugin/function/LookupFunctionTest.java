@@ -23,9 +23,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.EvaluationManager;
@@ -46,8 +43,12 @@ import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.formula.ManagerKey;
+
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class LookupFunctionTest extends AbstractFormulaTestCase
 {

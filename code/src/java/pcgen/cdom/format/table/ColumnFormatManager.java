@@ -22,6 +22,7 @@ import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.ValueStore;
 
 /**
  * A ColumnFormatManager is a FormatManager that defines the format of a
@@ -89,7 +90,7 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 	@Override
 	public String getIdentifierType()
 	{
-		return "COLUMN";
+		return "COLUMN[" + underlying.getIdentifierType() + "]";
 	}
 
 	@Override
@@ -102,5 +103,14 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 	public boolean isDirect()
 	{
 		return false;
+	}
+
+	@Override
+	public TableColumn initializeFrom(ValueStore valueStore)
+	{
+		TableColumn empty = new TableColumn();
+		empty.setName("<undefined column>");
+		empty.setFormatManager(underlying);
+		return empty;
 	}
 }

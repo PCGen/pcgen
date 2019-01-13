@@ -20,7 +20,7 @@ package plugin.function;
 import static plugin.function.testsupport.TestUtilities.doParse;
 
 import org.junit.Test;
-
+import util.FormatSupport;
 import junit.framework.TestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
@@ -41,6 +41,7 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.Skill;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.enumeration.Visibility;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 
@@ -57,6 +58,9 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		FormatUtilities.loadDefaultFormats(formatLibrary);
 		getFunctionLibrary().addFunction(new GetFactFunction());
 		getOperatorLibrary().addAction(new NumberMinus());
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		refContext.constructNowIfNecessary(Skill.class, "NONE");
+		FormatSupport.addNoneAsDefault(context, refContext.getManufacturer(Skill.class));
 	}
 
 	@Test

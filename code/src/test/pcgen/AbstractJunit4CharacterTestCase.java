@@ -22,10 +22,6 @@ import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 
-import org.junit.After;
-import org.junit.Before;
-
-import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
@@ -36,7 +32,6 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
@@ -57,10 +52,13 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary;
-import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.After;
+import org.junit.Before;
+import util.FormatSupport;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
@@ -164,6 +162,11 @@ public abstract class AbstractJunit4CharacterTestCase
 		LoadContext context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
 		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addBasicDefaults(context);
+		FormatSupport.addNoneAsDefault(context,
+			context.getReferenceContext().getManufacturer(PCAlignment.class));
 		SourceFileLoader.defineBuiltinVariables(context);
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
@@ -183,7 +186,6 @@ public abstract class AbstractJunit4CharacterTestCase
 		ref.importObject(cn);
 		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		GameModeFileLoader.addDefaultWieldCategories(context);
@@ -215,7 +217,7 @@ public abstract class AbstractJunit4CharacterTestCase
 
 		SourceFileLoader.createLangBonusObject(context);
 		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		proc(context, fmtManager);
+		FormatSupport.addNoneAsDefault(context, fmtManager);
 
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
@@ -231,15 +233,6 @@ public abstract class AbstractJunit4CharacterTestCase
 		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
-	}
-
-	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)
-	{
-		Class<T> cl = fmtManager.getManagedClass();
-		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl,
-			new ModifierDecoration<>(defaultModifier));
 	}
 
 	protected void additionalSetUp() throws Exception

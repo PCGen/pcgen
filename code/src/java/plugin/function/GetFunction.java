@@ -96,7 +96,7 @@ public class GetFunction implements FormulaFunction
 	}
 
 	@Override
-	public FormatManager<?> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		String format = ((ASTQuotString) args[0]).getText();
@@ -106,7 +106,7 @@ public class GetFunction implements FormulaFunction
 		FormatManager<?> formatManager = refContext.getFormatManager(format);
 		Indirect<?> reference = formatManager.convertIndirect(stringRepresentation);
 		manager.get(ManagerKey.REFERENCES).put(reference);
-		return formatManager;
+		return Optional.of(formatManager);
 	}
 
 }

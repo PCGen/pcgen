@@ -27,6 +27,7 @@ import pcgen.cdom.base.Loadable;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -44,6 +45,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import util.FormatSupport;
 import util.TestURI;
 
 @SuppressWarnings("nls")
@@ -362,5 +364,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		FormatSupport.addBasicDefaults(context);
+		SourceFileLoader.defineBuiltinVariables(context);
 	}
 }

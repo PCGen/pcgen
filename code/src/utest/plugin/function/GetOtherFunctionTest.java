@@ -22,7 +22,7 @@ import static plugin.function.testsupport.TestUtilities.doParse;
 import java.util.Optional;
 
 import org.junit.Test;
-
+import util.FormatSupport;
 import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
@@ -40,6 +40,7 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.Skill;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.VariableContext;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 
@@ -55,6 +56,9 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		super.setUp();
 		SimpleFormatManagerLibrary formatLibrary = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(formatLibrary);
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		refContext.constructNowIfNecessary(Skill.class, "NONE");
+		FormatSupport.addNoneAsDefault(context, refContext.getManufacturer(Skill.class));
 		getFunctionLibrary().addFunction(new GetOtherFunction());
 		getOperatorLibrary().addAction(new NumberMinus());
 	}
