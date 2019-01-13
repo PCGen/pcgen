@@ -37,6 +37,8 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -45,32 +47,40 @@ import util.TestURI;
 public class SelectableTokenTest
 {
 
-	static SelectableToken token = new SelectableToken();
+	private static SelectableToken token = new SelectableToken();
+	private static CampaignSourceEntry testCampaign;
+
 	private ContentDefinition cd;
-
-	protected LoadContext context;
-
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
+	private LoadContext context;
 
 	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		cd = null;
+	}
+
+	@AfterAll
+	public static void classTearDown()
+	{
+		token = null;
+		testCampaign = null;
 	}
 
 	protected void resetContext()

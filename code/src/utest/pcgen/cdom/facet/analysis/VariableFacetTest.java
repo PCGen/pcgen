@@ -28,6 +28,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.PCTemplate;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -44,6 +45,14 @@ public class VariableFacetTest
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
 	}
 
 	@Test

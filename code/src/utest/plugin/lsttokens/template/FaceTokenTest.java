@@ -46,6 +46,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
 import plugin.lsttokens.race.FaceToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -53,6 +54,8 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.orderedpair.SetModifierFactory;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -61,10 +64,24 @@ import util.TestURI;
 public class FaceTokenTest
 {
 
-	static FaceToken token = new FaceToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
-	private static final ModifierFactory<OrderedPair> m = new SetModifierFactory();
-	private final FormatManager<OrderedPair> opManager = new OrderedPairManager();
+	private static FaceToken token = new FaceToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static ModifierFactory<OrderedPair> modifierFactory =
+			new SetModifierFactory();
+	protected static CampaignSourceEntry testCampaign;
+
+	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
+	protected LoadContext primaryContext;
+	protected LoadContext secondaryContext;
+	protected PCTemplate primaryProf;
+	protected PCTemplate secondaryProf;
+	private int expectedPrimaryMessageCount = 0;
+
+	@BeforeAll
+	public static void classSetUp()
+	{
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
+	}
 
 	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -73,7 +90,27 @@ public class FaceTokenTest
 		TokenRegistration.register(getToken());
 		resetContext();
 		expectedPrimaryMessageCount = 0;
-		TokenRegistration.register(m);
+		TokenRegistration.register(modifierFactory);
+	}
+	
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		primaryContext = null;
+		secondaryContext = null;
+		primaryProf = null;
+		secondaryProf = null;
+		opManager = null;
+	}
+	
+	@AfterAll
+	public static void classTearDown()
+	{
+		token = null;
+		loader = null;
+		modifierFactory = null;
+		testCampaign = null;
 	}
 
 	public Class<PCTemplate> getCDOMClass()
@@ -204,20 +241,6 @@ public class FaceTokenTest
 	public void isCDOMEqual(PCTemplate cdo1, PCTemplate cdo2)
 	{
 		assertTrue(cdo1.isCDOMEqual(cdo2), () -> "Not equal " + cdo1 + " and " + cdo2);
-	}
-
-	protected LoadContext primaryContext;
-	protected LoadContext secondaryContext;
-	protected PCTemplate primaryProf;
-	protected PCTemplate secondaryProf;
-	private int expectedPrimaryMessageCount = 0;
-
-	protected static CampaignSourceEntry testCampaign;
-
-	@BeforeAll
-	public static void classSetUp()
-	{
-		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	protected void resetContext()

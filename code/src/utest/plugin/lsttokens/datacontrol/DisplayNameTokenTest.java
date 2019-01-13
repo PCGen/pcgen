@@ -37,6 +37,8 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -46,12 +48,11 @@ import util.TestURI;
 public class DisplayNameTokenTest
 {
 
-	private static final DisplayNameToken token = new DisplayNameToken();
-	private ContentDefinition cd;
-
-	private LoadContext context;
-
+	private static DisplayNameToken token = new DisplayNameToken();
 	private static CampaignSourceEntry testCampaign;
+
+	private ContentDefinition cd;
+	private LoadContext context;
 
 	@BeforeAll
 	public static void classSetUp()
@@ -66,6 +67,21 @@ public class DisplayNameTokenTest
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		cd = null;
+	}
+
+	@AfterAll
+	public static void classTearDown()
+	{
+		token = null;
+		testCampaign = null;
 	}
 
 	protected void resetContext()

@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +56,15 @@ public class InitiativeFacetTest
 		facet = getMockFacet();
 		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		bonusInfo = new HashMap<>();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		bonusInfo = null;
 	}
 
 	@Test

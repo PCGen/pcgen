@@ -33,6 +33,8 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.CDOMToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,32 +43,41 @@ import util.TestURI;
 public class FunctionTokenTest
 {
 
-	private static final CDOMToken<UserFunction> token = new FunctionToken();
-	private UserFunction function;
+	private static CDOMToken<UserFunction> token = new FunctionToken();
+	private static CampaignSourceEntry testCampaign;
 
+	private UserFunction function;
 	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
-	private static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		function = null;
+	}
+
+	@AfterAll
+	public static void classTearDown()
+	{
+		token = null;
+		testCampaign = null;
 	}
 
 	protected void resetContext()

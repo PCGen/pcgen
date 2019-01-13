@@ -29,6 +29,7 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 
@@ -43,7 +44,7 @@ class GenderFacetTest
 	private CharID id;
 	private CharID altid;
 	private GenderFacet facet;
-	private final TemplateFacet tfacet = new TemplateFacet();
+	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
 	public void setUp() throws Exception
@@ -53,6 +54,15 @@ class GenderFacetTest
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		tfacet = null;
 	}
 
 	@Test
