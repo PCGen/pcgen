@@ -63,7 +63,7 @@ SPELL:pfs_botb_spells.lst
 TEMPLATE:pfs_botb_templates.lst
 
 # Support
-ABILITY:support/botb_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
-ABILITY:support/botb_abilities_class_pu_fap.lst|PRECAMPAIGN:2,INCLUDES=Faiths and Philosophies,INCLUDES=Pathfinder Unchained
-ABILITY:support/botb_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
-ABILITY:support/botb_feats_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
+ABILITY:support/pfs_botb_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/pfs_botb_abilities_class_pu_fap.lst|PRECAMPAIGN:2,INCLUDES=Faiths and Philosophies,INCLUDES=Pathfinder Unchained
+ABILITY:support/pfs_botb_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/pfs_botb_feats_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
