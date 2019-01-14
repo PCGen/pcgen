@@ -20,7 +20,7 @@ CATEGORY=Special Ability|Trait ~ Ichimeiyo Champion.MOD	PRETYPE:1,PFSLegal	TYPE:
 ###Block: Archetypes
 # Ability Name				Unique Key								Product Identity?	Category of Ability		Type																	Desc is PI?									SOURCEPAGE			DescriptionCost
 #Ilsurian Archer
-CATEGORY=Archetype|Ilsurian Archer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Archetype|Ranger Archetype ~ Ilsurian Archer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Ilsurian Archer ~ Bullseye Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Ilsurian Archer ~ Archery Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Ilsurian Archer ~ Vicious Aim.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
@@ -154,7 +154,7 @@ CATEGORY=Special Ability|Fighter's Finesse ~ Crossbows.MOD	PRETYPE:1,PFSLegal	TY
 CATEGORY=Special Ability|Fighter's Finesse ~ Double.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Fighter's Finesse ~ Flails.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Fighter's Finesse ~ Hammers.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
-CATEGORY=Special Ability|Fighter's Finesse ~ Mon.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Monk.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Fighter's Finesse ~ Natural.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Fighter's Finesse ~ Pole Arms.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
 CATEGORY=Special Ability|Fighter's Finesse ~ Spears.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
