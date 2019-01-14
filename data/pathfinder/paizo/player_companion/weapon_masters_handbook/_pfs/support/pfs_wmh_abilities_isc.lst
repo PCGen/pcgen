@@ -1,0 +1,23 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+###Block: Combat Tricks
+# Ability Name			Unique Key							Category of Ability		Type										Description																																																		Source Page
+CATEGORY=Special Ability|Combat Trick ~ Aldori Dueling Disciple.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Awe-Inspiring Smash.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Black Powder Spectacle.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Cannon Master.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Casterbane Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Duelist of the Roaring Falls.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Duelist of the Shrouded Lake.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Falling Water Gambit.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Ostentatious Weakness.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Perfect Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Redirected Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Savage Surge.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Spectacular Exit.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Thrilling Vengeance.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Unblinking Flame Feint.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Unblinking Flame Fist.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Unfolding Wind Rush.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Unfolding Wind Strike.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Untwisting Iron Skin.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Untwisting Iron Strength.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
