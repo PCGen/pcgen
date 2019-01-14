@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+
+# Modifier Name										Unique Key								Type		Cost		Visible		Type granted	Required Ability												Required Type	Special Property
+Bronze			KEY:Material ~ Bronze						NAMEOPT:NORMAL		TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0			VISIBLE:QUALIFY	ITYPE:Bronze																	SOURCEPAGE:p.53	PRETYPE:1,Metal									!PRETYPE:1,Artisan,Spell Component
