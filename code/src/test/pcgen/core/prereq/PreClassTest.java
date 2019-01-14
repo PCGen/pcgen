@@ -573,13 +573,13 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRECLASS:2,MyClass=1,MyClass2=2");
 
-		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 
 	public void testAnyLevelsTwoClasses() throws Exception
@@ -598,10 +598,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory.parse("PRECLASS:2,ANY=1");
 
 		character.incrementClassLevel(1, pcClass);
-		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 
 
@@ -621,13 +621,13 @@ public class PreClassTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory.parse("PRECLASS:2,ANY=2");
 
 		character.incrementClassLevel(2, pcClass);
-		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 
 	public void testSpellcasterLevelsTwoClasses() throws Exception
@@ -660,10 +660,10 @@ public class PreClassTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory.parse("PRECLASS:2,SPELLCASTER=1");
 
 		character.incrementClassLevel(1, pcClass);
-		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 	
 	public void testSpellcasterTypeLevelsTwoClasses() throws Exception
@@ -696,9 +696,9 @@ public class PreClassTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory.parse("PRECLASS:2,SPELLCASTER.ARCANE=1");
 
 		character.incrementClassLevel(1, pcClass);
-		assertEquals(false, PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null));
 
 		character.incrementClassLevel(1, pcClass2);
-		assertEquals(true, PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 }

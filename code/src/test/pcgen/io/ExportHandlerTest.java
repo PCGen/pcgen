@@ -17,6 +17,8 @@
  */
 package pcgen.io;
 
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -25,8 +27,6 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -54,6 +54,9 @@ import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 
 /**
  * {@code SkillTokenTest} contains tests to verify that the
@@ -254,7 +257,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	public void testJepIif() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Basic JEP boolean", new Float(1.0), character
+		assertEquals("Basic JEP boolean", 1.0f, character
 			.getVariableValue("max(0,2)==2", ""));
 		assertEquals("JEP boolean in IF", "true", evaluateToken(
 			"OIF(max(0,2)==2,true,false)", character));
@@ -399,28 +402,28 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		// if this evaluates math wise, the values should be string "1.0"
-		assertFalse("Token: |" + tok + "| != 1.0: ", evaluateToken(tok, pc).equals("1.0"));
+		assertNotEquals("Token: |" + tok + "| != 1.0: ", "1.0", evaluateToken(tok, pc));
 		
-		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
-		assertTrue("Token: |" + tok + "| == 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
+		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";
+		assertEquals("Token: |" + tok + "| == 1.0: ", "1.0", evaluateToken(tok, pc));
 	
-		tok = "COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";		
-		assertFalse("Token: |" + tok + "| != 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
+		tok = "COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";
+		assertNotEquals("Token: |" + tok + "| != 1.0: ", "1.0", evaluateToken(tok, pc));
 		
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
-		assertFalse("Token: |" + tok + "| != 1.0 ",  evaluateToken(tok, pc).equals("1.0"));
+		assertNotEquals("Token: |" + tok + "| != 1.0 ", "1.0", evaluateToken(tok, pc));
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
-		assertFalse("Token: |" + tok + "| == 5.0 ",  evaluateToken(tok, pc).equals("5.0"));
+		assertNotEquals("Token: |" + tok + "| == 5.0 ", "5.0", evaluateToken(tok, pc));
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
-		assertTrue("Token: |" + tok + "| != 6.0 ",  evaluateToken(tok, pc).equals("6.0"));
+		assertEquals("Token: |" + tok + "| != 6.0 ", "6.0", evaluateToken(tok, pc));
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
-		assertFalse("Token: |" + tok + "| == 3.0 ",  evaluateToken(tok, pc).equals("3.0"));
+		assertNotEquals("Token: |" + tok + "| == 3.0 ", "3.0", evaluateToken(tok, pc));
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
-		assertTrue("Token: |" + tok + "| != 2.0 ",  evaluateToken(tok, pc).equals("2.0"));
+		assertEquals("Token: |" + tok + "| != 2.0 ", "2.0", evaluateToken(tok, pc));
 		
 		
 	}

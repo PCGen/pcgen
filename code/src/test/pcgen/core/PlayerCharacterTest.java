@@ -798,8 +798,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final List<Ability> none = Collections.emptyList();
 		boolean available =
 				character.availableSpells(1, pcMdClass, Globals.getDefaultSpellBook(), true, false);
-		assertEquals("availableSpells should not be called when there ar eno limits on known spells",
-			false, available);
+		assertFalse("availableSpells should not be called when there ar eno limits on known spells", available);
 		
 		// Test specialty/non with no spells, some spells, all spells, spells from lower level
 		String spellBookName = "Town Spells";
@@ -811,8 +810,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Test for spell availability with no spells in list
 		for (int i = 0; i < 3; i++)
 		{
-			assertEquals("Empty list - Non specialty available for level " + i, true,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertTrue(
+					"Empty list - Non specialty available for level " + i,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false)
+			);
 			assertEquals("Empty list - Specialty available for level " + i, i>0,
 					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
 		}
@@ -826,8 +827,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			spellBookName, 2, 2));
 		for (int i = 0; i < 3; i++)
 		{
-			assertEquals("Partial list - Non specialty available for level " + i, true,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertTrue(
+					"Partial list - Non specialty available for level " + i,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false)
+			);
 			assertEquals("Partial list - Specialty available for level " + i, i>0,
 					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
 		}
@@ -870,8 +873,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		{
 			assertEquals("Specialty: No, Level: " + i + ". 1st lvl non domain only free", i==1,
 					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
-			assertEquals("Specialty: Yes, Level: " + i + ". 1st lvl non domain only free", false,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+			assertFalse(
+					"Specialty: Yes, Level: " + i + ". 1st lvl non domain only free",
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true)
+			);
 		}
 	}
 
@@ -882,7 +887,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 
 		//Base
-		assertEquals("Initially character should not have a locked ability", false, pc.isNonAbility(str));
+		assertFalse("Initially character should not have a locked ability", pc.isNonAbility(str));
 
 		// With template lock
 		PCTemplate nonAbilityLocker = new PCTemplate();
@@ -890,30 +895,30 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		CDOMDirectSingleRef<PCStat> strRef = CDOMDirectSingleRef.getRef(str);
 		nonAbilityLocker.addToListFor(ListKey.NONSTAT_STATS, strRef);
 		pc.addTemplate(nonAbilityLocker);
-		assertEquals("STR now locked to non ability", true, pc.isNonAbility(str));
+		assertTrue("STR now locked to non ability", pc.isNonAbility(str));
 		pc.removeTemplate(nonAbilityLocker);
-		assertEquals("STR no longer locked to non ability", false, pc.isNonAbility(str));
+		assertFalse("STR no longer locked to non ability", pc.isNonAbility(str));
 		
 		// With race lock
 		Race nonAbilityLockerRace = new Race();
 		nonAbilityLockerRace.setName("locker");
 		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_STATS, strRef);
 		pc.setRace(nonAbilityLockerRace);
-		assertEquals("STR now locked to non ability", true, pc.isNonAbility(str));
+		assertTrue("STR now locked to non ability", pc.isNonAbility(str));
 		
 		// With template unlock
 		nonAbilityLocker.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, strRef);
 		pc.addTemplate(nonAbilityLocker);
-		assertEquals("STR now unlocked from a non ability by template", false, pc.isNonAbility(str));
+		assertFalse("STR now unlocked from a non ability by template", pc.isNonAbility(str));
 		pc.removeTemplate(nonAbilityLocker);
-		assertEquals("STR no longer locked to non ability", true, pc.isNonAbility(str));
+		assertTrue("STR no longer locked to non ability", pc.isNonAbility(str));
 		
 		// With race unlock
 		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, strRef);
 		//This weirdness is because we are altering the race after application (no-no at runtime)
 		pc.setRace(null);
 		pc.setRace(nonAbilityLockerRace);
-		assertEquals("STR now unlocked from a non ability by race", false, pc.isNonAbility(str));
+		assertFalse("STR now unlocked from a non ability by race", pc.isNonAbility(str));
 	}
 	
 	/**
