@@ -1,12 +1,12 @@
 CAMPAIGN:Blood of the Beast (PFS)
-KEY:PFS ~ Blood of teh Beast
+KEY:PFS ~ Blood of the Beast
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 STATUS:Alpha
-PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+PRECAMPAIGN:2,Pathfinder Society Core Assumption,INCLUDES=Blood of the Beast
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 #PUBNAMEWEB:http://www.paizo.com
@@ -48,22 +48,21 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Shadows" Copy
 # Vigilante Talents: The vigilante talents brutal maneuver, deceitful trick, obscurity, racial paragon*, seamless shapechanger, and transformation sequence are legal for play.
 # Misc.: The eidolon subtype, wildsoul natural course, advanced weapon training, mesmerist tricks, bloodlines, monk options, and psychic disciplines are all legal for play except fighter's stamina.
 
-ABILITY:pfs_botb_abilities.lst
-ABILITY:pfs_botb_abilities_class.lst
-ABILITY:pfs_botb_abilities_companion.lst
-ABILITY:pfs_botb_abilities_race.lst
-ABILITYCATEGORY:pfs_botb_abilitycategories.lst
-ABILITY:pfs_botb_feats.lst
-EQUIPMOD:pfs_botb_equipmods.lst
-KIT:pfs_botb_kits_companion.lst
-LANGUAGE:pfs_botb_languages.lst
-RACE:pfs_botb_races_companion.lst
-SKILL:pfs_botb_skills.lst
-SPELL:pfs_botb_spells.lst
-TEMPLATE:pfs_botb_templates.lst
+ABILITY:pfs_botb_abilities.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+ABILITY:pfs_botb_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+ABILITY:pfs_botb_abilities_companion.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+ABILITY:pfs_botb_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+ABILITY:pfs_botb_feats.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+EQUIPMOD:pfs_botb_equipmods.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+KIT:pfs_botb_kits_companion.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+LANGUAGE:pfs_botb_languages.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+RACE:pfs_botb_races_companion.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+SKILL:pfs_botb_skills.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+SPELL:pfs_botb_spells.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+TEMPLATE:pfs_botb_templates.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Beast
 
 # Support
-ABILITY:support/pfs_botb_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
-ABILITY:support/pfs_botb_abilities_class_pu_fap.lst|PRECAMPAIGN:2,INCLUDES=Faiths and Philosophies,INCLUDES=Pathfinder Unchained
-ABILITY:support/pfs_botb_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
-ABILITY:support/pfs_botb_feats_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
+ABILITY:support/pfs_botb_abilities_class_pu.lst|PRECAMPAIGN:2,INCLUDES=Blood of the Beast,INCLUDES=Pathfinder Unchained
+ABILITY:support/pfs_botb_abilities_class_pu_fap.lst|PRECAMPAIGN:3,INCLUDES=Blood of the Beast,INCLUDES=Faiths and Philosophies,INCLUDES=Pathfinder Unchained
+ABILITY:support/pfs_botb_abilities_race_pu.lst|PRECAMPAIGN:2,INCLUDES=Blood of the Beast,INCLUDES=Pathfinder Unchained
+ABILITY:support/pfs_botb_feats_fap.lst|PRECAMPAIGN:2,INCLUDES=Blood of the Beast,INCLUDES=Faiths and Philosophies
