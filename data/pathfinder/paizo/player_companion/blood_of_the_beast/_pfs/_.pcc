@@ -1,0 +1,69 @@
+CAMPAIGN:Blood of the Beast (PFS)
+KEY:PFS ~ Blood of teh Beast
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:Alpha
+PRECAMPAIGN:1,INCLUDES=Blood of the Beast
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Blood of Beast
+SOURCESHORT:BOTB
+SOURCEWEB:http://paizo.com/products/btpy9j6s
+SOURCEDATE:2016-02
+ISOGL:YES
+
+#COVER:blood_of_shadows.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9j6s|Buy this publication from Paizo Publishing!
+DESC:Embrace the shadows! Whether from the subterranean wilds of the Darklands or otherworldly realms of absolute shadow, heroes can rise from the darkest places. Pathfinder Player Companion: Blood of Shadows explores the strange paths and subtle abilities empowered by darkness. Discover the secrets of drow, fetchlings, and wayangs--races infused with lightless powers. Within this player-friendly volume are options and secrets for characters of every class, including a penumbral psychic discipline, shadowy rogue talents, and an oracle mystery that plumbs the depths of darkness.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Blood of Shadows Copyright 2016, Paizo Inc.; Authors: Alexander Augunas, Steven T. Helt, Luis Loza, and Ron Lundeen.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Shadows" Copyright 2016, PCgen Data team (including but not limited to Gwen T. (evilpixie87))
+
+
+
+#INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+
+
+#Additional Resources
+#Last Updated Last Updated Wednesday, December 19, 2018
+#
+# Legal character options in this book are accessible to all qualifying PCs, except where noted; those options marked with an asterisk (*) are only available to characters of the associated race. Except where otherwise enabled by another ability, alternate favored class bonuses and racial traits are only available to members of the associated races.
+# Advanced Versatile Performances: The expanded versatility and masterpiece advanced versatile performances are legal for play, though expanded versatility cannot be used to select Escape Artist or Use Magic Device.
+# Alternate Racial Traits: The acrobatic, change size, keen kitsune, multilingual, and skilled alternate racial traits are legal for play.
+# Archetypes: The courser, fiend keeper*, first mother's fang*, fortune-finder*, jink witch*, nine-tailed heir*, opportunist, poison darter, prowler at world's end*, ravener hunter, red tongue, scavenger, swarm-monger, war painter archetypes are legal for play. A scavenger rogue gains Skill Focus (Appraise, Disable Device, or Knowledge [engineering]) in place of Craft Construct at 11th level. A ranger with the poison dart archetype can use Craft (alchemy) to craft poison.
+# Favored Class Bonuses: The favored class bonuses in this book are legal for play.
+# Feats: The Cooperative Swarmer, Cunning Killer, Empty Threats, Entwining Stare, Extended Combat Meditation, Graceful Athlete, Greater Meditation Master, Knotted Nets, Loveable Scoundrel, Mindful Meditation, Mindfulness Mastery, Mobile Acrobat, Rat Stack, Rending Swarm, Sensory Control, Shapechanging Savage, Squirming Pile, Startling Shapechange, Underfoot, and Venomous Stare* feats are legal for play.
+# Spells: The spells batrachian surge*, bit of luck*, contagious suggestion, curse of befouled fortune, depilate, fumblestep, greater hypnotism, gullibility, metabolic molting*, pouncing fury, and sweat poison spells are legal for play. Metabolic molting is not available as a spellcasting service. Naga shape I, naga shape II, and naga shape III are only available to nagaji and characters who have the naga bloodline.
+# Traits: All traits in this book are legal for play. The Prophet of Burrows trait's benefit applies to Day Job checks.
+# Vigilante Talents: The vigilante talents brutal maneuver, deceitful trick, obscurity, racial paragon*, seamless shapechanger, and transformation sequence are legal for play.
+# Misc.: The eidolon subtype, wildsoul natural course, advanced weapon training, mesmerist tricks, bloodlines, monk options, and psychic disciplines are all legal for play except fighter's stamina.
+
+ABILITY:pfs_botb_abilities.lst
+ABILITY:pfs_botb_abilities_class.lst
+ABILITY:pfs_botb_abilities_companion.lst
+ABILITY:pfs_botb_abilities_race.lst
+ABILITYCATEGORY:pfs_botb_abilitycategories.lst
+ABILITY:pfs_botb_feats.lst
+EQUIPMOD:pfs_botb_equipmods.lst
+KIT:pfs_botb_kits_companion.lst
+LANGUAGE:pfs_botb_languages.lst
+RACE:pfs_botb_races_companion.lst
+SKILL:pfs_botb_skills.lst
+SPELL:pfs_botb_spells.lst
+TEMPLATE:pfs_botb_templates.lst
+
+# Support
+ABILITY:support/botb_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/botb_abilities_class_pu_fap.lst|PRECAMPAIGN:2,INCLUDES=Faiths and Philosophies,INCLUDES=Pathfinder Unchained
+ABILITY:support/botb_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/botb_feats_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
