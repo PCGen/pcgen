@@ -30,7 +30,7 @@ public final class PluginFunctionLibrary implements PluginLoader
 
 	private static PluginFunctionLibrary instance = null;
 
-	private static ArrayList<FormulaFunction> list = new ArrayList<>();
+	private ArrayList<FormulaFunction> list = new ArrayList<>();
 
 	private PluginFunctionLibrary()
 	{
@@ -87,6 +87,14 @@ public final class PluginFunctionLibrary implements PluginLoader
 	public List<FormulaFunction> getFunctions()
 	{
 		return Collections.unmodifiableList(list);
+	}
+
+	public static void clear()
+	{
+		if (instance != null)
+		{
+			instance.list.clear();
+		}
 	}
 
 }

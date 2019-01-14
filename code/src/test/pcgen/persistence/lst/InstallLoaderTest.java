@@ -33,6 +33,9 @@ import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 
+import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -83,6 +86,12 @@ public final class InstallLoaderTest
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
 	}
 
 	/**

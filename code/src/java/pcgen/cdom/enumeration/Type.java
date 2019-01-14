@@ -17,11 +17,13 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
 
@@ -93,6 +95,11 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	public static final Type SHIELD = getConstant("Shield");
 
 	public static final Type ARMOR = getConstant("Armor");
+
+	static
+	{
+		buildMap();
+	}
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
@@ -203,21 +210,6 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 		return Collections.unmodifiableCollection(TYPE_MAP.values());
 	}
 
-	/**
-	 * Clears all of the Constants in this Class (forgetting the mapping from
-	 * the String to the Constant).
-	 */
-	/*
-	 * CONSIDER Need to consider the ramifications of this on TypeSafeMap, since
-	 * this does not (and really cannot) reset the ordinal count... Does this
-	 * method need to be renamed, such that it is clearConstantMap? - Tom
-	 * Parker, Feb 28, 2007
-	 */
-	public static void clearConstants()
-	{
-		TYPE_MAP.clear();
-	}
-
 	@Override
 	public int compareTo(Type type)
 	{
@@ -230,4 +222,32 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 		 */
 		return fieldName.compareTo(type.fieldName);
 	}
+
+	public static void buildMap()
+	{
+		TYPE_MAP.clear();
+		Field[] fields = Type.class.getDeclaredFields();
+		for (int i = 0; i < fields.length; i++)
+		{
+			int mod = fields[i].getModifiers();
+
+			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
+				&& java.lang.reflect.Modifier.isPublic(mod))
+			{
+				try
+				{
+					Object obj = fields[i].get(null);
+					if (obj instanceof Type)
+					{
+						TYPE_MAP.put(fields[i].getName(), (Type) obj);
+					}
+				}
+				catch (IllegalArgumentException | IllegalAccessException e)
+				{
+					throw new UnreachableError(e);
+				}
+			}
+		}
+	}
+
 }

@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -48,6 +49,12 @@ public class SourceEntryTest
 		campaign.put(StringKey.SOURCE_SHORT, "ShortName");
 		campaign.put(StringKey.SOURCE_WEB, "http://website");
 		campaign.put(ObjectKey.SOURCE_CAMPAIGN, campaign);
+	}
+
+	@AfterEach
+	public void tearDown() throws Exception
+	{
+		campaign = null;
 	}
 
 	/**

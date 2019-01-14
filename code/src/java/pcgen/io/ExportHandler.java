@@ -3796,4 +3796,8 @@ public final class ExportHandler
 		}
 	}
 
+	public static void clear()
+	{
+		TOKEN_MAP.clear();
+	}
 }

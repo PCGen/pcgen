@@ -316,4 +316,8 @@ public final class PJEP extends JEP
 		}
 	}
 
+	public static void clear()
+	{
+		commandList.clear();
+	}
 }
