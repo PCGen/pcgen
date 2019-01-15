@@ -122,10 +122,6 @@ public class KitTemplate extends BaseKit
 			selectedMap.addAllToListFor(templateToAdd, subAdded);
 		}
 
-		if (!apply)
-		{
-			ChooserFactory.stopUsingRandomChooser();
-		}
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 		return selectedMap;
 	}

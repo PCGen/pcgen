@@ -253,7 +253,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		character = null;
 		context = null;
 		SystemCollections.clearGameModeList();
-		super.tearDown();
 	}
 
 	/**
