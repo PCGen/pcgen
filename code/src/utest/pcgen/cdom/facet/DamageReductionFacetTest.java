@@ -33,6 +33,8 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
  * This class tests the handling of DRs in PCGen
  */
@@ -44,6 +46,7 @@ public class DamageReductionFacetTest extends
 	private DamageReduction[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

@@ -27,6 +27,8 @@ import pcgen.core.Equipment;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class NaturalWeaponFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Equipment>
 {
@@ -35,6 +37,7 @@ public class NaturalWeaponFacetTest extends
 	private Equipment[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
