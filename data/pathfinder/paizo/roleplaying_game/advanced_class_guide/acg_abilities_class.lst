@@ -1901,6 +1901,12 @@ CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPRO
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Falcata|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Falcata)
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Falcata|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Falcata)
 
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Kukri|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Kukri)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Kukri|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Kukri)
+
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Wakizashi|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Wakizashi)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Wakizashi|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Wakizashi)
+
 #	BONUS:COMBAT|TOHIT.Weapon Group Melee OneHanded Slashing|DEX|TYPE=NotRanged|PREABILITY:1,CATEGORY=FEAT,Slashing Grace
 ###Block:
 # Ability Name											Unique Key							SORTKEY				Category of Ability		Type												Define						Description																																							Stackable?	Multiple?	Choose		Ability																			Modify VAR																	Weapon prof. bonus																		Source Page		Aspects									Temporary effect description																		Temporary Bonus
@@ -1920,6 +1926,10 @@ CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD								
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Sawtooth Sabre|CRITRANGEDOUBLE|1|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Sawtooth Sabre)
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Falcata|TOHIT,DAMAGE|SwashbucklerWeaponTrainingBonus|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Falcata)
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Falcata|CRITRANGEDOUBLE|1|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Falcata)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Kukri|TOHIT,DAMAGE|SwashbucklerWeaponTrainingBonus|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Kukri)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Kukri|CRITRANGEDOUBLE|1|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Kukri)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Wakizashi|TOHIT,DAMAGE|SwashbucklerWeaponTrainingBonus|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Wakizashi)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Wakizashi|CRITRANGEDOUBLE|1|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Wakizashi)
 
 #
 Panache												KEY:Display Panache Points									CATEGORY:Special Ability																																																																																																																																	ASPECT:CheckType|Points	ASPECT:CheckCount|%1|Panache_Max
