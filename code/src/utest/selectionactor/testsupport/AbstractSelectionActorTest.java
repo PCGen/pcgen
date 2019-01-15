@@ -17,9 +17,9 @@
  */
 package selectionactor.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import compare.InequalityTesterInst;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
@@ -29,6 +29,9 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
+
+import compare.InequalityTesterInst;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends AbstractCharacterUsingTestCase
 {
@@ -79,11 +82,6 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 
 	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
 	{
-	}
-
-	protected String getPersistentFormat(T cdo)
-	{
-		return cdo.getKeyName();
 	}
 
 	protected ChooseDriver getOwner()
