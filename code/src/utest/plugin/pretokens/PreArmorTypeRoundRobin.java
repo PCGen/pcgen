@@ -21,11 +21,12 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreArmorTypeParser;
 import plugin.pretokens.writer.PreArmorTypeWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreArmorTypeRoundRobin extends AbstractBasicRoundRobin
 {
-
-
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -46,6 +47,7 @@ public class PreArmorTypeRoundRobin extends AbstractBasicRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testList()
 	{
 		this.runRoundRobin("PREARMORTYPE:1,LIST");

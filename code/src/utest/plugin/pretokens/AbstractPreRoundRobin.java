@@ -17,10 +17,13 @@
  */
 package plugin.pretokens;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.io.StringWriter;
 import java.util.Collection;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.core.prereq.Prerequisite;
@@ -33,13 +36,13 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public abstract class AbstractPreRoundRobin extends TestCase
-{
+import org.junit.jupiter.api.BeforeEach;
 
-	@Override
-	protected void setUp() throws Exception
+public abstract class AbstractPreRoundRobin
+{
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		super.setUp();
 		TokenRegistration.clearTokens();
 	}
 
@@ -93,18 +96,12 @@ public abstract class AbstractPreRoundRobin extends TestCase
 			}
 			Logging.clearParseMessages();
 			Collection<String> output = context.unparse(obj);
-			if ((output == null) || output.isEmpty())
-			{
-				// Uh Oh
-				fail("Unable to unparse: " + key + ":" + value);
-			}
-			assertEquals(1, output.size());
-			assertEquals(d, output.iterator().next());
+			assertArrayEquals(new String[]{d}, output.toArray());
 		}
 		catch (PersistenceLayerException e)
 		{
 			e.printStackTrace();
-			fail(e.getLocalizedMessage());
+			fail(e::getLocalizedMessage);
 		}
 	}
 

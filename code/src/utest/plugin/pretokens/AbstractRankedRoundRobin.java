@@ -17,6 +17,8 @@
  */
 package plugin.pretokens;
 
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 {
 
@@ -36,17 +38,20 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		return "";
 	}
 
+	@Test
 	public void testBasic()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix() + "Foo=1");
 	}
 
+	@Test
 	public void testMultiple()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix()
 			+ "Foo=1,Bar=2");
 	}
 
+	@Test
 	public void testNoCombineSub()
 	{
 		runRoundRobin("PREMULT:1,[PRE" + getBaseString() + ":1," + getPrefix()
@@ -54,6 +59,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 			+ "Goo=3,Hot=4]");
 	}
 
+	@Test
 	public void testCombineSub()
 	{
 		runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -62,6 +68,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 			+ getPrefix() + "Foo=1,Goo=2");
 	}
 
+	@Test
 	public void testCombineSubNegative()
 	{
 		runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -70,12 +77,14 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 			+ getPrefix() + "Foo=1,Goo=2");
 	}
 
+	@Test
 	public void testNoCombineSubNegative()
 	{
 		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1," + getPrefix()
 			+ "Foo=1],[!PRE" + getBaseString() + ":1," + getPrefix() + "Goo=3]");
 	}
 
+	@Test
 	public void testNoCombineMult()
 	{
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":1," + getPrefix()
@@ -83,17 +92,20 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 			+ "Goo=3,Hot=4]");
 	}
 
+	@Test
 	public void testHigher()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1," + getPrefix() + "Foo=3");
 	}
 
+	@Test
 	public void testBothMultiple()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2," + getPrefix()
 			+ "Foo=3,Bar=5,Goo=6");
 	}
 
+	@Test
 	public void testType()
 	{
 		if (isTypeAllowed())
@@ -103,6 +115,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testTypeMultipleCount()
 	{
 		if (isTypeAllowed())
@@ -112,6 +125,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testAny()
 	{
 		if (isAnyAllowed())
@@ -121,6 +135,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testMultipleType()
 	{
 		if (isTypeAllowed())
@@ -130,6 +145,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testTypeAnd()
 	{
 		if (isTypeAllowed())
@@ -139,6 +155,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testComplex()
 	{
 		if (isTypeAllowed())
@@ -148,6 +165,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testBasicSub()
 	{
 		if (isSubAllowed())
@@ -157,6 +175,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testMultipleSub()
 	{
 		if (isSubAllowed())
@@ -166,6 +185,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testNoCombineSubSub()
 	{
 		if (isSubAllowed())
@@ -177,6 +197,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testCombineSubSub()
 	{
 		if (isSubAllowed())
@@ -188,6 +209,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testCombineSubNegativeSub()
 	{
 		if (isSubAllowed())
@@ -199,6 +221,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testNoCombineSubNegativeSub()
 	{
 		if (isSubAllowed())
@@ -209,6 +232,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testNoCombineMultSub()
 	{
 		if (isSubAllowed())
@@ -219,6 +243,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testHigherSub()
 	{
 		if (isSubAllowed())
@@ -228,6 +253,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testBothMultipleSub()
 	{
 		if (isSubAllowed())
@@ -237,6 +263,7 @@ public abstract class AbstractRankedRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testSubComplex()
 	{
 		if (isTypeAllowed() && isSubAllowed())

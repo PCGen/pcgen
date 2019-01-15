@@ -21,10 +21,11 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpellParser;
 import plugin.pretokens.writer.PreSpellWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PreSpellRoundRobin extends AbstractBasicRoundRobin
 {
-
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
