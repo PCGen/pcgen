@@ -24,7 +24,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 public class SpecialtyKnownTokenTest extends AbstractSpellCastingTokenTestCase
 {
-	static SpecialtyknownToken token = new SpecialtyknownToken();
+	private static final CDOMPrimaryToken<PCClassLevel> token = new SpecialtyknownToken();
 
 	@Override
 	public CDOMPrimaryToken<PCClassLevel> getToken()
