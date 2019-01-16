@@ -156,13 +156,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		setUpContext();
 	}
 
-	@Override
-	protected void tearDown() throws Exception
-	{
-		ChooserFactory.stopUsingRandomChooser();
-		super.tearDown();
-	}
-
 	protected <T extends Loadable> T create(Class<T> cl, String key)
 	{
 		return context.getReferenceContext().constructCDOMObject(cl, key);

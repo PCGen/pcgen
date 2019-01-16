@@ -65,15 +65,6 @@ public final class ChooserFactory
 	}
 
 	/**
-	 * Remove a name from the top of the stack of chooser class names. This 
-	 * will then expose the next newest class name, or empty the stack. 
-	 */
-	public static void stopUsingRandomChooser()
-	{
-		useRandomChooser = false;
-	}
-
-	/**
 	 * @return the delegate
 	 */
 	public static UIDelegate getDelegate()

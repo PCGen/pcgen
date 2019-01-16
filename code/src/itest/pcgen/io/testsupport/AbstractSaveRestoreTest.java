@@ -156,13 +156,6 @@ public abstract class AbstractSaveRestoreTest
 		setUpContext();
 	}
 
-
-	@After
-	public void tearDown() throws Exception
-	{
-		ChooserFactory.stopUsingRandomChooser();
-	}
-
 	protected <T extends Loadable> T create(Class<T> cl, String key)
 	{
 		return context.getReferenceContext().constructCDOMObject(cl, key);

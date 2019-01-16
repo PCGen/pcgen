@@ -246,7 +246,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		ChooserFactory.stopUsingRandomChooser();
 		Logging.setDebugMode(false);
 		human.removeListFor(ListKey.BONUS);
 		giantRace.removeListFor(ListKey.BONUS);
@@ -481,10 +480,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		catch (HeadlessException e)
 		{
 			Logging.debugPrint("Ignoring Headless exception.");
-		}
-		finally
-		{
-			ChooserFactory.stopUsingRandomChooser();
 		}
 		assertEquals("Only 1 feat used", 1, (int)character.getRemainingFeatPoints(true));
 	}

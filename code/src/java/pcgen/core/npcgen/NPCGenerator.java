@@ -779,7 +779,6 @@ public final class NPCGenerator
 		{
 			SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 			UIPropertyContext.setSingleChoiceAction(tempChoicePref);
-			ChooserFactory.stopUsingRandomChooser();
 		}
 	}
 }
