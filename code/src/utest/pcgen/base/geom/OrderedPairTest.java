@@ -16,13 +16,15 @@
  */
 package pcgen.base.geom;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.base.math.OrderedPair;
 
-import org.junit.Test;
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.fail;
+import org.junit.jupiter.api.Test;
 
-public class OrderedPairTest
+
+class OrderedPairTest
 {
 	@Test
 	public void testValueOfNull()
