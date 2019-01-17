@@ -72,6 +72,11 @@ CATEGORY=CLASS|Medium.MOD	ABILITY:Medium Class Feature|AUTOMATIC|Medium ~ Trance
 CATEGORY=CLASS|Medium.MOD	ABILITY:Medium Class Feature|AUTOMATIC|Medium ~ Spacious Soul|PREVAREQ:Medium_CF_SpaciousSoul,0|PREVARGTEQ:Medium_CFP_Level,18
 CATEGORY=CLASS|Medium.MOD	ABILITY:Medium Class Feature|AUTOMATIC|Medium ~ Spirit Mastery|PREVAREQ:Medium_CF_SpiritMastery,0|PREVARGTEQ:Medium_CFP_Level,19
 CATEGORY=CLASS|Medium.MOD	ABILITY:Medium Class Feature|AUTOMATIC|Medium ~ Astral Beacon|PREVAREQ:Medium_CF_AstralBeacon,0|PREVARGTEQ:Medium_CFP_Level,20
+CATEGORY=CLASS|Medium.MOD	BONUS:SPELLCAST|CLASS=Medium;LEVEL=0|-2|PREMULT:2,[PREVAREQ:Medium_CF_Knacks,1],[PRECLASS:1,Medium=1]
+CATEGORY=CLASS|Medium.MOD	BONUS:SPELLCAST|CLASS=Medium;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Medium_CF_Knacks,1],[PRECLASS:1,Medium=2]
+CATEGORY=CLASS|Medium.MOD	BONUS:SPELLCAST|CLASS=Medium;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Medium_CF_Knacks,1],[PRECLASS:1,Medium=3]
+CATEGORY=CLASS|Medium.MOD	BONUS:SPELLCAST|CLASS=Medium;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Medium_CF_Knacks,1],[PRECLASS:1,Medium=5]
+CATEGORY=CLASS|Medium.MOD	BONUS:SPELLCAST|CLASS=Medium;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Medium_CF_Knacks,1],[PRECLASS:1,Medium=7]
 
 ###Block:
 # Ability Name			Ability
@@ -90,6 +95,9 @@ CATEGORY=CLASS|Mesmerist.MOD	ABILITY:Mesmerist Class Feature|AUTOMATIC|Mesmerist
 CATEGORY=CLASS|Mesmerist.MOD	ABILITY:Mesmerist Class Feature|AUTOMATIC|Mesmerist ~ Glib Lie|PREVAREQ:Mesmerist_CF_GlibLie,0|PREVARGTEQ:Mesmerist_CFP_Level,11
 CATEGORY=CLASS|Mesmerist.MOD	ABILITY:Mesmerist Class Feature|AUTOMATIC|Mesmerist ~ Masterful Tricks|PREVAREQ:Mesmerist_CF_MasterfulTricks,0|PREVARGTEQ:Mesmerist_CFP_Level,12
 CATEGORY=CLASS|Mesmerist.MOD	ABILITY:Mesmerist Class Feature|AUTOMATIC|Mesmerist ~ Rule Minds|PREVAREQ:Mesmerist_CF_RuleMinds,0|PREVARGTEQ:Mesmerist_CFP_Level,20
+CATEGORY=CLASS|Mesmerist.MOD	BONUS:SPELLCAST|CLASS=Mesmerist;LEVEL=0|-4|PREMULT:2,[PREVAREQ:Mesmerist_CF_Knacks,1],[PRECLASS:1,Mesmerist=1]
+CATEGORY=CLASS|Mesmerist.MOD	BONUS:SPELLCAST|CLASS=Mesmerist;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Mesmerist_CF_Knacks,1],[PRECLASS:1,Mesmerist=2]
+CATEGORY=CLASS|Mesmerist.MOD	BONUS:SPELLCAST|CLASS=Mesmerist;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Mesmerist_CF_Knacks,1],[PRECLASS:1,Mesmerist=3]
 
 ###Block:
 # Ability Name			Ability
@@ -124,6 +132,12 @@ CATEGORY=CLASS|Psychic.MOD	ABILITY:Psychic Class Feature|AUTOMATIC|Psychic ~ Tel
 CATEGORY=CLASS|Psychic.MOD	ABILITY:Psychic Class Feature|AUTOMATIC|Psychic ~ Major Amplifications|PREVAREQ:Psychic_CF_MajorAmplifications,0|PREVARGTEQ:Psychic_CFP_Level,11
 CATEGORY=CLASS|Psychic.MOD	ABILITY:Psychic Class Feature|AUTOMATIC|Psychic ~ Telepathy|PREVAREQ:Psychic_CF_Telepathy,0|PREVARGTEQ:Psychic_CFP_Level,17
 CATEGORY=CLASS|Psychic.MOD	ABILITY:Psychic Class Feature|AUTOMATIC|Psychic ~ Remade Self|PREVAREQ:Psychic_CF_RemadeSelf,0|PREVARGTEQ:Psychic_CFP_Level,20
+CATEGORY=CLASS|Psychic.MOD	BONUS:SPELLCAST|CLASS=Psychic;LEVEL=0|-4|PREMULT:2,[PREVAREQ:Psychic_CF_Knacks,1],[PRECLASS:1,Psychic=1]
+CATEGORY=CLASS|Psychic.MOD	BONUS:SPELLCAST|CLASS=Psychic;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Psychic_CF_Knacks,1],[PRECLASS:1,Psychic=2]
+CATEGORY=CLASS|Psychic.MOD	BONUS:SPELLCAST|CLASS=Psychic;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Psychic_CF_Knacks,1],[PRECLASS:1,Psychic=4]
+CATEGORY=CLASS|Psychic.MOD	BONUS:SPELLCAST|CLASS=Psychic;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Psychic_CF_Knacks,1],[PRECLASS:1,Psychic=6]
+CATEGORY=CLASS|Psychic.MOD	BONUS:SPELLCAST|CLASS=Psychic;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Psychic_CF_Knacks,1],[PRECLASS:1,Psychic=8]
+CATEGORY=CLASS|Psychic.MOD	BONUS:SPELLCAST|CLASS=Psychic;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Psychic_CF_Knacks,1],[PRECLASS:1,Psychic=10]
 
 ###Block:
 # Ability Name				Ability
@@ -148,6 +162,10 @@ CATEGORY=CLASS|Spiritualist.MOD	ABILITY:Spiritualist Class Feature|AUTOMATIC|Spi
 CATEGORY=CLASS|Spiritualist.MOD	ABILITY:Spiritualist Class Feature|AUTOMATIC|Spiritualist ~ Call Spirit|PREVAREQ:Spiritualist_CF_CallSpirit,0|PREVARGTEQ:Spiritualist_CFP_Level,16
 CATEGORY=CLASS|Spiritualist.MOD	ABILITY:Spiritualist Class Feature|AUTOMATIC|Spiritualist ~ Dual Bond|PREVAREQ:Spiritualist_CF_DualBond,0|PREVARGTEQ:Spiritualist_CFP_Level,17
 CATEGORY=CLASS|Spiritualist.MOD	ABILITY:Spiritualist Class Feature|AUTOMATIC|Spiritualist ~ Empowered Consciousness|PREVAREQ:Spiritualist_CF_EmpoweredConsciousness,0|PREVARGTEQ:Spiritualist_CFP_Level,20
+CATEGORY=CLASS|Spiritualist.MOD	BONUS:SPELLCAST|CLASS=Spiritualist;LEVEL=0|-4|PREMULT:2,[PREVAREQ:Spiritualist_CF_Knacks,1],[PRECLASS:1,Spiritualist=1]
+CATEGORY=CLASS|Spiritualist.MOD	BONUS:SPELLCAST|CLASS=Spiritualist;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Spiritualist_CF_Knacks,1],[PRECLASS:1,Spiritualist=2]
+CATEGORY=CLASS|Spiritualist.MOD	BONUS:SPELLCAST|CLASS=Spiritualist;LEVEL=0|-1|PREMULT:2,[PREVAREQ:Spiritualist_CF_Knacks,1],[PRECLASS:1,Spiritualist=3]
+
 
 ###Block:
 # Ability Name			Define
