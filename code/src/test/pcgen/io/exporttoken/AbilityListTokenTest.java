@@ -35,6 +35,7 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * {@code AbilityListTokenTest} tests the functioning of the ABILITYLIST
@@ -43,6 +44,7 @@ import org.junit.Assert;
 public class AbilityListTokenTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -81,15 +83,15 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("ABILITYLIST.FEAT",
+		Assert.assertEquals("ABILITYLIST.FEAT",
 			"Perform (Dance), Perform (Oratory), Silent Step",
 			tok.getToken("ABILITYLIST.FEAT", character, eh));
 
-		assertEquals("ABILITYLIST.FEAT.TYPE=Fighter",
+		Assert.assertEquals("ABILITYLIST.FEAT.TYPE=Fighter",
 			"Perform (Dance), Perform (Oratory)",
 			tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh));
 
-		assertEquals("ABILITYLIST.FEAT.!TYPE=Fighter",
+		Assert.assertEquals("ABILITYLIST.FEAT.!TYPE=Fighter",
 			"Silent Step",
 			tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh));
 	}
@@ -103,7 +105,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("ABILITYLIST.BARDIC",
+		Assert.assertEquals("ABILITYLIST.BARDIC",
 			"Perform (Dance)",
 			tok.getToken("ABILITYLIST.BARDIC", character, eh));
 	}
