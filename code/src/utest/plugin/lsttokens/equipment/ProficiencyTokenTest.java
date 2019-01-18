@@ -17,6 +17,11 @@
  */
 package plugin.lsttokens.equipment;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.ArmorProf;
@@ -30,7 +35,7 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {

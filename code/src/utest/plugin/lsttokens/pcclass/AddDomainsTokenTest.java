@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.pcclass;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMList;
@@ -33,7 +35,8 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class AddDomainsTokenTest extends
 		AbstractListContextTokenTestCase<PCClass, Domain>
@@ -45,6 +48,7 @@ public class AddDomainsTokenTest extends
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

@@ -17,6 +17,10 @@
  */
 package plugin.lsttokens.pcclass;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
@@ -27,7 +31,7 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {

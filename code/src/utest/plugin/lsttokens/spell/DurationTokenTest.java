@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.spell;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
@@ -24,7 +27,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
@@ -95,10 +98,10 @@ public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 	@Test
 	public void testBadParentheses()
 	{
-		assertFalse("Missing end paren should have been flagged.", parse("(first"));
-		assertFalse("Missing start paren should have been flagged.", parse("first)"));
-		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
+		assertFalse(parse("(first"), "Missing end paren should have been flagged.");
+		assertFalse(parse("first)"), "Missing start paren should have been flagged.");
+		assertFalse(parse("(fir)st)"), "Missing start paren should have been flagged.");
+		assertFalse(parse(")(fir(st)"), "Out of order parens should have been flagged.");
 	}
 
 	/*

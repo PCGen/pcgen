@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.add;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +41,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 {
@@ -53,6 +56,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		return PCClass.class;
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

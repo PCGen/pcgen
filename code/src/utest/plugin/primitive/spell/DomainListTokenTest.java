@@ -32,6 +32,8 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class DomainListTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, DomainSpellList>
 {
@@ -46,6 +48,7 @@ public class DomainListTokenTest extends
 		super("DOMAINLIST", "SampleList");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

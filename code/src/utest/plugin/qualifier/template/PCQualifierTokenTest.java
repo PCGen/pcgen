@@ -28,6 +28,8 @@ import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<PCTemplate>
 {
@@ -37,6 +39,7 @@ public class PCQualifierTokenTest extends
 	private static final LstToken PC_TOKEN =
 			new PCToken();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

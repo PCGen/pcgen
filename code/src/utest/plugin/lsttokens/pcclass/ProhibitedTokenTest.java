@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.pcclass;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.net.URISyntaxException;
 
 import pcgen.core.PCClass;
@@ -32,22 +34,22 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
-	static ProhibitedToken token = new ProhibitedToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static final ProhibitedToken token = new ProhibitedToken();
+	private static final CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
-	PreClassParser preclass = new PreClassParser();
-	PreClassWriter preclasswriter = new PreClassWriter();
-	PreRaceParser prerace = new PreRaceParser();
-	PreRaceWriter preracewriter = new PreRaceWriter();
+	private final PreClassParser preclass = new PreClassParser();
+	private final PreClassWriter preclasswriter = new PreClassWriter();
+	private final PreRaceParser prerace = new PreRaceParser();
+	private final PreRaceWriter preracewriter = new PreRaceWriter();
 
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

@@ -17,6 +17,10 @@
  */
 package plugin.lsttokens.deity;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -40,8 +44,8 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class DomainsTokenTest extends
 		AbstractListContextTokenTestCase<Deity, Domain>
@@ -50,7 +54,7 @@ public class DomainsTokenTest extends
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

@@ -17,6 +17,11 @@
  */
 package plugin.lsttokens.campaign;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -28,7 +33,7 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {

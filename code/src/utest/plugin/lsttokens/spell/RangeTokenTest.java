@@ -17,6 +17,10 @@
  */
 package plugin.lsttokens.spell;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -26,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
 public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
@@ -86,6 +91,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 		return false;
 	}
 
+	@Test
 	public void testGoodParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
@@ -97,17 +103,14 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 		assertCleanConstruction();
 	}
 
+	@Test
 	public void testBadParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		assertFalse("Missing end paren should have been flagged.",
-				parse("(first"));
-		assertFalse("Missing start paren should have been flagged.",
-				parse("first)"));
-		assertFalse("Missing start paren should have been flagged.",
-				parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.",
-				parse(")(fir(st)"));
+		assertFalse(parse("(first"), "Missing end paren should have been flagged.");
+		assertFalse(parse("first)"), "Missing start paren should have been flagged.");
+		assertFalse(parse("(fir)st)"), "Missing start paren should have been flagged.");
+		assertFalse(parse(")(fir(st)"), "Out of order parens should have been flagged.");
 	}
 
 	/*

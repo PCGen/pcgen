@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.campaign;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -30,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
