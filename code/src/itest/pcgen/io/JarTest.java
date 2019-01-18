@@ -17,10 +17,10 @@
  */
 package pcgen.io;
 
-import static junit.framework.TestCase.fail;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -33,7 +33,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
 
 /**
  * Test that the jar is properly built.
@@ -43,12 +43,12 @@ import org.junit.Ignore;
  */
 public class JarTest {
 
-    private final String pcgenJar = "pcgen.jar";
+    private static final String pcgenJar = "pcgen.jar";
     private final File jar = new File(pcgenJar);
     private final File libs = new File("libs");
 
-    @Ignore
-    public void testJar() throws IOException, InterruptedException, ExecutionException {
+    @Disabled
+    void testJar() throws IOException, InterruptedException, ExecutionException {
         // Make sure the jar is in root.
         assertThat(jar.exists(), is(true));
 
