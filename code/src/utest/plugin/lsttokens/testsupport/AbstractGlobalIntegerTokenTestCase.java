@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGlobalIntegerTokenTestCase extends
 		AbstractGlobalTokenTestCase

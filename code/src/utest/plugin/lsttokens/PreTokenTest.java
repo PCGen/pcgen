@@ -29,8 +29,7 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 public class PreTokenTest extends AbstractGlobalTokenTestCase
 {
 

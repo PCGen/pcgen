@@ -38,8 +38,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;import org.junit.jupiter.api.BeforeEach;
 
 public class FactLstTest extends AbstractGlobalTokenTestCase
 {
