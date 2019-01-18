@@ -85,7 +85,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 		String[] unparsed = setAndUnparse(-1);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "1IFLARGERTHANWEAPON", unparsed[0]);
+		assertEquals("1IFLARGERTHANWEAPON", unparsed[0]);
 	}
 
 	@Test

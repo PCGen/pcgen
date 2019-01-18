@@ -93,7 +93,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 		assertTrue(parse("Start"));
 		assertTrue(parse("Mod"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Mod", unparsed[0]);
+		assertEquals("Mod", unparsed[0]);
 	}
 
 	@Test

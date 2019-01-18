@@ -91,15 +91,15 @@ public class SubraceTokenTest extends
 		assertTrue(parse("YES"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
+		assertEquals("YES", unparsed[0]);
 		assertTrue(parse("TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
+		assertEquals("TestWP1", unparsed[0]);
 		assertTrue(parse("YES"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
+		assertEquals("YES", unparsed[0]);
 	}
 
 	@Test

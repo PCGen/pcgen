@@ -23,6 +23,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
+import org.junit.Assert;
+
 
 public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
@@ -37,11 +39,11 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 		{
 			final PreWieldTester test = new PreWieldTester();
 			test.passes(prereq, getCharacter(), null);
-			fail("Should have thrown a PrerequisiteException here.");
+			Assert.fail("Should have thrown a PrerequisiteException here.");
 		}
 		catch (PrerequisiteException pe)
 		{
-			assertEquals(PreWieldTester.class.getName()
+			Assert.assertEquals(PreWieldTester.class.getName()
 				+ " does not support prerequisites for Characters.", pe
 				.getMessage());
 		}

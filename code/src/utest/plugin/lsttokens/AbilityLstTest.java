@@ -19,8 +19,6 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -44,12 +42,16 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 public class AbilityLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new AbilityLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

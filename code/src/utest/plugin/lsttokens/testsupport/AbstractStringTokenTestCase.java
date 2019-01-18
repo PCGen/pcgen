@@ -79,17 +79,17 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("Start"));
 		assertTrue(parse("Mod"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Mod", unparsed[0]);
+		assertEquals("Mod", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 	}
 

@@ -342,13 +342,13 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		String[] unparsed;
 		assertTrue(parse("Fire=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 		assertTrue(parse("Fire=1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Fire=1", unparsed[0]);
+		assertEquals("Fire=1", unparsed[0]);
 		assertTrue(parse("Fire=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 	}
 
 	@Override

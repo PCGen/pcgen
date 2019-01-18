@@ -23,6 +23,8 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.core.Campaign;
@@ -54,7 +56,6 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	protected CDOMObject primaryProf;
 	protected CDOMObject secondaryProf;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
@@ -62,17 +63,12 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	{
 		Locale.setDefault(Locale.US);
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.register(getReadToken());
 		TokenRegistration.register(getWriteToken());
 		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
@@ -278,9 +274,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected static void expectSingle(String[] unparsed, String expected)
 	{
-		Assert.assertNotNull(unparsed);
-		Assert.assertEquals(1, unparsed.length);
-		Assert.assertEquals("Expected item to be equal", expected, unparsed[0]);
+		assertArrayEquals(new String[]{expected}, unparsed);
 	}
 
 	protected void assertBadUnparse()

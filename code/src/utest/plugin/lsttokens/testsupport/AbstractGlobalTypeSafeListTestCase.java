@@ -212,24 +212,24 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
@@ -240,13 +240,13 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+			assertEquals("TestWP2", unparsed[0]);
 		}
 	}
 
