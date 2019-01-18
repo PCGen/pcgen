@@ -17,12 +17,6 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -39,6 +33,9 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreLevelWriter;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public class RepeatLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
@@ -46,8 +43,6 @@ public class RepeatLevelIntegrationTest extends
 	private static RepeatlevelToken token = new RepeatlevelToken();
 	private static CDOMTokenLoader<PCTemplate> loader =
             new CDOMTokenLoader<>();
-
-	private static boolean classSetUpFired = false;
 
 	@BeforeClass
 	public static void ltClassSetUp() throws PersistenceLayerException
@@ -58,19 +53,6 @@ public class RepeatLevelIntegrationTest extends
 		TokenRegistration.register(new DrLst());
 		TokenRegistration.register(new SrLst());
 		TokenRegistration.register(new SabLst());
-		classSetUpFired = true;
-	}
-
-	@Override
-	@Before
-	public final void setUp() throws PersistenceLayerException,
-		URISyntaxException
-	{
-		super.setUp();
-		if (!classSetUpFired)
-		{
-			ltClassSetUp();
-		}
 	}
 
 	@Override
