@@ -17,8 +17,8 @@
  */
 package plugin.lsttokens;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URISyntaxException;
 
@@ -45,7 +45,8 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class AbilityLstTest extends AbstractGlobalTokenTestCase
 {
@@ -53,6 +54,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	static CDOMPrimaryToken<CDOMObject> token = new AbilityLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
