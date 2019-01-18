@@ -226,7 +226,7 @@ task converterJar(type: Jar, dependsOn: jar) {
                 'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
     }
 
-    classifier = 'batch-convert'
+    archiveClassifier.set('batch-convert')
     from sourceSets.main.output
     include 'none'
 }
@@ -331,13 +331,13 @@ test {
 task itest(type: Test, dependsOn: [jar]) {
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
-    systemProperties['jar.path'] = jar.archivePath
+    systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
-    systemProperties['jar.path'] = jar.archivePath
+    systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
     forkEvery = 1
     // Exclude the two suites to avoid duplicate test runs.
     exclude 'AllJUnitTests.class'
