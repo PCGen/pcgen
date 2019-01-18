@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
@@ -31,6 +31,8 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 {

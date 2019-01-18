@@ -39,12 +39,14 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class FactLstTest extends AbstractGlobalTokenTestCase
 {
 	private static FactLst token = new FactLst();
 	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

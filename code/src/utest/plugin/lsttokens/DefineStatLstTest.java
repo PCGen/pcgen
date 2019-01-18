@@ -34,6 +34,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class DefineStatLstTest extends AbstractGlobalTokenTestCase
 {
@@ -41,6 +42,7 @@ public class DefineStatLstTest extends AbstractGlobalTokenTestCase
 	static DefineStatLst token = new DefineStatLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

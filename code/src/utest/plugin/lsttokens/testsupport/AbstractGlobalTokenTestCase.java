@@ -18,13 +18,13 @@
 package plugin.lsttokens.testsupport;
 
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -48,9 +48,9 @@ import pcgen.rules.persistence.token.CDOMWriteToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.FormatSupport;
 import util.TestURI;
 
@@ -64,7 +64,7 @@ public abstract class AbstractGlobalTokenTestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		Locale.setDefault(Locale.US);
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
@@ -109,7 +109,7 @@ public abstract class AbstractGlobalTokenTestCase
 		// Set value
 		for (String s : str)
 		{
-			assertTrue("Should be able to parse " + s, parse(s));
+			assertTrue(parse(s), () -> "Should be able to parse " + s);
 		}
 		// Get back the appropriate token:
 		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);

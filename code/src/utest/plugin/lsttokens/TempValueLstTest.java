@@ -33,6 +33,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * Token parse and unparsing tests for TempValueLst
@@ -43,6 +44,7 @@ public class TempValueLstTest extends AbstractGlobalTokenTestCase
 	static CDOMPrimaryToken<CDOMObject> token = new TempValueLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

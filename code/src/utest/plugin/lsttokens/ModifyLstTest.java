@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
@@ -35,6 +35,8 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.Test;
 
 public class ModifyLstTest extends AbstractGlobalTokenTestCase
 {
