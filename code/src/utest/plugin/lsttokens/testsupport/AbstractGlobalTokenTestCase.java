@@ -266,7 +266,7 @@ public abstract class AbstractGlobalTokenTestCase
 	{
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		assertEquals(expected, unparsed[0]);
 	}
 
 	protected void assertBadUnparse()
