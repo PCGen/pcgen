@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+
+###Block: Combat Tricks
+# Ability Name		Unique Key							Category of Ability		Type									Description																																							Source Page
+CATEGORY=Special Ability|Combat Trick ~ Bloodletting.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Bloody Sabres.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Bullseye Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Butterfly's Sting.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Charge of the Righteous.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Destroy Identity.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Heroic Interposition.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Intrepid Rescuer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Measured Response.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Riptide Attack.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Spear Dancer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Spiked Destroyer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Squash Flat.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Steady Engagement.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Sun Striker.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ To the Last.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Torch Bearer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
