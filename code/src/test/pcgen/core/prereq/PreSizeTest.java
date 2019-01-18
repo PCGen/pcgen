@@ -32,9 +32,6 @@ import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
 public class PreSizeTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
@@ -57,11 +54,6 @@ public class PreSizeTest extends AbstractCharacterTestCase
 		eq1 = EquipmentList.getEquipmentFromName("Item One", character);
 		eq2 = EquipmentList.getEquipmentFromName("Item Two", character);
 		eq3 = EquipmentList.getEquipmentFromName("Item Three", character);
-	}
-
-	public static Test suite()
-	{
-		return new TestSuite(PreSizeTest.class);
 	}
 
 	public void testEquipmentPreSize() throws Exception

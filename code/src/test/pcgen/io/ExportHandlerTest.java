@@ -73,24 +73,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	private Equipment gem = null;
 	private Equipment armor = null;
 
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(ExportHandlerTest.class);
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public ExportHandlerTest(String name)
-	{
-		super(name);
-	}
-
 	@Override
 	protected void setUp() throws Exception
 	{
