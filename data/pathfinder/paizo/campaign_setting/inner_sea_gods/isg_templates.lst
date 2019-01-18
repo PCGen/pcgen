@@ -1,0 +1,9 @@
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Jason D
+
+###Block: New subtype support
+Herald								VISIBLE:NO																							ABILITY:Special Ability|AUTOMATIC|Herald ~ Always Armed|Herald ~ Emissary
+Spawn of Rovagug					VISIBLE:NO																							ABILITY:Special Ability|AUTOMATIC|Spawn of Rovagug ~ Hibernation|Spawn of Rovagug ~ Regeneration|Spawn of Rovagug ~ Unstoppable Force
+
+###Block: Spawn of Rovagug Tarrasque variant
+Tarrasque (Spawn of Rovagug)				PRERACE:1,Tarrasque		VISIBLE:NO		BONUS:VAR|DarkvisionRange|60|TYPE=Base			ABILITY:Special Ability|AUTOMATIC|Immunity to Ability Drain			RACESUBTYPE:Spawn of Rovagug

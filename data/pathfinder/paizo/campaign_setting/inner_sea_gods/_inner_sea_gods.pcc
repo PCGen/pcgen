@@ -7,9 +7,7 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Ultimate Magic
-PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Inner Sea World Guide,INCLUDES=Bestiary
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -55,12 +53,21 @@ DATACONTROL:isg__datacontrols.lst
 ABILITY:isg_abilities.lst
 ABILITY:isg_abilities_faith.lst
 ABILITY:isg_abilities_feat.lst
+ABILITY:isg_abilities_races.lst
 ABILITYCATEGORY:isg_abilitycategories.lst
 CLASS:isg_classes.lst
 DEITY:isg_deities.lst
 DOMAIN:isg_domains.lst
 EQUIPMENT:isg_equip.lst
+KIT:isg_kits_race.lst
+RACE:isg_races.lst
 SPELL:isg_spells.lst
+TEMPLATE:isg_templates.lst
+
+# Support files for when Bestiary 4 is loaded
+ABILITY:support/isg_abilities_races_b4.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 4
+KIT:support/isg_kits_race_b4.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 4
+RACE:support/isg_races_b4.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 4
 
 # ENTRY DATE: 2015-02
 # LST MONKEY: Andrew Maitland
