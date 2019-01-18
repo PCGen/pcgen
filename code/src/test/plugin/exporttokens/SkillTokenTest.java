@@ -52,15 +52,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	private Skill[] knowledge = null;
 	private Skill tumble = null;
 
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public SkillTokenTest(String name)
-	{
-		super(name);
-	}
-
 	@Override
 	protected void setUp() throws Exception
 	{

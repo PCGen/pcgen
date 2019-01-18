@@ -137,16 +137,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected TemplateInputFacet templateInputFacet;
 	protected WeaponProfModelFacet weaponProfModelFacet;
 
-	public AbstractTokenModelTest()
-	{
-		super();
-	}
-
-	public AbstractTokenModelTest(String string)
-	{
-		super(string);
-	}
-
 	@Override
 	protected void setUp() throws Exception
 	{
