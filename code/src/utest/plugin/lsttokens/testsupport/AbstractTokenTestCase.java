@@ -18,6 +18,14 @@
 package plugin.lsttokens.testsupport;
 
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -40,10 +48,9 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
 import util.FormatSupport;
 import util.TestURI;
 
@@ -56,31 +63,23 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 	protected T secondaryProf;
 	protected int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@BeforeEach
-	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();
 		expectedPrimaryMessageCount = 0;
 	}
 
-	@AfterEach
 	@AfterEach
 	public void tearDown() throws Exception
 	{
@@ -132,7 +131,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		Assertions.assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getToken().unparse(primaryContext, primaryProf));
 
 		parse(str);
 		primaryProf.setSourceURI(testCampaign.getURI());
@@ -153,7 +152,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 			throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		Assertions.assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getToken().unparse(primaryContext, primaryProf));
 
 		parse(deprecated);
 		primaryProf.setSourceURI(testCampaign.getURI());
@@ -170,22 +169,14 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 		// And that it comes back out the same again
 		String[] sUnparsed = getToken()
 				.unparse(secondaryContext, secondaryProf);
-		Assertions.assertEquals(unparsed.length, sUnparsed.length);
+		assertArrayEquals(sUnparsed, unparsed);
 
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			Assertions.assertEquals(
-					unparsed[i],
-					sUnparsed[i],
-					"Expected " + i + " item to be equal"
-			);
-		}
 		assertCleanConstruction();
-		Assertions.assertTrue(secondaryContext.getReferenceContext().validate(null));
-		Assertions.assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
-		Assertions.assertEquals(expectedPrimaryMessageCount, primaryContext
+		assertTrue(secondaryContext.getReferenceContext().validate(null));
+		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
+		assertEquals(expectedPrimaryMessageCount, primaryContext
 				.getWriteMessageCount());
-		Assertions.assertEquals(0, secondaryContext.getWriteMessageCount());
+		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	protected void parseSecondary(String[] unparsed)
@@ -208,7 +199,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 		// Set value
 		for (String s : str)
 		{
-			Assertions.assertTrue(parse(s), "Failed to parse " + s);
+			assertTrue(parse(s), () -> "Failed to parse " + s);
 		}
 	}
 
@@ -216,13 +207,13 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 	{
 		String[] unparsed = getToken().unparse(pc, pp);
 
-		Assertions.assertNotNull(str);
-		Assertions.assertNotNull(unparsed);
-		Assertions.assertEquals(str.length, unparsed.length);
+		assertNotNull(str);
+		assertNotNull(unparsed);
+		assertEquals(str.length, unparsed.length);
 
 		for (int i = 0; i < str.length; i++)
 		{
-			Assertions.assertEquals(
+			assertEquals(
 					str[i], unparsed[i],
 					"Expected " + i + "th uparsed item to be equal"
 			);
@@ -235,7 +226,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 	public void assertNoSideEffects()
 	{
 		isCDOMEqual(primaryProf, secondaryProf);
-		Assertions.assertFalse(primaryContext.getListContext().hasMasterLists());
+		assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
 	public boolean parse(String str)
@@ -300,16 +291,16 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 		catch (Exception e)
 		{
 			e.printStackTrace();
-			Assertions.fail("Token should not throw an exception with null input");
+			fail("Token should not throw an exception with null input");
 		}
 	}
 
 	@Test
 	public void testOverwrite()
 	{
-		Assertions.assertTrue(parse(getLegalValue()));
+		assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
-		Assertions.assertTrue(parse(getAlternateLegalValue()));
+		assertTrue(parse(getAlternateLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer(getLegalValue(), getAlternateLegalValue()));
 	}
@@ -322,20 +313,20 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 
 	protected static void expectSingle(String[] unparsed, String expected)
 	{
-		Assertions.assertNotNull(unparsed);
-		Assertions.assertEquals(1, unparsed.length);
-		Assertions.assertEquals(expected, unparsed[0]);
+		assertNotNull(unparsed);
+		assertEquals(1, unparsed.length);
+		assertEquals(expected, unparsed[0]);
 	}
 
 	protected void assertBadUnparse()
 	{
-		Assertions.assertNull(getToken().unparse(primaryContext, primaryProf));
-		Assertions.assertTrue(primaryContext.getWriteMessageCount() > 0);
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
 	protected void assertConstructionError()
 	{
-		Assertions.assertFalse(
+		assertFalse(
 				primaryContext.getReferenceContext().validate(null)
 						&& primaryContext.getReferenceContext().resolveReferences(null),
 				"Expected one of validate or resolve references to be false."
@@ -344,8 +335,8 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 
 	protected void assertCleanConstruction()
 	{
-		Assertions.assertTrue(primaryContext.getReferenceContext().validate(null));
-		Assertions.assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+		assertTrue(primaryContext.getReferenceContext().validate(null));
+		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	protected <C extends Categorized<C>> C constructCategorized(LoadContext context,

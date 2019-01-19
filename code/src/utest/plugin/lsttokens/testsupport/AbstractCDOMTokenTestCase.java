@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.cdom.base.CDOMObject;
 
 public abstract class AbstractCDOMTokenTestCase<T extends CDOMObject> extends
@@ -25,6 +27,6 @@ public abstract class AbstractCDOMTokenTestCase<T extends CDOMObject> extends
 	@Override
 	public void isCDOMEqual(T cdo1, T cdo2)
 	{
-		assertTrue("Not equal " + cdo1 + " and " + cdo2, cdo1.isCDOMEqual(cdo2));
+		assertEquals(cdo1, cdo2);
 	}
 }
