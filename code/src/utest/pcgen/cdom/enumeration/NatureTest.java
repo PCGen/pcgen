@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.enumeration;
 
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertNull;
 
 import org.junit.jupiter.api.Test;
