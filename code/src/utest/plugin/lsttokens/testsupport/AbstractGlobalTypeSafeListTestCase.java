@@ -17,14 +17,20 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.util.List;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		AbstractGlobalTokenTestCase
