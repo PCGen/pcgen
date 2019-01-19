@@ -59,7 +59,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -75,7 +75,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Override
-	@After
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		super.tearDown();

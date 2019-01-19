@@ -42,7 +42,7 @@ public class AbilityTokenTest
 
 	private LoadContext context;
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		SettingsHandler.getGame().clearLoadContext();

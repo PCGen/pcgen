@@ -50,7 +50,7 @@ public class DomainsTokenTest extends
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

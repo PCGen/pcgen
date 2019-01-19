@@ -53,7 +53,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	PreSubClassWriter presubclasswriter = new PreSubClassWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

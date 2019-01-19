@@ -39,7 +39,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{

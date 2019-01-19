@@ -40,7 +40,7 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 			new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

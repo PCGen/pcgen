@@ -38,7 +38,7 @@ public class CampaignSourceEntryTest
 
 	private URI sourceUri;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		sourceUri = new URI("file://CampaignSourceEntryTest");

@@ -67,7 +67,7 @@ public class BenefitTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

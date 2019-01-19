@@ -42,7 +42,7 @@ public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 		URISyntaxException
 	{

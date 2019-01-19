@@ -47,7 +47,7 @@ public class WeightedCollectionTest
 
 	private WeightedCollection<Integer> wc;
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		wc = new WeightedCollection<>();

@@ -45,7 +45,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	PreWeaponProfParser preWpnProf = new PreWeaponProfParser();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

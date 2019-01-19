@@ -47,7 +47,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

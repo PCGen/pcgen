@@ -67,7 +67,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 
 	public abstract boolean allowsFormula();
 
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

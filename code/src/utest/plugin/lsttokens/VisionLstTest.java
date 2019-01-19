@@ -48,7 +48,7 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

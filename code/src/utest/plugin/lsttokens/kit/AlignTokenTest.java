@@ -38,7 +38,7 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 			"SPELLS", KitAlignment.class);
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{

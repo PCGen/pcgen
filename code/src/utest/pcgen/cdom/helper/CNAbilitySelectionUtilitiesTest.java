@@ -24,7 +24,7 @@ public class CNAbilitySelectionUtilitiesTest
 	Ability stackyes;
 	Ability othernomult;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		CNAbilityFactory.reset();

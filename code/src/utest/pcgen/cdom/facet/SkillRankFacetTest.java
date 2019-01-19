@@ -55,7 +55,7 @@ public class SkillRankFacetTest
 		}
 
 	}
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();

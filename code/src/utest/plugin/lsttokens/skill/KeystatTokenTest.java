@@ -43,7 +43,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	private PCStat ps;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

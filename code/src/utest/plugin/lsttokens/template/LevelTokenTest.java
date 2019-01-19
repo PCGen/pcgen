@@ -45,7 +45,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 			new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 		URISyntaxException
 	{

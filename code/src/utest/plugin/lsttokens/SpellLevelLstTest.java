@@ -75,7 +75,7 @@ public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

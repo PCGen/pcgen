@@ -41,7 +41,7 @@ public class NewKeyTokenTest
 	private String gameModeName;
 
 	
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");

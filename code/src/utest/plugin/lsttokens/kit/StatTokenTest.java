@@ -38,7 +38,7 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 			"SPELLS", KitStat.class);
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

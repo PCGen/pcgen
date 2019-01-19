@@ -29,7 +29,7 @@ public class TableLoaderTest
 	private URI uri;
 	private TableLoader loader;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		uri = TestURI.getURI();

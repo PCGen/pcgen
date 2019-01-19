@@ -50,7 +50,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	PreLevelWriter prelevelwriter = new PreLevelWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

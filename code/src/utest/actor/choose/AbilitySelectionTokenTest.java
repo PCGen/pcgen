@@ -47,7 +47,7 @@ public class AbilitySelectionTokenTest
 
 	protected LoadContext context;
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		Globals.emptyLists();

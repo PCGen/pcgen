@@ -49,7 +49,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

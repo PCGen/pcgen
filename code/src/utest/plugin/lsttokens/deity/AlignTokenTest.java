@@ -41,7 +41,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	private PCAlignment lg;
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{

@@ -56,7 +56,7 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

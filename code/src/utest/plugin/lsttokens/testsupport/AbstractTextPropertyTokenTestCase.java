@@ -38,7 +38,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 {
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

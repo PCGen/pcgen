@@ -86,7 +86,7 @@ public class SetSolverManagerTest
 	private RuntimeLoadContext context;
 	private MyManagerFactory managerFactory;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		ModifierValueStore mvs = new ModifierValueStore();

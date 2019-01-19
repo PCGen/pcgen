@@ -43,7 +43,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	private PCStat ps;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

@@ -58,7 +58,7 @@ public class MapKeyMapTest
 	private Aspect nameAspect;
 	private Aspect breedAspect;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		mapKeyMap = new MapKeyMap();

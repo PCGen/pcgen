@@ -39,7 +39,7 @@ public class MinVerTokenTest
 	private String gameModeName;
 
 	
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");

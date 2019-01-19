@@ -69,7 +69,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		if (!classSetUpFired)
@@ -83,7 +83,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	}
 
 	@Override
-	@After
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		primaryContext = null;

@@ -50,7 +50,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{

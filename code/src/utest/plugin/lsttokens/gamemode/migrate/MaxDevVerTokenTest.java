@@ -38,7 +38,7 @@ public class MaxDevVerTokenTest
 	private MaxDevVerToken token;
 	private String gameModeName;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");

@@ -34,7 +34,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	protected static final String ITEM_NAME = "ItemName";
 	protected LoadContext context;
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		SettingsHandler.getGame().clearLoadContext();
