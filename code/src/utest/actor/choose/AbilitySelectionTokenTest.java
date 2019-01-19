@@ -18,19 +18,9 @@
 package actor.choose;
 
 
-import static org.junit.Assert.assertTrue;
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -42,6 +32,9 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.choose.AbilitySelectionToken;
 import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test of the class AbilitySelectionToken.

@@ -142,10 +142,10 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testBadParentheses()
 	{
-		assertFalse("Missing end paren should have been flagged.", parse("(first"));
-		assertFalse("Missing start paren should have been flagged.", parse("first)"));
-		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
+		assertFalse(parse("(first"));
+		assertFalse(parse("first)"));
+		assertFalse(parse("(fir)st)"));
+		assertFalse(parse(")(fir(st)"));
 		assertNoSideEffects();
 	}
 

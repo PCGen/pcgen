@@ -16,27 +16,14 @@
 package pcgen.base.solver;
 
 import static org.hamcrest.CoreMatchers.is;
-
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
-import org.junit.Before;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.fail;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-
-import org.junit.jupiter.api.BeforeEach;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
@@ -78,6 +65,9 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.function.GetOtherFunction;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SetSolverManagerTest
 {
