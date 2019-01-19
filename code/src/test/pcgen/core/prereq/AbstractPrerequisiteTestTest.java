@@ -20,7 +20,6 @@ package pcgen.core.prereq;
 import java.util.Locale;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
@@ -46,7 +45,7 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 				+ " does not support prerequisites for Characters.", pe
 				.getMessage());
 		}
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 
 }

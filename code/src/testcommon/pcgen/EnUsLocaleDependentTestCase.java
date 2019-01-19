@@ -19,11 +19,11 @@ package pcgen;
 
 import java.util.Locale;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
- * Abstract TestCase framework for tests that are US Locale dependent. Before the tests this automatically switch the
+ * Abstract framework for tests that are US Locale dependent. Before the tests this automatically switch the
  * locale, and also does at the end. Manually calling the methods, or the super classes', especially {@link #before},
  * will break the locale for further tests. 
  * 
@@ -32,13 +32,13 @@ public abstract class EnUsLocaleDependentTestCase extends
 		LocaleDependentTestCase
 {
 
-	@Before
+	@BeforeEach
 	public void changeLocale()
 	{
 		before(Locale.US);
 	}
 
-	@After
+	@AfterEach
 	public void restoreLocale()
 	{
 		LocaleDependentTestCase.after();
