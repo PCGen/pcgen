@@ -17,11 +17,14 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.math.BigDecimal;
 import java.util.Locale;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -58,9 +61,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code WeaponTokenTest} contains tests to verify that the
@@ -80,26 +83,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	private Ability wpnBonusAbility;
 	private PCTemplate wpnBonusPct;
 
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(WeaponTokenTest.class);
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public WeaponTokenTest(String name)
-	{
-		super(name);
-	}
-
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
@@ -395,7 +380,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	}
 
 	@Override
-	protected void tearDown() throws Exception
+	@AfterEach
+	public void tearDown() throws Exception
 	{
 		dblWpn = null;
 		str.removeListFor(ListKey.BONUS);
@@ -415,37 +401,37 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponToken token = new WeaponToken();
 
 		// First test each sub token
-		assertEquals("Name", "*DoubleWpn", token.getToken("WEAPON.0.NAME",
+		assertEquals("*DoubleWpn", token.getToken("WEAPON.0.NAME",
 			character, null));
-		assertEquals("Name-H1", "*DoubleWpn (Head 1 only)", token.getToken(
+		assertEquals( "*DoubleWpn (Head 1 only)", token.getToken(
 			"WEAPON.1.NAME", character, null));
 		assertEquals("Name-H2", "*DoubleWpn (Head 2 only)", token.getToken(
 			"WEAPON.2.NAME", character, null));
 
 		LocaleDependentTestCase.before(Locale.US);
-		assertEquals("Hand", "Two-Weapons", token.getToken("WEAPON.0.HAND",
+		assertEquals( "Two-Weapons", token.getToken("WEAPON.0.HAND",
 			character, null));
-		assertEquals("Hand-H1", "Two-Weapons", token.getToken("WEAPON.1.HAND",
+		assertEquals( "Two-Weapons", token.getToken("WEAPON.1.HAND",
 			character, null));
-		assertEquals("Hand-H2", "Two-Weapons", token.getToken("WEAPON.2.HAND",
+		assertEquals( "Two-Weapons", token.getToken("WEAPON.2.HAND",
 			character, null));
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 
 		//	1H-P
-		assertEquals("1H-P - BASEHIT", "+14/+9/+4/-1", token.getToken(
+		assertEquals( "+14/+9/+4/-1", token.getToken(
 			"WEAPON.0.BASEHIT", character, null));
-		assertNull("1H-P - BASEHIT-H1", token.getToken(
+		assertNull( token.getToken(
 				"WEAPON.1.BASEHIT", character, null));
-		assertNull("1H-P - BASEHIT-H2", token.getToken(
+		assertNull(token.getToken(
 				"WEAPON.2.BASEHIT", character, null));
 
 		//	1H-O
-		assertEquals("1H-O - OHHIT", "+10/+5/+0/-5", token.getToken(
+		assertEquals("+10/+5/+0/-5", token.getToken(
 			"WEAPON.0.OHHIT", character, null));
-		assertNull("1H-O - OHHIT-H1", token.getToken("WEAPON.1.OHHIT",
+		assertNull( token.getToken("WEAPON.1.OHHIT",
 				character, null
 		));
-		assertNull("1H-O - OHHIT-H2", token.getToken("WEAPON.2.OHHIT",
+		assertNull(token.getToken("WEAPON.2.OHHIT",
 				character, null
 		));
 
@@ -533,29 +519,30 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		// Test magical enhancements to the double weapon H1:+1, H2:+2
 		dblWpn.addEqModifiers("MWORKW.PLUS1W", true);
 		dblWpn.addEqModifiers("MWORKW.PLUS2W", false);
-		assertEquals("2H - THHIT-H1 [+1]", "+15/+10/+5/+0", token.getToken(
+		assertEquals("+15/+10/+5/+0", token.getToken(
 			"WEAPON.1.THHIT", character, null));
-		assertEquals("2H - THHIT-H2 [+2]", "+16/+11/+6/+1", token.getToken(
+		assertEquals("+16/+11/+6/+1", token.getToken(
 			"WEAPON.2.THHIT", character, null));
-		assertEquals("2H - THDAMAGE-H1 [+1]", "1d10+4", token.getToken(
+		assertEquals( "1d10+4", token.getToken(
 			"WEAPON.1.THDAMAGE", character, null));
-		assertEquals("2H - THDAMAGE-H2 [+2]", "1d6+5", token.getToken(
+		assertEquals("1d6+5", token.getToken(
 			"WEAPON.2.THDAMAGE", character, null));
 	}
 
 	/**
 	 * Test the processing of a bastard sword on a medium creature without the
-	 * exotic weapon proficiency. It should not be able to be wielded one handed.<br/>
+	 * exotic weapon proficiency. It should not be able to be wielded one handed.
 	 * This is based on the text from the DnD FAQ v20060621 on p32 which states 
 	 * "Treat ... these weapons as two-handed weapons when determining who can 
 	 * use them and how." when talking about bastard swords for weilders without 
 	 * the exotic weapon proficiency.
 	 */
+	@Test
 	public void testBastardSword()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("2-handed prof should be martial",
-			"KEY_Sword (Bastard)", bastardSword.get(ObjectKey.WEAPON_PROF).get().getKeyName());
+		assertEquals(
+			"KEY_Sword (Bastard)", bastardSword.get(ObjectKey.WEAPON_PROF).get().getKeyName(), "2-handed prof should be martial");
 
 		EquipSet es =
 				new EquipSet("0.1.2", "Sword (Bastard)",
@@ -565,14 +552,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Now test the output to ensure it is correct
 		WeaponToken token = new WeaponToken();
-		assertEquals("Name", "Sword, Bastard", token.getToken("WEAPON.3.NAME",
+		assertEquals( "Sword, Bastard", token.getToken("WEAPON.3.NAME",
 			character, null));
 		assertNull(
-				"Not possible to weild the bastard sword one handed.",
-				token.getToken("WEAPON.3.BASEHIT", character, null)
-		);
-		assertEquals("No penalty to weild the bastard sword two handed.",
-			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
+				token.getToken("WEAPON.3.BASEHIT", character, null), "Not possible to weild the bastard sword one "
+						+ "handed.");
+		assertEquals(
+			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null), "No penalty to weild the bastard sword two handed.");
 	}
 
 	/**
@@ -580,11 +566,12 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * should be forced to be wielded two handed. Note: Size penalties are not
 	 * included in the data prepared, so are not included in the calculations.
 	 */
+	@Test
 	public void testLargeLongSword()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
-				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
+		assertEquals( "KEY_LONGSWORD", largeSword
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName(), "Prof should be longsword");
 
 		EquipSet es =
 				new EquipSet("0.1.3", "Longsword (Large)",
@@ -594,12 +581,12 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Now test the output to ensure it is correct
 		WeaponToken token = new WeaponToken();
-		assertEquals("Large sword - name", "Longsword (Large)", token.getToken(
+		assertEquals( "Longsword (Large)", token.getToken(
 			"WEAPON.3.NAME", character, null));
-		assertEquals("Large sword - Two handed should be fine",
-			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
-		assertNull("Large sword - can't be wielded one handed", token
-				.getToken("WEAPON.3.BASEHIT", character, null));
+		assertEquals(
+			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null), "Large sword - Two handed should be fine");
+		assertNull( token
+				.getToken("WEAPON.3.BASEHIT", character, null), "Large sword - can't be wielded one handed");
 	}
 
 	/**
@@ -607,15 +594,16 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * should be forced to be wielded two handed. Note: Size penalties are not
 	 * included in the data prepared, so are not included in the calculations.
 	 */
+	@Test
 	public void testLargeWpnBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
-		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
-				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
+		assertEquals( "KEY_LONGSWORD", largeSword
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName(), "Prof should be longsword");
 
-		assertTrue("Character should be proficient with longsword", character
-			.isProficientWith(largeSword));
+		assertTrue(character
+			.isProficientWith(largeSword), "Character should be proficient with longsword");
 
 		PCTemplate longswordTemplate = new PCTemplate();
 		longswordTemplate.setName("LS Bonus");
@@ -636,14 +624,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Test weapon profs effects on large weapons
 		WeaponToken token = new WeaponToken();
-		assertEquals(
-			"Large sword - can be wielded one handed with template weapon size bonus",
-			"+18/+13/+8/+3", token
-				.getToken("WEAPON.3.BASEHIT", character, null));
+		assertEquals("+18/+13/+8/+3", token
+				.getToken("WEAPON.3.BASEHIT", character, null), "Large sword - can be wielded one handed with template weapon size bonus");
 		character.removeTemplate(longswordTemplate);
 		character.calcActiveBonuses();
-		assertNull("Large sword - can't be wielded one handed", token
-				.getToken("WEAPON.3.BASEHIT", character, null));
+		assertNull( token
+				.getToken("WEAPON.3.BASEHIT", character, null),
+				"Large sword - can't be wielded one handed");
 
 		PCTemplate martialTemplate = new PCTemplate();
 		martialTemplate.setName("Martial Bonus");
@@ -655,20 +642,21 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		}
 		character.addTemplate(martialTemplate);
 		assertEquals(
-			"Large sword - can be wielded one handed with template weapon type size bonus",
 			"+18/+13/+8/+3", token
-				.getToken("WEAPON.3.BASEHIT", character, null));
+				.getToken("WEAPON.3.BASEHIT", character, null),
+				"Large sword - can be wielded one handed with template weapon type size bonus");
 
 	}
 
 	/**
 	 * Test natural weapons
 	 */
+	@Test
 	public void testNaturalWeapon()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be SillyBite", "SillyBite", bite
-				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
+		assertEquals( "SillyBite", bite
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName(), "Prof should be SillyBite");
 
 		EquipSet es =
 				new EquipSet("0.1.3", "Bite Attack", bite.getName(), bite);
@@ -677,25 +665,28 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Now test the output to ensure it is correct
 		WeaponToken token = new WeaponToken();
-		assertEquals("Silly Bite - Basic To Hit",
+		assertEquals(
 			"+18/+18/+18/+18/+18/+18/+18/+18", token.getToken(
-				"WEAPON.3.BASEHIT", character, null));
-		assertEquals("Silly Bite - Total To Hit",
+				"WEAPON.3.BASEHIT", character, null),
+				"Silly Bite - Basic To Hit");
+		assertEquals(
 			"+18/+18/+18/+18/+18/+18/+18/+18", token.getToken(
-				"WEAPON.3.TOTALHIT", character, null));
-		assertEquals("Silly Bite - Total To Hit first attack", "+18", token
-			.getToken("WEAPON.3.TOTALHIT.0", character, null));
+				"WEAPON.3.TOTALHIT", character, null),
+				"Silly Bite - Total To Hit");
+		assertEquals( "+18", token
+			.getToken("WEAPON.3.TOTALHIT.0", character, null), "Silly Bite - Total To Hit first attack");
 	}
 
 	/**
 	 * Test the processing of a finesseable weapon both with and without weapon finesse
 	 * and temporary bonuses.
 	 */
+	@Test
 	public void testWpnFinesse()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
-				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
+		assertEquals("KEY_LONGSWORD", fineSword
+				.get(ObjectKey.WEAPON_PROF).get().getKeyName(), "Prof should be longsword");
 		LoadContext context = Globals.getContext();
 
 		character.addEquipment(fineSword);
@@ -707,8 +698,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Test weapon profs effects on large weapons
 		WeaponToken token = new WeaponToken();
-		assertEquals("Fine sword", "+18/+13/+8/+3", token.getToken(
-			"WEAPON.3.BASEHIT", character, null));
+		assertEquals( "+18/+13/+8/+3", token.getToken(
+			"WEAPON.3.BASEHIT", character, null), "Fine sword");
 
 		// Now apply weapon finess and check dex is used rather than str
 		Ability wpnFinesse = new Ability();
@@ -720,7 +711,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 					.newBonus(context, "COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
 		addAbility(BuildUtilities.getFeatCat(), wpnFinesse);
-		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
+		assertEquals( "+19/+14/+9/+4", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 
 		// Add a temp penalty to dex and check that it is applied
@@ -736,10 +727,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		BonusObj penalty = spell2.getRawBonusList(character).get(0);
 		character.addTempBonus(penalty, spell2, character);
 		character.calcActiveBonuses();
-		assertEquals("Fine sword", "+18/+13/+8/+3", token.getToken(
+		assertEquals("+18/+13/+8/+3", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 	}
 
+	@Test
 	public void testWpnReach()
 	{
 		LoadContext context = Globals.getContext();
@@ -753,8 +745,8 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		WeaponToken token = new WeaponToken();
 		assertEquals(
-			"Reach for a non-reach weapon on a character with normal reach",
-			"5", token.getToken("WEAPON.3.REACH", character, null));
+			"5", token.getToken("WEAPON.3.REACH", character, null),
+				"Reach for a non-reach weapon on a character with normal reach");
 
 		character.addEquipment(longSpear);
 		es = new EquipSet("0.1.4", "Longspear", longSpear.getName(), longSpear);
@@ -763,14 +755,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// note: longspear ends up inserted before the large sword above, hence we use weapon.3
 		assertEquals(
-			"Reach for a reach weapon (10') on a character with normal reach",
-			"10", token.getToken("WEAPON.3.REACH", character, null));
+			"10", token.getToken("WEAPON.3.REACH", character, null),
+				"Reach for a reach weapon (10') on a character with normal reach");
 
 		// set reach multiplier on the large sword to 2 and retest
 		largeSword.put(IntegerKey.REACH_MULT, 2);
 		assertEquals(
-			"Reach for a reach multiple weapon on a character with normal reach",
-			"10", token.getToken("WEAPON.4.REACH", character, null));
+			"10", token.getToken("WEAPON.4.REACH", character, null),
+				"Reach for a reach multiple weapon on a character with normal reach");
 		
 		// Check we can bonus the reach
 		PCTemplate lsReachTemplate = new PCTemplate();
@@ -782,14 +774,15 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		}
 		character.addTemplate(lsReachTemplate);
 		assertEquals(
-			"Reach for a reach weapon (10') on a character with bonus for the proficiency",
-			"15", token.getToken("WEAPON.3.REACH", character, null));
+			"15", token.getToken("WEAPON.3.REACH", character, null),
+				"Reach for a reach weapon (10') on a character with bonus for the proficiency");
 		
 	}
 	
 	/**
 	 * test the AMUNITION count sub token
 	 */
+	@Test
 	public void testAmmunition()
 	{
 		PlayerCharacter character = getCharacter();
@@ -806,13 +799,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 
 		WeaponToken token = new WeaponToken();
-		assertEquals("non-ammo weapon", largeSword.getName(),
-			token.getToken("WEAPON.4.NAME", character, null));
-		assertEquals("Ammo weapon", longbow.getName(),
-			token.getToken("WEAPON.3.NAME", character, null));
+		assertEquals( largeSword.getName(),
+			token.getToken("WEAPON.4.NAME", character, null), "non-ammo weapon");
+		assertEquals( longbow.getName(),
+			token.getToken("WEAPON.3.NAME", character, null), "Ammo weapon");
 
-		assertEquals("Ammo count for a non-ammo weapon", "0",
-			token.getToken("WEAPON.4.AMMUNITION", character, null));
+		assertEquals( "0",
+			token.getToken("WEAPON.4.AMMUNITION", character, null), "Ammo count for a non-ammo weapon");
 		String result = token.getToken("WEAPON.3.AMMUNITION", character, null);
 		assertEquals("Ammo count for an empty ammo weapon", "0", result);
 		
@@ -824,14 +817,14 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 		result = token.getToken("WEAPON.3.AMMUNITION", character, null);
 		assertEquals(
-			"Ammo count for longbow with one arrow",
-			"1", result);
+			"1", result, "Ammo count for longbow with one arrow");
 		
 	}
 	
 	/**
 	 * Test a two handed weapon that is equipped.
 	 */
+	@Test
 	public void testTwohandedEquipped()
 	{
 		PlayerCharacter character = getCharacter();
@@ -910,22 +903,27 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Check the TEMPLATEHIT and TEMPLATEDAMAGE weapon subtokens.
 	 */
+	@Test
 	public void testTemplateBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		WeaponToken token = new WeaponToken();
-		assertEquals("weapon name", dblWpn.getName(),
-			token.getToken("WEAPON.0.NAME.NOSTAR", character, null));
-		assertEquals("feat tohit bonus, before adding", "+0",
-			token.getToken("WEAPON.0.TEMPLATEHIT", character, null));
-		assertEquals("feat damage bonus, before adding", "+0",
-			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null));
+		assertEquals( dblWpn.getName(),
+			token.getToken("WEAPON.0.NAME.NOSTAR", character, null), "weapon name");
+		assertEquals( "+0",
+			token.getToken("WEAPON.0.TEMPLATEHIT", character, null),
+				"feat tohit bonus, before adding");
+		assertEquals( "+0",
+			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null),
+				"feat damage bonus, before adding");
 		
 		character.addTemplate(wpnBonusPct);
 		character.calcActiveBonuses();
-		assertEquals("feat tohit bonus, after adding", "+4",
-			token.getToken("WEAPON.0.TEMPLATEHIT", character, null));
-		assertEquals("feat damage bonus, after adding", "+3",
-			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null));
+		assertEquals( "+4",
+			token.getToken("WEAPON.0.TEMPLATEHIT", character, null),
+				"feat tohit bonus, after adding");
+		assertEquals( "+3",
+			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null),
+				"feat damage bonus, after adding");
 	}
 }

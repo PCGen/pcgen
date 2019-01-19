@@ -42,15 +42,16 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import junit.framework.TestCase;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import util.FormatSupport;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
  */
-@SuppressWarnings("nls")
-public abstract class AbstractCharacterTestCase extends TestCase
+public abstract class AbstractCharacterTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -83,10 +84,9 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	 * Object.
 	 * @throws Exception
 	 */
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
 		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
@@ -247,8 +247,8 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		super(name);
 	}
 
-	@Override
-	protected void tearDown() throws Exception
+	@After
+	public void tearDown() throws Exception
 	{
 		character = null;
 		context = null;

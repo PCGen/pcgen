@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
@@ -42,8 +45,10 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+
 
 public class AbilityLstTest extends AbstractGlobalTokenTestCase
 {

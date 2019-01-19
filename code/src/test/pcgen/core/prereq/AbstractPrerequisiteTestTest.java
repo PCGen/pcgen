@@ -17,18 +17,20 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Locale;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
-import org.junit.Assert;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
-	@SuppressWarnings("nls")
+	@Test
 	public void testVisionNotHandledFail()
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -39,11 +41,11 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 		{
 			final PreWieldTester test = new PreWieldTester();
 			test.passes(prereq, getCharacter(), null);
-			Assert.fail("Should have thrown a PrerequisiteException here.");
+			fail("Should have thrown a PrerequisiteException here.")
 		}
 		catch (PrerequisiteException pe)
 		{
-			Assert.assertEquals(PreWieldTester.class.getName()
+			Assertions.assertEquals(PreWieldTester.class.getName()
 				+ " does not support prerequisites for Characters.", pe
 				.getMessage());
 		}
