@@ -30,6 +30,7 @@ plugins {
     id 'edu.sc.seis.launch4j' version '2.4.4'
     id 'com.github.ben-manes.versions' version '0.20.0'
     id "com.dorongold.task-tree" version '1.3.1'
+    id "edu.sc.seis.macAppBundle" version "2.3.0"
 }
 
 group = 'net.sourceforge.pcgen'
@@ -71,12 +72,6 @@ applicationDistribution.from('system') {
 }
 applicationDistribution.from('preview') {
     into "preview"
-}
-
-if (Os.isFamily(Os.FAMILY_MAC)) {
-    applicationDefaultJvmArgs = ['-Xdock:name=PCGen',
-                                 '-Xdock:icon=installers/win-installer/Local/PCGen2.ico',
-    ]
 }
 
 repositories {
@@ -179,8 +174,8 @@ dependencies {
     compile group: 'org.mozilla', name: 'rhino', version:'1.7.10'
 
     compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.2'
-    implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
-    implementation group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.195'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.195'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.3.04'
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'16.0.3'
@@ -219,6 +214,57 @@ jar {
                 'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
     }
 }
+
+macAppBundle {
+    mainClassName	= "pcgen.system.Main"
+    appName			= "PCGen"
+    appStyle		= "universalJavaApplicationStub"
+    icon 			= "installers/mac-installer/PCGenApp.icns"
+    bundleJRE 		= false
+    backgroundImage = "installers/mac-installer/PCGen_folder_background.png"
+    jvmVersion		= "+11.0"
+    appIconX		= "243"
+    appIconY		= "270"
+    appFolderX		= "370"
+    appFolderY		= "270"
+    javaProperties.put("apple.laf.useScreenMenuBar", "true")
+    bundleExtras.put("JVMVersion", "11.0")
+}
+
+task copyMacDataResources(type: Copy, dependsOn: copyToResourcesJava) {
+	from	"data"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/data"
+}
+
+task copyMacDocsResources(type: Copy, dependsOn: copyMacDataResources) {
+	from	"docs"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/docs"
+}
+
+task copyMacOutputsheetsResources(type: Copy, dependsOn: copyMacDocsResources) {
+	from	"outputsheets"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/outputsheets"
+}
+
+task copyMacPluginsResources(type: Copy, dependsOn: copyMacOutputsheetsResources) {
+	from	"plugins"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/plugins"
+}
+
+task copyMacPreviewResources(type: Copy, dependsOn: copyMacPluginsResources) {
+	from	"preview"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/preview"
+}
+
+task copyMacSystemResources(type: Copy, dependsOn: copyMacPreviewResources) {
+	from	"system"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/system"
+}
+
+createApp {
+	it.dependsOn 	"copyMacSystemResources"
+}
+
 
 task converterJar(type: Jar, dependsOn: jar) {
     manifest {
@@ -311,7 +357,6 @@ tasks.register("quickbuild") {
     dependsOn 'installToRoot', 'test'
 }
 
-
 build {
     it.dependsOn 'copyToOutput', 'syncLibsToRoot'
     mustRunAfter clean
@@ -322,6 +367,8 @@ clean {
     it.dependsOn 'cleanOutput'
     it.dependsOn 'cleanRoot'
 }
+
+
 
 test {
     exclude 'pcgen/testsupport/**'

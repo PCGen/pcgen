@@ -99,3 +99,5 @@ pcgendev.iml
 # Misc
 jre/
 code/manifest-tests
+.DS_Store
+
