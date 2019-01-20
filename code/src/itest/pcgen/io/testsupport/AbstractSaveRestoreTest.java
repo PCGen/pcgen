@@ -95,7 +95,6 @@ import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.language.PCToken;
 
 import compare.InequalityTesterInst;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
