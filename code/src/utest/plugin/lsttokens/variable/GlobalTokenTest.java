@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Objects;
-
 import org.junit.Test;
 
 import pcgen.cdom.content.DatasetVariable;
