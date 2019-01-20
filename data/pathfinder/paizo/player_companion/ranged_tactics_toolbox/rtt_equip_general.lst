@@ -18,7 +18,7 @@ Fire Wheel Firework									TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Throw
 Flight Grapnel										TYPE:Goods.Tools									COST:50	WT:2		SOURCEPAGE:p.20
 Gabion											TYPE:Goods.Tools									COST:1	WT:2		SOURCEPAGE:p.20
 Perfect Ice											TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Cold.Splash	COST:1500	WT:0		SOURCEPAGE:p.21
-Portable Bolt Trap									TYPE:Goods.Tools									COST:125	WT:9		SOURCEPAGE:p.21	SPROP:Type mechanical; Perception DC 20; Disable Device DC 20; Trigger touch; Reset manual; Effect Atk +10 ranged (1d10/19–20)
+Portable Bolt Trap									TYPE:Goods.Tools									COST:125	WT:9		SOURCEPAGE:p.21	SPROP:Type mechanical; Perception DC 20; Disable Device DC 20; Trigger touch; Reset manual; Effect Atk +10 ranged (1d10/19-20)
 Sentry Mannequin (Masterwork)	OUTPUTNAME:Sentry Mannequin, Masterwork	TYPE:Goods.Tools									COST:80	WT:35		SOURCEPAGE:p.21
 Speaking Trumpet										TYPE:Goods.General								COST:6	WT:2		SOURCEPAGE:p.21
 Spyglass (Masterwork)		OUTPUTNAME:Spyglass, Masterwork		TYPE:Goods.Tools									COST:4000	WT:2		SOURCEPAGE:p.21
