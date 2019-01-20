@@ -19,7 +19,7 @@ Impaling Horn				KEY:Elasmotherium ~ Impaling Horn		CATEGORY:Special Ability	TYP
 
 #Kentrosaurus
 Defensive Spikes				KEY:Kentrosaurus ~ Defensive Spikes		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.KentrosaurusRacialTrait				SOURCEPAGE:p.95	DESC:At the end of its turn, a kentrosaurus can crouch down and splay its back and shoulder spikes. It cannot make attacks of opportunity when using its defensive spikes in this way, but until its next turn any creature that attacks the kentrosaurus with light or one-handed melee weapons, natural weapons, or unarmed strikes takes 1d6 points of piercing damage unless it succeeds at a DC %1 Reflex saving throw.|10+HD/2+DEX
-Impaling Strike				KEY:Kentrosaurus ~ Impaling Strike		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.KentrosaurusRacialTrait				SOURCEPAGE:p.95	DESC:A kentrosaurus's tail is a primary attack that deals piercing damage and has a ×3 critical damage multiplier.
+Impaling Strike				KEY:Kentrosaurus ~ Impaling Strike		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.KentrosaurusRacialTrait				SOURCEPAGE:p.95	DESC:A kentrosaurus's tail is a primary attack that deals piercing damage and has a x3 critical damage multiplier.
 
 #Mockingfey
 Mock						KEY:Mockingfey ~ Mock				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.MockingfeyRacialTrait				SOURCEPAGE:p.189	DESC:As a standard action, a mockingfey can take on the appearance of any creature it can see. This functions like veil, but affects only the mockingfey. The mockingfey does not change size, and if the creature it's mimicking is larger than itself, the mockingfey simply appears to be a miniature version of it. Anyone interacting with this effect can attempt a DC %1 Will save to see through the ruse. A mockingfey can maintain a guise indefinitely, but can't change to a form other than its own without a visual reference-once a given disguise has ended, the fey must see the subject again to resume that form.|10+HD/2+CHA
@@ -29,7 +29,7 @@ Spell-Like Abilities			KEY:Mockingfey ~ SLA				CATEGORY:Special Ability	TYPE:Spe
 Whip Tail					KEY:Mokele-Mbembe ~ Whip Tail			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.MokeleMbembeRacialTrait				SOURCEPAGE:p.190	DESC:When not submerged, a mokele-mbembe can crack its tail like a whip as a standard action, creating a sonic boom in a 5-foot burst up to 20 feet away. Any creature in the burst's area must succeed at a DC %1 Fortitude save or be stunned for 1 round. Mokele-mbembes are immune to this sonic effect.|10+HD/2+CON
 
 #Quetzalcoatlus
-Razor-Sharp Beak				KEY:Quetzalcoatlus ~ Razor-Sharp Beak	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.QuetzalcoatlusRacialTrait				SOURCEPAGE:p.95	DESC:A quetzalcoatlus's bite attack has a critical multiplier of ×3.		BONUS:WEAPONPROF=Bite|CRITMULTADD|1
+Razor-Sharp Beak				KEY:Quetzalcoatlus ~ Razor-Sharp Beak	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.QuetzalcoatlusRacialTrait				SOURCEPAGE:p.95	DESC:A quetzalcoatlus's bite attack has a critical multiplier of x3.		BONUS:WEAPONPROF=Bite|CRITMULTADD|1
 
 #Raven (Giant)
 Scavenger					KEY:Giant Raven ~ Scavenger			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.GiantRavenRacialTrait				SOURCEPAGE:p.240	DESC:Giant ravens are hardy birds that often feed on carrion or even undead flesh. As a direct result of this unusual dietary habit, they gain a +4 bonus on saves to resist ingested diseases.			ASPECT:SaveBonus|+4 on saves vs. ingested diseases
