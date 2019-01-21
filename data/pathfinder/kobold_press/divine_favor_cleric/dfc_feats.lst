@@ -1,0 +1,32 @@
+# ENTRY DATE: 2015-01
+# LST MONKEY: Stefan Radermacher
+SOURCELONG:Divine Favor: The Cleric	SOURCESHORT:DFC	SOURCEWEB:http://www.koboldquarterly.com/kqstore/index.php?main_page=product_info&cPath=6&products_id=146	SOURCEDATE:2011-10
+
+# Feat Name				Type
+CATEGORY=FEAT|Acrobatic.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Agile Maneuvers.MOD			TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Alertness.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Athletic.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Blind-Fight.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Combat Casting.MOD			TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Combat Expertise.MOD			TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Dodge.MOD					TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Defensive Combat Training.MOD	TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Diehard.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Endurance.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Fleet.MOD					TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Great Fortitude.MOD			TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Improved Initiative.MOD		TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Iron Will.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Lightning Reflexes.MOD		TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Lunge.MOD					TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Nimble Moves.MOD			TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Run.MOD					TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Self-Sufficient.MOD			TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Skill Focus.MOD				TYPE:AsceticBonusFeat
+CATEGORY=FEAT|Toughness.MOD				TYPE:AsceticBonusFeat
+
+#
+# End
+#
