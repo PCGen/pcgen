@@ -43,6 +43,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
+import org.junit.After;
+import org.junit.Before;
 import util.FormatSupport;
 
 /*
@@ -193,4 +195,17 @@ public abstract class AbstractCharacterUsingTestCase
 		other = ref.constructCDOMObject(Language.class, "Other");
 		SourceFileLoader.createLangBonusObject(context);
 	}
+	
+	@Before
+	public void setUp() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
+	@After
+	protected void tearDown() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
 }

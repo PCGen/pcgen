@@ -21,19 +21,20 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.choose.AbilitySelectionToken;
 import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Unit test of the class AbilitySelectionToken.
@@ -51,10 +52,15 @@ public class AbilitySelectionTokenTest
 	public void setUp()
 	{
 		Globals.emptyLists();
-		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@After
+	public void tearDown()
+	{
+		Globals.emptyLists();
+		context = null;
 	}
 
 	@Test
