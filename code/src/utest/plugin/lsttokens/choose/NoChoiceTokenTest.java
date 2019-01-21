@@ -30,6 +30,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class NoChoiceTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 {
 
@@ -38,6 +40,7 @@ public class NoChoiceTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	static CDOMTokenLoader<CDOMObject> loader =
 			new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

@@ -127,7 +127,7 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "Walk,30", unparsed[0]);
+		assertEquals("Walk,30", unparsed[0]);
 	}
 
 	@Test
