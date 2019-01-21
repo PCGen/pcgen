@@ -19,9 +19,6 @@ SOURCEWEB:http://www.4windsfantasygaming.com
 SOURCEDATE:2009-01
 ISOGL:YES
 
-#INFOTEXT:ogl.txt
-#INFOTEXT:ogl_declaration.txt
-
 COVER:boam.jpg
 LOGO:@/publisher_logos/4winds_publishing.png
 
@@ -34,23 +31,17 @@ COPYRIGHT:The Book of Erotic Fantasy. Copyright 2006, Arthaus, Inc.; Authors: Gw
 COPYRIGHT:The Book of Arcane Magic. Copyright 2009, 4 Winds Fantasy Gaming; Authors: Connie J. Thomson and Robert W. Thomson.
 COPYRIGHT:PCGen dataset conversion for "The Book of Arcane Magic" Copyright 2017, PCGen Data team (including but not limited to Ainvar "ainvarg" Garrettson, David R. Bender, Gordon "learntribe" McLeod)
 
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+
 ABILITY:boam_abilities.lst
 ABILITY:boam_feats.lst
 ABILITY:boam_feats_mods.lst
 ABILITYCATEGORY:boam_abilitycategories.lst
 EQUIPMENT:boam_equip_magic.lst
-EQUIPMENT:boam_equip_weapons_specific.lst
 EQUIPMOD:boam_equipmods.lst
 KIT:boam_kits_companions.lst
 RACE:boam_races_companions.lst
 SPELL:boam_spells.lst
-
-#BIOSET:boam_biosettings.lst
-#CLASS:boam_classes.lst
-#COMPANIONMOD:boam_companionmods.lst
-#DEITY:boam_deities.lst
-#DOMAIN:boam_domains.lst
-#LANGUAGE:boam_languages.lst
-#SKILL:boam_skills.lst
-#TEMPLATE:boam_templates.lst
-#WEAPONPROF:boam_weaponprofs.lst
