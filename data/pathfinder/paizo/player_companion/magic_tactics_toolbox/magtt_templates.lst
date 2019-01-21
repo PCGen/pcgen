@@ -1,0 +1,7 @@
+SOURCELONG:Magic Tactics Toolbox	SOURCESHORT:MagTT		SOURCEWEB:https://paizo.com/products/btpy9l2u	SOURCEDATE:2016-07
+
+# ==============================
+# Saga Activation
+# ==============================
+
+Saga Activation Magic Toolbox	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Saga ~ Lay of Scholar-King|PREMULT:1,[PRESPELL:1,Saga (Lay of Scholar-King)],[PREABILITY:1,CATEGORY=FEAT,Saga (Lay of Scholar-King)]	ABILITY:Special Ability|AUTOMATIC|Saga ~ Saga of the Witch Queen|PREMULT:1,[PRESPELL:1,Saga (Saga of the Witch Queen)],[PREABILITY:1,CATEGORY=FEAT,Saga (Saga of the Witch Queen)]
