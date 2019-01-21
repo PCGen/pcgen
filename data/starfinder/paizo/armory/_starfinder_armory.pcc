@@ -25,14 +25,17 @@ COPYRIGHT:Starfinder Armory Copyright 2018, Paizo Inc.; Authors: Alexander Augun
 COPYRIGHT:PCGen dataset conversion for "Starfinder Armory" Copyright 2013, PCGen Data team (Including, but not limited to Brad Grinstead "bigrin42")
 
 # COVER should be cover_gameMode_pub_book.file
-COVER:*/_images/starfinder/PZO7108_cover.jpg
+COVER:PZO7108_cover.jpg
 # LOGO should be logo_pub.file
 LOGO:*/_images/logo/Paizo_Publishing.png
 
 INFOTEXT:Starfinder Armory
+
+DATACONTROL:sa__datacontrols.lst
+VARIABLE:sa__variables.lst
+
 ABILITY:sa_abilities.lst
 ABILITYCATEGORY:sa_abilitycategories.lst
-DATACONTROL:sa__datacontrols.lst
 EQUIPMENT:sa_equip.lst
 EQUIPMOD:sa_equipmods.lst
 EQUIPMENT:sa_equip_gear.lst
