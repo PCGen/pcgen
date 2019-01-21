@@ -77,18 +77,18 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+		assertEquals("TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 	}
 

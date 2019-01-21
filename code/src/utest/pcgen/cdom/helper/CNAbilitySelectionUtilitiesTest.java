@@ -17,16 +17,16 @@ import org.junit.jupiter.api.Test;
 class CNAbilitySelectionUtilitiesTest
 {
 
-	AbilityCategory feat;
-	AbilityCategory fighterfeat;
-	AbilityCategory specialty;
-	Ability nomult;
-	Ability multyes;
-	Ability stackyes;
-	Ability othernomult;
+	private AbilityCategory feat;
+	private AbilityCategory fighterfeat;
+	private AbilityCategory specialty;
+	private Ability nomult;
+	private Ability multyes;
+	private Ability stackyes;
+	private Ability othernomult;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		CNAbilityFactory.reset();
 		feat = new AbilityCategory();
