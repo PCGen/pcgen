@@ -1,0 +1,7 @@
+SOURCELONG:Dungeons of Golarion	SOURCESHORT:Dung	SOURCEWEB:https://paizo.com/products/btpy8lv5	SOURCEDATE:2011-07
+
+Add Darkvision				PREVARLT:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Double Darkvision				PREVARGTEQ:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|60
+
+Dream Eater			CR:2		!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PRESTAT:1,INT=3	PREALIGN:LE,NE,CE		SOURCEPAGE:p.42		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dream Eater		TEMPLATE:CHOOSE:Add Darkvision|Double Darkvision	BONUS:STAT|STR|6	BONUS:STAT|CON,CHA|4	BONUS:STAT|DEX,INT,WIS|2	BONUS:SKILL|Perception,Stealth|4|TYPE=Racial	BONUS:SKILL|Knowledge (religion),Knowledge (planes)|8|TYPE=Racial		CSKILL:Knowledge (religion)|Knowledge (planes)
+Gallowdead			CR:2		PRETEMPLATE:1,Skeletal Champion										SOURCEPAGE:p.21		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gallowdead		ADDLEVEL:Undead|2		DR:10/Bludgeoning		DR:10/Magic
