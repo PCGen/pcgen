@@ -31,6 +31,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;
@@ -124,9 +125,13 @@ public abstract class AbstractCharacterUsingTestCase
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
-
 		LoadContext context = Globals.getContext();
 		
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
 		FormatSupport.addBasicDefaults(context);
 		SourceFileLoader.defineBuiltinVariables(context);
 
@@ -141,7 +146,6 @@ public abstract class AbstractCharacterUsingTestCase
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");

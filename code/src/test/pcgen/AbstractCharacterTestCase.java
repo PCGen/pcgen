@@ -7,7 +7,6 @@ package pcgen;
 import java.math.BigDecimal;
 import java.util.Collection;
 
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -201,8 +200,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
-		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		FormatSupport.addNoneAsDefault(context, fmtManager);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(BuildUtilities.getFeatCat());

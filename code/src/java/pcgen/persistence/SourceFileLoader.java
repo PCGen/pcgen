@@ -694,7 +694,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @param control
 	 *            The CodeControl to be enabled using its default values
 	 */
-	public static void enableBuiltInControl(LoadContext context,
+	private static void enableBuiltInControl(LoadContext context,
 		CControl control)
 	{
 		AbstractReferenceContext referenceContext = context.getReferenceContext();
