@@ -21,14 +21,15 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreKitParser;
 import plugin.pretokens.writer.PreKitWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
  * PreKitRoundRobin test the parsing and unparsing of PREKIT tags.
  * 
  */
 public class PreKitRoundRobin extends AbstractBasicRoundRobin
 {
-
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

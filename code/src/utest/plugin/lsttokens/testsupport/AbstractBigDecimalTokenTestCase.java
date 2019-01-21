@@ -24,7 +24,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
