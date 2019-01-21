@@ -1,0 +1,13 @@
+SOURCELONG:Cohorts and Companions	SOURCESHORT:CAC	SOURCEWEB:http://paizo.com/products/btpy9e1c	SOURCEDATE:2015-06
+
+Cage of Captivity							TYPE:Magic.Wondrous					COST:160000		WT:1		SOURCEPAGE:p.11
+Contract Rings (pair)						TYPE:Magic.Wondrous.Ring				COST:8500				SOURCEPAGE:p.29
+Elemental Ring (Air)						TYPE:Magic.Wondrous.Ring				COST:30000		WT:1		SOURCEPAGE:p.11
+Elemental Ring (Earth)						TYPE:Magic.Wondrous.Ring				COST:30000		WT:1		SOURCEPAGE:p.11
+Elemental Ring (Fire)						TYPE:Magic.Wondrous.Ring				COST:30000		WT:1		SOURCEPAGE:p.11
+Elemental Ring (Water)						TYPE:Magic.Wondrous.Ring				COST:30000		WT:1		SOURCEPAGE:p.11
+Rings of Friend-Finding (pair)				TYPE:Magic.Wondrous.Ring				COST:9000				SOURCEPAGE:p.29
+
+Assassin Vine							TYPE:Magic.MagicalPlant					COST:7750				SOURCEPAGE:p.21		DESC:[Requirements] Grow Plant Creature, Knowledge (nature) 5 ranks, entangle, summon nature's ally IV; Skill Check Knowledge (nature) DC 16
+Treant								TYPE:Magic.MagicalPlant					COST:25750				SOURCEPAGE:p.21		DESC:[Requirements] Grow Plant Creature, Knowledge (nature) 10 ranks, Knowledge (geography or history) 4 ranks, liveoak, speak with plants; Skill Check Knowledge (nature) DC 24
+Viper Vine								TYPE:Magic.MagicalPlant					COST:43750				SOURCEPAGE:p.21		DESC:[Requirements] Grow Plant Creature, Knowledge (nature) 12 ranks; entangle, summon nature's ally VII; Skill Check Knowledge (nature) DC 32
