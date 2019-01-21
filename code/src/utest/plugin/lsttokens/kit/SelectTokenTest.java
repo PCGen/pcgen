@@ -17,13 +17,13 @@
  */
 package plugin.lsttokens.kit;
 
-import org.junit.Test;
-
 import pcgen.core.kit.KitSelect;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class SelectTokenTest extends AbstractKitTokenTestCase<KitSelect>
 {

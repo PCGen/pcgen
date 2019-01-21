@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.kit.levelability;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitLevelAbility;
@@ -25,6 +25,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
+
 
 public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbility>
 {

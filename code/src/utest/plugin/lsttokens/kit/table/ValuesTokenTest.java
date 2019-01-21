@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens.kit.table;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.core.EquipmentModifier;
 import pcgen.core.kit.KitTable;
@@ -31,6 +31,9 @@ import plugin.lsttokens.kit.gear.EqmodToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 {
 
@@ -40,6 +43,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	static CDOMSubLineLoader<KitTable> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitTable.class);
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -156,6 +160,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 		assertFalse(parse("EQMOD:EQMOD2|5,,8"));
 	}
 
+	@Test
 	public void testRoundRobinOnlyAssociation()
 			throws PersistenceLayerException
 	{
@@ -166,6 +171,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 		runRoundRobin("EQMOD:EQMOD2|5,10");
 	}
 
+	@Test
 	public void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
@@ -177,6 +183,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 				+ "[LOOKUP:Minor Special Ability (B),roll(\"1d100\")]|100");
 	}
 
+	@Test
 	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
