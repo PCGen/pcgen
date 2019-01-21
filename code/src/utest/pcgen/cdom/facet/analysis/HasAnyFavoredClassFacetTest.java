@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,6 +27,9 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 public class HasAnyFavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Boolean>
 {
@@ -36,6 +37,7 @@ public class HasAnyFavoredClassFacetTest extends
 	private Boolean[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
