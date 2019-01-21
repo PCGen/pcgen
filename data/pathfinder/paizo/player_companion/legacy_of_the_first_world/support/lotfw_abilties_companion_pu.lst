@@ -1,0 +1,29 @@
+SOURCELONG:Pathfinder Player Companion: Legacy of the First World	SOURCESHORT:LOTFW	SOURCEWEB:https://paizo.com/products/btpy9t1t	SOURCEDATE:2015-06
+
+# ==============================
+# Eidolon Subtype
+# ==============================
+
+Twinned				KEY:Eidolon Subtype ~ Twinned				CATEGORY:Special Ability	TYPE:Unchained Eidolon Subtype Selection	PREVARGTEQ:MASTERVAR("EidolonIsTwinned"),1	DESC:Just like a summoner, a twinned eidolon learns to use weapons and magic. While twinned eidolons are ethically more flexible than most eidolons, they are quite adamant about being treated as equals and not as servants. They demonstrate an eerie consistency with the summoner's manner of thinking, providing similar answers to questions and reacting similarly to startling events. This subtype is restricted to twinned summoners.	ABILITY:Special Ability|AUTOMATIC|Twinned ~ Unchained Eidolon LVL01|PREVARGTEQ:MasterLevel,1	ABILITY:Special Ability|AUTOMATIC|Twinned ~ Unchained Eidolon LVL04|PREVARGTEQ:MasterLevel,4	ABILITY:Special Ability|AUTOMATIC|Twinned ~ Unchained Eidolon LVL08|PREVARGTEQ:MasterLevel,8	ABILITY:Special Ability|AUTOMATIC|Twinned ~ Unchained Eidolon LVL12|PREVARGTEQ:MasterLevel,12	ABILITY:Special Ability|AUTOMATIC|Twinned ~ Unchained Eidolon LVL16|PREVARGTEQ:MasterLevel,16	ABILITY:Special Ability|AUTOMATIC|Twinned ~ Unchained Eidolon LVL20|PREVARGTEQ:MasterLevel,20	BONUS:VAR|EidolonBiped|1
+
+Twinned Base Form ~ Biped									CATEGORY:Special Ability	ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Limbs / Arms|Unchained Evolution ~ Limbs / Legs
+
+Eidolon Progession Lv.1		KEY:Twinned ~ Unchained Eidolon LVL01		CATEGORY:Special Ability	TYPE:SpecialQuality.TwinnedLVL1															DESC:A twinned eidolon gains the weapon training evolution. The twinned eidolon also gains the skilled (Disguise) evolution. The racial bonus provided by this evolution is doubled when the eidolon is impersonating the twinned summoner.		ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Weapon Training (Simple)|Unchained Evolution ~ Skilled (Disguise)		ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Small|PREVARGTEQ:MASTERVAR("TwinnedEidolonMasterIsSmall"),1
+Eidolon Progession Lv.4		KEY:Twinned ~ Unchained Eidolon LVL04		CATEGORY:Special Ability	TYPE:SpecialQuality.TwinnedLVL4															DESC:At 4th level, a twinned eidolon can cast a summoner spell once per day as a spell-like ability. The spell must be one known by the eidolon's summoner and must be at least 1 level lower than the highest-level spell the summoner can cast. The eidolon must have a Charisma score of at least 10 + the spell level. The caster level for this spell-like ability is %1. The save DC %2.|TL-2|10+TL/2+CHA
+Eidolon Progession Lv.8		KEY:Twinned ~ Unchained Eidolon LVL08		CATEGORY:Special Ability	TYPE:SpecialQuality.TwinnedLVL8															DESC:At 8th level, a twinned eidolon gains the shared slot evolution.		ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Shared Slot
+Eidolon Progession Lv.12	KEY:Twinned ~ Unchained Eidolon LVL12		CATEGORY:Special Ability	TYPE:SpecialQuality.TwinnedLVL12		DEFINE:EidolonDR|0										DESC:At 12th level, a twinned eidolon gains DR 5/magic. The eidolon also gains the extra feat evolution.		BONUS:VAR|EidolonDR|5		DR:EidolonDR/Magic		ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Extra Feat
+Eidolon Progession Lv.16	KEY:Twinned ~ Unchained Eidolon LVL16		CATEGORY:Special Ability	TYPE:SpecialQuality.TwinnedLVL16															DESC:At 16th level, a twinned eidolon gains the skilled evolution and the ability increase evolution, applied to a skill and an ability score of the summoner's choice.		ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Ability Increase		BONUS:ABILITYPOOL|Unchained Evolution Skilled Choice|1
+Eidolon Progession Lv.20	KEY:Twinned ~ Unchained Eidolon LVL20		CATEGORY:Special Ability	TYPE:SpecialQuality.TwinnedLVL20															DESC:At 20th level, a twinned eidolon gains fast healing 5.		ABILITY:Special Ability|AUTOMATIC|Fast Healing	BONUS:VAR|FastHealingRate|5
+
+# ==============================
+# Eidolon Evolutions
+# ==============================
+
+#1-point
+Shared Evolution			KEY:Unchained Evolution ~ Shared Evolution	CATEGORY:Special Ability	TYPE:Unchained Evolution.SpecialQuality.Supernatural			DESC:Select a 1-point or 2-point evolution the eidolon has. As a standard action, the eidolon can touch the summoner and transfer the selected evolution to him. This functions as the summoner's aspect ability, and the same limitations apply. The summoner can touch the eidolon as a standard action to return the evolution. The evolution returns to the eidolon automatically if the eidolon is dismissed by the summoner or sent back to its home plane.											COST:1	SOURCEPAGE:p.18
+#2-points
+Extra Feat				KEY:Unchained Evolution ~ Extra Feat		CATEGORY:Special Ability	TYPE:Unchained Evolution.SpecialQuality.Extraordinary			DESC:The eidolon gains an extra feat. It must meet the prerequisites of the feat.																																																																ADD:FEAT|1|ALL						COST:2	SOURCEPAGE:p.18
+Shared Slot				KEY:Unchained Evolution ~ Shared Slot		CATEGORY:Special Ability	TYPE:Unchained Evolution.SpecialQuality.Supernatural			DESC:Select a magic item slot. A magic item worn by the eidolon in that slot remains active even if the summoner is also wearing a magic item in that slot. This evolution can be selected more than once. Each time an eidolon selects this evolution, it applies to a new slot.																																MULT:YES	STACK:YES	CHOOSE:NOCHOICE		COST:2	SOURCEPAGE:p.18
+
+#support
+CATEGORY=Special Ability|Unchained Evolution ~ Skilled.MOD				TYPE:UnchainedEvolutionSkilledChoice
