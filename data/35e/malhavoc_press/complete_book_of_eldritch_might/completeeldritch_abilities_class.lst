@@ -12,7 +12,7 @@ Weave Chords				KEY:Weave Chords ~ Bard (Monte Cook's)			CATEGORY:Special Abilit
 # ~ Diplomancer
 Charm						KEY:Charm ~ Diplomancer						CATEGORY:Special Ability	TYPE:SpecialQuality
 Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DEFINE:EnchantAffinity|0	DESC: +%1|EnchantAffinity										BONUS:VAR|EnchantAffinity|1
-Magical Seduction/Attractiveness	KEY:Magical Seduction/Attractiveness ~ Diplomancer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	TYPE:Supernatural
+Magical Seduction/Attractiveness	KEY:Magical Seduction/Attractiveness ~ Diplomancer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability										DEFINE:ProtectionEvocations|0	DESC: +%1|ProtectionEvocations									BONUS:VAR|ProtectionEvocations|1
 Insight into Secrets			KEY:Insight into Secrets ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Charisma Gift				KEY:Charisma Gift ~ Diplomancer				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -25,18 +25,14 @@ Enrune Weapon				KEY:Enrune Weapon ~ Eldritch Warrior			CATEGORY:Special Ability
 Enrune Flesh				KEY:Enrune Flesh ~ Eldritch Warrior				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 
 ###Block: Rituals of Potency
-
-# Feat Name						Type				Visible		Var. Min. Value						Special ABility										Define			Innate Spells				Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
-# Ability Name					Unique Key							Category of Ability		Type						Visible		Var. Min. Value						Define				Innate Spells				Description																																Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
-Ritual of Potency (Sense Magic)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT														SPELLS:Class|TIMES=1|Detect Magic																																				MULT:NO																																				SOURCEPAGE:p.28
-Ritual of Potency (Darksight)											CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),3																																															MULT:NO																																VISION:Darkvision (30')	SOURCEPAGE:p.28
-Ritual of Potency (The Sparkling Shield)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),5																																															MULT:NO						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																								SOURCEPAGE:p.28
-Ritual of Potency (Arcane Puissance)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),7																																													STACK:NO	MULT:YES	CHOOSE:PCSTAT|CON|DEX|STR													BONUS:STAT|%LIST|1|TYPE=Inherent													SOURCEPAGE:p.28
-Ritual of Potency (Speed of Magic)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),9																																															MULT:NO													BONUS:MOVEADD|TYPE.Walk|10																			SOURCEPAGE:p.28
-Ritual of Potency (Slice Through Wards)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),10	DEFINE:SliceWards|0								DESC:Ignore all magical protections of foes (%1 times/day)|SliceWards																								MULT:NO																								BONUS:VAR|SliceWards|var("CL=Eldritch Warrior")					SOURCEPAGE:p.28
-Ritual of Potency (Destroy Spell)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	VISIBLE:EXPORT	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),11												DESC:Dispel Magic with melee weapon strike (1 times/day)																										MULT:NO																																				SOURCEPAGE:p.28
-
-
+# Ability Name					Unique Key							Category of Ability		Type						Var. Min. Value						Define				Innate Spells				Description																																Stackable?	Multiple?	Choose				Combat bonus					Add to base move			Stat bonus					Modify VAR							Vision			Source Page
+Ritual of Potency (Sense Magic)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency														SPELLS:Class|TIMES=1|Detect Magic																																				MULT:NO																																				SOURCEPAGE:p.28
+Ritual of Potency (Darksight)											CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),3																																															MULT:NO																																VISION:Darkvision (30')	SOURCEPAGE:p.28
+Ritual of Potency (The Sparkling Shield)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),5																																															MULT:NO						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK																								SOURCEPAGE:p.28
+Ritual of Potency (Arcane Puissance)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),7																																													STACK:NO	MULT:YES	CHOOSE:PCSTAT|CON|DEX|STR													BONUS:STAT|%LIST|1|TYPE=Inherent													SOURCEPAGE:p.28
+Ritual of Potency (Speed of Magic)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),9																																															MULT:NO													BONUS:MOVEADD|TYPE.Walk|10																			SOURCEPAGE:p.28
+Ritual of Potency (Slice Through Wards)									CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),10	DEFINE:SliceWards|0								DESC:Ignore all magical protections of foes (%1 times/day)|SliceWards																								MULT:NO																								BONUS:VAR|SliceWards|var("CL=Eldritch Warrior")					SOURCEPAGE:p.28
+Ritual of Potency (Destroy Spell)										CATEGORY:Special Ability	TYPE:SpecialQuality.RitualofPotency	PREVARGTEQ:CHA+var("CL=Eldritch Warrior"),11												DESC:Dispel Magic with melee weapon strike (1 times/day)																										MULT:NO																																				SOURCEPAGE:p.28
 
 # ~ Embermage
 Burning Touch					KEY:Burning Touch ~ Embermage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
