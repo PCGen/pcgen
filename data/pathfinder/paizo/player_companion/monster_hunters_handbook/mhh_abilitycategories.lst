@@ -1,0 +1,4 @@
+#SOURCELONG:Monster Hunter's Handbook		SOURCESHORT:MHH	SOURCEWEB:http://paizo.com/products/btpy9s7z	SOURCEDATE:2017-04
+
+ABILITYCATEGORY:Monster Challenger Trait Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonsterChallengerTraitChoice		PLURAL:Monster Challenger Trait Choices		DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Disciple of the Pike Training		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DiscipleOfThePikeTraining										DISPLAYLOCATION:Class Features

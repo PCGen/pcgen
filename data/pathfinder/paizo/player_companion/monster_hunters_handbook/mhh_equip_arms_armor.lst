@@ -1,0 +1,3 @@
+SOURCELONG:Monster Hunter's Handbook		SOURCESHORT:MHH	SOURCEWEB:http://paizo.com/products/btpy9s7z	SOURCEDATE:2017-04
+
+Dagger.COPY=Bone Bearer's Cutter			TYPE:Magic		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Wounding ~ Weapon.Special Ability ~ Enhancement Cost|3500		SOURCEPAGE:28				SPROP:1/day, as a standard action, make a melee attack at -5; if successful, dagger is lodged in target's bone, target takes -2 on attacks, damage, Reflex for one minute or until removed (DC 15 strength check)
