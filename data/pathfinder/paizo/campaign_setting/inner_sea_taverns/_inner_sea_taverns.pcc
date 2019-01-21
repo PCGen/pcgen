@@ -1,0 +1,51 @@
+CAMPAIGN:Inner Sea Taverns
+GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Inner Sea Taverns
+SOURCESHORT:ISTav
+SOURCEWEB:https://paizo.com/products/btpy9zk9
+SOURCEDATE:2018-03
+ISOGL:YES
+
+COVER:inner_sea_taverns.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|https://paizo.com/products/btpy9zk9|Buy this publication from Paizo Publishing!
+DESC:Your Adventure Starts Here! Whether they're seedy bars in a city's roughest district, upscale joints where society's elites hobnob over artisan wines, or sleepy boozing establishments in pass-through villages, taverns are a staple of every adventurer's career. They're a place to meet contacts, to collect the juiciest gossip, or simply to knock back a hearty ale in between monster-slaying sessions.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Mongrelman from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Troll, Ice from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Russell Cole.
+COPYRIGHT:Pathfinder Campaign Setting: Inner Sea Taverns Copyright 2018, Paizo Inc.; Authors: Kate Baker, Eleanor Ferron, Michelle Jones, Jason Keeley, Luis Loza, Jacob W. Michaels, Joe Pasini, and David N. Ross.
+COPYRIGHT:PCGen dataset conversion for "Inner Sea Taverns" Copyright 2018, PCGen Data team (including but not limited to Gwen T. (evilpixie87), Paul Grosse, and Andrew Maitland)
+
+ABILITY:istav_abilities_class.lst
+ABILITY:istav_feats.lst
+
+INFOTEXT:Supports 6.07.01
+# ENTRY DATE: 2018-12
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# ALPHA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.10
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+
+
+#end
