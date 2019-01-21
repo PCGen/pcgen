@@ -45,6 +45,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 import util.TestURI;
 
@@ -58,24 +61,20 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	protected T secondaryProf;
 	protected int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
+	@BeforeAll
 	@BeforeClass
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@Override
 	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();
@@ -84,6 +83,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 
 	@Override
 	@After
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		primaryContext = null;
@@ -326,7 +326,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	{
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		assertEquals(expected, unparsed[0]);
 	}
 
 	protected void assertBadUnparse()

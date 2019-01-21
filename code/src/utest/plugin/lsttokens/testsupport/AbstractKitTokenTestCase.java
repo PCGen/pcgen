@@ -18,14 +18,17 @@
 package plugin.lsttokens.testsupport;
 
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
@@ -33,7 +36,6 @@ import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -43,34 +45,31 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestCase
+public abstract class AbstractKitTokenTestCase<T extends Loadable>
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
 	protected T primaryProf;
 	protected T secondaryProf;
-	protected int expectedPrimaryMessageCount = 0;
+	private int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
 		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
@@ -93,20 +92,18 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	{
 		try
 		{
-			return getCDOMClass().newInstance();
+			return getCDOMClass().getConstructor().newInstance();
 		}
-		catch (InstantiationException | IllegalAccessException e)
+		catch (InstantiationException
+				| IllegalAccessException
+				| NoSuchMethodException
+				| InvocationTargetException e)
 		{
-			throw new InternalError(e.getMessage());
+			throw new RuntimeException(e);
 		}
 	}
 
 	public abstract Class<? extends T> getCDOMClass();
-
-	public static void addToken(LstToken tok)
-	{
-		TokenLibrary.addToTokenMap(tok);
-	}
 
 	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
@@ -131,16 +128,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 			assertTrue(parse(s));
 		}
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-
-		assertNotNull(str);
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-					unparsed[i]);
-		}
+		assertArrayEquals(str, unparsed);
 
 		// Do round Robin
 		StringBuilder unparsedBuilt = new StringBuilder();
@@ -155,12 +143,8 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		String[] sUnparsed = getToken()
 				.unparse(secondaryContext, secondaryProf);
 		assertEquals(unparsed.length, sUnparsed.length);
+		assertArrayEquals(sUnparsed, unparsed);
 
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]);
-		}
 		assertCleanConstruction();
 		assertTrue(secondaryContext.getReferenceContext().validate(null));
 		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
@@ -221,7 +205,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	}
 	
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 	}
@@ -238,12 +222,12 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
-	protected <C extends Categorized<C>> C constructCategorized(LoadContext context,
-		Category<C> cat, String name)
+	protected <C extends Categorized<C>> void constructCategorized(LoadContext context,
+	                                                               Category<C> cat,
+	                                                               String name)
 	{
 		C obj = cat.newInstance();
 		obj.setName(name);
 		context.getReferenceContext().importObject(obj);
-		return obj;
 	}
 }

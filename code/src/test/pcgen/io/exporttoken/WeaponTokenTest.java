@@ -58,10 +58,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
 /**
  * {@code WeaponTokenTest} contains tests to verify that the
  * WEAPON token is working correctly.
@@ -79,24 +75,6 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	private Equipment arrow;
 	private Ability wpnBonusAbility;
 	private PCTemplate wpnBonusPct;
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(WeaponTokenTest.class);
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public WeaponTokenTest(String name)
-	{
-		super(name);
-	}
 
 	@Override
 	protected void setUp() throws Exception

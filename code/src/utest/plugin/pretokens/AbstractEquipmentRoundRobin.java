@@ -17,6 +17,8 @@
  */
 package plugin.pretokens;
 
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractEquipmentRoundRobin extends
 		AbstractBasicRoundRobin
 {
@@ -27,22 +29,26 @@ public abstract class AbstractEquipmentRoundRobin extends
 		return true;
 	}
 
+	@Test
 	public void testWield()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,WIELDCATEGORY=Light");
 	}
 
+	@Test
 	public void testPattern()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Foo%");
 	}
 
+	@Test
 	public void testMultipleWield()
 	{
 		runRoundRobin("PRE" + getBaseString()
 				+ ":1,WIELDCATEGORY=Light,WIELDCATEGORY=Medium");
 	}
 
+	@Test
 	public void testComplexWield()
 	{
 		runRoundRobin("PRE" + getBaseString()

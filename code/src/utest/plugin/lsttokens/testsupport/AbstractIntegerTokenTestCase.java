@@ -181,14 +181,14 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 			assertTrue(parse("5"));
 			assertTrue(parse("1"));
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "1", unparsed[0]);
+			assertEquals("1", unparsed[0]);
 		}
 		else
 		{
 			assertTrue(parse("-2"));
 			assertTrue(parse("-4"));
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "-4", unparsed[0]);
+			assertEquals("-4", unparsed[0]);
 		}
 	}
 

@@ -1,0 +1,19 @@
+# ENTRY DATE: 2015-01
+# LST MONKEY: Stefan Radermacher
+#SOURCELONG:Divine Favor: The Cleric	SOURCESHORT:DFC	SOURCEWEB:http://www.koboldquarterly.com/kqstore/index.php?main_page=product_info&cPath=6&products_id=146	SOURCEDATE:2011-10
+
+###Block: Ascetic
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Ascetic Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AsceticBonusFeat	PLURAL:Ascetic Bonus Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mind Is Body Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MindIsBody		PLURAL:Mind Is Body Bonuses	DISPLAYLOCATION:Class Abilities
+
+###Block: Theosophist
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI				Display Location
+ABILITYCATEGORY:Studied Spellcasting Domain	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StudiedSpellcastingDomain	PLURAL:Studied Spellcasting Domain Choices	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Weapons Subdomain Group	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponsSubdomainGroup			DISPLAYLOCATION:Class Abilities
+
+
+#
+# End
+#

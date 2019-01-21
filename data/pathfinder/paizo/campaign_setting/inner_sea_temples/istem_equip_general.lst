@@ -1,0 +1,4 @@
+SOURCELONG:Inner Sea Temples	SOURCESHORT:ISTem	SOURCEDATE:2015-11
+
+Clay Whippoorwill				TYPE:Goods.Tools.Instrument.Wind.Resizable			COST:20000	WT:2			SOURCEPAGE:p.42		SPROP:Doubles range of secret Nightsong language
+Soul Candle					TYPE:Goods.General.Consumable.Light Source			COST:1				SOURCEPAGE:p.42		SPROP:Goes out when within 5 feet of a haunt or undead.

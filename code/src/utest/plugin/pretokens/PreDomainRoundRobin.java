@@ -21,9 +21,13 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDomainParser;
 import plugin.pretokens.writer.PreDomainWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreDomainRoundRobin extends AbstractBasicRoundRobin
 {
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -44,6 +48,7 @@ public class PreDomainRoundRobin extends AbstractBasicRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testAny()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Any");

@@ -31,6 +31,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;
@@ -42,6 +43,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
+import org.junit.After;
+import org.junit.Before;
 import util.FormatSupport;
 
 /*
@@ -124,9 +127,13 @@ public abstract class AbstractCharacterUsingTestCase
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
-
 		LoadContext context = Globals.getContext();
 		
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
 		FormatSupport.addBasicDefaults(context);
 		SourceFileLoader.defineBuiltinVariables(context);
 
@@ -141,7 +148,6 @@ public abstract class AbstractCharacterUsingTestCase
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -189,4 +195,17 @@ public abstract class AbstractCharacterUsingTestCase
 		other = ref.constructCDOMObject(Language.class, "Other");
 		SourceFileLoader.createLangBonusObject(context);
 	}
+	
+	@Before
+	public void setUp() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
+	@After
+	protected void tearDown() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
 }

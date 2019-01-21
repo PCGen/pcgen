@@ -1,0 +1,62 @@
+SOURCELONG:Monster Hunter's Handbook		SOURCESHORT:MHH	SOURCEWEB:http://paizo.com/products/btpy9s7z	SOURCEDATE:2017-04
+
+#Left out constructs because monster bait and odor stalk logically would have no use against them
+Monster Hunter's Kit (Aberration)			TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Aberration)				SPROP:PRICE 257 gp. Weight 15.5 lbs. This kit includes a bear trap, a footprint book, a scent cloak, a dose of soothe syrup, a dose of wismuth salix, and monster bait and an odor stalk keyed to aberrations.
+Monster Hunter's Kit (Animal)				TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Animal)					SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to animals.
+Monster Hunter's Kit (Dragon)				TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Dragon)					SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to dragons.
+Monster Hunter's Kit (Fey)				TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Fey)					SPROP:PRICE 224 gp. Weight 15.5 lbs. This kit includes a cold iron bear trap, a footprint book, a scent cloak, one dose of cold iron weapon blanch, and monster bait and an odor stalk keyed to fey.
+Monster Hunter's Kit (Magical Beast)		TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Magical Beast)			SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to magical beast.
+Monster Hunter's Kit (Monstrous Humanoid)		TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Monstrous Humanoid)			SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to monstrous humanoids.
+Monster Hunter's Kit (Ooze)				TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Ooze)					SPROP:PRICE 232 gp. Weight 17 lbs. This kit includes a bear trap, a footprint book, a scent cloak, two alkali flasks, and monster bait and an odor stalk keyed to oozes.
+Monster Hunter's Kit (Outsider)			TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Outsider)				SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to a specific outsider type.
+Monster Hunter's Kit (Plant)				TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Plant)					SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to plants.
+Monster Hunter's Kit (Undead)				TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Undead)					SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to undead.
+Monster Hunter's Kit (Vermin)				TYPE:Kit					COST:0	WT:0		SOURCEPAGE:p.27		KIT:1|Monster Hunter's Kit (Vermin)					SPROP:PRICE 202 gp. Weight 15 lbs. This kit includes a bear trap, a footprint book, a scent cloak, and monster bait and an odor stalk keyed to vermin.
+
+#Left constructs off monster bait and odor stalk because these logically would have no use against them
+Beast-Hunter Whistle					TYPE:Goods.General			COST:5			SOURCEPAGE:p.26
+Bottled Musk						TYPE:Goods.General.Consumable		COST:25	WT:0.5	SOURCEPAGE:p.26
+Chemical Ward						TYPE:Goods.General.Consumable		COST:25	WT:1		SOURCEPAGE:p.26
+Display Stand						TYPE:Goods.General			COST:40	WT:16		SOURCEPAGE:p.26
+Hunter's Manual (Aberration)				TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Animal)				TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Construct)				TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Dragon)				TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Fey)					TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Magical Beast)			TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Monstrous Humanoid)		TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Ooze)					TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Outsider)				TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Plant)					TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Undead)				TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Hunter's Manual (Vermin)				TYPE:Goods.General.Book			COST:90	WT:1		SOURCEPAGE:p.26
+Monster Bait (Aberration)				TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Animal)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Dragon)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Fey)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Magical Beast)				TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Monstrous Humanoid)			TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Ooze)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Outsider)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Plant)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Undead)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Bait (Vermin)					TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.26
+Monster Dummy						TYPE:Goods.General			COST:10	WT:40		SOURCEPAGE:p.26
+Odor Stalk (Aberration)					TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Animal)					TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Dragon)					TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Fey)						TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Magical Beast)				TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Monstrous Humanoid)			TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Ooze)						TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Outsider)					TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Plant)					TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Undead)					TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Odor Stalk (Vermin)					TYPE:Goods.General.Consumable		COST:70	WT:0.1	SOURCEPAGE:p.27
+Poison Sponge						TYPE:Goods.General			COST:150	WT:1		SOURCEPAGE:p.27
+Static Wool							TYPE:Goods.General.Consumable		COST:100	WT:0.5	SOURCEPAGE:p.27
+Taxidermy Tools						TYPE:Goods.General			COST:80	WT:10		SOURCEPAGE:p.27
+Venomblock							TYPE:Goods.General.Consumable		COST:60			SOURCEPAGE:p.27
+Wrangler's Gloves						TYPE:Goods.General			COST:20	WT:6		SOURCEPAGE:p.27
+
+Bear Trap.COPY=Bear Trap (Cold Iron)								COST:4

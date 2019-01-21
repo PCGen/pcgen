@@ -17,10 +17,15 @@
  */
 package plugin.lsttokens.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGlobalIntegerTokenTestCase extends
 		AbstractGlobalTokenTestCase
@@ -180,14 +185,14 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 			assertTrue(parse("5"));
 			assertTrue(parse("1"));
 			String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "1", unparsed[0]);
+			assertEquals("1", unparsed[0]);
 		}
 		else
 		{
 			assertTrue(parse("-2"));
 			assertTrue(parse("-4"));
 			String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "-4", unparsed[0]);
+			assertEquals("-4", unparsed[0]);
 		}
 	}
 

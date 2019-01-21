@@ -1,0 +1,12 @@
+
+Arquand horns		TYPE:Magic.Headgear.WornMagic		COST:8400		WT:0.1		SOURCEPAGE:p.13		BONUS:VAR|BulkLight|1		QUALITY:Level|8		QUALITY:Bulk|L		
+#ASPECT:SaveBonus|+2 enhancement bonus to saving throws against ear effects
+Arquand manacles		TYPE:Magic		COST:2800		WT:0.1		SOURCEPAGE:p.13		BONUS:VAR|BulkLight|1		QUALITY:Level|5		QUALITY:Bulk|L
+Calacor skull-globe		TYPE:Magic		COST:250000		WT:1		SOURCEPAGE:p.25		QUALITY:Level|5		QUALITY:Bulk|1
+Hivemask		TYPE:Magic.WornMagic		QUALITY:Level|3		COST:1400		BONUS:VAR|BulkLight|1		QUALITY:Bulk|L		WT:0.1		SOURCEPAGE:p.49
+Haeshi-Shaa serum		TYPE:Magic.Serum.Consumable		QUALITY:Level|14		COST:10500		BONUS:VAR|BulkLight|1		QUALITY:Bulk|L		WT:0.1		SOURCEPAGE:p.71
+Gravity serum		TYPE:Magic.Serum.Consumable		QUALITY:Level|3		COST:320		BONUS:VAR|BulkLight|1		QUALITY:Bulk|L		WT:0.1		SOURCEPAGE:p.73
+Mi-Go brain cylinder		TYPE:Magic.Hybrid		COST:10000		QUALITY:Level|5		QUALITY:Bulk|1		BONUS:VAR|Bulk|1		WT:1		SOURCEPAGE:p.83
+Mi-Go hollowskin		TYPE:Magic.Hybrid		COST:5500		QUALITY:Level|7		QUALITY:Bulk|L		BONUS:VAR|BulkLight|1		WT:0.1		SOURCEPAGE:p.83
+Shantak whistle		TYPE:Magic		COST:49000		QUALITY:Level|13		QUALITY:Bulk|L		BONUS:VAR|BulkLight|1		WT:0.1		SOURCEPAGE:p.111
+Shotalashu saddle		TYPE:Magic.Hybrid		COST:300		QUALITY:Level|1		QUALITY:Bulk|L		BONUS:VAR|BulkLight|1		WT:0.1		SOURCEPAGE:p.115

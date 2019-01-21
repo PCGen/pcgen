@@ -111,7 +111,7 @@ public final class AbilityDepthTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected void runTest() throws Throwable
+	protected void runTest()
 	{
 		Ability top = createAbility("TopAbility");
 		Ability mid = createAbility("MidAbility");

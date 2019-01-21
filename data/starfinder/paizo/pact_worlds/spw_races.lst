@@ -1,5 +1,5 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
-#  Sun Sep 23 13:50:08 2018 -- reformated by PCGen PrettyLST v6.06.00
+
 # Race Name	SORTKEY			Starting Feats	Move			Bonus Languages		Stat bonus						Modify VAR					Auto Language			Ability					Main Race Type		Race Subtype			Type			Source Page		Apply Kit				FACT			GRANT								GROUP				MODIFY									MODIFYOTHER
 Astrazoan	SORTKEY:A_PlayableRace	STARTFEATS:1	MOVE:Walk,0		LANGBONUS:TYPE=Spoken	BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON|-2	BONUS:VAR|Walk|30				AUTO:LANG|Common			ABILITY:Race|AUTOMATIC|Astrazoan	RACETYPE:Humanoid		RACESUBTYPE:Shapechanger	TYPE:Aberration	SOURCEPAGE:p.209	KIT:1|Playable Race Defaults	FACT:BaseSize|M	GRANT:MOVEMENT|Walk					GROUP:RaceType_Humanoid	MODIFY:RaceType_Humanoid|SET|True	MODIFY:Race_Legs|ADD|3	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|30
 Bantrid	SORTKEY:A_PlayableRace	STARTFEATS:1	MOVE:Walk,0		LANGBONUS:TYPE=Spoken	BONUS:STAT|DEX,CON|2	BONUS:STAT|INT|-2	BONUS:VAR|Walk|40				AUTO:LANG|Common|Bantrid	ABILITY:Race|AUTOMATIC|Bantrid	RACETYPE:Aberration						TYPE:Aberration	SOURCEPAGE:p.210	KIT:1|Playable Race Defaults	FACT:BaseSize|S	GRANT:MOVEMENT|Walk					GROUP:RaceType_Humanoid	MODIFY:RaceType_Humanoid|SET|True	MODIFY:Race_Legs|ADD|-1	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|SET|40

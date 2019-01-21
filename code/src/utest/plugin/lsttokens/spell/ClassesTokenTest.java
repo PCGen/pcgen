@@ -395,13 +395,13 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		String[] unparsed;
 		assertTrue(parse("Wizard=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 		assertTrue(parse("Wizard=1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Wizard=1", unparsed[0]);
+		assertEquals("Wizard=1", unparsed[0]);
 		assertTrue(parse("Wizard=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 	}
 
 	@Test
@@ -410,7 +410,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		String[] unparsed;
 		assertTrue(parse("TYPE.Arcane=1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TYPE=Arcane=1", unparsed[0]);
+		assertEquals("TYPE=Arcane=1", unparsed[0]);
 	}
 
 	@Override

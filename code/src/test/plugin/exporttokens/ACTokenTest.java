@@ -19,8 +19,6 @@ package plugin.exporttokens;
 
 import java.util.Collections;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -48,15 +46,6 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	private EquipmentModifier masterwork;
 	private EquipmentModifier plus1;
 	private Equipment chainShirt;
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(ACTokenTest.class);
-	}
 
     @Override
 	protected void setUp() throws Exception

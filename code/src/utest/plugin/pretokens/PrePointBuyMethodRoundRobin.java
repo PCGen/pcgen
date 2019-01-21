@@ -21,10 +21,11 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PrePointBuyMethodParser;
 import plugin.pretokens.writer.PrePointBuyMethodWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PrePointBuyMethodRoundRobin extends AbstractBasicRoundRobin
 {
-
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

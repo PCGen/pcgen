@@ -57,7 +57,7 @@ public class FormatSupport
 		VariableContext varContext = context.getVariableContext();
 		varContext.addDefault(FormatUtilities.ORDEREDPAIR_MANAGER,
 			new SimpleSetModifier<>(FormatUtilities.ORDEREDPAIR_MANAGER,
-				new OrderedPair(0, 0)));
+					new OrderedPair(0, 0)));
 		varContext.addDefault(FormatUtilities.NUMBER_MANAGER,
 			new SimpleSetModifier<>(FormatUtilities.NUMBER_MANAGER, 0));
 		varContext.addDefault(FormatUtilities.STRING_MANAGER,

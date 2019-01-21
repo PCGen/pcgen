@@ -19,9 +19,6 @@ package plugin.lsttokens.spell;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
@@ -31,10 +28,14 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.Before;
+import org.junit.Test;
+
 
 public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
@@ -342,13 +343,13 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		String[] unparsed;
 		assertTrue(parse("Fire=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 		assertTrue(parse("Fire=1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Fire=1", unparsed[0]);
+		assertEquals("Fire=1", unparsed[0]);
 		assertTrue(parse("Fire=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 	}
 
 	@Override
