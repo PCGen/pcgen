@@ -1,0 +1,6 @@
+SOURCELONG:Magic Tactics Toolbox	SOURCESHORT:MagTT		SOURCEWEB:https://paizo.com/products/btpy9l2u	SOURCEDATE:2016-07
+
+Superior Sniper				KEY:Rogue Talent ~ Superior Sniper				CATEGORY:Special Ability	TYPE:RogueClassFeatures.SpecialQuality.Supernatural.RogueTalent													SOURCEPAGE:p.27		DESC:A rogue who selects this talent gains Expert Sniper as a bonus feat. If she already has this feat, she can instead select any feat that lists Expert Sniper as a prerequisite, as long as she meets the feat's prerequisites.		TEMPLATE:CHOOSE:Expert Sniper Feat|Master Sniper Feat
+
+Expert Sniper				KEY:Rogue Feat ~ Expert Sniper	CATEGORY:Internal		ABILITY:FEAT|AUTOMATIC|Expert Sniper
+Master Sniper				KEY:Rogue Feat ~ Master Sniper	CATEGORY:Internal		ABILITY:FEAT|AUTOMATIC|Master Sniper

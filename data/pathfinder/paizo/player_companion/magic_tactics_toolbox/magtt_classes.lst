@@ -1,0 +1,13 @@
+SOURCELONG:Magic Tactics Toolbox	SOURCESHORT:MagTT		SOURCEWEB:https://paizo.com/products/btpy9l2u	SOURCEDATE:2016-07
+
+# ==============================
+# Saga Support
+# ==============================
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Saga Activation Magic Toolbox
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Saga Activation Magic Toolbox
