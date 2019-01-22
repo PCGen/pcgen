@@ -67,44 +67,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		manager = new DynamicSolverManager(getFormulaManager(), managerFactory,
 			getSolverFactory(), getVariableStore());
 		limbManager = new LimbManager();
-		getSolverFactory().addSolverFormat(limbManager, new Modifier<Limb>()
-		{
-
-			@Override
-			public Limb process(EvaluationManager evaluationManager)
-			{
-				return limbManager.convert("Head");
-			}
-
-			@Override
-			public void getDependencies(DependencyManager dependencyManager)
-			{
-			}
-
-			@Override
-			public long getPriority()
-			{
-				return 0;
-			}
-
-			@Override
-			public FormatManager<Limb> getVariableFormat()
-			{
-				return limbManager;
-			}
-
-			@Override
-			public String getIdentification()
-			{
-				return "SET";
-			}
-
-			@Override
-			public String getInstructions()
-			{
-				return "<null>";
-			}
-		});
+		getSolverFactory().addSolverFormat(limbManager,
+			() -> limbManager.convert("Head"));
 	}
 
 	@SuppressWarnings("unused")

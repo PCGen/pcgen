@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2019 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
@@ -20,80 +20,81 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Supplier;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.ValueStore;
 
 /**
- * A ModifierValueStore is a centralized location to define a shared default value for a
+ * A SupplierValueStore is a centralized location to define a shared default value for a
  * format of formats for Solvers.
  */
-public class ModifierValueStore implements ValueStore
+public class SupplierValueStore implements ValueStore
 {
 
 	/**
-	 * The underlying Map for this ModifierValueStore that stores the default values by
+	 * The underlying Map for this SupplierValueStore that stores the default values by
 	 * their FormatManager.
 	 */
-	private final Map<FormatManager<?>, Modifier<?>> defaultModifierMap =
-			new HashMap<FormatManager<?>, Modifier<?>>();
+	private final Map<FormatManager<?>, Supplier<?>> formatMap =
+			new HashMap<>();
 
 	/**
-	 * The underlying Map for this ModifierValueStore that stores the default values by
+	 * The underlying Map for this SupplierValueStore that stores the default values by
 	 * their identifier.
 	 */
-	private final CaseInsensitiveMap<Modifier<?>> identifierMap =
+	private final CaseInsensitiveMap<Supplier<?>> identifierMap =
 			new CaseInsensitiveMap<>();
 
 	/**
-	 * Adds a new modifier to this ValueStore for the given FormatManager.
+	 * Adds a new default value to this SupplierValueStore for the given FormatManager.
 	 * 
 	 * @param formatManager
 	 *            The FormatManager for which the given value should be added
-	 * @param modifier
-	 *            The Modifier used to set the value for the given Identifier
-	 * @return The previous modifier for the given FormatManager, if any
+	 * @param defaultValue
+	 *            The Supplier that used to set the value for the given FormatManager
+	 * @return The previous default for the given FormatManager, if any
 	 */
 	public Object addValueFor(FormatManager<?> formatManager,
-		Modifier<?> modifier)
+		Supplier<?> defaultValue)
 	{
-		identifierMap.put(formatManager.getIdentifierType(), modifier);
-		return defaultModifierMap.put(formatManager, modifier);
+		identifierMap.put(formatManager.getIdentifierType(), defaultValue);
+		return formatMap.put(formatManager, defaultValue);
 	}
 
 	@Override
 	public Object getValueFor(String identifier)
 	{
-		Modifier<?> defaultModifier = identifierMap.get(identifier);
-		Objects.requireNonNull(defaultModifier,
+		Supplier<?> defaultValue = identifierMap.get(identifier);
+		Objects.requireNonNull(defaultValue,
 			() -> "ModifierValueStore did not have a default value for: "
 				+ identifier);
-		return defaultModifier.process(null);
+		return defaultValue.get();
 	}
 
 	/**
-	 * Returns the default Modifier (unresolved) for the given FormatManager.
+	 * Returns the default value (unresolved) for the given FormatManager.
 	 * 
 	 * @param formatManager
-	 *            The FormatManager for which the default Modifier should be returned
-	 * @return The default Modifier for the given FormatManager
+	 *            The FormatManager for which the default value should be returned
+	 * @return The (unresolved) default value for the given FormatManager
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> Modifier<T> get(FormatManager<T> formatManager)
+	public <T> Supplier<T> get(FormatManager<T> formatManager)
 	{
-		return (Modifier<T>) defaultModifierMap.get(formatManager);
+		return (Supplier<T>) formatMap.get(formatManager);
 	}
 
 	/**
 	 * Returns a Set of the FormatManager objects representing the formats for which this
-	 * MidifierValueStore has a default value.
+	 * SupplierValueStore has a default value.
 	 * 
 	 * @return A Set of the FormatManager objects representing the formats for which this
-	 *         MidifierValueStore has a default value
+	 *         SupplierValueStore has a default value
 	 */
 	public Set<FormatManager<?>> getStoredFormats()
 	{
-		return Collections.unmodifiableSet(defaultModifierMap.keySet());
+		return Collections.unmodifiableSet(formatMap.keySet());
 	}
 }

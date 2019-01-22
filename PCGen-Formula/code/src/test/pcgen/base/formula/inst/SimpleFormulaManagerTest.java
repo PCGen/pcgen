@@ -23,10 +23,9 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.solver.ModifierValueStore;
 import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
-import pcgen.base.solver.testsupport.AbstractModifier;
+import pcgen.base.solver.SupplierValueStore;
 
 public class SimpleFormulaManagerTest extends TestCase
 {
@@ -36,21 +35,21 @@ public class SimpleFormulaManagerTest extends TestCase
 	private SimpleVariableStore resultsStore;
 	private SolverFactory defaultStore;
 	private ScopeInstanceFactory siFactory;
-	private ModifierValueStore valueStore;
+	private SupplierValueStore valueStore;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		valueStore = new ModifierValueStore();
+		valueStore = new SupplierValueStore();
 		defaultStore = new SimpleSolverFactory(valueStore);
 		LegalScopeManager legalScopeManager = new ScopeManagerInst();
 		variableLibrary = new VariableManager(legalScopeManager, valueStore);
 		opLibrary = new SimpleOperatorLibrary();
 		resultsStore = new SimpleVariableStore();
 		siFactory = new SimpleScopeInstanceFactory(legalScopeManager);
-		defaultStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(0, 0));
-		defaultStore.addSolverFormat(FormatUtilities.STRING_MANAGER, AbstractModifier.setString(""));
+		defaultStore.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		defaultStore.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
 	}
 
 	@SuppressWarnings("unused")

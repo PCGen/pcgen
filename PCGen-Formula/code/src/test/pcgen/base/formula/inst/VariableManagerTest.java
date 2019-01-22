@@ -36,8 +36,7 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.solver.Modifier;
-import pcgen.base.solver.ModifierValueStore;
-import pcgen.base.solver.testsupport.AbstractModifier;
+import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.testsupport.SimpleVarScoped;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -50,21 +49,18 @@ public class VariableManagerTest extends TestCase
 	private ScopeInstanceFactory instanceFactory;
 	private ScopeManagerInst legalScopeManager;
 	private VariableLibrary variableLibrary;
-	private ModifierValueStore valueStore;
+	private SupplierValueStore valueStore;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		valueStore = new ModifierValueStore();
+		valueStore = new SupplierValueStore();
 		legalScopeManager = new ScopeManagerInst();
 		instanceFactory = new SimpleScopeInstanceFactory(legalScopeManager);
-		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER,
-			AbstractModifier.setNumber(0, 0));
-		valueStore.addValueFor(FormatUtilities.STRING_MANAGER,
-			AbstractModifier.setString(""));
-		valueStore.addValueFor(FormatUtilities.BOOLEAN_MANAGER, AbstractModifier
-			.setObject(FormatUtilities.BOOLEAN_MANAGER, Boolean.FALSE, 0));
+		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		valueStore.addValueFor(FormatUtilities.STRING_MANAGER, () -> "");
+		valueStore.addValueFor(FormatUtilities.BOOLEAN_MANAGER, () -> false);
 		variableLibrary = new VariableManager(legalScopeManager, valueStore);
 	}
 
@@ -551,8 +547,7 @@ public class VariableManagerTest extends TestCase
 		SimpleLegalScope globalScope = new SimpleLegalScope("Global");
 		legalScopeManager.registerScope(globalScope);
 		DeferredIndirect def = new DeferredIndirect();
-		valueStore.addValueFor(FormatUtilities.ORDEREDPAIR_MANAGER,
-			new IndirectModifier<>(FormatUtilities.ORDEREDPAIR_MANAGER, def));
+		valueStore.addValueFor(FormatUtilities.ORDEREDPAIR_MANAGER, def);
 		variableLibrary.assertLegalVariableID("Walk", globalScope,
 			FormatUtilities.ORDEREDPAIR_MANAGER);
 		assertFalse(variableLibrary.getInvalidFormats().isEmpty());

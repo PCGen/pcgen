@@ -46,10 +46,9 @@ import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.solver.FormulaSetupFactory;
-import pcgen.base.solver.ModifierValueStore;
 import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
-import pcgen.base.solver.testsupport.AbstractModifier;
+import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.util.FormatManager;
 
 public abstract class AbstractFormulaTestCase extends TestCase
@@ -59,7 +58,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	private ScopeManagerInst legalScopeLibrary;
 	private FormulaManager formulaManager;
 	private ScopeInstance globalInstance;
-	private ModifierValueStore valueStore;
+	private SupplierValueStore valueStore;
 
 	@Override
 	protected void setUp() throws Exception
@@ -69,16 +68,15 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		legalScopeLibrary = new ScopeManagerInst();
 		legalScopeLibrary.registerScope(new SimpleLegalScope("Global"));
 		setup.setLegalScopeManagerSupplier(() -> legalScopeLibrary);
-		valueStore = new ModifierValueStore();
+		valueStore = new SupplierValueStore();
 		setup.setValueStoreSupplier(() -> valueStore);
 		SolverFactory solverFactory = new SimpleSolverFactory(valueStore);
 		solverFactory.addSolverFormat(FormatUtilities.NUMBER_MANAGER,
-			AbstractModifier.setNumber(0, 0));
+			() -> 0);
 		solverFactory.addSolverFormat(FormatUtilities.STRING_MANAGER,
-			AbstractModifier.setString(""));
+			() -> "");
 		solverFactory.addSolverFormat(FormatUtilities.BOOLEAN_MANAGER,
-			AbstractModifier.setObject(FormatUtilities.BOOLEAN_MANAGER,
-				Boolean.FALSE, 0));
+			() -> false);
 		formulaManager = setup.generate();
 		globalInstance = formulaManager.getScopeInstanceFactory().get("Global",
 			Optional.of(new GlobalVarScoped("Global")));
@@ -254,7 +252,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return managerFactory;
 	}
 	
-	protected ModifierValueStore getValueStore()
+	protected SupplierValueStore getValueStore()
 	{
 		return valueStore;
 	}

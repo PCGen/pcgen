@@ -49,8 +49,8 @@ public class FormulaSetupFactory
 	/**
 	 * The ValueStore for this FormulaSetupFactory.
 	 */
-	private Supplier<ModifierValueStore> valueStoreSupplier =
-			() -> new ModifierValueStore();
+	private Supplier<SupplierValueStore> valueStoreSupplier =
+			() -> new SupplierValueStore();
 
 	/**
 	 * The LegalScopeManager for this FormulaSetupFactory.
@@ -97,7 +97,7 @@ public class FormulaSetupFactory
 	 */
 	public FormulaManager generate()
 	{
-		ModifierValueStore valueStore = valueStoreSupplier.get();
+		SupplierValueStore valueStore = valueStoreSupplier.get();
 		LegalScopeManager legalScopeManager = legalScopeManagerSupplier.get();
 		FunctionLibrary functionLibrary = functionLibrarySupplier.get();
 		OperatorLibrary operatorLibrary = operatorLibrarySupplier.get();
@@ -119,7 +119,7 @@ public class FormulaSetupFactory
 	 *            FormulaSetupFactory
 	 */
 	public void setValueStoreSupplier(
-		Supplier<ModifierValueStore> valueStoreSupplier)
+		Supplier<SupplierValueStore> valueStoreSupplier)
 	{
 		this.valueStoreSupplier = valueStoreSupplier;
 	}

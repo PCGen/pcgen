@@ -16,6 +16,7 @@
 package pcgen.base.solver;
 
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FailureResult;
@@ -32,33 +33,33 @@ public class SimpleSolverFactory implements SolverFactory
 {
 
 	/**
-	 * The map containing the relationship between a format of Solver and the default
-	 * Modifier for that format of Solver.
+	 * The IndirectValueStore containing the relationship between a format of Solver and
+	 * the default value for that format of Solver.
 	 */
-	private final ModifierValueStore valueStore;
+	private final SupplierValueStore valueStore;
 
 	/**
-	 * Constructs a new SimpleSolverFactory using the given ModifierValueStore as the
+	 * Constructs a new SimpleSolverFactory using the given IndirectValueStore as the
 	 * underlying ValueStore.
 	 * 
 	 * @param valueStore
-	 *            The ModifierValueStore to be used as the underlying ValueStore
+	 *            The IndirectValueStore to be used as the underlying ValueStore
 	 */
-	public SimpleSolverFactory(ModifierValueStore valueStore)
+	public SimpleSolverFactory(SupplierValueStore valueStore)
 	{
 		this.valueStore = Objects.requireNonNull(valueStore);
 	}
 
 	@Override
 	public <T> void addSolverFormat(FormatManager<T> formatManager,
-		Modifier<? extends T> defaultModifier)
+		Supplier<? extends T> defaultModifier)
 	{
 		Objects.requireNonNull(formatManager,
 			"Variable/Solve FormatManager cannot be null");
 		Objects.requireNonNull(defaultModifier,
 			() -> "Default Modifier for Format: "
 				+ formatManager.getIdentifierType() + " cannot be null");
-		Modifier<?> existing = valueStore.get(formatManager);
+		Supplier<T> existing = valueStore.get(formatManager);
 		if (existing == null)
 		{
 			valueStore.addValueFor(formatManager, defaultModifier);
@@ -89,8 +90,7 @@ public class SimpleSolverFactory implements SolverFactory
 					//Generics were violated during addSolverFormat if we got here
 					return new FailureResult("Format: " + formatManager
 						+ " cannot use default Modifier that produces: "
-						+ valueStore.get(formatManager).process(null)
-							.getClass());
+						+ valueStore.get(formatManager).get().getClass());
 				}
 			}
 			catch (NullPointerException e)
@@ -106,7 +106,7 @@ public class SimpleSolverFactory implements SolverFactory
 	private <T> void roundRobinDefault(FormatManager<T> formatManager)
 	{
 		//Lack of assignment is not useless - it is detecting if this will throw an exception
-		formatManager.unconvert(valueStore.get(formatManager).process(null));
+		formatManager.unconvert(valueStore.get(formatManager).get());
 	}
 
 	@Override

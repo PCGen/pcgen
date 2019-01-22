@@ -17,6 +17,8 @@
  */
 package pcgen.base.solver;
 
+import java.util.function.Supplier;
+
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 
@@ -31,31 +33,27 @@ public interface SolverFactory
 {
 
 	/**
-	 * Adds a relationship between a Solver format and a default Modifier for that format
-	 * of Solver to this SolverFactory.
+	 * Adds a relationship between a Solver format and a default value for that format of
+	 * Solver to this SolverFactory.
 	 * 
-	 * The default Modifier MUST NOT depend on anything (it must be able to accept a null
-	 * input value to its process method). (See SetNumberModifier for an example of this)
-	 * 
-	 * The default Modifier for a format of Solver may not be redefined for a
-	 * SolverFactory. Once a given default Modifier has been established for a format of
+	 * The default value for a format of Solver may not be redefined for a
+	 * SolverFactory. Once a given default Supplier has been established for a format of
 	 * Solver, this method MUST NOT be called a second time for that format of Solver.
 	 * 
 	 * @param <T>
-	 *            The format (class) of object changed by the given Modifier
+	 *            The format (class) of object changed by the given Supplier
 	 * @param formatManager
-	 *            The FormatManager of the Solver format for which the given Modifier
-	 *            should be the default value
-	 * @param defaultModifier
-	 *            The Modifier to be used as the default Modifier for the given Solver
+	 *            The FormatManager of the Solver format for which the given Supplier
+	 *            should provide the default value
+	 * @param defaultValue
+	 *            The Supplier to be used to get the default value for the given Solver
 	 *            format
 	 * @throws IllegalArgumentException
-	 *             if either parameter is null, if the given Modifier has dependencies, or
-	 *             if the given Solver format already has a default Modifier defined for
-	 *             this SolverFactory
+	 *             If the given Solver format already has a default value defined for this
+	 *             SolverFactory
 	 */
 	public <T> void addSolverFormat(FormatManager<T> formatManager,
-		Modifier<? extends T> defaultModifier);
+		Supplier<? extends T> defaultValue);
 
 	/**
 	 * Returns a ComplexResult indicating the status of validating the defaults added to

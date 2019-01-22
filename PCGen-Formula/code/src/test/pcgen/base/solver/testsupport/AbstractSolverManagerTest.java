@@ -53,7 +53,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		store = getVariableStore();
 		globalScope = getInstanceFactory().getScope("Global");
 		globalScopeInst = getGlobalScopeInst();
-		solverFactory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, AbstractModifier.setNumber(0, 0));
 	}
 
 	protected abstract SolverManager getManager();
