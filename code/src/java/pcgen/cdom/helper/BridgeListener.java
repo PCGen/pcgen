@@ -82,14 +82,14 @@ public class BridgeListener
 		 */
 		if (newValue.getClass().isArray())
 		{
-			Tuple<List<Object>, List<Object>> t =
+			Tuple<List<Object>, List<Object>> difference =
 					ArrayUtilities.calculateIdentityDifference(
 						(Object[]) oldValue, (Object[]) newValue);
-			for (Object toRemove : t.getFirst())
+			for (Object toRemove : difference.getFirst())
 			{
 				variableBridgeFacet.remove(id, (PCGenScoped) toRemove, source);
 			}
-			for (Object toAdd : t.getSecond())
+			for (Object toAdd : difference.getSecond())
 			{
 				variableBridgeFacet.add(id, (PCGenScoped) toAdd, source);
 			}
