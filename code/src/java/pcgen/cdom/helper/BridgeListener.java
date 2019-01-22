@@ -55,7 +55,8 @@ public class BridgeListener
 	 *            The AbstractSourcedListFacet to be used as a bridge to the traditional
 	 *            Facet events
 	 */
-	public BridgeListener(CharID id, AbstractSourcedListFacet<CharID, PCGenScoped> variableBridgeFacet)
+	public BridgeListener(CharID id,
+		AbstractSourcedListFacet<CharID, PCGenScoped> variableBridgeFacet)
 	{
 		this.variableBridgeFacet = Objects.requireNonNull(variableBridgeFacet);
 		this.id = Objects.requireNonNull(id);
@@ -64,7 +65,8 @@ public class BridgeListener
 	@Override
 	public void variableChanged(VariableChangeEvent<Object> vcEvent)
 	{
-		processChange(vcEvent.getOldValue(), vcEvent.getNewValue(), vcEvent.getSource());
+		processChange(vcEvent.getOldValue(), vcEvent.getNewValue(),
+			vcEvent.getSource());
 	}
 
 	@Override
@@ -81,14 +83,15 @@ public class BridgeListener
 		if (newValue.getClass().isArray())
 		{
 			Tuple<List<Object>, List<Object>> t =
-			ArrayUtilities.calculateIdentityDifference((Object[]) oldValue, (Object[]) newValue);
-			for (Object o : t.getFirst())
+					ArrayUtilities.calculateIdentityDifference(
+						(Object[]) oldValue, (Object[]) newValue);
+			for (Object toRemove : t.getFirst())
 			{
-				variableBridgeFacet.remove(id, (PCGenScoped) o, source);
+				variableBridgeFacet.remove(id, (PCGenScoped) toRemove, source);
 			}
-			for (Object o : t.getSecond())
+			for (Object toAdd : t.getSecond())
 			{
-				variableBridgeFacet.add(id, (PCGenScoped) o, source);
+				variableBridgeFacet.add(id, (PCGenScoped) toAdd, source);
 			}
 		}
 		else
@@ -113,7 +116,8 @@ public class BridgeListener
 		if (obj instanceof BridgeListener)
 		{
 			BridgeListener other = (BridgeListener) obj;
-			return id.equals(other.id) && variableBridgeFacet.equals(other.variableBridgeFacet);
+			return id.equals(other.id)
+				&& variableBridgeFacet.equals(other.variableBridgeFacet);
 		}
 		return false;
 	}
