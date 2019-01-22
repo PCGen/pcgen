@@ -5,7 +5,7 @@ TYPE:Paizo Publishing.Campaign Setting
 RANK:4
 STATUS:BETA
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Campaign Setting
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide

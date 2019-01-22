@@ -3,9 +3,9 @@ KEY:PFS ~ Cities of Golarion
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 RANK:3
 GENRE:Fantasy
-TYPE:Paizo Publishing.Pathfinder Chronicles
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
 STATUS:BETA
-BOOKTYPE:Supplement
+BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Chronicles
 PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary
 PUBNAMELONG:Paizo Publishing
