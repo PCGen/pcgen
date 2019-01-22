@@ -1,5 +1,6 @@
 /*
  *  Copyright (C) 2003 Devon Jones, Emily Smirle
+ * Copyright 2019 Timothy Reaves <treaves@silverfieldstech.com>
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -69,7 +70,7 @@ import pcgen.util.Logging;
 
 /**
  * {@code GMGenSystem} is the main class of the GMGen application.
- * 
+ *
  * It holds the controller for every tab as well as the menu bar.
  */
 public final class GMGenSystem extends JFrame
@@ -153,7 +154,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Constructor
-	 * 
+	 *
 	 * Creates a JFrame TODO comment correctly.
 	 * Starts the GMGen renderer
 	 */
@@ -167,14 +168,10 @@ public final class GMGenSystem extends JFrame
 
 	private void initialize()
 	{
-		Utility.configurePlatformUI();
-
 		if (SystemUtils.IS_OS_MAC_OSX)
 		{
 			MacGUIHandler.initialize();
 		}
-
-		Utility.setApplicationTitle(APPLICATION_NAME);
 
 		inst = this;
 		initLogger();
@@ -191,7 +188,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Returns the GMGen version as a human-readable string.
-	 * 
+	 *
 	 * @return The version
 	 */
 	public static String getVersion()
@@ -202,7 +199,7 @@ public final class GMGenSystem extends JFrame
 	/**
 	 * Calls the appropriate methods depending on the actions that happened on
 	 * the GUI.
-	 * 
+	 *
 	 * @param event
 	 *            event that took place
 	 */
@@ -272,7 +269,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Message handler for the GMBus.
-	 * 
+	 *
 	 * @param message
 	 *            The message passed in from the bus
 	 */
@@ -312,7 +309,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Handles the clicking on the tool menu.
-	 * 
+	 *
 	 */
 	public void handleToolsMenu()
 	{
@@ -330,7 +327,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Handles a menu canceled event.
-	 * 
+	 *
 	 * @param e
 	 *            menu canceled event
 	 */
@@ -342,7 +339,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Handles a menu de-selected event.
-	 * 
+	 *
 	 * @param e
 	 *            Menu Deselected event
 	 */
@@ -354,7 +351,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Listens for menus to be clicked and calls the appropriate handlers.
-	 * 
+	 *
 	 * @param e
 	 *            the menu event that happened.
 	 */
@@ -369,7 +366,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Calls the necessary methods if an item on the GUI or model has changed.
-	 * 
+	 *
 	 * @param event - The event that has happened.
 	 */
 	@Override
@@ -380,7 +377,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Calls the necessary methods if an item on the GUI or model has changed.
-	 * 
+	 *
 	 * @param event - The event that has happened.
 	 */
 	private void stateUpdate(EventObject event)
@@ -575,7 +572,7 @@ public final class GMGenSystem extends JFrame
 
 	/**
 	 * Closes and exits the application cleanly.
-	 * 
+	 *
 	 * @param event
 	 *            - a window close event
 	 */
@@ -587,7 +584,7 @@ public final class GMGenSystem extends JFrame
 	/**
 	 * Initializes all the GUI components and places them in the correct place
 	 * on the GUI.
-	 * 
+	 *
 	 */
 	private void initComponents()
 	{
