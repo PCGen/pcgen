@@ -53,7 +53,6 @@ import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.dialog.OptionsPathDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
 import pcgen.gui2.plaf.LookAndFeelManager;
-import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;

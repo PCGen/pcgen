@@ -57,7 +57,6 @@ import pcgen.gui2.PCGenActionMap;
 import pcgen.gui2.plaf.MacGUIHandler;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
-import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.SwingWorker;
 import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
