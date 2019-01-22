@@ -517,3 +517,54 @@ task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
 }
+
+macAppBundle {
+    mainClassName	= "pcgen.system.Main"
+    appName			= "PCGen"
+    appStyle		= "universalJavaApplicationStub"
+    icon 			= "installers/mac-installer/PCGenApp.icns"
+    bundleJRE 		= false
+    backgroundImage = "installers/mac-installer/PCGen_folder_background.png"
+    jvmVersion		= "+11.0"
+    appIconX		= "243"
+    appIconY		= "270"
+    appFolderX		= "370"
+    appFolderY		= "270"
+    javaProperties.put("apple.laf.useScreenMenuBar", "true")
+    bundleExtras.put("JVMVersion", "11.0")
+}
+
+task copyMacDataResources(type: Copy, dependsOn: copyToResourcesJava) {
+	from	"data"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/data"
+}
+
+task copyMacDocsResources(type: Copy, dependsOn: copyMacDataResources) {
+	from	"docs"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/docs"
+}
+
+task copyMacOutputsheetsResources(type: Copy, dependsOn: copyMacDocsResources) {
+	from	"outputsheets"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/outputsheets"
+}
+
+task copyMacPluginsResources(type: Copy, dependsOn: copyMacOutputsheetsResources) {
+	from	"plugins"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/plugins"
+}
+
+task copyMacPreviewResources(type: Copy, dependsOn: copyMacPluginsResources) {
+	from	"preview"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/preview"
+}
+
+task copyMacSystemResources(type: Copy, dependsOn: copyMacPreviewResources) {
+	from	"system"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/system"
+}
+
+createApp {
+	it.dependsOn 	"copyMacSystemResources"
+}
+
