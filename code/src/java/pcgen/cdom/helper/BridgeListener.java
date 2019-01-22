@@ -15,24 +15,25 @@
  */
 package pcgen.cdom.helper;
 
-import java.util.Collections;
-import java.util.IdentityHashMap;
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
+import pcgen.base.util.ArrayUtilities;
+import pcgen.base.util.Tuple;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.VariableChangeEvent;
 import pcgen.cdom.formula.VariableListener;
-
-import org.apache.commons.lang3.tuple.ImmutablePair;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 
 /**
  * A BridgeListener converts from a VariableListener to then inject items into an
  * AbstractSourcedListFacet acting in the traditional Facet events.
  */
-public class BridgeListener implements VariableListener<Object>
+public class BridgeListener
+		implements VariableListener<Object>, ReferenceListener<Object>
 {
 	/**
 	 * The AbstractSourcedListFacet to which objects will be forwarded
@@ -63,49 +64,41 @@ public class BridgeListener implements VariableListener<Object>
 	@Override
 	public void variableChanged(VariableChangeEvent<Object> vcEvent)
 	{
-		Object oldValue = vcEvent.getOldValue();
-		Object newValue = vcEvent.getNewValue();
+		processChange(vcEvent.getOldValue(), vcEvent.getNewValue(), vcEvent.getSource());
+	}
+
+	@Override
+	public void referenceChanged(ReferenceEvent<Object> e)
+	{
+		processChange(e.getOldReference(), e.getNewReference(), e.getSource());
+	}
+
+	private void processChange(Object oldValue, Object newValue, Object source)
+	{
 		/*
-		 * CONSIDER This is a hard-coding based on array - the format manager, which is
-		 * available from the event, might want to provide more insight. Currently, this
-		 * isn't possible, but it's something to think about with the FormatManager
-		 * objects going forward...
+		 * CONSIDER This is a hard-coding based on array - which is quirky
 		 */
 		if (newValue.getClass().isArray())
 		{
-			ImmutablePair<Set<Object>, Set<Object>> t = processIdentityDeltas((Object[]) oldValue, (Object[]) newValue);
-			for (Object o : t.getLeft())
+			Tuple<List<Object>, List<Object>> t =
+			ArrayUtilities.calculateIdentityDifference((Object[]) oldValue, (Object[]) newValue);
+			for (Object o : t.getFirst())
 			{
-				variableBridgeFacet.remove(id, (PCGenScoped) o, vcEvent.getSource());
+				variableBridgeFacet.remove(id, (PCGenScoped) o, source);
 			}
-			for (Object o : t.getRight())
+			for (Object o : t.getSecond())
 			{
-				variableBridgeFacet.add(id, (PCGenScoped) o, vcEvent.getSource());
+				variableBridgeFacet.add(id, (PCGenScoped) o, source);
 			}
 		}
 		else
 		{
 			if (oldValue != null)
 			{
-				variableBridgeFacet.remove(id, (PCGenScoped) oldValue, vcEvent.getSource());
+				variableBridgeFacet.remove(id, (PCGenScoped) oldValue, source);
 			}
-			variableBridgeFacet.add(id, (PCGenScoped) newValue, vcEvent.getSource());
+			variableBridgeFacet.add(id, (PCGenScoped) newValue, source);
 		}
-	}
-
-	private ImmutablePair<Set<Object>, Set<Object>> processIdentityDeltas(Object[] oldValue, Object[] newValue)
-	{
-		Set<Object> toAdd = Collections.newSetFromMap(new IdentityHashMap<>());
-		Collections.addAll(toAdd, newValue);
-		Set<Object> toRemove = Collections.newSetFromMap(new IdentityHashMap<>());
-		Collections.addAll(toRemove, oldValue);
-		if ((oldValue.length != 0) && (newValue.length != 0))
-		{
-			//Note order sensitivity
-			toRemove.removeAll(toAdd);
-			Collections.addAll(toAdd, oldValue);
-		}
-		return new ImmutablePair<>(toRemove, toAdd);
 	}
 
 	@Override

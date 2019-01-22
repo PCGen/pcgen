@@ -31,7 +31,6 @@ import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
-import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -165,9 +164,9 @@ public abstract class AbstractFormulaTestCase
 		return getFormulaManager().getFactory();
 	}
 
-	protected WriteableVariableStore getVariableStore()
+	protected MonitorableVariableStore getVariableStore()
 	{
-		return (WriteableVariableStore) getFormulaManager().get(FormulaManager.RESULTS);
+		return (MonitorableVariableStore) getFormulaManager().get(FormulaManager.RESULTS);
 	}
 
 	protected LegalScope getGlobalScope()
