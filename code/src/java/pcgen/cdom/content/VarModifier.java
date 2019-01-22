@@ -143,4 +143,11 @@ public class VarModifier<T>
 	{
 		return LegalScope.getFullName(getLegalScope());
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getClass().getSimpleName() + ": " + varName + " ("
+			+ legalScope.getName() + ") " + modifier;
+	}
 }

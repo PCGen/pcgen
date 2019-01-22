@@ -129,4 +129,11 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 	{
 		return formatManager.equals(fm);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getClass().getSimpleName() + ": " + toDo + " ["
+			+ formatManager.getIdentifierType() + "]";
+	}
 }
