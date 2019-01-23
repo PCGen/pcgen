@@ -53,14 +53,6 @@ public class BioSetTest extends AbstractCharacterTestCase
 				"RACENAME:Human%		BASEAGE:53	MAXAGE:69	AGEDIEROLL:4d4+1",
 				"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
 				"RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public BioSetTest(final String name)
-	{
-		super(name);
-	}
 
     @Override
 	public void setUp() throws Exception

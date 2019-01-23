@@ -17,15 +17,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PrereqHandlerTest extends AbstractCharacterTestCase
 {
 	/**
-	 * Default constructor
-	 * @param name
-	 */
-	public PrereqHandlerTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
 	 * Test the passes method. Currently this concentrates on making sure
 	 * the invert result is working.
 	 *
