@@ -17,8 +17,9 @@
  */
 package pcgen.output.base;
 
-import freemarker.template.TemplateModel;
 import pcgen.core.GameMode;
+
+import freemarker.template.TemplateModel;
 
 /**
  * A ModeModelFactory is a class that can generate TemplateModel objects for the

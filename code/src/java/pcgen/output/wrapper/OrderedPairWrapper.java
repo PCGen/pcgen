@@ -17,11 +17,12 @@
  */
 package pcgen.output.wrapper;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.base.math.OrderedPair;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.OrderedPairModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * An OrderedPairWrapper is an ObjectWrapper capable of producing a

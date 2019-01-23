@@ -23,8 +23,6 @@ import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
@@ -34,6 +32,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * MigrationLoader is a LstFileLoader that processes the migration.lst file

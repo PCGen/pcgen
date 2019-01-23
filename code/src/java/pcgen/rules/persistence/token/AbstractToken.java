@@ -19,14 +19,14 @@ package pcgen.rules.persistence.token;
 
 import java.util.Collection;
 
-import org.apache.xml.utils.XMLChar;
-
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
+
+import org.apache.xml.utils.XMLChar;
 
 public abstract class AbstractToken
 {

@@ -22,9 +22,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import pcgen.facade.util.AbstractListFacade;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 class RecentFileList extends AbstractListFacade<File>
 {
