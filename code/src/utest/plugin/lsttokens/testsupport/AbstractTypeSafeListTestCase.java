@@ -19,13 +19,13 @@ package plugin.lsttokens.testsupport;
 
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+
+import org.junit.Test;
 
 public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		extends AbstractCDOMTokenTestCase<T>

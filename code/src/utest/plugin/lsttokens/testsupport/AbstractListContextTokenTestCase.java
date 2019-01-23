@@ -26,6 +26,7 @@ import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
+
 import org.junit.Test;
 
 public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC extends CDOMObject>

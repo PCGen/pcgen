@@ -35,9 +35,9 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.AddLst;
 
 import org.junit.Test;
-import plugin.lsttokens.AddLst;
 
 public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 		AbstractSelectionTokenTestCase<CDOMObject, TC>

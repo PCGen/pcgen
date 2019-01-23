@@ -20,6 +20,7 @@ package plugin.pretokens;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDeityAlignParser;
 import plugin.pretokens.writer.PreDeityAlignWriter;
+
 import util.Alignment;
 
 public class PreDeityAlignRoundRobin extends AbstractAlignRoundRobin

@@ -26,9 +26,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+import plugin.lsttokens.ChooseLst;
 
 import org.junit.Test;
-import plugin.lsttokens.ChooseLst;
 
 public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 		extends AbstractQualifierTokenTestCase<CDOMObject, T>
