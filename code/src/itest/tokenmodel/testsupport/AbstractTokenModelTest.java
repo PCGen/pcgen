@@ -209,6 +209,8 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 		context = Globals.getContext();
 		AbstractReferenceContext ref = context.getReferenceContext();
+		BuildUtilities.enableAlignmentFeature(ref);
+
 		BuildUtilities.buildUnselectedRace(context);
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		

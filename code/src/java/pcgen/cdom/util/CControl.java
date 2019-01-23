@@ -23,7 +23,6 @@ import java.util.Optional;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Code Controls
@@ -96,7 +95,7 @@ public final class CControl
 	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
-	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", ChannelUtilities.createVarName("Alignment"), Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
+	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
 
 	/**
 	 * Enable/Disable the AlignmentFeature
