@@ -19,11 +19,11 @@ package plugin.function.testsupport;
 
 import java.io.StringReader;
 
-import org.junit.Assert;
-
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
+
+import org.junit.Assert;
 
 public final class TestUtilities
 {

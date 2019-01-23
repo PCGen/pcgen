@@ -27,12 +27,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.helper.Aspect;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * The Class {@code MapKeyMapTest} test that the MapKeyMap

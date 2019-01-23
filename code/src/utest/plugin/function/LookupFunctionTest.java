@@ -42,7 +42,6 @@ import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.formula.ManagerKey;
-
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 import plugin.function.testsupport.TransparentFormatManager;

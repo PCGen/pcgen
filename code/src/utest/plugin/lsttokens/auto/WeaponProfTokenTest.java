@@ -19,9 +19,6 @@ package plugin.lsttokens.auto;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -36,6 +33,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreWeaponProfParser;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 {

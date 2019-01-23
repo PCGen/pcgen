@@ -31,7 +31,6 @@ import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.VariableChannel;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.output.channel.ChannelUtilities;
-
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 

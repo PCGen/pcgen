@@ -21,6 +21,7 @@ import pcgen.cdom.base.Chooser;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.core.PCClass;
 import plugin.lsttokens.choose.SpellLevelToken;
+
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
 
 public class SpellLevelTokenTest extends
