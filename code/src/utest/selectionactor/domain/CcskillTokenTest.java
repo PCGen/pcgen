@@ -25,8 +25,8 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-
 import plugin.lsttokens.domain.CcskillToken;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class CcskillTokenTest extends AbstractSelectionActorTest<Skill>
