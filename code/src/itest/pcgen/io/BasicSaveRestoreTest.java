@@ -19,8 +19,6 @@ package pcgen.io;
 
 import java.util.Arrays;
 
-import org.junit.Test;
-
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.NoteItem;
@@ -31,6 +29,8 @@ import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
 import pcgen.output.channel.compat.AlignmentCompat;
 import plugin.lsttokens.pcclass.HdToken;
+
+import org.junit.Test;
 
 public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 {

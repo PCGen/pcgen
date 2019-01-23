@@ -75,7 +75,6 @@ import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.chooser.ChooserFactory;
-
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;

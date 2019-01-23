@@ -19,9 +19,6 @@ package plugin.lsttokens.editcontext;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -41,6 +38,9 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class SpellLevelIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
