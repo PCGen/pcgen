@@ -29,6 +29,7 @@ import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
 import util.TestURI;
 
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest

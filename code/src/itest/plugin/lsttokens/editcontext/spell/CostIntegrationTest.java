@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.spell;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,6 +26,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.spell.CostToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
