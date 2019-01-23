@@ -745,9 +745,9 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Field for Tab Name
 		 */
 		private final ManagedField tabNameHandler;
-		private final FormattedFieldHandler ageHandler;
-		private final FormattedFieldHandler expHandler;
-		private final FormattedFieldHandler nextLevelHandler;
+		private final ManagedField ageHandler;
+		private final ManagedField expHandler;
+		private final ManagedField nextLevelHandler;
 
 		LabelAndFieldHandler(final CharacterFacade character)
 		{
