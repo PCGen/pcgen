@@ -188,6 +188,12 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		private final Map<BiographyField, BioItem> customFieldMap = new EnumMap<>(BiographyField.class);
 		private final CharacterFacade character;
 		private BiographyInfoPane detailsPane;
+		private final ActionListener bioListener = event -> bioItems.stream()
+			.forEach(item -> item
+				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
+		private final ActionListener customListner = event -> customFieldMap
+			.values().stream().forEach(item -> item
+				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
 
 		public ItemHandler(CharacterFacade character2)
 		{
@@ -233,16 +239,20 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			detailsPane = parent;
 			itemsPanel.removeAll();
-			// 
+
+			allButton.addActionListener(bioListener);
+			allButton.addActionListener(customListner);
+			noneButton.addActionListener(bioListener);
+			noneButton.addActionListener(customListner);
 			for (BioItem bioItem : bioItems)
 			{
 				bioItem.addComponents(itemsPanel);
-				bioItem.install(parent);
+				bioItem.install();
 			}
 			for (BioItem bioItem : customFieldMap.values())
 			{
 				bioItem.addComponents(itemsPanel);
-				bioItem.install(parent);
+				bioItem.install();
 			}
 
 			customFields.addListListener(this);
@@ -252,13 +262,17 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public void uninstall(BiographyInfoPane parent)
 		{
+			allButton.removeActionListener(bioListener);
+			allButton.removeActionListener(customListner);
+			noneButton.removeActionListener(bioListener);
+			noneButton.removeActionListener(customListner);
 			for (BioItem bioItem : bioItems)
 			{
-				bioItem.uninstall(parent);
+				bioItem.uninstall();
 			}
 			for (BioItem bioItem : customFieldMap.values())
 			{
-				bioItem.uninstall(parent);
+				bioItem.uninstall();
 			}
 			detailsPane = null;
 			customFields.removeListListener(this);
@@ -271,7 +285,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			BioItem bioItem = new BiographyFieldBioItem(field, character);
 			customFieldMap.put(field, bioItem);
 			bioItem.addComponents(itemsPanel);
-			bioItem.install(detailsPane);
+			bioItem.install();
 			detailsPane.validate();
 			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
 			detailsScroll.repaint();
@@ -281,9 +295,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public void elementRemoved(ListEvent<BiographyField> e)
 		{
 			BiographyField field = e.getElement();
-			BioItem bioItem = new BiographyFieldBioItem(field, character);
-			customFieldMap.put(field, bioItem);
-			bioItem.uninstall(detailsPane);
+			BioItem bioItem = customFieldMap.remove(field);
+			bioItem.uninstall();
 			detailsPane.invalidate();
 		}
 
@@ -614,7 +627,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		public HairStyleItem(final CharacterFacade character)
 		{
-			super("in_style", BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
+			super(BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
 		}
 	}
 
@@ -625,21 +638,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	 */
 	private static class BiographyFieldBioItem extends BioItem
 	{
-
-		public BiographyFieldBioItem(final String titleKey, final BiographyField field, final CharacterFacade character)
-		{
-			super(titleKey, field, character);
-			setTextFieldHandler(
-				new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
-				{
-					@Override
-					protected void textChanged(String text)
-					{
-						character.getDescriptionFacade().setBiographyField(field, text);
-					}
-
-				});
-		}
 
 		public BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
 		{
@@ -658,7 +656,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
-	private abstract static class BioItem implements ActionListener, ItemListener
+	private abstract static class BioItem implements ItemListener
 	{
 
 		private final JLabel label = new JLabel();
@@ -807,12 +805,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		/**
 		 * Installs this BioItem by attaching itself to the buttons.
-		 * @param parent The pane holding this item.
 		 */
-		public void install(BiographyInfoPane parent)
+		public void install()
 		{
-			parent.allButton.addActionListener(this);
-			parent.noneButton.addActionListener(this);
 			checkbox.addItemListener(this);
 			if (textFieldHandler != null)
 			{
@@ -828,10 +823,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		 * Uninstalls this BioItem by removing its listeners from the buttons.
 		 * @param parent The pane holding this item.
 		 */
-		public void uninstall(BiographyInfoPane parent)
+		public void uninstall()
 		{
-			parent.allButton.removeActionListener(this);
-			parent.noneButton.removeActionListener(this);
 			checkbox.removeItemListener(this);
 			if (textFieldHandler != null)
 			{
@@ -844,25 +837,15 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		}
 
 		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			if (ALL_COMMAND.equals(e.getActionCommand()))
-			{
-				checkbox.setSelected(true);
-				character.setExportBioField(bioField, true);
-			}
-			else if (NONE_COMMAND.equals(e.getActionCommand()))
-			{
-				checkbox.setSelected(false);
-				character.setExportBioField(bioField, false);
-			}
-		}
-
-		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
 			boolean selected = e.getStateChange() == ItemEvent.SELECTED;
 			character.setExportBioField(bioField, selected);
+		}
+
+		public void setExportable(boolean export)
+		{
+			checkbox.setSelected(export);
 		}
 
 	}
