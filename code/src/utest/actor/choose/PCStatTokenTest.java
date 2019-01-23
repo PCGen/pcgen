@@ -20,6 +20,7 @@ package actor.choose;
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCStat;
 import plugin.lsttokens.choose.PCStatToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class PCStatTokenTest extends

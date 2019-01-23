@@ -19,9 +19,9 @@ package actor.add;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.PCClass;
+import plugin.lsttokens.add.SpellCasterToken;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import plugin.lsttokens.add.SpellCasterToken;
 
 public class SpellCasterTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCClass>

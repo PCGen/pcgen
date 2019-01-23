@@ -19,12 +19,12 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 
+import pcgen.core.GameMode;
+import pcgen.core.SettingsHandler;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
 
 /**
  * The Class {@code IconTokenTest} tests that the IconToken class is

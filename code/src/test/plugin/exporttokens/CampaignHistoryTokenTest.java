@@ -22,15 +22,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 import pcgen.util.TestHelper;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * CampaignHistoryTokenTest validates the functions of the 

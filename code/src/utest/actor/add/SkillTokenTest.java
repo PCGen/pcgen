@@ -19,9 +19,9 @@ package actor.add;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Skill;
+import plugin.lsttokens.add.SkillToken;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import plugin.lsttokens.add.SkillToken;
 
 public class SkillTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>

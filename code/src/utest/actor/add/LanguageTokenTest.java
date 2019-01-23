@@ -19,9 +19,9 @@ package actor.add;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Language;
+import plugin.lsttokens.add.LanguageToken;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import plugin.lsttokens.add.LanguageToken;
 
 public class LanguageTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Language>
