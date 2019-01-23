@@ -34,8 +34,7 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 {
 
 	@BeforeClass
-	public final void localClassSetUp() throws
-			PersistenceLayerException
+	public static void localClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreClassParser());
