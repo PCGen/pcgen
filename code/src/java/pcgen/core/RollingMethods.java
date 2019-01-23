@@ -23,13 +23,13 @@ import java.util.Stack;
 import java.util.Vector;
 import java.util.stream.IntStream;
 
+import pcgen.base.util.RandomUtil;
+import pcgen.util.Logging;
+
 import org.nfunk.jep.JEP;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.List;
 import org.nfunk.jep.function.PostfixMathCommand;
-
-import pcgen.base.util.RandomUtil;
-import pcgen.util.Logging;
 
 public final class RollingMethods
 {

@@ -18,8 +18,6 @@ package pcgen.cdom.helper;
 import java.text.MessageFormat;
 import java.util.List;
 
-import org.springframework.web.util.HtmlUtils;
-
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -27,6 +25,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+
+import org.springframework.web.util.HtmlUtils;
 
 /**
  * InfoUtilities is a set of utilities related to the ALLOW token.

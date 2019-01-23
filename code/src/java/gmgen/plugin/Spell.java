@@ -21,9 +21,9 @@ package gmgen.plugin;
 import java.util.List;
 import java.util.Vector;
 
-import org.jdom2.Element;
-
 import pcgen.util.Logging;
+
+import org.jdom2.Element;
 
 public class Spell extends Event
 {

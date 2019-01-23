@@ -17,17 +17,17 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.base.util.ListSet;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteUtilities;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+
+import pcgen.base.util.ListSet;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteUtilities;
 
 /**
  * A ConcretePrereqObject is an object that contains a list of Prerequisites.

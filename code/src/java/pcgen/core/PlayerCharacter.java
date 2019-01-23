@@ -36,8 +36,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import org.jetbrains.annotations.TestOnly;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.inst.NEPFormula;
@@ -277,6 +275,8 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
+
+import org.jetbrains.annotations.TestOnly;
 
 public class PlayerCharacter implements Cloneable, VariableContainer
 {

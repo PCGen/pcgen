@@ -21,14 +21,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
 
-import org.jetbrains.annotations.NotNull;
-
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is

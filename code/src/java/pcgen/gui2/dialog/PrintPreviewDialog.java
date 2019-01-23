@@ -59,16 +59,6 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.filefilter.IOFileFilter;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.apache.fop.apps.FOUserAgent;
-import org.apache.fop.render.awt.AWTRenderer;
-import org.apache.fop.render.awt.viewer.PreviewPanel;
-import org.jetbrains.annotations.NotNull;
-
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
@@ -78,6 +68,16 @@ import pcgen.system.BatchExporter;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.filefilter.IOFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.fop.apps.FOUserAgent;
+import org.apache.fop.render.awt.AWTRenderer;
+import org.apache.fop.render.awt.viewer.PreviewPanel;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Dialog to allow the preview of character export.
