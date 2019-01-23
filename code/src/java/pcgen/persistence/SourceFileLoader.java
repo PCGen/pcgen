@@ -947,7 +947,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			@Override
 			public int compare(Campaign c1, Campaign c2)
 			{
-				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
+				return c2.getSafe(IntegerKey.CAMPAIGN_RANK) - c1.getSafe(IntegerKey.CAMPAIGN_RANK);
 			}
 
 		});
