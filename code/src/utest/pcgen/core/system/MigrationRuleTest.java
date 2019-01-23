@@ -17,24 +17,22 @@
  */
 package pcgen.core.system;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * MigrationRuleTest checks the functions of the MigrationRule class.
- * 
- * 
  */
-public class MigrationRuleTest
+class MigrationRuleTest
 {
 
 	private MigrationRule migrationRule;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		migrationRule = new MigrationRule(MigrationRule.ObjectType.SOURCE, "OldKey");
 	}
@@ -110,9 +108,10 @@ public class MigrationRuleTest
 	{
 		for (int[] pcgVer : validVersions)
 		{
-			assertTrue("Migration rule should apply for "
-				+ displayVersion(pcgVer),
-				migrationRule.changeAppliesToVer(pcgVer));
+			assertTrue(
+					migrationRule.changeAppliesToVer(pcgVer),
+					() -> "Migration rule should apply for "
+							+ displayVersion(pcgVer));
 		}
 	}
 
@@ -120,13 +119,14 @@ public class MigrationRuleTest
 	{
 		for (int[] pcgVer : invalidVersions)
 		{
-			assertFalse("Migration rule should not apply for "
-				+ displayVersion(pcgVer),
-				migrationRule.changeAppliesToVer(pcgVer));
+			assertFalse(
+					migrationRule.changeAppliesToVer(pcgVer),
+					() -> "Migration rule should not apply for "
+							+ displayVersion(pcgVer));
 		}
 	}
 
-	private String displayVersion(int[] pcgVer)
+	private static String displayVersion(int[] pcgVer)
 	{
 		return pcgVer[0]+"."+pcgVer[1]+"."+pcgVer[2];
 	}
