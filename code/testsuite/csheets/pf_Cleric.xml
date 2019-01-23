@@ -2071,7 +2071,7 @@ BIO
 		<feat>
 			<name>Spell Focus (Enchantment)</name>
 			<description>Any spells you cast of your chosen school of magic are more difficult to resist.</description>
-			<type>GENERAL.ARCANEBLOODLINE.UNDEADBLOODLINE.PROTEANBLOODLINE</type>
+			<type>GENERAL.PROTEANBLOODLINE.ARCANEBLOODLINE.UNDEADBLOODLINE</type>
 			<associated>Enchantment</associated>
 			<count>1</count>
 			<auto>F</auto>
