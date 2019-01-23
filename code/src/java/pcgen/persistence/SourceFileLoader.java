@@ -939,7 +939,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @param aSelectedCampaignsList
 	 *            List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	public static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
 		aSelectedCampaignsList.sort(new Comparator<Campaign>()
 		{
