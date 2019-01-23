@@ -17,11 +17,12 @@
  */
 package pcgen.util.enumeration;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LoadTest
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+class LoadTest
 {
 
 	private final Load light = Load.valueOf("LIGHT");
@@ -33,20 +34,20 @@ public class LoadTest
 	public void testLoadOrder()
 	{
 		assertEquals(0, light.compareTo(light));
-		assertTrue(light.compareTo(medium) < 0);
-		assertTrue(light.compareTo(heavy) < 0);
-		assertTrue(light.compareTo(overload) < 0);
-		assertTrue(medium.compareTo(light) > 0);
+		Assertions.assertTrue(light.compareTo(medium) < 0);
+		Assertions.assertTrue(light.compareTo(heavy) < 0);
+		Assertions.assertTrue(light.compareTo(overload) < 0);
+		Assertions.assertTrue(medium.compareTo(light) > 0);
 		assertEquals(0, medium.compareTo(medium));
-		assertTrue(medium.compareTo(heavy) < 0);
-		assertTrue(medium.compareTo(overload) < 0);
-		assertTrue(heavy.compareTo(light) > 0);
-		assertTrue(heavy.compareTo(medium) > 0);
+		Assertions.assertTrue(medium.compareTo(heavy) < 0);
+		Assertions.assertTrue(medium.compareTo(overload) < 0);
+		Assertions.assertTrue(heavy.compareTo(light) > 0);
+		Assertions.assertTrue(heavy.compareTo(medium) > 0);
 		assertEquals(0, heavy.compareTo(heavy));
-		assertTrue(heavy.compareTo(overload) < 0);
-		assertTrue(overload.compareTo(light) > 0);
-		assertTrue(overload.compareTo(medium) > 0);
-		assertTrue(overload.compareTo(heavy) > 0);
+		Assertions.assertTrue(heavy.compareTo(overload) < 0);
+		Assertions.assertTrue(overload.compareTo(light) > 0);
+		Assertions.assertTrue(overload.compareTo(medium) > 0);
+		Assertions.assertTrue(overload.compareTo(heavy) > 0);
 		assertEquals(0, overload.compareTo(overload));
 	}
 }
