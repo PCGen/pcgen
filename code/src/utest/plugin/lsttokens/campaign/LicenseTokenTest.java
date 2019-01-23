@@ -20,8 +20,6 @@ package plugin.lsttokens.campaign;
 import java.net.URI;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -31,6 +29,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 import util.TestURI;
 
 public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>

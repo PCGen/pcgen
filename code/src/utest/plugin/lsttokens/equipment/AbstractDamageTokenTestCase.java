@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
@@ -27,6 +25,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public abstract class AbstractDamageTokenTestCase extends
 		AbstractCDOMTokenTestCase<Equipment>

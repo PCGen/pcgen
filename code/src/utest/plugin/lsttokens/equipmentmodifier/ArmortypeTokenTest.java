@@ -20,8 +20,6 @@ package plugin.lsttokens.equipmentmodifier;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.core.EquipmentModifier;
@@ -31,6 +29,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class ArmortypeTokenTest extends
 		AbstractCDOMTokenTestCase<EquipmentModifier>

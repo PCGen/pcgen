@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.EqModControl;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
@@ -28,6 +26,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {

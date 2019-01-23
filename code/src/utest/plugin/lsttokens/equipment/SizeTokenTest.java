@@ -19,9 +19,6 @@ package plugin.lsttokens.equipment;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
@@ -33,6 +30,9 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
