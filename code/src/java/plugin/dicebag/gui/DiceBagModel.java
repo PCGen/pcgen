@@ -26,15 +26,15 @@ import java.util.Observable;
 
 import javax.swing.JOptionPane;
 
+import gmgen.GMGenSystem;
+import pcgen.core.RollingMethods;
+import pcgen.util.Logging;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
-
-import gmgen.GMGenSystem;
-import pcgen.core.RollingMethods;
-import pcgen.util.Logging;
 
 /**
  * <p>The base data class of the DiceBag plugin.  This class maintains a single "Dice Bag," which

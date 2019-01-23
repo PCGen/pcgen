@@ -29,11 +29,6 @@ import java.util.TreeMap;
 import java.util.Vector;
 import java.util.logging.Level;
 
-import org.jdom2.DocType;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.overland.gui.XMLFilter;
@@ -42,6 +37,11 @@ import plugin.overland.model.TravelMethodImplementation.Combo;
 import plugin.overland.model.TravelMethodImplementation.Method;
 import plugin.overland.model.TravelMethodImplementation.Pace;
 import plugin.overland.util.Localized;
+
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 
 /**
  * Builds a Travel Method instance from an XML document.

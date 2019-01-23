@@ -25,9 +25,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.AbstractJunit4CharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
@@ -47,6 +44,9 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * CharacterLevelsFacadeImplTest checks that CharacterLevelsFacadeImpl is working ok.

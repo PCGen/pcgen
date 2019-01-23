@@ -17,8 +17,6 @@
  */
 package pcgen.gui2.facade;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -32,6 +30,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.Test;
 
 /**
  * The Class {@code CharacterAbilitiesTest} verifies the operation of the

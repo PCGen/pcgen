@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.core.system.MigrationRule;
 import pcgen.persistence.lst.MigrationLstToken;
 import pcgen.persistence.lst.VersionAwareToken;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code MinVerToken} parses the MINVER token in migration.lst
