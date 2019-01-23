@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.FormulaFunction;
@@ -39,11 +40,10 @@ import pcgen.base.formula.inst.SimpleFunctionLibrary;
 import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.FormulaSetupFactory;
-import pcgen.base.solver.Modifier;
-import pcgen.base.solver.ModifierValueStore;
 import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SolverManager;
+import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
@@ -95,7 +95,7 @@ public class VariableContext implements VariableChannelFactory,
 	 * The ValueStore for the FormulaSetupFactory and this VariableContext. Local so
 	 * that we can set the defaults for variable formats from data.
 	 */
-	private final ModifierValueStore myValueStore = new ModifierValueStore();
+	private final SupplierValueStore myValueStore = new SupplierValueStore();
 
 	/**
 	 * The SolverFactory for the FormulaSetupFactory and this VariableContext. Local so
@@ -336,33 +336,28 @@ public class VariableContext implements VariableChannelFactory,
 	}
 
 	/**
-	 * Adds a relationship between a Solver format and a default Modifier for that format
+	 * Adds a relationship between a Solver format and a default Supplier for that format
 	 * of Solver to this VariableContext.
 	 * 
-	 * The default Modifier MUST NOT depend on anything (it must be able to accept both a
-	 * null ScopeInformation and null input value to its process method). (See
-	 * SetNumberModifier for an example of this)
-	 * 
-	 * The default Modifier for a format of Solver may not be redefined for a
-	 * SolverFactory. Once a given default Modifier has been established for a format of
+	 * The default Supplier for a format of Solver may not be redefined for a
+	 * SolverFactory. Once a given default Supplier has been established for a format of
 	 * Solver, this method MUST NOT be called a second time for that format of Solver.
 	 * 
 	 * @param <T>
-	 *            The format (class) of object changed by the given Modifier
+	 *            The format (class) of object changed by the given Supplier
 	 * @param varFormat
-	 *            The format (as a FormatManager) of Solver for which the given Modifier
+	 *            The format (as a FormatManager) of Solver for which the given Supplier
 	 *            should be the default value
-	 * @param defaultModifier
-	 *            The Modifier to be used as the default Modifier for the given Solver
-	 *            format
+	 * @param defaultValue
+	 *            The Supplier to be used to provide the default value for the given
+	 *            Solver format
 	 * @throws IllegalArgumentException
-	 *             if either parameter is null, if the given Modifier has dependencies, or
-	 *             if the given Solver format already has a default Modifier defined for
+	 *             if the given Solver format already has a default Supplier defined for
 	 *             this SolverFactory
 	 */
-	public <T> void addDefault(FormatManager<T> varFormat, Modifier<T> defaultModifier)
+	public <T> void addDefault(FormatManager<T> varFormat, Supplier<T> defaultValue)
 	{
-		solverFactory.addSolverFormat(varFormat, defaultModifier);
+		solverFactory.addSolverFormat(varFormat, defaultValue);
 	}
 
 	/**

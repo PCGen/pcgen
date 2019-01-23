@@ -89,7 +89,7 @@ public class SetSolverManagerTest
 	@Before
 	public void setUp() throws Exception
 	{
-		ModifierValueStore mvs = new ModifierValueStore();
+		SupplierValueStore mvs = new SupplierValueStore();
 		WriteableFunctionLibrary fl = new SimpleFunctionLibrary();
 		fl.addFunction(new GetOtherFunction());
 		OperatorLibrary ol = new SimpleOperatorLibrary();
@@ -113,29 +113,14 @@ public class SetSolverManagerTest
 		fm = new SimpleFormulaManager(ol, sl, siFactory, vc, mvs);
 		fm = fm.getWith(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SimpleSolverFactory(mvs);
-		ModifierFactory am1 = new plugin.modifier.set.SetModifierFactory<>();
-		FormulaModifier emptyArrayMod =
-				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
-		solverFactory.addSolverFormat(arrayManager,
-			new ModifierDecoration<>(emptyArrayMod));
+		solverFactory.addSolverFormat(arrayManager, () -> new String[0]);
 		
-		ProcessCalculation calc =
-				new ProcessCalculation<>(new Skill(), new BasicSet(), skillManager);
-		CalculationModifier em = new CalculationModifier<>(calc, skillManager);
-		solverFactory.addSolverFormat(skillManager, new ModifierDecoration<>(em));
+		Skill defaultSkill = new Skill();
+		solverFactory.addSolverFormat(skillManager, () -> defaultSkill);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
-		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
-		FormulaModifier mod =
-				mfn.getModifier("0", managerFactory, null, globalScope, numberManager);
-		mod.addAssociation("PRIORITY=0");
-		solverFactory.addSolverFormat(numberManager,
-			new ModifierDecoration<>(mod));
-		ModifierFactory mfs = new plugin.modifier.string.SetModifierFactory();
-		FormulaModifier mods =
-				mfs.getModifier("", managerFactory, null, globalScope, stringManager);
-		solverFactory.addSolverFormat(stringManager,
-			new ModifierDecoration<>(mods));
+		solverFactory.addSolverFormat(numberManager, () -> 0);
+		solverFactory.addSolverFormat(stringManager, () -> "");
 	}
 
 	@Test
