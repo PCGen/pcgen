@@ -19,10 +19,6 @@ package plugin.lsttokens.template;
 
 import java.net.URISyntaxException;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.SizeAdjustment;
@@ -33,6 +29,10 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {

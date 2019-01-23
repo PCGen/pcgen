@@ -19,9 +19,6 @@ package plugin.lsttokens.race;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
@@ -40,6 +37,9 @@ import plugin.pretokens.parser.PreHDParser;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreHDWriter;
 import plugin.pretokens.writer.PreLevelWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 {

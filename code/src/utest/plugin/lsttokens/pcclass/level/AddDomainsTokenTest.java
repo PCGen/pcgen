@@ -19,8 +19,6 @@ package plugin.lsttokens.pcclass.level;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
@@ -36,6 +34,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.Test;
 
 public class AddDomainsTokenTest extends
 		AbstractListContextTokenTestCase<PCClassLevel, Domain>

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.subclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SpellProhibitor;
@@ -31,6 +29,8 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 {

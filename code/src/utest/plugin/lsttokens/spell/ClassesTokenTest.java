@@ -19,9 +19,6 @@ package plugin.lsttokens.spell;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSpellList;
@@ -39,6 +36,9 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.parser.PreSubClassParser;
 import plugin.pretokens.writer.PreRaceWriter;
 import plugin.pretokens.writer.PreSubClassWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
