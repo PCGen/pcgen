@@ -17,11 +17,6 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
@@ -31,10 +26,14 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
 {
 
+	@BeforeClass
 	public final void localClassSetUp() throws
 			PersistenceLayerException
 	{
@@ -42,23 +41,8 @@ public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObje
 		TokenRegistration.register(new PreClassParser());
 		TokenRegistration.register(new PreLevelWriter());
 		TokenRegistration.register(new PreClassWriter());
-		setClassSetUpFired(true);
 	}
 
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		if (!getClassSetUpFired())
-		{
-			localClassSetUp();
-		}
-	}
-
-	protected abstract boolean getClassSetUpFired();
-
-	protected abstract void setClassSetUpFired(boolean b);
 
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException

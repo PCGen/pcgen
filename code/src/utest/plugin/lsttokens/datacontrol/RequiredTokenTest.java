@@ -49,7 +49,6 @@ class RequiredTokenTest
 
 	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
 	private static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
@@ -57,7 +56,6 @@ class RequiredTokenTest
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@BeforeEach
