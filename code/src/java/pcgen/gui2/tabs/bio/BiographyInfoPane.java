@@ -673,7 +673,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		 * The ManagedField holding the information for this BioItem.
 		 */
 		private ManagedField textFieldHandler;
-		private FormattedFieldHandler formattedFieldHandler;
+		private ManagedField formattedFieldHandler;
 
 		protected BioItem(String text, BiographyField bioField, CharacterFacade character)
 		{
@@ -755,13 +755,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			textFieldHandler = handler;
 		}
 
-		protected void setFormattedFieldHandler(FormattedFieldHandler handler)
+		protected void setFormattedFieldHandler(ManagedField handler)
 		{
 			if (textField != null)
 			{
 				throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
 			}
-			this.textField = handler.getFormattedTextField();
+			this.textField = handler.getTextField();
 			formattedFieldHandler = handler;
 		}
 
