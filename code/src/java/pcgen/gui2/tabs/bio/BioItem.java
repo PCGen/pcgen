@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2019 Tom Parker <thpr@users.sourceforge.net>
  * extracted from BiographyInfoPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
@@ -24,6 +25,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Optional;
 
 import javax.swing.Box;
 import javax.swing.JCheckBox;
@@ -33,46 +35,43 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.util.ManagedField;
 import pcgen.system.LanguageBundle;
 
-abstract class BioItem implements ItemListener
+abstract class BioItem
 {
 
 	private final JLabel label = new JLabel();
-	private final JCheckBox checkbox = new JCheckBox();
-	private JComboBox combobox = null;
-	private JTextField textField = null;
-	private JLabel trailinglabel = null;
-	private final BiographyField bioField;
-	private final CharacterFacade character;
+	private final JCheckBox exportEnabledBox = new JCheckBox();
+	private Optional<JComboBox<?>> combobox = Optional.empty();
+	private Optional<JTextField> textField = Optional.empty();
+	private Optional<JLabel> trailinglabel = Optional.empty();
+	private final ItemListener enabledForExportListener;
 	
 	/**
 	 * The ManagedField holding the information for this BioItem.
 	 */
-	private ManagedField textFieldHandler;
-	private ManagedField formattedFieldHandler;
+	private Optional<ManagedField> textFieldHandler = Optional.empty();
 
 	protected BioItem(String text, BiographyField bioField, CharacterFacade character)
 	{
-		this.bioField = bioField;
-		this.character = character;
 		if (text.startsWith("in_")) //$NON-NLS-1$
 		{
-			label.setText(LanguageBundle.getString(text) + ":"); //$NON-NLS-1$
+			label.setText(LanguageBundle.getString(text) + Constants.COLON);
 		}
 		else
 		{
 			label.setText(text);
 		}
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		if (character != null)
-		{
-			checkbox.setSelected(character.getExportBioField(bioField));
-		}
+		exportEnabledBox.setSelected(character.getExportBioField(bioField));
+		enabledForExportListener =
+				event -> character.setExportBioField(bioField,
+					event.getStateChange() == ItemEvent.SELECTED);
 	}
 
 	public void addComponents(JPanel panel)
@@ -81,13 +80,13 @@ abstract class BioItem implements ItemListener
 		gbc.anchor = GridBagConstraints.PAGE_START;
 		gbc.gridwidth = 1;
 		gbc.fill = GridBagConstraints.BOTH;
-		panel.add(checkbox, gbc);
+		panel.add(exportEnabledBox, gbc);
 		gbc.insets = new Insets(1, 2, 1, 2);
 		panel.add(label, gbc);
 		int numComponents = 0;
-		numComponents += textField != null ? 1 : 0;
-		numComponents += combobox != null ? 1 : 0;
-		numComponents += trailinglabel != null ? 1 : 0;
+		numComponents += textField.isPresent() ? 1 : 0;
+		numComponents += combobox.isPresent() ? 1 : 0;
+		numComponents += trailinglabel.isPresent() ? 1 : 0;
 		switch (numComponents)
 		{
 			case 3:
@@ -102,22 +101,16 @@ abstract class BioItem implements ItemListener
 				gbc.weightx = 1.0;
 				break;
 		}
-		if (combobox != null)
-		{
-			panel.add(combobox, gbc);
-		}
-		if (trailinglabel == null)
+		combobox.ifPresent(box -> panel.add(box, gbc));
+		if (trailinglabel.isEmpty())
 		{
 			gbc.gridwidth = GridBagConstraints.REMAINDER;
 		}
-		if (textField != null)
-		{
-			panel.add(textField, gbc);
-		}
+		textField.ifPresent(field -> panel.add(field, gbc));
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
-		if (trailinglabel != null)
+		if (trailinglabel.isPresent())
 		{
-			panel.add(trailinglabel, gbc);
+			panel.add(trailinglabel.get(), gbc);
 		}
 		else if (numComponents < 2)
 		{
@@ -128,32 +121,24 @@ abstract class BioItem implements ItemListener
 
 	protected void setTextFieldHandler(ManagedField handler)
 	{
-		if (textField != null)
-		{
-			throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
-		}
-		this.textField = handler.getTextField();
-		textFieldHandler = handler;
-	}
-
-	protected void setFormattedFieldHandler(ManagedField handler)
-	{
-		if (textField != null)
-		{
-			throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
-		}
-		this.textField = handler.getTextField();
-		formattedFieldHandler = handler;
+		textField.ifPresent(tField -> {
+			throw new IllegalStateException(
+				"The TextField has already been set"); //$NON-NLS-1$
+		});
+		this.textField = Optional.of(handler.getTextField());
+		textFieldHandler = Optional.of(handler);
 	}
 
 	protected void setComboBoxModel(CharacterComboBoxModel<?> model)
 	{
-		if (combobox != null)
-		{
-			throw new IllegalStateException("The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
-		}
-		this.combobox = new JComboBox<>(model);
-		combobox.setPreferredSize(new Dimension(10, BiographyInfoPane.TEMPLATE_TEXT_FIELD.getPreferredSize().height));
+		combobox.ifPresent(box -> {
+			throw new IllegalStateException(
+				"The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
+		});
+		JComboBox<?> newComboBox = new JComboBox<>(model);
+		this.combobox = Optional.of(newComboBox);
+		newComboBox.setPreferredSize(new Dimension(10,
+			BiographyInfoPane.TEMPLATE_TEXT_FIELD.getPreferredSize().height));
 	}
 
 	/**
@@ -161,29 +146,20 @@ abstract class BioItem implements ItemListener
 	 */
 	protected void setTrailingLabel(String text)
 	{
-		if (trailinglabel != null)
-		{
-			throw new IllegalStateException("The trailing label has already been set"); //$NON-NLS-1$
-		}
-		this.trailinglabel = new JLabel(text);
+		trailinglabel.ifPresent(box -> {
+			throw new IllegalStateException(
+				"The trailing label has already been set"); //$NON-NLS-1$
+		});
+		this.trailinglabel = Optional.of(new JLabel(text));
 	}
 
 	public void setVisible(boolean visible)
 	{
 		label.setVisible(visible);
-		checkbox.setVisible(visible);
-		if (combobox != null)
-		{
-			combobox.setVisible(visible);
-		}
-		if (textField != null)
-		{
-			textField.setVisible(visible);
-		}
-		if (trailinglabel != null)
-		{
-			trailinglabel.setVisible(visible);
-		}
+		exportEnabledBox.setVisible(visible);
+		combobox.ifPresent(box -> box.setVisible(visible));
+		textField.ifPresent(field -> field.setVisible(visible));
+		trailinglabel.ifPresent(endLabel -> endLabel.setVisible(visible));
 	}
 
 	/**
@@ -191,15 +167,8 @@ abstract class BioItem implements ItemListener
 	 */
 	public void install()
 	{
-		checkbox.addItemListener(this);
-		if (textFieldHandler != null)
-		{
-			textFieldHandler.install();
-		}
-		if (formattedFieldHandler != null)
-		{
-			formattedFieldHandler.install();
-		}
+		exportEnabledBox.addItemListener(enabledForExportListener);
+		textFieldHandler.ifPresent(ManagedField::install);
 	}
 
 	/**
@@ -208,27 +177,12 @@ abstract class BioItem implements ItemListener
 	 */
 	public void uninstall()
 	{
-		checkbox.removeItemListener(this);
-		if (textFieldHandler != null)
-		{
-			textFieldHandler.uninstall();
-		}
-		if (formattedFieldHandler != null)
-		{
-			formattedFieldHandler.uninstall();
-		}
-	}
-
-	@Override
-	public void itemStateChanged(ItemEvent e)
-	{
-		boolean selected = e.getStateChange() == ItemEvent.SELECTED;
-		character.setExportBioField(bioField, selected);
+		exportEnabledBox.removeItemListener(enabledForExportListener);
+		textFieldHandler.ifPresent(ManagedField::uninstall);
 	}
 
 	public void setExportable(boolean export)
 	{
-		checkbox.setSelected(export);
+		exportEnabledBox.setSelected(export);
 	}
-
 }
