@@ -37,8 +37,6 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -46,6 +44,8 @@ import pcgen.gui2.plaf.LookAndFeelManager;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code LookAndFeelPanel} is responsible for

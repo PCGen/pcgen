@@ -20,8 +20,6 @@ package pcgen.gui2.facade;
 import java.text.Collator;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -40,6 +38,8 @@ import pcgen.core.spell.Spell;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.util.SortKeyAware;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code TempBonusFacadeImpl} a proxy for a TempBonus used for

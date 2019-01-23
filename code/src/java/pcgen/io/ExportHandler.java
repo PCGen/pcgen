@@ -43,11 +43,6 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import freemarker.template.Configuration;
-import freemarker.template.ObjectWrapper;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
-import freemarker.template.Version;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -93,6 +88,12 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+import freemarker.template.Configuration;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import freemarker.template.Version;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 

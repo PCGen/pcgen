@@ -43,8 +43,6 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
@@ -63,6 +61,8 @@ import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
 import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code BiographyInfoPane} is a panel within the Description

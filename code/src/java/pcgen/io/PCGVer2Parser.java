@@ -144,7 +144,6 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 /**

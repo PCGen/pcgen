@@ -50,14 +50,6 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-import org.jdom2.DataConversionException;
-import org.jdom2.DocType;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-
 import gmgen.util.LogUtilities;
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
@@ -74,6 +66,14 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.doomsdaybook.RandomNamePlugin;
+
+import org.jdom2.DataConversionException;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
 
 /**
  * Main panel of the random name generator.
