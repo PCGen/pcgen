@@ -50,7 +50,7 @@ public class AgeSetModel implements TemplateScalarModel
 	@Override
 	public String getAsString() throws TemplateModelException
 	{
-		return set.getName();
+		return set.getKeyName();
 	}
 
 }
