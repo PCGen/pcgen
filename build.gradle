@@ -180,7 +180,7 @@ dependencies {
     compile group: 'xml-apis', name: 'xml-apis', version:'1.3.04'
 
     compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.199'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.200'
     
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'16.0.3'
