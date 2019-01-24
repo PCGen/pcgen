@@ -19,9 +19,9 @@ package plugin.modifier.number;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
-
 import pcgen.base.calculation.CalculationInfo;
+
+import org.junit.Test;
 
 public class OverallModifierTest
 {

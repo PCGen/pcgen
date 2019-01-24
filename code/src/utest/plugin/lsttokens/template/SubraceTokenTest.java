@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubRace;
 import pcgen.core.PCTemplate;
@@ -27,6 +25,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class SubraceTokenTest extends
 		AbstractTypeSafeTokenTestCase<PCTemplate, SubRace>

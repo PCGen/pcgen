@@ -19,13 +19,13 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URI;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
+
+import org.junit.Test;
 import util.TestURI;
 
 public abstract class AbstractCampaignTokenTestCase extends

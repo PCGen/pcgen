@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.variable;
 
-import org.junit.Test;
-
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -28,6 +26,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 {

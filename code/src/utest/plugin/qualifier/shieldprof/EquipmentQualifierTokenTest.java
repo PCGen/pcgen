@@ -19,8 +19,6 @@ package plugin.qualifier.shieldprof;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -40,6 +38,8 @@ import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
+
+import org.junit.Test;
 
 public class EquipmentQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Equipment>

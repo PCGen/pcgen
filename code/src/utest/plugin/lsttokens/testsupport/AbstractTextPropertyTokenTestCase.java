@@ -21,9 +21,6 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.SpecialProperty;
@@ -32,6 +29,9 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>

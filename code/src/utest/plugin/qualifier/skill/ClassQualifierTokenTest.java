@@ -31,14 +31,14 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
-
-import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
+
+import org.junit.Test;
 
 public class ClassQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>

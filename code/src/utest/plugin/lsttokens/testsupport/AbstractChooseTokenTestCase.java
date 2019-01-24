@@ -33,10 +33,10 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
-
-import org.junit.Test;
 import plugin.qualifier.pobject.AnyToken;
 import plugin.qualifier.pobject.QualifiedToken;
+
+import org.junit.Test;
 
 public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>

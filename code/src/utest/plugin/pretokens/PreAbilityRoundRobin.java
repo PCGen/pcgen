@@ -27,7 +27,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.writer.PreAbilityWriter;

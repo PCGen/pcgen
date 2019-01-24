@@ -19,9 +19,6 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
@@ -34,6 +31,9 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.AutoLst;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		AbstractSelectionTokenTestCase<CDOMObject, TC>
