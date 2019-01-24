@@ -21,12 +21,12 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
-import org.nfunk.jep.ParseException;
-
 import pcgen.core.PlayerCharacter;
 import pcgen.util.AbstractCountCommand;
 import pcgen.util.JepCountType;
 import pcgen.util.Logging;
+
+import org.nfunk.jep.ParseException;
 
 /**
  * {@code CountCommand} deals with the count() JEP command. The first parameter will

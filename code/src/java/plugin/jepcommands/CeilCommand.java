@@ -2,9 +2,9 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
-import org.nfunk.jep.ParseException;
-
 import pcgen.util.PCGenCommand;
+
+import org.nfunk.jep.ParseException;
 
 /**
  * Celing JEP Command. {@literal  eg. ceil(12.6) --> 13 }
