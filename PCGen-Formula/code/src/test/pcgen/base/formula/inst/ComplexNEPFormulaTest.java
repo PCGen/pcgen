@@ -387,6 +387,16 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 			.isValid(fs.getWith(FormulaSemantics.ASSERTED, Optional.of(FormatUtilities.NUMBER_MANAGER)));
 	}
 
+	@Test
+	public void testEquality() throws SemanticsException
+	{
+		ComplexNEPFormula<Number> one =
+				new ComplexNEPFormula<>("4+Arm", FormatUtilities.NUMBER_MANAGER);
+		ComplexNEPFormula<Number> two =
+				new ComplexNEPFormula<>("4+Arm", FormatUtilities.NUMBER_MANAGER);
+		assertEquals(one, two);
+	}
+
 	private FormulaSemantics getSemantics()
 	{
 		return managerFactory.generateFormulaSemantics(getFormulaManager(),
