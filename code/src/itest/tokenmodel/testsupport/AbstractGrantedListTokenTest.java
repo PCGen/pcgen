@@ -17,8 +17,6 @@
  */
 package tokenmodel.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Campaign;
@@ -28,6 +26,8 @@ import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.character.CompanionMod;
 import pcgen.output.channel.compat.AlignmentCompat;
+
+import org.junit.Test;
 
 public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		extends AbstractAddListTokenTest<T>
