@@ -19,9 +19,6 @@ package plugin.lsttokens.template;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -35,6 +32,9 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreLevelWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {

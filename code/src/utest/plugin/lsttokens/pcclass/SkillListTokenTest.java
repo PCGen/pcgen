@@ -20,8 +20,6 @@ package plugin.lsttokens.pcclass;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
@@ -39,6 +37,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
