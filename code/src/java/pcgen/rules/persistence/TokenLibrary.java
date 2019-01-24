@@ -99,6 +99,9 @@ public final class TokenLibrary implements PluginLoader
 		POST_DEFERRED_TOKENS.clear();
 		QUALIFIER_MAP.clear();
 		PRIMITIVE_MAP.clear();
+		GROUPING_MAP.clear();
+		MODIFIER_MAP.clear();
+		IF_TOKEN_MAP.clear();
 		BONUS_TAG_MAP.clear();
 		TOKEN_FAMILIES.clear();
 		TokenFamily.CURRENT.clearTokens();
