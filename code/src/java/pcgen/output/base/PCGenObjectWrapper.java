@@ -17,9 +17,10 @@
  */
 package pcgen.output.base;
 
+import pcgen.cdom.enumeration.CharID;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
-import pcgen.cdom.enumeration.CharID;
 
 /**
  * PCGenObjectWrapper is an advanced form of wrapper serving the Freemarker

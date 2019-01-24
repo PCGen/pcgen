@@ -19,12 +19,13 @@ package pcgen.output.model;
 
 import java.util.Objects;
 
+import pcgen.core.UnitSet;
+import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
-import pcgen.core.UnitSet;
-import pcgen.output.base.SimpleWrapperLibrary;
 
 /**
  * An UnitSetModel wraps a UnitSet and serves as a TemplateHashModel for that

@@ -17,11 +17,12 @@
  */
 package pcgen.output.wrapper;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.io.FileAccess;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.StringModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A StringWrapper is an ObjectWrapper capable of producing a TemplateModel for

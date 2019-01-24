@@ -17,10 +17,11 @@
  */
 package pcgen.output.wrapper;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.BooleanModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A BooleanWrapper is an ObjectWrapper capable of producing a TemplateModel for

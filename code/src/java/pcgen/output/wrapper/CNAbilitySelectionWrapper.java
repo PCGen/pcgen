@@ -17,12 +17,13 @@
  */
 package pcgen.output.wrapper;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.CNAbilitySelectionModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A CNAbilitySelectionWrapper is an ObjectWrapper capable of producing a
