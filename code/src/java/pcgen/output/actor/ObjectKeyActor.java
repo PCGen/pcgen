@@ -17,8 +17,6 @@
  */
 package pcgen.output.actor;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -26,6 +24,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.base.OutputActor;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A ObjectKeyActor is designed to process an interpolation and convert that

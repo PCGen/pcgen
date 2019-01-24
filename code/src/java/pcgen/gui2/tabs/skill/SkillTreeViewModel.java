@@ -26,8 +26,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
@@ -48,6 +46,8 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class SkillTreeViewModel
 		implements TreeViewModel<Skill>, DataView<Skill>, SkillBonusListener, ListSelectionListener

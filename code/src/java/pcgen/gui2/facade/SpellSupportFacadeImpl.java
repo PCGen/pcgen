@@ -32,8 +32,6 @@ import java.util.TreeSet;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
@@ -91,6 +89,8 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code SpellSupportFacadeImpl} marshals the spell data for a

@@ -17,12 +17,13 @@
  */
 package pcgen.output.actor;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.InfoModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * An InfoActor is designed to process an interpolation and convert that into a

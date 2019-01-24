@@ -24,14 +24,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.core.PlayerCharacter;
+import pcgen.core.character.EquipSet;
+
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.character.EquipSet;
 
 /**
  * Implements a custom Freemarker macro to loop over the characte's equipment 
