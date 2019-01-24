@@ -81,6 +81,11 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * ComplexNEPFormula.
 	 */
 	private final FormatManager<T> formatManager;
+	
+	/**
+	 * The (cached) hashCode.
+	 */
+	private int hashCode = 0;
 
 	/**
 	 * Construct a new ComplexNEPFormula from the given String. This calculates the tree
@@ -199,5 +204,27 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	public FormatManager<T> getFormatManager()
 	{
 		return formatManager;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		if (hashCode == 0)
+		{
+			hashCode = toString().hashCode();
+		}
+		return hashCode;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (obj instanceof ComplexNEPFormula)
+		{
+			ComplexNEPFormula<?> other = (ComplexNEPFormula<?>) obj;
+			return formatManager.equals(other.formatManager)
+				&& toString().equals(other.toString());
+		}
+		return false;
 	}
 }
