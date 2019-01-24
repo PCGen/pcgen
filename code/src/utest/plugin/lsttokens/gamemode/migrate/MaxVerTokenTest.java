@@ -22,11 +22,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * MaxVerTokenTest checks the function of the MaxVerToken class.

@@ -19,8 +19,6 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.identifier.SpellSchool;
@@ -36,6 +34,8 @@ import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 
 public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 {

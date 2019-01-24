@@ -20,8 +20,6 @@ package plugin.lsttokens.choose;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
@@ -37,6 +35,8 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 
 public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 {

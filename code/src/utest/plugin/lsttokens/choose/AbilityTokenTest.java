@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
@@ -35,6 +33,8 @@ import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.ability.PCToken;
+
+import org.junit.Test;
 
 public class AbilityTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Ability>

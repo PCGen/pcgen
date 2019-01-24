@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,6 +26,8 @@ import pcgen.util.enumeration.AttackType;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {

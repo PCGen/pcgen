@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.kit.startpack;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
@@ -28,6 +26,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 {

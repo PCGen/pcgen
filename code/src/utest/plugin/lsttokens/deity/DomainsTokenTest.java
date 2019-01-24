@@ -19,9 +19,6 @@ package plugin.lsttokens.deity;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -42,6 +39,9 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class DomainsTokenTest extends
 		AbstractListContextTokenTestCase<Deity, Domain>

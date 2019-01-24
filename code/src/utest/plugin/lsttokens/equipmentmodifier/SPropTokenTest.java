@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTextPropertyTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class SPropTokenTest extends
 		AbstractTextPropertyTokenTestCase<EquipmentModifier>
