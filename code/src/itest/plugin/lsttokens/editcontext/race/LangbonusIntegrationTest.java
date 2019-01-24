@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import org.junit.Test;
-
 import pcgen.core.Language;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
@@ -26,6 +24,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.LangbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, Language>

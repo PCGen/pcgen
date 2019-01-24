@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import org.junit.Test;
-
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,6 +25,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.race.CrToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 {
