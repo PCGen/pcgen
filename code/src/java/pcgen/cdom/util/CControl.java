@@ -158,16 +158,7 @@ public final class CControl
 	 * Constructs a new CControl with the given name, default variable name, controlling
 	 * feature, and format.
 	 */
-	private CControl(String name, String defaultValue, String controllingFeature, String format)
-	{
-		this(name, defaultValue, Optional.of(controllingFeature), format);
-	}
-
-	/**
-	 * Constructs a new CControl with the given name, default variable name, controlling
-	 * feature, and format.
-	 */
-	private CControl(String name, String defaultValue, Optional<String> controllingFeature, String format)
+	public CControl(String name, String defaultValue, Optional<String> controllingFeature, String format)
 	{
 		this(name, defaultValue, controllingFeature, format, false, false);
 	}
