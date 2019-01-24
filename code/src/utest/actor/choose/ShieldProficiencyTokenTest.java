@@ -20,6 +20,7 @@ package actor.choose;
 import pcgen.cdom.base.Chooser;
 import pcgen.core.ShieldProf;
 import plugin.lsttokens.choose.ShieldProficiencyToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class ShieldProficiencyTokenTest extends

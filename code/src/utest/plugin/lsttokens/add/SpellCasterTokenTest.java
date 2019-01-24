@@ -17,13 +17,13 @@
  */
 package plugin.lsttokens.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
+
+import org.junit.Test;
 
 public class SpellCasterTokenTest extends
 		AbstractAddTokenTestCase<PCClass>

@@ -25,9 +25,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaModifier;
@@ -68,6 +65,9 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.function.GetOtherFunction;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class SetSolverManagerTest
 {

@@ -31,7 +31,6 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.core.Skill;
-
 import plugin.function.testsupport.AbstractFormulaTestCase;
 
 import org.junit.jupiter.api.Assertions;

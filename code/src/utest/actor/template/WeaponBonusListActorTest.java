@@ -19,9 +19,9 @@ package actor.template;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.WeaponProf;
+import plugin.lsttokens.template.WeaponbonusToken;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import plugin.lsttokens.template.WeaponbonusToken;
 
 public class WeaponBonusListActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<WeaponProf>

@@ -23,7 +23,6 @@ import static org.junit.Assert.assertNull;
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
-
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.After;

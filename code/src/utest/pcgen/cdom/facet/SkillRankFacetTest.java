@@ -17,6 +17,10 @@
  */
 package pcgen.cdom.facet;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent;
@@ -26,10 +30,6 @@ import pcgen.core.Skill;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
 public class SkillRankFacetTest
 {
 	private CharID id;

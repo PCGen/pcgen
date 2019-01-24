@@ -19,9 +19,6 @@ package plugin.lsttokens.ability;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -36,6 +33,9 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class BenefitTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {

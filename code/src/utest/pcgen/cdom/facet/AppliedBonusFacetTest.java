@@ -26,7 +26,6 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-
 import plugin.bonustokens.Combat;
 import plugin.lsttokens.testsupport.TokenRegistration;
 

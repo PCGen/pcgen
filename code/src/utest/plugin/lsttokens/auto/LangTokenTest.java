@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -29,6 +27,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 {

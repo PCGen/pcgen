@@ -37,7 +37,6 @@ import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.facade.util.event.ReferenceEvent;
-
 import plugin.function.testsupport.TransparentFormatManager;
 
 import org.junit.jupiter.api.Test;

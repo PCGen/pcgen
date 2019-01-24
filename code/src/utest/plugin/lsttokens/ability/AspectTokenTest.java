@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.ability;
 
-import org.junit.Test;
-
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -28,6 +26,8 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 /**
  * The Class {@code AspectTokenTest} is responsible for verifying that

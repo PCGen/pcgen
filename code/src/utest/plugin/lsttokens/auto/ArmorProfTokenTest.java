@@ -20,8 +20,6 @@ package plugin.lsttokens.auto;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -35,6 +33,8 @@ import pcgen.core.Equipment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
+
+import org.junit.Test;
 
 public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 {

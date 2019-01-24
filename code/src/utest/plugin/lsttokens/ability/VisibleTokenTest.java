@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.ability;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
@@ -30,6 +28,8 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.Test;
 
 public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
