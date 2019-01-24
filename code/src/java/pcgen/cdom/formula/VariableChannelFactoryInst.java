@@ -95,7 +95,6 @@ public class VariableChannelFactoryInst implements VariableChannelFactory
 			MonitorableVariableStore varStore = RESULT_FACET.get(id);
 			ref = VariableChannel.construct(MGR_FACET.get(id), varStore, varID);
 			channels.put(varID, ref);
-			varStore.addVariableListener(varID, ref);
 		}
 		return ref;
 	}
