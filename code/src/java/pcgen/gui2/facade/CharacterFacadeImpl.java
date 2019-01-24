@@ -2669,7 +2669,7 @@ public class CharacterFacadeImpl
 		AgeSet ageSet = charDisplay.getAgeSet();
 		if (ageSet != null)
 		{
-			String ageCatName = ageSet.getName();
+			String ageCatName = ageSet.getKeyName();
 			for (String ageCatFacade : ageCategoryList)
 			{
 				if (ageCatFacade.equals(ageCatName))

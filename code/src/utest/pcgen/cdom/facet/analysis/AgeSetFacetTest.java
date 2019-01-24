@@ -37,6 +37,9 @@ public class AgeSetFacetTest extends AbstractItemFacetTest<AgeSet>
 	@Override
 	protected AgeSet getItem()
 	{
-		return new AgeSet("AgeSet" + n, n++);
+		AgeSet ageSet = new AgeSet();
+		ageSet.setName("AgeSet" + n);
+		ageSet.setAgeIndex(n++);
+		return ageSet;
 	}
 }
