@@ -21,9 +21,9 @@ package pcgen.core;
 
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code RollInfo}.

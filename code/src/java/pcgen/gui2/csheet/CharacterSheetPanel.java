@@ -33,15 +33,6 @@ import java.util.concurrent.FutureTask;
 
 import javax.swing.SwingUtilities;
 
-import org.lobobrowser.html.HtmlRendererContext;
-import org.lobobrowser.html.gui.HtmlPanel;
-import org.lobobrowser.html.parser.DocumentBuilderImpl;
-import org.lobobrowser.html.parser.InputSourceImpl;
-import org.lobobrowser.html.test.SimpleHtmlRendererContext;
-import org.lobobrowser.html.test.SimpleUserAgentContext;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
 import pcgen.core.Globals;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
@@ -51,6 +42,15 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
+
+import org.lobobrowser.html.HtmlRendererContext;
+import org.lobobrowser.html.gui.HtmlPanel;
+import org.lobobrowser.html.parser.DocumentBuilderImpl;
+import org.lobobrowser.html.parser.InputSourceImpl;
+import org.lobobrowser.html.test.SimpleHtmlRendererContext;
+import org.lobobrowser.html.test.SimpleUserAgentContext;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 public class CharacterSheetPanel extends HtmlPanel implements CharacterSelectionListener
 {

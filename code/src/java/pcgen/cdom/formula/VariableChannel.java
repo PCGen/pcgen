@@ -24,13 +24,13 @@ import java.util.function.BiFunction;
 
 import javax.swing.event.EventListenerList;
 
-import org.apache.commons.collections4.CollectionUtils;
-
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.SolverManager;
 import pcgen.facade.util.VetoableReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
+
+import org.apache.commons.collections4.CollectionUtils;
 
 /**
  * A VariableChannel provides a common mechanism for reading and writing to a

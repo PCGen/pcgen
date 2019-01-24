@@ -27,8 +27,6 @@ import java.util.StringJoiner;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -79,6 +77,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code PCClass}.

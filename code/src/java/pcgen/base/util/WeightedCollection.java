@@ -26,7 +26,6 @@ import java.util.Objects;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 
-
 import org.jetbrains.annotations.NotNull;
 
 /**

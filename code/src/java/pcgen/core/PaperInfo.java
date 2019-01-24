@@ -21,11 +21,11 @@ package pcgen.core;
 import java.net.URI;
 import java.util.Objects;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Paper information for output sheets

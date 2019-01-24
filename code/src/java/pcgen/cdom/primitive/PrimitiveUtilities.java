@@ -22,9 +22,9 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
-import org.jetbrains.annotations.NotNull;
-
 import pcgen.cdom.base.PrimitiveCollection;
+
+import org.jetbrains.annotations.NotNull;
 
 public final class PrimitiveUtilities
 {

@@ -42,8 +42,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
@@ -98,6 +96,8 @@ import pcgen.util.PjepPool;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Represents Equipment for a PC.
