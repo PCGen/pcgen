@@ -6,12 +6,12 @@ package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreSkillTotalParser;
+
+import org.junit.Test;
 
 
 @SuppressWarnings("nls")

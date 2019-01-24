@@ -23,7 +23,6 @@ import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
-
 import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
