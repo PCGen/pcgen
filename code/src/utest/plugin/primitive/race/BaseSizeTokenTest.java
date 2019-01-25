@@ -32,6 +32,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class BaseSizeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Race>
 {
@@ -47,6 +49,7 @@ public class BaseSizeTokenTest extends
 		super("BASESIZE", "S");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

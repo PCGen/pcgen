@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
@@ -27,7 +30,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.qualifier.pobject.QualifiedToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC extends Loadable>
 		extends AbstractCDOMTokenTestCase<T>
@@ -55,6 +59,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 
 	public abstract Class<TC> getTargetClass();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -264,8 +269,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		runRoundRobin(getSubTokenName() + '|' + "QUALIFIED[" + good + "]");
 	}
 
-	@Test
-	public void doPrimitiveIllegalTarget(String illegal)
+	protected void doPrimitiveIllegalTarget(String illegal)
 	{
 		String primitive = prim;
 		if (illegal != null)

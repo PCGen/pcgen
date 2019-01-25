@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -30,21 +31,12 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static LevelsperfeatToken token = new LevelsperfeatToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
-
-	@Override
-	@Before
-	public final void setUp() throws PersistenceLayerException,
-			URISyntaxException
-	{
-		super.setUp();
-	}
 
 	@Override
 	public Class<PCClass> getCDOMClass()

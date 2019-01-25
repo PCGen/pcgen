@@ -31,6 +31,8 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class WieldTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Equipment>
 {
@@ -46,6 +48,7 @@ public class WieldTokenTest extends
 		super("WIELD", "Light");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

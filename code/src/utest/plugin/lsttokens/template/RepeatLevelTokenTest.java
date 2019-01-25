@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.template;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.net.URISyntaxException;
 
 import pcgen.core.PCTemplate;
@@ -33,8 +35,8 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreLevelWriter;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
@@ -42,7 +44,7 @@ public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 		URISyntaxException
 	{
