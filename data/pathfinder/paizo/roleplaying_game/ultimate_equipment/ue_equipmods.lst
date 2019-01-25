@@ -346,6 +346,6 @@ Valiant					KEY:Special Ability ~ Valiant ~ Amulet of Might Fists				TYPE:Amulet
 ###Block: Individual Tool Bonuses
 Blood Reservoir of Physical Prowess	KEY:Special Quality ~ Blood Reservoir of Physical Prowess ~ Weapon	TYPE:Weapon						COST:2000
 
-Masterwork Tool	TYPE:Masterwork Tool	PRETYPE:2,Tools,Masterwork Tool	CHOOSE:SKILLBONUS|TYPE=Base|MIN=1|MAX=2|TITLE=Skill Bonus		BONUS:SKILL|%CHOICE|2|TYPE=Circumstance
+Masterwork Tool	TYPE:Masterwork Tool	PRETYPE:2,Tools,Masterwork Tool	CHOOSE:SKILLBONUS|TYPE=Base|MIN=1|MAX=2|TITLE=Skill Bonus		BONUS:SKILL|%CHOICE|TYPE=Circumstance
 
 
