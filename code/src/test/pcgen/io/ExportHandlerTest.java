@@ -55,9 +55,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
 /**
  * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its sub tokens are working correctly.

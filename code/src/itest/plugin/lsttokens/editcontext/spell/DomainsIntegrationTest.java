@@ -19,9 +19,6 @@ package plugin.lsttokens.editcontext.spell;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
@@ -35,6 +32,9 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {

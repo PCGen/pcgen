@@ -16,8 +16,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.equipmentmodifier;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.EquipmentModifier;
@@ -27,6 +27,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
 {

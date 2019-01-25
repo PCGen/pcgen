@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Domain;
 import pcgen.core.Kit;
@@ -27,6 +25,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.KitLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class KitIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Kit>

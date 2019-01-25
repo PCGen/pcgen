@@ -21,13 +21,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateSequenceModel;
 
 /**
  * A SetFacetModel wraps a SetFacet and serves as a TemplateSequenceModel for

@@ -24,8 +24,6 @@ import java.io.File;
 import java.net.URI;
 import java.util.Collections;
 
-import org.junit.Test;
-
 import pcgen.AbstractJunit4CharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
@@ -35,6 +33,8 @@ import pcgen.io.ExportHandler;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.Test;
 
 /**
  * The Class {@code} ...

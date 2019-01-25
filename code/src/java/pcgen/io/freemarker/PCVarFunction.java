@@ -20,9 +20,10 @@ package pcgen.io.freemarker;
 
 import java.util.List;
 
+import pcgen.core.PlayerCharacter;
+
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
-import pcgen.core.PlayerCharacter;
 
 /**
  * PCVarFunction allows character variable values to be exported to a 

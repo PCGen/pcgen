@@ -46,6 +46,8 @@ import plugin.primitive.spell.SpellBookToken;
 import plugin.primitive.spell.SpellTypeToken;
 import plugin.primitive.spell.SubSchoolToken;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
  * The Class {@code SpellsTokenTest} verifies the parsing and
  * unparsing of the CHOOSE:SPELLS subtoken.
@@ -58,6 +60,7 @@ public class SpellsTokenTest extends
 	static SpellsToken subtoken = new SpellsToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

@@ -24,8 +24,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -36,8 +34,6 @@ import java.util.Map;
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -45,10 +41,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-
-import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
@@ -66,9 +59,10 @@ import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
-import pcgen.gui2.util.ManagedField;
 import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code BiographyInfoPane} is a panel within the Description
@@ -82,7 +76,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 {
 	private static final String ALL_COMMAND = "ALL"; //$NON-NLS-1$
 	private static final String NONE_COMMAND = "NONE"; //$NON-NLS-1$
-	private static final JTextField TEMPLATE_TEXT_FIELD = new JTextField("PrototypeDisplayText"); //$NON-NLS-1$;
+	static final JTextField TEMPLATE_TEXT_FIELD = new JTextField("PrototypeDisplayText"); //$NON-NLS-1$;
 	/** The fields that we always display */
 	private static final EnumSet<BiographyField> DEFAULT_BIO_FIELDS =
 			EnumSet.range(BiographyField.NAME, BiographyField.WEIGHT);
@@ -188,6 +182,12 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		private final Map<BiographyField, BioItem> customFieldMap = new EnumMap<>(BiographyField.class);
 		private final CharacterFacade character;
 		private BiographyInfoPane detailsPane;
+		private final ActionListener bioListener = event -> bioItems.stream()
+			.forEach(item -> item
+				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
+		private final ActionListener customListner = event -> customFieldMap
+			.values().stream().forEach(item -> item
+				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
 
 		public ItemHandler(CharacterFacade character2)
 		{
@@ -233,16 +233,20 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			detailsPane = parent;
 			itemsPanel.removeAll();
-			// 
+
+			allButton.addActionListener(bioListener);
+			allButton.addActionListener(customListner);
+			noneButton.addActionListener(bioListener);
+			noneButton.addActionListener(customListner);
 			for (BioItem bioItem : bioItems)
 			{
 				bioItem.addComponents(itemsPanel);
-				bioItem.install(parent);
+				bioItem.install();
 			}
 			for (BioItem bioItem : customFieldMap.values())
 			{
 				bioItem.addComponents(itemsPanel);
-				bioItem.install(parent);
+				bioItem.install();
 			}
 
 			customFields.addListListener(this);
@@ -252,13 +256,17 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public void uninstall(BiographyInfoPane parent)
 		{
+			allButton.removeActionListener(bioListener);
+			allButton.removeActionListener(customListner);
+			noneButton.removeActionListener(bioListener);
+			noneButton.removeActionListener(customListner);
 			for (BioItem bioItem : bioItems)
 			{
-				bioItem.uninstall(parent);
+				bioItem.uninstall();
 			}
 			for (BioItem bioItem : customFieldMap.values())
 			{
-				bioItem.uninstall(parent);
+				bioItem.uninstall();
 			}
 			detailsPane = null;
 			customFields.removeListListener(this);
@@ -271,7 +279,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			BioItem bioItem = new BiographyFieldBioItem(field, character);
 			customFieldMap.put(field, bioItem);
 			bioItem.addComponents(itemsPanel);
-			bioItem.install(detailsPane);
+			bioItem.install();
 			detailsPane.validate();
 			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
 			detailsScroll.repaint();
@@ -281,9 +289,8 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		public void elementRemoved(ListEvent<BiographyField> e)
 		{
 			BiographyField field = e.getElement();
-			BioItem bioItem = new BiographyFieldBioItem(field, character);
-			customFieldMap.put(field, bioItem);
-			bioItem.uninstall(detailsPane);
+			BioItem bioItem = customFieldMap.remove(field);
+			bioItem.uninstall();
 			detailsPane.invalidate();
 		}
 
@@ -472,7 +479,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			ageModel.setListFacade(character.getAgeCategories());
 			ageModel.setReference(character.getAgeCategoryRef());
 			setComboBoxModel(ageModel);
-			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getAgeRef())
+			setTextFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getAgeRef())
 			{
 
 				@Override
@@ -553,7 +560,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			super("in_height", BiographyField.HEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getHeightUnit());
-			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getHeightRef())
+			setTextFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getHeightRef())
 			{
 
 				@Override
@@ -574,7 +581,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			super("in_weight", BiographyField.WEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getWeightUnit());
-			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getWeightRef())
+			setTextFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getWeightRef())
 			{
 
 				@Override
@@ -614,7 +621,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		public HairStyleItem(final CharacterFacade character)
 		{
-			super("in_style", BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
+			super(BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
 		}
 	}
 
@@ -625,21 +632,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	 */
 	private static class BiographyFieldBioItem extends BioItem
 	{
-
-		public BiographyFieldBioItem(final String titleKey, final BiographyField field, final CharacterFacade character)
-		{
-			super(titleKey, field, character);
-			setTextFieldHandler(
-				new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
-				{
-					@Override
-					protected void textChanged(String text)
-					{
-						character.getDescriptionFacade().setBiographyField(field, text);
-					}
-
-				});
-		}
 
 		public BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
 		{
@@ -654,215 +646,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 					}
 
 				});
-		}
-
-	}
-
-	private abstract static class BioItem implements ActionListener, ItemListener
-	{
-
-		private final JLabel label = new JLabel();
-		private final JCheckBox checkbox = new JCheckBox();
-		private JComboBox combobox = null;
-		private JTextField textField = null;
-		private JLabel trailinglabel = null;
-		private final BiographyField bioField;
-		private final CharacterFacade character;
-		
-		/**
-		 * The ManagedField holding the information for this BioItem.
-		 */
-		private ManagedField textFieldHandler;
-		private FormattedFieldHandler formattedFieldHandler;
-
-		protected BioItem(String text, BiographyField bioField, CharacterFacade character)
-		{
-			this.bioField = bioField;
-			this.character = character;
-			if (text.startsWith("in_")) //$NON-NLS-1$
-			{
-				label.setText(LanguageBundle.getString(text) + ":"); //$NON-NLS-1$
-			}
-			else
-			{
-				label.setText(text);
-			}
-			label.setHorizontalAlignment(SwingConstants.RIGHT);
-			if (character != null)
-			{
-				checkbox.setSelected(character.getExportBioField(bioField));
-			}
-		}
-
-		public void addComponents(JPanel panel)
-		{
-			GridBagConstraints gbc = new GridBagConstraints();
-			gbc.anchor = GridBagConstraints.PAGE_START;
-			gbc.gridwidth = 1;
-			gbc.fill = GridBagConstraints.BOTH;
-			panel.add(checkbox, gbc);
-			gbc.insets = new Insets(1, 2, 1, 2);
-			panel.add(label, gbc);
-			int numComponents = 0;
-			numComponents += textField != null ? 1 : 0;
-			numComponents += combobox != null ? 1 : 0;
-			numComponents += trailinglabel != null ? 1 : 0;
-			switch (numComponents)
-			{
-				case 3:
-					gbc.weightx = 0.3333;
-					break;
-
-				case 2:
-					gbc.weightx = 0.5;
-					break;
-
-				default:
-					gbc.weightx = 1.0;
-					break;
-			}
-			if (combobox != null)
-			{
-				panel.add(combobox, gbc);
-			}
-			if (trailinglabel == null)
-			{
-				gbc.gridwidth = GridBagConstraints.REMAINDER;
-			}
-			if (textField != null)
-			{
-				panel.add(textField, gbc);
-			}
-			gbc.gridwidth = GridBagConstraints.REMAINDER;
-			if (trailinglabel != null)
-			{
-				panel.add(trailinglabel, gbc);
-			}
-			else if (numComponents < 2)
-			{
-				//We need a filler component so just use the lightweight Box
-				panel.add(Box.createHorizontalGlue(), gbc);
-			}
-		}
-
-		protected void setTextFieldHandler(ManagedField handler)
-		{
-			if (textField != null)
-			{
-				throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
-			}
-			this.textField = handler.getTextField();
-			textFieldHandler = handler;
-		}
-
-		protected void setFormattedFieldHandler(FormattedFieldHandler handler)
-		{
-			if (textField != null)
-			{
-				throw new IllegalStateException("The TextField has already been set"); //$NON-NLS-1$
-			}
-			this.textField = handler.getFormattedTextField();
-			formattedFieldHandler = handler;
-		}
-
-		protected void setComboBoxModel(CharacterComboBoxModel<?> model)
-		{
-			if (combobox != null)
-			{
-				throw new IllegalStateException("The CharacterComboBoxModel has already been set"); //$NON-NLS-1$
-			}
-			this.combobox = new JComboBox<>(model);
-			combobox.setPreferredSize(new Dimension(10, TEMPLATE_TEXT_FIELD.getPreferredSize().height));
-		}
-
-		/**
-		 * @param text The text to be displayed in a label after the entry fields.
-		 */
-		protected void setTrailingLabel(String text)
-		{
-			if (trailinglabel != null)
-			{
-				throw new IllegalStateException("The trailing label has already been set"); //$NON-NLS-1$
-			}
-			this.trailinglabel = new JLabel(text);
-		}
-
-		public void setVisible(boolean visible)
-		{
-			label.setVisible(visible);
-			checkbox.setVisible(visible);
-			if (combobox != null)
-			{
-				combobox.setVisible(visible);
-			}
-			if (textField != null)
-			{
-				textField.setVisible(visible);
-			}
-			if (trailinglabel != null)
-			{
-				trailinglabel.setVisible(visible);
-			}
-		}
-
-		/**
-		 * Installs this BioItem by attaching itself to the buttons.
-		 * @param parent The pane holding this item.
-		 */
-		public void install(BiographyInfoPane parent)
-		{
-			parent.allButton.addActionListener(this);
-			parent.noneButton.addActionListener(this);
-			checkbox.addItemListener(this);
-			if (textFieldHandler != null)
-			{
-				textFieldHandler.install();
-			}
-			if (formattedFieldHandler != null)
-			{
-				formattedFieldHandler.install();
-			}
-		}
-
-		/**
-		 * Uninstalls this BioItem by removing its listeners from the buttons.
-		 * @param parent The pane holding this item.
-		 */
-		public void uninstall(BiographyInfoPane parent)
-		{
-			parent.allButton.removeActionListener(this);
-			parent.noneButton.removeActionListener(this);
-			checkbox.removeItemListener(this);
-			if (textFieldHandler != null)
-			{
-				textFieldHandler.uninstall();
-			}
-			if (formattedFieldHandler != null)
-			{
-				formattedFieldHandler.uninstall();
-			}
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			if (ALL_COMMAND.equals(e.getActionCommand()))
-			{
-				checkbox.setSelected(true);
-				character.setExportBioField(bioField, true);
-			}
-			else if (NONE_COMMAND.equals(e.getActionCommand()))
-			{
-				checkbox.setSelected(false);
-				character.setExportBioField(bioField, false);
-			}
-		}
-
-		@Override
-		public void itemStateChanged(ItemEvent e)
-		{
-			boolean selected = e.getStateChange() == ItemEvent.SELECTED;
-			character.setExportBioField(bioField, selected);
 		}
 
 	}

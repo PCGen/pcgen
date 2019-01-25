@@ -3,7 +3,7 @@ GAMEMODE:Pathfinder|Pathfinder_PFS
 RANK:3
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
 STATUS:BETA
 PRECAMPAIGN:8,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Advanced Race Guide,INCLUDES=Ultimate Intrigue

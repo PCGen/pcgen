@@ -1,12 +1,12 @@
 package gmgen.plugin.dice;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
 import static org.hamcrest.number.OrderingComparison.lessThanOrEqualTo;
 import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
 
 /*
  * This library is free software; you can redistribute it and/or

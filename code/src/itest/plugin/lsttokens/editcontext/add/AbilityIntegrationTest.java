@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext.add;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.core.PCTemplate;
@@ -34,6 +32,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 
 public class AbilityIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Ability>

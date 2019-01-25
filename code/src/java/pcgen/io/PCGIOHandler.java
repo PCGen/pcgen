@@ -45,20 +45,19 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.character.EquipSet;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
-
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -319,7 +318,7 @@ public final class PCGIOHandler extends IOHandler
 	 */
 	@Deprecated
 	@Override
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, OutputStream out)
+	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<Campaign> campaigns, OutputStream out)
 	{
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
@@ -365,7 +364,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param campaigns     The character's sources.
 	 * @param outFile       The file to write the character to.
 	 */
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
+	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<Campaign> campaigns, File outFile)
 	{
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();

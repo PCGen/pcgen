@@ -16,17 +16,13 @@
 package pcgen.base.solver;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
@@ -69,7 +65,11 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.function.GetOtherFunction;
 
-public class SetSolverManagerTest
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class SetSolverManagerTest
 {
 
 	private final PCGenScope globalScope = new GlobalScope();
@@ -86,10 +86,10 @@ public class SetSolverManagerTest
 	private RuntimeLoadContext context;
 	private MyManagerFactory managerFactory;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		ModifierValueStore mvs = new ModifierValueStore();
+		SupplierValueStore mvs = new SupplierValueStore();
 		WriteableFunctionLibrary fl = new SimpleFunctionLibrary();
 		fl.addFunction(new GetOtherFunction());
 		OperatorLibrary ol = new SimpleOperatorLibrary();
@@ -113,29 +113,14 @@ public class SetSolverManagerTest
 		fm = new SimpleFormulaManager(ol, sl, siFactory, vc, mvs);
 		fm = fm.getWith(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SimpleSolverFactory(mvs);
-		ModifierFactory am1 = new plugin.modifier.set.SetModifierFactory<>();
-		FormulaModifier emptyArrayMod =
-				am1.getModifier("", managerFactory, null, globalScope, arrayManager);
-		solverFactory.addSolverFormat(arrayManager,
-			new ModifierDecoration<>(emptyArrayMod));
+		solverFactory.addSolverFormat(arrayManager, () -> new String[0]);
 		
-		ProcessCalculation calc =
-				new ProcessCalculation<>(new Skill(), new BasicSet(), skillManager);
-		CalculationModifier em = new CalculationModifier<>(calc, skillManager);
-		solverFactory.addSolverFormat(skillManager, new ModifierDecoration<>(em));
+		Skill defaultSkill = new Skill();
+		solverFactory.addSolverFormat(skillManager, () -> defaultSkill);
 
 		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
-		ModifierFactory mfn = new plugin.modifier.number.SetModifierFactory();
-		FormulaModifier mod =
-				mfn.getModifier("0", managerFactory, null, globalScope, numberManager);
-		mod.addAssociation("PRIORITY=0");
-		solverFactory.addSolverFormat(numberManager,
-			new ModifierDecoration<>(mod));
-		ModifierFactory mfs = new plugin.modifier.string.SetModifierFactory();
-		FormulaModifier mods =
-				mfs.getModifier("", managerFactory, null, globalScope, stringManager);
-		solverFactory.addSolverFormat(stringManager,
-			new ModifierDecoration<>(mods));
+		solverFactory.addSolverFormat(numberManager, () -> 0);
+		solverFactory.addSolverFormat(stringManager, () -> "");
 	}
 
 	@Test
@@ -159,7 +144,7 @@ public class SetSolverManagerTest
 		mod.addAssociation("PRIORITY=2000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
-		assertThat(2, is(array.length));
+		MatcherAssert.assertThat(2, is(array.length));
 		list = Arrays.asList(array);
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));
@@ -173,7 +158,7 @@ public class SetSolverManagerTest
 		mod.addAssociation("PRIORITY=3000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
-		assertThat(3, is(array.length));
+		MatcherAssert.assertThat(3, is(array.length));
 		list = Arrays.asList(array);
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));
@@ -282,7 +267,7 @@ public class SetSolverManagerTest
 	{
 		private final LoadContext context;
 
-		public MyManagerFactory(LoadContext context)
+		private MyManagerFactory(LoadContext context)
 		{
 			this.context = Objects.requireNonNull(context);
 		}

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
@@ -33,6 +31,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.FavoredclassToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, PCClass>

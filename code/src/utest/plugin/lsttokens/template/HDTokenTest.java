@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.template;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
@@ -37,6 +37,9 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreHDParser;
 import plugin.pretokens.writer.PreHDWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
@@ -44,7 +47,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{

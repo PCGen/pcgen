@@ -17,6 +17,13 @@
  */
 package plugin.lsttokens.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.BasicChooseInformation;
@@ -33,10 +40,11 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
-
-import org.junit.Test;
 import plugin.qualifier.pobject.AnyToken;
 import plugin.qualifier.pobject.QualifiedToken;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -57,6 +65,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 
 	public abstract Class<TC> getTargetClass();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

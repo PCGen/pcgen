@@ -19,12 +19,12 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
-import org.jetbrains.annotations.NotNull;
-
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This is a interface is provided as convenience to hold a set of choices and the number

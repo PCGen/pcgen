@@ -17,7 +17,10 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
@@ -29,6 +32,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 {

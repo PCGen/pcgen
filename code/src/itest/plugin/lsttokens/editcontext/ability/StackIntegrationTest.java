@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.ability;
 
-import org.junit.Test;
-
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -29,6 +27,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class StackIntegrationTest extends
 		AbstractIntegrationTestCase<Ability>

@@ -36,11 +36,11 @@ import java.util.concurrent.Future;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 class PluginClassLoader extends PCGenTask
 {

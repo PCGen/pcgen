@@ -17,12 +17,12 @@
  */
 package pcgen.pluginmgr;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 
 /**
  * The Class {@code MessageHandlerManagerTest} checks that MessageHandlerManager is

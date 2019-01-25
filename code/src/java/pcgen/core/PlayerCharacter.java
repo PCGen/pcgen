@@ -36,8 +36,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import org.jetbrains.annotations.TestOnly;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.inst.NEPFormula;
@@ -71,7 +69,6 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -171,7 +168,6 @@ import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.fact.GoldFacet;
-import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
@@ -266,6 +262,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -276,6 +273,8 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
+
+import org.jetbrains.annotations.TestOnly;
 
 public class PlayerCharacter implements Cloneable, VariableContainer
 {
@@ -299,7 +298,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private final IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private final GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private final HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
 	private final HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
@@ -632,6 +630,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
 		solverManagerFacet.set(id, variableContext.generateSolverManager(varStore));
+		if (isFeatureEnabled(CControl.ALIGNMENTFEATURE))
+		{
+			ChannelUtilities.setDirtyOnChannelChange(this, CControl.ALIGNMENTINPUT);
+		}
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
 	}
 
 	@Override
@@ -1390,19 +1393,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		BigDecimal g = goldFacet.get(id);
 		return (g == null) ? BigDecimal.ZERO : g;
-	}
-
-	/**
-	 * Sets the character's handedness.
-	 *
-	 * @param h A handedness to try and set.
-	 */
-	public void setHanded(final Handed h)
-	{
-		if (handedFacet.setHanded(id, h))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**

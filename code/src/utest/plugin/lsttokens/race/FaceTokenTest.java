@@ -47,7 +47,6 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
-
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;

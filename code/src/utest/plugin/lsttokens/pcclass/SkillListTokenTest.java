@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.pcclass;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Arrays;
 import java.util.Collections;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
@@ -39,6 +42,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {

@@ -26,8 +26,10 @@ import javax.swing.JFormattedTextField;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.util.ManagedField;
 
-public abstract class FormattedFieldHandler implements PropertyChangeListener, ReferenceListener<Integer>
+public abstract class FormattedFieldHandler implements PropertyChangeListener,
+		ReferenceListener<Integer>, ManagedField
 {
 
 	private JFormattedTextField field;
@@ -39,7 +41,8 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 		this.ref = ref;
 	}
 
-	public JFormattedTextField getFormattedTextField()
+	@Override
+	public JFormattedTextField getTextField()
 	{
 		return field;
 	}
@@ -48,6 +51,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 	 * Attach the handler to the screen field. e.g. When the character is
 	 * made active.
 	 */
+	@Override
 	public void install()
 	{
 		field.setValue(ref.get());
@@ -59,6 +63,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 	 * Detach the handler from the on screen field. e.g. when the
 	 * character is no longer being displayed.
 	 */
+	@Override
 	public void uninstall()
 	{
 		field.removePropertyChangeListener(this);

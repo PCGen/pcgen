@@ -32,12 +32,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -51,6 +45,12 @@ import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  * The Class {@code DataTest} checks the data files for known issues.

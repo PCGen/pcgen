@@ -26,6 +26,7 @@ import java.util.Set;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
+import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.Kit;
@@ -37,7 +38,6 @@ import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GearBuySellFacade;
@@ -69,7 +69,7 @@ public class DelegatingDataSet implements DataSetFacade
 	private final DelegatingListFacade<Kit> kits;
 	private final DelegatingListFacade<PCStat> stats;
 	private final DelegatingAbilitiesMap abilities;
-	private final DelegatingListFacade<CampaignFacade> campaigns;
+	private final DelegatingListFacade<Campaign> campaigns;
 	private final DelegatingListFacade<BodyStructure> bodyStructures;
 	private final DelegatingListFacade<EquipmentFacade> equipment;
 	private final DelegatingListFacade<String> xpTableNames;
@@ -265,7 +265,7 @@ public class DelegatingDataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<CampaignFacade> getCampaigns()
+	public ListFacade<Campaign> getCampaigns()
 	{
 		return campaigns;
 	}

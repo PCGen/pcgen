@@ -19,9 +19,6 @@ package plugin.lsttokens.editcontext.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -30,6 +27,9 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.LangbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Language>

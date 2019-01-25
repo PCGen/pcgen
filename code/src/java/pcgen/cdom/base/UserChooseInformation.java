@@ -21,14 +21,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.jetbrains.annotations.NotNull;
-
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
 import pcgen.rules.context.LoadContext;
+
+import org.jetbrains.annotations.NotNull;
 
 public class UserChooseInformation implements ChooseInformation<String>, Chooser<String>
 {

@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext.auto;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
 import pcgen.core.ShieldProf;
@@ -32,6 +30,8 @@ import plugin.lsttokens.auto.ShieldProfToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 
 public class ShieldProfIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, ShieldProf>

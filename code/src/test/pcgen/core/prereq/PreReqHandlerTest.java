@@ -27,7 +27,6 @@ import pcgen.LocaleDependentTestCase;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
-
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.AfterEach;

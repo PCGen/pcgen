@@ -22,12 +22,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateSequenceModel;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateSequenceModel;
 
 /**
  * A CollectionModel wraps a Collection into a TemplateSequenceModel

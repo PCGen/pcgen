@@ -32,7 +32,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
-
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.AfterEach;

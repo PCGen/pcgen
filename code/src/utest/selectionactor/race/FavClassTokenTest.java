@@ -19,8 +19,8 @@ package selectionactor.race;
 
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCClass;
-
 import plugin.lsttokens.race.FavclassToken;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class FavClassTokenTest extends AbstractSelectionActorTest<PCClass>

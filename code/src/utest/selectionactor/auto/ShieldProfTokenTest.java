@@ -19,8 +19,8 @@ package selectionactor.auto;
 
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.ShieldProf;
-
 import plugin.lsttokens.auto.ShieldProfToken;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class ShieldProfTokenTest extends AbstractSelectionActorTest<ShieldProf>

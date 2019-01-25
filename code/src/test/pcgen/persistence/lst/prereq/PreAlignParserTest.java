@@ -21,8 +21,7 @@
 package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
+
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -32,6 +31,9 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreAlignParser;
+
+import org.junit.Before;
+import org.junit.Test;
 import util.Alignment;
 
 @SuppressWarnings("nls")

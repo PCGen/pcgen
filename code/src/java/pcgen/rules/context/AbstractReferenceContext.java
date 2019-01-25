@@ -65,6 +65,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.util.Logging;
 
 /**
@@ -112,6 +113,7 @@ public abstract class AbstractReferenceContext
 		FormatUtilities.loadDefaultFormats(fmtLibrary);
 		fmtLibrary.addFormatManagerBuilder(new ArrayFormatFactory('\n', ','));
 		fmtLibrary.addFormatManager(new DiceFormat());
+		fmtLibrary.addFormatManager(HandedCompat.HANDED_MANAGER);
 		fmtLibrary.addFormatManagerBuilder(
 			new ColumnFormatFactory(this.getManufacturer(AbstractReferenceContext.TABLE_COLUMN_CLASS)));
 		fmtLibrary.addFormatManagerBuilder(

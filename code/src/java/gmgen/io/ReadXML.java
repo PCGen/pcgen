@@ -27,10 +27,10 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import pcgen.util.Logging;
+
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
-import pcgen.util.Logging;
 
 /**
  * This class is used to read through XML tables on disk.

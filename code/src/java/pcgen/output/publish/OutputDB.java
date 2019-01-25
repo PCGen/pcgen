@@ -21,7 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import freemarker.template.TemplateModel;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.ItemFacet;
@@ -33,6 +32,8 @@ import pcgen.output.base.ModelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
 import pcgen.output.model.BooleanOptionModel;
+
+import freemarker.template.TemplateModel;
 
 /**
  * OutputDB is the OutputDatabase for building the Map to be provided to

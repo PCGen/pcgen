@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -29,6 +27,9 @@ import pcgen.output.wrapper.CDOMObjectWrapper;
 import pcgen.output.wrapper.CDOMReferenceWrapper;
 import pcgen.output.wrapper.CNAbilitySelectionWrapper;
 import pcgen.rules.context.LoadContext;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * ObjectWrapperFacet stores information on the Wrappers available to Actors

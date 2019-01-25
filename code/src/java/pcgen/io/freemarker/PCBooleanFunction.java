@@ -20,10 +20,11 @@ package pcgen.io.freemarker;
 
 import java.util.List;
 
-import freemarker.template.TemplateMethodModelEx;
-import freemarker.template.TemplateModelException;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
+import freemarker.template.TemplateMethodModelEx;
+import freemarker.template.TemplateModelException;
 
 /**
  * PCBooleanFunction allows character boolean values to be exported to a 

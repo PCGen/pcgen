@@ -41,8 +41,6 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-import org.apache.commons.lang3.math.NumberUtils;
-
 import pcgen.core.PCClass;
 import pcgen.core.RollingMethods;
 import pcgen.facade.core.CharacterFacade;
@@ -55,6 +53,8 @@ import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.IntegerEditor;
+
+import org.apache.commons.lang3.math.NumberUtils;
 
 public final class CharacterHPDialog extends JDialog implements ActionListener
 {

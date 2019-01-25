@@ -17,10 +17,13 @@
  */
 package plugin.lsttokens.campaign;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.util.List;
-
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
@@ -31,6 +34,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>

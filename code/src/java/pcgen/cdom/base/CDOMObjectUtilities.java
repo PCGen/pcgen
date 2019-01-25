@@ -19,10 +19,10 @@ package pcgen.cdom.base;
 
 import java.util.List;
 
-import org.apache.commons.collections4.ListUtils;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
+
+import org.apache.commons.collections4.ListUtils;
 
 /**
  * CDOMObjectUtilities is a utility class designed to provide utility methods

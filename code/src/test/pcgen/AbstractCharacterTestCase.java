@@ -37,7 +37,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
-
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import junit.framework.TestCase;
@@ -226,23 +225,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		character = new PlayerCharacter();
 	}
 
-	/**
-	 * Constructs a new {@code AbstractCharacterTestCase}.
-	 */
-	protected AbstractCharacterTestCase()
-	{
-	}
-
-	/**
-	 * Constructs a new {@code AbstractCharacterTestCase} with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 */
-	protected AbstractCharacterTestCase(final String name)
-	{
-		super(name);
-	}
 
 	@Override
 	protected void tearDown() throws Exception

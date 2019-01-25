@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,6 +26,8 @@ import plugin.lsttokens.DescispiLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class DescIsPiIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>

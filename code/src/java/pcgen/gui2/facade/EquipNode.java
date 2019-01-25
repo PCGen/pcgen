@@ -21,13 +21,13 @@ package pcgen.gui2.facade;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
 import pcgen.core.character.EquipSlot;
 import pcgen.facade.core.EquipmentFacade;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code EquipNodeImpl} represents a node in the equipping

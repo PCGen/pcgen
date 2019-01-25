@@ -18,18 +18,17 @@
  */
 package pcgen.cdom.content;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import pcgen.cdom.base.FormulaFactory;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * This class tests the handling of DRs in PCGen
  */
-@SuppressWarnings("nls")
-public class DamageReductionTest
+class DamageReductionTest
 {
 
 	/**

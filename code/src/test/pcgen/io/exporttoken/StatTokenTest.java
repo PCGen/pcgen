@@ -48,14 +48,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	PCTemplate template3;
 	PCTemplate template4;
 
-	/**
-	 * @param name
-	 */
-	public StatTokenTest(String name)
-	{
-		super(name);
-	}
-
     @Override
 	protected void setUp() throws Exception
 	{

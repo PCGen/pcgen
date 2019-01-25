@@ -27,6 +27,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.pluginmgr.InteractivePlugin;
@@ -38,13 +45,6 @@ import pcgen.system.LanguageBundle;
 import plugin.notes.gui.NotesView;
 import plugin.notes.gui.PreferencesNotesPanel;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import org.apache.commons.lang3.StringUtils;
 
 /**

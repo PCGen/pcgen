@@ -9,10 +9,6 @@ import static org.junit.Assert.assertTrue;
 import java.net.URI;
 import java.util.Collection;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -30,6 +26,10 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import util.TestURI;
 
 public class SelectableTokenIntegrationTest
