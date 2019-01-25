@@ -39,6 +39,7 @@ import javax.swing.border.EmptyBorder;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
@@ -187,18 +188,18 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new EyeColorItem(character));
 			bioItems.add(new HeightItem(character));
 			bioItems.add(new WeightItem(character));
-			
-			bioItems.add(new BiographyFieldBioItem(BiographyField.SPEECH_PATTERN, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHDAY, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.LOCATION, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.CITY, character));
+
+			bioItems.add(new BiographyFieldBioItem(BiographyField.SPEECH_PATTERN, PCStringKey.SPEECHTENDENCY, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHDAY, PCStringKey.BIRTHDAY, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.LOCATION, PCStringKey.LOCATION, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.CITY, PCStringKey.CITY, character));
 			bioItems.add(new RegionItem(character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHPLACE, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_1, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_2, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.PHOBIAS, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.INTERESTS, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.CATCH_PHRASE, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHPLACE, PCStringKey.BIRTHPLACE, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_1, PCStringKey.PERSONALITY1, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_2, PCStringKey.PERSONALITY2, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PHOBIAS, PCStringKey.PHOBIAS, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.INTERESTS, PCStringKey.INTERESTS, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.CATCH_PHRASE, PCStringKey.CATCHPHRASE, character));
 		}
 
 		public void install()
@@ -539,7 +540,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		public HairStyleItem(final CharacterFacade character)
 		{
-			super(BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
+			super(BiographyField.HAIR_STYLE, PCStringKey.HAIRSTYLE, character); //$NON-NLS-1$
 		}
 	}
 
@@ -551,7 +552,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class BiographyFieldBioItem extends BioItem
 	{
 
-		public BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
+		public BiographyFieldBioItem(BiographyField field, PCStringKey attribute, CharacterFacade character)
 		{
 			super(field.getIl8nKey(), field, character);
 			setTextFieldHandler(
@@ -560,7 +561,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 					@Override
 					protected void textChanged(String text)
 					{
-						character.getDescriptionFacade().setBiographyField(field, text);
+						character.getDescriptionFacade().setBiographyField(attribute, text);
 					}
 
 				});

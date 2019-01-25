@@ -32,7 +32,7 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -736,34 +736,34 @@ public final class NPCGenerator
 			aPC.getBioSet().randomize(randBioString, aPC);
 
 			final List<String> globalHairStyleList = SystemCollections.getUnmodifiableHairStyleList();
-			aPC.setPCAttribute(PCAttribute.HAIRSTYLE,
+			aPC.setPCAttribute(PCStringKey.HAIRSTYLE,
 				globalHairStyleList.get(RandomUtil.getRandomInt(globalHairStyleList.size())));
 			final List<String> speechList = SystemCollections.getUnmodifiableSpeechList();
-			aPC.setPCAttribute(PCAttribute.SPEECHTENDENCY, speechList.get(RandomUtil.getRandomInt(speechList.size())));
+			aPC.setPCAttribute(PCStringKey.SPEECHTENDENCY, speechList.get(RandomUtil.getRandomInt(speechList.size())));
 			final List<String> globalPhobiaList = SystemCollections.getUnmodifiablePhobiaList();
-			aPC.setPCAttribute(PCAttribute.PHOBIAS,
+			aPC.setPCAttribute(PCStringKey.PHOBIAS,
 				globalPhobiaList.get(RandomUtil.getRandomInt(globalPhobiaList.size())));
 			final List<String> globalInterestsList = SystemCollections.getUnmodifiableInterestsList();
-			aPC.setPCAttribute(PCAttribute.INTERESTS,
+			aPC.setPCAttribute(PCStringKey.INTERESTS,
 				globalInterestsList.get(RandomUtil.getRandomInt(globalInterestsList.size())));
 			final List<String> globalPhraseList = SystemCollections.getUnmodifiablePhraseList();
-			aPC.setPCAttribute(PCAttribute.CATCHPHRASE,
+			aPC.setPCAttribute(PCStringKey.CATCHPHRASE,
 				globalPhraseList.get(RandomUtil.getRandomInt(globalPhraseList.size())));
 			final List<String> globalTraitList = SystemCollections.getUnmodifiableTraitList();
 			// TODO: it is possible for trait1 == trait2
-			aPC.setPCAttribute(PCAttribute.PERSONALITY1,
+			aPC.setPCAttribute(PCStringKey.PERSONALITY1,
 				globalTraitList.get(RandomUtil.getRandomInt(globalTraitList.size())));
-			aPC.setPCAttribute(PCAttribute.PERSONALITY2,
+			aPC.setPCAttribute(PCStringKey.PERSONALITY2,
 				globalTraitList.get(RandomUtil.getRandomInt(globalTraitList.size())));
 
 			final List<String> globalCityList = SystemCollections.getUnmodifiableCityList();
-			aPC.setPCAttribute(PCAttribute.RESIDENCE,
+			aPC.setPCAttribute(PCStringKey.RESIDENCE,
 				globalCityList.get(RandomUtil.getRandomInt(globalCityList.size())));
 			final List<String> globalLocationList = SystemCollections.getUnmodifiableLocationList();
-			aPC.setPCAttribute(PCAttribute.LOCATION,
+			aPC.setPCAttribute(PCStringKey.LOCATION,
 				globalLocationList.get(RandomUtil.getRandomInt(globalLocationList.size())));
 			final List<String> globalBirthplaceList = SystemCollections.getUnmodifiableBirthplaceList();
-			aPC.setPCAttribute(PCAttribute.BIRTHPLACE,
+			aPC.setPCAttribute(PCStringKey.BIRTHPLACE,
 				globalBirthplaceList.get(RandomUtil.getRandomInt(globalBirthplaceList.size())));
 
 			//TODO: Link in with the doomsday book name generator

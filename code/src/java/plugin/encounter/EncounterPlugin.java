@@ -47,13 +47,14 @@ import gmgen.plugin.PcgCombatant;
 import gmgen.plugin.dice.Dice;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.inst.PCClassLevel;
@@ -76,6 +77,7 @@ import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
 import plugin.encounter.gui.EncounterView;
 
 /**
@@ -377,7 +379,7 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 				}
 
 				handleEquipment(aPC);
-				aPC.setPCAttribute(PCAttribute.PLAYERSNAME, "Enemy");
+				aPC.setPCAttribute(PCStringKey.PLAYERSNAME, "Enemy");
 				theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
 			}
 

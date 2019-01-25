@@ -81,7 +81,6 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
@@ -676,9 +675,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param attr which attribute to set
 	 * @param value the value to set it to
 	 */
-	public void setPCAttribute(final StringPCAttribute attr, final String value)
+	public void setPCAttribute(PCStringKey attr, String value)
 	{
-		setStringFor(attr.getStringKey(), value);
+		setStringFor(attr, value);
 	}
 
 	/**
