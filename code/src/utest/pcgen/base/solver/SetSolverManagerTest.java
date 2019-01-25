@@ -16,9 +16,8 @@
 package pcgen.base.solver;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -66,10 +65,11 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.function.GetOtherFunction;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class SetSolverManagerTest
+class SetSolverManagerTest
 {
 
 	private final PCGenScope globalScope = new GlobalScope();
@@ -86,8 +86,8 @@ public class SetSolverManagerTest
 	private RuntimeLoadContext context;
 	private MyManagerFactory managerFactory;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		SupplierValueStore mvs = new SupplierValueStore();
 		WriteableFunctionLibrary fl = new SimpleFunctionLibrary();
@@ -144,7 +144,7 @@ public class SetSolverManagerTest
 		mod.addAssociation("PRIORITY=2000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
-		assertThat(2, is(array.length));
+		MatcherAssert.assertThat(2, is(array.length));
 		list = Arrays.asList(array);
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));
@@ -158,7 +158,7 @@ public class SetSolverManagerTest
 		mod.addAssociation("PRIORITY=3000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
-		assertThat(3, is(array.length));
+		MatcherAssert.assertThat(3, is(array.length));
 		list = Arrays.asList(array);
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));
@@ -267,7 +267,7 @@ public class SetSolverManagerTest
 	{
 		private final LoadContext context;
 
-		public MyManagerFactory(LoadContext context)
+		private MyManagerFactory(LoadContext context)
 		{
 			this.context = Objects.requireNonNull(context);
 		}
