@@ -2,7 +2,7 @@
 package pcgen.inttest.game_35e;
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a Unit Test Case designed to hit many features of PCGen

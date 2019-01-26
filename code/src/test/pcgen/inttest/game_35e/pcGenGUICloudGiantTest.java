@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3.5e Cloud Giant with a Half-Dragon (Brass) template applied.

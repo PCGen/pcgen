@@ -4,7 +4,7 @@ package pcgen.inttest.game_pathfinder;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a Unit Test Case of a pathfinder cleric.
