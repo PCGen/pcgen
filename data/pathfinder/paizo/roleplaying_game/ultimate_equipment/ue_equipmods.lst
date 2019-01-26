@@ -343,8 +343,9 @@ Valiant					KEY:Special Ability ~ Valiant ~ Amulet of Might Fists				TYPE:Amulet
 # Vorpal ### In my opinion this can not be placed on unarmed strike ###
 
 
+###Block: Individual Tool Bonuses
 Blood Reservoir of Physical Prowess	KEY:Special Quality ~ Blood Reservoir of Physical Prowess ~ Weapon	TYPE:Weapon						COST:2000
 
-Masterwork Tool	TYPE:Masterwork Tool	PRETYPE:2,Tools,Masterwork Tool	CHOOSE:SKILL|TYPE=Base|TITLE=+2 Cirumstance Bonus	ABILITY:Internal|AUTOMATIC|+2 Circumstance Bonus (%LIST)
+Masterwork Tool	TYPE:Masterwork Tool	NAMEOPT:NONAME	PRETYPE:2,Tools,Masterwork Tool	CHOOSE:SKILLBONUS|TYPE=Base|MIN=1|MAX=2|TITLE=Skill Bonus		BONUS:SKILL|%CHOICE|TYPE=Circumstance	SPROP:%CHOICE circumstance Bonus
 
 
