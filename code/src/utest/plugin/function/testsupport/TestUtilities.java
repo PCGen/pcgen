@@ -17,13 +17,13 @@
  */
 package plugin.function.testsupport;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.io.StringReader;
 
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
-
-import org.junit.Assert;
 
 public final class TestUtilities
 {
@@ -40,7 +40,7 @@ public final class TestUtilities
 		}
 		catch (ParseException e)
 		{
-			Assert.fail("Encountered Unexpected Exception: " + e.getMessage());
+			fail("Encountered Unexpected Exception: " + e.getMessage());
 			return null;
 		}
 	}
