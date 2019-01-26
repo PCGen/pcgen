@@ -17,23 +17,22 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRaceParser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * PreRaceParserTest checks that the PreRaceParser class is operating 
  * correctly.
- * 
- * 
  */
-public class PreRaceParserTest extends EnUsLocaleDependentTestCase
+class PreRaceParserTest extends EnUsLocaleDependentTestCase
 {
 
 	/**
@@ -50,12 +49,12 @@ public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 				parser.parse("race", "1,Elf%,[Elf (aquatic)]",
 					false, false);
 
-		assertEquals("PRERACE with an excluded race",
-			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+		assertEquals(
+				"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
 			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf%\" operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "</prereq>\n"
 			+ "<prereq kind=\"race\" count-multiples=\"true\" key=\"Elf (aquatic)\" operator=\"LT\" operand=\"1\" >\n"
-			+ "</prereq>\n</prereq>\n", prereq.toString());
+			+ "</prereq>\n</prereq>\n", prereq.toString(), "PRERACE with an excluded race");
 	}
 	
 	/**
