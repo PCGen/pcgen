@@ -17,6 +17,8 @@
  */
 package plugin;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,16 +27,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PluginBuildTest} verifies that the pluginbuild.xml file has all
  * required data. As a result this unit test is a bit different in structure to 
  * a normal test.  
  */
-public class PluginBuildTest
+class PluginBuildTest
 {
 	/**
 	 * Array of exceptions to normal names. Each entry is a pair of
@@ -42,8 +43,8 @@ public class PluginBuildTest
 	 */
 	private String[][] exceptions;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		exceptions = new String[][]{
 			{"EqBuilderSpell", "EqBuilder.Spell"},
@@ -78,9 +79,9 @@ public class PluginBuildTest
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
 		File[] jarFolder = {new File("plugins/lstplugins"), new File("plugins/preplugins"),
 			new File("plugins/bonusplugins")};
-		Assert.assertTrue(
-				"Source folder " + sourceFolder.getAbsolutePath() + " should be a directory",
-				sourceFolder.isDirectory()
+		assertTrue(
+				sourceFolder.isDirectory(),
+				"Source folder " + sourceFolder.getAbsolutePath() + " should be a directory"
 		);
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>(Arrays.asList(sources));
@@ -461,11 +462,12 @@ public class PluginBuildTest
 		String jarPrefix = "PreToken-";
 		File sourceFolder = new File("code/src/java/plugin/pretokens/parser");
 		File jarFolder = new File("plugins/preplugins");
-		Assert.assertTrue(
+		assertTrue(
+				//$NON-NLS-1$
+				sourceFolder.isDirectory(),
 				"Source folder " //$NON-NLS-1$
 						+ sourceFolder.getAbsolutePath()
-						+ " should be a directory", //$NON-NLS-1$
-				sourceFolder.isDirectory()
+						+ " should be a directory"
 		);
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>(Arrays.asList(sources));
@@ -608,11 +610,12 @@ public class PluginBuildTest
 	private void checkPluginJars(String jarPrefix, File sourceFolder,
 		File jarFolder, String classSuffix)
 	{
-		Assert.assertTrue(
+		assertTrue(
+				//$NON-NLS-1$
+				sourceFolder.isDirectory(),
 				"Source folder "  //$NON-NLS-1$
 						+ sourceFolder.getAbsolutePath()
-						+ " should be a directory",  //$NON-NLS-1$
-				sourceFolder.isDirectory()
+						+ " should be a directory"
 		);
 		String[] sources = sourceFolder.list();
 		checkPluginJars(jarPrefix, jarFolder, classSuffix, sources);
@@ -631,9 +634,9 @@ public class PluginBuildTest
 	private void checkPluginJars(String jarPrefix, 
 		File jarFolder, String classSuffix, String[] sources)
 	{
-		Assert.assertTrue(
-				"Jar folder " + jarFolder.getAbsolutePath() + " should be a directory",
-				jarFolder.isDirectory()
+		assertTrue(
+				jarFolder.isDirectory(),
+				"Jar folder " + jarFolder.getAbsolutePath() + " should be a directory"
 		);
 		Collection<String> jarSet;
 		String[] jars = jarFolder.list();
@@ -660,10 +663,10 @@ public class PluginBuildTest
 
 				testString = jarPrefix + testString + ".jar";
 				testString = testString.toLowerCase();
-				Assert.assertTrue(
+				assertTrue(
+						jarSet.contains(testString),
 						"Jar for " + source
-								+ " should be present in jars list as " + testString,
-						jarSet.contains(testString)
+								+ " should be present in jars list as " + testString
 				);
 			}
 		}
@@ -686,9 +689,9 @@ public class PluginBuildTest
 	{
 		for (File folder : jarFolder)
 		{
-			Assert.assertTrue(
-					"Jar folder " + folder.getAbsolutePath() + " should be a directory",
-					folder.isDirectory()
+			assertTrue(
+					folder.isDirectory(),
+					"Jar folder " + folder.getAbsolutePath() + " should be a directory"
 			);
 		}
 		Collection<String> jarSet = new HashSet<>();
@@ -721,9 +724,9 @@ public class PluginBuildTest
 
 				testString += ".jar";
 				testString = testString.toLowerCase();
-				Assert.assertTrue(
-						"Jar for " + source + " should be present in jars list",
-						jarSet.contains(testString)
+				assertTrue(
+						jarSet.contains(testString),
+						"Jar for " + source + " should be present in jars list"
 				);
 			}
 		}

@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.template;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubRace;
 import pcgen.core.PCTemplate;
@@ -26,7 +29,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SubraceTokenTest extends
 		AbstractTypeSafeTokenTestCase<PCTemplate, SubRace>

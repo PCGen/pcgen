@@ -69,7 +69,6 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -169,7 +168,6 @@ import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.fact.GoldFacet;
-import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
@@ -300,7 +298,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private final IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private final GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private final HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
 	private final HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
@@ -637,6 +634,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			ChannelUtilities.setDirtyOnChannelChange(this, CControl.ALIGNMENTINPUT);
 		}
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
 	}
 
 	@Override
@@ -1395,19 +1393,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		BigDecimal g = goldFacet.get(id);
 		return (g == null) ? BigDecimal.ZERO : g;
-	}
-
-	/**
-	 * Sets the character's handedness.
-	 *
-	 * @param h A handedness to try and set.
-	 */
-	public void setHanded(final Handed h)
-	{
-		if (handedFacet.setHanded(id, h))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**

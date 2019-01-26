@@ -17,6 +17,12 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Objects;
@@ -34,8 +40,8 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.number.SetModifierFactory;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 public class DefaultVariableValueTokenTest extends
 		AbstractTokenTestCase<DefaultVarValue>
 {
@@ -51,6 +57,7 @@ public class DefaultVariableValueTokenTest extends
 	private static CDOMTokenLoader<DefaultVarValue> loader =
 			new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

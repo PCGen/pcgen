@@ -17,13 +17,15 @@
  */
 package plugin.lsttokens.add;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SpellCasterTokenTest extends
 		AbstractAddTokenTestCase<PCClass>

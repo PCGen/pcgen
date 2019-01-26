@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.equipment;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
@@ -24,7 +26,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractEqModTokenTestCase
 		extends AbstractListInputTokenTestCase<Equipment, EquipmentModifier>

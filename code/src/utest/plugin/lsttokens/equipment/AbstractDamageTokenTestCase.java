@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.equipment;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
@@ -26,7 +29,7 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractDamageTokenTestCase extends
 		AbstractCDOMTokenTestCase<Equipment>

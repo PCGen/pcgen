@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DescTokenTest extends AbstractStringTokenTestCase<Campaign>
 {

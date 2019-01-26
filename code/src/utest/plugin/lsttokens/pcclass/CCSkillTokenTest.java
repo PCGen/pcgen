@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -25,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class CCSkillTokenTest extends AbstractListInputTokenTestCase<PCClass, Skill>
 {

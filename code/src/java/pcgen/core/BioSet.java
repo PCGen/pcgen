@@ -605,7 +605,7 @@ public final class BioSet extends PObject implements NonInteractive
 		AgeSet old = ageMap.get(region, ageSet.getIndex());
 		if (old != null)
 		{
-			if (ageSet.hasBonuses() || !ageSet.getKits().isEmpty() || !ageSet.getName().equals(old.getName()))
+			if (ageSet.hasBonuses() || !ageSet.getKits().isEmpty() || !ageSet.getKeyName().equals(old.getKeyName()))
 			{
 				Logging.errorPrint(
 					"Found second (non-identical) AGESET " + "in Bio Settings " + sourceURI + " for Region: "
@@ -619,7 +619,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Integer addToNameMap(AgeSet ageSet)
 	{
-		return ageNames.put(ageSet.getName(), ageSet.getIndex());
+		return ageNames.put(ageSet.getKeyName(), ageSet.getIndex());
 	}
 
 	public Set<String> getAgeCategories()

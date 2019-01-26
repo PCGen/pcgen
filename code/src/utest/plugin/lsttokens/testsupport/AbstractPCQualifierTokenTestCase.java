@@ -16,6 +16,10 @@
  */
 package plugin.lsttokens.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
@@ -28,7 +32,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 		extends AbstractQualifierTokenTestCase<CDOMObject, T>

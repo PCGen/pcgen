@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
@@ -25,7 +27,7 @@ import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ItypeTokenTest extends
 		AbstractTypeSafeListTestCase<EquipmentModifier, String>

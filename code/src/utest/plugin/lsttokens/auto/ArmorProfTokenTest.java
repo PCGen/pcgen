@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.auto;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 {

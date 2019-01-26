@@ -17,6 +17,10 @@
  */
 package plugin.lsttokens.skill;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -32,8 +36,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
@@ -43,7 +47,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	private PCStat ps;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

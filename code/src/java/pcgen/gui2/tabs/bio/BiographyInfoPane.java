@@ -479,7 +479,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			ageModel.setListFacade(character.getAgeCategories());
 			ageModel.setReference(character.getAgeCategoryRef());
 			setComboBoxModel(ageModel);
-			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getAgeRef())
+			setTextFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getAgeRef())
 			{
 
 				@Override
@@ -560,7 +560,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			super("in_height", BiographyField.HEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getHeightUnit());
-			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getHeightRef())
+			setTextFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getHeightRef())
 			{
 
 				@Override
@@ -581,7 +581,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			super("in_weight", BiographyField.WEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getWeightUnit());
-			setFormattedFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getWeightRef())
+			setTextFieldHandler(new FormattedFieldHandler(new JFormattedTextField(), character.getWeightRef())
 			{
 
 				@Override

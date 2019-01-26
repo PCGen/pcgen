@@ -17,6 +17,10 @@
  */
 package plugin.lsttokens.skill;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.list.ClassSkillList;
@@ -30,9 +34,9 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
@@ -40,25 +44,18 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	static ClassesToken token = new ClassesToken();
 	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
-	private static boolean classSetUpFired = false;
-
-	@BeforeClass
+	@BeforeAll
 	public static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreClassParser());
-		classSetUpFired = true;
 	}
 
+	@BeforeEach
 	@Override
-	@Before
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{
 		super.setUp();
-		if (!classSetUpFired)
-		{
-			ltClassSetUp();
-		}
 	}
 
 	@Override

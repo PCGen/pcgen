@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.auto;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -28,7 +30,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 {

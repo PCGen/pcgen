@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.template;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.StringKey;
@@ -30,9 +32,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
@@ -59,7 +60,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -72,13 +73,6 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		SizeAdjustment sm = BuildUtilities.createSize("Medium", 1);
 		secondaryContext.getReferenceContext().importObject(sm);
 
-	}
-
-	@Override
-	@After
-	public void tearDown() throws Exception
-	{
-		super.tearDown();
 	}
 
 	@Test

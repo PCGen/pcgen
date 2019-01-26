@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.deity;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
@@ -27,7 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, WeaponProf>
 {

@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
@@ -26,7 +29,7 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractListInputTokenTestCase<T extends CDOMObject, TC extends Loadable>
 		extends AbstractCDOMTokenTestCase<T>
