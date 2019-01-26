@@ -35,6 +35,7 @@ VARIABLE:saa2__variables.lst
 
 
 ABILITY:saa2_abilities.lst
+ABILITY:saa2_feats.lst
 ABILITYCATEGORY:saa2_abilitycategories.lst
 RACE:saa2_races.lst
 
@@ -49,6 +50,7 @@ ARMORPROF:saa2_profs_armor.lst
 WEAPONPROF:saa2_profs_weapon.lst
 
 TEMPLATE:saa2_templates.lst
+SPELL:saa2_spells.lst
 
 
 ###Block: Revisions
