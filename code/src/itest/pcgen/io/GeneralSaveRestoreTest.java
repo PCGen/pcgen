@@ -17,9 +17,10 @@
  */
 package pcgen.io;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
 
@@ -35,10 +36,10 @@ import plugin.lsttokens.deprecated.TemplateFeatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
+
+class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 {
 
 	@Test
@@ -81,7 +82,7 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		assertEquals("Ab(English)", ExportHandler.getTokenString(pc, "TEMPLATE.0.FEAT"));
 		assertEquals("Ab(English)", ExportHandler.getTokenString(reloadedPC, "TEMPLATE.0.FEAT"));
 		reloadedPC.removeTemplate(pct);
-		Assert.assertFalse(reloadedPC.hasLanguage(lang));
+		assertFalse(reloadedPC.hasLanguage(lang));
 	}
 	
 	

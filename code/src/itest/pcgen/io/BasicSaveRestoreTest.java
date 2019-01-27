@@ -30,7 +30,8 @@ import pcgen.io.testsupport.AbstractSaveRestoreTest;
 import pcgen.output.channel.compat.AlignmentCompat;
 import plugin.lsttokens.pcclass.HdToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 {
