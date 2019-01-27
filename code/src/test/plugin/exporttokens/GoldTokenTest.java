@@ -25,7 +25,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.persistence.SourceFileLoader;
 import plugin.exporttokens.deprecated.GoldToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for the {@code GoldToken} class.

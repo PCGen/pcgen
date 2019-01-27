@@ -32,7 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 

@@ -26,7 +26,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.FavclassToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, PCClass>

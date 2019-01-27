@@ -36,7 +36,7 @@ import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.domain.CcskillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 

@@ -32,7 +32,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		extends AbstractTokenModelTest

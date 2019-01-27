@@ -27,8 +27,8 @@ import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEachClass;
+import org.junit.jupiter.api.Test;
 
 public class FactKeyActorTest extends AbstractOutputTestCase
 {
@@ -37,7 +37,7 @@ public class FactKeyActorTest extends AbstractOutputTestCase
 
 	private static boolean classSetUpRun = false;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		OutputDB.reset();

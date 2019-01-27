@@ -26,7 +26,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.race.HitdiceadvancementToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HitDiceAdvancementIntegrationTest extends
 		AbstractIntegrationTestCase<Race>

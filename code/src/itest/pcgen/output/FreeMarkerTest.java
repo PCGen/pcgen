@@ -29,9 +29,9 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeEachClass;
+import org.junit.jupiter.api.Test;
 
 public class FreeMarkerTest extends AbstractOutputTestCase
 {
@@ -47,7 +47,7 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 		wiFacet.initialize(dsid);
 	}
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		OutputDB.reset();

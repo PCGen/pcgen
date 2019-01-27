@@ -9,7 +9,7 @@ import pcgen.core.term.TermEvaulatorException;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.

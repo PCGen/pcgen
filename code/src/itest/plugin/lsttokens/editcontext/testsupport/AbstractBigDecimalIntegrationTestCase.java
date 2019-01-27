@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractBigDecimalIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>

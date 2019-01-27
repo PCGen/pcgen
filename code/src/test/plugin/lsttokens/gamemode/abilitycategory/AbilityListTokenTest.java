@@ -38,8 +38,8 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.token.CDOMToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code AbilityListTokenTest} verifies the processing of the

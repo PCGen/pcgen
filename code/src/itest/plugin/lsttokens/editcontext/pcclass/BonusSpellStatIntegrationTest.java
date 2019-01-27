@@ -30,8 +30,8 @@ import plugin.lsttokens.pcclass.BonusspellstatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class BonusSpellStatIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>

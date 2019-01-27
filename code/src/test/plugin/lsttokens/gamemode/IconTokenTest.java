@@ -23,8 +23,8 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code IconTokenTest} tests that the IconToken class is

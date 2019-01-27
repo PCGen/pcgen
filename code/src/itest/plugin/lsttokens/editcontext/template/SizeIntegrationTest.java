@@ -30,8 +30,8 @@ import plugin.lsttokens.template.SizeToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SizeIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>

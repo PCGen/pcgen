@@ -31,7 +31,7 @@ import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.TemplateLst;
 import plugin.lsttokens.choose.TemplateToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 import util.TestURI;
 

@@ -31,7 +31,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SpellCasterIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>

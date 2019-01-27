@@ -27,7 +27,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipment.AlttypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AltTypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Equipment>

@@ -43,8 +43,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeEachClass;
 import util.TestURI;
 
 public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable>
@@ -62,7 +62,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 
 	public abstract CDOMPrimaryToken<? super T> getToken();
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp() throws URISyntaxException
 	{
 		OutputDB.reset();

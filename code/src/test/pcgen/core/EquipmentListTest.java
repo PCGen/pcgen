@@ -27,9 +27,9 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code EquipmentListTest} checks the functionality of the EquipmentList class.
@@ -40,13 +40,13 @@ public class EquipmentListTest
 	private Equipment eq = null;
 	private static final String ORIGINAL_KEY = "OrigKey";
 
-	@BeforeClass
+	@BeforeAll
 	public static void beforeClass()
 	{
 		TestHelper.makeSizeAdjustments();
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		this.eq = new Equipment();

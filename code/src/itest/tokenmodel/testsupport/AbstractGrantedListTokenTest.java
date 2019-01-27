@@ -27,7 +27,7 @@ import pcgen.core.PCStat;
 import pcgen.core.character.CompanionMod;
 import pcgen.output.channel.compat.AlignmentCompat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		extends AbstractAddListTokenTest<T>
