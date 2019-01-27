@@ -32,7 +32,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
 import junit.framework.TestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class AbstractSourcedListFacetTest<T> extends TestCase

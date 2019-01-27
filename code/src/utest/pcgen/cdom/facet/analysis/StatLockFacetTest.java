@@ -31,7 +31,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class StatLockFacetTest extends

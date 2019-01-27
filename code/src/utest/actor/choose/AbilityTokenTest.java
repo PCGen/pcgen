@@ -27,8 +27,8 @@ import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code AbilityTokenTest} verifies the AbilityToken
@@ -42,7 +42,7 @@ public class AbilityTokenTest
 
 	private LoadContext context;
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		Globals.emptyLists();

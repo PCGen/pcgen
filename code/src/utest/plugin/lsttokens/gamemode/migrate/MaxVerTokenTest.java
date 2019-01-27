@@ -25,8 +25,8 @@ import static org.junit.Assert.assertTrue;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * MaxVerTokenTest checks the function of the MaxVerToken class.
@@ -38,7 +38,7 @@ public class MaxVerTokenTest
 	private MaxVerToken token;
 	private String gameModeName;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");

@@ -25,15 +25,13 @@ import static org.junit.Assert.assertTrue;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * NewCategoryTokenTest verifies that NewCategoryToken is operating correctly.
- * 
- * 
  */
-public class NewCategoryTokenTest
+class NewCategoryTokenTest
 {
 
 	private MigrationRule migrationRule;
@@ -41,7 +39,7 @@ public class NewCategoryTokenTest
 	private String gameModeName;
 
 	
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
