@@ -28,7 +28,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.util.enumeration.Load;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 public class UnencumberedArmorFacetTest extends
