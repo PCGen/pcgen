@@ -30,8 +30,8 @@ import plugin.lsttokens.skill.KeystatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {

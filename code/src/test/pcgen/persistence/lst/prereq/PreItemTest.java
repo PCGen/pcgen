@@ -23,7 +23,7 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreItemParser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreItemTest} is ...

@@ -23,7 +23,7 @@ import static org.hamcrest.number.IsCloseTo.closeTo;
 
 import java.util.Stack;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 

@@ -24,7 +24,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreKitParser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests PREKIT parsing

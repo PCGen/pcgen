@@ -72,7 +72,7 @@ class IconTokenTest
 	}
 
 	@Test
-	public void testInValidSyntax() throws Exception
+	void testInValidSyntax() throws Exception
 	{
 		GameMode gameMode = SettingsHandler.getGame();
 		EquipIconLstToken token = new IconToken();

@@ -70,7 +70,7 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 /**

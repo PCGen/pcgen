@@ -36,8 +36,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code CharacterAbilitiesTest} verifies the operation of the

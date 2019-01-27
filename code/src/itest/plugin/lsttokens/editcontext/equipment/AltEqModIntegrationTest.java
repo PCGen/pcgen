@@ -21,7 +21,7 @@ import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.equipment.AlteqmodToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
 {

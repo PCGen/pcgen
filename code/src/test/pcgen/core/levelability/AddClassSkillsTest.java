@@ -53,9 +53,9 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.TestHelper;
 
-import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.After;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests for Level Ability Class Skills

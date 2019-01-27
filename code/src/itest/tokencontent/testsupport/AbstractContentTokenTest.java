@@ -41,7 +41,7 @@ import pcgen.core.character.CompanionMod;
 import pcgen.output.channel.compat.AlignmentCompat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
