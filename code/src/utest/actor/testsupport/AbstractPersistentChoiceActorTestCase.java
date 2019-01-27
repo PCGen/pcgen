@@ -17,33 +17,33 @@
  */
 package actor.testsupport;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractPersistentChoiceActorTestCase<T>
 {
 	protected static final String ITEM_NAME = "ItemName";
 	protected LoadContext context;
 
-	@Before
-	public void setUp()
+	@BeforeEach
+	void setUp()
 	{
 		Globals.emptyLists();
 		context = Globals.getContext();
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
-	@After
-	public void tearDown()
+	@AfterEach
+	void tearDown()
 	{
 		Globals.emptyLists();
 		context = null;
