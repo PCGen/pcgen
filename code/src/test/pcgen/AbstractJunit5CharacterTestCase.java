@@ -18,7 +18,7 @@
  */
 package pcgen;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.math.BigDecimal;
 
@@ -54,8 +54,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 
 /**
@@ -63,7 +63,7 @@ import util.FormatSupport;
  * Object.
  */
 @SuppressWarnings("nls")
-public abstract class AbstractJunit4CharacterTestCase
+public abstract class AbstractJunit5CharacterTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -95,7 +95,7 @@ public abstract class AbstractJunit4CharacterTestCase
 	 * Object.
 	 * @throws Exception PersistenceLayerException
 	 */
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
@@ -119,7 +119,7 @@ public abstract class AbstractJunit4CharacterTestCase
 
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
-		
+
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 				FormulaFactory.getFormulaFor("STRSCORE"));
@@ -161,7 +161,7 @@ public abstract class AbstractJunit4CharacterTestCase
 		BuildUtilities.buildUnselectedRace(context);
 		AbstractReferenceContext ref = context.getReferenceContext();
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
-		
+
 		FormatSupport.addBasicDefaults(context);
 		FormatSupport.addNoneAsDefault(context,
 			context.getReferenceContext().getManufacturer(PCAlignment.class));
@@ -187,7 +187,7 @@ public abstract class AbstractJunit4CharacterTestCase
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		GameModeFileLoader.addDefaultWieldCategories(context);
-		
+
 		ref.importObject(str);
 		ref.importObject(dex);
 		ref.importObject(con);
@@ -239,12 +239,12 @@ public abstract class AbstractJunit4CharacterTestCase
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 */
-	public AbstractJunit4CharacterTestCase()
+	public AbstractJunit5CharacterTestCase()
 	{
 		super();
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		character = null;
