@@ -65,7 +65,7 @@ public class GlobalModifyTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages(TestURI.getURI());
-			fail("Test Setup Failed");
+			assertEquals("Test Setup Failed", ParseResult.SUCCESS, result);
 		}
 		finishLoad();
 	}
