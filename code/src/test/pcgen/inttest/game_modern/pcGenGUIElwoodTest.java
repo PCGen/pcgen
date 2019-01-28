@@ -22,7 +22,7 @@ package pcgen.inttest.game_modern;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a Modern Fast Hero 3/Infiltrator 3.

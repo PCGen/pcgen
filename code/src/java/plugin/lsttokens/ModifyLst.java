@@ -55,11 +55,6 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
-		/*
-		 * TODO CODE-3299 Need to check the object type of the VarHolder to make sure it
-		 * is legal. Note it's a proxy, so a @ReadOnly method needs to be used to support
-		 * the analysis.
-		 */
 		try
 		{
 			PCGenScope scope = context.getActiveScope();
@@ -95,6 +90,11 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	public static VarModifier<?> parseModifyInfo(LoadContext context,
 		String value, PCGenScope scope, String tokenName, int argsConsumed) throws ModifyException
 	{
+		/*
+		 * TODO CODE-3299 Need to check the object type of the VarHolder to make sure it
+		 * is legal. Note it's a proxy, so a @ReadOnly method needs to be used to support
+		 * the analysis.
+		 */
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');

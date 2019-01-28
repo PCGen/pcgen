@@ -19,7 +19,6 @@ package pcgen.gui2.facade;
 
 import java.util.Arrays;
 import java.util.EnumMap;
-import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -39,8 +38,6 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.system.LanguageBundle;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code DescriptionFacadeImpl} is an implementation of
@@ -69,8 +66,6 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	private final DefaultListFacade<NoteItem> notes;
 
 	private final Map<BiographyField, WriteableReferenceFacade<String>> bioData = new EnumMap<>(BiographyField.class);
-
-	private final DefaultListFacade<BiographyField> customBiographyFields;
 
 	private static DefaultReferenceFacade<String> newDefaultBioFieldFor(final PlayerCharacter pc, final PCStringKey key)
 	{
@@ -115,8 +110,6 @@ class DescriptionFacadeImpl implements DescriptionFacade
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
 		bioData.put(BiographyField.SPEECH_PATTERN,
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
-		customBiographyFields = new DefaultListFacade<>();
-		addCharacterCustomFields();
 	}
 
 	private void addDefaultNotes()
@@ -139,20 +132,6 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		NoteItem note = new NoteItem(0, -1, noteName, value);
 		note.setRequired(true);
 		return note;
-	}
-
-	/**
-	 * Add any custom biography fields already registered for the character.  
-	 */
-	private void addCharacterCustomFields()
-	{
-		for (BiographyField field : EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE))
-		{
-			if (StringUtils.isNotEmpty(getBiographyField(field).get()))
-			{
-				customBiographyFields.addElement(field);
-			}
-		}
 	}
 
 	@Override
@@ -291,17 +270,4 @@ class DescriptionFacadeImpl implements DescriptionFacade
 				+ " must use a dedicated setter."); //$NON-NLS-1$
 		}
 	}
-
-	@Override
-	public ListFacade<BiographyField> getCustomBiographyFields()
-	{
-		return customBiographyFields;
-	}
-
-	@Override
-	public void addCustomBiographyField(BiographyField field)
-	{
-		customBiographyFields.addElement(field);
-	}
-
 }

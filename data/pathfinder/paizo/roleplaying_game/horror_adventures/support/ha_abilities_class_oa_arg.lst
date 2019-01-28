@@ -1,0 +1,8 @@
+SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
+
+#Support
+Deep Slumber			KEY:Dreamstalker Spell ~ Deep Slumber			CATEGORY:Special Ability	TYPE:BonusDreamstalkerSpell					PRECLASS:1,Mesmerist=7																SPELLKNOWN:CLASS|Mesmerist=3|Deep Slumber
+Forgetful Slumber			KEY:Dreamstalker Spell ~ Forgetful Slumber		CATEGORY:Special Ability	TYPE:BonusDreamstalkerSpell					PRECLASS:1,Mesmerist=10																SPELLKNOWN:CLASS|Mesmerist=4|Forgetful Slumber
+
+Sow Thought				KEY:Hate-Monger Spell ~ Sow Thought				CATEGORY:Special Ability	TYPE:BonusHateMongerSpell																																		SPELLKNOWN:CLASS|Mesmerist=1|Sow Thought
+

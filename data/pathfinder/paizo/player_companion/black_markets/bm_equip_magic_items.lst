@@ -1,0 +1,42 @@
+SOURCELONG:Black Markets		SOURCESHORT:BM	SOURCEWEB:https://paizo.com/products/btpy9h7x	SOURCEDATE:2015-10
+
+# ==============================
+# Magic Items
+# ==============================
+
+Aspergillum Cloak			TYPE:Magic.Wondrous.Cloak				COST:8000	WT:1			SOURCEPAGE:p.22		BONUS:SAVE|ALL|1|TYPE=Resistance	SPROP:3/day, wearer can pour a vial of holy (unholy) water onto interior of cloak; for 7 minutes, the garment deals 2d4 points of damage to any undead or evil (good) outsider that strikes the wearer with a natural weapon.
+Congregant's Compass			TYPE:Magic.Wondrous					COST:21600	WT:.5			SOURCEPAGE:p.22
+Dissident's Gloves			TYPE:Magic.Wondrous.Glove				COST:1200	WT:1			SOURCEPAGE:p.23
+Effulgent Geode				TYPE:Magic.Wondrous					COST:2250	WT:1			SOURCEPAGE:p.23							SPROP:When hurled at a hard surface within 60 ft, it explodes in a 20-foot-radius burst of positive energy, healing 1d8+9 damage in living creatures, dealing 1d8+9 damage to undead (Fort DC 17 half).
+False Flag Tabard			TYPE:Magic.Wondrous.Bodywear				COST:5500	WT:1			SOURCEPAGE:p.23							SPROP:As a swift action, wearer can transform the image into her faith's holy symbol or back and can use the image as an actual holy symbol while displayed; 1/day as a standard action, wearer can grant all worshipers of their within a 60-foot-radius burst (including the wearer) +2 to AC and CMD for 5 minutes.
+Portable Pit (Acid)			TYPE:Magic.Wondrous					COST:10090	WT:1			SOURCEPAGE:p.21
+Portable Pit (Blunt)			TYPE:Magic.Wondrous					COST:2890	WT:1			SOURCEPAGE:p.21
+Portable Pit (Hungry)			TYPE:Magic.Wondrous					COST:16210	WT:1			SOURCEPAGE:p.21
+Portable Pit (Persistent)		TYPE:Magic.Wondrous					COST:14410	WT:1			SOURCEPAGE:p.21
+Portable Pit (Spiked)			TYPE:Magic.Wondrous					COST:2410	WT:1			SOURCEPAGE:p.21
+Recondite Holy Symbol			TYPE:Magic.Wondrous					COST:500	WT:1			SOURCEPAGE:p.23
+Uplifting Boots				TYPE:Magic.Wondrous.Boot				COST:11000	WT:2			SOURCEPAGE:p.23							SPROP:Wearer can sacrifice one use of channel energy, lay on hands, or fervor as a standard action to instead walk on air (as per the air walk spell) for the next minute.
+
+
+# ==============================
+# Cursed Items
+# ==============================
+
+Circlet of Spell-Eating I		TYPE:Magic.Wondrous.Cursed.Headgear			COST:1500				SOURCEPAGE:p.16
+Circlet of Spell-Eating II		TYPE:Magic.Wondrous.Cursed.Headgear			COST:6000				SOURCEPAGE:p.16
+Circlet of Spell-Eating III		TYPE:Magic.Wondrous.Cursed.Headgear			COST:13500				SOURCEPAGE:p.16
+Circlet of Spell-Eating IV		TYPE:Magic.Wondrous.Cursed.Headgear			COST:24000				SOURCEPAGE:p.16
+Spendthrift Spectacles			TYPE:Magic.Wondrous.Cursed.Eyegear			COST:6250				SOURCEPAGE:p.17
+Style-Stealing Vambrace			TYPE:Magic.Wondrous.Cursed.Bracer			COST:15000	WT:2			SOURCEPAGE:p.17
+Talisman of Spying			TYPE:Magic.Wondrous.Cursed				COST:15000	WT:1			SOURCEPAGE:p.17
+
+# ==============================
+# Necrocrafts
+# ==============================
+
+Necrocraft (Ghoulgut)			TYPE:Magic.Wondrous.Necrocraft				COST:16000				SOURCEPAGE:p.15
+Necrocraft (Gravespawn Gland)		TYPE:Magic.Wondrous.Necrocraft				COST:6200				SOURCEPAGE:p.15
+Necrocraft (Necrograft Arm)		TYPE:Magic.Wondrous.Necrocraft				COST:12000				SOURCEPAGE:p.15
+Necrocraft (Necrograft Leg)		TYPE:Magic.Wondrous.Necrocraft				COST:6400				SOURCEPAGE:p.15
+Necrocraft (Sallowflesh)		TYPE:Magic.Wondrous.Necrocraft				COST:20000				SOURCEPAGE:p.15
+Necrocraft (Strangler's Tongue)		TYPE:Magic.Wondrous.Necrocraft				COST:36000				SOURCEPAGE:p.15

@@ -165,7 +165,7 @@ CATEGORY=Class|Ninja.MOD	DEFINE:Ninja_CF_NinjaTrick20|0
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_ClassSkills=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_WeaponProficiencies=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_ArmorProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_ArmorProficiency=True
-CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_PoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_Poison=True
+CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_PoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_PoisonUse=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_SneakAttack|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_SneakAttack=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_NinjaTrick|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_Trick=True
 CATEGORY=Class|Ninja.MOD	BONUS:VAR|Ninja_CF_KiPool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ninja_CF_KiPool=True

@@ -17,14 +17,14 @@
  */
 package pcgen.io.freemarker;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.net.URI;
 import java.util.Collections;
 
-import pcgen.AbstractJunit4CharacterTestCase;
+import pcgen.AbstractJunit5CharacterTestCase;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -34,20 +34,15 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code PCHasVarFunctionTest} verifies the correctness of
  * the PCHasVarFunction class.
- *
- * <br/>
- * 
  */
 
-public class PCHasVarFunctionTest extends AbstractJunit4CharacterTestCase
+public class PCHasVarFunctionTest extends AbstractJunit5CharacterTestCase
 {
-
-
 	private Ability fooFeat;
 
 	@Override
@@ -76,13 +71,13 @@ public class PCHasVarFunctionTest extends AbstractJunit4CharacterTestCase
 		PCHasVarFunction pchv = new PCHasVarFunction(pc, eh);
 		
 		Boolean result = (Boolean) pchv.exec(Collections.singletonList("FooV"));
-		assertFalse("Should not have var", result);
+		assertFalse(result, "Should not have var");
 
 		addAbility(BuildUtilities.getFeatCat(), fooFeat);
 		pc.calcActiveBonuses();
-		assertTrue("Should have var FooV", pc.hasVariable("FooV"));
+		assertTrue(pc.hasVariable("FooV"), "Should have var FooV");
 		result = (Boolean) pchv.exec(Collections.singletonList("FooV"));
-		assertTrue("PCHasVar could not see FooV", result);
+		assertTrue(result, "PCHasVar could not see FooV");
 	}
 
 }

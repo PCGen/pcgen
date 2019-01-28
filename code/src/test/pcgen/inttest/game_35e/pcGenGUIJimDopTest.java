@@ -3,7 +3,7 @@ package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3.5e 2nd level Doppleganger Fighter with a Half-Dragon (Brass) 
