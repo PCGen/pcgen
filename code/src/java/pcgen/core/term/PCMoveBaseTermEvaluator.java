@@ -39,7 +39,7 @@ public class PCMoveBaseTermEvaluator extends BasePCDTermEvaluator implements Ter
 	@Override
 	public String evaluate(CharacterDisplay display)
 	{
-		return display.getBaseMovement().toString();
+		return Integer.toString(display.getBaseMovement());
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2019.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -26,24 +26,24 @@ import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.core.SimpleMovement;
+import pcgen.core.MoveClone;
 
 /**
- * MovementFacet is a Facet that tracks the Movement objects that are contained
+ * MovementFacet is a Facet that tracks the MoveClone objects that are contained
  * in a Player Character.
  * 
  */
-public class MovementFacet extends AbstractSourcedListFacet<CharID, SimpleMovement>
+public class MoveCloneFacet extends AbstractSourcedListFacet<CharID, MoveClone>
 		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
-	 * Adds to this Facet the Movement objects contained within a CDOMObject
+	 * Adds to this Facet the MoveClone objects contained within a CDOMObject
 	 * granted to the Player Character.
 	 * 
-	 * Triggered when one of the Facets to which MovementFacet listens fires a
+	 * Triggered when one of the Facets to which MoveCloneFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
@@ -55,12 +55,7 @@ public class MovementFacet extends AbstractSourcedListFacet<CharID, SimpleMoveme
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<SimpleMovement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
-		if (ml != null)
-		{
-			addAll(dfce.getCharID(), ml, cdo);
-		}
-		ml = cdo.getListFor(ListKey.SIMPLEMOVEMENT);
+		List<MoveClone> ml = cdo.getListFor(ListKey.MOVEMENTCLONE);
 		if (ml != null)
 		{
 			addAll(dfce.getCharID(), ml, cdo);
@@ -68,10 +63,10 @@ public class MovementFacet extends AbstractSourcedListFacet<CharID, SimpleMoveme
 	}
 
 	/**
-	 * Removes from this Facet the Movement objects contained within a
+	 * Removes from this Facet the MoveClone objects contained within a
 	 * CDOMObject removed from the Player Character.
 	 * 
-	 * Triggered when one of the Facets to which MovementFacet listens fires a
+	 * Triggered when one of the Facets to which MoveCloneFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
@@ -91,10 +86,10 @@ public class MovementFacet extends AbstractSourcedListFacet<CharID, SimpleMoveme
 	}
 
 	/**
-	 * Initializes the connections for MovementFacet to other facets.
+	 * Initializes the connections for MoveCloneFacet to other facets.
 	 * 
 	 * This method is automatically called by the Spring framework during
-	 * initialization of the MovementFacet.
+	 * initialization of the MoveCloneFacet.
 	 */
 	public void init()
 	{

@@ -33,6 +33,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
@@ -1150,25 +1151,25 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.calcActiveBonuses();
 		pc.adjustMoveRates();
 		CharacterDisplay display = pc.getDisplay();
-		assertEquals(0.0, display.movementOfType("Swim"), 0.1);
-		assertEquals(0.0, display.movementOfType("Fly"), 0.1);
+		assertEquals(0.0, display.movementOfType(MovementType.getConstant("Swim")), 0.1);
+		assertEquals(0.0, display.movementOfType(MovementType.getConstant("Fly")), 0.1);
 
 		addAbility(BuildUtilities.getFeatCat(), quickFlySlowSwim);
 		pc.calcActiveBonuses();
 		pc.adjustMoveRates();
-		assertEquals(10.0, display.movementOfType("Swim"), 0.1);
-		assertEquals(30.0, display.movementOfType("Fly"), 0.1);
+		assertEquals(10.0, display.movementOfType(MovementType.getConstant("Swim")), 0.1);
+		assertEquals(30.0, display.movementOfType(MovementType.getConstant("Fly")), 0.1);
 
 		pc.addTemplate(template);
 		pc.adjustMoveRates();
-		assertEquals(30.0, display.movementOfType("Swim"), 0.1);
-		assertEquals(30.0, display.movementOfType("Fly"), 0.1);
+		assertEquals(30.0, display.movementOfType(MovementType.getConstant("Swim")), 0.1);
+		assertEquals(30.0, display.movementOfType(MovementType.getConstant("Fly")), 0.1);
 
 		pc.addTemplate(template2);
 		pc.adjustMoveRates();
-		assertEquals(30.0, display.movementOfType("Swim"), 0.1);
-		assertEquals(30.0, display.movementOfType("Fly"), 0.1);
-		assertEquals(60.0, display.movementOfType("Dig"), 0.1);
+		assertEquals(30.0, display.movementOfType(MovementType.getConstant("Swim")), 0.1);
+		assertEquals(30.0, display.movementOfType(MovementType.getConstant("Fly")), 0.1);
+		assertEquals(60.0, display.movementOfType(MovementType.getConstant("Dig")), 0.1);
 	}
 
 	@Test

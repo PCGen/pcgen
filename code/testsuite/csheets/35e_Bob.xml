@@ -109,10 +109,10 @@ BIO
 			</move>
 			<move>
 				<name>Fly</name>
-				<rate>445 ft.</rate>
-				<squares>89</squares>
+				<rate>345 ft.</rate>
+				<squares>69</squares>
 			</move>
-			<all>Walk 565 ft., Fly 445 ft.</all>
+			<all>Walk 565 ft., Fly 345 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>

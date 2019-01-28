@@ -18,11 +18,13 @@
 package tokencontent;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.MovementFacet;
-import pcgen.core.Movement;
+import pcgen.core.SimpleMovement;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.MoveLst;
 
 import tokencontent.testsupport.AbstractContentTokenTest;
@@ -63,13 +65,9 @@ public class GlobalMoveTest extends AbstractContentTokenTest
 	protected boolean containsExpected()
 	{
 		//Cannot use contains because facet is using instance identity
-		Movement movement = moveFacet.getSet(id).iterator().next();
-		return (movement.getMoveRatesFlag() == 0)
-			&& (movement.getDoubleMovement() == 30.0)
-			&& (movement.getMovementMult(0) == 0.0)
-			&& (movement.getMovementMultOp(0).length() == 0)
-			&& movement.getMovementType(0).equals("Fly")
-			&& (movement.getNumberOfMovements() == 1);
+		SimpleMovement movement = moveFacet.getSet(id).iterator().next();
+		return movement.getMovementType().equals(MovementType.getConstant("Fly"))
+			&& (movement.getMovement() == 30);
 	}
 
 	@Override
