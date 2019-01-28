@@ -301,6 +301,7 @@ task genDataList doLast {
     publisherMap.put("paizo","Paizo Publishing");
     publisherMap.put("parents_basement_games","Parents Basement Games");
     publisherMap.put("pcgen","PCGen OGL");
+    publisherMap.put("pfsrd_publishing","Open Game Network (d20pfsrd)");
     publisherMap.put("pinnacle_entertainment","Pinnacle Entertainment");
     publisherMap.put("reality_deviant","Reality Deviant Publications");
     publisherMap.put("rite","Rite Publishing");
