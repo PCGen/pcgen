@@ -96,7 +96,7 @@ public class CharacterUtils
 						//
 						// Need to resize to fit?
 						//
-						if (!pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
+						if (!pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE).get()))
 						{
 							eq.resizeItem(aPC, pcSizeAdj);
 						}
