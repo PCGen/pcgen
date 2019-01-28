@@ -36,6 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Agents of Evil" Copyri
 
 ABILITY:aoe_abilities.lst
 ABILITY:aoe_abilities_class.lst
+ABILITY:aoe_abilities_race.lst
 ABILITYCATEGORY:aoe_abilitycategories.lst
 CLASS:aoe_classes.lst
 EQUIPMENT:aoe_equip_arms_armor.lst
