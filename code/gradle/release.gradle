@@ -187,47 +187,78 @@ launch4j {
 task downloadJRE doLast {
     def major = 11
     def archs = ['x64','x32']
-    def osList = ['windows']
+    def osList = ['windows', 'mac']
     def extension = 'zip'
     osList.each{
         def os = "${it}"
+        if(os != "windows") {
+            extension = 'tar.gz'
+        }
         archs.each {
             def arch = "${it}"
+            if(os == "mac" && arch == "x32"){
+                return
+            }
             def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
-            def jreDir = new File("${projectDir}/jre/jre_${arch}")
+            def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
             if(!jreDir.exists()){
                 //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
-                println("Downloading Java ${major} from ${url}")
+                println("Downloading Java ${major} ${arch} for ${os} from ${url}")
                 if(!jreDir.exists()){
                     download {
                         src url
-                        dest new File("${projectDir}/jre/", "jre_${arch}.${extension}")
+                        dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
                         overwrite false
                     }
                     //Now untar them
-                    fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
-                        copy {
-                            println "Unzip $simLib.name"
-                            def name = simLib.name - '.$extension'
-                            def zipFile = file("${projectDir}/jre/${simLib.name}")
-                            def outputDir = "${projectDir}/jre/jre_${arch}/"
-                            from zipTree(zipFile)
-                            into outputDir
-                            eachFile { fcd ->
-                                def relPath = fcd.relativePath
-                                if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
-                                    fcd.exclude()
-                                } else {
-                                    def segments = relPath.segments
-                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                    if(extension == "zip"){
+                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                            copy {
+                                println "Unzip $simLib.name"
+                                def name = simLib.name - '.$extension'
+                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+                                
+                                from zipTree(zipFile)
+                                into outputDir
+                                eachFile { fcd ->
+                                    def relPath = fcd.relativePath
+                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                        fcd.exclude()
+                                    } else {
+                                        def segments = relPath.segments
+                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    }
                                 }
                             }
+                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
                         }
-                        new File("${projectDir}/jre/${simLib.name}").delete()
+                    } else {
+                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                            copy {
+                                println "Unzip $simLib.name"
+                                def name = simLib.name - '.$extension'
+                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+                                
+                                from tarTree(zipFile)
+                                into outputDir
+                                eachFile { fcd ->
+                                    def relPath = fcd.relativePath
+                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                        fcd.exclude()
+                                    } else {
+                                        def segments = relPath.segments
+                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    }
+                                }
+                            }
+                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
+                        }
                     }
-                    file("${projectDir}/jre/jre_${arch}").list().each { f->
+                    file("${projectDir}/jre/${os}/jre_${arch}").list().each { f->
                         if(f.startsWith("jdk")) {
-                            file("${projectDir}/jre/jre_${arch}/"+f).deleteDir()
+                            file("${projectDir}/jre/${os}/jre_${arch}/"+f).deleteDir()
                         }
                     }
                 }
