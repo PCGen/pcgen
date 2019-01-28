@@ -17,15 +17,14 @@
  */
 package pcgen.gui2.facade;
 
-import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
@@ -114,12 +113,12 @@ class DescriptionFacadeImpl implements DescriptionFacade
 
 	private void addDefaultNotes()
 	{
-		notes.addElement(createDefaultNote(NOTE_NAME_BIO, charDisplay.getBio()));
-		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, charDisplay.getSafeStringFor(PCStringKey.DESCRIPTION)));
-		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION, charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));
-		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS, charDisplay.getSafeStringFor(PCStringKey.ASSETS)));
-		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS, charDisplay.getSafeStringFor(PCStringKey.MAGIC)));
-		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES, charDisplay.getSafeStringFor(PCStringKey.GMNOTES)));
+		notes.addElement(createDefaultNote(NOTE_NAME_BIO, PCStringKey.BIO));
+		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, PCStringKey.DESCRIPTION));
+		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION, PCStringKey.COMPANIONS));
+		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS, PCStringKey.ASSETS));
+		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS, PCStringKey.MAGIC));
+		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES, PCStringKey.GMNOTES));
 	}
 
 	/**
@@ -127,11 +126,9 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	 * @param value
 	 * @return note
 	 */
-	private NoteItem createDefaultNote(String noteName, String value)
+	private NoteItem createDefaultNote(String noteName, PCStringKey key)
 	{
-		NoteItem note = new NoteItem(0, -1, noteName, value);
-		note.setRequired(true);
-		return note;
+		return new NoteItem(key, 0, -1, noteName, charDisplay.getSafeStringFor(key));
 	}
 
 	@Override
@@ -166,18 +163,14 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	public void setNote(NoteItem noteItem, String text)
 	{
 		noteItem.setValue(text);
-		if (noteItem.isRequired())
-		{
-			String noteName = noteItem.getName();
-			NotePCAttribute whichAttr = NotePCAttribute.getByNoteName(noteName);
-			theCharacter.setPCAttribute(whichAttr, text);
-		}
+		Optional<PCStringKey> stringKey = noteItem.getPCStringKey();
+		stringKey.ifPresent(key -> theCharacter.setPCAttribute(key, text));
 	}
 
 	@Override
 	public void renameNote(NoteItem noteItem, String newName)
 	{
-		if (noteItem.isRequired())
+		if (noteItem.getPCStringKey().isPresent())
 		{
 			return;
 		}
@@ -189,7 +182,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	@Override
 	public void deleteNote(NoteItem note)
 	{
-		if (note.isRequired())
+		if (note.getPCStringKey().isPresent())
 		{
 			return;
 		}
@@ -245,29 +238,9 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void setBiographyField(final BiographyField field, final String newValue)
+	public void setBiographyField(PCStringKey attribute, final String newValue)
 	{
-		/**
-		 * The Set of BiographyField objects that can be directlySet since they are
-		 * related to a PCAttribute.
-		 */
-		Set<BiographyField> canBeDirectlySet = Arrays.stream(BiographyField.values())
-			.filter(x -> (x.getPcattr() != null)).collect(Collectors.toSet());
-
-		if (canBeDirectlySet.contains(field))
-		{
-			bioData.get(field).set(newValue);
-			theCharacter.setPCAttribute(field.getPcattr(), newValue);
-		}
-		else if (field == BiographyField.REGION)
-		{
-			throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-				+ " cannot be set from the UI."); //$NON-NLS-1$
-		}
-		else
-		{
-			throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-				+ " must use a dedicated setter."); //$NON-NLS-1$
-		}
+		Objects.requireNonNull(attribute);
+		theCharacter.setPCAttribute(attribute, newValue);
 	}
 }

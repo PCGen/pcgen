@@ -19,9 +19,10 @@ package pcgen.io.exporttoken;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
 import plugin.exporttokens.TextToken;
 
 /**
@@ -36,7 +37,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 		character.setName("The Vitamins are in my Fresh Brussels Sprouts");
-		character.setPCAttribute(PCAttribute.INTERESTS, "one potatoe. two potatoe. mORe");
+		character.setPCAttribute(PCStringKey.INTERESTS, "one potatoe. two potatoe. mORe");
 	}
 
 	/**
@@ -60,7 +61,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		assertEquals("TEXT.SENTENCE.NAME",
 			"The vitamins are in my fresh brussels sprouts", tok.getToken(
 				"TEXT.SENTENCE.NAME", character, eh));
-		character.setPCAttribute(PCAttribute.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
+		character.setPCAttribute(PCStringKey.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
 		assertEquals("TEXT.SENTENCE.INTERESTS",
 			"One potatoe. Two potatoe. More", tok.getToken(
 				"TEXT.SENTENCE.INTERESTS", character, eh));
