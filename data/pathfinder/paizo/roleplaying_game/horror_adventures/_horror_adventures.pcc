@@ -1,0 +1,96 @@
+CAMPAIGN:Horror Adventures
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:2
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:7,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Bestiary,INCLUDES=Ultimate Wilderness
+PRECAMPAIGN:1,INCLUDES=Occult Adventures
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Horror Adventures
+SOURCESHORT:HA
+SOURCEWEB:http://paizo.com/products/btpy9n5a
+SOURCEDATE:2016-08
+ISOGL:YES
+
+COVER:horror_adventures.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9n5a|Download this publication from Paizo Publishing!
+
+DESC:There are things that dwell in the dark places of the world, in long-abandoned crypts or musty attics-terrible things that can destroy your body and shatter your mind. Few individuals would think to seek out such nightmares, but those drawn into the darkness often find it infecting them, corrupting them in ways both subtle and disgusting. Some believe those who die facing such horrors are the lucky ones, for the survivors are forever scarred by their experiences.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfnder Roleplaying Game Core Rulebook Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Fiends Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, and Robert J. Schwalb.
+COPYRIGHT:Kobold Quarterly, Issue 7 Copyright 2008, Open Design LLC, www.koboldquarterly.com; Authors: John Baichtal, Wolfgang Baur, Ross Byers, Matthew Cicci, John Flemming, Jeremy Jones, Derek Kagemann, Phillip Larwood, Richard Pett, and Stan!
+COPYRIGHT:Bat, Mobat from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Crypt Thing from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Dark Stalker from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Demon, Nabasu from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Demon, Shadow from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Neville White.
+COPYRIGHT:Hangman Tree from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Mongrelman from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Poltergeist from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Lewis Pulsipher.
+COPYRIGHT:Rot Grub from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Scarecrow from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Zombie, Juju from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfnder Roleplaying Game Horror Adventures Copyright 2016, Paizo Inc.; Authors: John Bennett, Clinton J. Boomer, Logan Bonner, Robert Brookes, Jason Bulmahn, Ross Byers, Jim Groves, Steven Helt, Thurston Hillman, Eric Hindley, Brandon Hodge, Mikko Kallio, Jason Nelson, Tom Phillips, Stephen Radney-MacFarland, Alistair Rigg, Alex Riggs, David N. Ross, F. Wesley Schneider, David Schwartz, Mark Seifter, and Linda Zayas-Palmer.
+COPYRIGHT:PCGen dataset conversion for "Pathfnder Roleplaying Game Horror Adventures" Copyright 2018, PCGen Data team (Including, but not limited to Andy Lijewski, Gwen T., Paul Grosse and Andrew Maitland).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+ABILITY:ha_abilities.lst
+ABILITY:ha_abilities_class.lst
+ABILITY:ha_abilities_companion.lst
+ABILITY:ha_abilities_race.lst
+ABILITYCATEGORY:ha_abilitycategories.lst
+CLASS:ha_classes.lst
+COMPANIONMOD:ha_companionmods.lst
+DOMAIN:ha_domains.lst
+EQUIPMENT:ha_equip_arms_armor.lst
+EQUIPMENT:ha_equip_general.lst
+EQUIPMENT:ha_equip_magic_items.lst
+EQUIPMOD:ha_equipmods.lst
+ABILITY:ha_feats.lst
+KIT:ha_kits_companion.lst
+KIT:ha_kits_race.lst
+LANGUAGE:ha_languages.lst
+WEAPONPROF:ha_profs_weapon.lst
+RACE:ha_races.lst
+RACE:ha_races_companion.lst
+SKILL:ha_skills.lst
+SPELL:ha_spells.lst
+TEMPLATE:ha_templates.lst
+
+
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+FORWARDREF:ABILITY=Special Ability|Grab ~ Bite/Tail Slap,Grab ~ Medium,Grab ~ One Size Larger
+FORWARDREF:RACE|Familiar (Aether Wysp),Familiar (Air Wysp),Familiar (Earth Wysp),Familiar (Fire Wysp),Familiar (Water Wysp)
+
+ABILITY:support/ha_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+ABILITY:support/ha_abilities_class_oa_arg.lst|PRECAMPAIGN:2,INCLUDES=Occult Adventures,INCLUDES=Advanced Race Guide
+ABILITY:support/ha_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+ABILITY:support/ha_abilities_race_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+
+
+
+# ENTRY DATE: 2018-09
+# LST MONKEY: Gwen T.
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.03
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.03

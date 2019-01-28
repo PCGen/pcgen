@@ -1,0 +1,43 @@
+SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
+
+#Undead Phantom
+FOLLOWER:UndeadPhantomMasterLVL=1	TYPE:Undead Phantom		DEFINE:PhantomMasterLevel|0	BONUS:VAR|PhantomMasterLevel|mastervar("PhantomMasterLVL")
+
+FOLLOWER:UndeadPhantomMasterLVL=1	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Darkvision
+FOLLOWER:UndeadPhantomMasterLVL=1	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Link
+FOLLOWER:UndeadPhantomMasterLVL=1	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Share Spells
+FOLLOWER:UndeadPhantomMasterLVL=1	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Undead Phantom ~ Cling of the Grave
+FOLLOWER:UndeadPhantomMasterLVL=3	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Deliver Touch Spells
+FOLLOWER:UndeadPhantomMasterLVL=4	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Magic Attacks
+FOLLOWER:UndeadPhantomMasterLVL=5	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Ability Score Increase
+FOLLOWER:UndeadPhantomMasterLVL=5	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Undead Phantom ~ Unnatural Aura
+FOLLOWER:UndeadPhantomMasterLVL=5	TYPE:Undead Phantom	BONUS:VAR|PhantomSlamProgression|-1
+FOLLOWER:UndeadPhantomMasterLVL=6	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Undead Phantom ~ Channel Resistance
+FOLLOWER:UndeadPhantomMasterLVL=9	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Incorporeal Flight
+FOLLOWER:UndeadPhantomMasterLVL=13	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Undead Phantom ~ Lifedrinker
+FOLLOWER:UndeadPhantomMasterLVL=13	TYPE:Undead Phantom	BONUS:VAR|PhantomSlamProgression|-1
+FOLLOWER:UndeadPhantomMasterLVL=1	TYPE:Undead Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Progression
+
+FOLLOWER:UndeadPhantomMasterLVL=2	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=3	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=5	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=6	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=7	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=9	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=10	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=11	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=13	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=14	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=15	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=17	TYPE:Undead Phantom	HD:1
+FOLLOWER:UndeadPhantomMasterLVL=19	TYPE:Undead Phantom	HD:1
+
+#Gingerbread Familiar
+FOLLOWER:GingerbreadFamiliar=1	TYPE:Familiar		TEMPLATE:Gingerbread Familiar
+
+#Favored Class Bonus support
+FOLLOWER:GnomeDruidFCB_Companion_DR=1			TYPE:Animal Companion		DR:1/Cold Iron
+FOLLOWER:GnomeDruidFCB_Companion_DR=2			TYPE:Animal Companion		BONUS:DR|Cold Iron|1
+FOLLOWER:GnomeDruidFCB_Companion_DR=3			TYPE:Animal Companion		BONUS:DR|Cold Iron|1
+FOLLOWER:GnomeDruidFCB_Companion_DR=4			TYPE:Animal Companion		BONUS:DR|Cold Iron|1
+FOLLOWER:GnomeDruidFCB_Companion_DR=5			TYPE:Animal Companion		BONUS:DR|Cold Iron|1
