@@ -22,10 +22,10 @@
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -44,15 +44,15 @@ import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class PObjectLoaderTest
+class PObjectLoaderTest
 {
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 */
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
@@ -74,8 +74,8 @@ public class PObjectLoaderTest
 	public void testBadDefine() throws Exception
 	{
 		Ability feat = new Ability();
-		assertFalse("Parse fails for badly formed define",
-				Globals.getContext().processToken(feat, "DEFINE", "Foo"));
+		assertFalse(
+				Globals.getContext().processToken(feat, "DEFINE", "Foo"), "Parse fails for badly formed define");
 	}
 
 	@Test
@@ -89,8 +89,8 @@ public class PObjectLoaderTest
 
 		Ability feat = new Ability();
 
-		assertTrue("Parse fails for unlock",
-				context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"));
+		assertTrue(
+				context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), "Parse fails for unlock");
 		context.commit();
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		Logging.clearParseMessages();
@@ -104,9 +104,9 @@ public class PObjectLoaderTest
 	public void testBadUnlockDefine() throws Exception
 	{
 		Ability feat = new Ability();
-		assertFalse("Parse fails to catch bad unlock definestat",
+		assertFalse(
 				Globals.getContext()
-				       .processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"));
+				       .processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"), "Parse fails to catch bad unlock definestat");
 	}
 
 	@Test
@@ -122,7 +122,8 @@ public class PObjectLoaderTest
 
 		context.unconditionallyProcess(object, "PRE", Constants.LST_DOT_CLEAR);
 		List<Prerequisite> prerequisiteList = object.getPrerequisiteList();
-		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", prerequisiteList);
-		assertTrue("Prereqlist should be empty after the clear", prerequisiteList.isEmpty());
+		assertNotNull(prerequisiteList,
+				"Prereq list should never be null as it is used in foreach loops directly.");
+		assertTrue(prerequisiteList.isEmpty(), "Prereqlist should be empty after the clear");
 	}
 }
