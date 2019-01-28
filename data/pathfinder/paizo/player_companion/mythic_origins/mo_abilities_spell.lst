@@ -1,0 +1,7 @@
+###Block: Mythic Spells
+# Mythic Spells
+# Ability Name					Category of Ability			Type						Req. Known Spell
+Borrowed Time				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Borrowed Time
+Elemental Bombardment		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Elemental Bombardment
+Imbue with Flight			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Imbue with Flight
+Soulreaver					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Soulreaver
