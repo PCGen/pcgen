@@ -1,0 +1,65 @@
+CAMPAIGN:Black Markets
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Black Markets
+SOURCESHORT:BM
+SOURCEWEB:https://paizo.com/products/btpy9h7x
+SOURCEDATE:2015-10
+ISOGL:YES
+
+COVER:black_markets.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|https://paizo.com/products/btpy9h7x|Buy this publication from Paizo Publishing!
+DESC:Good Deals, Bad People. When the right tool for the job is on the wrong side of the law, it's time to look for it in the black markets! This player-focused volume includes dozens of items and rare spells not sold in any legal shop but still of great use to adventuring characters, as well as spells, feats, and character archetypes to help keep those illegal goods hidden. From new poisons and portable traps to necromantic magic items and eldritch smuggling tools, Pathfinder Player Companion: Black Markets has every underhanded implement you may desire when legality isn't a concern!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Black Markets Copyright 2015, Paizo Inc.; Authors: Ron Lundeen, Jason Nelson, David N. Ross, and David Schwartz.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Black Markets" Copyright 2019, PCgen Data team (including but not limited to Gwen T. (evilpixie87), Paul Grosse and Andrew Maitland)
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:bm_abilities.lst
+ABILITY:bm_abilities_class.lst
+ABILITYCATEGORY:bm_abilitycategories.lst
+EQUIPMENT:bm_equip_general.lst
+EQUIPMENT:bm_equip_magic_items.lst
+ABILITY:bm_feats.lst
+SKILL:bm_skills.lst
+SPELL:bm_spells.lst
+
+
+ABILITY:support/bm_abilities_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:support/bm_abilities_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+
+FORWARDREF:CLASSSPELLLIST|Bloodrager,Medium,Mesmerist,Occultist,Psychic,Shaman,Spiritualist
+
+# ENTRY DATE: 2019-01
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.08
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+#
+# End
+#
