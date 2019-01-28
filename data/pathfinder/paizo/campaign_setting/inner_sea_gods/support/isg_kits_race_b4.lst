@@ -1,0 +1,71 @@
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Jason D
+
+STARTPACK:The First Blade Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The First Blade],[!PRERACE:1,%]	SOURCEPAGE:p.288
+ALIGN:CN
+RACE:The First Blade	!PRERACE:1,%
+NAME:The First Blade
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics				RANK:18
+SKILL:Climb						RANK:18
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (History)		RANK:18
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Slam)
+
+
+STARTPACK:Steward of the Skein Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Steward of the Skein],[!PRERACE:1,%]	SOURCEPAGE:p.302
+ALIGN:TN
+RACE:Steward of the Skein	!PRERACE:1,%
+NAME:Steward of the Skein
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Bluff						RANK:10
+SKILL:Diplomacy					RANK:10
+SKILL:Fly						RANK:9
+SKILL:Handle Animal				RANK:10
+SKILL:Heal						RANK:19
+SKILL:Intimidate				RANK:19
+SKILL:Knowledge (History)		RANK:19
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Knowledge (Planes)		RANK:19
+SKILL:Knowledge (Religion)		RANK:19
+SKILL:Perception				RANK:19
+SKILL:Sense Motive				RANK:19
+SKILL:Stealth					RANK:9
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spell Penetration
+LANGBONUS:Common|Draconic
+
+
+STARTPACK:Psychopomp (Ahmuuth) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Ahmuuth)],[!PRERACE:1,%]	SOURCEPAGE:p.303
+ALIGN:TN
+RACE:Psychopomp (Ahmuuth)	!PRERACE:1,%
+NAME:Ahmuuth Psychopomp
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Sense Motive				RANK:6
+SKILL:Stealth					RANK:6
+SKILL:Survival					RANK:6
+SKILL:Use Magic Device			RANK:6
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Focus (Dagger)
+GEAR:Dagger		SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Returning ~ Thrown.Special Ability ~ Bane ~ Weapon|Undead Bane

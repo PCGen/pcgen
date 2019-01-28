@@ -19,10 +19,11 @@ package pcgen.output.wrapper;
 
 import java.util.Date;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.DateModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A DateWrapper is an ObjectWrapper capable of producing a TemplateModel for

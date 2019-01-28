@@ -86,7 +86,6 @@ import pcgen.core.analysis.RaceUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
@@ -196,9 +195,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 		this.uiDelegate = delegate;
 		selectedCampaigns = new ArrayList<>();
-		for (CampaignFacade campaign : selection.getCampaigns())
+		for (Campaign campaign : selection.getCampaigns())
 		{
-			Campaign camp = Globals.getCampaignKeyed(campaign.getName());
+			Campaign camp = Globals.getCampaignKeyed(campaign.getKeyName());
 			selectedCampaigns.add(camp);
 		}
 		selectedGame = SystemCollections.getGameModeNamed(selection.getGameMode().get().getName());
@@ -468,9 +467,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Globals.emptyLists();
 		PersistenceManager pManager = PersistenceManager.getInstance();
 		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : selectedCampaigns)
+		for (Campaign campaign : selectedCampaigns)
 		{
-			uris.add(((Campaign) campaignFacade).getSourceURI());
+			uris.add(campaign.getSourceURI());
 		}
 		pManager.setChosenCampaignSourcefiles(uris);
 
@@ -694,7 +693,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @param control
 	 *            The CodeControl to be enabled using its default values
 	 */
-	public static void enableBuiltInControl(LoadContext context,
+	private static void enableBuiltInControl(LoadContext context,
 		CControl control)
 	{
 		AbstractReferenceContext referenceContext = context.getReferenceContext();
@@ -939,7 +938,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @param aSelectedCampaignsList
 	 *            List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	public static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
 		aSelectedCampaignsList.sort(new Comparator<Campaign>()
 		{
@@ -947,7 +946,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			@Override
 			public int compare(Campaign c1, Campaign c2)
 			{
-				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
+				return c2.getSafe(IntegerKey.CAMPAIGN_RANK) - c1.getSafe(IntegerKey.CAMPAIGN_RANK);
 			}
 
 		});

@@ -12,10 +12,13 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
+import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +35,13 @@ public class FeatTest
 	{
 		TestHelper.loadPlugins();
 		Globals.getContext().getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		SettingsHandler.getGame().clearLoadContext();
+		TokenRegistration.clearTokens();
 	}
 
 	/**

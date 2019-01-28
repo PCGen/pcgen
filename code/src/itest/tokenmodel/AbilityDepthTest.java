@@ -66,7 +66,6 @@ public final class AbilityDepthTest extends AbstractTokenModelTest
 	                         String firstPrefix, CDOMToken<? super Ability> secondToken,
 	                         String secondPrefix)
 	{
-		super("Test_" + name);
 		this.firstToken = firstToken;
 		this.firstPrefix = firstPrefix;
 		this.secondToken = secondToken;
@@ -111,7 +110,7 @@ public final class AbilityDepthTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected void runTest() throws Throwable
+	protected void runTest()
 	{
 		Ability top = createAbility("TopAbility");
 		Ability mid = createAbility("MidAbility");

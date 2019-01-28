@@ -20,9 +20,6 @@ package pcgen.output.model;
 import java.text.MessageFormat;
 import java.util.Objects;
 
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -31,6 +28,10 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.helper.InfoUtilities;
 import pcgen.util.Logging;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A InfoModel is a TemplateHashModel that wraps the Info data in a CDOMObject

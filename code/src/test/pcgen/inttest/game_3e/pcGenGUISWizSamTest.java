@@ -21,7 +21,7 @@ import java.io.IOException;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 1st level Halfling Wizard(Transmuter).

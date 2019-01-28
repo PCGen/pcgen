@@ -17,15 +17,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PrereqHandlerTest extends AbstractCharacterTestCase
 {
 	/**
-	 * Default constructor
-	 * @param name
-	 */
-	public PrereqHandlerTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
 	 * Test the passes method. Currently this concentrates on making sure
 	 * the invert result is working.
 	 *
@@ -44,16 +35,16 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 
 		AlignmentCompat.setCurrentAlignment(pc.getCharID(), le);
-		assertEquals("Non-negate returns false", false, PrereqHandler.passes(
-			prereq, pc, null));
-		assertEquals("Negate returns false", false, PrereqHandler.passes(
-			prereqNeg, pc, null));
+		assertFalse("Non-negate returns false", PrereqHandler.passes(
+				prereq, pc, null));
+		assertFalse("Negate returns false", PrereqHandler.passes(
+				prereqNeg, pc, null));
 
 		AlignmentCompat.setCurrentAlignment(pc.getCharID(), tn);
-		assertEquals("Non-negate returns true", true, PrereqHandler.passes(
-			prereq, pc, null));
-		assertEquals("Negate returns true", true, PrereqHandler.passes(
-			prereqNeg, pc, null));
+		assertTrue("Non-negate returns true", PrereqHandler.passes(
+				prereq, pc, null));
+		assertTrue("Negate returns true", PrereqHandler.passes(
+				prereqNeg, pc, null));
 	}
 
 	/**

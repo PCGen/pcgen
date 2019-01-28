@@ -22,15 +22,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-import javax.swing.event.EventListenerList;
-
-import org.apache.commons.collections4.CollectionUtils;
-
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.SolverManager;
+import pcgen.facade.util.AbstractReferenceFacade;
 import pcgen.facade.util.VetoableReferenceFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
+
+import org.apache.commons.collections4.CollectionUtils;
 
 /**
  * A VariableChannel provides a common mechanism for reading and writing to a
@@ -39,7 +36,8 @@ import pcgen.facade.util.event.ReferenceListener;
  * @param <T>
  *            The Format of the information contained in this VariableChannel
  */
-public final class VariableChannel<T> implements VariableListener<T>, VetoableReferenceFacade<T>
+public final class VariableChannel<T> extends AbstractReferenceFacade<T>
+		implements VetoableReferenceFacade<T>
 {
 
 	/**
@@ -60,10 +58,10 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 	private final MonitorableVariableStore varStore;
 
 	/**
-	 * The list of listeners that listen to this VariableChannel for
-	 * ReferenceEvents.
+	 * The private Listener, so that VariableChannel does not need to implement
+	 * VariableListener itself. (prevents exposure of internal behavior)
 	 */
-	private final EventListenerList listenerList = new EventListenerList();
+	private final Listener varListener = new Listener();
 
 	/**
 	 * The list of functions allowed to veto changes to this variable channel.
@@ -91,12 +89,6 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 		this.manager = Objects.requireNonNull(manager);
 		this.varStore = Objects.requireNonNull(varStore);
 		this.varID = Objects.requireNonNull(varID);
-	}
-
-	@Override
-	public void variableChanged(VariableChangeEvent<T> event)
-	{
-		fireReferenceChangedEvent(event.getSource(), event.getOldValue(), event.getNewValue());
 	}
 
 	@Override
@@ -142,33 +134,7 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 	 */
 	public void disconnect()
 	{
-		varStore.removeVariableListener(varID, this);
-	}
-
-	@Override
-	public void addReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.add(ReferenceListener.class, listener);
-	}
-
-	@Override
-	public void removeReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.remove(ReferenceListener.class, listener);
-	}
-
-	private void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
-	{
-		ReferenceListener[] listeners = listenerList.getListeners(ReferenceListener.class);
-		ReferenceEvent<T> e = null;
-		for (int i = listeners.length - 1; i >= 0; i--)
-		{
-			if (e == null)
-			{
-				e = new ReferenceEvent<>(source, oldValue, newValue);
-			}
-			listeners[i].referenceChanged(e);
-		}
+		varStore.removeVariableListener(varID, varListener);
 	}
 
 	/**
@@ -197,7 +163,7 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 	{
 		VariableChannel<T> ref =
 				new VariableChannel<>(manager, varStore, varID);
-		varStore.addVariableListener(varID, ref);
+		varStore.addVariableListener(varID, ref.varListener);
 		return ref;
 	}
 
@@ -221,4 +187,12 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 		vetoList.add(Objects.requireNonNull(function));
 	}
 
+	private class Listener implements VariableListener<T>
+	{
+		@Override
+		public void variableChanged(VariableChangeEvent<T> event)
+		{
+			fireReferenceChangedEvent(event.getSource(), event.getOldValue(), event.getNewValue());
+		}
+	}
 }

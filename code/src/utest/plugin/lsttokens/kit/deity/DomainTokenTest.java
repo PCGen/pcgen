@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.kit.deity;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.Domain;
 import pcgen.core.kit.KitDeity;
@@ -25,6 +26,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
+
 
 public class DomainTokenTest extends AbstractKitTokenTestCase<KitDeity>
 {

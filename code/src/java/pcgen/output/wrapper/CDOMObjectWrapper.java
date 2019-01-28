@@ -17,8 +17,6 @@
  */
 package pcgen.output.wrapper;
 
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -27,6 +25,9 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.CDOMObjectModel;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A CategoryWrapper is an ObjectWrapper capable of producing a TemplateModel

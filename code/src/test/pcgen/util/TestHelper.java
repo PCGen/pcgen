@@ -78,10 +78,10 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
 import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Helps Junit tests

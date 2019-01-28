@@ -91,4 +91,10 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	{
 		return formula.toString();
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getClass().getSimpleName() + ": " + getInstructions();
+	}
 }

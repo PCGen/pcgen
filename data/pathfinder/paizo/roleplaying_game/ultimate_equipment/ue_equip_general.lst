@@ -274,7 +274,7 @@ Healer's Kit.MOD																																																SOURCEPAGE:p.77
 Juggler's Kit																									TYPE:Goods.Tools					COST:15	WT:10														SOURCEPAGE:p.77																				BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
 Leeching Kit.MOD																									TYPE:Goods.Tools					COST:5	WT:5														SOURCEPAGE:p.77
 Map Maker's Kit.MOD																								TYPE:Goods.Tools					COST:10	WT:2														SOURCEPAGE:p.78
-Masterwork tool																									TYPE:Goods.Tools.Masterwork Tool		COST:50	WT:1														SOURCEPAGE:p.78	MODS:REQUIRED	SPROP:Grants a +2 Circumstance Bonus to %|%LIST
+Masterwork Tool																									TYPE:Goods.Tools.Masterwork Tool		COST:50	WT:1														SOURCEPAGE:p.78	MODS:REQUIRED
 Scale (Merchant's).MOD																																															SOURCEPAGE:p.78
 Midwife's Kit																									TYPE:Goods.Tools					COST:10	WT:2														SOURCEPAGE:p.78
 Musical Instrument (Harpsichord).MOD																																												SOURCEPAGE:p.78

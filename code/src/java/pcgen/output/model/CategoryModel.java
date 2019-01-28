@@ -19,9 +19,10 @@ package pcgen.output.model;
 
 import java.util.Objects;
 
+import pcgen.cdom.base.Category;
+
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
-import pcgen.cdom.base.Category;
 
 /**
  * A CategoryModel wraps a Category object into a TemplateScalarModel

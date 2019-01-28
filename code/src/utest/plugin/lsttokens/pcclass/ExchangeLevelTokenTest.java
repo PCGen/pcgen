@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,6 +30,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {

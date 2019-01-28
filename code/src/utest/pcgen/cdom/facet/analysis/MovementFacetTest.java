@@ -28,6 +28,8 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class MovementFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Movement>
 {
@@ -36,6 +38,7 @@ public class MovementFacetTest extends
 	private Movement[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

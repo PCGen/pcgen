@@ -44,8 +44,8 @@ Viper Tattoo.MOD					TYPE:Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tatt
 # New Poison
 # ==============================
 
-Poison (Addlemind)				TYPE:Goods.Poison.Consumable																			COST:75	WT:0		SOURCEPAGE:p.9	SPROP:Ingested; Fort DC 15; Onset 1 minute; Freq 1 min (10); Effect 1d2 Wis damage, –5 penalty on all Knowledge and Perception checks until Wisdom damage is healed; Cure 2 save
+Poison (Addlemind)				TYPE:Goods.Poison.Consumable																			COST:75	WT:0		SOURCEPAGE:p.9	SPROP:Ingested; Fort DC 15; Onset 1 minute; Freq 1 min (10); Effect 1d2 Wis damage, -5 penalty on all Knowledge and Perception checks until Wisdom damage is healed; Cure 2 save
 Poison (Laughing Gas)				TYPE:Goods.Poison.Consumable																			COST:500	WT:0.5	SOURCEPAGE:p.9	SPROP:Inhaled; Fort DC 12; Onset immediate; Freq 1 rnd (5); Effect uncontrollable laughter and dazed for 1 round; Cure 1 save
 Poison (Red Tears)				TYPE:Goods.Poison.Consumable																			COST:50	WT:0		SOURCEPAGE:p.7	SPROP:Injury; Fort DC 15; Freq 1 rnd (10); Effect 1d6 damage (immune to this damage if immune to bleed effects); Cure 1 save
-Poison (Snap Will)				TYPE:Goods.Poison.Consumable																			COST:2500	WT:0		SOURCEPAGE:p.9	SPROP:Ingested; Fort DC 18; Onset 5 minutes; Freq 1 min (10); Effect –4 penalty on Will saves and Wisdom-based skill checks for 1 minute; Cure 2 save
+Poison (Snap Will)				TYPE:Goods.Poison.Consumable																			COST:2500	WT:0		SOURCEPAGE:p.9	SPROP:Ingested; Fort DC 18; Onset 5 minutes; Freq 1 min (10); Effect -4 penalty on Will saves and Wisdom-based skill checks for 1 minute; Cure 2 save
 Poison (Whisperwound)				TYPE:Goods.Poison.Consumable																			COST:5000	WT:0		SOURCEPAGE:p.9	SPROP:Ingested; Fort DC 20; Onset 1 minute; Freq 1 rnd (1); Effect 1d6 Con damage, speaking (even spellcasting) deals 2d6 damage until Con damage is healed; Cure 1 save

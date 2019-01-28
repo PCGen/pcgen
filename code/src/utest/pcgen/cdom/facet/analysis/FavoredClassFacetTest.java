@@ -28,6 +28,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class FavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, PCClass>
 {
@@ -37,6 +39,7 @@ public class FavoredClassFacetTest extends
 	private PCClass[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

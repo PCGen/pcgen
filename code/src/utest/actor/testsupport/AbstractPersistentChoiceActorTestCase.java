@@ -20,14 +20,14 @@ package actor.testsupport;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 public abstract class AbstractPersistentChoiceActorTestCase<T>
 {
@@ -37,11 +37,16 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	@Before
 	public void setUp()
 	{
-		SettingsHandler.getGame().clearLoadContext();
+		Globals.emptyLists();
 		context = Globals.getContext();
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
-//				new RuntimeLoadContext(new RuntimeReferenceContext(),
-//					new ConsolidatedListCommitStrategy());
+	}
+
+	@After
+	public void tearDown()
+	{
+		Globals.emptyLists();
+		context = null;
 	}
 
 	public abstract Persistent<T> getActor();

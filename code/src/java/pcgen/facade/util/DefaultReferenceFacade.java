@@ -20,15 +20,10 @@ package pcgen.facade.util;
 
 import java.util.Objects;
 
-import javax.swing.event.EventListenerList;
-
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
-
-public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
+public class DefaultReferenceFacade<E> extends AbstractReferenceFacade<E>
+		implements WriteableReferenceFacade<E>
 {
 
-	private final EventListenerList listenerList = new EventListenerList();
 	protected E object;
 
 	public DefaultReferenceFacade()
@@ -39,18 +34,6 @@ public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 	public DefaultReferenceFacade(E object)
 	{
 		this.object = object;
-	}
-
-	@Override
-	public void addReferenceListener(ReferenceListener<? super E> listener)
-	{
-		listenerList.add(ReferenceListener.class, listener);
-	}
-
-	@Override
-	public void removeReferenceListener(ReferenceListener<? super E> listener)
-	{
-		listenerList.remove(ReferenceListener.class, listener);
 	}
 
 	@Override
@@ -69,23 +52,6 @@ public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 		E old = this.object;
 		this.object = object;
 		fireReferenceChangedEvent(this, old, object);
-	}
-
-	protected void fireReferenceChangedEvent(Object source, E old, E newer)
-	{
-		Object[] listeners = listenerList.getListenerList();
-		ReferenceEvent<E> e = null;
-		for (int i = listeners.length - 2; i >= 0; i -= 2)
-		{
-			if (listeners[i] == ReferenceListener.class)
-			{
-				if (e == null)
-				{
-					e = new ReferenceEvent<>(source, old, newer);
-				}
-				((ReferenceListener) listeners[i + 1]).referenceChanged(e);
-			}
-		}
 	}
 
 	@Override

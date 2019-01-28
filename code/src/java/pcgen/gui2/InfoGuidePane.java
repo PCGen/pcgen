@@ -35,7 +35,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.plaf.UIResource;
 
 import pcgen.cdom.base.Constants;
-import pcgen.facade.core.CampaignFacade;
+import pcgen.core.Campaign;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -174,9 +174,9 @@ class InfoGuidePane extends JComponent implements UIResource
 		else
 		{
 			HtmlInfoBuilder builder = new HtmlInfoBuilder();
-			for (CampaignFacade campaign : sources.getCampaigns())
+			for (Campaign campaign : sources.getCampaigns())
 			{
-				builder.append(campaign.getName()).appendLineBreak();
+				builder.append(campaign.getKeyName()).appendLineBreak();
 			}
 			campaignList.setText(builder.toString());
 		}

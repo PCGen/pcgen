@@ -70,12 +70,12 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.chooser.ChooserFactory;
-
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
@@ -95,7 +95,6 @@ import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.language.PCToken;
 
 import compare.InequalityTesterInst;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -154,13 +153,6 @@ public abstract class AbstractSaveRestoreTest
 	public void setUp() throws Exception
 	{
 		setUpContext();
-	}
-
-
-	@After
-	public void tearDown() throws Exception
-	{
-		ChooserFactory.stopUsingRandomChooser();
 	}
 
 	protected <T extends Loadable> T create(Class<T> cl, String key)
@@ -332,7 +324,6 @@ public abstract class AbstractSaveRestoreTest
 		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
-		context = Globals.getContext();
 		create(Language.class, "Common");
 		human = create(Race.class, "Human");
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
@@ -396,7 +387,7 @@ public abstract class AbstractSaveRestoreTest
 		pc.setHeight(0);
 		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
 		pc.setAllowDebt(false);
-		pc.setHanded(Handed.Right);
+		HandedCompat.setCurrentHandedness(pc.getCharID(), Handed.Right);
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 0);

@@ -17,8 +17,6 @@
  */
 package pcgen.gui2.facade;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMReference;
@@ -27,6 +25,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSimpleSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Campaign;
 import pcgen.core.DataSet;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
@@ -34,12 +33,14 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
-import pcgen.facade.core.CampaignFacade;
+import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
+
+import org.junit.Test;
 
 public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
@@ -60,7 +61,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 				"Familiar");
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();
-		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<>();
+		ListFacade<Campaign> campaigns = new DefaultListFacade<>();
 		dataSetFacade = new DataSet(Globals.getContext(), SettingsHandler.getGame(), campaigns);
 		masterRace = TestHelper.makeRace("Wood Elf");
 		companionRace = TestHelper.makeRace("Weasel");

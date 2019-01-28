@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
 
 /**
  * DefaultVarValue is actually a shell (unused at runtime). It is leveraged by
@@ -34,10 +34,10 @@ public class DefaultVarValue extends UserContent
 	private FormatManager<?> formatManager;
 
 	/**
-	 * The FormulaModifier indicating the default value for the type of object managed by
-	 * the formatManager in this DefaultVarValue.
+	 * The Indirect which supplies the default value for the type of object managed by the
+	 * formatManager in this DefaultVarValue.
 	 */
-	private FormulaModifier<?> modifier;
+	private Indirect<?> indirect;
 
 	@Override
 	public String getDisplayName()
@@ -71,25 +71,25 @@ public class DefaultVarValue extends UserContent
 	}
 
 	/**
-	 * Sets the FormulaModifier to be used as the default FormulaModifier for the format
+	 * Sets the Indirect to be used as the supplier of the default value for the format
 	 * contained by this DefaultVarValue.
 	 * 
-	 * @param modifier
-	 *            the FormulaModifier to be used as the default FormulaModifier for the
+	 * @param indirect
+	 *            the Indirect to be used as the supplier of the default value for the
 	 *            format contained by this DefaultVarValue
 	 */
-	public void setModifier(FormulaModifier<?> modifier)
+	public void setIndirect(Indirect<?> indirect)
 	{
-		this.modifier = modifier;
+		this.indirect = indirect;
 	}
 
 	/**
-	 * Returns the FormulaModifier containing the default variable value.
+	 * Returns the Indirect containing the default variable value.
 	 * 
-	 * @return the FormulaModifier containing the default variable value
+	 * @return the Indirect containing the default variable value
 	 */
-	public FormulaModifier<?> getModifier()
+	public Indirect<?> getIndirect()
 	{
-		return modifier;
+		return indirect;
 	}
 }

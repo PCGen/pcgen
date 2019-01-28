@@ -17,11 +17,10 @@
  */
 package plugin.function;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static plugin.function.testsupport.TestUtilities.doParse;
 
-import org.junit.Test;
-import util.FormatSupport;
-import junit.framework.TestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
@@ -45,13 +44,18 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.enumeration.Visibility;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.FormatSupport;
+
 public class GetFactFunctionTest extends AbstractFormulaTestCase
 {
 
 	private static final StringManager STRING_MANAGER = new StringManager();
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		SimpleFormatManagerLibrary formatLibrary = new SimpleFormatManagerLibrary();
@@ -68,10 +72,10 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "getFact(\"SKILL\")";
 		SimpleNode node = doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		String s = "getFact(\"SKILL\", \"Foo\", 4, 5)";
 		SimpleNode simpleNode = doParse(s);
-		isNotValid(s, simpleNode, numberManager, null);
+		isNotValid(s, simpleNode);
 	}
 
 	@Test
@@ -83,16 +87,10 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SimpleNode simpleNode = doParse(s);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		try
-		{
-			semanticsVisitor.visit(simpleNode,
-				semantics.getWith(ManagerKey.CONTEXT, context));
-			TestCase.fail("Expected Invalid Formula: " + s + " but was valid");
-		}
-		catch (SemanticsFailureException e)
-		{
-			//Expected
-		}
+		assertThrows(SemanticsFailureException.class,
+				() -> 			semanticsVisitor.visit(simpleNode,
+						semantics.getWith(ManagerKey.CONTEXT, context))
+		);
 	}
 
 	@Test
@@ -100,7 +98,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "getFact(3,\"SkillKey\",3)";
 		SimpleNode node = doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -110,15 +108,8 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		try
-		{
-			semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-			TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
-		}
-		catch (SemanticsFailureException e)
-		{
-			//Expected
-		}
+		assertThrows(SemanticsFailureException.class,
+				() -> semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context)));
 	}
 
 	@Test
@@ -129,19 +120,9 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		try
-		{
-			Object result = semanticsVisitor.visit(node,
-				semantics.getWith(ManagerKey.CONTEXT, context));
-			if (result instanceof Number)
-			{
-				TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
-			}
-		}
-		catch (SemanticsFailureException e)
-		{
-			//Expected
-		}
+		assertThrows(SemanticsFailureException.class,
+			() ->semanticsVisitor.visit(node,
+				semantics.getWith(ManagerKey.CONTEXT, context)));
 	}
 
 	@Test

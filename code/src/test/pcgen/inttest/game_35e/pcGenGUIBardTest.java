@@ -3,7 +3,7 @@ package pcgen.inttest.game_35e;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Runs a test of the output of a bard. In particular this tests the output of 

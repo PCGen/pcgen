@@ -18,11 +18,12 @@ package pcgen.output.model;
 import java.util.List;
 import java.util.Objects;
 
+import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
+
 import freemarker.template.SimpleScalar;
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
-import pcgen.util.enumeration.View;
-import pcgen.util.enumeration.Visibility;
 
 /**
  * VisibleToModel is a TemplateMethod for FreeMarker that takes in a view in order to

@@ -21,10 +21,13 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreEquipBothParser;
 import plugin.pretokens.writer.PreEquipBothWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PreEquipBothRoundRobin extends AbstractEquipmentRoundRobin
 {
 
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

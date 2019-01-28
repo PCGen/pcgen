@@ -33,9 +33,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -43,6 +40,9 @@ import pcgen.core.Campaign;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.converter.event.TaskStrategyMessage;
 import pcgen.system.PCGenSettings;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 public class WriteDirectoryPanel extends ConvertSubPanel
 {
@@ -185,7 +185,7 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 					break;
 				}
 				warning.append("<li>");
-				warning.append(camp.getName());
+				warning.append(camp.getKeyName());
 				warning.append("</li>");
 				i++;
 			}

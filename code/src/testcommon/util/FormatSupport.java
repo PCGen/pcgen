@@ -42,8 +42,7 @@ public class FormatSupport
 		T noneObject = fmtManager.convert("NONE");
 		Objects.requireNonNull(noneObject,
 			"NONE was never constructed for " + fmtManager.getIdentifierType());
-		context.getVariableContext().addDefault(fmtManager,
-			new SimpleSetModifier<>(fmtManager, noneObject));
+		context.getVariableContext().addDefault(fmtManager, () -> noneObject);
 	}
 
 	/**
@@ -56,12 +55,9 @@ public class FormatSupport
 	{
 		VariableContext varContext = context.getVariableContext();
 		varContext.addDefault(FormatUtilities.ORDEREDPAIR_MANAGER,
-			new SimpleSetModifier<>(FormatUtilities.ORDEREDPAIR_MANAGER,
-				new OrderedPair(0, 0)));
-		varContext.addDefault(FormatUtilities.NUMBER_MANAGER,
-			new SimpleSetModifier<>(FormatUtilities.NUMBER_MANAGER, 0));
-		varContext.addDefault(FormatUtilities.STRING_MANAGER,
-			new SimpleSetModifier<>(FormatUtilities.STRING_MANAGER, ""));
+			() -> new OrderedPair(0, 0));
+		varContext.addDefault(FormatUtilities.NUMBER_MANAGER, () -> 0);
+		varContext.addDefault(FormatUtilities.STRING_MANAGER, () -> "");
 	}
 
 }

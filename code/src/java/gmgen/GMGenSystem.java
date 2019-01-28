@@ -36,8 +36,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
@@ -66,6 +64,8 @@ import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMes
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * {@code GMGenSystem} is the main class of the GMGen application.

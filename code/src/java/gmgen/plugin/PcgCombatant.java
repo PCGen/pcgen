@@ -57,7 +57,6 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
-
 import org.apache.commons.lang3.StringUtils;
 import org.jdom2.Element;
 

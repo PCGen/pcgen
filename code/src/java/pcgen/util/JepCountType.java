@@ -61,7 +61,6 @@ import pcgen.util.AbstractCountCommand.JepEquipmentCountEnum;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-
 import org.nfunk.jep.ParseException;
 
 public abstract class JepCountType

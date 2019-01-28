@@ -67,8 +67,8 @@ public class EquipmentMigrationTest
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
+		gameMode = null;
 	}
-
 
 	/**
 	 * Test that rules for max version only are applied correctly.  

@@ -23,7 +23,6 @@ import static org.junit.Assert.assertTrue;
 
 import pcgen.rules.persistence.TokenLibrary.ModifierIterator;
 import pcgen.rules.persistence.token.ModifierFactory;
-
 import plugin.modifier.number.AddModifierFactory;
 import plugin.modifier.set.SetModifierFactory;
 

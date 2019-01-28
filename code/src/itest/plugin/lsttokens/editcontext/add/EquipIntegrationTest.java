@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext.add;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
@@ -31,6 +29,8 @@ import plugin.lsttokens.add.EquipToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.Test;
 
 public class EquipIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Equipment>

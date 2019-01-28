@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.KnownSpellIdentifier;
@@ -32,6 +33,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass, Spell>
 {

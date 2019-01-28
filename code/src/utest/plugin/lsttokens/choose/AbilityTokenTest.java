@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.choose;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
@@ -35,6 +35,8 @@ import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.ability.PCToken;
+
+import org.junit.jupiter.api.Test;
 
 public class AbilityTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Ability>

@@ -144,7 +144,6 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -2938,21 +2937,21 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseHandedLine(final String line)
 	{
-		String handed = EntityEncoder.decode(line.substring(IOConstants.TAG_HANDED.length() + 1));
-		Handed h;
+		String handedString = EntityEncoder.decode(line.substring(IOConstants.TAG_HANDED.length() + 1));
+		Handed handed;
 		try
 		{
-			h = HandedCompat.getHandedByName(handed);
+			handed = HandedCompat.HANDED_MANAGER.convert(handedString);
 		}
 		catch (IllegalArgumentException e)
 		{
-			h = HandedCompat.getDefaultHanded();
+			handed = HandedCompat.getDefaultHanded();
 			final String msg = LanguageBundle.getFormattedString("Warnings.PCGenParser.IllegalHandedness", //$NON-NLS-1$
-				line, h);
+				line, handed);
 			warnings.add(msg);
 
 		}
-		thePC.setHanded(h);
+		HandedCompat.setCurrentHandedness(thePC.getCharID(), handed);
 	}
 
 	private void parseHeightLine(final String line)

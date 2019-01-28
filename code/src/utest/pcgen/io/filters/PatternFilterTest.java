@@ -19,9 +19,9 @@ package pcgen.io.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-
 import pcgen.io.EntityEncoder;
+
+import org.junit.Test;
 
 /**
  * PatternFilterTest checks the functioning of the PatternFilter class.

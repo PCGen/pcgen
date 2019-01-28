@@ -1,9 +1,7 @@
-# Sun Jan 21 13:38:15 2018 -- reformated by PCGen PrettyLST v6.06.00
+# Sun Jan 20 20:05:07 2019 -- reformated by PCGen PrettyLST v6.08.00
 # Original Entry by: AinvarG, June 19, 2010
 # revised by: LearnTribe, 25 August, 2017
 SOURCELONG:Book of Arcane Magic	SOURCESHORT:boam	SOURCEWEB:http://www.4windsfantasygaming.com	SOURCEDATE:2009-01
-SOURCESHORT:boam
-SOURCEWEB:http://www.4windsfantasygaming.com
 
 ###Block: General College feats
 # Feat Name									Category		Output Name			Type					Required Ability														Required Feat				Required Lvl	Multiple Requirements											Required Skill					Required Stat	Var. Min. Value				Define										Description																														Stackable?	Multiple?	Choose																		Selections	Automatically Gained Armor Prof.	Automatically Gained Shield Prof.							Automatically Gained Weapon Prof.				Virtual Feat		Bonus to Ability Pool		Save checks bonus			Bonus to DC						Bonus to HP				Add to base move																							Bonus to skill																								Modify VAR																		Source Page

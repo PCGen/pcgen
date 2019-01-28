@@ -7,7 +7,6 @@ package pcgen;
 import java.math.BigDecimal;
 import java.util.Collection;
 
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -38,7 +37,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
-
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import junit.framework.TestCase;
@@ -201,8 +199,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
-		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		FormatSupport.addNoneAsDefault(context, fmtManager);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(BuildUtilities.getFeatCat());
@@ -229,23 +225,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		character = new PlayerCharacter();
 	}
 
-	/**
-	 * Constructs a new {@code AbstractCharacterTestCase}.
-	 */
-	protected AbstractCharacterTestCase()
-	{
-	}
-
-	/**
-	 * Constructs a new {@code AbstractCharacterTestCase} with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 */
-	protected AbstractCharacterTestCase(final String name)
-	{
-		super(name);
-	}
 
 	@Override
 	protected void tearDown() throws Exception
@@ -253,7 +232,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		character = null;
 		context = null;
 		SystemCollections.clearGameModeList();
-		super.tearDown();
 	}
 
 	/**

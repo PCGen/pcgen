@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.ability;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,6 +29,8 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code AspectTokenTest} is responsible for verifying that

@@ -32,6 +32,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class ChangeProfFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, ChangeProf>
 {
@@ -42,6 +44,7 @@ public class ChangeProfFacetTest extends
 	private ChangeProf[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

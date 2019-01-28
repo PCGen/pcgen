@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,6 +26,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.RacesubtypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class RaceSubtypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<PCTemplate>

@@ -17,8 +17,6 @@
  */
 package tokenmodel.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -33,6 +31,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.Test;
 
 public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		extends AbstractTokenModelTest

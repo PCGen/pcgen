@@ -17,6 +17,16 @@
  */
 package pcgen.base.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -25,17 +35,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-public class WeightedCollectionTest
+class WeightedCollectionTest
 {
 
 	private static final Integer I3 = 3;
@@ -46,40 +49,24 @@ public class WeightedCollectionTest
 
 	private WeightedCollection<Integer> wc;
 
-	@Before
-	public void setUp()
+	@BeforeEach
+	void setUp()
 	{
 		wc = new WeightedCollection<>();
 	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testBadIntConstructor()
 	{
-		try
-		{
-			new WeightedCollection<Integer>(-5);
-			fail();
-		}
-		catch (IllegalArgumentException iae)
-		{
-			// OK
-		}
+		assertThrows(IllegalArgumentException.class,
+				() -> new WeightedCollection<Integer>(-5));
 	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testBadCollectionConstructor()
 	{
-		try
-		{
-			new WeightedCollection<>((Collection<Integer>) null);
-			fail();
-		}
-		catch (NullPointerException | IllegalArgumentException npe)
-		{
-			// OK
-		}
+		assertThrows(NullPointerException.class,
+				() -> new WeightedCollection<>((Collection<Integer>) null));
 	}
 
 	@Test
@@ -89,7 +76,7 @@ public class WeightedCollectionTest
 		assertTrue(c.add(I1));
 		assertTrue(c.add(I2));
 		assertTrue(c.add(null));
-		WeightedCollection<Integer> col = new WeightedCollection<>(c);
+		AbstractCollection<Integer> col = new WeightedCollection<>(c);
 		assertEquals(3, col.size());
 		c.add(4);
 		assertEquals(3, col.size());
@@ -233,7 +220,7 @@ public class WeightedCollectionTest
 	public void testBadEquals()
 	{
 		assertNotNull(wc);
-		assertFalse(wc.equals(1));
+		assertNotEquals(1, wc);
 	}
 
 	@Test
@@ -253,18 +240,18 @@ public class WeightedCollectionTest
 		assertTrue(wc2.add(1));
 		assertTrue(wc2.add(2));
 		assertTrue(wc2.add(1));
-		assertFalse(wc.equals(wc2));
-		assertFalse(wc2.equals(wc));
+		assertNotEquals(wc, wc2);
+		assertNotEquals(wc2, wc);
 		assertTrue(wc2.add(2));
 		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
 		assertEquals(wc.hashCode(), wc2.hashCode());
 		wc2.add(null);
-		assertFalse(wc.equals(wc2));
-		assertFalse(wc2.equals(wc));
+		assertNotEquals(wc, wc2);
+		assertNotEquals(wc2, wc);
 		wc.add(null, 2);
-		assertFalse(wc.equals(wc2));
-		assertFalse(wc2.equals(wc));
+		assertNotEquals(wc, wc2);
+		assertNotEquals(wc2, wc);
 		wc2.add(null);
 		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
@@ -615,7 +602,7 @@ public class WeightedCollectionTest
 		assertEquals(23, swc.size());
 		assertFalse(swc.isEmpty());
 		assertEquals(swc, swc);
-		assertFalse(swc.equals(wc));
+		assertNotEquals(swc, wc);
 		swc.clear();
 		assertEquals(0, swc.size());
 		assertTrue(swc.isEmpty());
@@ -688,7 +675,7 @@ public class WeightedCollectionTest
 		assertEquals(13, swc.size());
 		assertFalse(swc.isEmpty());
 		assertEquals(swc, swc);
-		assertFalse(swc.equals(wc));
+		assertNotEquals(swc, wc);
 		swc.clear();
 		assertEquals(0, swc.size());
 	}
@@ -726,7 +713,7 @@ public class WeightedCollectionTest
 		ciSet.add("aString");
 		csSet.add("aString");
 		assertEquals(ciSet, csSet);
-		assertFalse(ciSet.toString().equals(csSet.toString()));
+		assertNotEquals(ciSet.toString(), csSet.toString());
 	}
 
 

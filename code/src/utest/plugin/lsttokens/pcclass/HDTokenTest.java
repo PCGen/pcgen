@@ -17,7 +17,11 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,6 +32,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
@@ -120,7 +126,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertTrue(parse("5"));
 		assertTrue(parse("1"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "1", unparsed[0]);
+		assertEquals("1", unparsed[0]);
 	}
 
 	@Test

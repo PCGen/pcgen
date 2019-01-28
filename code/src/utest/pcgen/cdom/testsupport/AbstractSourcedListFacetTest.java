@@ -33,6 +33,7 @@ import pcgen.rules.persistence.TokenLibrary;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 {
@@ -62,6 +63,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

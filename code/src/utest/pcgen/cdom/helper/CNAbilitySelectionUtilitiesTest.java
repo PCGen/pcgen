@@ -1,5 +1,7 @@
 package pcgen.cdom.helper;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -8,24 +10,23 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 
-import org.junit.Before;
-import org.junit.Test;
-import static junit.framework.TestCase.assertFalse;
-import static junit.framework.TestCase.assertTrue;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class CNAbilitySelectionUtilitiesTest
+class CNAbilitySelectionUtilitiesTest
 {
 
-	AbilityCategory feat;
-	AbilityCategory fighterfeat;
-	AbilityCategory specialty;
-	Ability nomult;
-	Ability multyes;
-	Ability stackyes;
-	Ability othernomult;
+	private AbilityCategory feat;
+	private AbilityCategory fighterfeat;
+	private AbilityCategory specialty;
+	private Ability nomult;
+	private Ability multyes;
+	private Ability stackyes;
+	private Ability othernomult;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		CNAbilityFactory.reset();
 		feat = new AbilityCategory();
@@ -84,7 +85,7 @@ public class CNAbilitySelectionUtilitiesTest
 		CNAbility virtual = CNAbilityFactory.getCNAbility(feat, Nature.VIRTUAL, nomult);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(normal);
 		CNAbilitySelection cnas2 = new CNAbilitySelection(virtual);
-		assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas2));
+		Assertions.assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas2));
 	}
 
 	@Test
@@ -94,10 +95,10 @@ public class CNAbilitySelectionUtilitiesTest
 		CNAbility n2 = CNAbilityFactory.getCNAbility(fighterfeat, Nature.NORMAL, nomult);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(n1);
 		CNAbilitySelection cnas2 = new CNAbilitySelection(n2);
-		assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas2));
+		Assertions.assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas2));
 		CNAbility virtual = CNAbilityFactory.getCNAbility(fighterfeat, Nature.VIRTUAL, nomult);
 		CNAbilitySelection cnas3 = new CNAbilitySelection(virtual);
-		assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas3));
+		Assertions.assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas3));
 	}
 
 	@Test
@@ -107,7 +108,7 @@ public class CNAbilitySelectionUtilitiesTest
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbilitySelection cnas1 = new CNAbilitySelection(n1, "English");
 		CNAbilitySelection cnas2 = new CNAbilitySelection(n2, "English");
-		assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas2));
+		Assertions.assertFalse(CNAbilitySelectionUtilities.canCoExist(cnas1, cnas2));
 	}
 
 	@Test

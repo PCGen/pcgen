@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.weaponprof;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.WeaponProf;
@@ -26,6 +28,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 {
@@ -85,7 +89,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 		String[] unparsed = setAndUnparse(-1);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "1IFLARGERTHANWEAPON", unparsed[0]);
+		assertEquals("1IFLARGERTHANWEAPON", unparsed[0]);
 	}
 
 	@Test

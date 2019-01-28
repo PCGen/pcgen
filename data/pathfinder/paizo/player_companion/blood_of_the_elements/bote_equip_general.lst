@@ -13,7 +13,7 @@ Thunder Kettle			TYPE:Goods.Alchemical.Consumable		COST:275	WT:3		SOURCEPAGE:p.1
 
 Emissary's Sash			TYPE:Goods.Clothing.Resizable			COST:500	WT:3		SOURCEPAGE:p.27
 
-Drug (Fireskin Elixir)		TYPE:Goods.Drug.Consumable			COST:100			SOURCEPAGE:p.27	SPROP:Ingested; Addiction major, Fortitude DC 20; Effect 1 day; +10 alchemical bonus on Disguise checks to appear as an efreeti, –1 penalty on all saves; 1d2 Wis damage
+Drug (Fireskin Elixir)		TYPE:Goods.Drug.Consumable			COST:100			SOURCEPAGE:p.27	SPROP:Ingested; Addiction major, Fortitude DC 20; Effect 1 day; +10 alchemical bonus on Disguise checks to appear as an efreeti, -1 penalty on all saves; 1d2 Wis damage
 
 Phlogiston Vial			TYPE:Magic.Wondrous.Consumable		COST:1000			SOURCEPAGE:p.23
 Lamp of Fiery Visions		TYPE:Magic.Wondrous				COST:22200	WT:1		SOURCEPAGE:p.30

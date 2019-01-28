@@ -7,9 +7,6 @@ import static org.junit.Assert.fail;
 
 import java.net.URI;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.cdom.format.table.DataTable;
@@ -18,6 +15,9 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.Before;
+import org.junit.Test;
 import util.TestURI;
 
 public class TableLoaderTest

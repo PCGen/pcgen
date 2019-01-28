@@ -17,7 +17,10 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -28,6 +31,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Type>
 {
@@ -89,18 +94,18 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 		String[] unparsed;
 		assertTrue(parse("REMOVE.TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be equal", unparsed);
+		assertNull(unparsed);
 
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("ADD.TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 			+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
@@ -111,11 +116,11 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 			+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		assertTrue(parse("REMOVE.TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+		assertEquals("TestWP2", unparsed[0]);
 	}
 
 	@Test

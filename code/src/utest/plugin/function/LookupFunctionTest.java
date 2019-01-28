@@ -17,11 +17,11 @@
  */
 package plugin.function;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
@@ -37,26 +37,26 @@ import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.Indirect;
 import pcgen.cdom.format.table.ColumnFormatFactory;
 import pcgen.cdom.format.table.DataTable;
 import pcgen.cdom.format.table.TableColumn;
 import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.formula.ManagerKey;
-
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
+import plugin.function.testsupport.TransparentFormatManager;
 
-import junit.framework.TestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class LookupFunctionTest extends AbstractFormulaTestCase
 {
 
 	private SimpleFormatManagerLibrary formatLibrary;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		formatLibrary = new SimpleFormatManagerLibrary();
@@ -137,16 +137,17 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "lookup(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		formula = "lookup(2, 3, 4, 5)";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testInvalidWrongFormat1()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		finder.map.put("Value", buildColumn("Value", numberManager));
 		finder.map.put("Result", buildColumn("Result", stringManager));
 
@@ -162,14 +163,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(3,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testInvalidWrongFormat2()
 	{
-		Finder finder = new Finder();
-		TableFinder tablefinder = new TableFinder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
+		TransparentFormatManager<DataTable> tablefinder =
+				new TransparentFormatManager<>(DataTable.class, "TABLE");
 		DataTable dt = doTableSetup();
 		tablefinder.map.put("A", dt);
 		finder.map.put("Value", buildColumn("Value", numberManager));
@@ -195,13 +198,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,3,ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testInvalidWrongFormat3()
 	{
-		TableFinder tablefinder = new TableFinder();
+		TransparentFormatManager<DataTable> tablefinder =
+				new TransparentFormatManager<>(DataTable.class, "TABLE");
 		DataTable dt = doTableSetup();
 		tablefinder.map.put("A", dt);
 
@@ -217,13 +221,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testInvalidBadSemantics1()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		finder.map.put("Value", buildColumn("Value", numberManager));
 		finder.map.put("Result", buildColumn("Result", stringManager));
 
@@ -240,14 +245,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(badf(),\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testInvalidBadSemantics2()
 	{
-		Finder finder = new Finder();
-		TableFinder tablefinder = new TableFinder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
+		TransparentFormatManager<DataTable> tablefinder =
+				new TransparentFormatManager<>(DataTable.class, "TABLE");
 		DataTable dt = doTableSetup();
 		tablefinder.map.put("A", dt);
 		finder.map.put("Value", buildColumn("Value", numberManager));
@@ -273,14 +280,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,badf(),ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testInvalidBadSemantics3()
 	{
-		Finder finder = new Finder();
-		TableFinder tablefinder = new TableFinder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
+		TransparentFormatManager<DataTable> tablefinder =
+				new TransparentFormatManager<>(DataTable.class, "TABLE");
 		DataTable dt = doTableSetup();
 		tablefinder.map.put("A", dt);
 		finder.map.put("Value", buildColumn("Value", numberManager));
@@ -298,14 +307,16 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",badf())";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testBasic()
 	{
-		Finder finder = new Finder();
-		TableFinder tablefinder = new TableFinder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
+		TransparentFormatManager<DataTable> tablefinder =
+				new TransparentFormatManager<>(DataTable.class, "TABLE");
 		DataTable dt = doTableSetup();
 		tablefinder.map.put("A", dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -331,7 +342,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		evaluatesTo(formula, node, 2);
 		Object rv =
@@ -343,7 +354,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidFormatDirect()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -368,7 +380,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -379,7 +391,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidTableFormatDirect()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -404,7 +417,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -415,7 +428,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidNameDirect()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -440,7 +454,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -451,7 +465,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testDirect()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -484,7 +499,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInDirectColumn()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
 		for (int i = 0; i < dt.getColumnCount(); i++)
@@ -516,7 +532,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidExtra()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		DataTable dt = doTableSetup();
 		context.getReferenceContext().importObject(dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -541,7 +558,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -552,8 +569,10 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testNoColumn()
 	{
-		Finder finder = new Finder();
-		TableFinder tablefinder = new TableFinder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
+		TransparentFormatManager<DataTable> tablefinder =
+				new TransparentFormatManager<>(DataTable.class, "TABLE");
 		DataTable dt = doTableSetup();
 		tablefinder.map.put("A", dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -580,23 +599,25 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result instanceof Number)
 		{
-			TestCase.fail(
-				"Expected Invalid result, should have been a string due to invalid column: "
-					+ result);
+			fail(
+					"Expected Invalid result, should have been a string due to invalid column: "
+						+ result);
 		}
 	}
 
 	@Test
 	public void testNoLookup()
 	{
-		Finder finder = new Finder();
-		TableFinder tablefinder = new TableFinder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
+		TransparentFormatManager<DataTable> tablefinder =
+				new TransparentFormatManager<>(DataTable.class, "TABLE");
 		DataTable dt = doTableSetup();
 		tablefinder.map.put("A", dt);
 		finder.map.put("Name", buildColumn("Name", stringManager));
@@ -623,15 +644,15 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"Oh No\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (!result.equals(0))
 		{
-			TestCase.fail(
-				"Expected Invalid result, should have been zero due to invalid column: "
-					+ result);
+			fail(
+					"Expected Invalid result, should have been zero due to invalid column: "
+						+ result);
 		}
 	}
 
@@ -643,100 +664,6 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		return tc;
 	}
 
-	private static class Finder implements FormatManager<TableColumn>
-	{
-		Map<String, TableColumn> map = new HashMap<>();
-
-		@Override
-		public TableColumn convert(String inputStr)
-		{
-			return map.get(inputStr);
-		}
-
-		@Override
-		public Indirect<TableColumn> convertIndirect(String inputStr)
-		{
-			throw new UnsupportedOperationException();
-		}
-
-		@Override
-		public boolean isDirect()
-		{
-			return true;
-		}
-
-		@Override
-		public String unconvert(TableColumn obj)
-		{
-			throw new UnsupportedOperationException();
-		}
-
-		@Override
-		public Class<TableColumn> getManagedClass()
-		{
-			return TableColumn.class;
-		}
-
-		@Override
-		public String getIdentifierType()
-		{
-			return "COLUMN";
-		}
-
-		@Override
-		public Optional<FormatManager<?>> getComponentManager()
-		{
-			return Optional.empty();
-		}
-	}
-
-	private static class TableFinder implements FormatManager<DataTable>
-	{
-		Map<String, DataTable> map = new HashMap<>();
-
-		@Override
-		public DataTable convert(String inputStr)
-		{
-			return map.get(inputStr);
-		}
-
-		@Override
-		public Indirect<DataTable> convertIndirect(String inputStr)
-		{
-			throw new UnsupportedOperationException();
-		}
-
-		@Override
-		public boolean isDirect()
-		{
-			return true;
-		}
-
-		@Override
-		public String unconvert(DataTable obj)
-		{
-			throw new UnsupportedOperationException();
-		}
-
-		@Override
-		public Class<DataTable> getManagedClass()
-		{
-			return DataTable.class;
-		}
-
-		@Override
-		public String getIdentifierType()
-		{
-			return "TABLE";
-		}
-
-		@Override
-		public Optional<FormatManager<?>> getComponentManager()
-		{
-			return Optional.empty();
-		}
-	}
-
 	@Override
 	public EvaluationManager generateManager()
 	{
@@ -746,7 +673,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	
 	public void testLessThan()
 	{
-		Finder finder = new Finder();
+		TransparentFormatManager<TableColumn> finder =
+				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
 		DataTable dt = doNumberTableSetup();
 		context.getReferenceContext().importObject(dt);
 		finder.map.put("Strength", buildColumn("Strength", numberManager));

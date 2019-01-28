@@ -19,11 +19,11 @@ package pcgen.cdom.testsupport;
 
 import java.util.Set;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractExtractingFacetTest<S, T> extends
 		AbstractSourcedListFacetTest<T>

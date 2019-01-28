@@ -1,0 +1,19 @@
+SOURCELONG:Agents of Evil		SOURCESHORT:AoE	SOURCEWEB:https://paizo.com/products/btpy9he0	SOURCEDATE:2015-12
+
+# ==============================
+# Poisons
+# ==============================
+
+Poison (Bloodpyre)		TYPE:Goods.Poison.Consumable		COST:1000		SOURCEPAGE:p.22		SPROP:Contact; Fort DC 14; Freq 1 rd (6); Effect 1 Cha, Int, and Wis, 2d6 fire dmg, see text; Cure 1 save
+Poison (Dreaming Death)		TYPE:Goods.Poison.Consumable		COST:2500		SOURCEPAGE:p.22		SPROP:Inhaled; Fort DC 16; Onset 10 min; Freq 10 min (6); Effect sleep 10 min, see text; Cure 1 save
+Poison (Ghost Syrup)		TYPE:Goods.Poison.Consumable		COST:6000		SOURCEPAGE:p.22		SPROP:Ingested; Fort DC 20; Onset 1 min; Freq 1 rnd (6); Effect 1d3 Str dmg, 50%% chance of dropping one held item; Cure 2 consecutive saves; If Strength reduced to 0, victim becomes permanently incorporeal, carried and worn equipment is unaffected
+Poison (Gray Justice)		TYPE:Goods.Poison.Consumable		COST:400		SOURCEPAGE:p.22		SPROP:Injury; Fort DC 18; Freq 1 min (10); Effect 1d2 Wis, see text; Cure 2 consecutive saves
+Poison (Ragespittle)		TYPE:Goods.Poison.Consumable		COST:1000		SOURCEPAGE:p.22		SPROP:Contact; Fort DC 17; Onset 1 min; Freq 1 min (6); Effect 1d2 Dex, see text; Cure 2 consecutive saves
+Poison (Scholarblight)		TYPE:Goods.Poison.Consumable		COST:1500		SOURCEPAGE:p.22		SPROP:Inhaled; Fort DC 15; Freq 1 min (6); Effect 1d3 Int, see text; Cure 1 save
+Poison (Widow's Kiss)		TYPE:Goods.Poison.Consumable		COST:7000		SOURCEPAGE:p.22		SPROP:Ingested; Fort DC 24; Onset 1d4 days (1/day); Effect 1d3 Con, see text; Cure 3 consecutive saves
+Poison (Memento Mori)		TYPE:Goods.Poison.Consumable		COST:3700		SOURCEPAGE:p.22		SPROP:Inhaled; Fort DC 19; Freq 1 min (6); Effect 1d3 Wis dmg, see text; Cure 2 consecutive saves
+
+
+
+
+

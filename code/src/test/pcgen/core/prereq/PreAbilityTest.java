@@ -29,24 +29,12 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
 /**
  * {@code PreAbilityTest} verifies the function of the
  * PreAbilityTester. 
  */
 public class PreAbilityTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAbilityTest.class);
-	}
-
 	/**
 	 * Test the function of the ANY key.
 	 *

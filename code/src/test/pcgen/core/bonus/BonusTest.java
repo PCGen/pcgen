@@ -47,20 +47,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 @SuppressWarnings("nls")
 public class BonusTest extends AbstractCharacterTestCase
 {
-
-
-	public BonusTest()
-	{
-	}
-
-	/**
-	 * @param arg0
-	 */
-	public BonusTest(final String arg0)
-	{
-		super(arg0);
-	}
-
 	/**
 	 * Test the skill pre reqs.
 	 */

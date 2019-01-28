@@ -2,9 +2,9 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
-import org.nfunk.jep.ParseException;
-
 import pcgen.util.PCGenCommand;
+
+import org.nfunk.jep.ParseException;
 
 /**
  * Deal with min JEP command eg. {@literal min(12.6, 20) --> 12.6 }

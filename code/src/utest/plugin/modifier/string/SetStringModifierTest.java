@@ -17,10 +17,8 @@
  */
 package plugin.modifier.string;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.StringManager;
@@ -31,11 +29,13 @@ import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
+import org.junit.jupiter.api.Test;
+
 public class SetStringModifierTest
 {
 
 	private final PCGenScope varScope = new GlobalScope();
-	FormatManager<String> stringManager = new StringManager();
+	private FormatManager<String> stringManager = new StringManager();
 
 	@Test
 	public void testInvalidConstruction()

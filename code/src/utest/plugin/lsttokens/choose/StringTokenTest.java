@@ -17,10 +17,15 @@
  */
 package plugin.lsttokens.choose;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URISyntaxException;
 import java.util.Arrays;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
@@ -38,6 +43,9 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 {
 
@@ -45,6 +53,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	static StringToken subtoken = new StringToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

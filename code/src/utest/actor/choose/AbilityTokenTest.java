@@ -19,16 +19,16 @@ package actor.choose;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * The Class {@code AbilityTokenTest} verifies the AbilityToken
@@ -45,9 +45,16 @@ public class AbilityTokenTest
 	@Before
 	public void setUp()
 	{
-		SettingsHandler.getGame().clearLoadContext();
+		Globals.emptyLists();
 		context = Globals.getContext();
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@After
+	public void tearDown()
+	{
+		Globals.emptyLists();
+		context = null;
 	}
 
 	private Ability getObject()

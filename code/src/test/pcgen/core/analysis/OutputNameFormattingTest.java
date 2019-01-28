@@ -19,9 +19,11 @@ package pcgen.core.analysis;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +43,12 @@ public class OutputNameFormattingTest
 		testObj.setName(NAME);
 	}
 
-	
+	@AfterEach
+	public void tearDown()
+	{
+		testObj = null;
+	}
+
 	/**
 	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(CDOMObject)}.
 	 * Check that a default output name will work correctly.

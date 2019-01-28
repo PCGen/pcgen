@@ -1,0 +1,196 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+# PFS MODS: Mark Means, 2 Jan 2019
+
+# ==============================
+# New Alternate Racial Traits
+# ==============================
+# Ability Name												Unique Key											Category of Ability		Type																																																																																																																												Required Class			Multiple Requirements																						Required Race					Define																																																																																Description																																																																	Stackable?	Multiple?	Choose				Template				Ability																																																			Bonus Ability Pool																										Combat bonus					Bonus to Situation																																Adjust PC Size		Bonus to skill												Bonus to skill point/L		Stat bonus									Modify VAR																																																																																Weapon prof. bonus																																																						Wield Category bonus		Cost		Source Page		Aspects																												Temporary effect description	Temporary Bonus
+CATEGORY=Special Ability|Kitsune ~ Keen Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Kitsune ~ Multilingual.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Kitsune ~ Skilled.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Kitsune ~ Superior Shapeshifter.MOD		PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Vanara ~ Acrobatic.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Vanara ~ Change Size.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# New Favored Class Bonus Abilities
+# ==============================
+
+#CATEGORY=Internal|Blood of the Beast Favored Class Tracker.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#Catfolk Alchemist
+CATEGORY=Special Ability|Favored Class Bonus ~ Alchemist Discovery ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Bloodrager
+CATEGORY=Special Ability|Favored Class Bonus ~ Bloodrager Base Speed ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Hunter
+CATEGORY=Special Ability|Favored Class Bonus ~ Hunter Teamwork Feat ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Inquisitor
+CATEGORY=Special Ability|Favored Class Bonus ~ Inquisitor Track Bonus ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Investigator - NOT IMPLEMENTED - Appears to need seperate line for each possible skill to implement +2 maximum - May implement later...
+CATEGORY=Special Ability|Favored Class Bonus ~ Investigator Inspiration Bonus ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Medium
+CATEGORY=Special Ability|Favored Class Bonus ~ Medium Spirit Surge Bonus ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Monk - PARTIALLY IMPLEMENTED - Unable to make Catfolk Claws monk weapons on a conditional basis at this time
+CATEGORY=Special Ability|Favored Class Bonus ~ Monk Claw Damage Bonus ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Shaman - NOT IMPLEMENTED - Would need to implement for all individual hexes across multiple sources
+CATEGORY=Special Ability|Favored Class Bonus ~ Shaman Bonus Hex Level ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Catfolk Slayer
+CATEGORY=Special Ability|Favored Class Bonus ~ Slayer Bonus Sneak Attack Damage ~ Catfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Internal|Blood of the Beast Favored Class Tracker.MOD
+
+#Grippli Barbarian
+CATEGORY=Special Ability|Favored Class Bonus ~ Barbarian AC Bonus ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Bard - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Bard Performance Range ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Medium
+CATEGORY=Special Ability|Favored Class Bonus ~ Spirit Surge Bonus ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Oracle - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Oracle Spell ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Shaman - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Shaman Bonus Druid Spell ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Skald
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Rage Song Rounds ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Slayer
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Bone Weapon Damage ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Swashbuckler
+CATEGORY=Special Ability|Favored Class Bonus ~ Derring-Do Bonus ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Grippli Witch
+CATEGORY=Special Ability|Favored Class Bonus ~ Witch Familiar Poison DC ~ Grippli.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Internal|Blood of the Beast Favored Class Tracker.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#Kitsune All Classes
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Magical Tail ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Kitsune Arcanist - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Arcanist Spell Duration ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Kitsune Brawler
+CATEGORY=Special Ability|Favored Class Bonus ~ Martial Flexibility ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Kitsune Cavalier
+CATEGORY=Special Ability|Favored Class Bonus ~ Banner Ability ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Kitsune Fighter - IMPLEMENTED as Aspect only
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Fighter Damage ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Kitsune Mesmerist
+CATEGORY=Special Ability|Favored Class Bonus ~ Mesmerist Tricks ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Kitsune Shaman - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Shaman Bonus Wizard Spell ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Kitsune Swashbuckler
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Swashbuckler Panache ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Swashbuckler ~ Panache.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					BONUS:VAR|PanachePointsFavoredBonus|KitsuneSwashbucklerFavClassBonus
+
+#Kitsune Vigilante
+CATEGORY=Special Ability|Favored Class Bonus ~ Seamless Guise Bonus ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Internal|Blood of the Beast Favored Class Tracker
+
+#Nagaji Cavalier - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Cavalier Mount Base Speed ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Nagaji Mesmerist
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Mental Potency ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Nagaji Oracle - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Oracle Revelation Level ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Nagaji Paladin
+CATEGORY=Special Ability|Favored Class Bonus ~ Divine Bond Duration ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Nagaji Ranger - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Snake Ranger Companion Skills ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Nagaji Slayer
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Slayer Talent ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Nagaji Sorcerer - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Sorcerer Caster Level ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Nagaji Warpriest - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Warpriest Blessings ~ Nagaji.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Internal|Blood of the Beast Favored Class Tracker.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#Ratfolk Arcanist - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Consume Magic Items Uses ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Bard
+CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Inspiration Bonus ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Hunter - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Hunter Companion Skill Rank ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Inquisitor
+CATEGORY=Special Ability|Favored Class Bonus ~ Inquisitor Skills ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Investigator - NOT IMPLEMENTED - Appears to need seperate line for each possible skill to implement +2 maximum - May implement later...
+CATEGORY=Special Ability|Favored Class Bonus ~ Investigator Inspiration Bonus ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Mesmerist - IMPLEMENTED as Aspect only
+CATEGORY=Special Ability|Favored Class Bonus ~ Mesmerist Concentration Bonus ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Occultist
+CATEGORY=Special Ability|Favored Class Bonus ~ Occultist Focus Power ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Psychic
+CATEGORY=Special Ability|Favored Class Bonus ~ Phrenic Amplification ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Spiritualist - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Spiritualist Phantom Bonuses ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Ratfolk Swashbuckler - IMPLEMENTED as Aspect only
+CATEGORY=Special Ability|Favored Class Bonus ~ Swashbuckler Cover Bonus ~ Ratfolk.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Internal|Blood of the Beast Favored Class Tracker.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#Tengu Bard
+CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Brawler
+CATEGORY=Special Ability|Favored Class Bonus ~ Brawler Beak Attack Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Cleric
+CATEGORY=Special Ability|Favored Class Bonus ~ Cleric Skill Bonuses ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Hunter - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Hunter Companion Skills ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Kineticist
+CATEGORY=Special Ability|Favored Class Bonus ~ Extra Wild Talent Feat ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Medium
+CATEGORY=Special Ability|Favored Class Bonus ~ Spirit Surge Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Mesmerist - IMPLEMENTED as Aspect only
+CATEGORY=Special Ability|Favored Class Bonus ~ Meek Facade AC ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Slayer
+CATEGORY=Special Ability|Favored Class Bonus ~ Slayer Skill Bonuses ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Spiritualist - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Spiritualist Phantom Feat ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Tengu Swashbuckler
+CATEGORY=Special Ability|Favored Class Bonus ~ Derring-Do Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Internal|Blood of the Beast Favored Class Tracker.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#Vanara Arcanist - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Arcanist Exploit Bonuses ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Bard
+CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Knowledge ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Brawler
+CATEGORY=Special Ability|Favored Class Bonus ~ Extra Fleet Feat ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Cavalier - NOT IMPLEMENTED - Needs class ability rewrite with bonusable variables
+CATEGORY=Special Ability|Favored Class Bonus ~ Tactician Duration ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Hunter
+CATEGORY=Special Ability|Favored Class Bonus ~ Animal Focus Duration ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Kineticist - IMPLEMENTED as Aspect only
+CATEGORY=Special Ability|Favored Class Bonus ~ Total Burn Points ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Occultist
+CATEGORY=Special Ability|Favored Class Bonus ~ Occultist Focus Power ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Psychic - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Divination Range ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Shaman - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Shaman Bonus Cleric Spell ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Summoner
+CATEGORY=Special Ability|Favored Class Bonus ~ Eidolon Evolution ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Witch - NOT IMPLEMENTED
+CATEGORY=Special Ability|Favored Class Bonus ~ Witch Caster Level ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#Vanara Wizard
+CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Wizard Feat ~ Vanara.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bonus Magical Tail ~ Kitsune.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Special Ability|Favored Class Bonus ~ Bardic Performance Bonus ~ Tengu.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+###################################################################
+##Support for shapechanging feats
+
+#CATEGORY=Special Ability|Kitsune ~ Change Shape.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal

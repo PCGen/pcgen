@@ -31,6 +31,9 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AllTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
@@ -45,6 +48,7 @@ public class AllTokenTest extends
 		super("ALL", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -90,46 +94,55 @@ public class AllTokenTest extends
 //		doPrimitiveIllegalTarget("Foo");
 //	}
 
+	@Test
 	public void testPrimitiveIllegalBadArgs()
 	{
 		doPrimitiveIllegalTarget("Foo[Hi]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadKnownEquals()
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadKnownEqualsBad()
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=Bad]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMax()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMaxEquals()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMaxEqualsBad()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=3-]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMin()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMinEquals()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMinEqualsBad()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=3+]");

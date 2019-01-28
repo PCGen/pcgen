@@ -102,3 +102,9 @@ ABILITYCATEGORY:Implement School Focus Power			VISIBLE:QUALIFY	EDITABLE:YES	EDIT
 
 ABILITYCATEGORY:Ectoplasm Bloodline Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:EctoplasmBloodline							ABILITYLIST:Skill Focus (Fly)|Skill Focus (Stealth)	PLURAL:Draconic Bloodline Feats				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Psychic Bloodline Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:PsychicBloodline							ABILITYLIST:Skill Focus(Sense Motive)			PLURAL:Draconic Bloodline Feats				DISPLAYLOCATION:Feats
+
+
+ABILITYCATEGORY:Homunculus Companion Custom Skills			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HomunculusCompanionCustomSkills																DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Homunculus Companion Ability Increase			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HomunculusCompanionAbilityIncrease				PLURAL:Homunculus Companion Ability Increases					DISPLAYLOCATION:Race Abilities
+
+ABILITYCATEGORY:Elemental Annihilator Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Elemental Annihilator Feat						DISPLAYLOCATION:Feats

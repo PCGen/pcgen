@@ -53,14 +53,6 @@ public class BioSetTest extends AbstractCharacterTestCase
 				"RACENAME:Human%		BASEAGE:53	MAXAGE:69	AGEDIEROLL:4d4+1",
 				"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
 				"RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public BioSetTest(final String name)
-	{
-		super(name);
-	}
 
     @Override
 	public void setUp() throws Exception
@@ -112,8 +104,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 		assertTrue("Generated weight " + pc.getDisplay().getWeight()
 			+ " is not in required range.", (pc.getDisplay().getWeight() >= 120 && pc
 					.getDisplay().getWeight() <= 280));
-		assertTrue("Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
-			+ " is not valid.", ("Blue".equals(pc.getSafeStringFor(PCStringKey.EYECOLOR))));
+		assertEquals("Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
+				+ " is not valid.", "Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR));
 		assertTrue("Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
 			+ " is not valid.", ("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
 			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))));

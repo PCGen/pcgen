@@ -54,7 +54,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
-
 import org.jetbrains.annotations.Nullable;
 
 /**

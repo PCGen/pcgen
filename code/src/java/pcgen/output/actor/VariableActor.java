@@ -19,8 +19,6 @@ package pcgen.output.actor;
 
 import java.util.Objects;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -29,6 +27,9 @@ import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.VariableUtilities;
 import pcgen.output.base.OutputActor;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A VariableActor is designed to process an interpolation and convert that into

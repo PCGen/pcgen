@@ -59,8 +59,6 @@ import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
-import org.apache.commons.io.FileUtils;
-
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.core.CompanionStubFacade;
@@ -99,6 +97,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+
+import org.apache.commons.io.FileUtils;
 
 /**
  * This component allows a user to manage a character's companions (animal,

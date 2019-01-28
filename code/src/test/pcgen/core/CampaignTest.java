@@ -27,6 +27,7 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,6 +40,13 @@ class CampaignTest
 	public void setUp() throws Exception
 	{
 		TokenRegistration.register(new UrlToken());
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		testCamp = null;
 	}
 
 	@Test

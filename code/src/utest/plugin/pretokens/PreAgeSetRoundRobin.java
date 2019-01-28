@@ -21,12 +21,15 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAgeSetParser;
 import plugin.pretokens.writer.PreAgeSetWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
  * {@code PreAgeSetRoundRobin} verifies that preageset tags can be
  * read and written.
  */
 public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 {
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

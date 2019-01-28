@@ -49,7 +49,7 @@ public class AgeToken extends AbstractExportToken
 		}
 		else if ("AGE.CATEGORY".equals(tokenSource))
 		{
-			retString = display.getAgeSet().getName();
+			retString = display.getAgeSet().getDisplayName();
 		}
 
 		return retString;

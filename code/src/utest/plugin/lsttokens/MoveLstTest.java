@@ -17,7 +17,10 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -27,6 +30,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class MoveLstTest extends AbstractGlobalTokenTestCase
 {
@@ -127,7 +132,7 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "Walk,30", unparsed[0]);
+		assertEquals("Walk,30", unparsed[0]);
 	}
 
 	@Test

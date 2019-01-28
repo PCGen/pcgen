@@ -1,0 +1,790 @@
+###Block:BASIC MELEE WEAPONS
+# One-Handed Weapons
+Handaxe (basic)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Sap (light)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Sledge		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Switchblade (tactical)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Handaxe (tactical)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Tailblade		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Retractable spike (tactical)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Spined blade (basic)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Sap (medium)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Shell knuckles (tactical)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Hook knife		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Spined blade (buzzblade)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Switchblade (ultrathin)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Handaxe (sintered)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Retractable spike (advanced)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Sap (heavy)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Spined blade (ripper)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Shell knuckles (advanced)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Switchblade (zero-edge)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Handaxe (ultrathin)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Spined blade (gravity)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Retractable spike (elite)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Shell knuckles (elite)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Spined blade (rivener)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Switchblade (molecular-rift)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Handaxe (molecular-rift)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Retractable spike (paragon)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Shell knuckles (paragon)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+
+# Two-Handed Weapons
+Garrote (wire)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Warclub		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Greataxe (tactical)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Lance (tactical)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Chitinblade (tactical)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Puzzleblade (conviction)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Living staff (tactical)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Maul (tactical)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Greataxe (sintered)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Scythe (tactical)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Garrote (nanofiber)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Lance (advanced)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Chitinblade (microserrated)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Puzzleblade (dedication)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Greataxe (ultrathin)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Maul (advanced)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Scythe (sintered)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Garrote (microfilament)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Living staff (advanced)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Chitinblade (nanoserrated)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Lance (elite)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Greataxe (molecular-rift)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Puzzleblade (moderation)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Maul (elite)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Living staff (elite)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Scythe (ultrathin)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Chitinblade (ultraserrated)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Garrote (monowire)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Lance (paragon)		TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Puzzleblade (tradition)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Living staff (paragon)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+Maul (paragon)		TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized
+
+###Block:ADVANCED MELEE WEAPONS
+# One-Handed Weapons
+#  Cold
+Ice needle (undercover)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Cryospike (personal)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone scepter (chill)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Zero knife (frostbite-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Ice needle (furtive)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Gale baton (tempest)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Zero knife (hailstorm-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone scepter (void)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Cryospike (residential)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Ice needle (artifice)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Gale baton (cyclone)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Zero knife (blizzard-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone scepter (rigor)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Ice needle (espionage)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Cryospike (industrial)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Zero knife (avalanche-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Gale baton (hurricane)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Ice needle (subterfuge)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone scepter (cadaver)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Zero knife (icequake-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Disintegrator
+Disintegrator lash (liquidator)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Disintegrator lash (decimator)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Disintegrator lash (executioner)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Disintegrator lash (eradicator)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Flame
+Junk censer		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resistance rod (strain-gauge)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pyrod (luminous)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Magma blade (rhyolite)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Searing grip (low-heat)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Mirage dagger (distortion)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Magma blade (andesite)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resistance rod (thermistor)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pyrod (torch)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Searing grip (high-heat)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resistance rod (piezoresistor)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Mirage dagger (hallucination)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Magma blade (basalt)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resistance rod (induction)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pyrod (beacon)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Searing grip (weaponized)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Magma blade (plagioclase)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Mirage dagger (illusion)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Plasma
+Welder (utility)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Solar brand (red star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma lash (red star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Angel wing (movanic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Welder (industrial)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Solar brand (yellow star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Angel wing (monadic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma lash (yellow star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Angel wing (astral)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Welder (starship)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Solar brand (white star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma lash (white star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Welder (offensive)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Solar brand (blue star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma lash (blue star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Shock
+Spark knife (runner)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock pad (static)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Glass blade (live)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Neural lash (electroplax)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Spark knife (recruit)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock pad (aurora)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Glass blade (jolt)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Neural lash (amperometric)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Spark knife (crew)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock pad (storm)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Glass blade (impulse)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Neural lash (galvanic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Spark knife (boss)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock pad (tempest)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Glass blade (surge)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Neural lash (voltaic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Sonic
+Singing disk (sopranino)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Wailing blade (tymbal)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shrieking knife (harmonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resonant gauntlet (cellular)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing disk (soprano)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Wailing blade (euphonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shrieking knife (interference)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resonant gauntlet (molecular)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing disk (alto)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Wailing blade (strident)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shrieking knife (infrasonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resonant gauntlet (atomic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing disk (tenor)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shrieking knife (ultrasonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Wailing blade (warbler)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing disk (bass)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resonant gauntlet (quantum)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Uncategorized
+Hook sword		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Talon (drone)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Warfan		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Living lash		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Talon (warrior)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Talon (knight)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Talon (queen)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Talon (god)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+
+# Two-Handed Weapons
+
+#  Cold
+Shadow chains (follower)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Void staff (grave-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Frost maul (aufeis)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Icestar staff (defender)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Spined iceblade (frostbite-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Void staff (crypt-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Icestar staff (seeker)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow chains (acolyte)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Frost maul (iceberg)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Spined iceblade (hailstorm-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow chains (penitent)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Icestar staff (warrior)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Void staff (tomb-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Frost maul (floe)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Icestar staff (drifter)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow chains (ecclesiastic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Void staff (ossuary-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Spined iceblade (blizzard-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Frost maul (glacier)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Icestar staff (leader)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow chains (devotional)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Spined iceblade (avalanche-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Void staff (barrow-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Fire
+Flame spinner (fireball)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Burning chains (fiend-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flame spinner (immolation)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Meteor glaive (tactical)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Burning chains (malebranche-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Meteor glaive (advanced)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flame spinner (supernova)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Meteor glaive (elite)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Burning chains (archdevil-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Meteor glaive (paragon)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flame spinner (fission)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Plasma
+Flare axe (red star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Nova lance (red star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Core hammer (tactical)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma ribbon (student)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flare axe (yellow star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Nova lance (yellow star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Core hammer (advanced)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma ribbon (professional)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flare axe (white star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Nova lance (white star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Core hammer (fusion)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma ribbon (competitor)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flare axe (blue star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Nova lance (blue star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma ribbon (champion)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Core hammer (reactor)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Shock
+Polarity gauntlets (spark)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Stun staff (tactical)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm hammer (diamagnetic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Polarity gauntlets (static)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Electroflail (tactical)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Stun staff (static)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm hammer (paramagnetic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Polarity gauntlets (aurora)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Electroflail (advanced)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Stun staff (aurora)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm hammer (ferromagnetic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Polarity gauntlets (current)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Stun staff (storm)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Electroflail (elite)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Polarity gauntlets (storm)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm hammer (antiferromagnetic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Stun staff (tempest)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Electroflail (paragon)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Polarity gauntlets (tempest)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm hammer (metamagnetic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Sonic
+Seismic pick (light)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Vibrogarrote (basic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resonant staff (sonorous)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing spear (sopranino)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Seismic pick (heavy)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Interference blade (monophonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Vibrogarrote (harmonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing spear (soprano)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Seismic pick (driver)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Interference blade (harmonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Vibrogarrote (interference)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing spear (alto)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resonant staff (reverberant)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Interference blade (polyphonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Seismic pick (demolition)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Vibrogarrote (infrasonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Singing spear (tenor)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Resonant staff (stentorian)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Interference blade (multiphonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Vibrogarrote (ultrasonic)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Uncategorized
+Battle ribbon (traditional)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Battle ribbon (micro-edge)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Battle ribbon (zero-edge)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+
+# SMALL ARMS
+#  Cryo
+Hail pistol (subzero)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Subduer (frost)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone pistol (grave-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow pistol (caliginous)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone pistol (crypt-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow pistol (sable)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Hail pistol (gelid)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Subduer (rime)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone pistol (sepulcher-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow pistol (tenebrous)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Subduer (sleet)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Hail pistol (ultracold)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Subduer (glacier)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Hail pistol (absolute-zero)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Bone pistol (vault-class)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shadow pistol (umbral)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+#  Disintegrator
+Decoupler (bruiser)		TYPE:SMALL ARMS
+Decoupler (pusher)		TYPE:SMALL ARMS
+Disintegrator pistol (liquidator)		TYPE:SMALL ARMS
+Decoupler (screamer)		TYPE:SMALL ARMS
+Disintegrator pistol (decimator)		TYPE:SMALL ARMS
+Disintegrator pistol (executioner)		TYPE:SMALL ARMS
+Disintegrator pistol (eradicator)		TYPE:SMALL ARMS
+
+#  Flame
+Wave modulator I		TYPE:SMALL ARMS
+Shellgun (bombard)		TYPE:SMALL ARMS
+Scorchgun (microwave)		TYPE:SMALL ARMS
+Dragon pistol (wyrmling)		TYPE:SMALL ARMS
+Wave modulator II		TYPE:SMALL ARMS
+Radshot (electromagnetic)		TYPE:SMALL ARMS
+Flame pistol (blaze)		TYPE:SMALL ARMS
+Scorchgun (S-band)		TYPE:SMALL ARMS
+Wave modulator III		TYPE:SMALL ARMS
+Shellgun (blaze)		TYPE:SMALL ARMS
+Dragon pistol (drake)		TYPE:SMALL ARMS
+Flame pistol (inferno)		TYPE:SMALL ARMS
+Wave modulator IV		TYPE:SMALL ARMS
+Shellgun (fury)		TYPE:SMALL ARMS
+Scorchgun (C-band)		TYPE:SMALL ARMS
+Radshot (neutron)		TYPE:SMALL ARMS
+Wave modulator V		TYPE:SMALL ARMS
+Dragon pistol (wyvern)		TYPE:SMALL ARMS
+Scorchgun (K-band)		TYPE:SMALL ARMS
+Wave modulator VI		TYPE:SMALL ARMS
+Flame pistol (solar flare)		TYPE:SMALL ARMS
+Scorchgun (X-band)		TYPE:SMALL ARMS
+Dragon pistol (true)		TYPE:SMALL ARMS
+Radshot (rapid-decay)		TYPE:SMALL ARMS
+Wave modulator VII		TYPE:SMALL ARMS
+
+#  Laser
+Shoulder laser (azimuth)		TYPE:SMALL ARMS
+Compliance ray (flash)		TYPE:SMALL ARMS
+Lens pistol (cylindrical)		TYPE:SMALL ARMS
+Compliance ray (flare)		TYPE:SMALL ARMS
+Shoulder laser (corona)		TYPE:SMALL ARMS
+Lens pistol (lenticular)		TYPE:SMALL ARMS
+Compliance ray (strobe)		TYPE:SMALL ARMS
+Shoulder laser (aphelion)		TYPE:SMALL ARMS
+Compliance ray (starburst)		TYPE:SMALL ARMS
+Lens pistol (electron)		TYPE:SMALL ARMS
+Shoulder laser (perihelion)		TYPE:SMALL ARMS
+Compliance ray (sunspot)		TYPE:SMALL ARMS
+Lens pistol (sunglass)		TYPE:SMALL ARMS
+
+#  Plasma
+Plasma claw (electrocellular)		TYPE:SMALL ARMS
+Forked pistol (6-notch)		TYPE:SMALL ARMS
+Cavitation pistol (vapor)		TYPE:SMALL ARMS
+Plasma ring (single-valve)		TYPE:SMALL ARMS
+Plasma claw (synthecite)		TYPE:SMALL ARMS
+Forked pistol (8-notch)		TYPE:SMALL ARMS
+Cavitation pistol (inertial)		TYPE:SMALL ARMS
+Persuader		TYPE:SMALL ARMS
+Plasma claw (organic)		TYPE:SMALL ARMS
+Plasma ring (dual-valve)		TYPE:SMALL ARMS
+Forked pistol (9-notch)		TYPE:SMALL ARMS
+Cavitation pistol (hydrodynamic)		TYPE:SMALL ARMS
+Plasma claw (biodynamic)		TYPE:SMALL ARMS
+Plasma ring (multichannel)		TYPE:SMALL ARMS
+Cavitation pistol (thermodynamic)		TYPE:SMALL ARMS
+Forked pistol (10-notch)		TYPE:SMALL ARMS
+
+#  Projectile
+Handcannon (bravado)		TYPE:SMALL ARMS
+Injector pistol (medic)		TYPE:SMALL ARMS
+Rotating pistol (tactical)		TYPE:SMALL ARMS
+Injector pistol (zoologist)		TYPE:SMALL ARMS
+Handcannon (swagger)		TYPE:SMALL ARMS
+Injector pistol (poacher)		TYPE:SMALL ARMS
+Handcannon (bombast)		TYPE:SMALL ARMS
+Rotating pistol (advanced)		TYPE:SMALL ARMS
+Handcannon (braggadocio)		TYPE:SMALL ARMS
+Injector pistol (subjugation)		TYPE:SMALL ARMS
+Rotating pistol (elite)		TYPE:SMALL ARMS
+Handcannon (gasconade)		TYPE:SMALL ARMS
+Injector pistol (elite)		TYPE:SMALL ARMS
+
+#  Shock
+Handcoil (explorer)		TYPE:SMALL ARMS
+Anchor pistol (voltaic)		TYPE:SMALL ARMS
+Lightning pistol (sheet)		TYPE:SMALL ARMS
+Ionizer (cupric)		TYPE:SMALL ARMS
+Handcoil (fighter)		TYPE:SMALL ARMS
+Lightning pistol (ribbon)		TYPE:SMALL ARMS
+Anchor pistol (emergent)		TYPE:SMALL ARMS
+Ionizer (ferric)		TYPE:SMALL ARMS
+Handcoil (pilot)		TYPE:SMALL ARMS
+Lightning pistol (rocket)		TYPE:SMALL ARMS
+Ionizer (chromic)		TYPE:SMALL ARMS
+Anchor pistol (inductive)		TYPE:SMALL ARMS
+Handcoil (capital)		TYPE:SMALL ARMS
+Lightning pistol (smooth-channel)		TYPE:SMALL ARMS
+Ionizer (stannic)		TYPE:SMALL ARMS
+Anchor pistol (flux)		TYPE:SMALL ARMS
+
+
+#  Sonic
+Dirge pistol (harmonic)		TYPE:SMALL ARMS
+Perforator pistol (diffraction)		TYPE:SMALL ARMS
+Sonic suppressor (murmur)		TYPE:SMALL ARMS
+Shrieking larva		TYPE:SMALL ARMS
+Dirge pistol (resonant)		TYPE:SMALL ARMS
+Resonant pistol (lattice)		TYPE:SMALL ARMS
+Sonic suppressor (whisper)		TYPE:SMALL ARMS
+Perforator pistol (refraction)		TYPE:SMALL ARMS
+Dirge pistol (anharmonic)		TYPE:SMALL ARMS
+Sonic suppressor (hush)		TYPE:SMALL ARMS
+Perforator pistol (linear)		TYPE:SMALL ARMS
+Dirge pistol (parametric)		TYPE:SMALL ARMS
+Sonic suppressor (repose)		TYPE:SMALL ARMS
+Resonant pistol (matrix)		TYPE:SMALL ARMS
+Dirge pistol (radial)		TYPE:SMALL ARMS
+Perforator pistol (phased)		TYPE:SMALL ARMS
+
+#  Uncategorized
+Graviton pistol (linear)		TYPE:SMALL ARMS
+Shield projector (sentry)		TYPE:SMALL ARMS
+Sting pistol (ant)		TYPE:SMALL ARMS
+Graviton pistol (vector)		TYPE:SMALL ARMS
+Tetrad rings (tactical)		TYPE:SMALL ARMS
+Graviton pistol (tensor)		TYPE:SMALL ARMS
+Shield projector (defender)		TYPE:SMALL ARMS
+Sting pistol (yellow jacket)		TYPE:SMALL ARMS
+Tetrad rings (advanced)		TYPE:SMALL ARMS
+Graviton pistol (chiral)		TYPE:SMALL ARMS
+Shield projector (guardian)		TYPE:SMALL ARMS
+Sting pistol (wasp)		TYPE:SMALL ARMS
+Sting pistol (hornet)		TYPE:SMALL ARMS
+Shield projector (warden)		TYPE:SMALL ARMS
+Tetrad rings (elite)		TYPE:SMALL ARMS
+
+# LONGARMS
+#  Cryo
+Numbing beam (tactical)		TYPE:LONGARMS
+Ice carbine (subzero)		TYPE:LONGARMS
+Void rifle (grave-class)		TYPE:LONGARMS
+Freeze ray (hiemal)		TYPE:LONGARMS
+Numbing beam (advanced)		TYPE:LONGARMS
+Frost projector (frostbite-class)		TYPE:LONGARMS
+Void rifle (crypt-class)		TYPE:LONGARMS
+Freeze ray (algid)		TYPE:LONGARMS
+Ice carbine (gelid)		TYPE:LONGARMS
+Numbing beam (elite)		TYPE:LONGARMS
+Freeze ray (glacial)		TYPE:LONGARMS
+Void rifle (tomb-class)		TYPE:LONGARMS
+Frost projector (hailstorm-class)		TYPE:LONGARMS
+Ice carbine (ultracold)		TYPE:LONGARMS
+Numbing beam (paragon)		TYPE:LONGARMS
+Freeze ray (isothermal)		TYPE:LONGARMS
+Void rifle (ossuary-class)		TYPE:LONGARMS
+Ice carbine (absolute-zero)		TYPE:LONGARMS
+Frost projector (blizzard-class)		TYPE:LONGARMS
+Void rifle (barrow-class)		TYPE:LONGARMS
+Freeze ray (hypothermic)		TYPE:LONGARMS
+
+#  Disintegrator
+Dross gun (scrapper)		TYPE:LONGARMS
+Dross gun (scoring)		TYPE:LONGARMS
+Disintegrator rifle (liquidator)		TYPE:LONGARMS
+Dross gun (flux)		TYPE:LONGARMS
+Disintegrator rifle (decimator)		TYPE:LONGARMS
+Disintegrator rifle (executioner)		TYPE:LONGARMS
+Disintegrator rifle (eradicator)		TYPE:LONGARMS
+
+#  Flame
+Gulchgun		TYPE:LONGARMS
+Flare rifle (dazzler)		TYPE:LONGARMS
+Blaze rifle (ifrit-class)		TYPE:LONGARMS
+Petrol converter (light)		TYPE:LONGARMS
+Dragon rifle (wyrmling)		TYPE:LONGARMS
+Flare rifle (vivifier)		TYPE:LONGARMS
+Blaze rifle (salamander-class)		TYPE:LONGARMS
+Petrol converter (tactical)		TYPE:LONGARMS
+Igniter (ember)		TYPE:LONGARMS
+Dragon rifle (drake)		TYPE:LONGARMS
+Flare rifle (coruscator)		TYPE:LONGARMS
+Petrol converter (advanced)		TYPE:LONGARMS
+Blaze rifle (hellhound-class)		TYPE:LONGARMS
+Igniter (blaze)		TYPE:LONGARMS
+Flare rifle (scorcher)		TYPE:LONGARMS
+Dragon rifle (wyvern)		TYPE:LONGARMS
+Petrol converter (elite)		TYPE:LONGARMS
+Igniter (inferno)		TYPE:LONGARMS
+Blaze rifle (firedrake-class)		TYPE:LONGARMS
+Flare rifle (nova)		TYPE:LONGARMS
+Igniter (solar flare)		TYPE:LONGARMS
+Petrol converter (paragon)		TYPE:LONGARMS
+Dragon rifle (true)		TYPE:LONGARMS
+Blaze rifle (phoenix-class)		TYPE:LONGARMS
+
+#  Laser
+Serpent laser (azimuth)		TYPE:LONGARMS
+Infinity rifle (tactical)		TYPE:LONGARMS
+Excavation laser (light)		TYPE:LONGARMS
+Serpent laser (corona)		TYPE:LONGARMS
+Infinity rifle (advanced)		TYPE:LONGARMS
+Serpent laser (aphelion)		TYPE:LONGARMS
+Infinity rifle (elite)		TYPE:LONGARMS
+Excavation laser (medium)		TYPE:LONGARMS
+Serpent laser (perihelion)		TYPE:LONGARMS
+Infinity rifle (paragon)		TYPE:LONGARMS
+Excavation laser (heavy)		TYPE:LONGARMS
+
+#  Plasma
+Plasma bolter (tactical)		TYPE:LONGARMS
+Nova rifle (red star)		TYPE:LONGARMS
+Plasma fork (12-notch)		TYPE:LONGARMS
+Microfusion rifle (light)		TYPE:LONGARMS
+Plasma bolter (advanced)		TYPE:LONGARMS
+Nova rifle (yellow star)		TYPE:LONGARMS
+Plasma fork (15-notch)		TYPE:LONGARMS
+Plasma bolter (elite)		TYPE:LONGARMS
+Nova rifle (white star)		TYPE:LONGARMS
+Microfusion rifle (medium)		TYPE:LONGARMS
+Plasma fork (19-notch)		TYPE:LONGARMS
+Plasma bolter (paragon)		TYPE:LONGARMS
+Microfusion rifle (heavy)		TYPE:LONGARMS
+Plasma fork (22-notch)		TYPE:LONGARMS
+
+#  Projectile
+Rail gun (tactical)		TYPE:LONGARMS
+Breaching gun (utility)		TYPE:LONGARMS
+Rocket rifle		TYPE:LONGARMS
+Rail gun (advanced)		TYPE:LONGARMS
+Breaching gun (snub)		TYPE:LONGARMS
+Breaching gun (impact)		TYPE:LONGARMS
+Breaching gun (vortex)		TYPE:LONGARMS
+Breaching gun (grapeshot)		TYPE:LONGARMS
+
+#  Shock
+Storm coil (live)		TYPE:LONGARMS
+Polarity rifle (static)		TYPE:LONGARMS
+Surgecaster (standard)		TYPE:LONGARMS
+Storm coil (jolt)		TYPE:LONGARMS
+Charge emitter (impulse)		TYPE:LONGARMS
+Polarity rifle (aurora)		TYPE:LONGARMS
+Storm coil (impulse)		TYPE:LONGARMS
+Charge emitter (jolt)		TYPE:LONGARMS
+Surgecaster (advanced)		TYPE:LONGARMS
+Polarity rifle (storm)		TYPE:LONGARMS
+Storm coil (surge)		TYPE:LONGARMS
+Charge emitter (surge)		TYPE:LONGARMS
+Polarity rifle (tempest)		TYPE:LONGARMS
+
+#  Sonic
+Shout rifle		TYPE:LONGARMS
+Boomer rifle (tremor)		TYPE:LONGARMS
+Blindmark rifle (thunderstrike)		TYPE:LONGARMS
+Staccato rifle (pulse)		TYPE:LONGARMS
+Boomer rifle (rumbler)		TYPE:LONGARMS
+Blindmark rifle (LFD)		TYPE:LONGARMS
+Staccato rifle (surge)		TYPE:LONGARMS
+Boomer rifle (concussive)		TYPE:LONGARMS
+Blindmark rifle (HFD)		TYPE:LONGARMS
+Staccato rifle (drum)		TYPE:LONGARMS
+Boomer rifle (shockwave)		TYPE:LONGARMS
+Blindmark rifle (banshee)		TYPE:LONGARMS
+Staccato rifle (hammer)		TYPE:LONGARMS
+
+#  Uncategorized
+Nanite thrower (tactical)		TYPE:LONGARMS
+Nanite thrower (advanced)		TYPE:LONGARMS
+Nanite thrower (elite)		TYPE:LONGARMS
+Nanite thrower (paragon)		TYPE:LONGARMS
+
+
+# HEAVY WEAPONS
+#  Cold
+Hailcannon (subzero)		TYPE:HEAVY WEAPONS
+Ice launcher (aufeis)		TYPE:HEAVY WEAPONS
+Coolant sprayer (aufeis)		TYPE:HEAVY WEAPONS
+Energy converter (tactical)		TYPE:HEAVY WEAPONS
+Ice launcher (iceberg)		TYPE:HEAVY WEAPONS
+Hailcannon (gelid)		TYPE:HEAVY WEAPONS
+Coolant sprayer (algid)		TYPE:HEAVY WEAPONS
+Ice launcher (floe)		TYPE:HEAVY WEAPONS
+Hailcannon (ultracold)		TYPE:HEAVY WEAPONS
+Energy converter (advanced)		TYPE:HEAVY WEAPONS
+Coolant sprayer (glacial)		TYPE:HEAVY WEAPONS
+Hailcannon (absolute-zero)		TYPE:HEAVY WEAPONS
+Ice launcher (glacier)		TYPE:HEAVY WEAPONS
+Energy converter (elite)		TYPE:HEAVY WEAPONS
+Coolant sprayer (isothermal)		TYPE:HEAVY WEAPONS
+Hailcannon (clathrate)		TYPE:HEAVY WEAPONS
+Ice launcher (icecap)		TYPE:HEAVY WEAPONS
+
+#  Disintegrator
+Disintegrator cannon (liquidator)		TYPE:HEAVY WEAPONS
+Nanite decoupler (caustic)		TYPE:HEAVY WEAPONS
+Disintegrator cannon (decimator)		TYPE:HEAVY WEAPONS
+Disintegrator cannon (executioner)		TYPE:HEAVY WEAPONS
+Nanite decoupler (vitriolic)		TYPE:HEAVY WEAPONS
+Disintegrator cannon (eradicator)		TYPE:HEAVY WEAPONS
+
+#  Flame
+Agitator (ember)		TYPE:HEAVY WEAPONS
+Burner (ifrit-class)		TYPE:HEAVY WEAPONS
+Radcannon (electromagnetic)		TYPE:HEAVY WEAPONS
+Flame launcher (fireball)		TYPE:HEAVY WEAPONS
+Agitator (blaze)		TYPE:HEAVY WEAPONS
+Burner (salamander-class)		TYPE:HEAVY WEAPONS
+Flame launcher (immolation)		TYPE:HEAVY WEAPONS
+Radcannon (neutron)		TYPE:HEAVY WEAPONS
+Burner (hellhound-class)		TYPE:HEAVY WEAPONS
+Agitator (inferno)		TYPE:HEAVY WEAPONS
+Flame launcher (supernova)		TYPE:HEAVY WEAPONS
+Burner (firedrake-class)		TYPE:HEAVY WEAPONS
+Radcannon (rapid-decay)		TYPE:HEAVY WEAPONS
+Agitator (solar flare)		TYPE:HEAVY WEAPONS
+Burner (phoenix-class)		TYPE:HEAVY WEAPONS
+
+#  Laser
+Rotolaser (tactical)		TYPE:HEAVY WEAPONS
+Dazzler (flash)		TYPE:HEAVY WEAPONS
+Convergent laser (single-wave)		TYPE:HEAVY WEAPONS
+Divergent laser (single-wave)		TYPE:HEAVY WEAPONS
+Rotolaser (advanced)		TYPE:HEAVY WEAPONS
+Dazzler (strobe)		TYPE:HEAVY WEAPONS
+Convergent laser (multiwave)		TYPE:HEAVY WEAPONS
+Divergent laser (multiwave)		TYPE:HEAVY WEAPONS
+Dazzler (sunspot)		TYPE:HEAVY WEAPONS
+Convergent laser (wide-spectrum)		TYPE:HEAVY WEAPONS
+Divergent laser (wide-spectrum)		TYPE:HEAVY WEAPONS
+
+#  Plasma
+Conqueror (red star)		TYPE:HEAVY WEAPONS
+Hydra cannon (python-series)		TYPE:HEAVY WEAPONS
+Plasma array (red star)		TYPE:HEAVY WEAPONS
+Conqueror (yellow star)		TYPE:HEAVY WEAPONS
+Aurora cannon (hydrogen)		TYPE:HEAVY WEAPONS
+Hydra cannon (viper-series)		TYPE:HEAVY WEAPONS
+Plasma array (yellow star)		TYPE:HEAVY WEAPONS
+Conqueror (white star)		TYPE:HEAVY WEAPONS
+Aurora cannon (electron)		TYPE:HEAVY WEAPONS
+Plasma array (white star)		TYPE:HEAVY WEAPONS
+Hydra cannon (asp-series)		TYPE:HEAVY WEAPONS
+Conqueror (blue star)		TYPE:HEAVY WEAPONS
+Plasma array (blue star)		TYPE:HEAVY WEAPONS
+Aurora cannon (proton)		TYPE:HEAVY WEAPONS
+Conqueror (violet star)		TYPE:HEAVY WEAPONS
+Hydra cannon (cobra-series)		TYPE:HEAVY WEAPONS
+
+#  Projectile
+Dart cannon (light)		TYPE:HEAVY WEAPONS
+Rail cannon (tactical)		TYPE:HEAVY WEAPONS
+Dart cannon (tactical)		TYPE:HEAVY WEAPONS
+Dart cannon (heavy)		TYPE:HEAVY WEAPONS
+Dart cannon (advanced)		TYPE:HEAVY WEAPONS
+Rail cannon (advanced)		TYPE:HEAVY WEAPONS
+Dart cannon (elite)		TYPE:HEAVY WEAPONS
+Rail cannon (elite)		TYPE:HEAVY WEAPONS
+Dart cannon (paragon)		TYPE:HEAVY WEAPONS
+Rail cannon (paragon)		TYPE:HEAVY WEAPONS
+
+#  Shock
+Arc caster (static)		TYPE:HEAVY WEAPONS
+Stormcaller (sheet)		TYPE:HEAVY WEAPONS
+Colossus coil (corona)		TYPE:HEAVY WEAPONS
+Cathode cannon (tactical)		TYPE:HEAVY WEAPONS
+Arc caster (aurora)		TYPE:HEAVY WEAPONS
+Stormcaller (ribbon)		TYPE:HEAVY WEAPONS
+Cathode cannon (advanced)		TYPE:HEAVY WEAPONS
+Colossus coil (brush)		TYPE:HEAVY WEAPONS
+Arc caster (storm)		TYPE:HEAVY WEAPONS
+Cathode cannon (elite)		TYPE:HEAVY WEAPONS
+Stormcaller (rocket)		TYPE:HEAVY WEAPONS
+Colossus coil (streamer arc)		TYPE:HEAVY WEAPONS
+Cathode cannon (paragon)		TYPE:HEAVY WEAPONS
+Arc caster (tempest)		TYPE:HEAVY WEAPONS
+Cathode cannon (shockstorm)		TYPE:HEAVY WEAPONS
+Stormcaller (mooth-channel)		TYPE:HEAVY WEAPONS
+Colossus coil (multistream)		TYPE:HEAVY WEAPONS
+
+#  Sonic
+Shout projector (exhorter)		TYPE:HEAVY WEAPONS
+Dirge cannon (harmonic)		TYPE:HEAVY WEAPONS
+Sonic bolter (light)		TYPE:HEAVY WEAPONS
+Resonator (diffraction)		TYPE:HEAVY WEAPONS
+Shout projector (damper)		TYPE:HEAVY WEAPONS
+Dirge cannon (resonant)		TYPE:HEAVY WEAPONS
+Sonic bolter (heavy)		TYPE:HEAVY WEAPONS
+Resonator (refraction)		TYPE:HEAVY WEAPONS
+Shout projector (pacifier)		TYPE:HEAVY WEAPONS
+Sonic bolter (assault)		TYPE:HEAVY WEAPONS
+Dirge cannon (anharmonic)		TYPE:HEAVY WEAPONS
+Resonator (linear)		TYPE:HEAVY WEAPONS
+Dirge cannon (parametric)		TYPE:HEAVY WEAPONS
+Shout projector (riot)		TYPE:HEAVY WEAPONS
+Sonic bolter (devastator)		TYPE:HEAVY WEAPONS
+Resonator (phased)		TYPE:HEAVY WEAPONS
+Shout projector (crackdown)		TYPE:HEAVY WEAPONS
+
+#  Uncategorized
+Psychic-wave cannon I		TYPE:HEAVY WEAPONS
+Minelayer (merc)		TYPE:HEAVY WEAPONS
+Psychic-wave cannon II		TYPE:HEAVY WEAPONS
+Cluster launcher (tactical)		TYPE:HEAVY WEAPONS
+Minelayer (squad)		TYPE:HEAVY WEAPONS
+Psychic-wave cannon III		TYPE:HEAVY WEAPONS
+Cluster launcher (advanced)		TYPE:HEAVY WEAPONS
+Minelayer (platoon)		TYPE:HEAVY WEAPONS
+Cluster launcher (elite)		TYPE:HEAVY WEAPONS
+Psychic-wave cannon IV		TYPE:HEAVY WEAPONS
+Minelayer (command)		TYPE:HEAVY WEAPONS
+Cluster launcher (paragon)		TYPE:HEAVY WEAPONS
+Psychic-wave cannon V		TYPE:HEAVY WEAPONS
+
+# SNIPER WEAPONS
+#  Flame
+Gamma rifle (terrestrial)		TYPE:P.SNIPER WEAPONS
+Gamma rifle (ionizing)		TYPE:P.SNIPER WEAPONS
+Gamma rifle (fusion)		TYPE:P.SNIPER WEAPONS
+Gamma rifle (synchrotron)		TYPE:P.SNIPER WEAPONS
+
+#  Laser
+Focus rifle (dual)		TYPE:P.SNIPER WEAPONS
+Focus rifle (triple)		TYPE:P.SNIPER WEAPONS
+Focus rifle (quad)		TYPE:P.SNIPER WEAPONS
+Focus rifle (compound)		TYPE:P.SNIPER WEAPONS
+
+#  Plasma
+Plasma guide (series-21)		TYPE:P.SNIPER WEAPONS
+Plasma guide (series-28)		TYPE:P.SNIPER WEAPONS
+Plasma guide (series-37)		TYPE:P.SNIPER WEAPONS
+Plasma guide (series-42)		TYPE:P.SNIPER WEAPONS
+Plasma guide (series-62)		TYPE:P.SNIPER WEAPONS
+Plasma guide (series-73)		TYPE:P.SNIPER WEAPONS
+
+#  Projectile
+Coil rifle (precision)		TYPE:P.SNIPER WEAPONS
+Assassin rifle (stalker)		TYPE:P.SNIPER WEAPONS
+Multistage rifle (dual)		TYPE:P.SNIPER WEAPONS
+Coil rifle (specialist)		TYPE:P.SNIPER WEAPONS
+Assassin rifle (shadow)		TYPE:P.SNIPER WEAPONS
+Multistage rifle (dual-plus)		TYPE:P.SNIPER WEAPONS
+Assassin rifle (phantom)		TYPE:P.SNIPER WEAPONS
+Coil rifle (rangefinder)		TYPE:P.SNIPER WEAPONS
+Multistage rifle (triple)		TYPE:P.SNIPER WEAPONS
+Assassin rifle (spectre)		TYPE:P.SNIPER WEAPONS
+Coil rifle (saboteur)		TYPE:P.SNIPER WEAPONS
+Multistage rifle (triple-plus)		TYPE:P.SNIPER WEAPONS
+Assassin rifle (wraith)		TYPE:P.SNIPER WEAPONS
+Multistage rifle (quad)		TYPE:P.SNIPER WEAPONS
+Coil rifle (assassin)		TYPE:P.SNIPER WEAPONS
+
+#  Uncategorized
+Wraith-sting rifle (yellow jacket)		TYPE:P.SNIPER WEAPONS
+Wraith-sting rifle (wasp)		TYPE:P.SNIPER WEAPONS
+Nanite rifle (tactical)		TYPE:P.SNIPER WEAPONS
+Wraith-sting rifle (hornet)		TYPE:P.SNIPER WEAPONS
+Nanite rifle (advanced)		TYPE:P.SNIPER WEAPONS
+Nanite rifle (elite)		TYPE:P.SNIPER WEAPONS
+
+# Special Weapons
+Shuriken (grooved)		TYPE:Special Weapons
+Shuriken (microserrated)		TYPE:Special Weapons
+Shuriken (flash)			TYPE:Special Weapons
+Shuriken (singing)		TYPE:Special Weapons
+Shuriken (ultraserrated)		TYPE:Special Weapons
+Shuriken (dynamo)		TYPE:Special Weapons
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

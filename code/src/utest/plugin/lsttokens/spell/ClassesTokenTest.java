@@ -17,10 +17,12 @@
  */
 package plugin.lsttokens.spell;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Type;
@@ -40,6 +42,9 @@ import plugin.pretokens.parser.PreSubClassParser;
 import plugin.pretokens.writer.PreRaceWriter;
 import plugin.pretokens.writer.PreSubClassWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
 
@@ -53,7 +58,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	PreSubClassWriter presubclasswriter = new PreSubClassWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -395,13 +400,13 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		String[] unparsed;
 		assertTrue(parse("Wizard=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 		assertTrue(parse("Wizard=1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Wizard=1", unparsed[0]);
+		assertEquals("Wizard=1", unparsed[0]);
 		assertTrue(parse("Wizard=-1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be null", unparsed);
+		assertNull(unparsed);
 	}
 
 	@Test
@@ -410,7 +415,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		String[] unparsed;
 		assertTrue(parse("TYPE.Arcane=1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TYPE=Arcane=1", unparsed[0]);
+		assertEquals("TYPE=Arcane=1", unparsed[0]);
 	}
 
 	@Override

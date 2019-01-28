@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.EquipmentModifier;
@@ -25,6 +26,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTextPropertyTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class SPropTokenTest extends
 		AbstractTextPropertyTokenTestCase<EquipmentModifier>

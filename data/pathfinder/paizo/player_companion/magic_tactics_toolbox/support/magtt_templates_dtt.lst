@@ -1,0 +1,4 @@
+SOURCELONG:Magic Tactics Toolbox	SOURCESHORT:MagTT		SOURCEWEB:https://paizo.com/products/btpy9l2u	SOURCEDATE:2016-07
+
+Expert Sniper Feat		VISIBLE:NO		!PREABILITY:1,CATEGORY=FEAT,Expert Sniper									ABILITY:Internal|AUTOMATIC|Rogue Feat ~ Expert Sniper
+Master Sniper Feat		VISIBLE:NO		PRESKILL:1,Stealth=6		PREABILITY:2,CATEGORY=FEAT,Expert Sniper,Rapid Shot		ABILITY:Internal|AUTOMATIC|Rogue Feat ~ Master Sniper

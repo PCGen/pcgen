@@ -22,6 +22,7 @@ import java.util.List;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.BodyStructure;
+import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.Kit;
@@ -62,7 +63,7 @@ public interface DataSetFacade
 
 	public ListFacade<PCTemplate> getTemplates();
 
-	public ListFacade<CampaignFacade> getCampaigns();
+	public ListFacade<Campaign> getCampaigns();
 
 	public GameMode getGameMode();
 

@@ -1,0 +1,27 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+# PFS MODS: Mark Means, 2 Jan 2019
+
+# ==============================
+# New Spells
+# ==============================
+
+# Spell Name			Type					Classes of caster												School			Sub-School			Descriptor							Components	Casting Time			Range			Target Area or Effect											Duration										Save Info					Spell Resistance		Source Page		Description
+Batrachian Surge.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Grippli
+Bit of Luck.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Catfolk
+Contagious Suggestion.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Curse of Befouled Fortune.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Depilate.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Fumblestep.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Gullibility.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Hypnotism (Greater).MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Metabolic Molting.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji
+Naga Shape I.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
+Naga Shape II.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
+Naga Shape III.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
+Pouncing Fury.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Sweat Poison.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+Lightfingers.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal

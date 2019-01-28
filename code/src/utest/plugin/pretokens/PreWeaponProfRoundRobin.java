@@ -21,10 +21,13 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreWeaponProfParser;
 import plugin.pretokens.writer.PreWeaponProfWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 {
 
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -45,11 +48,13 @@ public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testDeityWeapon()
 	{
 		this.runRoundRobin("PRE" + getBaseString() + ":1,DEITYWEAPON");
 	}
 
+	@Test
 	public void testNegateItem()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",

@@ -41,7 +41,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 public final class SkillRankControl

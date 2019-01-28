@@ -16,6 +16,8 @@
  */
 package pcgen.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -29,7 +31,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;
@@ -41,7 +42,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
 import util.FormatSupport;
 
 /*
@@ -53,7 +55,7 @@ import util.FormatSupport;
  * tested in a utest environment should probably not be dependent on
  * PlayerCharacter in a fully isolated system
  */
-public abstract class AbstractCharacterUsingTestCase extends TestCase
+public abstract class AbstractCharacterUsingTestCase
 {
 
 	protected PCStat str;
@@ -124,9 +126,13 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
-
 		LoadContext context = Globals.getContext();
 		
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
 		FormatSupport.addBasicDefaults(context);
 		SourceFileLoader.defineBuiltinVariables(context);
 
@@ -141,7 +147,6 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -189,4 +194,17 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		other = ref.constructCDOMObject(Language.class, "Other");
 		SourceFileLoader.createLangBonusObject(context);
 	}
+	
+	@Before
+	public void setUp() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
+	@After
+	protected void tearDown() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
 }

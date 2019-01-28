@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext.subclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -31,6 +29,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.subclass.ChoiceToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class ChoiceIntegrationTest extends
 		AbstractIntegrationTestCase<SubClass>

@@ -17,8 +17,6 @@
  */
 package pcgen.io.exporttoken;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
@@ -32,16 +30,6 @@ import plugin.exporttokens.TextToken;
  */
 public class TextTokenTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(TextTokenTest.class);
-	}
-
     @Override
 	protected void setUp() throws Exception
 	{

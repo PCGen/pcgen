@@ -17,9 +17,12 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -35,6 +38,9 @@ import plugin.pretokens.parser.PreLevelMaxParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
@@ -45,6 +51,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	PreRaceWriter preracewriter = new PreRaceWriter();
 	PreLevelMaxParser prelevelmax = new PreLevelMaxParser();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

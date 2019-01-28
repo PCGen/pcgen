@@ -95,16 +95,4 @@ public interface DescriptionFacade
 	 */
 	public void setBiographyField(BiographyField field, String newValue);
 
-	/**
-	 * @return The custom BiographyFields held for this character.
-	 */
-	public ListFacade<BiographyField> getCustomBiographyFields();
-
-	/**
-	 * Add a new field to the list of fields that will be displayed for 
-	 * this character.
-	 * @param field The BiographyField to be displayed.
-	 */
-	public void addCustomBiographyField(BiographyField field);
-
 }

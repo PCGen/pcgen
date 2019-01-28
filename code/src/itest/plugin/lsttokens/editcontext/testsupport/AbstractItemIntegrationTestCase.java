@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractItemIntegrationTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
