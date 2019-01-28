@@ -2,13 +2,13 @@
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2004-01
 
 ###Block: Shadowkind alternates
-# Race Name					Output Name			Main Race Type	Race Subtype		Type			Template						Level Adjustment	Source Page
+# Race Name					Output Name			Main Race Type	Race Subtype		Type			Template						Level Adjustment	Challenge Rating	Source Page
 Bugbear.COPY=Bugbear (Shadowkind)
-Bugbear (Shadowkind).MOD		OUTPUTNAME:Bugbear	RACETYPE:Humanoid	RACESUBTYPE:Shadowkind				TEMPLATE:Shadowkind				LEVELADJUSTMENT:2	SOURCEPAGE:ArcanaCreatures,ArcanaShadowkind
+Bugbear (Shadowkind).MOD		OUTPUTNAME:Bugbear	RACETYPE:Humanoid	RACESUBTYPE:Shadowkind				TEMPLATE:Shadowkind				LEVELADJUSTMENT:2	CR:2			SOURCEPAGE:ArcanaCreatures,ArcanaShadowkind
 Gnoll.COPY=Gnoll (Shadowkind)
-Gnoll (Shadowkind).MOD			OUTPUTNAME:Gnoll		RACETYPE:Humanoid	RACESUBTYPE:Shadowkind				TEMPLATE:Shadowkind				LEVELADJUSTMENT:1	SOURCEPAGE:ArcanaCreatures,ArcanaShadowkind
+Gnoll (Shadowkind).MOD			OUTPUTNAME:Gnoll		RACETYPE:Humanoid	RACESUBTYPE:Shadowkind				TEMPLATE:Shadowkind				LEVELADJUSTMENT:1	CR:1			SOURCEPAGE:ArcanaCreatures,ArcanaShadowkind
 Ogre.COPY=Ogre (Shadowkind)
-Ogre (Shadowkind).MOD			OUTPUTNAME:Ogre		RACETYPE:Humanoid	RACESUBTYPE:Shadowkind	TYPE:Humanoid	TEMPLATE:Humanoid	TEMPLATE:Shadowkind	LEVELADJUSTMENT:3	SOURCEPAGE:ArcanaCreatures,ArcanaShadowkind
+Ogre (Shadowkind).MOD			OUTPUTNAME:Ogre		RACETYPE:Humanoid	RACESUBTYPE:Shadowkind	TYPE:Humanoid	TEMPLATE:Humanoid	TEMPLATE:Shadowkind	LEVELADJUSTMENT:3	CR:3			SOURCEPAGE:ArcanaCreatures,ArcanaShadowkind
 
 #
 # End
