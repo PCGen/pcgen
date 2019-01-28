@@ -15,12 +15,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Assert;
@@ -9259,13 +9261,13 @@ public class EvaluatorFactoryTest
 		Field pF1 = (Field) TestHelper.findField(uClass, "movement");
 
 		String field0 = "";
-		String field1 = "";
+		MovementType field1 = null;
 		boolean ok;
 		try
 		{
 			ok = true;
 			field0 = (String) pF0.get(t);
-			field1 = (String) pF1.get(t);
+			field1 = (MovementType) pF1.get(t);
 		}
 		catch (ClassCastException | IllegalAccessException e)
 		{
@@ -9275,7 +9277,7 @@ public class EvaluatorFactoryTest
 		assertTrue("No illegal access in getTermEvaluator156", ok);
 
 		assertEquals("GetTermEvaluator156 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator156 field movement is correct ", "Walk", field1);
+		assertEquals("GetTermEvaluator156 field movement is correct ", MovementType.getConstant("Walk"), field1);
 	}
 
 	/**

@@ -72,13 +72,13 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.Movement;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SimpleMovement;
 import pcgen.core.Skill;
 import pcgen.core.SpecialProperty;
 import pcgen.core.SubClass;
@@ -2215,7 +2215,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getMovement(Race race)
 	{
-		List<Movement> movements = race.getListFor(ListKey.BASE_MOVEMENT);
+		List<SimpleMovement> movements = race.getListFor(ListKey.BASE_MOVEMENT);
 		if (movements != null && !movements.isEmpty())
 		{
 			return movements.get(0).toString();

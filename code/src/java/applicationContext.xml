@@ -412,11 +412,15 @@
 		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
 		<property name="classFacet" ref="classFacet"/>
 	</bean>
+	<bean id="moveCloneFacet" class="pcgen.cdom.facet.analysis.MoveCloneFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="movementFacet" class="pcgen.cdom.facet.analysis.MovementFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="movementResultFacet" class="pcgen.cdom.facet.analysis.MovementResultFacet">
 		<property name="movementFacet" ref="movementFacet"/>
+		<property name="moveCloneFacet" ref="moveCloneFacet"/>
 		<property name="baseMovementFacet" ref="baseMovementFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>

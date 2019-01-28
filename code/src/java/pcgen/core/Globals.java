@@ -43,6 +43,7 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -740,6 +741,7 @@ public final class Globals
 
 		RaceType.clearConstants();
 		CNAbilityFactory.reset();
+		MovementType.clearConstants();
 	}
 
 	/**

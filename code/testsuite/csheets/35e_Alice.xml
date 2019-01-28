@@ -107,10 +107,10 @@ BIO
 			</move>
 			<move>
 				<name>Swim</name>
-				<rate>24 ft.</rate>
-				<squares>4</squares>
+				<rate>25 ft.</rate>
+				<squares>5</squares>
 			</move>
-			<all>Walk 20 ft., Swim 24 ft.</all>
+			<all>Walk 20 ft., Swim 25 ft.</all>
 		</move>
 		<personality>
 			<trait>Flighty</trait>

@@ -26,7 +26,7 @@ import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.core.Movement;
+import pcgen.core.SimpleMovement;
 
 /**
  * BaseMovementFacet is a Facet that tracks the Movement objects that are
@@ -34,7 +34,7 @@ import pcgen.core.Movement;
  * to move*
  * 
  */
-public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement>
+public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, SimpleMovement>
 		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
@@ -56,7 +56,7 @@ public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<Movement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
+		List<SimpleMovement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
 		if (ml != null)
 		{
 			addAll(dfce.getCharID(), ml, cdo);
