@@ -1,0 +1,11 @@
+SOURCELONG:Agents of Evil		SOURCESHORT:AoE	SOURCEWEB:https://paizo.com/products/btpy9he0	SOURCEDATE:2015-12
+
+Anaphexis Robe		NAMEISPI:YES	TYPE:Magic.Wondrous.Body.Robe		COST:16000	WT:1		SOURCEPAGE:p.28		DESCISPI:YES	SPROP:Wearer can speak telepathically to others wearing such robes or carrying an unholy symbol of Norgorber if sharing a language, 100 ft. range. +10 on Disguise checks to appear as a monk of Pharasma and on Sleight of Hand checks to conceal weapons. 1/day, reduce by 1 number of rounds needed to study target for death attack.
+Ebony Bolero				TYPE:Magic.Wondrous.Shoulders		COST:18000	WT:5		SOURCEPAGE:p.28				SPROP:5 charges/day; wearer can target enemy within 60 ft with variety of effects
+Feller's Belt				TYPE:Magic.Wondrous.Belt		COST:12000	WT:1		SOURCEPAGE:p.28				SPROP:+4 on combat maneuver checks to sunder wooden objects, ignores any hardness possessed by wooden objects, and bypasses the damage reduction of any creatures of the plant or fey type.		BONUS:WEAPONPROF=TYPE.Axe|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit
+Imperious Headband			TYPE:Magic.Wondrous.Headband		COST:4000			SOURCEPAGE:p.29				SPROP:+4 AC vs. attacks by sentient creatures in wearer's employ. Such creatures must save or treat wearer as if under sanctuary spell.
+Ioun Spite Bracers			TYPE:Magic.Wondrous.Wrist.Bracer	COST:15000	WT:2		SOURCEPAGE:p.29				SPROP:Wearer can attempt a steal maneuver against another person's ioun stone. Bracers can hold up to 4 stones, and stones provide standard benefit. Stones can also be temporarily drained to fire magic missiles.
+Life-Reading Eyes			TYPE:Magic.Wondrous.Eyes.Eyegear	COST:15000			SOURCEPAGE:p.29				SPROP:The wearer can read the emotion and health auras of any creature as per analyze aura (OA).
+Mantis Embrace				TYPE:Magic.Wondrous.Hands.Glove		COST:50000	WT:1		SOURCEPAGE:p.29				SPROP:Wearer can attempt specil coup de grace attack when opponent is pinned.
+Meduseion				TYPE:Magic.Wondrous			COST:45000	WT:10		SOURCEPAGE:p.29				SPROP:All living creatures within 100 feet to take a –2 penalty on saving throws to resist poison or petrification effects. 3/day as a standard action, eyes can make ranged touch attack, 100 ft. range, DC 19 Fort or target transformed to stone.
+Mockingskull				TYPE:Magic.Wondrous			COST:8000	WT:2		SOURCEPAGE:p.29
