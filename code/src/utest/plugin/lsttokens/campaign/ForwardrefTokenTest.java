@@ -19,12 +19,6 @@ package plugin.lsttokens.campaign;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.fail;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -37,8 +31,6 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-
-import org.junit.jupiter.api.Test;
 
 public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
