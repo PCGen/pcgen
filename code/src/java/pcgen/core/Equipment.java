@@ -3042,7 +3042,7 @@ public final class Equipment extends PObject
 		if (csr != null)
 		{
 			SizeAdjustment customSize = csr.get();
-			if (!getSafe(ObjectKey.SIZE).equals(customSize))
+			if (!getSafe(ObjectKey.SIZE).get().equals(customSize))
 			{
 				resizeItem(pc, customSize);
 			}
