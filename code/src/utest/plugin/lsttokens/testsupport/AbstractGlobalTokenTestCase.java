@@ -48,6 +48,7 @@ import pcgen.rules.persistence.token.CDOMWriteToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -73,6 +74,7 @@ public abstract class AbstractGlobalTokenTestCase
 	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
+		TokenRegistration.clearTokens();
 		TokenRegistration.register(getReadToken());
 		TokenRegistration.register(getWriteToken());
 		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
@@ -85,6 +87,12 @@ public abstract class AbstractGlobalTokenTestCase
 				getCDOMClass(), "TestObj");
 		additionalSetup(primaryContext);
 		additionalSetup(secondaryContext);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
 	}
 
 	public abstract <T extends CDOMObject> Class<T> getCDOMClass();

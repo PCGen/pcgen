@@ -183,7 +183,7 @@ public final class FacetInitialization
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
 		cdomSourceFacet.addDataFacetChangeListener(dynamicWatchingFacet);
 
-		charObjectFacet.addDataFacetChangeListener(varScopedFacet);
+		cdomObjectFacet.addDataFacetChangeListener(varScopedFacet);
 		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done
 	}
 
