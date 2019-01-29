@@ -29,15 +29,15 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeEachClass;
 import org.junit.jupiter.api.Test;
 
 public class FreeMarkerTest extends AbstractOutputTestCase
 {
 	private static final CheckFacet CF = new CheckFacet();
 
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

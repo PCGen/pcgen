@@ -40,7 +40,7 @@ public abstract class AbstractOutputTestCase
 	protected DataSetID dsid;
 	protected CharID id;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		Locale.setDefault(Locale.US);

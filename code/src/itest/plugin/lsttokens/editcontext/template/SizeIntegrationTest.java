@@ -59,7 +59,7 @@ public class SizeIntegrationTest extends
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

@@ -43,8 +43,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeEachClass;
 import util.TestURI;
 
 public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable>
@@ -71,7 +71,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 				"file:/Test%20Case%20Modifier"));
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		// Yea, this causes warnings...
