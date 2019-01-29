@@ -30,6 +30,7 @@ import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -79,6 +80,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
     public void setUp() throws Exception
 	{
