@@ -67,7 +67,6 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 	@Override
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
