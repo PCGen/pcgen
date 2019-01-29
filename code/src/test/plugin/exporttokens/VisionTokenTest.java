@@ -17,8 +17,8 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.net.URI;
@@ -37,7 +37,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -53,7 +52,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		

@@ -27,7 +27,7 @@ public class PreSpellCastRoundRobin extends AbstractPreRoundRobin
 
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreSpellCastParser());

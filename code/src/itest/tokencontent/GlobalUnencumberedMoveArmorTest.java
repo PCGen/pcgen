@@ -35,7 +35,7 @@ public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 	private UnencumberedArmorFacet unencArmorFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		unencArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);

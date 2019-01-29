@@ -63,7 +63,7 @@ public class PCClassLangbonusTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		startingLanguageFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);

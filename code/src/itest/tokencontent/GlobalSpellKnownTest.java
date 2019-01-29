@@ -64,7 +64,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	}
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);

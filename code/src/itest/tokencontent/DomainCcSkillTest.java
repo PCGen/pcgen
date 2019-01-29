@@ -53,7 +53,7 @@ public class DomainCcSkillTest extends AbstractTokenModelTest
 		.getFacet(DomainInputFacet.class);
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		lscFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);

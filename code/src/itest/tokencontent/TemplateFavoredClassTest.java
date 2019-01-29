@@ -42,7 +42,7 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 	private FavoredClassFacet fcFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		fcFacet = FacetLibrary.getFacet(FavoredClassFacet.class);

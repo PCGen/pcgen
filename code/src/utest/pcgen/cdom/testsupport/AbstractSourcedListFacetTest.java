@@ -37,9 +37,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-import junit.framework.TestCase;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractSourcedListFacetTest<T>
 {

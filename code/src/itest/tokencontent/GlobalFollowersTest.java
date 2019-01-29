@@ -35,7 +35,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 	private FollowerLimitFacet flFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		flFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);

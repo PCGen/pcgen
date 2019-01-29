@@ -35,7 +35,7 @@ public class GlobalSRTest extends AbstractContentTokenTest
 	private CharacterSpellResistanceFacet srFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);

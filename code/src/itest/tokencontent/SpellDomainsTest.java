@@ -52,7 +52,7 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 	private Domain domain;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		sp = context.getReferenceContext().constructCDOMObject(Spell.class, "MySpell");

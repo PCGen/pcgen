@@ -36,7 +36,7 @@ public class GlobalVisionTest extends AbstractContentTokenTest
 	private VisionFacet visionFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		visionFacet = FacetLibrary.getFacet(VisionFacet.class);
