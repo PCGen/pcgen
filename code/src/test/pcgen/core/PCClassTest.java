@@ -73,14 +73,16 @@ import util.TestURI;
 
 public class PCClassTest extends AbstractCharacterTestCase
 {
-	private PCClass humanoidClass;
-	private Race bugbearRace;
-	private Race bigBugbearRace;
-	private PCClass nymphClass;
-	private Race nymphRace;
-	private PCClass prClass;
-	private PCClass qClass;
-	private PCClass nqClass;
+	PCClass humanoidClass;
+	Race bugbearRace;
+	Race bigBugbearRace;
+	PCClass nymphClass;
+	Race nymphRace;
+	Prerequisite prereq;
+	RuleCheck classPreRule;
+	PCClass prClass;
+	PCClass qClass;
+	PCClass nqClass;
 
 	/**
 	 * Test name change
@@ -127,7 +129,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test monster classes generating the correct number of skill points.
 	 */
 	@Test
-	void testMonsterSkillPoints()
+	public void testMonsterSkillPoints()
 	{
 		finishLoad();
 		// Create a medium bugbear first level

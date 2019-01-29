@@ -45,6 +45,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -66,7 +67,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	private static PCClass wizardClass;
 	
 
-	@BeforeEach
+	@BeforeAll
 	public void before() throws Exception
 	{
 		delegate = new MockUIDelegate();
