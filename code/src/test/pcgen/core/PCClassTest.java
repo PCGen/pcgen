@@ -75,7 +75,6 @@ import util.TestURI;
 public class PCClassTest extends AbstractCharacterTestCase
 {
 	PCClass humanoidClass;
-	SizeAdjustment sizeL;
 	Race bugbearRace;
 	Race bigBugbearRace;
 	PCClass nymphClass;
@@ -130,6 +129,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test monster classes generating the correct number of skill points.
 	 */
+	@Test
 	public void testMonsterSkillPoints()
 	{
 		finishLoad();

@@ -119,6 +119,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * createKeyForAutoResize Tests
 	 ****************************************************************************/
 
+	@Test
 	public void testcreateKeyForAutoResize001()
 	{
 		assertThat(this.eq.getKeyName(), Matchers.is(equalTo(ORIGINAL_KEY)));
@@ -127,6 +128,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** 
 	 * Try lower case letter for size
 	 */
+	@Test
 	public void testcreateKeyForAutoResize002()
 	{
 		SizeAdjustment newSize = small;
@@ -141,6 +143,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/**
 	 * Try upper case word for size
 	 */
+	@Test
 	public void testcreateKeyForAutoResize003()
 	{
 		SizeAdjustment newSize = colossal;
@@ -153,12 +156,14 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	}
 
 	/** Try empty new size */
+	@Test
 	public void testcreateKeyForAutoResize004()
 	{
 		assertThat(this.eq.createKeyForAutoResize(null), Matchers.is(equalTo((ORIGINAL_KEY))));
 	}
 
 	/** Ensure that second customisation will work correctly */
+	@Test
 	public void testcreateKeyForAutoResize005()
 	{
 		SizeAdjustment newSize = fine;
@@ -179,6 +184,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	}
 
 	/** Try nonsense abbreviation for Size */
+	@Test
 	public void testcreateKeyForAutoResize006()
 	{
 		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + ORIGINAL_KEY;
