@@ -17,6 +17,12 @@
  */
 package pcgen.cdom.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -35,13 +41,13 @@ import junit.framework.TestCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public abstract class AbstractSourcedListFacetTest<T> extends TestCase
+public abstract class AbstractSourcedListFacetTest<T>
 {
 	protected CharID id;
 	protected CharID altid;
 
 	private Listener listener = new Listener();
-	protected Object oneSource = new Object();
+	private Object oneSource = new Object();
 
 	private class Listener implements DataFacetChangeListener<CharID, T>
 	{
@@ -64,7 +70,6 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 	}
 
 	@BeforeEach
-	@Override
 	public void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
