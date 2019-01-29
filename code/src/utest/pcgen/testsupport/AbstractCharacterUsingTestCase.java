@@ -42,7 +42,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 
@@ -201,7 +201,7 @@ public abstract class AbstractCharacterUsingTestCase
 		Globals.emptyLists();
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		Globals.emptyLists();

@@ -26,7 +26,7 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +50,7 @@ public class AbilityTokenTest
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown()
 	{
 		Globals.emptyLists();

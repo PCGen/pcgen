@@ -42,7 +42,7 @@ import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -66,7 +66,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
-	@After
+	@AfterEach
 	@Override
 	public void tearDown() throws Exception
 	{
