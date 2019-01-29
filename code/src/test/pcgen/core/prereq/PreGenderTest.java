@@ -37,7 +37,8 @@ public class PreGenderTest extends AbstractCharacterTestCase
 	/**
 	 * Test the PREGENDER code.
 	 *
-	 * @throws PersistenceLayerException the persistence layer exception
+	 * @thro
+	 * ws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
 	public void testGender() throws PersistenceLayerException

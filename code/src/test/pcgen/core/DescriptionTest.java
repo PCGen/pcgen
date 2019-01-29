@@ -22,6 +22,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -46,18 +49,20 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * This class tests the handling of DESC fields in PCGen
  */
 @SuppressWarnings("nls")
-public class DescriptionTest extends AbstractCharacterTestCase
+class DescriptionTest extends AbstractCharacterTestCase
 {
 
 	/**
 	 * Tests outputting an empty description.
 	 */
 	@Test
-	public void testEmptyDesc()
+	void testEmptyDesc()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");

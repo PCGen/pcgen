@@ -17,6 +17,8 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -34,7 +36,6 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -54,7 +55,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
