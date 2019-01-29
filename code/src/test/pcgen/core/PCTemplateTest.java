@@ -125,6 +125,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
@@ -190,6 +191,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
@@ -277,6 +279,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddLevelFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		// Create some abilities to be added
