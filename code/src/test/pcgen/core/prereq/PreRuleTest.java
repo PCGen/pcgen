@@ -40,9 +40,8 @@ public class PreRuleTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
-		// TODO Auto-generated method stub
 		super.setUp();
 		RuleCheck preRule = new RuleCheck();
 		preRule.setName("PRERULE");

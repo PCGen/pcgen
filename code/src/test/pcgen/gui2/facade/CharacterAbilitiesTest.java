@@ -41,9 +41,6 @@ import org.junit.jupiter.api.Test;
 /**
  * The Class {@code CharacterAbilitiesTest} verifies the operation of the
  * CharacterAbilities class.
- *
- * <br/>
- * 
  */
 public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 {
@@ -119,7 +116,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		dataset = new MockDataSetFacade(SettingsHandler.getGame());

@@ -18,8 +18,8 @@
  */
 package pcgen.core;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -34,7 +34,6 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -73,7 +72,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		SettingsHandler.getGame().getBioSet().clearUserMap();
 

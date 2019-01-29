@@ -39,13 +39,13 @@ import org.junit.jupiter.api.Test;
 
 public class PreSkillTest extends AbstractCharacterTestCase
 {
-	private Skill balance;
-	private Skill knowledge;
-	private Skill tumble;
+	private Skill balance = null;
+	private Skill knowledge = null;
+	private Skill tumble = null;
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		final PlayerCharacter character = getCharacter();
@@ -117,7 +117,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		knowledge = null;
 		balance = null;
@@ -141,7 +141,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testDexTypeEqualsFails()
+	void testDexTypeEqualsFails()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -169,7 +169,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKnowedgeSubType()
+	void testKnowedgeSubType()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -185,7 +185,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKnowedgeSubTypeFail()
+	void testKnowedgeSubTypeFail()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -200,7 +200,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKnowedgeSubTypePasesExact()
+	void testKnowedgeSubTypePasesExact()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -215,7 +215,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKnowedgeType()
+	void testKnowedgeType()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -262,7 +262,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testTotalType()
+	void testTotalType()
 	{
 		//		PreSkillTotalParser producer = new PreSkillTotalParser();
 
@@ -287,7 +287,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testType()
+	void testType()
 	{
 		final Prerequisite subreq = new Prerequisite();
 		subreq.setKind("skill");
@@ -302,7 +302,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testLevelsTwoClasses() throws Exception
+	void testLevelsTwoClasses() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -313,7 +313,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testServesAsExactMatch() throws Exception
+	void testServesAsExactMatch() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 

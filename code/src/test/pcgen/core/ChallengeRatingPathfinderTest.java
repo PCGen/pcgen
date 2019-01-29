@@ -17,8 +17,8 @@
  */
 package pcgen.core;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,11 +38,7 @@ import util.TestURI;
 /**
  * The Class {@code ChallengeRatingPathfinderTest} checks the calculation
  * of challenge ratings for the Pathfinder RPG game mode
- *
- * <br/>
- * 
  */
-
 public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 {
 	private Race standardRace;

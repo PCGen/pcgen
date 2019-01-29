@@ -38,7 +38,6 @@ import org.junit.jupiter.api.Test;
 /**
  * The Class {@code PortraitTokenTest} checks the function of PortraitToken.
  */
-
 public class PortraitTokenTest extends AbstractCharacterTestCase
 {
 

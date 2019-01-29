@@ -17,8 +17,8 @@
  */
 package pcgen.core.display;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,6 +35,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -46,15 +47,15 @@ import org.junit.jupiter.api.Test;
 public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {
 
-	private PCClass pcClass;
-	private boolean firstTime = true;
-	private Ability skillFocus = new Ability();
-	private Ability persuasive = new Ability();
-	private Skill bluff;
+	PCClass pcClass;
+	boolean firstTime = true;
+	Ability skillFocus = new Ability();
+	Ability persuasive = new Ability();
+	Skill bluff;
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -104,7 +105,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		pcClass = null;
 		super.tearDown();

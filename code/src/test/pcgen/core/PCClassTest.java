@@ -18,10 +18,10 @@
  */
 package pcgen.core;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -86,7 +86,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test name change
 	 */
 	@Test
-	void testFireNameChangedVariable()
+	public void testFireNameChangedVariable()
 	{
 		finishLoad();
 		final PCClass myClass = new PCClass();
@@ -196,7 +196,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	void testBypassClassPrereqs() throws PersistenceLayerException
+	public void testBypassClassPrereqs() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 
@@ -281,7 +281,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	void testBypassClassPrereqsDeprecated() throws PersistenceLayerException
+	public void testBypassClassPrereqsDeprecated() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 
@@ -364,7 +364,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Qualifies functionality associated with a class.
 	 */
 	@Test
-	void testQualifies()
+	public void testQualifies()
 	{
 		finishLoad();
 		// Setup character without prereqs
@@ -406,7 +406,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	void testGetPCCText() throws PersistenceLayerException
+	public void testGetPCCText() throws PersistenceLayerException
 	{
 		FactKey.getConstant("Abb", new StringManager());
 		// Test a basic class
@@ -652,7 +652,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	void testGetKnownForLevelSpellstatOther()
+	public void testGetKnownForLevelSpellstatOther()
 	{
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
@@ -847,7 +847,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Monster class with a levels per feat setting.
 	 */
 	@Test
-	void testLevelsPerFeatMonster()
+	public void testLevelsPerFeatMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();
@@ -868,7 +868,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Non monster class without a levels per feat setting.
 	 */
 	@Test
-	void testDefaultLevelsPerFeatNonMonster()
+	public void testDefaultLevelsPerFeatNonMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();
@@ -930,7 +930,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 

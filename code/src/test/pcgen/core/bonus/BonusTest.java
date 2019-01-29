@@ -17,9 +17,9 @@
  */
 package pcgen.core.bonus;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,6 @@ import org.junit.jupiter.api.Test;
  * {@code BonusTest} test that the Bonus class is functioning
  * correctly.
  */
-
 @SuppressWarnings("nls")
 public class BonusTest extends AbstractCharacterTestCase
 {
