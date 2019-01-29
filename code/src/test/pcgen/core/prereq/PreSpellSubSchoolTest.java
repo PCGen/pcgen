@@ -88,6 +88,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		finishLoad();
 	}
 
+
 	@Test
 	public void testSimpleSUBSCHOOL() throws Exception
 	{
@@ -131,6 +132,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
+
 
 	@Test
 	public void testNotSimpleSUBSCHOOL() throws Exception

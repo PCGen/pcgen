@@ -18,9 +18,9 @@
 package pcgen.core.prereq;
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -314,10 +314,10 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		);
 	
 	}
-
 	@BeforeEach
 	@Override
 	public void setUp() throws Exception
+
 	{
 		super.setUp();
 

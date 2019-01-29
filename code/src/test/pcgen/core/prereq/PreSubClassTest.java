@@ -30,7 +30,7 @@ import plugin.pretokens.test.PreSubClassTester;
 import org.junit.jupiter.api.Test;
 
 
-public class PreSubClassTest extends AbstractCharacterTestCase
+class PreSubClassTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test to ensure that a character with a named class can be found.
@@ -38,7 +38,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	@Test
-	public void testNamedSubClass() throws PrerequisiteException
+	void testNamedSubClass() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");

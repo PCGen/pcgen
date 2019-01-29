@@ -17,12 +17,9 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -36,6 +33,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreCSkillTest} tests that the PRECSKILL tag is
@@ -54,6 +54,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testCSkill() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -110,6 +111,8 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		assertTrue("Character has 3 Spy Skills", PrereqHandler.passes(prereq,
 			character, null));
 	}
+
+	@Test
 	public void testCSkillServesAs() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -173,6 +176,8 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		
 		
 	}
+
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{

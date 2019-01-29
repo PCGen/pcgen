@@ -17,7 +17,7 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Collections;
 
@@ -38,7 +38,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -52,6 +52,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	private EquipmentModifier plus1;
 	private Equipment chainShirt;
 
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{

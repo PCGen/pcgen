@@ -31,6 +31,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -128,6 +129,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	/**
 	 * Test out the output of stats where a min value is in place. 
 	 */
+	@Test
 	public void testMinValueStat()
 	{
 		PlayerCharacter pc = getCharacter();

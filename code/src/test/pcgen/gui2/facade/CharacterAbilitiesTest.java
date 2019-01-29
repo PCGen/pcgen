@@ -36,6 +36,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -113,10 +114,10 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Should have found reading", reading, abilityFromList);
 		
 	}
-
 	@BeforeEach
 	@Override
 	public void setUp() throws Exception
+
 	{
 		super.setUp();
 		dataset = new MockDataSetFacade(SettingsHandler.getGame());
