@@ -18,11 +18,11 @@
 
 package plugin.lsttokens.gamemode.abilitycategory;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -45,12 +45,12 @@ import org.junit.jupiter.api.Test;
  * The Class {@code AbilityListTokenTest} verifies the processing of the
  * AbilityListToken.
  */
-public class AbilityListTokenTest
+class AbilityListTokenTest
 {
 	private RuntimeLoadContext context;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
@@ -63,8 +63,9 @@ public class AbilityListTokenTest
 		final Collection<CDOMSingleRef<Ability>> refs = cat.getAbilityRefs();
 		boolean found = refs.stream()
 		                    .anyMatch(ref -> ref.getLSTformat(false).equals(key));
-		assertEquals(key + " in the list (" + expected + ") incorrect",
-				expected, found
+		assertEquals(
+				expected, found,
+				key + " in the list (" + expected + ") incorrect"
 		);
 	}
 	
@@ -78,18 +79,19 @@ public class AbilityListTokenTest
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()));
 		assertFalse(
-				"Test category should start with an empty list of keys",
-				aCat.hasDirectReferences()
+				aCat.hasDirectReferences(),
+				"Test category should start with an empty list of keys"
 		);
-		assertEquals("Test category should start with an empty list of keys",
-				0, aCat.getAbilityRefs().size()
+		assertEquals(
+				0, aCat.getAbilityRefs().size(),
+				"Test category should start with an empty list of keys"
 		);
 
 		CDOMToken<AbilityCategory> token = new AbilityListToken();
 		Ability track = BuildUtilities.buildFeat(context, "Track");
 		token.parseToken(context, aCat, "Track");
-		assertEquals("Test category should now have 1 key", 1, aCat
-				.getAbilityRefs().size());
+		assertEquals(1, aCat
+				.getAbilityRefs().size(), "Test category should now have 1 key");
 		assertContains(aCat, track, true);
 	}
 
@@ -103,11 +105,12 @@ public class AbilityListTokenTest
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()));
 		assertFalse(
-				"Test category should start with an empty list of keys",
-				aCat.hasDirectReferences()
+				aCat.hasDirectReferences(),
+				"Test category should start with an empty list of keys"
 		);
-		assertEquals("Test category should start with an empty list of keys",
-				0, aCat.getAbilityRefs().size()
+		assertEquals(
+				0, aCat.getAbilityRefs().size(),
+				"Test category should start with an empty list of keys"
 		);
 
 		AbilityListToken token = new AbilityListToken();
@@ -115,8 +118,8 @@ public class AbilityListTokenTest
 		Ability pbs = BuildUtilities.buildFeat(context, "Point Blank Shot");
 		Ability pa = BuildUtilities.buildFeat(context, "Power Attack");
 		token.parseToken(context, aCat, "Track|Point Blank Shot");
-		assertEquals("Test category should now have 2 keys", 2, aCat
-				.getAbilityRefs().size());
+		assertEquals(2, aCat
+				.getAbilityRefs().size(), "Test category should now have 2 keys");
 		assertContains(aCat, track, true);
 		assertContains(aCat, pbs, true);
 		assertContains(aCat, pa, false);
@@ -150,8 +153,8 @@ public class AbilityListTokenTest
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		Collection<CDOMSingleRef<Ability>> refs = aCat.getAbilityRefs();
 		boolean pointBlankShot = refs.stream().anyMatch(ref -> ref.contains(pbs));
-		assertTrue("Expected Point Blank Shot Ability", pointBlankShot);
+		assertTrue(pointBlankShot, "Expected Point Blank Shot Ability");
 		boolean skillFocus = refs.stream().anyMatch(ref -> ref.contains(sf));
-		assertTrue("Expected Skill Focus Ability", skillFocus);
+		assertTrue(skillFocus, "Expected Skill Focus Ability");
 	}
 }
