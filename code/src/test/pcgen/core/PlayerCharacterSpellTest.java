@@ -17,6 +17,8 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
@@ -52,7 +54,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	private PCClass divineClass;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();

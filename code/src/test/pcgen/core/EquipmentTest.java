@@ -21,7 +21,12 @@ package pcgen.core;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.net.URI;
@@ -41,6 +46,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Equipment Test
@@ -54,6 +61,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	private static final String ORIGINAL_KEY = "OrigKey";
 	private CampaignSourceEntry source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -337,6 +345,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * Test the loading a output of customised equipment. This time without a set of the base 
 	 * item included, so a limited representation of the object is expected to be output. 
 	 */
+	@Test
 	public void testCustomEquipRoundRobin()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -358,6 +367,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * Test the loading a output of customised equipment. This time with a set of the base 
 	 * item included, so an exact replica of the object is expected to be output. 
 	 */
+	@Test
 	public void testCustomEquipRoundRobinWithBase()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -380,6 +390,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/**
 	 * Validate naming items using the +1 modifier 
 	 */
+	@Test
 	public void testGetItemNameFromModifiersPlus1()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -398,6 +409,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/**
 	 * Validate naming items using the masterwork equip modifier
 	 */
+	@Test
 	public void testGetItemNameFromModifiersMasterwork()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -417,6 +429,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * Validate naming items using the NOTHING name option 
 	 * @throws Exception 
 	 */
+	@Test
 	public void testGetItemNameFromModifiersNothing() throws Exception
 	{
 		GenericLoader<EquipmentModifier> loader =
@@ -474,6 +487,7 @@ assertNotNull("Eqmod should be present", eqMod);
 	/**
 	 * Validate the processing of the getCost function. 
 	 */
+	@Test
 	public void testGetCost()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -503,6 +517,7 @@ assertNotNull("Eqmod should be present", eqMod);
 	 * 
 	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
+	@Test
 	public void testGetCostWithHeadPlus() throws PersistenceLayerException
 	{
 		GenericLoader<EquipmentModifier> loader =
@@ -560,6 +575,7 @@ assertNotNull("Eqmod should be present", eqMod);
 	 * Test the nameItemFromModifiers method, specifically for the
 	 * use of a null character.
 	 */
+	@Test
 	public void testNameItemFromModifiers()
 	{
 		String name = eq.nameItemFromModifiers(null);
@@ -581,6 +597,7 @@ assertNotNull("Eqmod should be present", eqMod);
 	/**
 	 * Verify that isPreType is working correctly for eqmods.
 	 */
+	@Test
 	public void testIsPreTypeEqMod()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -601,6 +618,7 @@ assertNotNull("Eqmod should be present", eqMod);
 	/**
 	 * EquipmentModifiers must have a parent in order to be rendered to an output sheet
 	 */
+	@Test
 	public void testAddEqModifierSetsEquipmentAsParentOfTheModifier()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

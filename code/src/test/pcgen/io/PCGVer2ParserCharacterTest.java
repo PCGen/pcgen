@@ -17,6 +17,8 @@
  */
 package pcgen.io;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
@@ -29,6 +31,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * PCGVer2ParserCharacterTest runs tests on PCGVer2Parser which require a 
  * character to be supplied. 
@@ -37,8 +42,9 @@ import pcgen.rules.context.LoadContext;
 public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -57,6 +63,7 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PCGParseException the PCG parse exception
 	 */
+	@Test
 	public void testRaceAddSpellcaster() throws PCGParseException
 	{
 		LoadContext context = Globals.getContext();

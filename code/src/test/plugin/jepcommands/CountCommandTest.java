@@ -18,6 +18,7 @@
 package plugin.jepcommands;
 
 import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 import pcgen.AbstractCharacterTestCase;
@@ -31,13 +32,17 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code CountCommandTest} tests the functioning of the jep count plugin
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		final PlayerCharacter character = getCharacter();
@@ -423,6 +428,8 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	//
 	//        assertThat(s, (double) character.getVariableValue(s,""), closeTo(6.0, 0.1));
 	//    }
+
+	@Test
 	public void testCountAbilitiesByName()
 	{
 		final PlayerCharacter character = getCharacter();

@@ -18,6 +18,11 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -61,6 +66,8 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 
@@ -82,6 +89,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test name change
 	 */
+	@Test
 	public void testFireNameChangedVariable()
 	{
 		finishLoad();
@@ -190,6 +198,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testBypassClassPrereqs() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
@@ -271,6 +280,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testBypassClassPrereqsDeprecated() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
@@ -350,6 +360,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test the interaction of prerequisites on PCClasses and bonuses and the
 	 * Qualifies functionality associated with a class.
 	 */
+	@Test
 	public void testQualifies()
 	{
 		finishLoad();
@@ -389,6 +400,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testGetPCCText() throws PersistenceLayerException
 	{
 		FactKey.getConstant("Abb", new StringManager());
@@ -608,6 +620,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 	}
 
+	@Test
 	public void testGetKnownForLevelSpellstatOther()
 	{
 		LoadContext context = Globals.getContext();
@@ -691,6 +704,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test the definition and application of abilities. 
 	 * @throws PersistenceLayerException 
 	 */
+	@Test
 	public void testAddAbility() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
@@ -767,6 +781,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test the function of the LEVELSPERFEAT in setLevel()
 	 * Monster class without a levels per feat setting.
 	 */
+	@Test
 	public void testDefaultLevelsPerFeatMonster()
 	{
 		finishLoad();
@@ -785,6 +800,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test the function of the LEVELSPERFEAT in setLevel()
 	 * Monster class with a levels per feat setting.
 	 */
+	@Test
 	public void testLevelsPerFeatMonster()
 	{
 		finishLoad();
@@ -805,6 +821,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test the function of the LEVELSPERFEAT in setLevel()
 	 * Non monster class without a levels per feat setting.
 	 */
+	@Test
 	public void testDefaultLevelsPerFeatNonMonster()
 	{
 		finishLoad();
@@ -823,6 +840,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test the function of the LEVELSPERFEAT in setLevel()
 	 * Non monster class with a levels per feat setting.
 	 */
+	@Test
 	public void testLevelsPerFeatNonMonster()
 	{
 		finishLoad();
@@ -845,8 +863,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @return The populated class.
 	 * @throws PersistenceLayerException
 	 */
-	private PCClass parsePCClassText(String classPCCText,
-		CampaignSourceEntry source) throws PersistenceLayerException
+	private static PCClass parsePCClassText(String classPCCText,
+	                                        CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		PCClassLoader pcClassLoader = new PCClassLoader();
 		PCClass reconstClass = null;
@@ -864,8 +882,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		return reconstClass;
 	}
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 

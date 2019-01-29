@@ -17,23 +17,31 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.display.CharacterDisplay;
 import plugin.exporttokens.deprecated.SpaceToken;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code SpaceTokenTest} - Unit test for the SPACE output token
  */
 public class SpaceTokenTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		// Do Nothing
 	}
 
+	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		// Do Nothing
 	}
@@ -41,6 +49,7 @@ public class SpaceTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SPACE token.
 	 */
+	@Test
 	public void testSpaceToken()
 	{
 		SpaceToken token = new SpaceToken();

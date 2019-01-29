@@ -17,6 +17,8 @@
  */
 package pcgen.io.migration;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
@@ -40,7 +42,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	private final int[] postOrderedVer = {6, 1, 3};
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TestHelper.makeEquipment("Item One\tTYPE:Goods\tSIZE:M");

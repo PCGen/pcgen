@@ -17,6 +17,10 @@
  */
 package pcgen.core.bonus;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,17 +43,19 @@ import pcgen.rules.context.LoadContext;
 import plugin.bonustokens.Var;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code BonusTest} test that the Bonus class is functioning
  * correctly.
  */
-
 @SuppressWarnings("nls")
 public class BonusTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test the skill pre reqs.
 	 */
+	@Test
 	public void testSkillPrereq()
 	{
 		LoadContext context = Globals.getContext();
@@ -94,6 +100,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 * Test the processing of bonusing variables using both 
 	 * abilities and equipment.
 	 */
+	@Test
 	public void testVarBonus()
 	{
 		LoadContext context = Globals.getContext();
@@ -161,6 +168,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	/**
 	 * Test the buildDepends method of BonusObj. 
 	 */
+	@Test
 	public void testBuildDepends()
 	{
 		BonusObj maxDexStr = new Var();
@@ -198,6 +206,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 * Test to make sure that fix for replacing %LIST within a 
 	 * bonuses value will work.
 	 */
+	@Test
 	public void testBonuswithLISTValue()
 	{
 		finishLoad();
@@ -227,6 +236,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		assertEquals(14, bp.resolve(character).intValue());
 	}
 
+	@Test
 	public void testBonuswithLISTValueTwoAssoc()
 	{
 		finishLoad();
@@ -265,6 +275,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		assertEquals(27, totalBonus);
 	}
 
+	@Test
 	public void testBonuswithLISTValueTwoAssocInfoList()
 	{
 		finishLoad();
@@ -309,6 +320,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 * Test to make sure that fix for replacing %LIST within a 
 	 * bonuses value will work.
 	 */
+	@Test
 	public void testSpellKnownBonusWithLISTValue()
 	{
 		LoadContext context = Globals.getContext();

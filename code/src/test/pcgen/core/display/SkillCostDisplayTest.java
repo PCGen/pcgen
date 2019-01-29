@@ -17,6 +17,9 @@
  */
 package pcgen.core.display;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -25,7 +28,6 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -33,6 +35,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -45,14 +48,14 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {
 
 	PCClass pcClass;
-	Race emptyRace = new Race();
 	boolean firstTime = true;
 	Ability skillFocus = new Ability();
 	Ability persuasive = new Ability();
 	Skill bluff;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -101,7 +104,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	}
 
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		pcClass = null;
 		super.tearDown();

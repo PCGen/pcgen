@@ -17,6 +17,10 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -35,6 +39,8 @@ import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreSkillParser;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreMultTest} tests that the PreMult class
  * is working correctly.
@@ -47,7 +53,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	private PCClass myClass;
 
     @Override
-	protected void setUp() throws Exception
+    public void setUp() throws Exception
 	{
 		super.setUp();
 		final PlayerCharacter character = getCharacter();
@@ -64,7 +70,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	}
 
     @Override
-	protected void tearDown() throws Exception
+    public void tearDown() throws Exception
 	{
 		knowledge = null;
 
@@ -79,6 +85,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
+	@Test
 	public void testCharWithMultipleSpellClasses() throws PersistenceLayerException, PrerequisiteException
 	{
 		LoadContext context = Globals.getContext();
@@ -120,6 +127,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
+	@Test
 	public void testMultiFeats() throws PersistenceLayerException, PrerequisiteException
 	{
 		final Ability metamagic1 = new Ability();
@@ -208,6 +216,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testMultiSkills() throws PersistenceLayerException
 	{
 		final PreSkillParser producer = new PreSkillParser();

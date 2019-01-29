@@ -17,24 +17,30 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreCityTest} tests that the PRECITY tag is
  * working correctly.
  */
-public class PreCityTest extends AbstractCharacterTestCase
+class PreCityTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test the PRECITY code.
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testCity() throws PersistenceLayerException
+	@Test
+	void testCity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setPCAttribute(PCStringKey.RESIDENCE, "Klamath");

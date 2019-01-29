@@ -17,6 +17,10 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -39,6 +43,8 @@ import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PCTemplateTest} tests the fucntion of the PCTemplate class.
  */
@@ -52,6 +58,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
@@ -349,7 +356,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	}
 	
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 

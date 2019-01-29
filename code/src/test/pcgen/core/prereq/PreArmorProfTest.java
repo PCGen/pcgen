@@ -18,6 +18,10 @@
 package pcgen.core.prereq;
 
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -37,6 +41,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreArmorProfTest} tests that the PREARMORPROF tag is
  * working correctly.
@@ -48,6 +54,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testOneOption() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -291,7 +298,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	}
 	
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 

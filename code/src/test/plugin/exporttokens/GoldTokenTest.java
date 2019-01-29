@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
 
 import pcgen.AbstractCharacterTestCase;

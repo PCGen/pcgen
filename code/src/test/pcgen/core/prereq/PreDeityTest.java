@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicIndirect;
@@ -28,6 +31,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreDeityTest} tests that the PREDEITY tag is
@@ -42,6 +47,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testBoolean() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -77,6 +83,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testFormat() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -121,6 +128,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testName() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -150,6 +158,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testNewFormat() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -193,6 +202,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 * Test the pantheon fucntioanlity of the PREDEITY tag. 
 	 * @throws PersistenceLayerException 
 	 */
+	@Test
 	public void testPantheon() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -217,7 +227,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	}
 
     @Override
-	protected void setUp() throws Exception
+    public void setUp() throws Exception
 	{
 		super.setUp();
 		deity = new Deity();

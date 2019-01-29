@@ -264,6 +264,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 	
 
+	@Test
 	public void testGetBonusFeatsForNewLevel1() throws Exception
 	{
 		readyToRun();
@@ -274,7 +275,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals(2, (int) character.getRemainingFeatPoints(true));
 	}
 
-
+	@Test
 	public void testGetBonusFeatsForNewLevel3() throws Exception
 	{
 		readyToRun();

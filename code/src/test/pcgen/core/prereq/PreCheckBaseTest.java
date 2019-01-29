@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -31,6 +34,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreCheckBaseTest} tests that the PRECHECKBASE tag is
  * working correctly.
@@ -44,6 +49,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testBase() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -72,6 +78,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+	@Test
 	public void testBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -106,7 +113,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 	}
 
     @Override
-	protected void setUp() throws Exception
+    public void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();

@@ -18,6 +18,9 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Locale;
 import java.util.Optional;
 
@@ -30,6 +33,9 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * A collection of tests to validate the functioning of the core BioSet class.
@@ -54,6 +60,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 				"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
 				"RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
 
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{
@@ -64,7 +71,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	}
 
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		SettingsHandler.getGame().getBioSet().clearUserMap();
 
@@ -75,6 +82,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	 * Verify that the randomize function in BioSet
 	 * is functioning properly.
 	 */
+	@Test
 	public void testRandomize()
 	{
 		final int[] BASE_AGE = {15, 35, 53, 70};
@@ -117,6 +125,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	/**
 	 * Test the age set
 	 */
+	@Test
 	public void testAgeSet()
 	{
 		final PlayerCharacter pc = getCharacter();
