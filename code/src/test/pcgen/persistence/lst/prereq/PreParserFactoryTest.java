@@ -45,7 +45,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		super.tearDown();
 		LocaleDependentTestCase.after();

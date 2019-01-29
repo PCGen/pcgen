@@ -136,7 +136,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
     @Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		Globals.getContext().getReferenceContext().forget(masterwork);
 		Globals.getContext().getReferenceContext().forget(plus1);

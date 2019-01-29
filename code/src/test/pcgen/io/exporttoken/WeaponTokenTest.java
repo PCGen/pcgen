@@ -384,7 +384,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		dblWpn = null;
 		str.removeListFor(ListKey.BONUS);

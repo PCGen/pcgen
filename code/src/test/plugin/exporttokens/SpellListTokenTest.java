@@ -104,7 +104,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		Globals.getContext().getReferenceContext().forget(divineClass);
 		Globals.getContext().getReferenceContext().forget(arcaneClass);
