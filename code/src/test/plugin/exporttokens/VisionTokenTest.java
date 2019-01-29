@@ -99,7 +99,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	}
 
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		Globals.getContext().getReferenceContext().forget(darkvisionT);
 		Globals.getContext().getReferenceContext().forget(lowlightT);

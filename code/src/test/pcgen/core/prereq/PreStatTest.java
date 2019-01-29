@@ -17,8 +17,13 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code PreStatTest} checks that PreStatTester is working correctly.
@@ -32,6 +37,7 @@ public class PreStatTest extends AbstractCharacterTestCase
 	/**
 	 * Ensure a PRESTAT for a positive value works correctly.
 	 */
+	@Test
 	public void testPrePositive()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -55,6 +61,7 @@ public class PreStatTest extends AbstractCharacterTestCase
 	/**
 	 * Ensure a PRESTAT for zero works correctly.
 	 */
+	@Test
 	public void testPreZero()
 	{
 		final PlayerCharacter character = getCharacter();

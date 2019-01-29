@@ -92,7 +92,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	}
 
     @Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		Globals.getContext().getReferenceContext().forget(divineClass);
 		Globals.getContext().getReferenceContext().forget(arcaneClass);

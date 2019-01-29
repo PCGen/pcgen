@@ -18,6 +18,8 @@
 
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;

@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Locale;
 
 import pcgen.AbstractCharacterTestCase;
@@ -24,13 +27,11 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
 public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
+	@Test
 	public void testVisionNotHandledFail()
 	{
 		final Prerequisite prereq = new Prerequisite();
