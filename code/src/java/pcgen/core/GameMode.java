@@ -78,7 +78,6 @@ public final class GameMode implements Comparable<Object>
 	private Map<String, String> plusCalcs;
 	private Map<String, String> spellRangeMap = new HashMap<>();
 	private String acName = "";
-	private String babAbbrev = null;
 	private String currencyUnitAbbrev = "";
 	private String damageResistance = "";
 	private String defaultSpellBook = "Known Spells";
@@ -269,24 +268,6 @@ public final class GameMode implements Comparable<Object>
 		}
 
 		allowedModes.add(modeName);
-	}
-
-	/**
-	 * Set BAB Abbreviation.
-	 * @param aString
-	 */
-	public void setBabAbbrev(final String aString)
-	{
-		babAbbrev = aString;
-	}
-
-	/**
-	 * Get BAB Abbreviation.
-	 * @return BAB Abbreviation
-	 */
-	public String getBabAbbrev()
-	{
-		return babAbbrev;
 	}
 
 	/**
