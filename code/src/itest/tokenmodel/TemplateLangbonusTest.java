@@ -17,6 +17,10 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.core.Language;
@@ -63,7 +67,7 @@ public class TemplateLangbonusTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		startingLanguageFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);

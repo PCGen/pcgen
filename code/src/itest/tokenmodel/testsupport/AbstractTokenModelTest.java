@@ -17,6 +17,8 @@
  */
 package tokenmodel.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -66,10 +68,10 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-import junit.framework.TestCase;
+import org.junit.Before;
 import util.FormatSupport;
 
-public abstract class AbstractTokenModelTest extends TestCase
+public abstract class AbstractTokenModelTest
 {
 
 	protected static final MultToken ABILITY_MULT_TOKEN = new MultToken();
@@ -136,10 +138,9 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected TemplateInputFacet templateInputFacet;
 	protected WeaponProfModelFacet weaponProfModelFacet;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		setUpContext();
 	}
 
