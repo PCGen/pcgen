@@ -41,7 +41,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -57,7 +57,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	Race humanRace = new Race();
 	PCRacialHDSizeTermEvaluator eval = new PCRacialHDSizeTermEvaluator("RACIALHDSIZE");
 
-	@AfterEach
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
