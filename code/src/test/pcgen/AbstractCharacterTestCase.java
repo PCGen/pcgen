@@ -42,7 +42,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.jupiter.api.AfterEach;
+import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 
@@ -85,6 +86,7 @@ public abstract class AbstractCharacterTestCase
 	 * @throws Exception
 	 */
 	@BeforeEach
+	@Override
 	protected void setUp() throws Exception
 	{
 		final GameMode gamemode = new GameMode("3.5");

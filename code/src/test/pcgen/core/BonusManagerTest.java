@@ -35,6 +35,14 @@ import org.junit.jupiter.api.Test;
  */
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
+
+	@Override
+	@BeforeEach
+	public void setUp() throws Exception
+	{
+		super.setUp();
+	}
+
 	/**
 	 * Validate that the setActiveBonusStack method will correctly calculate the value of 
 	 * a positive bonus followed by a negative bonus to a non-stackable value.

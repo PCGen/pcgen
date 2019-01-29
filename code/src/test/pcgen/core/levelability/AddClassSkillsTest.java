@@ -67,8 +67,8 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	PCClass pcClass;
 	boolean firstTime = true;
 
-	@Override
 	@BeforeEach
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
