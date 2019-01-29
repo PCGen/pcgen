@@ -82,7 +82,7 @@ ext {
 
     jreImage = copySpec {
         from('.') {
-            include 'jre/**'
+            include 'jre/windows/**'
         }
     }
 }
