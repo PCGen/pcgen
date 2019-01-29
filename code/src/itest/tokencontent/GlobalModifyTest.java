@@ -50,7 +50,7 @@ public class GlobalModifyTest extends AbstractContentTokenTest
 			FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(SMF);

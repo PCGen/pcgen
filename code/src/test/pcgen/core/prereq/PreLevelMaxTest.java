@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -32,6 +35,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreLevelMaxTest} tests that the PRELEVELMAX tag is
  * working correctly.
@@ -46,6 +52,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -72,6 +79,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testHD() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -99,6 +107,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testPCLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -124,8 +133,9 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+	@BeforeEach
     @Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 

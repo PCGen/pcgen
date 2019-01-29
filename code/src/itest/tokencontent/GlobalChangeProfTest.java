@@ -38,7 +38,7 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 	private ChangeProfFacet changeProfFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);

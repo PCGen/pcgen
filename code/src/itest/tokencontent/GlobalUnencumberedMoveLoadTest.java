@@ -35,7 +35,7 @@ public class GlobalUnencumberedMoveLoadTest extends AbstractContentTokenTest
 	private UnencumberedLoadFacet unencLoadFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		unencLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);

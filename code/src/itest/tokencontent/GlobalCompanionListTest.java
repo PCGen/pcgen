@@ -39,7 +39,7 @@ public class GlobalCompanionListTest extends AbstractContentTokenTest
 	private FollowerOptionFacet foFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);

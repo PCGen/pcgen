@@ -44,7 +44,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	private static TemplateToken CHOOSE_TEMPLATE_TOKEN = new TemplateToken();
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		ChooserFactory.setDelegate(new MockUIDelegate());

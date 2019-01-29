@@ -37,7 +37,7 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 	private UnarmedDamageFacet unarmedDamageFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);

@@ -37,7 +37,7 @@ public class GlobalMoveTest extends AbstractContentTokenTest
 	private MovementFacet moveFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		moveFacet = FacetLibrary.getFacet(MovementFacet.class);

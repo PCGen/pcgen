@@ -17,6 +17,9 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -34,6 +37,9 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code VisionTokenTest} tests the function of the VISION token.
  */
@@ -44,8 +50,9 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	private PCTemplate astralT;
 	private UnitSet metricUS;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		
@@ -104,6 +111,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the list output of the vision tag.
 	 */
+	@Test
 	public void testList()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -124,6 +132,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output of individual vision entries.
 	 */
+	@Test
 	public void testPositional()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -156,6 +165,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the list output of the vision tag with metric units.
 	 */
+	@Test
 	public void testListMetric()
 	{
 		PlayerCharacter pc = getCharacter();

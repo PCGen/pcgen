@@ -44,7 +44,7 @@ public class SkillClassesTest extends AbstractTokenModelTest
 		.getFacet(DomainInputFacet.class);
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		sk = context.getReferenceContext().constructCDOMObject(Skill.class, "MySkill");

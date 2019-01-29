@@ -30,7 +30,7 @@ import pcgen.persistence.PersistenceLayerException;
 public class PreParserFactoryTest extends AbstractCharacterTestCase
 {
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		LocaleDependentTestCase.before(Locale.US);

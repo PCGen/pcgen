@@ -43,7 +43,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	private QualifyFacet qualifyFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
