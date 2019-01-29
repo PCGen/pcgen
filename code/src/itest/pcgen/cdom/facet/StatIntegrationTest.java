@@ -64,7 +64,7 @@ public class StatIntegrationTest
 	private PCStat stat2;
 	private final Object tsource = new Object();
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();

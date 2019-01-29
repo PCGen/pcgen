@@ -57,8 +57,8 @@ public class SizeIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 		return token;
 	}
 
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

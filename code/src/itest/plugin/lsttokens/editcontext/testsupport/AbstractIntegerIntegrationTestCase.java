@@ -54,7 +54,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	public abstract boolean doesOverwrite();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

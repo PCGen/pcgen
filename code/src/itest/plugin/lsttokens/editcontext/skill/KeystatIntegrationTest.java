@@ -40,7 +40,7 @@ public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

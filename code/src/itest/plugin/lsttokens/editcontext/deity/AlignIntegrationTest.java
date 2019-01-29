@@ -40,7 +40,7 @@ public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 	private static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{

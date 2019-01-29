@@ -58,7 +58,7 @@ public class SizeIntegrationTest extends AbstractIntegrationTestCase<Race>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
