@@ -18,6 +18,7 @@
 package pcgen.io.exporttoken;
 
 import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
@@ -34,7 +35,6 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 
 /**
@@ -46,7 +46,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		// Make some ability categories and add them to the game mode
@@ -177,15 +177,15 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				"|FOR,%feat,0,count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
-		Assert.assertEquals("Complex split len", 6, result.size());
-		Assert.assertEquals("Complex split combined token 0", "|FOR", result.get(0));
-		Assert.assertEquals("Complex split combined token 1", "%feat", result.get(1));
-		Assert.assertEquals("Complex split combined token 2", "0", result.get(2));
-		Assert.assertEquals("Complex split combined token 3",
+		assertEquals("Complex split len", 6, result.size());
+		assertEquals("Complex split combined token 0", "|FOR", result.get(0));
+		assertEquals("Complex split combined token 1", "%feat", result.get(1));
+		assertEquals("Complex split combined token 2", "0", result.get(2));
+		assertEquals("Complex split combined token 3",
 			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1",
 			result.get(3));
-		Assert.assertEquals("Complex split combined token 4", "1", result.get(4));
-		Assert.assertEquals("Complex split combined token 5", "0|", result.get(5));
+		assertEquals("Complex split combined token 4", "1", result.get(4));
+		assertEquals("Complex split combined token 5", "0|", result.get(5));
 	}
 
 	public void testForNodeSplitNonJEP()
@@ -194,6 +194,6 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				"|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1)/2,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
-		Assert.assertEquals("Complex split len", 6, result.size());
+		assertEquals("Complex split len", 6, result.size());
 	}
 }

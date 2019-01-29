@@ -17,6 +17,8 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -25,6 +27,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreDeityAlignTest} tests that the PREDEITYALIGN tag is
@@ -39,6 +43,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -73,7 +78,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	}
 
     @Override
-	protected void setUp() throws Exception
+    public void setUp() throws Exception
 	{
 		super.setUp();
 		deity = new Deity();

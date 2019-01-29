@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -26,6 +29,9 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreFactTest} tests that the PREFACT tag is
  * working correctly.
@@ -33,6 +39,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PreFactTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -47,6 +54,7 @@ public class PreFactTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testFact() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();

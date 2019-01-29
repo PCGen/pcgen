@@ -17,7 +17,8 @@
  */
 package pcgen.io;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -55,6 +56,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its sub tokens are working correctly.
@@ -70,8 +75,9 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	private Equipment gem = null;
 	private Equipment armor = null;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -178,8 +184,9 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 	}
 
+	@AfterEach
 	@Override
-	protected void tearDown() throws Exception
+	public void tearDown() throws Exception
 	{
 		knowledge = null;
 		balance = null;
@@ -194,6 +201,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 *
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
+	@Test
 	public void testWpnLoop() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
@@ -233,17 +241,19 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			gemLoop, character));
 	}
 
+	@Test
 	public void testJepIif() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Basic JEP boolean", 1.0f, character
+		assertEquals("Basic JEP boolean", 1.0f, (float)character
 			.getVariableValue("max(0,2)==2", ""));
 		assertEquals("JEP boolean in IF", "true", evaluateToken(
 			"OIF(max(0,2)==2,true,false)", character));
 //		assertEquals("JEP boolean in IF", "true", evaluateToken(
 //			"|OIF(max(0,2)==2)|\ntrue\n|ELSE|\nfalse\n|ENDIF|", character));
 	}
-	
+
+	@Test
 	public void testFor() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();

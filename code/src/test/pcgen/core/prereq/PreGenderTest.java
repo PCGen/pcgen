@@ -17,11 +17,16 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreGenderTest} tests that the PREGENDER tag is
@@ -32,8 +37,10 @@ public class PreGenderTest extends AbstractCharacterTestCase
 	/**
 	 * Test the PREGENDER code.
 	 *
-	 * @throws PersistenceLayerException the persistence layer exception
+	 * @thro
+	 * ws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testGender() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();

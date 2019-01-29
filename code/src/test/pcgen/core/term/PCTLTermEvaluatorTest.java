@@ -17,6 +17,8 @@
  */
 package pcgen.core.term;
 
+import static org.junit.Assert.assertEquals;
+
 import java.net.URI;
 
 import pcgen.AbstractCharacterTestCase;
@@ -37,6 +39,9 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * PCTLTermEvaluatorTest checks the fucntion of the TL variable.
  * 
@@ -47,8 +52,9 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 	Race bugbearRace;
 	PCClass humanoidClass;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -84,6 +90,7 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check that TL works with a monster style class. 
 	 */
+	@Test
 	public void testResolveTlMonster()
 	{
 		PCTLTermEvaluator tlEval = new PCTLTermEvaluator("TL");

@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;

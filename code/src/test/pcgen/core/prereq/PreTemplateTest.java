@@ -17,11 +17,17 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import plugin.pretokens.test.PreTemplateTester;
+
+import org.junit.jupiter.api.Test;
 
 public class PreTemplateTest extends AbstractCharacterTestCase
 {
@@ -29,6 +35,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 * Ensure a character with a template correctly passes
 	 * PRETEMPLATE
 	 */
+	@Test
 	public void test990007_1()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -52,6 +59,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 * Ensure that a character with no templates correctly
 	 * passes !PRETEMPLATE
 	 */
+	@Test
 	public void test990007_2()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -70,6 +78,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 * Ensure that a character with templates, but not the
 	 * required template correctly passes !PRETEMPLATE
 	 */
+	@Test
 	public void test990007_3()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -93,6 +102,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 * Ensure a character with the requested template correctly fails
 	 * !PRETEMPLATE
 	 */
+	@Test
 	public void test990007_4()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -116,6 +126,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 * Ensure a character with the requested template correctly passes
 	 * a wildcard test
 	 */
+	@Test
 	public void test990007_5()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -144,6 +155,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 * Ensure a test with a non integer operand fails with a meaningfull
 	 * error message
 	 */
+	@Test
 	public void testBadOperand()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -158,6 +170,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void testKindHandled()
 	{
 		final PreTemplateTester preTemplate = new PreTemplateTester();

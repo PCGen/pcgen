@@ -18,6 +18,9 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -41,6 +44,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 
 /**
  * This class tests the handling of DESC fields in PCGen
@@ -52,6 +56,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Tests outputting an empty description.
 	 */
+	@Test
 	public void testEmptyDesc()
 	{
 		final Ability dummy =
@@ -65,6 +70,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Tests outputting a simple description.
 	 */
+	@Test
 	public void testSimpleDesc()
 	{
 		final Ability dummy =
@@ -81,6 +87,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testPreReqs() throws PersistenceLayerException
 	{
 		final Ability dummy =
@@ -107,6 +114,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Tests a simple string replacement.
 	 */
+	@Test
 	public void testSimpleReplacement()
 	{
 		final Ability dummy =
@@ -121,6 +129,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Test name replacement
 	 */
+	@Test
 	public void testSimpleNameReplacement()
 	{
 		final PCTemplate pobj = new PCTemplate();
@@ -135,6 +144,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Tests simple variable replacement
 	 */
+	@Test
 	public void testSimpleVariableReplacement()
 	{
 		final Race dummy = new Race();
@@ -153,6 +163,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Tests simple replacement of %CHOICE
 	 */
+	@Test
 	public void testSimpleChoiceReplacement()
 	{
 		final PCTemplate pobj = new PCTemplate();
@@ -172,6 +183,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Tests simple %LIST replacement.
 	 */
+	@Test
 	public void testSimpleListReplacement()
 	{
 		final Domain pobj = new Domain();
@@ -192,6 +204,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Test a replacement with missing variables.
 	 */
+	@Test
 	public void testEmptyReplacement()
 	{
 		final Deity pobj = new Deity();
@@ -203,6 +216,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Test having extra variables present
 	 */
+	@Test
 	public void testExtraVariables()
 	{
 		final Race pobj = new Race();
@@ -222,6 +236,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	/**
 	 * Test complex replacements.
 	 */
+	@Test
 	public void testComplexVariableReplacement()
 	{
 		final Ability dummy = BuildUtilities.getFeatCat().newInstance();

@@ -22,6 +22,10 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,12 +35,15 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.Test;
+
 
 public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test method for 'pcgen.core.AbilityUtilities.removeChoicesFromName(String)'
 	 */
+	@Test
 	public void testRemoveChoicesFromName()
 	{
 		assertEquals("Choice is removed from name correctly",
@@ -47,6 +54,7 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.AbilityUtilities.getUndecoratedName(String, ArrayList)'
 	 */
+	@Test
 	public void testGetUndecoratedName()
 	{
 		final List<String> specifics = new ArrayList<>();
@@ -64,6 +72,7 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 	/**
 	 * Verify that getAllAbilities is working correctly
 	 */
+	@Test
 	public void testGetAllAbilities()
 	{		
 		LoadContext context = Globals.getContext();
