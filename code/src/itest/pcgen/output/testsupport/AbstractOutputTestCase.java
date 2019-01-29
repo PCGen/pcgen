@@ -17,6 +17,9 @@
  */
 package pcgen.output.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -32,7 +35,6 @@ import pcgen.output.publish.OutputDB;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class AbstractOutputTestCase
@@ -61,12 +63,12 @@ public abstract class AbstractOutputTestCase
 			Map<String, Object> input = OutputDB.buildDataModel(id);
 			t.process(input, bw);
 			String s = sw.getBuffer().toString();
-			Assert.assertEquals(expectedResult, s);
+			assertEquals(expectedResult, s);
 		}
 		catch (IOException | TemplateException e)
 		{
 			e.printStackTrace();
-			Assert.fail(e.getLocalizedMessage());
+			fail(e.getLocalizedMessage());
 		}
 	}
 
