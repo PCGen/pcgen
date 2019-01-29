@@ -17,29 +17,18 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-/**
- * {@code PreRuleParserTest} is ...
- */
-@SuppressWarnings("nls")
-public class PreRuleParserTest extends EnUsLocaleDependentTestCase
+class PreRuleParserTest extends EnUsLocaleDependentTestCase
 {
-
-	
-	/**
-	 * Test positive.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
 	@Test
 	public void testPositive() throws PersistenceLayerException
 	{
@@ -49,15 +38,10 @@ public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
-		assertFalse("Prerule should nto need a character", prereq.isCharacterRequired());
+		assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
 	}
 
-	
-	/**
-	 * Test negative.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
+
 	@Test
 	public void testNegative() throws PersistenceLayerException
 	{
@@ -67,7 +51,7 @@ public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
-		assertFalse("Prerule should nto need a character", prereq.isCharacterRequired());
+		assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
 	}
 
 }
