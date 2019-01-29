@@ -1,0 +1,57 @@
+CAMPAIGN:Mythic Origins
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+GENRE:Fantasy
+STATUS:BETA
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Mythic Adventures
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Mythic Origins
+SOURCESHORT:MO
+SOURCEWEB:http://paizo.com/products/btpy8xsj
+SOURCEDATE:2013-09
+ISOGL:YES
+
+
+COVER:mythic_origins.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8xsj|Buy this publication from Paizo Publishing!
+DESC:Charge headfirst into the heart of myth with Pathfinder Player Companion: Mythic Origins! Whether your character's incredible powers come from physical mastery, eldritch energies, divine favor, or indomitable forces of will, this volume will bring your mythic character to new levels of power and greater renown in the award-winning Pathfinder campaign setting.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Mythic Origins Copyright 2013, Paizo Publishing, LLC; Authors: Dennis Baker, Philip Minchin, and Russ Taylor.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Mythic Origins" Copyright 2019, PCGen Data Team (including, but not limited to Jason D., Paul Grosse and Andrew Maitland)
+
+
+ABILITY:mo_abilities.lst
+ABILITY:mo_abilities_spell.lst
+ABILITYCATEGORY:mo_abilitycategories.lst
+EQUIPMENT:mo_equipment.lst
+SPELL:mo_spells.lst
+
+# Load Inner Sea specific spells if the ISWG and ISM are loaded.
+ABILITY:support/mo_abilities_spell_innersea.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Magic
+SPELL:support/mo_spells_innersea.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Magic
+
+# ENTRY DATE: 18 January 2019
+# LST MONKEY: GrimaceJD
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.8
+# MINDEVVER:6.08.00
+# COMMENTS:
+
+

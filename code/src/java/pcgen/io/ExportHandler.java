@@ -48,6 +48,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -2139,7 +2140,8 @@ public final class ExportHandler
 		CharacterDisplay display = aPC.getDisplay();
 		if ("REGION".equals(aString.substring(1)))
 		{
-			if (display.getRegion().equals(Constants.NONE))
+			if (display.getRegion().isPresent()
+				&& display.getRegion().get().equals(Region.NONE))
 			{
 				canWrite = false;
 			}

@@ -17,14 +17,16 @@
  */
 package pcgen.base.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -33,10 +35,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class WeightedCollectionTest
+class WeightedCollectionTest
 {
 
 	private static final Integer I3 = 3;
@@ -47,40 +49,24 @@ public class WeightedCollectionTest
 
 	private WeightedCollection<Integer> wc;
 
-	@Before
-	public void setUp()
+	@BeforeEach
+	void setUp()
 	{
 		wc = new WeightedCollection<>();
 	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testBadIntConstructor()
 	{
-		try
-		{
-			new WeightedCollection<Integer>(-5);
-			fail();
-		}
-		catch (IllegalArgumentException iae)
-		{
-			// OK
-		}
+		assertThrows(IllegalArgumentException.class,
+				() -> new WeightedCollection<Integer>(-5));
 	}
 
-	@SuppressWarnings("unused")
 	@Test
 	public void testBadCollectionConstructor()
 	{
-		try
-		{
-			new WeightedCollection<>((Collection<Integer>) null);
-			fail();
-		}
-		catch (NullPointerException | IllegalArgumentException npe)
-		{
-			// OK
-		}
+		assertThrows(NullPointerException.class,
+				() -> new WeightedCollection<>((Collection<Integer>) null));
 	}
 
 	@Test
@@ -90,7 +76,7 @@ public class WeightedCollectionTest
 		assertTrue(c.add(I1));
 		assertTrue(c.add(I2));
 		assertTrue(c.add(null));
-		WeightedCollection<Integer> col = new WeightedCollection<>(c);
+		AbstractCollection<Integer> col = new WeightedCollection<>(c);
 		assertEquals(3, col.size());
 		c.add(4);
 		assertEquals(3, col.size());

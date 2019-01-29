@@ -18,7 +18,7 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -37,7 +37,7 @@ public class PreBirthplaceTest extends AbstractCharacterTestCase
 	public void testAtt() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setPCAttribute(PCAttribute.BIRTHPLACE, "Klamath");
+		character.setPCAttribute(PCStringKey.BIRTHPLACE, "Klamath");
 
 		Prerequisite prereq;
 

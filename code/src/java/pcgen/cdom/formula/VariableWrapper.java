@@ -17,13 +17,10 @@ package pcgen.cdom.formula;
 
 import java.util.Objects;
 
-import javax.swing.event.EventListenerList;
-
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.SolverManager;
+import pcgen.facade.util.AbstractReferenceFacade;
 import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 
 /**
  * A VariableWrapper provides a common mechanism for reading from a variable by a system
@@ -32,7 +29,7 @@ import pcgen.facade.util.event.ReferenceListener;
  * @param <T>
  *            The Format of the information contained in this VariableWrapper
  */
-public final class VariableWrapper<T>
+public final class VariableWrapper<T> extends AbstractReferenceFacade<T>
 		implements VariableListener<T>, ReferenceFacade<T>
 {
 
@@ -52,11 +49,6 @@ public final class VariableWrapper<T>
 	 * SolverManager are placed in.
 	 */
 	private final MonitorableVariableStore varStore;
-
-	/**
-	 * The list of listeners that listen to this VariableWrapper for ReferenceEvents.
-	 */
-	private final EventListenerList listenerList = new EventListenerList();
 
 	/**
 	 * Constructs a new VariableWrapper with the given SolverManager,
@@ -108,34 +100,6 @@ public final class VariableWrapper<T>
 	public void disconnect()
 	{
 		varStore.removeVariableListener(varID, this);
-	}
-
-	@Override
-	public void addReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.add(ReferenceListener.class, listener);
-	}
-
-	@Override
-	public void removeReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.remove(ReferenceListener.class, listener);
-	}
-
-	private void fireReferenceChangedEvent(Object source, T oldValue,
-		T newValue)
-	{
-		ReferenceListener[] listeners =
-				listenerList.getListeners(ReferenceListener.class);
-		ReferenceEvent<T> e = null;
-		for (int i = listeners.length - 1; i >= 0; i--)
-		{
-			if (e == null)
-			{
-				e = new ReferenceEvent<>(source, oldValue, newValue);
-			}
-			listeners[i].referenceChanged(e);
-		}
 	}
 
 	/**

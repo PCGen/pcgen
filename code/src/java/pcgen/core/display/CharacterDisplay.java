@@ -43,6 +43,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -550,12 +551,12 @@ public class CharacterDisplay
 		return ageFacet.getAge(id);
 	}
 
-	public int getBaseMovement(String moveType, Load load)
+	public int getBaseMovement(MovementType moveType, Load load)
 	{
 		return moveResultFacet.getBaseMovement(id, moveType, load);
 	}
 
-	public boolean hasMovement(String moveType)
+	public boolean hasMovement(MovementType moveType)
 	{
 		return moveResultFacet.hasMovement(id, moveType);
 	}
@@ -1221,7 +1222,7 @@ public class CharacterDisplay
 		return loadFacet.getLoadType(id);
 	}
 
-	public double getMovementOfType(String moveType)
+	public double getMovementOfType(MovementType moveType)
 	{
 		return moveResultFacet.getMovementOfType(id, moveType);
 	}
@@ -1581,12 +1582,12 @@ public class CharacterDisplay
 		return visionFacet.getVisionCount(id);
 	}
 
-	public Double getBaseMovement()
+	public int getBaseMovement()
 	{
-		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
+		return baseMovementFacet.getSet(id).iterator().next().getMovement();
 	}
 
-	public double movementOfType(final String moveType)
+	public double movementOfType(MovementType moveType)
 	{
 		return moveResultFacet.movementOfType(id, moveType);
 	}

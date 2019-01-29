@@ -16,12 +16,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.pcclass;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
@@ -32,8 +32,6 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-
-import org.junit.jupiter.api.Test;
 
 public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {

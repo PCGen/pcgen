@@ -5469,13 +5469,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/BababbrevToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-BABATTCYC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5564,13 +5557,6 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/CurrencyunitabbrevToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CURRENCYUNIT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/CurrencyunitToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

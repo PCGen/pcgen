@@ -52,7 +52,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
@@ -1742,7 +1741,7 @@ public class CharacterFacadeImpl
 	public void setTabName(String name)
 	{
 		tabName.set(name);
-		theCharacter.setPCAttribute(PCAttribute.TABNAME, name);
+		theCharacter.setPCAttribute(PCStringKey.TABNAME, name);
 	}
 
 	@Override
@@ -1798,7 +1797,7 @@ public class CharacterFacadeImpl
 	public void setSkinColor(String color)
 	{
 		skinColor.set(color);
-		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
+		theCharacter.setPCAttribute(PCStringKey.SKINCOLOR, color);
 	}
 
 	@Override
@@ -1811,7 +1810,7 @@ public class CharacterFacadeImpl
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
+		theCharacter.setPCAttribute(PCStringKey.HAIRCOLOR, color);
 	}
 
 	@Override
@@ -2472,7 +2471,7 @@ public class CharacterFacadeImpl
 	public void setPlayersName(String name)
 	{
 		playersName.set(name);
-		theCharacter.setPCAttribute(PCAttribute.PLAYERSNAME, name);
+		theCharacter.setPCAttribute(PCStringKey.PLAYERSNAME, name);
 	}
 
 	@Override

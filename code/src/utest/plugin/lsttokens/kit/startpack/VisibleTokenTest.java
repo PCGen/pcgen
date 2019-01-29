@@ -53,6 +53,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 		return loader;
 	}
 
+
 	@Override
 	public CDOMPrimaryToken<Kit> getToken()
 	{

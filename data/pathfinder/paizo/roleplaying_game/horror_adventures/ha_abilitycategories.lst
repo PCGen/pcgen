@@ -1,0 +1,236 @@
+# SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
+
+ABILITYCATEGORY:Corruption Type Choice												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:CorruptionType													DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Accursed Manifestation Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Baleful Glare Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedBalefulGlareGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Baleful Glare Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedBalefulGlareStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Cold Iron Allergy Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedColdIronAllergyGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Cold Iron Allergy Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedColdIronAllergyStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Cruel Deceiver Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedCruelDeceiverGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Cruel Deceiver Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedCruelDeceiverStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Grim Fate Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedGrimFateGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Grim Fate Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedGrimFateStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Horrific Shock Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedHorrificShockGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Horrific Shock Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedHorrificShockStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Spiteful Transformation Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedSpitefulTransformationGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Spiteful Transformation Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedSpitefulTransformationStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Undying Hatred Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedUndyingHatredGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Undying Hatred Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedUndyingHatredStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Weakening Claws Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedWeakeningClawsGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Weakening Claws Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedWeakeningClawsStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Wish Peddler Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedWishPeddlerGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Accursed Wish Peddler Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AccursedWishPeddlerStain												DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Deep One Manifestation Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Bloodthirst Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneBloodthirstGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Bloodthirst Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneBloodthirstStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Call of the Deep Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneCallOfTheDeepGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Call of the Deep Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneCallOfTheDeepStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Claws of the Deep Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneClawsOfTheDeepGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Claws of the Deep Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneClawsOfTheDeepStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Deep Adaptation Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneDeepAdaptationGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Deep Adaptation Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneDeepAdaptationStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Deepsight Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneDeepsightGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Deepsight Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneDeepsightStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Landwalker Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneLandwalkerGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Landwalker Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneLandwalkerStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Loathsome Gills Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneLoathsomeGillsGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Loathsome Gills Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneLoathsomeGillsStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Siltsight Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneSiltsightGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Siltsight Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneSiltsightStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Slow Aging Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneSlowAgingGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Slow Aging Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneSlowAgingStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Swimmer in the Deep Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneSwimmerInTheDeepGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Deep One Swimmer in the Deep Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DeepOneSwimmerInTheDeepStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Ghoul Manifestation Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulManifestation													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Brain Eater Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulBrainEaterGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Brain Eater Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulBrainEaterStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Corpse Armor Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulCorpseArmorGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Corpse Armor Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulCorpseArmorStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Diseased Bite Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulDiseasedBiteGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Diseased Bite Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulDiseasedBiteStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Gnashing Bite Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulGnashingBiteGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Gnashing Bite Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulGnashingBiteStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Greater Paralysis Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulGreaterParalysisGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Greater Paralysis Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulGreaterParalysisStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Greater Stench Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulGreaterStenchGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Greater Stench Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulGreaterStenchStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Paralysis Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulParalysisGift													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Paralysis Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulParalysisStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Rending Claws Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulRendingClawsGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Rending Claws Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulRendingClawsStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Staggering Claw Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulStaggeringClawGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Ghoul Staggering Claw Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhoulStaggeringClawStain												DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Hellbound Manifestation Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Devil's Mark Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundDevilsMarkGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Devil's Mark Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundDevilsMarkStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Devil's Mark Spell											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundDevilsMarkSpell												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Diabolical Servitor Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundDiabolicalServitorGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Diabolical Servitor Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundDiabolicalServitorStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Fiendish Tutelage Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundFiendishTutelageGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Fiendish Tutelage Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundFiendishTutelageStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Murky Futures Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundMurkyFuturesGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Murky Futures Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundMurkyFuturesStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Passage through the Pit Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundPassageThroughPitGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Passage through the Pit Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundPassageThroughPitStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Serpent's Tongue Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundSerpentsTongueGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Serpent's Tongue Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundSerpentsTongueStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Tenuous Soul Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundTenuousSoulGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hellbound Tenuous Soul Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HellboundTenuousSoulStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Hive Manifestation Choice												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveManifestation													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Acid Blood Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveAcidBloodGift													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Acid Blood Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveAcidBloodStain													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Blindsense Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveBlindsenseGift													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Blindsense Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveBlindsenseStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Bristling Spines Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveBristlingSpinesGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Bristling Spines Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveBristlingSpinesStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Greater Acid Blood Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveGreaterAcidBloodGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Greater Acid Blood Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveGreaterAcidBloodStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Greater Hive Mind Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveGreaterHiveMindGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Greater Hive Mind Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveGreaterHiveMindStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Hive Mind Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveHiveMindGift													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Hive Mind Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveHiveMindStain													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Living Weapon Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveLivingWeaponGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Living Weapon Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveLivingWeaponStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Transformed Flesh Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveTransformedFleshGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Hive Transformed Flesh Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HiveTransformedFleshStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Lich Manifestation Choice												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichManifestation													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Agonizing Touch Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichAgonizingTouchGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Agonizing Touch Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichAgonizingTouchStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Bleak Aura Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichBleakAuraGift													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Bleak Aura Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichBleakAuraStain													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Cadaver's Countenance Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichCadaversCountenanceGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Cadaver's Countenance Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichCadaversCountenanceStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Deathless Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichDeathlessGift													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Deathless Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichDeathlessStain													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Death's Caress Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichDeathsCaressGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Death's Caress Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichDeathsCaressStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Greater Cadaver's Countenance Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichGreaterCadaversCountenanceGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Greater Cadaver's Countenance Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichGreaterCadaversCountenanceStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Malevolence Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichMalevolenceGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Malevolence Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichMalevolenceStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Master of the Dead Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichMasterOfTheDeadGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Master of the Dead Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichMasterOfTheDeadStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Necromantic Knowledge Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichNecromanticKnowledgeGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lich Necromantic Knowledge Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LichNecromanticKnowledgeStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Lycanthropy Manifestation Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Animalistic Health Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyAnimalisticHealthGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Animalistic Health Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyAnimalisticHealthStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Animalistic Might Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyAnimalisticMightGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Animalistic Might Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyAnimalisticMightStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Feral Senses Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyFeralSensesGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Feral Senses Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyFeralSensesStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Fur Armor Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyFurArmorGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Fur Armor Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyFurArmorStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Greater Shift Form Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyGreaterShiftFormGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Greater Shift Form Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyGreaterShiftFormStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Lunar Call Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyLunarCallGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Lunar Call Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyLunarCallStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Lycanthropic Empathy Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyLycanthropicEmpathyGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Lycanthropic Empathy Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropyLycanthropicEmpathyStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Silver Allergy Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropySilverAllergyGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Lycanthropy Silver Allergy Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LycanthropySilverAllergyStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Possessed Manifestation Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Blurred Soul Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedBlurredSoulGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Blurred Soul Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedBlurredSoulStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Contaminated Personality Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedContaminatedPersonalityGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Contaminated Personality Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedContaminatedPersonalityStain									DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Hateful Voices Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedHatefulVoicesGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Hateful Voices Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedHatefulVoicesStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Temporary Clarity Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedTemporaryClarityGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Temporary Clarity Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedTemporaryClarityStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Traitorous Hand Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedTraitorousHandGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Traitorous Hand Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedTraitorousHandStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Two Minds Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedTwoMindsGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Two Minds Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedTwoMindsStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Unrestrained Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedUnrestrainedGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Unrestrained Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedUnrestrainedStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Violent Will Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedViolentWillGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Violent Will Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedViolentWillStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Weightlessness Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedWeightlessnessGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Possessed Weightlessness Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PossessedWeightlessnessStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Promethean Manifestation Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Greater Armored Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanGreaterArmoredGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Greater Armored Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanGreaterArmoredStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Greater Shattered Body Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanGreaterShatteredBodyGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Greater Shattered Body Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanGreaterShatteredBodyStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Greater Shattered Mind Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanGreaterShatteredMindGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Greater Shattered Mind Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanGreaterShatteredMindStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Promethean Transfiguration Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanPrometheanTransfigurationGift									DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Promethean Transfiguration Stain Choice							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanPrometheanTransfigurationStain									DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Rampage Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanRampageGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Rampage Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanRampageStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Replacement Limb Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanReplacementLimbGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Replacement Limb Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanReplacementLimbStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Shattered Body Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanShatteredBodyGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Shattered Body Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanShatteredBodyStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Shattered Mind Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanShatteredMindGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Promethean Shattered Mind Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:PrometheanShatteredMindStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Shadowbound Manifestation Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Eerie Perception Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundEeriePerceptionGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Eerie Perception Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundEeriePerceptionStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Emptiness of the Void Gift Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundEmptinessOfTheVoidGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Emptiness of the Void Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundEmptinessOfTheVoidStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Frightful Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundFrightfulGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Frightful Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundFrightfulStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Insubstantiality Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundInsubstantialityGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Insubstantiality Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundInsubstantialityStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Refuge in Pain Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundRefugeInPainGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Refuge in Pain Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundRefugeInPainStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Regretful Gaze Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundRegretfulGazeGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Regretful Gaze Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundRegretfulGazeStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Touch of Ruin Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundTouchOfRuinGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Touch of Ruin Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundTouchOfRuinStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Weaver of Lies Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundWeaverOfLiesGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Weaver of Lies Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundWeaverOfLiesStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Wretched Pain Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundWretchedPainGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Shadowbound Wretched Pain Stain Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowboundWretchedPainStain											DISPLAYLOCATION:Misc
+
+ABILITYCATEGORY:Vampirism Manifestation Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismManifestation												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Allure Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismAllureGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Allure Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismAllureStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Children of the Night Gift Choice									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismChildrenOfTheNightGift										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Children of the Night Stain Choice								VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismChildrenOfTheNightStain										DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Dreadful Charm Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismDreadfulCharmGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Dreadful Charm Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismDreadfulCharmStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Fangs Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismFangsGift													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Fangs Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismFangsStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Greater Unlife Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismGreaterUnlifeGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Greater Unlife Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismGreaterUnlifeStain											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Life Drain Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismLifeDrainGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Life Drain Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismLifeDrainStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism True Unlife Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismTrueUnlifeGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism True Unlife Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismTrueUnlifeStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Unlife Gift Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismUnlifeGift												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Unlife Stain Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismUnlifeStain												DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Vampiric Grace Gift Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismVampiricGraceGift											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Vampirism Vampiric Grace Stain Choice										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:VampirismVampiricGraceStain											DISPLAYLOCATION:Misc
+
+
+ABILITYCATEGORY:Mooncursed Animal Form												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:MooncursedAnimalForm												DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Life Channeler Domain												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:LifeChannelerDomain												DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Hexenhammer Minor Hex Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HexenhammerMinorHex				PLURAL:Hexenhammer Minor Hex Choice			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Hexenhammer Major Hex Choice											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HexenhammerMinorHex.HexenhammerMajorHex	PLURAL:Hexenhammer Major Hex Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Dreamstalker Spell												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BonusDreamstalkerSpell				PLURAL:Bonus Dreamstalker Spells			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bonus Hate-Monger Spell												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BonusHateMongerSpell				PLURAL:Bonus Hate-Monger Spells			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Hate-Monger Favored Enemy												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HateMongerFavoredEnemy												DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Haunted Implement School					POOL:HauntedOccultistImplementSchool	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Haunted Implement School.Implement School	PLURAL:Haunted Implement Schools			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Haunted Implement Spirit												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Haunted Implement Spirit				PLURAL:Haunted Implement Spirit			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloody Jake Terrain													VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:BloodyJakeTerrain													DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Witch Killer Rage Power												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:WitchKillerRagePower				PLURAL:Witch Killer Rage Powers			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vigilante Experimenter Discovery										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistMutagenMod				PLURAL:Vigilante Experimenter Discoveries		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Undead Master Arcane Bond												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:UndeadMasterArcaneBond												DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Dwarf Paladin FCB Favored Enemy											VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfPaladinFCB_HA					PLURAL:Dwarf Paladin FCB Favored Enemies		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Sorcerer FCB Favored Terrain										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:ElfSorcererFCB_HA					PLURAL:Elf Sorcerer FCB Favored Terrains		DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Dread Lord Special Power												VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DreadLordSpecialPower				PLURAL:Dread Lord Special Powers			DISPLAYLOCATION:Racial Abilities

@@ -38,9 +38,9 @@ public final class Comparators
 	private static final Comparator<Object> tSC = new ToStringComparator();
 	private static final Comparator<Object> tSICC = new ToStringIgnoreCaseComparator();
 	private static final Comparator<Object> tSICCol = new ToStringIgnoreCaseCollator();
-	private static final Comparator<Integer> iC = new IntegerComparator();
-	private static final Comparator<Number> nC = new NumberComparator();
-	private static final Comparator<Date> DC = new DateComparator();
+	private static final Comparator<Integer> iC = Comparator.comparingInt(o -> o);
+	private static final Comparator<Number> nC = Comparator.comparing(Number::doubleValue);
+	private static final Comparator<Date> DC = Comparator.comparing(Date::getTime);
 	private static final Comparator<Object> treeNodeComp = new TreeTableNodeComparator();
 
 	private static Comparator<Object> toStringComparator()
@@ -58,55 +58,27 @@ public final class Comparators
 		return tSICCol;
 	}
 
-	/**
-	 * @return A comparator for use with the contents of tree table nodes. 
-	 */
-	private static Comparator<Object> treeTableNodeComparator()
-	{
-		return treeNodeComp;
-	}
-
-	private static Comparator<Integer> integerComparator()
-	{
-		return iC;
-	}
-
-	private static Comparator<Number> numberComparator()
-	{
-		return nC;
-	}
-
-	private static Comparator<Date> dateComparator()
-	{
-		return DC;
-	}
-
-	private static Comparator<String> ignoreCaseStringComparator()
-	{
-		return String.CASE_INSENSITIVE_ORDER;
-	}
-
 	public static <T> Comparator<? super T> getComparatorFor(Class<T> c)
 	{
 		if (c == Integer.class)
 		{
-			return (Comparator<? super T>) integerComparator();
+			return (Comparator<? super T>) iC;
 		}
 		else if (c.getSuperclass() == Number.class)
 		{
-			return (Comparator<? super T>) numberComparator();
+			return (Comparator<? super T>) nC;
 		}
 		else if (c == Date.class)
 		{
-			return (Comparator<? super T>) dateComparator();
+			return (Comparator<? super T>)DC;
 		}
 		else if (c == String.class)
 		{
-			return (Comparator<? super T>) ignoreCaseStringComparator();
+			return (Comparator<? super T>)String.CASE_INSENSITIVE_ORDER;
 		}
-		else if (c == TreeTableNode.class || c == InfoFacade.class || c.getSuperclass() == InfoFacade.class)
+		else if ((c == TreeTableNode.class) || (c == InfoFacade.class) || (c.getSuperclass() == InfoFacade.class))
 		{
-			return treeTableNodeComparator();
+			return treeNodeComp;
 		}
 		return toStringComparator();
 	}
@@ -206,47 +178,6 @@ public final class Comparators
 			String s2 = (o2 == null) ? "" : o2.toString();
 			return COLLATOR.compare(s1, s2);
 		}
-
-	}
-
-	private static final class IntegerComparator implements Comparator<Integer>
-	{
-
-		@Override
-		public int compare(Integer o1, Integer o2)
-		{
-			return o1.compareTo(o2);
-		}
-
-	}
-
-	private static final class NumberComparator implements Comparator<Number>
-	{
-
-		@Override
-		public int compare(Number o1, Number o2)
-		{
-			final double d1 = o1.doubleValue();
-			final double d2 = o2.doubleValue();
-
-            return Double.compare(d1, d2);
-
-        }
-
-	}
-
-	private static final class DateComparator implements Comparator<Date>
-	{
-
-		@Override
-		public int compare(Date o1, Date o2)
-		{
-			final long n1 = o1.getTime();
-			final long n2 = o2.getTime();
-
-            return Long.compare(n1, n2);
-
-        }
 
 	}
 

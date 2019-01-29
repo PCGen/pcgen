@@ -35,7 +35,7 @@ CLASS:Ninja		STARTSKILLPTS:8
 4	BONUS:VAR|UncannyDodgeLVL|NinjaLVL/4
 8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
 ###Block: Level progression
-1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|PREVAREQ:Ninja_CF_Poison,0
+1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|PREVAREQ:Ninja_CF_PoisonUse,0
 1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Sneak Attack|PREVAREQ:Ninja_CF_SneakAttack,0
 2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ninja Trick|PREVAREQ:Ninja_CF_Trick,0
 2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Pool|PREVAREQ:Ninja_CF_KiPool,0

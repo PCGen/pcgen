@@ -54,11 +54,6 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
-		/*
-		 * TODO CODE-3299 Need to check the object type of the VarHolder to make sure it
-		 * is legal. Note it's (usually) a proxy, so a @ReadOnly method needs to be used
-		 * to support the analysis.
-		 */
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');

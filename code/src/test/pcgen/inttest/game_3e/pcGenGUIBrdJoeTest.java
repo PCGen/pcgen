@@ -21,7 +21,7 @@ package pcgen.inttest.game_3e;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test a 3e 1st lvl Half-Elf Bard 

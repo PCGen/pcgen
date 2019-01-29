@@ -17,6 +17,9 @@
  */
 package pcgen.core;
 
+import java.util.Optional;
+
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
@@ -30,14 +33,25 @@ public final class NoteItem implements Cloneable
 	private String value = "";
 	private int id_parent = -1;
 	private int id_value = -1;
-	private boolean required;
+	private final Optional<PCStringKey> key;
 
-	public NoteItem(final int my_id, final int my_parent, final String aName, final String aValue)
+	public NoteItem(Optional<PCStringKey> key, final int my_id, final int my_parent, final String aName, final String aValue)
 	{
+		this.key = key;
 		id_value = my_id;
 		id_parent = my_parent;
 		name = aName;
 		value = aValue;
+	}
+
+	public NoteItem(PCStringKey key, final int my_id, final int my_parent, final String aName, final String aValue)
+	{
+		this(Optional.of(key), my_id, my_parent, aName, aValue);
+	}
+
+	public NoteItem(final int my_id, final int my_parent, final String aName, final String aValue)
+	{
+		this(Optional.empty(), my_id, my_parent, aName, aValue);
 	}
 
 	/**
@@ -98,18 +112,9 @@ public final class NoteItem implements Cloneable
 		return value;
 	}
 
-	public boolean isRequired()
+	public Optional<PCStringKey> getPCStringKey()
 	{
-		return required;
-	}
-
-	/**
-	 * Update the flag identifying if this note can be renamed or removed.
-	 * @param required the new required flag
-	 */
-	public void setRequired(boolean required)
-	{
-		this.required = required;
+		return key;
 	}
 
 	@Override
@@ -145,7 +150,7 @@ public final class NoteItem implements Cloneable
 		{
 			NoteItem other = (NoteItem) o;
 			return (id_parent == other.id_parent) && (id_value == other.id_value) && (name.equals(other.name))
-				&& (value.equals(other.value)) && (required == other.required);
+				&& (value.equals(other.value)) && (key.equals(other.key));
 		}
 		return false;
 	}

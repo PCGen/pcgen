@@ -20,17 +20,18 @@
 
 package pcgen.core.term;
 
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
 public class PCMovementTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
-	private final String movement;
+	private final MovementType movement;
 
 	public PCMovementTermEvaluator(String originalText, String movement)
 	{
 		this.originalText = originalText;
-		this.movement = movement;
+		this.movement = MovementType.getConstant(movement);
 	}
 
 	@Override

@@ -105,16 +105,16 @@ BIO
 				<squares>12</squares>
 			</move>
 			<move>
-				<name>Swim</name>
-				<rate>60 ft.</rate>
-				<squares>12</squares>
-			</move>
-			<move>
 				<name>Fly</name>
 				<rate>250 ft.</rate>
 				<squares>50</squares>
 			</move>
-			<all>Walk 60 ft., Swim 60 ft., Fly 250 ft.</all>
+			<move>
+				<name>Swim</name>
+				<rate>60 ft.</rate>
+				<squares>12</squares>
+			</move>
+			<all>Walk 60 ft., Fly 250 ft., Swim 60 ft.</all>
 		</move>
 		<personality>
 			<trait></trait>

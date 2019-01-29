@@ -21,6 +21,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>${pcstring('NAME')} [${pcstring('POOL.COST')} Points]</title>
 <style type="text/css">
+	p { margin:0; }
 	.pcgen {
 		font-size:xx-small;
 	}
