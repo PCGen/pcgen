@@ -17,8 +17,8 @@
  */
 package plugin.modifier.orderedpair;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.OrderedPairManager;
@@ -30,9 +30,10 @@ import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class SetOrderedPairModifierTest
+
+class SetOrderedPairModifierTest
 {
 
 	private final PCGenScope varScope = new GlobalScope();
