@@ -34,7 +34,7 @@ public class IconTokenTest
 {
 	private URI uri;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		uri = new URI("http://www.pcgen.org");

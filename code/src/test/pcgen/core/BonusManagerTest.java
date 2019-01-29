@@ -30,16 +30,13 @@ import org.junit.jupiter.api.Test;
 
 /**
  * Test class for BonusManager.
- *
- * <br/>
- * 
  */
 
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		super.setUp();

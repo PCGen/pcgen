@@ -56,9 +56,9 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect id of the default equip set",
 			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
 	}
-	
+
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

@@ -39,7 +39,7 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  */
 public class IsgamemodeCommandTest
 {
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		final GameMode gamemode = new GameMode("3.5");

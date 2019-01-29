@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 @SuppressWarnings("nls")
 public class GlobalsTest
 {
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		Globals.clearCampaignsForRefresh();

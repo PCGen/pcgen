@@ -41,6 +41,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 
 /**
@@ -81,6 +82,7 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	 * Object.
 	 * @throws Exception
 	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
