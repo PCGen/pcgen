@@ -30,11 +30,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class PreStatParserTest extends EnUsLocaleDependentTestCase
+class PreStatParserTest extends EnUsLocaleDependentTestCase
 {
 
 	@BeforeEach
-	void setUp() throws Exception
+	void setUp()
 	{
 		TestHelper.loadPlugins();
 	}
