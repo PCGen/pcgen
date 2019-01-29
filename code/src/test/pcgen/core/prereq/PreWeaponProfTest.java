@@ -18,6 +18,10 @@
 package pcgen.core.prereq;
 
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -39,6 +43,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreWeaponProfTest} tests that the PREWEAPONPROF tag is
  * working correctly.
@@ -50,6 +57,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testOneOption() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -89,6 +97,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -127,6 +136,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -167,6 +177,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testInverse() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -207,6 +218,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testWeaponProfAddedWithAutoWeaponProf() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -250,6 +262,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testWithFeatThatGrantsBonus() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -298,9 +311,10 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 					);
 	
 	}
-	
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
+
 	{
 		super.setUp();
 

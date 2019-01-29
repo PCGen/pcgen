@@ -15,6 +15,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -30,6 +33,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PREPCLEVELTest} tests that the PREPCLEVEL tag is
  * working correctly.
@@ -44,6 +50,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -83,13 +90,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		prereq = factory.parse("!PREPCLEVEL:MAX=3");
 		assertTrue("Character is 3rd or higher level", PrereqHandler.passes(prereq,
 				character, null));
-		
-		
-		
-		
-		
-		
-		
+
 	}
 
 	/**
@@ -97,6 +98,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testHD() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -158,6 +160,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testPCLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -210,6 +213,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		
 	}
 
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{

@@ -17,6 +17,8 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
@@ -36,6 +38,10 @@ import pcgen.rules.context.LoadContext;
 import plugin.exporttokens.SpellMemToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * Verify the correct functioning of the SPELLMEM token.
  */
@@ -47,6 +53,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	private Race human = null;
 	private Spell testSpell = null;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -91,6 +98,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		finishLoad();
 	}
 
+	@AfterEach
     @Override
 	public void tearDown() throws Exception
 	{
@@ -105,6 +113,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 * list of known spells is auto populated and that the spell can be
 	 * retrieved correctly.
 	 */
+	@Test
 	public void testSpontaneousCasterKnown()
 	{
 		PlayerCharacter character = getCharacter();
@@ -140,6 +149,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 * a prepared list, and that the spell can be retrieved correctly from both
 	 * books.
 	 */
+	@Test
 	public void testPreparedCaster()
 	{
 		PlayerCharacter character = getCharacter();

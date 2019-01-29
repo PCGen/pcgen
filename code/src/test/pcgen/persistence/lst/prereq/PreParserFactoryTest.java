@@ -18,6 +18,8 @@
  */
 package pcgen.persistence.lst.prereq;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Locale;
 
 import pcgen.AbstractCharacterTestCase;
@@ -25,17 +27,23 @@ import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 @SuppressWarnings("nls")
 public class PreParserFactoryTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
 		LocaleDependentTestCase.before(Locale.US);
 	}
-	
+
+	@AfterEach
 	@Override
 	public void tearDown() throws Exception
 	{
@@ -49,6 +57,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testNotEqual() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
@@ -66,6 +75,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testOverrideQualifies() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
@@ -77,6 +87,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		prereq.toString());
 	}
 
+	@Test
 	public void testSkillTypeKnowledge() throws Exception
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
@@ -90,6 +101,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 	}
 
+	@Test
 	public void testInvertResult() throws Exception
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();

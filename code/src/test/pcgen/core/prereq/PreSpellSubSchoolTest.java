@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -26,12 +29,16 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 {
 
 	private PCClass wiz;
 	private PCClass cle;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -81,6 +88,8 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		finishLoad();
 	}
 
+
+	@Test
 	public void testSimpleSUBSCHOOL() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -100,6 +109,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+	@Test
 	public void testTwoClassSUBSCHOOL() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -124,6 +134,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	}
 
 
+	@Test
 	public void testNotSimpleSUBSCHOOL() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -143,6 +154,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void testNotTwoClassSUBSCHOOL() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();

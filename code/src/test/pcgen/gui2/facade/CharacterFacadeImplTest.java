@@ -17,6 +17,9 @@
  */
 package pcgen.gui2.facade;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;

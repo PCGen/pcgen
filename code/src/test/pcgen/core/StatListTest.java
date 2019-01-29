@@ -18,6 +18,8 @@
 
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
@@ -29,6 +31,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -42,6 +45,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	Ability bonus;
 	Ability lockedBonus;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -125,6 +129,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	/**
 	 * Test out the output of stats where a min value is in place. 
 	 */
+	@Test
 	public void testMinValueStat()
 	{
 		PlayerCharacter pc = getCharacter();

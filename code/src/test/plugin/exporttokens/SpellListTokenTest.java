@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -36,6 +38,10 @@ import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code SpellListTokenTest} is ...
  */
@@ -46,6 +52,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	private PCClass divineClass = null;
 	private Race human = null;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -99,6 +106,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 	}
 
+	@AfterEach
 	@Override
 	public void tearDown() throws Exception
 	{
@@ -111,6 +119,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SPELLLISTBOOK sub-tag of the SPELLLIST token.
 	 */
+	@Test
 	public void testSpellListBookToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
@@ -130,6 +139,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SPELLLISTCAST sub-tag of the SPELLLIST token.
 	 */
+	@Test
 	public void testSpellListCastToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
@@ -147,6 +157,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SPELLLISTCLASS sub-tag of the SPELLLIST token.
 	 */
+	@Test
 	public void testSpellListClassToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
@@ -165,6 +176,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SPELLLISTDCSTAT sub-tag of the SPELLLIST token.
 	 */
+	@Test
 	public void testSpellListDcStatToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
@@ -183,6 +195,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SPELLLISTDC sub-tag of the SPELLLIST token.
 	 */
+	@Test
 	public void testSpellListDcToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
@@ -205,6 +218,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 *
 	 * Currently does nothing
 	 */
+	@Test
 	public void testSpellListKnownToken()
 	{
 		// TODO Do Nothing?
@@ -213,6 +227,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SPELLLISTTYPE sub-tag of the SPELLLIST token.
 	 */
+	@Test
 	public void testSpellListTypeToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();

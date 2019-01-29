@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.helper;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -36,6 +38,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * This class tests the handling of ASPECT fields in PCGen
  * 
@@ -49,6 +53,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Tests outputting an empty Aspect.
 	 */
+	@Test
 	public void testEmptyDesc()
 	{
 		final Ability dummy =
@@ -58,6 +63,7 @@ public class AspectTest extends AbstractCharacterTestCase
 			buildMap(dummy, BuildUtilities.getFeatCat(), Nature.NORMAL)));
 	}
 
+	@Test
 	public void testNull()
 	{
 		final Aspect aspect = new Aspect(ASPECT_NAME, Constants.EMPTY_STRING);
@@ -67,6 +73,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Tests outputting a simple Aspect.
 	 */
+	@Test
 	public void testSimpleDesc()
 	{
 		final Ability dummy =
@@ -80,6 +87,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Tests a simple string replacement.
 	 */
+	@Test
 	public void testSimpleReplacement()
 	{
 		final Ability dummy =
@@ -93,6 +101,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Test name replacement
 	 */
+	@Test
 	public void testSimpleNameReplacement()
 	{
 		final Ability pobj = new Ability();
@@ -108,6 +117,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Tests simple variable replacement
 	 */
+	@Test
 	public void testSimpleVariableReplacement()
 	{
 		final Ability dummy =
@@ -128,6 +138,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Tests simple %LIST replacement.
 	 */
+	@Test
 	public void testSimpleListReplacement()
 	{
 		final Ability pobj =
@@ -150,6 +161,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Test a replacement with missing variables.
 	 */
+	@Test
 	public void testEmptyReplacement()
 	{
 		final Ability pobj =
@@ -163,6 +175,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Test having extra variables present
 	 */
+	@Test
 	public void testExtraVariables()
 	{
 		final Ability pobj =
@@ -186,6 +199,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	/**
 	 * Test complex replacements.
 	 */
+	@Test
 	public void testComplexVariableReplacement()
 	{
 		final Ability dummy =
@@ -221,7 +235,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	}
 	
 
-	public List<CNAbility> buildMap(Ability a, Category<Ability> cat, Nature n)
+	List<CNAbility> buildMap(Ability a, Category<Ability> cat, Nature n)
 	{
 		return Collections.singletonList(CNAbilityFactory.getCNAbility(cat, n, a));
 	}

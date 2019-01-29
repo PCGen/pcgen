@@ -41,6 +41,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -298,9 +299,10 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 					);
 	
 	}
-	
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
+
 	{
 		super.setUp();
 

@@ -17,6 +17,8 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
@@ -24,12 +26,16 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import plugin.exporttokens.VarToken;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code VarTokenTest} tests the functioning of the VAR
  * token processing code. 
  */
 public class VarTokenTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{
@@ -50,6 +56,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for positive numbers with fractions.
 	 */
+	@Test
 	public void testPositiveFractOutput()
 	{
 		assertEquals("VAR.Pos", "100.35", new VarToken().getToken("VAR.Pos",
@@ -73,6 +80,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers with fractions.
 	 */
+	@Test
 	public void testNegativeFractOutput()
 	{
 		assertEquals("VAR.Neg", "-555.55", new VarToken().getToken("VAR.Neg",
@@ -96,6 +104,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for positive numbers without fractions.
 	 */
+	@Test
 	public void testPositiveIntOutput()
 	{
 		assertEquals("VAR.PosInt", "105.0", new VarToken().getToken(
@@ -119,6 +128,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers without fractions.
 	 */
+	@Test
 	public void testNegativeIntOutput()
 	{
 		assertEquals("VAR.NegInt", "-560.0", new VarToken().getToken(

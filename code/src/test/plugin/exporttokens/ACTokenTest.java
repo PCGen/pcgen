@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Collections;
 
 import pcgen.AbstractCharacterTestCase;
@@ -36,6 +38,9 @@ import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code ACTokenTest} tests the function of the AC token and
  * thus the calculations of armor class.  
@@ -47,6 +52,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	private EquipmentModifier plus1;
 	private Equipment chainShirt;
 
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{
@@ -143,6 +149,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the character's AC calcs with no armor.
 	 */
+	@Test
 	public void testBase()
 	{
 		assertEquals("Total AC no armor", "12", new ACToken().getToken(
@@ -158,6 +165,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the character's AC calcs with armor with no equip mods applied.
 	 */
+	@Test
 	public void testNonMagic()
 	{
 		PlayerCharacter character = getCharacter();
@@ -181,6 +189,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the character's AC calcs with armor with equipmods applied, including magic.
 	 */
+	@Test
 	public void testMagic()
 	{
 		PlayerCharacter character = getCharacter();

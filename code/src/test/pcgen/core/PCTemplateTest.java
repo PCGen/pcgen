@@ -43,6 +43,7 @@ import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -354,9 +355,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 			Nature.AUTOMATIC, ab1));
 		
 	}
-	
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
+
 	{
 		super.setUp();
 

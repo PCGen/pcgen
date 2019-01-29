@@ -17,6 +17,10 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.math.BigDecimal;
 import java.util.Locale;
 
@@ -58,6 +62,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code WeaponTokenTest} contains tests to verify that the
  * WEAPON token is working correctly.
@@ -76,6 +84,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	private Ability wpnBonusAbility;
 	private PCTemplate wpnBonusPct;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -372,6 +381,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
+	@AfterEach
 	@Override
 	public void tearDown() throws Exception
 	{
@@ -386,6 +396,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Test the processing of double weapons on a medium creature. All output
 	 * tags are checked.
 	 */
+	@Test
 	public void testDoubleWeapon()
 	{
 		PlayerCharacter character = getCharacter();
@@ -503,6 +514,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Test the processing of double weapons with enhancements on a medium
 	 * creature.
 	 */
+	@Test
 	public void testEnhancedDoubleWeapon()
 	{
 		PlayerCharacter character = getCharacter();
@@ -529,6 +541,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * use them and how." when talking about bastard swords for weilders without 
 	 * the exotic weapon proficiency.
 	 */
+	@Test
 	public void testBastardSword()
 	{
 		PlayerCharacter character = getCharacter();
@@ -558,6 +571,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * should be forced to be wielded two handed. Note: Size penalties are not
 	 * included in the data prepared, so are not included in the calculations.
 	 */
+	@Test
 	public void testLargeLongSword()
 	{
 		PlayerCharacter character = getCharacter();
@@ -585,6 +599,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * should be forced to be wielded two handed. Note: Size penalties are not
 	 * included in the data prepared, so are not included in the calculations.
 	 */
+	@Test
 	public void testLargeWpnBonus()
 	{
 		PlayerCharacter character = getCharacter();
@@ -642,6 +657,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test natural weapons
 	 */
+	@Test
 	public void testNaturalWeapon()
 	{
 		PlayerCharacter character = getCharacter();
@@ -669,6 +685,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Test the processing of a finesseable weapon both with and without weapon finesse
 	 * and temporary bonuses.
 	 */
+	@Test
 	public void testWpnFinesse()
 	{
 		PlayerCharacter character = getCharacter();
@@ -718,6 +735,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			"WEAPON.3.BASEHIT", character, null));
 	}
 
+	@Test
 	public void testWpnReach()
 	{
 		LoadContext context = Globals.getContext();
@@ -768,6 +786,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/**
 	 * test the AMUNITION count sub token
 	 */
+	@Test
 	public void testAmmunition()
 	{
 		PlayerCharacter character = getCharacter();
@@ -810,6 +829,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test a two handed weapon that is equipped.
 	 */
+	@Test
 	public void testTwohandedEquipped()
 	{
 		PlayerCharacter character = getCharacter();
@@ -832,6 +852,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test a two handed weapon that is not equipped.
 	 */
+	@Test
 	public void testTwohandedNotequipped()
 	{
 		PlayerCharacter character = getCharacter();
@@ -866,6 +887,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Check the FEATHIT and FEATDAMAGE weapon subtokens.
 	 */
+	@Test
 	public void testFeatBonus()
 	{
 		PlayerCharacter character = getCharacter();
@@ -888,6 +910,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Check the TEMPLATEHIT and TEMPLATEDAMAGE weapon subtokens.
 	 */
+	@Test
 	public void testTemplateBonus()
 	{
 		PlayerCharacter character = getCharacter();

@@ -1,5 +1,12 @@
 package pcgen.gui2.facade;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +25,8 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code EquipmentSetFacadeImplTest} is a test class for
@@ -51,6 +60,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Check that EquipmentSetFacadeImpl can be initialised with an empty dataset.  
 	 */
+	@Test
 	public void testEmptyInit()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -68,6 +78,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl can be initialised with a dataset 
 	 * containing equipment.  
 	 */
+	@Test
 	public void testInitWithEquipment()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -165,6 +176,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Check that EquipmentSetFacadeImpl can manage addition and removal of equipment.  
 	 */
+	@Test
 	public void testAddRemove()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -217,6 +229,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Test the creation of phantom slots, looking at types and quantities particularly.  
 	 */
+	@Test
 	public void testSlotCreation()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -296,6 +309,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Verify the getRequiredLoc method. 
 	 */
+	@Test
 	public void testGetRequiredLoc()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -355,6 +369,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Check that EquipmentSetFacadeImpl can move an equipment item down the list.
 	 */
+	@Test
 	public void testMoveEquipmentDown()
 	{
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
@@ -420,8 +435,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			dataset, equipmentList, todoManager, null);
 	}
 	
-	private EquipNode getEquipNodeByName(ListFacade<EquipNode> nodeList,
-		String name)
+	private static EquipNode getEquipNodeByName(ListFacade<EquipNode> nodeList,
+	                                            String name)
 	{
 		for (EquipNode equipNode : nodeList)
 		{

@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,6 +31,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreDeityDomainTest} tests that the PREDEITYDOMAIN tag is
@@ -42,6 +48,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testSingle() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -67,6 +74,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 
 	}
 
+	@Test
 	public void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -96,6 +104,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{
