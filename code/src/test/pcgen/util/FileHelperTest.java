@@ -17,18 +17,18 @@
  */
 package pcgen.util;
 
-import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.io.File;
 
 import org.apache.commons.lang3.SystemUtils;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * FileHelperTest
  */
-public class FileHelperTest
+class FileHelperTest
 {
 
 	private static final String BACK_ONE = ".." + File.separator;
@@ -43,7 +43,7 @@ public class FileHelperTest
 
 		final File sameDir = new File("/one/two/three/four/bar.txt");
 		final String path = FileHelper.findRelativePath(base, sameDir);
-		Assert.assertEquals("wrong when same directory", "bar.txt", path);
+		assertEquals("bar.txt", path, "wrong when same directory");
 	}
 
 	/**
@@ -56,8 +56,8 @@ public class FileHelperTest
 
 		final File backOneDir = new File("/one/two/three/bar.txt");
 		final String path = FileHelper.findRelativePath(base, backOneDir);
-		Assert.assertEquals("wrong when back one directory", BACK_ONE
-				+ "bar.txt", path);
+		assertEquals(BACK_ONE
+				+ "bar.txt", path, "wrong when back one directory");
 	}
 
 	/**
@@ -70,7 +70,7 @@ public class FileHelperTest
 
 		final File backTwoDirs = new File("/one/two/bar.txt");
 		final String path = FileHelper.findRelativePath(base, backTwoDirs);
-		Assert.assertEquals("wrong when back two directories", BACK_ONE + BACK_ONE + "bar.txt", path);
+		assertEquals(BACK_ONE + BACK_ONE + "bar.txt", path, "wrong when back two directories");
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class FileHelperTest
 
 		final File aheadOneDir = new File("/one/two/three/four/five/bar.txt");
 		final String path = FileHelper.findRelativePath(base, aheadOneDir);
-		Assert.assertEquals("wrong when ahead one directory", "five" + File.separator
-				+ "bar.txt", path);
+		assertEquals("five" + File.separator
+				+ "bar.txt", path, "wrong when ahead one directory");
 	}
 
 	/**
@@ -98,8 +98,8 @@ public class FileHelperTest
 		final File aheadTwoDirs =
 				new File("/one/two/three/four/five/six/bar.txt");
 		final String path = FileHelper.findRelativePath(base, aheadTwoDirs);
-		Assert.assertEquals("wrong when ahead two directories",
-				String.join(File.separator, "five", "six", "bar.txt"), path);
+		assertEquals(
+				String.join(File.separator, "five", "six", "bar.txt"), path, "wrong when ahead two directories");
 	}
 
 	/**
@@ -113,8 +113,8 @@ public class FileHelperTest
 		final File onADifferentBranch = new File("/one/two/buckle/my/shoe.txt");
 		final String path =
 				FileHelper.findRelativePath(base, onADifferentBranch);
-		Assert.assertEquals("wrong when on a different branch", BACK_ONE + BACK_ONE + "buckle"
-				+ File.separator + "my" + File.separator + "shoe.txt", path);
+		assertEquals(BACK_ONE + BACK_ONE + "buckle"
+				+ File.separator + "my" + File.separator + "shoe.txt", path, "wrong when on a different branch");
 	}
 
 	/**
@@ -129,10 +129,10 @@ public class FileHelperTest
 				new File("/and/now/for/something/completely/different.txt");
 		final String path =
 				FileHelper.findRelativePath(base, completelyUnrelated);
-		Assert.assertEquals("wrong when completely different", BACK_ONE + BACK_ONE + BACK_ONE + BACK_ONE + "and"
+		assertEquals(BACK_ONE + BACK_ONE + BACK_ONE + BACK_ONE + "and"
 				+ File.separator + "now" + File.separator + "for" + File.separator
 				+ "something" + File.separator + "completely" + File.separator
-				+ "different.txt", path);
+				+ "different.txt", path, "wrong when completely different");
 	}
 	
 	/**
@@ -147,8 +147,9 @@ public class FileHelperTest
 		final File sameDir = new File("C:\\Temp\\bar\\baz.txt");
 		assumeTrue(SystemUtils.IS_OS_WINDOWS);
 		final String path = FileHelper.findRelativePath(base, sameDir);
-		Assert.assertEquals("Incorrect relative path for same windows drive",
-				"bar\\baz.txt", path
+		assertEquals(
+				"bar\\baz.txt", path,
+				"Incorrect relative path for same windows drive"
 		);
 	}
 	
@@ -164,8 +165,9 @@ public class FileHelperTest
 		final File sameDir = new File("D:\\Temp\\bar.txt");
 		assumeTrue(SystemUtils.IS_OS_WINDOWS);
 		final String path = FileHelper.findRelativePath(base, sameDir);
-		Assert.assertEquals("Incorrect relative path for different windows drive",
-				"D:\\Temp\\bar.txt", path
+		assertEquals(
+				"D:\\Temp\\bar.txt", path,
+				"Incorrect relative path for different windows drive"
 		);
 	}
 }
