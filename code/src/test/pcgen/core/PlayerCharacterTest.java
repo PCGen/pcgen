@@ -19,6 +19,8 @@ package pcgen.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.HeadlessException;
@@ -68,6 +70,8 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
@@ -93,6 +97,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	private Spell luckDomainLvl1Spell;
 	private Spell luckDomainLvl2Spell;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -248,6 +253,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
+	@AfterEach
 	@Override
 	public void tearDown() throws Exception
 	{
@@ -258,7 +264,6 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 	
 
-	@Test
 	public void testGetBonusFeatsForNewLevel1() throws Exception
 	{
 		readyToRun();
@@ -269,7 +274,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals(2, (int) character.getRemainingFeatPoints(true));
 	}
 
-	@Test
+
 	public void testGetBonusFeatsForNewLevel3() throws Exception
 	{
 		readyToRun();
@@ -326,7 +331,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, class3LpfM, true);
 		assertEquals(1, pc.getNumFeatsFromLevels(), 0.001, "4/3 truncs to 1");
 		pc.incrementClassLevel(1, class2LpfM, true);
-		assertEquals(1, pc.getNumFeatsFromLevels(), 0.001, "4/3 + 1/2 truncs to 1");
+		assertEquals(1, pc.getNumFeatsFromLevels(),
+			0.001, "4/3 + 1/2 truncs to 1"
+		);
 		pc.incrementClassLevel(1, class3LpfBlank, true);
 		assertEquals(1, pc
 			.getNumFeatsFromLevels(), 0.001, "4/3 + 1/2 truncs to 1 + 1/3 truncs to 0");
@@ -348,17 +355,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		pc.setRace(giantRace);
 		assertEquals(
-				2, pc.getRemainingFeatPoints(true), 0.0, "Four levels from race (4/3), PC has one racial feat."
+				2, pc.getRemainingFeatPoints(true), 0.0,
+				"Four levels from race (4/3), PC has one racial feat."
 		);
 
 		pc.incrementClassLevel(1, class3LpfM, true);
 		assertEquals(
-			2, (int)pc.getRemainingFeatPoints(true), "One level of 3LpfM (1/3), four levels from race(4/3), PC has one racial feat.");
+				2, (int)pc.getRemainingFeatPoints(true),
+				"One level of 3LpfM (1/3), four levels from race(4/3), PC has one racial feat.");
 		pc.incrementClassLevel(1, class3LpfM, true);
 		assertEquals(
 				2, (int)pc.getRemainingFeatPoints(true),
 				"Two level of 3LpfM (2/3), four levels from race(4/3), PC has one racial feat."
-				);
+		);
 		pc.incrementClassLevel(1, class3LpfM, true);
 		assertEquals(
 				3, (int)pc.getRemainingFeatPoints(true),
@@ -392,10 +401,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(giantRace);
 		character.incrementClassLevel(4, giantClass, true);
 
-		assertEquals(15.0f, (float)character.getVariableValue("GiantVar1",
-			"CLASS:Giant"));
-		assertEquals(8.0f, (float)character.getVariableValue("GiantClass1",
-			"CLASS:Giant"));
+		assertEquals(15.0f, character.getVariableValue("GiantVar1","CLASS:Giant"), 0.1);
+		assertEquals(8.0f, character.getVariableValue("GiantClass1","CLASS:Giant"), 0.1);
 
 	}
 
@@ -415,7 +422,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		final Float result =
 				character.getVariableValue("floor(SCORE/2)-5", "STAT:STR");
-		assertEquals(3.0, result.doubleValue(), 0.1, "Stat modifier not correct");
+		assertEquals(3.0, result.doubleValue(),
+			0.1, "Stat modifier not correct"
+		);
 	}
 
 	@Test
@@ -431,7 +440,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		final Float result =
 				character.getVariableValue("floor(SCORE/2)-5", "STAT:STR");
-		assertEquals(3.0, result.doubleValue(), 0.1, "Stat modifier not correct");
+		assertEquals(3.0, result.doubleValue(),
+			0.1, "Stat modifier not correct"
+		);
 	}
 
 	/**
@@ -556,38 +567,41 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		setPCStat(pc, dex, 14);
 		pc.setUseTempMods(true);
 
-		assertEquals(-1.0, pc.getVariableValue("", "STR", "STR"),
-			0.1);
-		assertEquals(2.0, pc.getVariableValue("", "DEX", "DEX"),
-			0.1);
-		assertEquals(2.0, pc.getVariableValue("max(STR,DEX, "max(STR,DEX)");",
-				""), 0.1);
+		assertEquals(-1.0, pc.getVariableValue("STR", ""),
+			0.1, "STR"
+		);
+		assertEquals(2.0, pc.getVariableValue("DEX", ""),
+			0.1, "DEX"
+		);
+		assertEquals(2.0, pc.getVariableValue("max(STR,DEX)",
+				""), 0.1, "max(STR,DEX)");
 
 		StatToken statTok = new StatToken();
-		assertEquals(statTok.getToken(pc, null), "Total stat.", "14", "STAT.1");
-		assertEquals("Temp stat.", "14", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "14", statTok.getToken("STAT.1.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "14", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "14", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
+		assertEquals("14", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		assertEquals("14", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		assertEquals("14", statTok.getToken("STAT.1.NOTEMP", pc,
+			null), "Equip stat.");
+		assertEquals("14", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		assertEquals("14", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "Base stat.");
 
 		final BonusObj raceBonus = Bonus.newBonus(context, "STAT|DEX|-2");
 		giantClass.addToListFor(ListKey.BONUS, raceBonus);
 		pc.setRace(giantRace);
 		pc.incrementClassLevel(4, giantClass, true);
 
-		assertEquals(statTok.getToken(pc, null), "Total stat.", "12", "STAT.1");
-		assertEquals("Temp stat.", "12", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Base stat.", "12", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals(1.0, pc.getVariableValue("", "DEX", "DEX");,
-			0.1)
-		assertEquals(1.0, pc.getVariableValue("max(STR,DEX, "max(STR,DEX)");",
-				""), 0.1);
+		assertEquals("12", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		assertEquals("12", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		assertEquals("12", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "Base stat.");
+		assertEquals(1.0, pc.getVariableValue("DEX", ""),
+			0.1, "DEX"
+		);
+		assertEquals(1.0, pc.getVariableValue("max(STR,DEX)",
+				""), 0.1, "max(STR,DEX)");
 
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
@@ -601,15 +615,16 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.addTempBonus(penalty, spell2, pc);
 		pc.calcActiveBonuses();
 
-		assertEquals(statTok.getToken(pc, null), "Total stat.", "10", "STAT.1");
-		assertEquals("Temp stat.", "10", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Base stat.", "12", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals(0.0, pc.getVariableValue("", "DEX", "DEX");,
-			0.1);
-		assertEquals("max(STR,DEX)-STR", 1.0, pc.getVariableValue(
-				"max(STR,DEX)-STR", ""), 0.1);
+		assertEquals("10", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		assertEquals("10", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		assertEquals("12", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "Base stat.");
+		assertEquals(0.0, pc.getVariableValue("DEX", ""),
+			0.1, "DEX"
+		);
+		assertEquals(1.0, pc.getVariableValue(
+				"max(STR,DEX)-STR", ""), 0.1, "max(STR,DEX)-STR");
 	}
 
 	/**
@@ -648,16 +663,19 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		// Test retrieved list
 		Collection<Skill> skillList = pc.getSkillSet();
-		assertEquals(3, skillList.size(), "Full skill list should have all 3 skills");
+		assertEquals(3, skillList
+			.size(), "Full skill list should have all 3 skills");
 
 		skillList = pc.getDisplay().getPartialSkillList(View.VISIBLE_DISPLAY);
 		assertEquals(2, skillList.size(), "GUI skill list should have 2 skills");
 
 		skillList = pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT);
-		assertEquals(2, skillList.size(), "Output skill list should have 2 skills");
+		assertEquals(2, skillList
+			.size(), "Output skill list should have 2 skills");
 
 		skillList = pc.getDisplay().getPartialSkillList(View.ALL);
-		assertEquals(3, skillList.size(), "Full skill list should have 3 skills");
+		assertEquals(3, skillList
+			.size(), "Full skill list should have 3 skills");
 
 	}
 
@@ -676,8 +694,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		String response =
 				character
 					.addSpell(null, none, pcClass.getKeyName(), null, 1, 1);
-		assertEquals("Add spell should be rejected due to no spell",
-			"Invalid parameter to add spell", response);
+		assertEquals(
+				"Invalid parameter to add spell", response, "Add spell should be rejected due to no spell");
 
 		Spell spell = new Spell();
 		spell.setName("test spell 1");
@@ -685,36 +703,37 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		response =
 				character.addSpell(charSpell, none, pcClass.getKeyName(), null,
 					1, 1);
-		assertEquals("Add spell should be rejected due to no book",
-			"Invalid spell list/book name.", response);
+		assertEquals(
+				"Invalid spell list/book name.", response, "Add spell should be rejected due to no book");
 		response =
 				character.addSpell(charSpell, none, pcClass.getKeyName(), "",
 					1, 1);
-		assertEquals("Add spell should be rejected due to no book",
-			"Invalid spell list/book name.", response);
+		assertEquals(
+				"Invalid spell list/book name.", response, "Add spell should be rejected due to no book");
 
 		// Add a non existant spell to a non existent spellbook
 		String spellBookName = "Test book";
 		response =
 				character.addSpell(charSpell, none, pcClass.getKeyName(),
 					spellBookName, 1, 1);
-		assertEquals("Add spell should be rejected due to book not existing",
-			"Could not find spell list/book Test book", response);
+		assertEquals(
+				"Could not find spell list/book Test book", response,
+				"Add spell should be rejected due to book not existing");
 
 		character.addSpellBook(spellBookName);
 		response =
 				character.addSpell(charSpell, none, pcClass.getKeyName(),
 					spellBookName, 1, 1);
 		assertEquals(
-			"Add spell should be rejected due to no levels.",
-			"You can only prepare 0 spells for level 1 \nand there are no higher-level slots available.",
-			response);
+				"You can only prepare 0 spells for level 1 \nand there are no higher-level slots available.",
+			response, "Add spell should be rejected due to no levels."
+		);
 
 		response =
 				character.addSpell(charSpell, none, "noclass", spellBookName,
 					1, 1);
-		assertEquals("Add spell should be rejected due to no matching class",
-			"No class keyed noclass", response);
+		assertEquals(
+				"No class keyed noclass", response, "Add spell should be rejected due to no matching class");
 
 		SpellBook book = character.getSpellBookByName(spellBookName);
 		book.setType(SpellBook.TYPE_PREPARED_LIST);
@@ -723,9 +742,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				character.addSpell(charSpell, none, pcClass.getKeyName(),
 					spellBookName, 1, 1);
 		assertEquals(
-			"Add spell should be rejected due to no levels.",
-			"You can only prepare 0 spells for level 1 \nand there are no higher-level slots available.",
-			response);
+				"You can only prepare 0 spells for level 1 \nand there are no higher-level slots available.",
+			response, "Add spell should be rejected due to no levels."
+		);
 
 		book.setType(SpellBook.TYPE_SPELL_BOOK);
 		book.setPageFormula(FormulaFactory.getFormulaFor("SPELLLEVEL"));
@@ -734,23 +753,23 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		response =
 				character.addSpell(charSpell, none, pcClass.getKeyName(),
 					spellBookName, 1, 1);
-		assertEquals(response, "Add spell should not be rejected.", "");
+		assertEquals("", response, "Add spell should not be rejected.");
 		// Add a second time to cover multiples
 		response =
 				character.addSpell(charSpell, none, pcClass.getKeyName(),
 					spellBookName, 1, 1);
-		assertEquals(response, "Add spell should not be rejected.", "");
+		assertEquals("", response, "Add spell should not be rejected.");
 		response =
 				character.addSpell(charSpell, none, giantClass.getKeyName(),
 					spellBookName, 1, 1);
-		assertEquals(response, "Add spell should not be rejected.", "");
+		assertEquals("", response, "Add spell should not be rejected.");
 		response =
 				character.addSpell(charSpell, none, giantClass.getKeyName(),
 					spellBookName, 1, 1);
 		assertEquals(
-			"Add spell should be rejected due to the book being full.",
-			"There are not enough pages left to add this spell to the spell book.",
-			response);
+				"There are not enough pages left to add this spell to the spell book.",
+			response, "Add spell should be rejected due to the book being full."
+		);
 
 		PCClass c = character.getClassKeyed(pcClass.getKeyName());
 		List<CharacterSpell> aList =
@@ -759,7 +778,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		response =
 				character.delSpell(addedSpell.getSpellInfoFor(spellBookName, 1,
 					none), pcClass, spellBookName);
-		assertEquals(response, "Delete spell should not be rejected.", "");
+		assertEquals("", response, "Delete spell should not be rejected.");
 
 		aList =
 				character.getCharacterSpells(giantClass, null, spellBookName, 1);
@@ -768,7 +787,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				character.delSpell(
 					addedSpell.getSpellInfoFor(spellBookName, 1),
 					giantClass, spellBookName);
-		assertEquals(response, "Delete spell should not be rejected.", "");
+		assertEquals("", response, "Delete spell should not be rejected.");
 	}
 
 	/**
@@ -798,13 +817,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		final List<Ability> none = Collections.emptyList();
 		boolean available =
 				character.availableSpells(1, pcMdClass, Globals.getDefaultSpellBook(), true, false);
-		assertFalse("availableSpells should not be called when there ar eno limits on known spells", available);
+		assertFalse(available,
+				"availableSpells should not be called when there ar eno limits on known spells");
 		
 		// Test specialty/non with no spells, some spells, all spells, spells from lower level
 		String spellBookName = "Town Spells";
 		SpellBook townSpells = new SpellBook(spellBookName, SpellBook.TYPE_PREPARED_LIST);
-		assertTrue("Adding spellbook " + townSpells, character.addSpellBook(townSpells));
-		assertTrue("Adding domain " + luckDomain, character.addDomain(luckDomain));
+		assertTrue(character.addSpellBook(townSpells), "Adding spellbook " + townSpells);
+		assertTrue(character.addDomain(luckDomain), "Adding domain " + luckDomain);
 		DomainApplication.applyDomain(character, luckDomain);
 
 		// Test for spell availability with no spells in list
@@ -812,71 +832,84 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		{
 			assertTrue(
 					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false),
-					() -> "Empty list - Non specialty available for level " + i,"Empty list - Non specialty available "
-							+ "for level " + i
+					"Empty list - Non specialty available for level " + i
 			);
-			assertEquals(character.availableSpells(i, pcMdClass, townSpells.getName(), false, true),
-					"Empty list - Specialty available for level " + i, i>0);
+			assertEquals(i>0,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true),
+					"Empty list - Specialty available for level " + i
+			);
 		}
 
 		// Test for spell availability with some spells in list
-		assertEquals(character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 0, 0))
-		assertEquals(character.addSpell(charSpellNonSpec1, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 1, 1))
-		assertEquals(character.addSpell(charSpellNonSpec2, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 2, 2))
+		assertEquals("", character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(),
+			spellBookName, 0, 0));
+		assertEquals("", character.addSpell(charSpellNonSpec1, none, pcMdClass.getKeyName(),
+			spellBookName, 1, 1));
+		assertEquals("", character.addSpell(charSpellNonSpec2, none, pcMdClass.getKeyName(),
+			spellBookName, 2, 2));
 		for (int i = 0; i < 3; i++)
 		{
 			assertTrue(
-					"Partial list - Non specialty available for level " + i,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false)
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false),
+					"Partial list - Non specialty available for level " + i
 			);
-			assertEquals("Partial list - Specialty available for level " + i, i>0,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+			assertEquals(i>0,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true),
+					"Partial list - Specialty available for level " + i
+			);
 		}
 
 		// Test for spell availability with only 1st level with a spare slot
-		assertEquals(character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 0, 0))
-		assertEquals(character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 0, 0))
-		assertEquals(character.addSpell(charSpellNonSpec2, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 2, 2))
+		assertEquals("", character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(),
+			spellBookName, 0, 0));
+		assertEquals("", character.addSpell(charSpellNonSpec0, none, pcMdClass.getKeyName(),
+			spellBookName, 0, 0));
+		assertEquals("", character.addSpell(charSpellNonSpec2, none, pcMdClass.getKeyName(),
+			spellBookName, 2, 2));
 		for (int i = 0; i < 3; i++)
 		{
-			assertEquals("Full lvl0, lvl2 list - Non specialty available for level " + i, i==1,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertEquals(i==1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false),
+					"Full lvl0, lvl2 list - Non specialty available for level " + i
+			);
 			// TODO: The current implementation only finds the domain specialty slot if a domain spell is already
 			// prepared.
 			// So the domain spell can't be the last added. Once fixed, i==1 should be i>=1
-			assertEquals("Full lvl0, lvl2 list - Specialty available for level " + i, i>=1,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+			assertEquals(i>=1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true),
+					"Full lvl0, lvl2 list - Specialty available for level " + i
+			);
 		}
 
 		// Test for spell availability with 1st having one domain spell full and one non domain free
 		CharacterSpell charSpellSpec1 = new CharacterSpell(luckDomain, luckDomainLvl1Spell);
-		assertEquals(character.addSpell(charSpellSpec1, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 1, 1))
+		assertEquals("", character.addSpell(charSpellSpec1, none, pcMdClass.getKeyName(),
+			spellBookName, 1, 1));
 		for (int i = 0; i < 3; i++)
 		{
-			assertEquals("Specialty: No, Level: " + i + ". 1st lvl non domain only free", i==1,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
-			assertEquals("Specialty: Yes, Level: " + i + ". 1st lvl non domain only free", i==2,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true));
+			assertEquals(i==1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false),
+					"Specialty: No, Level: " + i + ". 1st lvl non domain only free"
+			);
+			assertEquals(i==2,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true),
+					"Specialty: Yes, Level: " + i + ". 1st lvl non domain only free"
+			);
 		}
 
 		// Test for spell availability with 2nd having both domain and normal full
 		CharacterSpell charSpellSpec2 = new CharacterSpell(luckDomain, luckDomainLvl2Spell);
-		assertEquals(character.addSpell(charSpellSpec2, none, pcMdClass.getKeyName(, "");,
-			spellBookName, 2, 2))
+		assertEquals("", character.addSpell(charSpellSpec2, none, pcMdClass.getKeyName(),
+			spellBookName, 2, 2));
 		for (int i = 0; i < 3; i++)
 		{
-			assertEquals("Specialty: No, Level: " + i + ". 1st lvl non domain only free", i==1,
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false));
+			assertEquals(i==1,
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, false),
+					"Specialty: No, Level: " + i + ". 1st lvl non domain only free"
+			);
 			assertFalse(
-					"Specialty: Yes, Level: " + i + ". 1st lvl non domain only free",
-					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true)
+					character.availableSpells(i, pcMdClass, townSpells.getName(), false, true),
+					"Specialty: Yes, Level: " + i + ". 1st lvl non domain only free"
 			);
 		}
 	}
@@ -888,7 +921,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 
 		//Base
-		assertFalse("Initially character should not have a locked ability", pc.isNonAbility(str));
+		assertFalse(pc.isNonAbility(str), "Initially character should not have a locked ability");
 
 		// With template lock
 		PCTemplate nonAbilityLocker = new PCTemplate();
@@ -896,30 +929,30 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		CDOMDirectSingleRef<PCStat> strRef = CDOMDirectSingleRef.getRef(str);
 		nonAbilityLocker.addToListFor(ListKey.NONSTAT_STATS, strRef);
 		pc.addTemplate(nonAbilityLocker);
-		assertTrue("STR now locked to non ability", pc.isNonAbility(str));
+		assertTrue(pc.isNonAbility(str), "STR now locked to non ability");
 		pc.removeTemplate(nonAbilityLocker);
-		assertFalse("STR no longer locked to non ability", pc.isNonAbility(str));
+		assertFalse(pc.isNonAbility(str), "STR no longer locked to non ability");
 		
 		// With race lock
 		Race nonAbilityLockerRace = new Race();
 		nonAbilityLockerRace.setName("locker");
 		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_STATS, strRef);
 		pc.setRace(nonAbilityLockerRace);
-		assertTrue("STR now locked to non ability", pc.isNonAbility(str));
+		assertTrue(pc.isNonAbility(str), "STR now locked to non ability");
 		
 		// With template unlock
 		nonAbilityLocker.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, strRef);
 		pc.addTemplate(nonAbilityLocker);
-		assertFalse("STR now unlocked from a non ability by template", pc.isNonAbility(str));
+		assertFalse(pc.isNonAbility(str), "STR now unlocked from a non ability by template");
 		pc.removeTemplate(nonAbilityLocker);
-		assertTrue("STR no longer locked to non ability", pc.isNonAbility(str));
+		assertTrue(pc.isNonAbility(str), "STR no longer locked to non ability");
 		
 		// With race unlock
 		nonAbilityLockerRace.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, strRef);
 		//This weirdness is because we are altering the race after application (no-no at runtime)
 		pc.setRace(null);
 		pc.setRace(nonAbilityLockerRace);
-		assertFalse("STR now unlocked from a non ability by race", pc.isNonAbility(str));
+		assertFalse(pc.isNonAbility(str), "STR now unlocked from a non ability by race");
 	}
 	
 	/**
@@ -933,26 +966,26 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		double base = pc.getTotalBonusTo("HP", "CURRENTMAX");
 		
-		assertEquals("Check repeatability of bonus", base, pc.getTotalBonusTo(
-			"HP", "CURRENTMAX"));
+		assertEquals(base, pc.getTotalBonusTo(
+			"HP", "CURRENTMAX"), "Check repeatability of bonus");
 		
 		try
 		{
 			AbstractCharacterTestCase.applyAbility(pc, BuildUtilities.getFeatCat(), toughness, "");
 			//pc.calcActiveBonuses();
-			assertEquals("Check application of single bonus", base+3, pc.getTotalBonusTo(
-				"HP", "CURRENTMAX"));
+			assertEquals(base+3, pc.getTotalBonusTo(
+				"HP", "CURRENTMAX"), "Check application of single bonus");
 			AbstractCharacterTestCase.applyAbility(pc, BuildUtilities.getFeatCat(), toughness, "");
 			pc.calcActiveBonuses();
-			assertEquals("Check application of second bonus", base+6, pc.getTotalBonusTo(
-				"HP", "CURRENTMAX"));
+			assertEquals(base+6, pc.getTotalBonusTo(
+				"HP", "CURRENTMAX"), "Check application of second bonus");
 
 			AbstractCharacterTestCase.applyAbility(pc, specialFeatCat, toughness,
 					"Toughness");
 			pc.calcActiveBonuses();
 			assertEquals(
-				"Check application of third bonus in different catgeory",
-				base + 9, pc.getTotalBonusTo("HP", "CURRENTMAX"));
+					base + 9, pc.getTotalBonusTo("HP", "CURRENTMAX"),
+					"Check application of third bonus in different catgeory");
 		}
 		catch (HeadlessException e)
 		{
@@ -991,9 +1024,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		readyToRun();
 		pc.setRace(human);
 		assertEquals(human, pc.getRace(), "PC should now have a race of human");
-		assertFalse("Character should have the first feat", pc.getMatchingCNAbilities(resToAcid).isEmpty());
-		assertFalse("Character should have the second feat", pc.getMatchingCNAbilities(resToAcidOutputVirt).isEmpty());
-		assertFalse("Character should have the third feat", pc.getMatchingCNAbilities(resToAcidOutputAuto).isEmpty());
+		assertFalse(pc.getMatchingCNAbilities(resToAcid).isEmpty(), "Character should have the first feat");
+		assertFalse(pc.getMatchingCNAbilities(resToAcidOutputVirt).isEmpty(),
+				"Character should have the second feat");
+		assertFalse(pc.getMatchingCNAbilities(resToAcidOutputAuto).isEmpty(),
+				"Character should have the third feat");
 		
 	}
 
@@ -1027,8 +1062,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 //		strBonusAbility.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 //		pc.calcActiveBonuses();
 //
-//		assertEquals(3, pc.getPartialStatBonusFor(false, false), "After list bonus, no temp no equip", "STR");;;
-//		assertEquals(3, pc.getPartialStatBonusFor(true, false), "After list bonus, temp no equip", "STR");;;
+//		assertEquals("After list bonus, no temp no equip", 3, pc.getPartialStatBonusFor("STR", false, false));
+//		assertEquals("After list bonus, temp no equip", 3, pc.getPartialStatBonusFor("STR", true, false));
 		
 	}
 	
@@ -1058,29 +1093,31 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		fab.addToListFor(ListKey.COMPANIONLIST, option);
 		
 		Set<FollowerOption> fo = display.getAvailableFollowers("Familiar", null).keySet();
-		assertTrue("Initially familiar list should be empty", fo.isEmpty());
+		assertTrue(fo.isEmpty(), "Initially familiar list should be empty");
 		fo = display.getAvailableFollowers("MOUNT", null).keySet();
-		assertTrue("Initially mount list should be empty", fo.isEmpty());
+		assertTrue(fo.isEmpty(), "Initially mount list should be empty");
 		
 		addAbility(BuildUtilities.getFeatCat(), mab);
 		fo = display.getAvailableFollowers("Familiar", null).keySet();
-		assertTrue("Familiar list should still be empty", fo.isEmpty());
+		assertTrue(fo.isEmpty(), "Familiar list should still be empty");
 		fo = display.getAvailableFollowers("MOUNT", null).keySet();
-		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
-		assertEquals("Mount should be the giant race",
-			giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
+		assertFalse(fo.isEmpty(), "Mount list should not be empty anymore");
+		assertEquals(
+				giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName(), "Mount should be the giant race");
 		assertEquals(1, fo.size(), "Mount list should only have one entry");
 
 		addAbility(BuildUtilities.getFeatCat(), fab);
 		fo = display.getAvailableFollowers("Familiar", null).keySet();
-		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
-		assertEquals("Familiar should be the human race", human.getKeyName(),
-			fo.iterator().next().getRace().getKeyName());
+		assertFalse(fo.isEmpty(), "Familiar list should not be empty anymore");
+		assertEquals(human.getKeyName(),
+			fo.iterator().next().getRace().getKeyName(), "Familiar should be the human race"
+		);
 		assertEquals(1, fo.size(), "Familiar list should only have one entry");
 		fo = display.getAvailableFollowers("MOUNT", null).keySet();
-		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
-		assertEquals("Mount should be the giant race", giantRace.getKeyName(),
-			fo.iterator().next().getRace().getKeyName());
+		assertFalse(fo.isEmpty(), "Mount list should not be empty anymore");
+		assertEquals(giantRace.getKeyName(),
+			fo.iterator().next().getRace().getKeyName(), "Mount should be the giant race"
+		);
 		assertEquals(1, fo.size(), "Mount list should only have one entry");
 	}
 
@@ -1132,7 +1169,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PCTemplate template2 = TestHelper.makeTemplate("dig");
 		LoadContext context = Globals.getContext();
 		final BonusObj digBonus = Bonus.newBonus(context, "MOVEADD|TYPE.Dig|60");
-		assertNotNull("Failed to create bonus", digBonus);
+		assertNotNull(digBonus, "Failed to create bonus");
 		template2.addToListFor(ListKey.BONUS, digBonus);
 
 		//template.addm
@@ -1202,11 +1239,11 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Make it into an ex-class
 		pc.makeIntoExClass(pcPalClass);
 		
-		assertNull("Paladin class should not be held", pc.getClassKeyed(paladin.getKeyName()));
+		assertNull(pc.getClassKeyed(paladin.getKeyName()), "Paladin class should not be held");
 		PCClass pcExPalClass = pc.getClassKeyed(exPaladin.getKeyName());
-		assertNotNull("Ex-Paladin class should be held", pcExPalClass);
+		assertNotNull(pcExPalClass, "Ex-Paladin class should be held");
 		PCClassLevel pcLvl1 = pc.getActiveClassLevel(pcExPalClass, 0);
-		assertNotNull("Level 1 should be Ex-Paladin", pcLvl1);
+		assertNotNull(pcLvl1, "Level 1 should be Ex-Paladin");
 		assertEquals(2, pc.getTotalLevels(), "Should still be level 2 character");
 		assertEquals(10, (int) pc.getHP(pcLvl1), "Hp at first level incorrect");
 	}
@@ -1233,7 +1270,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			}
 		}
 
-		assertFalse("Roll function should not be cached.", match);
+		assertFalse(match, "Roll function should not be cached.");
 	}
 
 	/**
@@ -1251,27 +1288,27 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		
 		List<PCLevelInfo> levelInfoList = new ArrayList<>(character.getLevelInfo());
 		
-		assertEquals(1, levelInfoList.get(0, "Level number lvl 1");
-			.getClassLevel())
-		assertEquals(2, levelInfoList.get(1, "Level number lvl 2");
-			.getClassLevel())
-		assertEquals(1, levelInfoList.get(0, "Skills remaining lvl 1");
-			.getSkillPointsRemaining())
-		assertEquals(1, levelInfoList.get(1, "Skills gained lvl 2");
-			.getSkillPointsGained(character))
-		assertEquals(1, levelInfoList.get(1, "Skills remaining lvl 2");
-			.getSkillPointsRemaining())
+		assertEquals(1, levelInfoList.get(0)
+		                                        .getClassLevel(), "Level number lvl 1");
+		assertEquals(2, levelInfoList.get(1)
+		                                        .getClassLevel(), "Level number lvl 2");
+		assertEquals(1, levelInfoList.get(0)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 1");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsGained(character), "Skills gained lvl 2");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 2");
 
 		character.checkSkillModChange();
 		
-		assertEquals(1, levelInfoList.get(0, "Skills gained lvl 1");
-			.getSkillPointsGained(character))
-		assertEquals(1, levelInfoList.get(0, "Skills remaining lvl 1");
-			.getSkillPointsRemaining())
-		assertEquals(1, levelInfoList.get(1, "Skills gained lvl 2");
-			.getSkillPointsGained(character))
-		assertEquals(1, levelInfoList.get(1, "Skills remaining lvl 2");
-			.getSkillPointsRemaining())
+		assertEquals(1, levelInfoList.get(0)
+		                                        .getSkillPointsGained(character), "Skills gained lvl 1");
+		assertEquals(1, levelInfoList.get(0)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 1");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsGained(character), "Skills gained lvl 2");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 2");
 	}
 
 	/**
@@ -1287,37 +1324,37 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		PCTemplate template = TestHelper.makeTemplate("grantsskills");
 		LoadContext context = Globals.getContext();
 		final BonusObj skillBonusLvl1 = Bonus.newBonus(context, "SKILLPOOL|CLASS=MyClass;LEVEL=1|2");
-		assertNotNull("Failed to create bonus", skillBonusLvl1);
+		assertNotNull(skillBonusLvl1, "Failed to create bonus");
 		template.addToListFor(ListKey.BONUS, skillBonusLvl1);
 		character.addTemplate(template);
 		character.incrementClassLevel(2, pcClass, true);
 		
 		List<PCLevelInfo> levelInfoList = new ArrayList<>(character.getLevelInfo());
 		
-		assertEquals(1, levelInfoList.get(0, "Level number lvl 1");
-			.getClassLevel())
-		assertEquals(2, levelInfoList.get(1, "Level number lvl 2");
-			.getClassLevel())
-		assertEquals(3, levelInfoList.get(0, "Skills gained lvl 1");
-			.getSkillPointsGained(character))
-		assertEquals(3, levelInfoList.get(0, "Skills remaining lvl 1");
-			.getSkillPointsRemaining())
-		assertEquals(1, levelInfoList.get(1, "Skills gained lvl 2");
-			.getSkillPointsGained(character))
-		assertEquals(1, levelInfoList.get(1, "Skills remaining lvl 2");
-			.getSkillPointsRemaining())
+		assertEquals(1, levelInfoList.get(0)
+		                                        .getClassLevel(), "Level number lvl 1");
+		assertEquals(2, levelInfoList.get(1)
+		                                        .getClassLevel(), "Level number lvl 2");
+		assertEquals(3, levelInfoList.get(0)
+		                                        .getSkillPointsGained(character), "Skills gained lvl 1");
+		assertEquals(3, levelInfoList.get(0)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 1");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsGained(character), "Skills gained lvl 2");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 2");
 
 		character.checkSkillModChange();
 		character.checkSkillModChange();
 		
-		assertEquals(3, levelInfoList.get(0, "Skills gained lvl 1");
-			.getSkillPointsGained(character))
-		assertEquals(3, levelInfoList.get(0, "Skills remaining lvl 1");
-			.getSkillPointsRemaining())
-		assertEquals(1, levelInfoList.get(1, "Skills gained lvl 2");
-			.getSkillPointsGained(character))
-		assertEquals(1, levelInfoList.get(1, "Skills remaining lvl 2");
-			.getSkillPointsRemaining())
+		assertEquals(3, levelInfoList.get(0)
+		                                        .getSkillPointsGained(character), "Skills gained lvl 1");
+		assertEquals(3, levelInfoList.get(0)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 1");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsGained(character), "Skills gained lvl 2");
+		assertEquals(1, levelInfoList.get(1)
+		                                        .getSkillPointsRemaining(), "Skills remaining lvl 2");
 
 	}
 
