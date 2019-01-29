@@ -1,18 +1,20 @@
 package pcgen.io;
 
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 
 import pcgen.cdom.base.Constants;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * Tests {@link PCGFile}.
  */
-public class PCGFileTest
+class PCGFileTest
 {
 	/** 	 
 	 * Tests {@link PCGFile#isPCGenCharacterFile(File)}
@@ -21,10 +23,10 @@ public class PCGFileTest
 	public void testIsPCGenCharacterFile() throws Exception
 	{
 		//file must exist for it to be true
-		Assert.assertFalse("Extension without filename", PCGFile.isPCGenCharacterFile(new File(
-				Constants.EXTENSION_CHARACTER_FILE)));
+		assertFalse(PCGFile.isPCGenCharacterFile(new File(
+				Constants.EXTENSION_CHARACTER_FILE)), "Extension without filename");
 		File temp = File.createTempFile("PCT", Constants.EXTENSION_CHARACTER_FILE);
-		assertTrue("File existence", PCGFile.isPCGenCharacterFile(temp));
+		assertTrue( PCGFile.isPCGenCharacterFile(temp), "File existence");
 		temp.delete();
 	}
 
@@ -32,10 +34,10 @@ public class PCGFileTest
 	public void testIsPCGenPartyFile() throws Exception
 	{
 		//file must exist for it to be true
-		Assert.assertFalse("Extension without filename", PCGFile.isPCGenPartyFile(new File(
-				Constants.EXTENSION_PARTY_FILE)));
+		assertFalse(PCGFile.isPCGenPartyFile(new File(
+				Constants.EXTENSION_PARTY_FILE)), "Extension without filename");
 		File temp = File.createTempFile("PCT", Constants.EXTENSION_PARTY_FILE);
-		assertTrue("File existence", PCGFile.isPCGenPartyFile(temp));
+		assertTrue(PCGFile.isPCGenPartyFile(temp), "File existence");
 		temp.delete();
 	}
 
