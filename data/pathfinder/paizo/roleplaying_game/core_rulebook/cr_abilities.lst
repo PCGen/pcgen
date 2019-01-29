@@ -478,6 +478,7 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 ###Block: House Rules / Homebrew Support
 # Ability Name					Category of Ability	Type				Define						Description																Modify VAR								Cost
 Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0		DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule		COST:0
+Rule - Bypass the Drawback Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassDrawbackRestriction|0		DESC:This allows the PC to bypass the restrictions on taking only 1 drawback				.	BONUS:VAR|BypassDrawbackRestriction|1|TYPE=Rule		COST:0
 Rule - Using Weapons with Natural Attacks	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:UseWeaponsWithNaturalAttacks|0	DESC:This changes the Natural Primary attacks to Secondary while using weapons.				BONUS:VAR|UseWeaponsWithNaturalAttacks|1|TYPE=Rule	COST:0
 
 
