@@ -68,7 +68,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 
 public abstract class AbstractTokenModelTest
@@ -138,7 +138,7 @@ public abstract class AbstractTokenModelTest
 	protected TemplateInputFacet templateInputFacet;
 	protected WeaponProfModelFacet weaponProfModelFacet;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		setUpContext();

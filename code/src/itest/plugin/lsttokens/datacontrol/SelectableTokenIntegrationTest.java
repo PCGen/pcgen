@@ -27,8 +27,8 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
@@ -52,7 +52,7 @@ public class SelectableTokenIntegrationTest
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		TokenRegistration.clearTokens();
