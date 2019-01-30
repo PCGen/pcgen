@@ -324,7 +324,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			evaluateToken(tok, pc));
 					
 	}
-	
+
+	@Test
 	public void testForNoMoreItems() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();
@@ -341,7 +342,8 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
 		
 	}
-	
+
+	@Test
 	public void testExpressionOutput() throws IOException
 	{
 		LoadContext context = Globals.getContext();
@@ -417,6 +419,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		
 	}
 
+	@Test
 	public void testPartyFor() throws IOException
 	{
 		String outputToken =

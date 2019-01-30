@@ -39,6 +39,7 @@ import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreSkillParser;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -52,6 +53,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	private Skill knowledge;
 	private PCClass myClass;
 
+	@BeforeEach
     @Override
     public void setUp() throws Exception
 	{

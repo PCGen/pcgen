@@ -75,6 +75,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 		dataSetFacade = new MockDataSetFacade(gameMode);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
