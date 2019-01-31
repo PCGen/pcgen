@@ -31,13 +31,6 @@ public class SkillTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Skill>
 {
 
-	
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
 	@Override
 	public Class<Skill> getObjectClass()
 	{
