@@ -35,7 +35,7 @@ public class PCCountTemplatesTermEvaluator extends BasePCDTermEvaluator implemen
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Float count = new Float(0);
+		Float count = (float) 0;
 		for (PCTemplate template : display.getTemplateSet())
 		{
 			//TODO This is a bug, it assumes export

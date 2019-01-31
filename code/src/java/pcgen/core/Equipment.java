@@ -1713,7 +1713,7 @@ public final class Equipment extends PObject
 	 */
 	public Float getQty()
 	{
-		return new Float(qty);
+		return (float) qty;
 	}
 
 	/**
@@ -2113,9 +2113,9 @@ public final class Equipment extends PObject
 	{
 		if (virtualItem)
 		{
-			return new Float(0.0);
+			return (float) 0.0;
 		}
-		return new Float(getWeightAsDouble(aPC));
+		return (float) getWeightAsDouble(aPC);
 	}
 
 	/**
@@ -2648,7 +2648,7 @@ public final class Equipment extends PObject
 		{
 			final Equipment anEquip = (Equipment) obj;
 
-			Float f = new Float(anEquip.getWeightAsDouble(aPC) * anEquip.numberCarried());
+			Float f = (float) (anEquip.getWeightAsDouble(aPC) * anEquip.numberCarried());
 
 			if (checkChildWeight(aPC, f))
 			{
@@ -5545,11 +5545,11 @@ public final class Equipment extends PObject
 
 			if (anEquip.getContainedEquipmentCount() > 0)
 			{
-				total = new Float(total + anEquip.getWeightAsDouble(aPC) + anEquip.getContainedWeight(aPC));
+				total = (float) (total + anEquip.getWeightAsDouble(aPC) + anEquip.getContainedWeight(aPC));
 			}
 			else
 			{
-				total = new Float(total + (anEquip.getWeightAsDouble(aPC) * anEquip.getQty()));
+				total = (float) (total + (anEquip.getWeightAsDouble(aPC) * anEquip.getQty()));
 			}
 		}
 

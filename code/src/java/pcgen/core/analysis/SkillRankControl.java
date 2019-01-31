@@ -84,7 +84,7 @@ public final class SkillRankControl
 			maxRanks = Math.max(maxRanks, baseRanks);
 			ranks = Math.min(maxRanks, ranks);
 		}
-		return new Float(ranks);
+		return (float) ranks;
 	}
 
 	/**

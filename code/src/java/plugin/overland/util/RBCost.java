@@ -30,7 +30,7 @@ public class RBCost extends Pair<String, Float>
 	public RBCost(String name, float cost)
 	{
 		super.setLeft(name);
-		super.setRight(new Float(cost));
+		super.setRight(cost);
 	}
 
 	public RBCost()
@@ -40,12 +40,12 @@ public class RBCost extends Pair<String, Float>
 
 	public void setCost(float cost)
 	{
-		super.setRight(new Float(cost));
+		super.setRight(cost);
 	}
 
 	public float getCost()
 	{
-		return super.getRight().floatValue();
+		return super.getRight();
 	}
 
 	public void setName(String name)

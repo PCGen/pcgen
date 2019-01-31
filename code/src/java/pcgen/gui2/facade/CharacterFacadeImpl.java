@@ -3073,7 +3073,7 @@ public class CharacterFacadeImpl
 			final double newQty = prevQty + quantity;
 
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-			Float qty = new Float(newQty);
+			Float qty = (float) newQty;
 			updatedItem.setQty(qty);
 			purchasedEquip.setQuantity(equipment, qty.intValue());
 		}
@@ -3085,7 +3085,7 @@ public class CharacterFacadeImpl
 			if (updatedItem != null)
 			{
 				// Set the number carried and add it to the character
-				Float qty = new Float(quantity);
+				Float qty = (float) quantity;
 				updatedItem.setQty(qty);
 				theCharacter.addEquipment(updatedItem);
 			}
@@ -3198,7 +3198,7 @@ public class CharacterFacadeImpl
 			if (newQty <= 0)
 			{
 				// completely remove item
-				updatedItem.setNumberCarried(new Float(0));
+				updatedItem.setNumberCarried((float) 0);
 				updatedItem.setLocation(EquipmentLocation.NOT_CARRIED);
 
 				final Equipment eqParent = updatedItem.getParent();
@@ -3215,14 +3215,14 @@ public class CharacterFacadeImpl
 			{
 				// update item count
 				theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-				Float qty = new Float(newQty);
+				Float qty = (float) newQty;
 				updatedItem.setQty(qty);
 				updatedItem.setNumberCarried(qty);
 				purchasedEquip.setQuantity(equipment, qty.intValue());
 			}
 
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-			Float qty = new Float(newQty);
+			Float qty = (float) newQty;
 			updatedItem.setQty(qty);
 			updatedItem.setNumberCarried(qty);
 		}
