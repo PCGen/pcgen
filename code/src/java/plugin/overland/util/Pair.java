@@ -30,13 +30,13 @@ public abstract class Pair<K, V>
 	 * @param left - left Object to add
 	 * @param right - right Object to add
 	 */
-	public Pair(K left, V right)
+	private Pair(K left, V right)
 	{
 		this.left = left;
 		this.right = right;
 	}
 
-	public Pair()
+	protected Pair()
 	{
 		this(null, null);
 	}
