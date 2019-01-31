@@ -34,7 +34,7 @@ class RoomBoardImplementation implements RoomBoard
 	 * @param foods
 	 * @param animals
 	 */
-	public RoomBoardImplementation(PairList<RBCost> inns, PairList<RBCost> foods, PairList<RBCost> animals)
+	RoomBoardImplementation(PairList<RBCost> inns, PairList<RBCost> foods, PairList<RBCost> animals)
 	{
 		this.inns = inns;
 		// TODO Auto-generated constructor stub

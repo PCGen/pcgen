@@ -33,11 +33,6 @@ public class RBCost extends Pair<String, Float>
 		super.setRight(new Float(cost));
 	}
 
-	public RBCost()
-	{
-		this("", 0);
-	}
-
 	public void setCost(float cost)
 	{
 		super.setRight(new Float(cost));
