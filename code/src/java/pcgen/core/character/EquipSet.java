@@ -79,7 +79,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	public static final String DEFAULT_SET_PATH = "0.1";
 
 	private Equipment eq_item;
-	private Float qty = new Float(1);
+	private Float qty = 1.0f;
 	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
 	private String id_path = Constants.EMPTY_STRING;
@@ -430,7 +430,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 			if (qty != null)
 			{
-				eqSet.qty = new Float(qty.floatValue());
+				eqSet.qty = qty.floatValue();
 			}
 		}
 		catch (CloneNotSupportedException exc)
