@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -85,7 +86,7 @@ class EquipmentModifierTest
 	{
 		LoadContext context = Globals.getContext();
 
-		final EquipmentModifier eqMod = new EquipmentModifier();
+		final CDOMObject eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 
@@ -117,7 +118,7 @@ class EquipmentModifierTest
 	{
 		LoadContext context = Globals.getContext();
 
-		final EquipmentModifier eqMod = new EquipmentModifier();
+		final CDOMObject eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus(context, "WEAPON|TOHIT|-2|PREVARGT:%CHOICE,STR");
 
