@@ -203,7 +203,7 @@ class DataTest
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		Collection<File> listFiles =
 				FileUtils.listFiles(dataFolder, new String[]{"lst"}, true);
-		List<String> fileNames = new ArrayList<>(listFiles.size());
+		Collection<String> fileNames = new ArrayList<>(listFiles.size());
 		for (File file : listFiles)
 		{
 			fileNames.add(file.getCanonicalPath());
@@ -237,7 +237,7 @@ class DataTest
 				"", report.toString(), "Some data files are orphaned.");
 	}
 
-	private List<CampaignSourceEntry> getLstFilesForCampaign(Campaign campaign)
+	private static List<CampaignSourceEntry> getLstFilesForCampaign(Campaign campaign)
 	{
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<>();
