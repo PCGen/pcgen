@@ -88,7 +88,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		finishLoad();
 	}
 
-	@BeforeEach
+	@Test
 	public void testSimpleSchool() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
