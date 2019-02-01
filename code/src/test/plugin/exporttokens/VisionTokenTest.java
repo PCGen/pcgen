@@ -17,8 +17,8 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
 import java.net.URI;
@@ -37,6 +37,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -113,7 +114,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the list output of the vision tag.
 	 */
 	@Test
-	public void testList()
+	void testList()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("", new VisionToken().getToken(
@@ -134,7 +135,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the output of individual vision entries.
 	 */
 	@Test
-	public void testPositional()
+	void testPositional()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("", new VisionToken().getToken(
@@ -167,7 +168,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the list output of the vision tag with metric units.
 	 */
 	@Test
-	public void testListMetric()
+	void testListMetric()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(darkvisionT);
