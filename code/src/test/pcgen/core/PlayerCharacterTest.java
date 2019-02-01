@@ -356,7 +356,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 
 		pc.setRace(giantRace);
 		assertEquals(
-				2, pc.getRemainingFeatPoints(true), 0.0,
+				2, pc.getRemainingFeatPoints(true), 0.1,
 				"Four levels from race (4/3), PC has one racial feat."
 		);
 
