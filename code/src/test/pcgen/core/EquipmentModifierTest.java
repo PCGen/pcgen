@@ -44,7 +44,7 @@ class EquipmentModifierTest
 	 * Starts the system plugins.
 	 */
 	@BeforeEach
-	void setUp() throws Exception
+	void setUp()
 	{
 		TestHelper.loadPlugins();
 	}
@@ -59,11 +59,11 @@ class EquipmentModifierTest
 	 * Test +13
 	 */
 	@Test
-	public void test885958A()
+	void test885958A()
 	{
 		LoadContext context = Globals.getContext();
 
-		final EquipmentModifier eqMod = new EquipmentModifier();
+		final CDOMObject eqMod = new EquipmentModifier();
 		final BonusObj aBonus =
 				Bonus.newBonus(context, "WEAPON|DAMAGE|((%CHOICE)MIN(STR))");
 		eqMod.addToListFor(ListKey.BONUS, aBonus);
@@ -82,7 +82,7 @@ class EquipmentModifierTest
 	 * Test -2 and +13
 	 */
 	@Test
-	public void test885958B()
+	void test885958B()
 	{
 		LoadContext context = Globals.getContext();
 
@@ -114,7 +114,7 @@ class EquipmentModifierTest
 	 * values in reverse order.
 	 */
 	@Test
-	public void testChoice()
+	void testChoice()
 	{
 		LoadContext context = Globals.getContext();
 
