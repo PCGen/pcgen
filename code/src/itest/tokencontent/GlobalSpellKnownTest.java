@@ -17,6 +17,11 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
@@ -41,26 +46,22 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.test.PreVariableTester;
 
+import org.junit.jupiter.api.BeforeAll;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
 public class GlobalSpellKnownTest extends AbstractContentTokenTest
 {
 
-	private static SpellknownLst token = new SpellknownLst();
+	private static final CDOMToken<CDOMObject> token = new SpellknownLst();
 	private KnownSpellFacet knownSpellFacet;
 	private ClassSpellList wizardSpellList;
 	private Spell fb;
 
-	private static boolean hasPreSetup = false;
-
-	public void classSetUp()
+	@BeforeAll
+	static void classSetUp()
 	{
-		if (!hasPreSetup)
-		{
-			PrerequisiteTestFactory.getInstance().register(new PreVariableTester());
-			hasPreSetup = true;
-		}
+		PrerequisiteTestFactory.getInstance().register(new PreVariableTester());
 	}
 
 	@Override
@@ -71,7 +72,6 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		wizardSpellList = context.getReferenceContext().constructNowIfNecessary(ClassSpellList.class, "Wizard");
 		fb = context.getReferenceContext().constructNowIfNecessary(Spell.class, "Fireball");
 		TokenRegistration.register(new PreVariableParser());
-		classSetUp();
 	}
 
 	@Override
