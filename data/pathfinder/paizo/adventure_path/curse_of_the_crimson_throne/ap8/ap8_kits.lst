@@ -306,7 +306,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Quick Draw
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion of Remove Disease		LOCATION:Equipped
-GEAR:Rapier					LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Bane ~ Weapon|Humanoids (human)
+GEAR:Rapier					LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Bane ~ Weapon|Human Bane
 GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Light
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Cause Fear|Charm Person|Dancing Lights|Detect Magic|Disguise Self|Ghost Sound|Hideous Laughter|Invisibility|Mage Hand|Mending|Misdirection|Prestidigitation
