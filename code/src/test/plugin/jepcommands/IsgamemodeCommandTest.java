@@ -17,7 +17,7 @@
  */
 package plugin.jepcommands;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Stack;
 
@@ -26,21 +26,19 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.persistence.GameModeFileLoader;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
  * The Class {@code IsgamemodeCommandTest} is responsible for checking
  * that IsgamemodeCommand is working correctly. 
- * 
- * 
  */
-public class IsgamemodeCommandTest
+class IsgamemodeCommandTest
 {
-	@Before
-	public void setUp()
+	@BeforeEach
+	void setUp()
 	{
 		final GameMode gamemode = new GameMode("3.5");
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
@@ -78,7 +76,7 @@ public class IsgamemodeCommandTest
 
         final Integer result = (Integer) s.pop();
 
-        assertEquals("isgamemode(\"3.5\") returns 1", Integer.valueOf(1), result);
+        assertEquals(Integer.valueOf(1), result, "isgamemode(\"3.5\") returns 1");
     }
 
     /**
@@ -95,6 +93,6 @@ public class IsgamemodeCommandTest
 
         final Integer result = (Integer) s.pop();
 
-	    assertEquals("isgamemode(\"3e\") returns 0", Integer.valueOf(0), result);
+	    assertEquals(Integer.valueOf(0), result, "isgamemode(\"3e\") returns 0");
     }
 }
