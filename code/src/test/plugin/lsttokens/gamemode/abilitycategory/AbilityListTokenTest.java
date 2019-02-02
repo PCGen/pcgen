@@ -51,7 +51,7 @@ class AbilityListTokenTest
 	private RuntimeLoadContext context;
 
 	@BeforeEach
-	void setUp() throws Exception
+	void setUp()
 	{
 		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
