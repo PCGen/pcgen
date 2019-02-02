@@ -1007,7 +1007,7 @@ ABILITY:CATEGORY=FEAT|Shot on the Run
 ABILITY:CATEGORY=FEAT|Weapon Focus (club)
 ABILITY:CATEGORY=FEAT|Weapon Focus (gore)
 ABILITY:CATEGORY=FEAT|Weapon Focus (longbow)
-GEAR:Longbow	SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Bane ~ Weapon|Outsiders (Evil)
+GEAR:Longbow	SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Bane ~ Weapon|Evil Outsider Bane
 GEAR:Club		SIZE:L	LOCATION:Carried		EQMOD:Special Ability ~ +5 ~ Weapon.Material ~ Cold Iron.Special Ability ~ Holy ~ Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Elemental Swarm
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Druid|Foresight
