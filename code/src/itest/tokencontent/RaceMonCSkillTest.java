@@ -17,6 +17,11 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
@@ -38,6 +43,7 @@ import plugin.lsttokens.pcclass.IsmonsterToken;
 import plugin.lsttokens.race.MoncskillToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
@@ -55,6 +61,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	private Skill sk;
 	private PCClass dragon;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.FacetLibrary;
@@ -25,6 +27,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DefineLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -34,6 +37,7 @@ public class GlobalDefineVariableTest extends AbstractContentTokenTest
 	private static DefineLst token = new DefineLst();
 	private VariableFacet variableFacet;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

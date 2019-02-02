@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.FacetLibrary;
@@ -24,9 +26,9 @@ import pcgen.cdom.facet.analysis.MoveCloneFacet;
 import pcgen.core.MoveClone;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-
 import plugin.lsttokens.MovecloneLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -36,6 +38,7 @@ public class GlobalMoveCloneTest extends AbstractContentTokenTest
 	private static MovecloneLst token = new MovecloneLst();
 	private MoveCloneFacet moveCloneFacet;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

@@ -17,6 +17,10 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.UserSelection;
@@ -38,6 +42,7 @@ import plugin.lsttokens.deprecated.AutoFeatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
@@ -172,6 +177,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		return token;
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

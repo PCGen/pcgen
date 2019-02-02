@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.UnencumberedArmorFacet;
@@ -25,6 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Load;
 import plugin.lsttokens.UnencumberedmoveLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -34,6 +37,7 @@ public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 	private static UnencumberedmoveLst token = new UnencumberedmoveLst();
 	private UnencumberedArmorFacet unencArmorFacet;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

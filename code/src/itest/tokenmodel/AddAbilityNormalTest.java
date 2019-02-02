@@ -17,6 +17,10 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
@@ -161,23 +165,16 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
 		runToken(source);
 		processToken(source);
-		assocCheck = new AssocCheck()
-		{
-			
-			@Override
-			public boolean check(CNAbility g)
+		assocCheck = g -> {
+			if (pc.getDetailedAssociationCount(g) == 2)
 			{
-				if (pc.getDetailedAssociationCount(g) == 2)
-				{
-					return true;
-				}
-				else
-				{
-					System.err.println("Incorrect Association Count");
-					return false;
-				}
+				return true;
 			}
-			
+			else
+			{
+				System.err.println("Incorrect Association Count");
+				return false;
+			}
 		};
 		assertEquals(0, getCount());
 		ClassSource classSource = new ClassSource(pcc);
