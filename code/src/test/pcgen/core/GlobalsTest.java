@@ -415,7 +415,8 @@ class GlobalsTest
 				SizeAdjustment.class, "S");
 		SizeAdjustment medium = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "M");
-		assertEquals("1d4",
+		assertEquals(
+				"1d4",
 				Globals.adjustDamage("1d6", medium, small),
 				"reduction of damage due to smaller size"
 		);
