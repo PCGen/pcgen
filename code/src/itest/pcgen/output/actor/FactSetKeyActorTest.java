@@ -27,17 +27,16 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-public class FactSetKeyActorTest extends AbstractOutputTestCase
+class FactSetKeyActorTest extends AbstractOutputTestCase
 {
 
 	private static final RaceFacet DF = new RaceFacet();
 
-
-	@BeforeClass
-	public static void classSetUp()
+	@BeforeAll
+	static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
