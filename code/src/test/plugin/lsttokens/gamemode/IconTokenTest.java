@@ -22,9 +22,9 @@ import java.net.URI;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code IconTokenTest} tests that the IconToken class is
@@ -34,7 +34,7 @@ public class IconTokenTest
 {
 	private URI uri;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		uri = new URI("http://www.pcgen.org");
@@ -44,24 +44,26 @@ public class IconTokenTest
 	public void testValidSyntax() throws Exception
 	{
 		GameMode gameMode = SettingsHandler.getGame();
-		Assert.assertNull("starting condition, eyegear icon should be null", gameMode
-				.getEquipTypeIcon("Eyegear"));
+		Assertions.assertNull(gameMode
+				.getEquipTypeIcon("Eyegear"), "starting condition, eyegear icon should be null");
 
 		IconToken token = new IconToken();
-		Assert.assertTrue("Parse should succeed", token.parse(gameMode,
+		Assertions.assertTrue(token.parse(gameMode,
 				"Eyegear|preview/summary/images/icon_eye.png", uri
-		));
+		), "Parse should succeed");
 
-		Assert.assertEquals("Incorrect icon path",
+		Assertions.assertEquals(
 				"preview/summary/images/icon_eye.png", gameMode
-						.getEquipTypeIcon("Eyegear")
+						.getEquipTypeIcon("Eyegear"),
+				"Incorrect icon path"
 		);
-		Assert.assertEquals("Case misimatch fails",
+		Assertions.assertEquals(
 				"preview/summary/images/icon_eye.png", gameMode
-						.getEquipTypeIcon("EyegeaR")
+						.getEquipTypeIcon("EyegeaR"),
+				"Case misimatch fails"
 		);
-		Assert.assertNull("Unknown type should be null", gameMode
-				.getEquipTypeIcon("Unknown"));
+		Assertions.assertNull(gameMode
+				.getEquipTypeIcon("Unknown"), "Unknown type should be null");
 	}
 
 	@Test
@@ -69,11 +71,11 @@ public class IconTokenTest
 	{
 		GameMode gameMode = SettingsHandler.getGame();
 		IconToken token = new IconToken();
-		Assert.assertFalse("Parse should fail", token.parse(gameMode,
+		Assertions.assertFalse(token.parse(gameMode,
 				"Eyegear:preview/summary/images/icon_eye.png", uri
-		));
-		Assert.assertFalse("Parse should fail", token.parse(gameMode,
+		), "Parse should fail");
+		Assertions.assertFalse(token.parse(gameMode,
 				"Eyegear|preview/summary/images|icon_eye.png", uri
-		));
+		), "Parse should fail");
 	}
 }
