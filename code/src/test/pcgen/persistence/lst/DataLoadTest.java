@@ -17,26 +17,18 @@
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.LogRecord;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.AfterClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameters;
+import java.util.stream.Stream;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -61,32 +53,28 @@ import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
 /**
  * The Class {@code DataLoadTest} checks each basic source for errors on load.
- *
- * <br/>
- * 
  */
-@RunWith(Parameterized.class)
 public class DataLoadTest implements PCGenTaskListener
 {
 	/** The name of our dummy config file. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
-	/** A list of sources that are currently broken, but are lower priority. 
-	 * These should be activated when the data team is ready. */
-	private static String[] excludedSources = new String[]{};
-	
-	private List<LogRecord> errors = new ArrayList<>();
-
-	private SourceSelectionFacade sourceSelection;
+	private Collection<LogRecord> errors = new ArrayList<>();
 
 
 	/**
 	 * Tidy up the config file we created. 
 	 */
-	@AfterClass
-	public static void afterClass()
+	@AfterAll
+	static void afterClass()
 	{
 		new File(TEST_CONFIG_FILE).delete();
 	}
@@ -95,8 +83,7 @@ public class DataLoadTest implements PCGenTaskListener
 	 * Build the list of sources to be checked. Also initialises the plugins and 
 	 * loads the game mode and campaign files.
 	 */
-	@Parameters(name = "{1}")
-	public static Collection<Object[]> data()
+	public static Stream<Object[]> data()
 	{
 		// Set things up
 		loadGameModes();
@@ -104,42 +91,28 @@ public class DataLoadTest implements PCGenTaskListener
 		SettingsHandler.setInputUnconstructedMessages(false);
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true);
-		List<String> exclusions = Arrays.asList(excludedSources);
 
 		List<SourceSelectionFacade> basicSources = getBasicSources();
-		assertFalse("No sources found", basicSources.isEmpty());
-		List<Object[]> params = new ArrayList<>();
-		for (SourceSelectionFacade ssf : basicSources)
-		{
-			String testName = ssf.toString().replaceAll("[\\(\\)]", "_");
-			if (!exclusions.contains(testName))
-			{
-				params.add(new Object[]{ssf, testName});
-			}
-		}
-		return params;
-	}
-
-	/**
-	 * Create a parameterised instance of the test class for a specific source.  
-	 * @param sourceSelection The basic source we will be testing.
-	 * @param testName The display name, needs to be sanitised for IDE display.
-	 */
-	public DataLoadTest(SourceSelectionFacade sourceSelection, String testName)
-	{
-		this.sourceSelection = sourceSelection;
+		assertFalse(basicSources.isEmpty(), "No sources found");
+		Collection<Object[]> params = new ArrayList<>();
+		basicSources.forEach(ssf -> {
+			String testName = ssf.toString().replaceAll("[(\\)]", "_");
+			params.add(new Object[]{ssf, testName});
+		});
+		return params.stream();
 	}
 
 	/**
 	 * Test the load of the current source.
 	 * This will check for any load errors or warnings but ignores deprecation warnings.
 	 */
-	@Test
-	public void testLoadSources()
+	@ParameterizedTest
+	@MethodSource("data")
+	void testLoadSources(SourceSelectionFacade sourceSelection)
 	{
 		UIDelegate uiDelegate = new MockUIDelegate();
 
-		SourceFileLoader loader =
+		PCGenTask loader =
 				new SourceFileLoader(sourceSelection, uiDelegate);
 		errors = new ArrayList<>();
 		loader.addPCGenTaskListener(this);
@@ -147,10 +120,9 @@ public class DataLoadTest implements PCGenTaskListener
 		GameMode selectedGame = SystemCollections
 			.getGameModeNamed(sourceSelection.getGameMode().get().getName());
 		selectedGame.clearLoadContext();
-		loader = null;
 
-		List<String> errorList = new ArrayList<>();
-		List<String> warningList = new ArrayList<>();
+		Collection<String> errorList = new ArrayList<>();
+		Collection<String> warningList = new ArrayList<>();
 		for (LogRecord logRecord : errors)
 		{
 			if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
@@ -162,19 +134,21 @@ public class DataLoadTest implements PCGenTaskListener
 				warningList.add(logRecord.getMessage());
 			}
 		}
-		assertEquals("Errors encountered while loading " + sourceSelection, "",
-			StringUtils.join(errorList, ",\n"));
-		assertEquals("Warnings encountered while loading " + sourceSelection, "",
-			StringUtils.join(errorList, ",\n"));
+		assertEquals("",
+			StringUtils.join(errorList, ",\n"), () -> "Errors encountered while loading " + sourceSelection
+		);
+		assertEquals("",
+			StringUtils.join(errorList, ",\n"), () -> "Warnings encountered while loading " + sourceSelection
+		);
 	}
 
 	private static void loadGameModes()
 	{
-		String configFolder = "testsuite";
 		String pccLoc = TestHelper.findDataFolder();
 		System.out.println("Got data folder of " + pccLoc);
 		try
 		{
+			String configFolder = "testsuite";
 			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
 				pccLoc);
 		}
@@ -190,9 +164,9 @@ public class DataLoadTest implements PCGenTaskListener
 		Main.loadProperties(false);
 		PCGenTask loadPluginTask = Main.createLoadPluginTask();
 		loadPluginTask.execute();
-		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
+		PCGenTask gameModeFileLoader = new GameModeFileLoader();
 		gameModeFileLoader.execute();
-		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
+		PCGenTask campaignFileLoader = new CampaignFileLoader();
 		campaignFileLoader.execute();
 	}
 
@@ -206,18 +180,12 @@ public class DataLoadTest implements PCGenTaskListener
 				SourceSelectionFacade sourceSelection =
 						FacadeFactory.createSourceSelection(campaign.getGameModes()
 							.getElementAt(0), Collections.singletonList(campaign), campaign.getName());
-				
+
 				basicSources.add(sourceSelection);
 			}
 		}
 		for (GameMode mode : SystemCollections.getUnmodifiableGameModeList())
 		{
-			String title = mode.getDefaultSourceTitle();
-			if (title == null && !mode.getDefaultDataSetList().isEmpty())
-			{
-				title = mode.getName();
-			}
-
 			if (!mode.getDefaultDataSetList().isEmpty())
 			{
 				List<CampaignFacade> qcamps = new ArrayList<>();
@@ -225,8 +193,8 @@ public class DataLoadTest implements PCGenTaskListener
 				for (String string : sources)
 				{
 					Campaign camp = Globals.getCampaignKeyed(string);
-					assertNotNull("Cannot find source " + string
-						+ " for game mode " + mode, camp);
+					assertNotNull(camp, () -> "Cannot find source " + string
+							+ " for game mode " + mode);
 					qcamps.add(camp);
 				}
 				basicSources.add(FacadeFactory.createSourceSelection(

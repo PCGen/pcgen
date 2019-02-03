@@ -1,0 +1,5 @@
+SOURCELONG:Rival Guide	SOURCESHORT:RG	SOURCEWEB:https://paizo.com/products/btpy8kc	SOURCEDATE:2011-05
+
+Alchemically Invisible Creature	SOURCEPAGE:p.47		CR:2																		ABILITY:Internal|AUTOMATIC|Race Traits ~ Alchemically Invisible Creature
+Vampiric Animal Companion		SOURCEPAGE:p.47							PRERACE:1,Companion (Dire Rat),Companion (Wolf),Companion (Bat (Dire))		ABILITY:Internal|AUTOMATIC|Race Traits ~ Vampiric Animal Companion		RACETYPE:Undead	RACESUBTYPE:Augmented Animal	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK	DR:5/silver	BONUS:STAT|STR,DEX|2	BONUS:STAT|CHA|4	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FastHealingRate|2	BONUS:VAR|ChannelResistance|2
+Haunted One					SOURCEPAGE:p.29		CR:1		PRESTAT:1,INT=10	!PRERACE:1,RACESUBTYPE=Incorporeal								ABILITY:Internal|AUTOMATIC|Race Traits ~ Haunted One					CSKILL:TYPE=Knowledge	BONUS:STAT|CON|4	BONUS:STAT|INT,WIS,CHA|2

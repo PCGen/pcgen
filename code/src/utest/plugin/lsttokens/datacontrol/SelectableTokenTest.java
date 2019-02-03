@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.datacontrol;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -37,6 +37,8 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -45,32 +47,40 @@ import util.TestURI;
 public class SelectableTokenTest
 {
 
-	static SelectableToken token = new SelectableToken();
+	private static SelectableToken token = new SelectableToken();
+	private static CampaignSourceEntry testCampaign;
+	private LoadContext context;
 	private ContentDefinition cd;
 
-	protected LoadContext context;
-
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		cd = null;
+	}
+
+	@AfterAll
+	public static void classTearDown()
+	{
+		token = null;
+		testCampaign = null;
 	}
 
 	protected void resetContext()
@@ -102,11 +112,9 @@ public class SelectableTokenTest
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getSelectable());
-		assertTrue(cd.getSelectable().booleanValue());
+		assertTrue(cd.getSelectable());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed);
 	}
 
 	@Test
@@ -115,11 +123,9 @@ public class SelectableTokenTest
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "NO").passed());
 		assertNotNull(cd.getSelectable());
-		assertFalse(cd.getSelectable().booleanValue());
+		assertFalse(cd.getSelectable());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("NO", unparsed[0]);
+		assertArrayEquals(new String[]{"NO"}, unparsed);
 	}
 
 }

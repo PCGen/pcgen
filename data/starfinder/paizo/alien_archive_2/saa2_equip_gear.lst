@@ -1,0 +1,4 @@
+Dreamsnuff		QUALITY:Level|8		COST:1500		TYPE:Goods.Chemical.Drug		SOURCEPAGE:p.45
+
+#TECHNOLOGICAL ITEMS
+Plasma diverter		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:4300		BONUS:VAR|Bulk|1		QUALITY:Bulk|1		WT:1		SOURCEPAGE:p.101

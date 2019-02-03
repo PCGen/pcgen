@@ -25,7 +25,7 @@ public class SpecialtyKnownIntegrationTest extends
 		AbstractSpellCastingTokenTestCase
 {
 
-	private static SpecialtyknownToken token = new SpecialtyknownToken();
+	private static final CDOMPrimaryToken<PCClassLevel> token = new SpecialtyknownToken();
 
 	@Override
 	public CDOMPrimaryToken<PCClassLevel> getToken()

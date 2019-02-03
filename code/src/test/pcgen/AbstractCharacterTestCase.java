@@ -7,8 +7,6 @@ package pcgen;
 import java.math.BigDecimal;
 import java.util.Collection;
 
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -18,7 +16,6 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
@@ -39,14 +36,14 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary;
-import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.TestHelper;
 
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
+import util.FormatSupport;
+
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
@@ -110,7 +107,12 @@ public abstract class AbstractCharacterTestCase extends TestCase
 
 		context = Globals.getContext();
 		BuildUtilities.buildUnselectedRace(context);
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		
+		FormatSupport.addBasicDefaults(context);
+		FormatSupport.addNoneAsDefault(context,
+			context.getReferenceContext().getManufacturer(PCAlignment.class));
 		SourceFileLoader.defineBuiltinVariables(context);
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
@@ -149,7 +151,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		gamemode.setBonusFeatLevels("3|3");
 		SettingsHandler.setGame("3.5");
 
-		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -168,7 +169,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		ref.importObject(cn);
 		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		GameModeFileLoader.addDefaultWieldCategories(context);
@@ -200,8 +200,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
 		SourceFileLoader.createLangBonusObject(context);
-		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		proc(context, fmtManager);
 		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(BuildUtilities.getFeatCat());
@@ -228,15 +226,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		character = new PlayerCharacter();
 	}
 
-	private static <T> void proc(LoadContext context, FormatManager<T> fmtManager)
-	{
-		Class<T> cl = fmtManager.getManagedClass();
-		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl,
-			new ModifierDecoration<>(defaultModifier));
-	}
-
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 */
@@ -261,7 +250,6 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		character = null;
 		context = null;
 		SystemCollections.clearGameModeList();
-		super.tearDown();
 	}
 
 	/**

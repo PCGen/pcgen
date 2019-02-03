@@ -1,0 +1,13 @@
+SOURCELONG:Rival Guide	SOURCESHORT:RG	SOURCEWEB:https://paizo.com/products/btpy8kc	SOURCEDATE:2011-05
+
+Blackfingers Paste			TYPE:Goods.Alchemical.Consumable	COST:50			SOURCEPAGE:p.53		SPROP:Protects accidental poisoning oneself when applying poison to a weapon. Lasts 1d6 hours.
+
+Poison (Cockatrice Spit)		TYPE:Goods.Poison.Consumable		COST:1000			SOURCEPAGE:p.53		SPROP:Contact, injury, ingested; Fort DC 12; Frequency 1 rnd (4); Effect 1d2 Dex damage (if equal to its Dexterity score, victim becomes petrified; each day, can attempt new save to recover); Cure 1 save
+Poison (Fiddleback Venom)		TYPE:Goods.Poison.Consumable		COST:500			SOURCEPAGE:p.53		SPROP:Injury, ingested; Fort DC 13; Onset 1 minute; Frequency 1 min (6); Effect nauseated 1d4 rounds/1d3 Str and 1d4 Con damage; Cure 2 saves
+Poison (Hag Spit)				TYPE:Goods.Poison.Consumable		COST:1500			SOURCEPAGE:p.53		SPROP:Injury, ingested; Fort DC 16; Frequency 1 rnd (6); Effect blindness 1d10 rnds/1d4 Wis damage; Cure 2 saves
+Poison (Rainbow Jellyfish Toxin)	TYPE:Goods.Poison.Consumable		COST:400			SOURCEPAGE:p.53		SPROP:Contact, injury; Fort DC 14; Frequency 1 rnd (2); Effect staggered 1d6 rnds/paralyzed 1d6 minutes; Cure 1 save
+
+Drug (Blood Sap)				TYPE:Goods.Drug.Consumable		COST:150			SOURCEPAGE:p.53		SPROP:Ingested; Addiction moderate, Fortitude DC 20; Effect 30 minutes; +1d4 Str and +1d3 Dex, then slowed (as per the spell slow) for 3 hours; Damage 1d4 Con
+Drug (Dreamtime Tea)			TYPE:Goods.Drug.Consumable		COST:120			SOURCEPAGE:p.53		SPROP:Ingested; Addiction moderate, Fortitude DC 20; Effect 2d12 minutes; unconscious, gain vivid dreams acting as the augury spell, but with only a 60%% chance of receiving a meaningful reply; Damage 1d3 Wis damage
+Drug (Harlot Sweets)			TYPE:Goods.Drug.Consumable		COST:60			SOURCEPAGE:p.53		SPROP:Ingested; Addiction moderate, Fortitude DC 18; Effect 1 hour; +1d4 Cha and +1 Dex; Damage 1d2 Int damage
+Drug (Slaver's Drops)			TYPE:Goods.Drug.Consumable		COST:20			SOURCEPAGE:p.53		SPROP:Ingested; Addiction minor, Fortitude DC 13; Effect 3 hours; -3 on Will saves, +3 on Perception checks; Damage 1d2 Str damage

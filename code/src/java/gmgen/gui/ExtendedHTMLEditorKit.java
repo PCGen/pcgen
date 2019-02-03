@@ -223,13 +223,13 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit
 
 		String htmlString = pane.getText().substring(0, start);
 		htmlString += pane.getText().substring(start + posStrings[0].length(), end);
-		htmlString += pane.getText().substring(end + posStrings[1].length(), pane.getText().length());
+		htmlString += pane.getText().substring(end + posStrings[1].length());
 
 		String source = htmlString;
 		end -= posStrings[0].length();
 		htmlString = source.substring(0, start);
 		htmlString += getAllTableTags(source.substring(start, end));
-		htmlString += source.substring(end, source.length());
+		htmlString += source.substring(end);
 		pane.setText(htmlString);
 	}
 
@@ -279,11 +279,11 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit
 
 		StringBuilder newHtmlString = new StringBuilder();
 		int[] positions = getPositions(element, source, true, idString);
-		newHtmlString.append(source.substring(0, positions[3]));
+		newHtmlString.append(source, 0, positions[3]);
 		newHtmlString.append("<li>");
 		newHtmlString.append(content);
 		newHtmlString.append("</li>");
-		newHtmlString.append(source.substring(positions[3] + 1, source.length()));
+		newHtmlString.append(source.substring(positions[3] + 1));
 		pane.setText(newHtmlString.toString());
 		pane.setCaretPosition(pos - 1);
 		element = getListItemParent(htmlDoc.getCharacterElement(pane.getCaretPosition()));
@@ -460,9 +460,9 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit
 		//if (true) {
 		int beginEndTag = position[2];
 		int endEndTag = position[3];
-		newHtmlString.append(source.substring(0, beginStartTag));
-		newHtmlString.append(source.substring(endStartTag, beginEndTag));
-		newHtmlString.append(source.substring(endEndTag, source.length()));
+		newHtmlString.append(source, 0, beginStartTag);
+		newHtmlString.append(source, endStartTag, beginEndTag);
+		newHtmlString.append(source.substring(endEndTag));
 		//} else {
 		//    newHtmlString.append(source.substring(0, beginStartTag));
 		//    newHtmlString.append(source.substring(endStartTag, source.length()));
@@ -502,7 +502,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit
 
 			if (caret != -1)
 			{
-				result.append(source.substring(caret, source.indexOf('>', caret) + 1));
+				result.append(source, caret, source.indexOf('>', caret) + 1);
 			}
 		}
 		while (caret != -1);

@@ -17,8 +17,6 @@
  */
 package plugin.exporttokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -53,15 +51,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	private Skill balance = null;
 	private Skill[] knowledge = null;
 	private Skill tumble = null;
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(SkillTokenTest.class);
-	}
 
 	/**
 	 * Basic constructor, name only.

@@ -12,6 +12,7 @@ import java.util.List;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +25,12 @@ public class SpellProgressionCacheTest
 	public void setUp() throws Exception
 	{
 		spi = new SpellProgressionCache();
+	}
+
+	@AfterEach
+	public void tearDown() throws Exception
+	{
+		spi = null;
 	}
 
 	@Test

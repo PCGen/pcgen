@@ -17,7 +17,11 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.base.formula.DividingFormula;
 import pcgen.cdom.content.HitDie;
@@ -30,10 +34,12 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
+
 public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 {
-
-	static HitdieLst token = new HitdieLst();
+	private static final CDOMPrimaryToken<PCClassLevel> token = new HitdieLst();
 
 	@Override
 	public CDOMPrimaryToken<PCClassLevel> getToken()
@@ -368,7 +374,7 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testUnparseLegal()
 	{
 		primaryProf1.put(ObjectKey.HITDIE, new HitDieLock(new HitDie(1)));
-		expectSingle(getToken().unparse(primaryContext, primaryProf1), "1");
+		assertArrayEquals(new String[]{"1"}, getToken().unparse(primaryContext, primaryProf1));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -377,30 +383,18 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	{
 		ObjectKey objectKey = ObjectKey.HITDIE;
 		primaryProf1.put(objectKey, new Object());
-		try
-		{
-			getToken().unparse(primaryContext, primaryProf1);
-			fail();
-		}
-		catch (ClassCastException e)
-		{
-			//Yep!
-		}
+		assertThrows(ClassCastException.class,
+				() -> getToken().unparse(primaryContext, primaryProf1)
+		);
 	}
 
 	@Test
 	public void testUnparseZeroSteps()
 	{
-		try
-		{
-			primaryProf1.put(ObjectKey.HITDIE,
-					new HitDieStep(0, new HitDie(12)));
-			assertBadUnparse();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Good here too :)
-		}
+		assertThrows(IllegalArgumentException.class,
+				() -> primaryProf1.put(ObjectKey.HITDIE,
+						new HitDieStep(0, new HitDie(12))));
+		//			assertBadUnparse();
 	}
 
 	@Test

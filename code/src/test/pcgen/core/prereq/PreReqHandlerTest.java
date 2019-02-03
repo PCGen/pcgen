@@ -28,6 +28,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
+import plugin.lsttokens.testsupport.TokenRegistration;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,6 +50,7 @@ public class PreReqHandlerTest
 	void tearDown()
 	{
 		LocaleDependentTestCase.after();
+		TokenRegistration.clearTokens();
 	}
 
 	/**

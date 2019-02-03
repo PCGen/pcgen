@@ -109,18 +109,6 @@ public class AttackDialog extends JDialog
 	private int m_totalDmg;
 
 	/**
-	 * <p>Initializes the dialog with the specified model.</p>
-	 *
-	 * @param model Attack model for this dlg.
-	 */
-	public AttackDialog(AttackModel model)
-	{
-		super(GMGenSystem.inst);
-		m_attack = model;
-		initComponents();
-	}
-
-	/**
 	 * <p>Initializes the dialog with the specified model and the specified
 	 * list of valid targets.  This class ignores combatants that are not
 	 * instances of {@code PcgCombatant}.  A null or empty vector
@@ -169,16 +157,6 @@ public class AttackDialog extends JDialog
 	public boolean isSubdual()
 	{
 		return m_subdual;
-	}
-
-	/**
-	 * Returns the total damage (may be 0)
-	 *
-	 * @return Total damage
-	 */
-	public int getTotalDmg()
-	{
-		return m_totalDmg;
 	}
 
 	/**

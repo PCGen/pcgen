@@ -22,8 +22,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Campaign;
@@ -45,15 +43,6 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	private PCTemplate lowlightT;
 	private PCTemplate astralT;
 	private UnitSet metricUS;
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(VisionTokenTest.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

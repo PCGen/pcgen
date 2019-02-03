@@ -24,7 +24,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 public class CastTokenTest extends AbstractSpellCastingTokenTestCase
 {
-	static CastToken token = new CastToken();
+	private static final CDOMPrimaryToken<PCClassLevel> token = new CastToken();
 
 	@Override
 	public CDOMPrimaryToken<PCClassLevel> getToken()

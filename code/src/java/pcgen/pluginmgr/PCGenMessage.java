@@ -24,14 +24,10 @@ import java.util.EventObject;
 /**
  * The Class {@code PCGenMessage} describes an event in PCGen which
  * listeners can respond to. 
- *
- * 
  */
 
 public class PCGenMessage extends EventObject
 {
-	/** Version number for serialisation*/
-	private static final long serialVersionUID = 858210889717389487L;
 	private boolean consumed;
 
 	/**

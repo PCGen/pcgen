@@ -31,14 +31,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterModel;
+import plugin.experience.ExperienceListItem;
 
 /**
  * The View for the Experience Adjuster.  This view is independant and will be
@@ -81,7 +78,7 @@ public class ExperienceAdjusterView extends JPanel
 	private JLabel jLabel5;
 
 	/** The GUI component that holds the list of PC combatants. */
-	private JList characterList;
+	private JList<ExperienceListItem> characterList;
 
 	/** The GUI component that holds the list of enemy combatants. */
 	private JList enemyList;
@@ -192,24 +189,6 @@ public class ExperienceAdjusterView extends JPanel
 		experienceFromCombat.setText(Integer.toString(experience));
 	}
 
-	/**
-	 * Sets the experience from combat value on the GUI.
-	 * @param experience the value of experience that has come from the combat.
-	 */
-	public void setExperienceFromCombat(String experience)
-	{
-		experienceFromCombat.setText(experience);
-	}
-
-	/**
-	 * Gets the value from the experience from combat label.
-	 * @return the value for experience from combat.
-	 */
-	public int getExperienceFromCombat()
-	{
-		return Integer.parseInt(experienceFromCombat.getText());
-	}
-
 	/** The multiplier label.
 	 * @return JLabel*/
 	public JLabel getExperienceMultLabel()
@@ -235,34 +214,16 @@ public class ExperienceAdjusterView extends JPanel
 	 * Sets the experience to add field if needed.
 	 * @param experience the value for the experience to add to the character.
 	 */
-	public void setExperienceToAdd(int experience)
-	{
-		experienceToAdd.setText(Integer.toString(experience));
-	}
-
-	/**
-	 * Sets the experience to add field if needed.
-	 * @param experience the value for the experience to add to the character.
-	 */
 	public void setExperienceToAdd(String experience)
 	{
 		experienceToAdd.setText(experience);
 	}
 
 	/**
-	 * Gets the experience to add that the user has input.
-	 * @return the experience to add as an {@code int}.
-	 */
-	public int getExperienceToAdd()
-	{
-		return Integer.parseInt(experienceToAdd.getText());
-	}
-
-	/**
 	 * sets the party in the main list display
 	 * @param party
 	 */
-	public void setParty(DefaultListModel party)
+	public void setParty(DefaultListModel<ExperienceListItem> party)
 	{
 		characterList.setModel(party);
 	}
@@ -287,7 +248,7 @@ public class ExperienceAdjusterView extends JPanel
 
 		jPanel5 = new JPanel();
 		panelChar = new JPanel();
-		characterList = new JList();
+		characterList = new JList<>();
 		JLabel spCharLabel = new JLabel();
 		jPanel1 = new JPanel();
 		jLabel4 = new JLabel();
@@ -350,16 +311,10 @@ public class ExperienceAdjusterView extends JPanel
 		// add an empty horizontal glue like panel
 		jPanel7.add(new JPanel(), gridBagConstraints);
 		// Updates the button if there is a selected character
-		characterList.addListSelectionListener(new ListSelectionListener()
-		{
-
-			@Override
-			public void valueChanged(ListSelectionEvent e)
+		characterList.addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting())
 			{
-				if (!e.getValueIsAdjusting())
-				{
-					addExperienceToCharButton.setEnabled(!characterList.isSelectionEmpty());
-				}
+				addExperienceToCharButton.setEnabled(!characterList.isSelectionEmpty());
 			}
 		});
 
@@ -398,40 +353,34 @@ public class ExperienceAdjusterView extends JPanel
 		gridBagConstraints.gridwidth = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		jPanel8.add(experienceMultSlider, gridBagConstraints);
-		experienceMultSlider.addChangeListener(new ChangeListener()
-		{
+		experienceMultSlider.addChangeListener(e -> {
+			double realValue = getSliderRealValue();
 
-			@Override
-			public void stateChanged(ChangeEvent e)
+			if (CoreUtility.doublesEqual(realValue, 0.5))
 			{
-				double realValue = getSliderRealValue();
-
-				if (CoreUtility.doublesEqual(realValue, 0.5))
-				{
-					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
-				}
-				else if (realValue <= 0.7)
-				{
-					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
-				}
-				else if ((realValue > 0.7) && (realValue < 1.5))
-				{
-					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
-				}
-				else if (realValue >= 1.5)
-				{
-					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
-				}
-
-				if (CoreUtility.doublesEqual(realValue, 2))
-				{
-					getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
-				}
-
-				getExperienceMultLabel().setText(LanguageBundle.getPrettyMultiplier(realValue));
-
-				model.setMultiplier(realValue);
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
 			}
+			else if (realValue <= 0.7)
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
+			}
+			else if ((realValue > 0.7) && (realValue < 1.5))
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
+			}
+			else if (realValue >= 1.5)
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
+			}
+
+			if (CoreUtility.doublesEqual(realValue, 2))
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
+			}
+
+			getExperienceMultLabel().setText(LanguageBundle.getPrettyMultiplier(realValue));
+
+			model.setMultiplier(realValue);
 		});
 
 		addExperienceToPartyButton.setText(LanguageBundle.getString("in_plugin_xp_addXpToParty")); //$NON-NLS-1$
@@ -477,17 +426,11 @@ public class ExperienceAdjusterView extends JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(removeEnemyButton, gridBagConstraints);
 		// Update buttons on selection change
-		enemyList.addListSelectionListener(new ListSelectionListener()
-		{
-
-			@Override
-			public void valueChanged(ListSelectionEvent e)
+		enemyList.addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting())
 			{
-				if (!e.getValueIsAdjusting())
-				{
-					adjustCRButton.setEnabled(!enemyList.isSelectionEmpty());
-					removeEnemyButton.setEnabled(!enemyList.isSelectionEmpty());
-				}
+				adjustCRButton.setEnabled(!enemyList.isSelectionEmpty());
+				removeEnemyButton.setEnabled(!enemyList.isSelectionEmpty());
 			}
 		});
 

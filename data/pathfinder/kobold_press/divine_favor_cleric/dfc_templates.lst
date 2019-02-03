@@ -1,0 +1,10 @@
+# ENTRY DATE: 2015-01
+# LST MONKEY: Stefan Radermacher
+SOURCELONG:Divine Favor: The Cleric	SOURCESHORT:DFC	SOURCEWEB:http://www.koboldquarterly.com/kqstore/index.php?main_page=product_info&cPath=6&products_id=146	SOURCEDATE:2011-10
+
+# Template Name		Hit Dice Size		Visible
+Theosophist Hit Dice	HITDIE:6|CLASS=Cleric	VISIBLE:NO
+
+#
+# End
+#

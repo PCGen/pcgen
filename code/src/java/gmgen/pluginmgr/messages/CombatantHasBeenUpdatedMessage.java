@@ -19,31 +19,21 @@
  */
 package gmgen.pluginmgr.messages;
 
-import gmgen.plugin.Combatant;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
  * The Class {@code CombatantHasBeenUpdatedMessage} encapsulates a
  * message that a specific combatant has been modified.
- *
- * 
  */
-
-@SuppressWarnings("serial")
 public class CombatantHasBeenUpdatedMessage extends PCGenMessage
 {
-
-	private final Combatant combatant;
-
 	/**
 	 * Create a new instance of CombatantHasBeenUpdatedMessage
 	 * @param source The source of the message.
-	 * @param combatant The combatant that was updated.
 	 */
-	public CombatantHasBeenUpdatedMessage(Object source, Combatant combatant)
+	public CombatantHasBeenUpdatedMessage(Object source)
 	{
 		super(source);
-		this.combatant = combatant;
 	}
 
 }

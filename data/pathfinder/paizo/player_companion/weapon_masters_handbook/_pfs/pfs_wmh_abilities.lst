@@ -1,0 +1,191 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy	SOURCEDATE:2015-12
+
+
+###Block: Combat Traits
+# Ability Name				Unique Key						Product Identity?	Category of Ability		Type						Multiple Requirements																											Desc is PI?		Description																																																								Source Page
+CATEGORY=Special Ability|Trait ~ Aldori Caution.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Trait ~ Ozem-Inspired.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Blackjacket Weapon Flair.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Thunder and Fang Performer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Performer's Surprise.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Monk Weapon Skill.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Merciful Scimitar.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Red Mantis Bleeding.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Roving Range.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Armed Grit.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Trait ~ Ichimeiyo Champion.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Archetypes
+# Ability Name				Unique Key								Product Identity?	Category of Ability		Type																	Desc is PI?									SOURCEPAGE			DescriptionCost
+#Ilsurian Archer
+CATEGORY=Archetype|Ranger Archetype ~ Ilsurian Archer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Ilsurian Archer ~ Bullseye Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Ilsurian Archer ~ Archery Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Ilsurian Archer ~ Vicious Aim.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Ilsurian Archer ~ Iomedae's Influence.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Ilsurian Archer ~ Pinpoint Targeting.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+#Molthuni Arsenal Chaplain
+CATEGORY=Archetype|Warpriest Archetype ~ Molthuni Arsenal Chaplain.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Molthuni Arsenal Chaplain ~ War Blessing.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Molthuni Arsenal Chaplain ~ Sacred Weapon.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Molthuni Arsenal Chaplain ~ Weapon Training.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+#Rondelero Swashbuckler
+CATEGORY=Archetype|Swashbuckler Archetype ~ Rondelero Swashbuckler.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Rondelero Swashbuckler ~ Falcata Emphasis.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Rondelero Swashbuckler ~ Shield Catch.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Rondelero Swashbuckler ~ Rondelero Chop.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Rondelero Swashbuckler ~ Shattering Chop.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Rondelero Swashbuckler ~ Buckler Bash.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Rondelero Swashbuckler ~ Rondelero Flexibility.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Rondelero Swashbuckler ~ Charmed Life.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+#Tempered Champion
+CATEGORY=Archetype|Paladin Archetype ~ Tempered Champion.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Tempered Champion ~ Divine Weapon Specialization.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Tempered Champion ~ Divine Bond.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Internal|Tempered Champion ~ Disruptive.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Divine Fighting Technique.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Greater Penetrating Strike.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Greater Weapon Focus.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Greater Weapon Specialization.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Penetrating Strike.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Weapon Focus.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Weapon Specialization.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Tempered Champion ~ Weapon Trick.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+#Varisian Free-Style Fighter
+CATEGORY=Archetype|Fighter Archetype ~ Varisian Free-Style Fighter.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Internal|Varisian Free-Style Fighter ~ Class Skills.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Free-Style Fighter ~ Martial Flexibility.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Varisian Free-Style Fighter ~ Free Fighting Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Internal|Free-Style Martial Flexibility.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Weapon Tricks
+# One-Handed Weapon Tricks
+# Ability Name		Unique Key						Category of Ability		Type										Description																																																																																															Ability																																																																																			Source Page
+CATEGORY=Special Ability|Weapon Trick ~ One-Handed Weapons.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Special Ability|Weapon Trick ~ Free Hand Maneuver.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Mindful Dodge.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Strike and Seize.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Stylish Riposte.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+# Polearm Tricks
+CATEGORY=Special Ability|Weapon Trick ~ Polearms.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Special Ability|Weapon Trick ~ Choke Up.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Close Sweep.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Haft Bash.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Polearm Balance.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Quick Brace.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+
+# Ranged Weapon Tricks
+CATEGORY=Special Ability|Weapon Trick ~ Ranged Weapons.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Special Ability|Weapon Trick ~ Hindering Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Weapon Trick ~ Suppressing Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+
+#Two-Handed Weapon Tricks
+CATEGORY=Special Ability|Weapon Trick ~ Two-Handed Weapons.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Special Ability|Weapon Trick ~ Cleaving Smash.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Crush Armor.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Two-Handed Menace.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Warding Weapon.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+# Two-Weapon Tricks
+CATEGORY=Special Ability|Weapon Trick ~ Two Weapons.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Special Ability|Weapon Trick ~ Arm Bind.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Dual Strike.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Off-Hand Opportunity.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Piercing Climb.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+# Weapon and Shield Tricks
+CATEGORY=Special Ability|Weapon Trick ~ Weapon and Shield.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+CATEGORY=Special Ability|Weapon Trick ~ Confounding Shield.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Feint and Bash.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Shielded View.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Weapon Trick ~ Warded Movement.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Divine Fighting Techniques
+# Ability Name				Unique Key											Product Identity?	Category of Ability		Type								Required Text										Desc is PI?		Description																																																																																																																																																																																																																																																																										Source Page
+CATEGORY=Special Ability|Divine Fighting Technique ~ Abadar's Crossbow.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Divine Fighting Technique ~ Calistria's Poisoned Lash.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Divine Fighting Technique ~ Cayden Cailean's Blade and Tankard.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Divine Fighting Technique ~ Gorum's Swordsmanship.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Divine Fighting Technique ~ Iomedae's Inspiring Sword.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: the initial benefit of Iomedae's Inspiring Sword only functions during combat.)
+CATEGORY=Special Ability|Divine Fighting Technique ~ Zon-Kuthon's Flensing.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Advanced Weapon Training
+# Ability Name				Unique Key									Category of Ability		Type																							Visible		Restricted Ability										Multiple Requirements																					Description																																																																																																																																																																																																																																																																													Stackable?	Multiple?	Choose											Bonus Ability Pool				Combat bonus									Weapon prof. bonus																				Source Page
+CATEGORY=Special Ability|Advanced Weapon Training ~ Abundant Tactics.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Armed Bravery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Combat Competence.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Combat Maneuver Defense.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Dazzling Intimidation.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Defensive Weapon Training.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Fighter's Finesse.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Fighter's Reflexes.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Fighter's Tactics.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Focused Weapon.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Inspiring Confidence.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Trained Grace.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Trained Initiative.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Trained Throw.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Versatile Training.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Weapon Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Weapon Sacrifice.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+CATEGORY=Special Ability|Advanced Weapon Training ~ Weapon Specialist.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	!PREABILITY:1,CATEGORY=Archetype,Warpriest Archetype ~ Molthuni Arsenal Chaplain
+
+CATEGORY=Special Ability|Fighter's Finesse ~ Axes.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Blades Heavy.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Blades Light.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Bows.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Close.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Crossbows.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Double.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Flails.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Hammers.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Monk.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Natural.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Pole Arms.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Spears.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Fighter's Finesse ~ Thrown.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+
+#Martial Focus
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Axes.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Blades Heavy.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Blades Light.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Bows.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Close.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Crossbows.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Double.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Flails.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Hammers.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Monk.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Natural.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Pole Arms.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Spears.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Martial Focus ~ Weapon Training Thrown.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Combat Tricks > Support
+
+# Archetype
+# Ability Name		Unique Key							Category of Ability		Type														Description																																																																																																				Ability																																																																Cost		Source Page
+CATEGORY=Archetype|Fighter Archetype ~ Relic Master.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+
+# Relic Master
+CATEGORY=Special Ability|Relic Master ~ Class Skills.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Relic Master ~ Improved Item Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Relic Master ~ Relic Channeler.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=Special Ability|Relic Master ~ Improvised Item Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal

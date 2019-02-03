@@ -30,6 +30,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -233,7 +234,7 @@ public class WeightedCollectionTest
 	public void testBadEquals()
 	{
 		assertNotNull(wc);
-		assertFalse(wc.equals(1));
+		assertNotEquals(1, wc);
 	}
 
 	@Test
@@ -253,18 +254,18 @@ public class WeightedCollectionTest
 		assertTrue(wc2.add(1));
 		assertTrue(wc2.add(2));
 		assertTrue(wc2.add(1));
-		assertFalse(wc.equals(wc2));
-		assertFalse(wc2.equals(wc));
+		assertNotEquals(wc, wc2);
+		assertNotEquals(wc2, wc);
 		assertTrue(wc2.add(2));
 		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
 		assertEquals(wc.hashCode(), wc2.hashCode());
 		wc2.add(null);
-		assertFalse(wc.equals(wc2));
-		assertFalse(wc2.equals(wc));
+		assertNotEquals(wc, wc2);
+		assertNotEquals(wc2, wc);
 		wc.add(null, 2);
-		assertFalse(wc.equals(wc2));
-		assertFalse(wc2.equals(wc));
+		assertNotEquals(wc, wc2);
+		assertNotEquals(wc2, wc);
 		wc2.add(null);
 		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
@@ -615,7 +616,7 @@ public class WeightedCollectionTest
 		assertEquals(23, swc.size());
 		assertFalse(swc.isEmpty());
 		assertEquals(swc, swc);
-		assertFalse(swc.equals(wc));
+		assertNotEquals(swc, wc);
 		swc.clear();
 		assertEquals(0, swc.size());
 		assertTrue(swc.isEmpty());
@@ -688,7 +689,7 @@ public class WeightedCollectionTest
 		assertEquals(13, swc.size());
 		assertFalse(swc.isEmpty());
 		assertEquals(swc, swc);
-		assertFalse(swc.equals(wc));
+		assertNotEquals(swc, wc);
 		swc.clear();
 		assertEquals(0, swc.size());
 	}
@@ -726,7 +727,7 @@ public class WeightedCollectionTest
 		ciSet.add("aString");
 		csSet.add("aString");
 		assertEquals(ciSet, csSet);
-		assertFalse(ciSet.toString().equals(csSet.toString()));
+		assertNotEquals(ciSet.toString(), csSet.toString());
 	}
 
 

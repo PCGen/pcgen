@@ -694,7 +694,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @param control
 	 *            The CodeControl to be enabled using its default values
 	 */
-	public static void enableBuiltInControl(LoadContext context,
+	private static void enableBuiltInControl(LoadContext context,
 		CControl control)
 	{
 		AbstractReferenceContext referenceContext = context.getReferenceContext();
@@ -775,13 +775,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		//Test for items we know we use (temporary)
 		//Alignment
 		if (ControlUtilities.isFeatureEnabled(context, CControl.ALIGNMENTFEATURE)
-			&& !context.getVariableContext().hasSolver(refContext.getManufacturer(PCAlignment.class)))
+			&& !context.getVariableContext().hasDefaultModifier(refContext.getManufacturer(PCAlignment.class)))
 		{
 			Logging.errorPrint("GameMode " + gameMode.getName() + " has Alignment text - "
 				+ "Thus it  requires a default value for ALIGNMENT format");
 		}
 		//Face
-		if (!context.getVariableContext().hasSolver(FormatUtilities.ORDEREDPAIR_MANAGER))
+		if (!context.getVariableContext().hasDefaultModifier(FormatUtilities.ORDEREDPAIR_MANAGER))
 		{
 			Logging.errorPrint(gameMode.getName() + " did not have required default value for ORDEREDPAIR format");
 		}

@@ -309,13 +309,13 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+			assertEquals("TestWP2", unparsed[0]);
 		}
 	}
 

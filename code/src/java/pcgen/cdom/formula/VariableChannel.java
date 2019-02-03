@@ -105,7 +105,7 @@ public final class VariableChannel<T> implements VariableListener<T>, VetoableRe
 		T value = varStore.get(varID);
 		if (value == null)
 		{
-			return manager.getDefaultValue(varID.getVariableFormat());
+			return manager.getDefaultValue(varID.getFormatManager());
 		}
 		return value;
 	}

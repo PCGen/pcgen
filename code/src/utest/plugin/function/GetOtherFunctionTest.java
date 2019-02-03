@@ -17,13 +17,13 @@
  */
 package plugin.function;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 import static plugin.function.testsupport.TestUtilities.doParse;
 
 import java.util.Optional;
 
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -40,8 +40,13 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.core.Skill;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.VariableContext;
 import plugin.function.testsupport.AbstractFormulaTestCase;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.FormatSupport;
 
 /**
  * Test getOther() function in the new formula system
@@ -49,12 +54,16 @@ import plugin.function.testsupport.AbstractFormulaTestCase;
 public class GetOtherFunctionTest extends AbstractFormulaTestCase
 {
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		SimpleFormatManagerLibrary formatLibrary = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(formatLibrary);
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		refContext.constructNowIfNecessary(Skill.class, "NONE");
+		FormatSupport.addNoneAsDefault(context, refContext.getManufacturer(Skill.class));
 		getFunctionLibrary().addFunction(new GetOtherFunction());
 		getOperatorLibrary().addAction(new NumberMinus());
 	}
@@ -64,10 +73,10 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "getOther(\"PC.SKILL\")";
 		SimpleNode node = doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		String s = "getOther(\"PC.SKILL\", \"Foo\", 4, 5)";
 		SimpleNode simpleNode = doParse(s);
-		isNotValid(s, simpleNode, numberManager, null);
+		isNotValid(s, simpleNode);
 	}
 
 	@Test
@@ -75,7 +84,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "getOther(3,\"SkillKey\",3)";
 		SimpleNode node = doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -85,15 +94,8 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = doParse(formula);
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(null);
-		try
-		{
-			semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context));
-			TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
-		}
-		catch (SemanticsFailureException e)
-		{
-			//Expected
-		}
+		assertThrows(SemanticsFailureException.class,
+				() -> semanticsVisitor.visit(node, semantics.getWith(ManagerKey.CONTEXT, context)));
 	}
 
 	@Test
@@ -106,16 +108,9 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		FormulaSemantics semantics = generateFormulaSemantics(null);
 		Object result = semanticsVisitor.visit(node,
 			semantics.getWith(ManagerKey.CONTEXT, context));
-		try
+		if (result instanceof Number)
 		{
-			if (result instanceof Number)
-			{
-				TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
-			}
-		}
-		catch (SemanticsFailureException e)
-		{
-			//Also okay
+			fail(() -> "Expected Invalid Formula: " + formula + " but was valid");
 		}
 	}
 

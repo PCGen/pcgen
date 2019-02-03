@@ -41,6 +41,7 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -99,6 +100,15 @@ public class ClassFacetTest
 		altid = CharID.getID(cid);
 		facet.addDataFacetChangeListener(classListener);
 		facet.addLevelChangeListener(classListener);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		classListener = null;
 	}
 
 	private void assertEventCount(int a, int r, int l)

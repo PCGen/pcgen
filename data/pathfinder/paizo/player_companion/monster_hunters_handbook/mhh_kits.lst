@@ -1,0 +1,92 @@
+SOURCELONG:Monster Hunter's Handbook		SOURCESHORT:MHH	SOURCEWEB:http://paizo.com/products/btpy9s7z	SOURCEDATE:2017-04
+
+STARTPACK:Monster Hunter's Kit (Aberration)		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:257
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Soothe Syrup					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Wismuth Salix				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Aberration)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Aberration)			QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Animal)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Animal)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Animal)			QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Dragon)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Dragon)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Dragon)			QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Fey)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:224
+GEAR:Bear Trap (Cold Iron)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Weapon Blanch (Cold Iron)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Fey)				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Fey)				QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Magical Beast)		TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Magical Beast)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Magical Beast)		QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Monstrous Humanoid)	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Monstrous Humanoid)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Monstrous Humanoid)	QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Ooze)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:232
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Alkali (Flask)				QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Ooze)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Ooze)				QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Outsider)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Outsider)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Outsider)			QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Plant)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Plant)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Plant)				QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Undead)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Undead)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Undead)			QTY:1		SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Monster Hunter's Kit (Vermin)			TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:202
+GEAR:Bear Trap					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Footprint Book				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scent Cloak					QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Monster Bait (Vermin)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Odor Stalk (Vermin)			QTY:1		SIZE:PC	LOCATION:Carried

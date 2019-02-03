@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-9 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,6 +18,7 @@
 package pcgen.rules.context;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.calculation.FormulaModifier;
@@ -39,6 +40,8 @@ import pcgen.base.formula.inst.VariableManager;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.FormulaSetupFactory;
 import pcgen.base.solver.Modifier;
+import pcgen.base.solver.ModifierValueStore;
+import pcgen.base.solver.SimpleSolverFactory;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SolverManager;
 import pcgen.base.util.ComplexResult;
@@ -49,6 +52,9 @@ import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.VariableChannel;
 import pcgen.cdom.formula.VariableChannelFactory;
 import pcgen.cdom.formula.VariableChannelFactoryInst;
+import pcgen.cdom.formula.VariableWrapper;
+import pcgen.cdom.formula.VariableWrapperFactory;
+import pcgen.cdom.formula.VariableWrapperFactoryInst;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.MasterModifierFactory;
@@ -59,7 +65,8 @@ import pcgen.util.Logging;
  * and (in some cases) subsequently while the data set associated with the parent
  * LoadContext is operating.
  */
-public class VariableContext implements VariableChannelFactory, VariableLibrary
+public class VariableContext implements VariableChannelFactory,
+		VariableWrapperFactory, VariableLibrary
 {
 	/**
 	 * This is the FormulaSetupFactory for this VariableContext. This is used to generate
@@ -85,10 +92,16 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	private final WriteableFunctionLibrary myFunctionLibrary = new SimpleFunctionLibrary();
 
 	/**
+	 * The ValueStore for the FormulaSetupFactory and this VariableContext. Local so
+	 * that we can set the defaults for variable formats from data.
+	 */
+	private final ModifierValueStore myValueStore = new ModifierValueStore();
+
+	/**
 	 * The SolverFactory for the FormulaSetupFactory and this VariableContext. Local so
 	 * that we can set the defaults for variable formats from data.
 	 */
-	private final SolverFactory solverFactory = new SolverFactory();
+	private final SolverFactory solverFactory = new SimpleSolverFactory(myValueStore);
 
 	/**
 	 * The LegalScopeManager for the FormulaSetupFactory and this VariableContext. Local
@@ -101,7 +114,8 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 * The VariableManager for the FormulaSetupFactory and this VariableContext. Local so
 	 * the data can assert legal variables.
 	 */
-	private final VariableManager variableManager = new VariableManager(legalScopeManager);
+	private final VariableManager variableManager =
+			new VariableManager(legalScopeManager, myValueStore);
 
 	/**
 	 * The MasterModifierFactory for this VariableContext.
@@ -131,6 +145,13 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	private VariableChannelFactoryInst variableChannelFactory = new VariableChannelFactoryInst();
 
 	/**
+	 * Contains a VariableWrapperFactory used to develop VariableWrappers for this
+	 * VariableContext.
+	 */
+	private VariableWrapperFactoryInst variableWrapperFactory =
+			new VariableWrapperFactoryInst();
+
+	/**
 	 * Constructs a new VariableContext with the given ManagerFactory.
 	 * 
 	 * @param managerFactory
@@ -146,10 +167,10 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 		}
 		FormulaUtilities.loadBuiltInFunctions(myFunctionLibrary);
 		LegalScopeUtilities.loadLegalScopeLibrary(legalScopeManager);
-		formulaSetupFactory.setFunctionLibrarySupplier(() -> myFunctionLibrary);
-		formulaSetupFactory.setSolverFactorySupplier(() -> solverFactory);
+		formulaSetupFactory.setValueStoreSupplier(() -> myValueStore);
 		formulaSetupFactory.setLegalScopeManagerSupplier(() -> legalScopeManager);
-		formulaSetupFactory.setVariableLibraryFunction(lsl -> variableManager);
+		formulaSetupFactory.setFunctionLibrarySupplier(() -> myFunctionLibrary);
+		formulaSetupFactory.setVariableLibraryFunction((lsm, vs) -> variableManager);
 	}
 
 	/**
@@ -329,8 +350,8 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 * @param <T>
 	 *            The format (class) of object changed by the given Modifier
 	 * @param varFormat
-	 *            The format of Solver for which the given Modifier should be the default
-	 *            value
+	 *            The format (as a FormatManager) of Solver for which the given Modifier
+	 *            should be the default value
 	 * @param defaultModifier
 	 *            The Modifier to be used as the default Modifier for the given Solver
 	 *            format
@@ -339,50 +360,43 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	 *             if the given Solver format already has a default Modifier defined for
 	 *             this SolverFactory
 	 */
-	public <T> void addDefault(Class<T> varFormat, Modifier<T> defaultModifier)
+	public <T> void addDefault(FormatManager<T> varFormat, Modifier<T> defaultModifier)
 	{
 		solverFactory.addSolverFormat(varFormat, defaultModifier);
 	}
 
 	/**
-	 * Returns the default value for a given Format (provided as a Class).
+	 * Returns the default value for a given Format (provided as a FormatManager).
 	 * 
 	 * @param <T>
 	 *            The format (class) of object for which the default value should be
 	 *            returned
 	 * @param variableFormat
-	 *            The Class (data format) for which the default value should be returned
+	 *            The FormatManager for which the default value should be returned
 	 * @return The default value for the given Format
 	 */
-	public <T> T getDefaultValue(Class<T> variableFormat)
+	public <T> T getDefaultValue(FormatManager<T> variableFormat)
 	{
 		return solverFactory.getDefault(variableFormat);
 	}
 
 	/**
-	 * Returns true if there is a default value set for the given FormatManager.
+	 * Returns true if there is a default modifier set for the given FormatManager.
+	 * 
+	 * Warning: This is NOT whether there is a Default Value for the given FormatManager.
+	 * This is a much simpler test that checks if there is a specifically provided Default
+	 * Modifier. The distinction here is that a format like ARRAY[NUMBER] will return
+	 * false from this; while it is legal, it never have a specifically defined default,
+	 * as it is a derived default value.
 	 * 
 	 * @param formatManager
-	 *            The FormatManager indicating the format for which the default value
-	 *            should be returned
-	 * @return true if there is a default value set for the given FormatManager; false
+	 *            The FormatManager indicating the format to check for a default modifier
+	 * @return true if there is a default modifier set for the given FormatManager; false
 	 *         otherwise
 	 */
-	public boolean hasSolver(FormatManager<?> formatManager)
+	public boolean hasDefaultModifier(FormatManager<?> formatManager)
 	{
-		/*
-		 * TODO This is an ugly hack. Note a fix has been pushed upstream in -formula, but
-		 * will require a significant new library update that I don't want to mix in here.
-		 */
-		try
-		{
-			solverFactory.getSolver(formatManager);
-			return true;
-		}
-		catch (IllegalArgumentException e)
-		{
-			return false;
-		}
+		return myValueStore.get(formatManager) != null;
 	}
 
 	/*
@@ -411,6 +425,12 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	{
 		variableManager.assertLegalVariableID(varName, varScope, formatManager);
 	}
+
+	@Override
+	public List<FormatManager<?>> getInvalidFormats()
+	{
+		return variableManager.getInvalidFormats();
+	}
 	/*
 	 * End: (Delegated) Items part of VariableLibrary interface
 	 */
@@ -437,5 +457,29 @@ public class VariableContext implements VariableChannelFactory, VariableLibrary
 	}
 	/*
 	 * End: (Delegated) Items part of VariableChannelFactory interface
+	 */
+
+	/*
+	 * Begin: (Delegated) Items part of VariableWrapperFactory interface
+	 */
+	@Override
+	public VariableWrapper<?> getWrapper(CharID id, VarScoped owner, String name)
+	{
+		return variableWrapperFactory.getWrapper(id, owner, name);
+	}
+
+	@Override
+	public VariableWrapper<?> getGlobalWrapper(CharID id, String name)
+	{
+		return variableWrapperFactory.getGlobalWrapper(id, name);
+	}
+
+	@Override
+	public void disconnect(VariableWrapper<?> variableWrapper)
+	{
+		variableWrapperFactory.disconnect(variableWrapper);
+	}
+	/*
+	 * End: (Delegated) Items part of VariableWrapperFactory interface
 	 */
 }

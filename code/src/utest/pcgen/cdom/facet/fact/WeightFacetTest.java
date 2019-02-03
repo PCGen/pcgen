@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,6 +40,15 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
+	}
+
+	@AfterEach
+	@Override
+	public void tearDown()
+	{
+		id = null;
+		facet = null;
+		super.tearDown();
 	}
 
 	@Test

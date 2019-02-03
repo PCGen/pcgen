@@ -17,16 +17,17 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import pcgen.cdom.content.ContentDefinition;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -37,41 +38,38 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class VisibleTokenTest extends TestCase
+class VisibleTokenTest
 {
 
-	static VisibleToken token = new VisibleToken();
-	ContentDefinition cd;
+	private static final VisibleToken token = new VisibleToken();
+	private FactDefinition<CDOMObject, Object> cd;
 
-	protected LoadContext context;
+	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
+	private static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
 	}
 
-	protected void resetContext()
+	private void resetContext()
 	{
 		URI testURI = testCampaign.getURI();
 		context =
@@ -102,9 +100,7 @@ public class VisibleTokenTest extends TestCase
 		assertNotNull(cd.getVisibility());
 		assertEquals(Visibility.DEFAULT, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed);
 	}
 
 	@Test
@@ -115,9 +111,7 @@ public class VisibleTokenTest extends TestCase
 		assertNotNull(cd.getVisibility());
 		assertEquals(Visibility.HIDDEN, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("NO", unparsed[0]);
+		assertArrayEquals(new String[]{"NO"}, unparsed);
 	}
 
 	@Test
@@ -128,9 +122,7 @@ public class VisibleTokenTest extends TestCase
 		assertNotNull(cd.getVisibility());
 		assertEquals(Visibility.DISPLAY_ONLY, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("DISPLAY", unparsed[0]);
+		assertArrayEquals(new String[]{"DISPLAY"}, unparsed);
 	}
 
 	@Test
@@ -141,9 +133,7 @@ public class VisibleTokenTest extends TestCase
 		assertNotNull(cd.getVisibility());
 		assertEquals(Visibility.OUTPUT_ONLY, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("EXPORT", unparsed[0]);
+		assertArrayEquals(new String[]{"EXPORT"}, unparsed);
 	}
 
 }

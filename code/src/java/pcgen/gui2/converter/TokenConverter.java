@@ -226,8 +226,15 @@ public class TokenConverter
 		SubClassCategory.clearConstants();
 		SubRace.clearConstants();
 		SubRegion.clearConstants();
-		Type.clearConstants();
+		Type.buildMap();
 		VariableKey.clearConstants();
+	}
+
+	public static void clear()
+	{
+		MAP.clear();
+		TOKEN_CACHE.clear();
+		CACHED.clear();
 	}
 
 }

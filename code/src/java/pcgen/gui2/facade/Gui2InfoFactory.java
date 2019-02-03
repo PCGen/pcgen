@@ -1255,7 +1255,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		List<BaseKit> sortedObjects = new ArrayList<>();
 		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
-		sortedObjects.sort(new ObjectTypeComparator());
+		sortedObjects.sort(Comparator.comparing(o -> o.getObjectName()));
 
 		String lastObjectName = EMPTY_STRING;
 		for (BaseKit bk : sortedObjects)
@@ -1473,17 +1473,6 @@ public class Gui2InfoFactory implements InfoFactory
 			facade.getSource());
 
 		return infoText.toString();
-	}
-
-	private static class ObjectTypeComparator implements Comparator<BaseKit>
-	{
-		@Override
-		public int compare(BaseKit bk1, BaseKit bk2)
-		{
-			String name1 = bk1.getObjectName();
-			String name2 = bk2.getObjectName();
-			return name1.compareTo(name2);
-		}
 	}
 
 	private static class BonusComparator implements Comparator<BonusObj>

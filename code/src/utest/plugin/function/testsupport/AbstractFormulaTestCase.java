@@ -15,32 +15,28 @@
  */
 package plugin.function.testsupport;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.lang.ref.WeakReference;
-import java.util.List;
 import java.util.Optional;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.SimpleNode;
-import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.LoadContextFacet;
@@ -51,9 +47,10 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import pcgen.rules.context.VariableContext;
 
-public abstract class AbstractFormulaTestCase extends TestCase
+import util.FormatSupport;
+
+public abstract class AbstractFormulaTestCase
 {
 
 	protected FormatManager<Number> numberManager = new NumberManager();
@@ -62,25 +59,19 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected LoadContext context;
 	private FormulaManager formulaManager;
 
-	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		FacetLibrary.getFacet(LoadContextFacet.class).set(context.getDataSetID(),
 			new WeakReference<>(context));
-		VariableContext varContext = context.getVariableContext();
-		varContext.addDefault(Number.class, getDMod(0, numberManager));
-		varContext.addDefault(String.class, getDMod("", stringManager));
+		FormatSupport.addBasicDefaults(context);
 	}
 
 	/**
 	 * Force a given formula to be valid.
 	 * 
-	 * @param formula
-	 *            The formula instructions to be checked
 	 * @param node
 	 *            The root node for processing the formula
 	 * @param formatManager
@@ -88,8 +79,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	 * @param assertedFormat
 	 *            The asserted format
 	 */
-	public void isValid(String formula, SimpleNode node, FormatManager<?> formatManager,
-		FormatManager<?> assertedFormat)
+	protected void isValid(SimpleNode node, FormatManager<?> formatManager,
+	                       FormatManager<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics = generateFormulaSemantics(assertedFormat);
@@ -97,24 +88,23 @@ public abstract class AbstractFormulaTestCase extends TestCase
 				(FormatManager<?>) semanticsVisitor.visit(node, semantics);
 		if (!formatManager.equals(resultFormat))
 		{
-			TestCase
-				.fail("Expected Formula to return: " + formatManager.getIdentifierType()
+			fail(() -> "Expected Formula to return: " + formatManager.getIdentifierType()
 					+ " but it returned: " + resultFormat.getIdentifierType());
 		}
 	}
 
-	public void isStatic(String formula, SimpleNode node, boolean b)
+	protected void isStatic(String formula, SimpleNode node, boolean b)
 	{
 		StaticVisitor staticVisitor =
 				new StaticVisitor(getFormulaManager().get(FormulaManager.FUNCTION));
-		boolean isStat = ((Boolean) staticVisitor.visit(node, null)).booleanValue();
+		boolean isStat = (Boolean) staticVisitor.visit(node, null);
 		if (isStat != b)
 		{
-			TestCase.fail("Expected Static (" + b + ") Formula: " + formula);
+			fail(() -> "Expected Static (" + b + ") Formula: " + formula);
 		}
 	}
 
-	public void evaluatesTo(String formula, SimpleNode node, Object valueOf)
+	protected void evaluatesTo(String formula, SimpleNode node, Object valueOf)
 	{
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
@@ -139,50 +129,24 @@ public abstract class AbstractFormulaTestCase extends TestCase
 				return;
 			}
 		}
-		TestCase.fail("Expected " + valueOf.getClass().getSimpleName() + " (" + valueOf
-			+ ") for Formula: " + formula + ", was " + result + " ("
-			+ result.getClass().getSimpleName() + ")");
+		fail(() -> "Expected " + valueOf.getClass().getSimpleName() + " (" + valueOf
+				+ ") for Formula: " + formula + ", was " + result + " ("
+				+ result.getClass().getSimpleName() + ")");
 	}
 
-	protected void isNotValid(String formula, SimpleNode node,
-		FormatManager<?> formatManager, FormatManager<?> assertedFormat)
+	protected void isNotValid(String formula, SimpleNode node)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = generateFormulaSemantics(assertedFormat);
+		FormulaSemantics semantics = generateFormulaSemantics(null);
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula + " but was valid");
+			fail(() -> "Expected Invalid Formula: " + formula + " but was valid");
 		}
 		catch (SemanticsFailureException e)
 		{
 			//Expected
 		}
-	}
-
-	protected List<VariableID<?>> getVariables(SimpleNode node)
-	{
-		DependencyManager fdm = generateDependencyManager(null);
-		new DependencyVisitor().visit(node, fdm);
-		return fdm.get(DependencyManager.VARIABLES).get().getVariables();
-	}
-
-	protected VariableID<Number> getVariable(String formula)
-	{
-		VariableLibrary variableLibrary = getVariableLibrary();
-		variableLibrary.assertLegalVariableID(formula,
-			getGlobalScopeInst().getLegalScope(), numberManager);
-		return (VariableID<Number>) variableLibrary.getVariableID(getGlobalScopeInst(),
-			formula);
-	}
-
-	protected VariableID<Boolean> getBooleanVariable(String formula)
-	{
-		VariableLibrary variableLibrary = getVariableLibrary();
-		variableLibrary.assertLegalVariableID(formula,
-			getGlobalScopeInst().getLegalScope(), FormatUtilities.BOOLEAN_MANAGER);
-		return (VariableID<Boolean>) variableLibrary.getVariableID(getGlobalScopeInst(),
-			formula);
 	}
 
 	protected WriteableFunctionLibrary getFunctionLibrary()
@@ -238,15 +202,6 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.getWith(ManagerKey.CONTEXT, context);
 	}
 
-	private DependencyManager generateDependencyManager(FormatManager<?> assertedFormat)
-	{
-		Optional<FormatManager<?>> format =
-				(assertedFormat == null) ? Optional.empty() : Optional.of(assertedFormat);
-		return new DependencyManager(formulaManager)
-			.getWith(DependencyManager.INSTANCE, getGlobalScopeInst())
-			.getWith(DependencyManager.ASSERTED, format);
-	}
-
 	public EvaluationManager generateManager()
 	{
 		return new EvaluationManager()
@@ -255,48 +210,4 @@ public abstract class AbstractFormulaTestCase extends TestCase
 			.getWith(EvaluationManager.ASSERTED, Optional.of(FormatUtilities.NUMBER_MANAGER))
 			.getWith(ManagerKey.CONTEXT, context);
 	}
-
-	private <T> Modifier<T> getDMod(T o, final FormatManager<T> f)
-	{
-		return new Modifier<T>()
-		{
-
-			@Override
-			public T process(EvaluationManager manager)
-			{
-				return o;
-			}
-
-			@Override
-			public void getDependencies(DependencyManager dependencyManager)
-			{
-				//No dependencies
-			}
-
-			@Override
-			public long getPriority()
-			{
-				return 0;
-			}
-
-			@Override
-			public FormatManager<T> getVariableFormat()
-			{
-				return f;
-			}
-
-			@Override
-			public String getIdentification()
-			{
-				return "SET";
-			}
-
-			@Override
-			public String getInstructions()
-			{
-				return "DEFAULT";
-			}
-		};
-	}
-
 }

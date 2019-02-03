@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2018.
+ * Copyright (c) Thomas Parker, 2018-9.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,7 +17,11 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
@@ -136,10 +140,47 @@ public class VariableUtilities
 		listener.dataAdded(addEvent);
 	}
 
+	/**
+	 * Returns a VariableID for a local variable on the PlayerCharacter represented by the
+	 * given CharID and on the object represented by the given ScopeInstance.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter that the variable is
+	 *            contained within
+	 * @param scopeInst
+	 *            The ScopeInstance representing the object that the variable is on
+	 * @param name
+	 *            The name of the variable for which the VariableID should be returned
+	 * @return The VariableID for the variable with the given name on the local object
+	 *         represented by the given ScopeInstance
+	 */
 	public static VariableID<?> getLocalVariableID(CharID id,
 		ScopeInstance scopeInst, String name)
 	{
 		LoadContext loadContext = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
 		return loadContext.getVariableContext().getVariableID(scopeInst, name);
+	}
+
+	/**
+	 * Returns a VariableID for a local variable on the PlayerCharacter represented by the
+	 * given CharID and on the given object.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter that the variable is
+	 *            contained within
+	 * @param owner
+	 *            The owning VarScoped object that the variable is on
+	 * @param name
+	 *            The name of the variable for which the VariableID should be returned
+	 * @return The VariableID for the variable with the given name on the given object
+	 */
+	public static VariableID<?> getLocalVariableID(CharID id, VarScoped owner,
+		String name)
+	{
+		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
+		Optional<String> localScopeName = owner.getLocalScopeName();
+		ScopeInstance scopeInst =
+				instFactory.get(localScopeName.get(), Optional.of(owner));
+		return VariableUtilities.getLocalVariableID(id, scopeInst, name);
 	}
 }

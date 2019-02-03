@@ -25,7 +25,7 @@ public class UserSpecialAbilityFacetTest extends
 		AbstractQualifiedListFacetTest<SpecialAbility>
 {
 
-	private UserSpecialAbilityFacet facet = new UserSpecialAbilityFacet();
+	private final AbstractQualifiedListFacet<SpecialAbility> facet = new UserSpecialAbilityFacet();
 
 	@Override
 	protected AbstractQualifiedListFacet<SpecialAbility> getFacet()

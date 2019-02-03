@@ -153,7 +153,7 @@ public class ScanForUnusedIl8nKeys
 		Writer writer = new BufferedWriter(new PrintWriter(cleanPropsFile, StandardCharsets.UTF_8));
 		writer.write("# " + PROPERTIES_FILE
 			+ " with all unused keys removed as at "
-			+ DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(new Date())
+			+ DateFormatUtils.ISO_8601_EXTENDED_DATETIME_TIME_ZONE_FORMAT.format(new Date())
 			+ "\n");
 		boolean lastLineBlank = false;
 		for (String line : lines)

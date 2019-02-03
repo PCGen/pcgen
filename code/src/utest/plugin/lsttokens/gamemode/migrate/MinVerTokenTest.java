@@ -17,30 +17,30 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * MinVerTokenTest checks the function of the MinVerToken class.
  * 
  */
-public class MinVerTokenTest
+class MinVerTokenTest
 {
 	private MigrationRule migrationRule;
 	private MinVerToken token;
 	private String gameModeName;
 
 	
-	@Before
-	public void setUp()
+	@BeforeEach
+	void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		token = new MinVerToken();
@@ -50,9 +50,9 @@ public class MinVerTokenTest
 	@Test
 	public void testParseValidVer()
 	{
-		assertTrue("Parse should have been successful",
-			token.parse(migrationRule, "6.01.03", gameModeName));
-		assertEquals("MinVer", "6.01.03", migrationRule.getMinVer());
+		assertTrue(
+				token.parse(migrationRule, "6.01.03", gameModeName), "Parse should have been successful");
+		assertEquals("6.01.03", migrationRule.getMinVer(), "MinVer");
 	}
 
 	@Test
@@ -63,19 +63,19 @@ public class MinVerTokenTest
 					"6.01.02", "6.01.02-dev"};
 		for (String verString : goodVersions)
 		{
-			assertTrue("Valid version " + verString
-				+ " should have been accepted",
-				token.parse(migrationRule, verString, gameModeName));
-			assertEquals("MinVer", verString, migrationRule.getMinVer());
+			assertTrue(
+					token.parse(migrationRule, verString, gameModeName), () -> "Valid version " + verString
+							+ " should have been accepted");
+			assertEquals(verString, migrationRule.getMinVer(), "MinVer");
 		}
 	}
 
 	@Test
 	public void testParseInvalidVerEmpty()
 	{
-		assertFalse("Empty version should not have been accepted",
-			token.parse(migrationRule, "", gameModeName));
-		assertNull("MinVer", migrationRule.getMinVer());
+		assertFalse(
+				token.parse(migrationRule, "", gameModeName), "Empty version should not have been accepted");
+		assertNull(migrationRule.getMinVer(), "MinVer");
 	}
 
 	@Test
@@ -86,10 +86,10 @@ public class MinVerTokenTest
 					"3.rc2", "6.0.1RC2"};
 		for (String verString : badVersions)
 		{
-			assertFalse("Invalid version " + verString
-				+ " should not have been accepted",
-				token.parse(migrationRule, verString, gameModeName));
-			assertNull("MinVer", migrationRule.getMinVer());
+			assertFalse(
+					token.parse(migrationRule, verString, gameModeName), () -> "Invalid version " + verString
+							+ " should not have been accepted");
+			assertNull(migrationRule.getMinVer(), "MinVer");
 		}
 	}
 }

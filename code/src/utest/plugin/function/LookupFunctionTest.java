@@ -17,15 +17,15 @@
  */
 package plugin.function;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.EvaluationManager;
@@ -49,13 +49,17 @@ import pcgen.cdom.formula.ManagerKey;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 public class LookupFunctionTest extends AbstractFormulaTestCase
 {
 
 	private SimpleFormatManagerLibrary formatLibrary;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		formatLibrary = new SimpleFormatManagerLibrary();
@@ -136,10 +140,10 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "lookup(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		formula = "lookup(2, 3, 4, 5)";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -161,7 +165,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(3,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -194,7 +198,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,3,ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -216,7 +220,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -239,7 +243,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(badf(),\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -272,7 +276,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,badf(),ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -297,7 +301,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",badf())";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -330,7 +334,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		evaluatesTo(formula, node, 2);
 		Object rv =
@@ -367,7 +371,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -403,7 +407,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -439,7 +443,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -540,7 +544,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		try
 		{
 			semanticsVisitor.visit(node, semantics);
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			fail("Expected Invalid Formula: " + formula);
 		}
 		catch (SemanticsFailureException e)
 		{
@@ -579,15 +583,15 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"That\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result instanceof Number)
 		{
-			TestCase.fail(
-				"Expected Invalid result, should have been a string due to invalid column: "
-					+ result);
+			fail(
+					"Expected Invalid result, should have been a string due to invalid column: "
+						+ result);
 		}
 	}
 
@@ -622,15 +626,15 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 		String formula = "lookup(TableA,\"Oh No\",ResultColumn)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		EvaluationManager manager = generateManager();
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (!result.equals(0))
 		{
-			TestCase.fail(
-				"Expected Invalid result, should have been zero due to invalid column: "
-					+ result);
+			fail(
+					"Expected Invalid result, should have been zero due to invalid column: "
+						+ result);
 		}
 	}
 

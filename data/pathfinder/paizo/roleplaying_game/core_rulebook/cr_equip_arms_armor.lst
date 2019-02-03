@@ -351,3 +351,4 @@ Improvised Weapon (2d4)		PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.
 Improvised Weapon (2d6)		PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.Improvised	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	WIELD:TwoHanded	SIZE:M
 Improvised Weapon (2d8)		PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.Improvised	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	WIELD:TwoHanded	SIZE:M
 Improvised Weapon (2d10)	PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.Improvised	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	WIELD:TwoHanded	SIZE:M
+

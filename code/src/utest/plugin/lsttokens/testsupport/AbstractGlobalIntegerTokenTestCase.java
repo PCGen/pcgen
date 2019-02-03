@@ -180,14 +180,14 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 			assertTrue(parse("5"));
 			assertTrue(parse("1"));
 			String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "1", unparsed[0]);
+			assertEquals("1", unparsed[0]);
 		}
 		else
 		{
 			assertTrue(parse("-2"));
 			assertTrue(parse("-4"));
 			String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "-4", unparsed[0]);
+			assertEquals("-4", unparsed[0]);
 		}
 	}
 

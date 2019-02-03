@@ -35,6 +35,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -72,6 +73,14 @@ public abstract class AbstractListFacetTest<T>
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		listener = null;
 	}
 
 	protected void assertEventCount(int a, int r)

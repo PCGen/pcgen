@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -33,6 +31,9 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 public class StatLockFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, StatLock>
 {
@@ -41,6 +42,7 @@ public class StatLockFacetTest extends
 	private StatLock[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

@@ -18,28 +18,35 @@
  */
 package pcgen.persistence.lst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-import junit.framework.TestCase;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * A collection of tests to validate the functioning of the BioSetLoader class.
  * Static methods are also made available should other test classes require
  * BioSet loading functions.
  */
-public final class BioSetLoaderTest extends TestCase
+public final class BioSetLoaderTest
 {
 	/**
 	 * The sample Bio set data for testing.
 	 */
 	private static final String[] BIO_SET_DATA =
-			new String[]{
+			{
 	"AGESET:0|Adulthood",
 	"RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
 	"RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
@@ -70,49 +77,22 @@ public final class BioSetLoaderTest extends TestCase
 	 * The base race used in the bio set data.
 	 */
 	private static final String[] BASE_RACE_NAME =
-			new String[]{"Human", "Dwarf", "Half-Elf"};
+			{"Human", "Dwarf", "Half-Elf"};
 
 	private BioSetLoader loader;
 
-    @Override
-	protected void setUp() throws Exception
+    @BeforeEach
+    public void setUp() throws Exception
 	{
-		super.setUp();
 
 		loader = new BioSetLoader();
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA, loader);
 	}
 
-    @Override
-	protected void tearDown() throws Exception
+    @AfterEach
+    public void tearDown() throws Exception
 	{
-		try
-		{
-			SettingsHandler.getGame().getBioSet().clearUserMap();
-		}
-
-		finally
-		{
-			super.tearDown();
-		}
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 */
-	public BioSetLoaderTest()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 *
-	 * @param name The name of the test class.
-	 */
-	public BioSetLoaderTest(final String name)
-	{
-		super(name);
+		SettingsHandler.getGame().getBioSet().clearUserMap();
 	}
 
 	/**
@@ -124,9 +104,8 @@ public final class BioSetLoaderTest extends TestCase
 	 */
 	public static void loadBioSet(LoadContext context, final String[] bioSetData, BioSetLoader loader) throws Exception
 	{
-		for (int i = 0; i < bioSetData.length; i++)
+		for (final String line : bioSetData)
 		{
-			final String line = bioSetData[i];
 			loader.parseLine(context, line, new URI("http://UNIT_TEST_CASE"));
 		}
 		SettingsHandler.getGame().setBioSet(loader.bioSet);
@@ -136,13 +115,14 @@ public final class BioSetLoaderTest extends TestCase
 	 * Validate the data loaded in setUp() to verify that the parseLine fucntion in
 	 * BioSetLoader is functioning properly.
 	 */
+	@Test
 	public void testParseLine()
 	{
 		final String[] TEST_TAGS =
-				new String[]{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
+				{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
 					"BASEAGE", "MAXAGE", "SEX"};
 		final String[][] EXPECTED_VALUES =
-				new String[][]{
+				{
 					{
 						"[Blond|Brown]",
 						"[Blue]",
@@ -173,7 +153,6 @@ public final class BioSetLoaderTest extends TestCase
 
 		// Check the data loaded in setup to ensure that it has been loaded correctly.
 		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
-		List<String> baseRaceTag;
 		for (int i = 0; i < BASE_RACE_NAME.length; i++)
 		{
 			final String raceName = BASE_RACE_NAME[i];
@@ -181,9 +160,9 @@ public final class BioSetLoaderTest extends TestCase
 			for (int j = 0; j < TEST_TAGS.length; j++)
 			{
 				final String testArg = TEST_TAGS[j];
-				baseRaceTag =
-						currBioSet.getValueInMaps(Optional.empty(), raceName,
-							testArg);
+				List<String> baseRaceTag = currBioSet.getValueInMaps(Optional.empty(), raceName,
+						testArg
+				);
 				//				System.out.println(
 				//					"Got '"
 				//						+ testArg
@@ -192,8 +171,10 @@ public final class BioSetLoaderTest extends TestCase
 				//						+ "' of "
 				//						+ baseRaceTag
 				//						+ ".");
-				assertEquals("BioSet tag " + testArg + " for race " + raceName
-					+ ":", EXPECTED_VALUES[i][j], baseRaceTag.toString());
+				assertEquals(EXPECTED_VALUES[i][j], baseRaceTag.toString(),
+						() -> "BioSet tag " + testArg + " for race " + raceName
+								+ ":"
+				);
 			}
 		}
 
@@ -203,11 +184,12 @@ public final class BioSetLoaderTest extends TestCase
 	 * Check that a valid second bio set definition can be loaded.
 	 * @throws Exception  If a problem occurs when loading the data
 	 */
+	@Test
 	public void testParseSecondBioSetGood() throws Exception
 	{
-		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
-			.getGame().getBioSet().getBaseRegionPCCText("Ogre"));
-		String[] bioData2 = new String[]{
+		assertEquals("REGION:None\n\n", SettingsHandler
+				.getGame().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");
+		String[] bioData2 = {
 			"AGESET:0|Adulthood",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
 			"RACENAME:Ogre		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
@@ -224,8 +206,7 @@ public final class BioSetLoaderTest extends TestCase
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
 					.getBaseRegionPCCText("Ogre");
-		assertFalse("Ogre bio details expected after load but was "
-			+ racePCCText, "REGION:None\n\n".equals(racePCCText));
+		assertNotEquals("REGION:None\n\n", racePCCText, "Ogre bio details expected after load");
 		
 	}
 
@@ -235,11 +216,12 @@ public final class BioSetLoaderTest extends TestCase
 	 * the age set will be used.
 	 * @throws Exception  If a problem occurs when loading the data
 	 */
+	@Test
 	public void testParseSecondBioSetBadName() throws Exception
 	{
-		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
-			.getGame().getBioSet().getBaseRegionPCCText("Ogre"));
-		String[] bioData2 = new String[]{
+		assertEquals("REGION:None\n\n", SettingsHandler
+				.getGame().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");
+		String[] bioData2 = {
 			"AGESET:0|Bad",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
 			"RACENAME:Ogre		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
@@ -256,10 +238,10 @@ public final class BioSetLoaderTest extends TestCase
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
 					.getBaseRegionPCCText("Ogre");
-		assertTrue(
-			"Expected details to be against original ageset name but was "
-				+ racePCCText,
-			racePCCText
-				.startsWith("REGION:None\n\nAGESET:0|Adulthood\nRACENAME:Ogre"));
+		Assertions.assertTrue(
+				racePCCText
+						.startsWith("REGION:None\n\nAGESET:0|Adulthood\nRACENAME:Ogre"),
+				"Expected details to be against original ageset name"
+		);
 	}
 }

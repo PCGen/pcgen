@@ -28,6 +28,8 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class NaturalWeaponProfFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, WeaponProf>
 {
@@ -36,6 +38,7 @@ public class NaturalWeaponProfFacetTest extends
 	private WeaponProf[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

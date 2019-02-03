@@ -120,7 +120,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertTrue(parse("5"));
 		assertTrue(parse("1"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "1", unparsed[0]);
+		assertEquals("1", unparsed[0]);
 	}
 
 	@Test

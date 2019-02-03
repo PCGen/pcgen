@@ -30,7 +30,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterPlugin;
 
-public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 {
 	public static final int EXPERIENCE_3 = 1;
 	public static final int EXPERIENCE_35 = 2;
@@ -38,9 +38,6 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 	private static final String OPTION_NAME_EXP_TYPE =
 			ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType"; //$NON-NLS-1$
 
-	private JPanel mainPanel;
-	private JPanel expPanel;
-	private ButtonGroup experienceGroup;
 	private JRadioButton experienceRB1;
 	private JRadioButton experienceRB2;
 
@@ -65,18 +62,16 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 
 	public int getExperience()
 	{
-		int returnVal = 0;
-
 		if (experienceRB1.isSelected())
 		{
-			returnVal = EXPERIENCE_3;
+			return EXPERIENCE_3;
 		}
 		else if (experienceRB2.isSelected())
 		{
-			returnVal = EXPERIENCE_35;
+			return EXPERIENCE_35;
 		}
 
-		return returnVal;
+		return 0;
 	}
 
 	@Override
@@ -104,10 +99,10 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 	 */
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
-		mainPanel = new JPanel();
+		JPanel mainPanel = new JPanel();
 
-		expPanel = new JPanel();
-		experienceGroup = new ButtonGroup();
+		JPanel expPanel = new JPanel();
+		ButtonGroup experienceGroup = new ButtonGroup();
 		experienceRB1 = new JRadioButton();
 		experienceRB2 = new JRadioButton();
 

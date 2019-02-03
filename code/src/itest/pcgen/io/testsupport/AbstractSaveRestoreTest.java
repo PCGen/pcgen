@@ -23,9 +23,7 @@ import java.math.BigDecimal;
 import java.util.Collections;
 
 import pcgen.ControlTestSupport;
-import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.test.InequalityTester;
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
@@ -58,7 +56,6 @@ import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -77,9 +74,8 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary;
-import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.chooser.ChooserFactory;
+
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
@@ -99,10 +95,10 @@ import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.language.PCToken;
 
 import compare.InequalityTesterInst;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import util.FormatSupport;
 import util.TestURI;
 
 public abstract class AbstractSaveRestoreTest
@@ -157,13 +153,6 @@ public abstract class AbstractSaveRestoreTest
 	public void setUp() throws Exception
 	{
 		setUpContext();
-	}
-
-
-	@After
-	public void tearDown() throws Exception
-	{
-		ChooserFactory.stopUsingRandomChooser();
 	}
 
 	protected <T extends Loadable> T create(Class<T> cl, String key)
@@ -276,6 +265,16 @@ public abstract class AbstractSaveRestoreTest
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
+
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+
+		context = Globals.getContext();
+		FormatSupport.addBasicDefaults(context);
+		FormatSupport.addNoneAsDefault(context,
+			context.getReferenceContext().getManufacturer(PCAlignment.class));
+		SourceFileLoader.defineBuiltinVariables(context);
+
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 			FormulaFactory.getFormulaFor("STRSCORE"));
@@ -287,7 +286,6 @@ public abstract class AbstractSaveRestoreTest
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -306,7 +304,6 @@ public abstract class AbstractSaveRestoreTest
 		ref.importObject(cn);
 		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		ref.importObject(str);
@@ -327,7 +324,6 @@ public abstract class AbstractSaveRestoreTest
 		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
-		context = Globals.getContext();
 		create(Language.class, "Common");
 		human = create(Race.class, "Human");
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
@@ -337,18 +333,6 @@ public abstract class AbstractSaveRestoreTest
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 		ChooserFactory.setDelegate(new MockUIDelegate());
-		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		proc(fmtManager);
-		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
-	}
-
-	private <T> void proc(FormatManager<T> fmtManager)
-	{
-		Class<T> cl = fmtManager.getManagedClass();
-		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl,
-			new ModifierDecoration<>(defaultModifier));
 	}
 
 	protected void runRoundRobin(Runnable preEqualityCleanup)

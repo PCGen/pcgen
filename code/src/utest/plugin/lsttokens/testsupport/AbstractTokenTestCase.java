@@ -27,6 +27,7 @@ import pcgen.cdom.base.Loadable;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -44,6 +45,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import util.FormatSupport;
 import util.TestURI;
 
 @SuppressWarnings("nls")
@@ -56,24 +61,20 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	protected T secondaryProf;
 	protected int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
+	@BeforeAll
 	@BeforeClass
 	public static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
-		classSetUpFired = true;
 	}
 
 	@Override
 	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();
@@ -82,6 +83,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 
 	@Override
 	@After
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		primaryContext = null;
@@ -362,5 +364,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		FormatSupport.addBasicDefaults(context);
+		SourceFileLoader.defineBuiltinVariables(context);
 	}
 }

@@ -1,0 +1,55 @@
+CAMPAIGN:Strange Aeons Players Guide
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Strange Aeons
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Strange Aeons
+SOURCESHORT:sa
+# http://paizo.com/pathfinder/adventurePath/strangeAeons
+SOURCEWEB:http://paizo.com/products/btpy9nrw?Pathfinder-Adventure-Path-Strange-Aeons-Players-Guide
+SOURCEDATE:2016-08
+ISOGL:YES
+
+#COVER:strange_aeons_players_guide.png
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy919c?Pathfinder-Adventure-Path-Wrath-of-the-Righteous-Players-Guide|Get this publication from Paizo Publishing!
+DESC:The Strange Aeons Player's Guide provides players with all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for dealing with the horrors and mysteries of the Strange Aeons Adventure Path. Within, players of this campaign will find everything they need to create backgrounds tied to personalities and events vital to Pathfinder Adventure Path's exploration of the unspeakable depths of cosmic horror, along with new campaign-specific traits to give brave heroes the edge they'll need to take on the dangerous threats faced in the Strange Aeons Adventure Path. This player's guide also includes a glimpse of the town of Thrushmoor, as well as various class options and advice for characters ready to delve into madness. Wake up from your nightmares and let the Strange Aeons Player's Guide start your path into the unspeakable!
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Strange Aeons Player's Guide © 2016, Written and Compiled by Adam Daigle
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Strange Aeons Player's Guide" Copyright 2016, PCGen Data Team (including, but not limited to Kevin W. Patterson)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data Files
+ABILITY:sa_abilities.lst
+
+# ENTRY DATE: 2018-12
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.10
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+#
+# End
+#

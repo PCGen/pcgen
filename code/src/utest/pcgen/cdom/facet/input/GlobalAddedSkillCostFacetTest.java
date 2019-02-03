@@ -30,13 +30,14 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GlobalAddedSkillCostFacetTest
 {
-	protected CharID id;
-	protected CharID altid;
+	private CharID id;
+	private CharID altid;
 
 	private GlobalAddedSkillCostFacet facet = new GlobalAddedSkillCostFacet();
 	private PCTemplate source1 = new PCTemplate();
@@ -49,6 +50,15 @@ public class GlobalAddedSkillCostFacetTest
 		altid = CharID.getID(cid);
 		source1 = new PCTemplate();
 		source1.setName("T1");
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		source1 = null;
 	}
 
 	@Test

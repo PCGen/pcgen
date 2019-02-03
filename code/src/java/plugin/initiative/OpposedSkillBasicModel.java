@@ -32,16 +32,7 @@ import gmgen.plugin.PcgCombatant;
 import plugin.initiative.gui.TableColumnInformation;
 
 /**
- * <p>
  * Essentialy sets up a list of {@code PcgCombatant} items.
- * </p>
- *
- * <p>
- * </p>
- * <p>
- * </p>
- * <p>
- * </p>
  */
 public class OpposedSkillBasicModel extends AbstractTableModel
 {

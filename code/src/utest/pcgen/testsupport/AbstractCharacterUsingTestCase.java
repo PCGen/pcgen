@@ -16,14 +16,11 @@
  */
 package pcgen.testsupport;
 
-import junit.framework.TestCase;
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.util.FormatManager;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.formula.local.ModifierDecoration;
-import pcgen.cdom.util.CControl;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -34,8 +31,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary;
-import pcgen.rules.persistence.token.ModifierFactory;
+
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;
@@ -47,6 +43,10 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
+import org.junit.After;
+import org.junit.Before;
+import util.FormatSupport;
+
 /*
  * Differs from code/src/test AbstractCharacterTestCase in that this does not
  * attempt to load all plugins (trying to be light weight)
@@ -56,7 +56,7 @@ import plugin.primitive.language.LangBonusToken;
  * tested in a utest environment should probably not be dependent on
  * PlayerCharacter in a fully isolated system
  */
-public abstract class AbstractCharacterUsingTestCase extends TestCase
+public abstract class AbstractCharacterUsingTestCase
 {
 
 	protected PCStat str;
@@ -127,6 +127,15 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
+		LoadContext context = Globals.getContext();
+		
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
+		FormatSupport.addBasicDefaults(context);
+		SourceFileLoader.defineBuiltinVariables(context);
 
 		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"), FormulaFactory
@@ -139,8 +148,6 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
 		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		LoadContext context = Globals.getContext();
-		AbstractReferenceContext ref = context.getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -187,18 +194,18 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase
 		universal = ref.constructCDOMObject(Language.class, "Universal");
 		other = ref.constructCDOMObject(Language.class, "Other");
 		SourceFileLoader.createLangBonusObject(context);
-
-		FormatManager<?> fmtManager = ref.getFormatManager("ALIGNMENT");
-		proc(context, fmtManager);
-		SourceFileLoader.enableBuiltInControl(context, CControl.ALIGNMENTINPUT);
 	}
-
-	private <T> void proc(LoadContext context, FormatManager<T> fmtManager)
+	
+	@Before
+	public void setUp() throws Exception
 	{
-		Class<T> cl = fmtManager.getManagedClass();
-		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");
-		FormulaModifier<T> defaultModifier = m.getFixedModifier(fmtManager, "NONE");
-		context.getVariableContext().addDefault(cl,
-			new ModifierDecoration<>(defaultModifier));
+		Globals.emptyLists();
 	}
+
+	@After
+	protected void tearDown() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
 }

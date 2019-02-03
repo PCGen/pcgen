@@ -30,13 +30,14 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LocalAddedSkillCostFacetTest
 {
-	protected CharID id;
-	protected CharID altid;
+	private CharID id;
+	private CharID altid;
 
 	private LocalAddedSkillCostFacet facet = new LocalAddedSkillCostFacet();
 	private PCTemplate source1 = new PCTemplate();
@@ -56,6 +57,18 @@ public class LocalAddedSkillCostFacetTest
 		class2.setName("Cl2");
 		class3 = new PCClass();
 		class3.setName("Cl3");
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		source1 = null;
+		class1 = null;
+		class2 = null;
+		class3 = null;
 	}
 
 	@Test

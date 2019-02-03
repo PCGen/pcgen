@@ -17,8 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreCampaignParser;
 import plugin.pretokens.writer.PreCampaignWriter;
@@ -31,16 +29,6 @@ import plugin.pretokens.writer.PreCampaignWriter;
  */
 public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 {
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCampaignRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception
