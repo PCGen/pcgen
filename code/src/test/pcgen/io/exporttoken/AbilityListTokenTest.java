@@ -35,6 +35,7 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * {@code AbilityListTokenTest} tests the functioning of the ABILITYLIST
@@ -43,6 +44,7 @@ import org.junit.Assert;
 public class AbilityListTokenTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
