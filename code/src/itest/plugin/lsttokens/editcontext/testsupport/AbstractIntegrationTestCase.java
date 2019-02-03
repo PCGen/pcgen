@@ -20,6 +20,7 @@ package plugin.lsttokens.editcontext.testsupport;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -163,15 +164,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 						uri);
 				continue;
 			}
-			Assert.assertNotNull(unparsed);
-			assertEquals(str.size(), unparsed.length);
-
-			for (int i = 0; i < str.size(); i++)
-			{
-				assertEquals("Expected " + i + " item to be equal", str.get(i),
-						unparsed[i]
-				);
-			}
+			assertArrayEquals(str.toArray(), unparsed);
 
 			// Do round Robin
 			String unparsedBuilt = Arrays.stream(unparsed)
