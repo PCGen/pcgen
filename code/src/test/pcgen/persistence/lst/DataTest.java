@@ -17,7 +17,7 @@
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,12 +31,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
@@ -52,14 +46,16 @@ import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code DataTest} checks the data files for known issues.
- *
- * <br/>
- * 
  */
-
-public class DataTest
+class DataTest
 {
 	/** The name of our dummy config file. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
@@ -67,8 +63,8 @@ public class DataTest
 	/**
 	 * Initialise the plugins and load the game mode and campaign files.
 	 */
-	@BeforeClass
-	public static void onceOnly()
+	@BeforeAll
+	static void onceOnly()
 	{
 		loadGameModes();
 	}
@@ -76,8 +72,8 @@ public class DataTest
 	/**
 	 * Tidy up the config file we created. 
 	 */
-	@AfterClass
-	public static void afterClass()
+	@AfterAll
+	static void afterClass()
 	{
 		new File(TEST_CONFIG_FILE).delete();		
 	}
@@ -131,8 +127,7 @@ public class DataTest
 				
 		// Flag any change for the worse.
 		assertEquals(
-			"New data file(s) with name longer than 150 characters detected.",
-			"[]", newLongPaths.toString());
+				"[]", newLongPaths.toString(), "New data file(s) with name longer than 150 characters detected.");
 	}
 
 	/**
@@ -195,13 +190,11 @@ public class DataTest
 		
 		// Flag any missing files
 		assertEquals(
-			"Some data files are missing.",
-			"", report.toString());
+				"", report.toString(), "Some data files are missing.");
 	}
 	
 	/**
 	 * Scan for any data files that are not referred to by any campaign.
-	 * This test should be activated once DATA-1039 has been actioned. 
 	 * @throws IOException If a file path cannot be converted.
 	 */
 	@Test
@@ -241,8 +234,7 @@ public class DataTest
 		
 		// Flag any missing files
 		assertEquals(
-			"Some data files are orphaned.",
-			"", report.toString());
+				"", report.toString(), "Some data files are orphaned.");
 	}
 
 	private List<CampaignSourceEntry> getLstFilesForCampaign(Campaign campaign)

@@ -24,10 +24,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JToggleButton;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.PropertyContext;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class represents a simple filter represented as a toggle button. When the button is selected

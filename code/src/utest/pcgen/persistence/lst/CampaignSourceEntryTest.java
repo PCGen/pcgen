@@ -17,29 +17,27 @@
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * CampaignSourceEntryTest checks processing functions of the 
  * CampaignSourceEntry class. 
- * 
- * 
  */
-public class CampaignSourceEntryTest
+class CampaignSourceEntryTest
 {
 
 	private URI sourceUri;
 	
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		sourceUri = new URI("file://CampaignSourceEntryTest");
 	}
@@ -54,57 +52,57 @@ public class CampaignSourceEntryTest
 
 		List<String> result =
 				CampaignSourceEntry.parseSuffix("", sourceUri, value);
-		assertTrue("Empty string should give empty list", result.isEmpty());
+		assertTrue(result.isEmpty(), "Empty string should give empty list");
 
 		String firstPrereq = "PREx:1,foo";
 		result = CampaignSourceEntry.parseSuffix(firstPrereq, sourceUri, value);
-		assertEquals("Single value should match", firstPrereq, result.get(0));
-		assertEquals("Incorrect number of tags", 1, result.size());
+		assertEquals(firstPrereq, result.get(0), "Single value should match");
+		assertEquals(1, result.size(), "Incorrect number of tags");
 
 		String secondPrereq = "PREy:1,bar";
 		result =
 				CampaignSourceEntry.parseSuffix(firstPrereq + "|"
 					+ secondPrereq, sourceUri, value);
-		assertEquals("First value should match", firstPrereq, result.get(0));
-		assertEquals("Second value should match", secondPrereq, result.get(1));
-		assertEquals("Incorrect number of tags", 2, result.size());
+		assertEquals(firstPrereq, result.get(0), "First value should match");
+		assertEquals(secondPrereq, result.get(1), "Second value should match");
+		assertEquals(2, result.size(), "Incorrect number of tags");
 
 		String includeNoBar =
 				"(INCLUDE:CATEGORY=Class Ability,Monkey See,Monkey Do)";
 		result =
 				CampaignSourceEntry.parseSuffix(includeNoBar, sourceUri, value);
-		assertEquals("Single value should match", includeNoBar, result.get(0));
-		assertEquals("Incorrect number of tags", 1, result.size());
+		assertEquals(includeNoBar, result.get(0), "Single value should match");
+		assertEquals(1, result.size(), "Incorrect number of tags");
 
 		result =
 				CampaignSourceEntry.parseSuffix(includeNoBar + "|"
 					+ secondPrereq, sourceUri, value);
-		assertEquals("First value should match", includeNoBar, result.get(0));
-		assertEquals("Second value should match", secondPrereq, result.get(1));
-		assertEquals("Incorrect number of tags", 2, result.size());
+		assertEquals(includeNoBar, result.get(0), "First value should match");
+		assertEquals(secondPrereq, result.get(1), "Second value should match");
+		assertEquals(2, result.size(), "Incorrect number of tags");
 
 		String includeWithBar = "(INCLUDE:Happy Elf|Dower Dwarf)";
 		result =
 				CampaignSourceEntry.parseSuffix(includeWithBar + "|"
 					+ secondPrereq, sourceUri, value);
-		assertEquals("First value should match", includeWithBar, result.get(0));
-		assertEquals("Second value should match", secondPrereq, result.get(1));
-		assertEquals("Incorrect number of tags", 2, result.size());
+		assertEquals(includeWithBar, result.get(0), "First value should match");
+		assertEquals(secondPrereq, result.get(1), "Second value should match");
+		assertEquals(2, result.size(), "Incorrect number of tags");
 
 		result =
 				CampaignSourceEntry.parseSuffix(firstPrereq + "|"
 					+ includeWithBar, sourceUri, value);
-		assertEquals("First value should match", firstPrereq, result.get(0));
-		assertEquals("Second value should match", includeWithBar, result.get(1));
-		assertEquals("Incorrect number of tags", 2, result.size());
+		assertEquals(firstPrereq, result.get(0), "First value should match");
+		assertEquals(includeWithBar, result.get(1), "Second value should match");
+		assertEquals(2, result.size(), "Incorrect number of tags");
 
 		result =
 				CampaignSourceEntry.parseSuffix(firstPrereq + "|"
 					+ includeWithBar + "|" + secondPrereq, sourceUri, value);
-		assertEquals("First value should match", firstPrereq, result.get(0));
-		assertEquals("Second value should match", includeWithBar, result.get(1));
-		assertEquals("Third value should match", secondPrereq, result.get(2));
-		assertEquals("Incorrect number of tags", 3, result.size());
+		assertEquals(firstPrereq, result.get(0), "First value should match");
+		assertEquals(includeWithBar, result.get(1), "Second value should match");
+		assertEquals(secondPrereq, result.get(2), "Third value should match");
+		assertEquals(3, result.size(), "Incorrect number of tags");
 	}
 
 	/**
@@ -117,24 +115,24 @@ public class CampaignSourceEntryTest
 
 		List<String> result =
 				CampaignSourceEntry.parseSuffix("", sourceUri, value);
-		assertTrue("Empty string should give empty list", result.isEmpty());
+		assertTrue(result.isEmpty(), "Empty string should give empty list");
 
 		String includeNoBar =
 				"(INCLUDE:CATEGORY=Class Ability,Monkey See,Monkey Do";
 		result =
 				CampaignSourceEntry.parseSuffix(includeNoBar, sourceUri, value);
-		assertNull("Bad data should give null result", result);
+		assertNull(result, "Bad data should give null result");
 
 		String firstPrereq = "PREx:1,foo";
 		result =
 				CampaignSourceEntry.parseSuffix(includeNoBar + "|"
 					+ firstPrereq, sourceUri, value);
-		assertNull("Bad data should give null result", result);
+		assertNull(result, "Bad data should give null result");
 
 		result =
 				CampaignSourceEntry.parseSuffix(firstPrereq + "|"
 					+ includeNoBar, sourceUri, value);
-		assertNull("Bad data should give null result", result);
+		assertNull(result, "Bad data should give null result");
 	}
 	
 	/**
@@ -149,26 +147,29 @@ public class CampaignSourceEntryTest
 		List<String> result =
 				CampaignSourceEntry.parseSuffix(includeWithBracket, sourceUri,
 					value);
-		assertEquals("First value should match", includeWithBracket,
-			result.get(0));
-		assertEquals("Incorrect number of tags", 1, result.size());
+		assertEquals(includeWithBracket,
+			result.get(0), "First value should match"
+		);
+		assertEquals(1, result.size(), "Incorrect number of tags");
 
 		String includeWithBar = "(INCLUDE:Happy Elf|Dower Dwarf)";
 		result =
 				CampaignSourceEntry.parseSuffix(includeWithBracket + "|"
 					+ includeWithBar, sourceUri, value);
-		assertEquals("First value should match", includeWithBracket,
-			result.get(0));
-		assertEquals("Second value should match", includeWithBar, result.get(1));
-		assertEquals("Incorrect number of tags", 2, result.size());
+		assertEquals(includeWithBracket,
+			result.get(0), "First value should match"
+		);
+		assertEquals(includeWithBar, result.get(1), "Second value should match");
+		assertEquals(2, result.size(), "Incorrect number of tags");
 
 		String includeWithBarBracket = "(INCLUDE:Bluff(Lie)|Perception)";
 		result =
 				CampaignSourceEntry.parseSuffix(includeWithBarBracket + "|"
 					+ includeWithBar, sourceUri, value);
-		assertEquals("First value should match", includeWithBarBracket,
-			result.get(0));
-		assertEquals("Second value should match", includeWithBar, result.get(1));
-		assertEquals("Incorrect number of tags", 2, result.size());
+		assertEquals(includeWithBarBracket,
+			result.get(0), "First value should match"
+		);
+		assertEquals(includeWithBar, result.get(1), "Second value should match");
+		assertEquals(2, result.size(), "Incorrect number of tags");
 	}
 }

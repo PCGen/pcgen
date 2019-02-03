@@ -29,12 +29,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code RandomNameDialog} is a dialog in which the user can

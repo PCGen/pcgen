@@ -17,10 +17,11 @@
  */
 package plugin.lsttokens.race;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
@@ -41,6 +42,9 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreHDWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
@@ -50,7 +54,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	PreLevelWriter prelevelwriter = new PreLevelWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

@@ -19,14 +19,15 @@ package pcgen.output.model;
 
 import java.util.Objects;
 
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.facet.fact.FactFacet;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * An FactFacetModel wraps a FactFacet and serves as a TemplateHashModel for

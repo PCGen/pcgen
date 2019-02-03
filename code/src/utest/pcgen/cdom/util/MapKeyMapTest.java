@@ -17,30 +17,28 @@
  */
 package pcgen.cdom.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.helper.Aspect;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code MapKeyMapTest} test that the MapKeyMap
  * class is functioning correctly. 
- * 
- * 
  */
-public class MapKeyMapTest
+class MapKeyMapTest
 {
 	
 	private static final String BREED = "shetland sheepdog";
@@ -58,8 +56,8 @@ public class MapKeyMapTest
 	private Aspect nameAspect;
 	private Aspect breedAspect;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		mapKeyMap = new MapKeyMap();
 		ageKey = AspectName.getConstant("agE");
@@ -87,12 +85,12 @@ public class MapKeyMapTest
 	@Test
 	public void testGet()
 	{
-		assertEquals("Retrieve 3rd item by both keys", breedAspect, mapKeyMap
-			.get(MapKey.ASPECT, breedKey).get(0));
-		assertEquals("Retrieve 2nd item by both keys", nameAspect, mapKeyMap
-			.get(MapKey.ASPECT, nameKey).get(0));
-		assertEquals("Retrieve 1st item by both keys", ageAspect, mapKeyMap
-			.get(MapKey.ASPECT, ageKey).get(0));
+		assertEquals(breedAspect, mapKeyMap
+			.get(MapKey.ASPECT, breedKey).get(0), "Retrieve 3rd item by both keys");
+		assertEquals(nameAspect, mapKeyMap
+			.get(MapKey.ASPECT, nameKey).get(0), "Retrieve 2nd item by both keys");
+		assertEquals(ageAspect, mapKeyMap
+			.get(MapKey.ASPECT, ageKey).get(0), "Retrieve 1st item by both keys");
 	}
 
 	/**
@@ -103,14 +101,14 @@ public class MapKeyMapTest
 	{
 		MapKeyMap newMap = new MapKeyMap();
 
-		assertNull("Expect an empty map intially", newMap
-				.get(MapKey.ASPECT, ageKey));
+		assertNull(newMap
+				.get(MapKey.ASPECT, ageKey), "Expect an empty map intially");
 		
 		newMap.putAll(mapKeyMap);
-		assertEquals("Retrieve 3rd item by both keys", breedAspect, newMap
-			.get(MapKey.ASPECT, breedKey).get(0));
-		assertEquals("Retrieve 1st item by both keys", ageAspect, newMap
-			.get(MapKey.ASPECT, ageKey).get(0));
+		assertEquals(breedAspect, newMap
+			.get(MapKey.ASPECT, breedKey).get(0), "Retrieve 3rd item by both keys");
+		assertEquals(ageAspect, newMap
+			.get(MapKey.ASPECT, ageKey).get(0), "Retrieve 1st item by both keys");
 	}
 
 	/**
@@ -119,14 +117,14 @@ public class MapKeyMapTest
 	@Test
 	public void testAddToMapFor()
 	{
-		assertEquals("Validate initial value of age", ageAspect, mapKeyMap
-			.get(MapKey.ASPECT, ageKey).get(0));
+		assertEquals(ageAspect, mapKeyMap
+			.get(MapKey.ASPECT, ageKey).get(0), "Validate initial value of age");
 		Aspect newage = new Aspect("age", "2");
 		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(newage);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
-		assertEquals("Validate new value of age", newage, mapKeyMap
-				.get(MapKey.ASPECT, ageKey).get(0));
+		assertEquals(newage, mapKeyMap
+				.get(MapKey.ASPECT, ageKey).get(0), "Validate new value of age");
 	}
 
 	/**
@@ -135,14 +133,14 @@ public class MapKeyMapTest
 	@Test
 	public void testRemoveFromListFor()
 	{
-		assertEquals("Validate initial value of breed", breedAspect, mapKeyMap
-			.get(MapKey.ASPECT, breedKey).get(0));
-		assertTrue("Should be true as item is present", mapKeyMap
-			.removeFromMapFor(MapKey.ASPECT, breedKey));
-		assertNull("Validate breed is no longer present", mapKeyMap
-				.get(MapKey.ASPECT, breedKey));
-		assertFalse("Should be false as item is no longer present", mapKeyMap
-			.removeFromMapFor(MapKey.ASPECT, breedKey));
+		assertEquals(breedAspect, mapKeyMap
+			.get(MapKey.ASPECT, breedKey).get(0), "Validate initial value of breed");
+		assertTrue(mapKeyMap
+			.removeFromMapFor(MapKey.ASPECT, breedKey), "Should be true as item is present");
+		assertNull(mapKeyMap
+				.get(MapKey.ASPECT, breedKey), "Validate breed is no longer present");
+		assertFalse(mapKeyMap
+			.removeFromMapFor(MapKey.ASPECT, breedKey), "Should be false as item is no longer present");
 	}
 
 	/**
@@ -154,20 +152,19 @@ public class MapKeyMapTest
 	{
 		Set<MapKey<?, ?>> keySet = mapKeyMap.getKeySet();
 
-		assertEquals("only one primary key", 1, keySet.size());
-		assertEquals("Only element should be an aspect", MapKey.ASPECT, keySet
-			.toArray()[0]);
+		assertEquals(1, keySet.size(), "only one primary key");
+		assertEquals(MapKey.ASPECT, keySet
+			.toArray()[0], "Only element should be an aspect");
 		
 		mapKeyMap.addToMapFor(MapKey.PROPERTY, "foo", "bar");
 		assertEquals(
-			"Still only one primary key, returned set should be independant of main collection",
-			1, keySet.size());
-		assertFalse("Set should not include test yet", keySet.contains(MapKey.PROPERTY));
+				1, keySet.size(), "Still only one primary key, returned set should be independant of main collection");
+		assertFalse(keySet.contains(MapKey.PROPERTY), "Set should not include test yet");
 
 		keySet = mapKeyMap.getKeySet();
-		assertEquals("Now two primary keys", 2, keySet.size());
-		assertTrue("Set should include aspect", keySet.contains(MapKey.ASPECT));
-		assertTrue("Set should include test", keySet.contains(MapKey.PROPERTY));
+		assertEquals(2, keySet.size(), "Now two primary keys");
+		assertTrue(keySet.contains(MapKey.ASPECT), "Set should include aspect");
+		assertTrue(keySet.contains(MapKey.PROPERTY), "Set should include test");
 	}
 
 	/**
@@ -177,22 +174,22 @@ public class MapKeyMapTest
 	@Test
 	public void testContainsMapFor()
 	{
-		assertTrue("Should have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.PROPERTY));
+		assertTrue(mapKeyMap.containsMapFor(MapKey.ASPECT), "Should have ASPECT");
+		assertFalse(mapKeyMap.containsMapFor(MapKey.PROPERTY), "Should not have TEST");
 
 		mapKeyMap.addToMapFor(MapKey.PROPERTY, "foo", "bar");
-		assertTrue("Should have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertTrue("Should have TEST now", mapKeyMap.containsMapFor(MapKey.PROPERTY));
+		assertTrue(mapKeyMap.containsMapFor(MapKey.ASPECT), "Should have ASPECT");
+		assertTrue(mapKeyMap.containsMapFor(MapKey.PROPERTY), "Should have TEST now");
 
-		assertTrue("Should be true as item is present", mapKeyMap
-			.removeFromMapFor(MapKey.PROPERTY, "foo"));
-		assertTrue("Should have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.PROPERTY));
+		assertTrue(mapKeyMap
+			.removeFromMapFor(MapKey.PROPERTY, "foo"), "Should be true as item is present");
+		assertTrue(mapKeyMap.containsMapFor(MapKey.ASPECT), "Should have ASPECT");
+		assertFalse(mapKeyMap.containsMapFor(MapKey.PROPERTY), "Should not have TEST");
 
-		assertTrue("Should be true as item is present", mapKeyMap
-			.removeFromMapFor(MapKey.ASPECT, breedKey));
-		assertTrue("Should still have ASPECT", mapKeyMap.containsMapFor(MapKey.ASPECT));
-		assertFalse("Should not have TEST", mapKeyMap.containsMapFor(MapKey.PROPERTY));
+		assertTrue(mapKeyMap
+			.removeFromMapFor(MapKey.ASPECT, breedKey), "Should be true as item is present");
+		assertTrue(mapKeyMap.containsMapFor(MapKey.ASPECT), "Should still have ASPECT");
+		assertFalse(mapKeyMap.containsMapFor(MapKey.PROPERTY), "Should not have TEST");
 	}
 	
 	
@@ -202,19 +199,20 @@ public class MapKeyMapTest
 	@Test
 	public void testRemoveMapFor()
 	{
-		assertTrue("Should have ASPECT", mapKeyMap
-			.containsMapFor(MapKey.ASPECT));
+		assertTrue(mapKeyMap
+			.containsMapFor(MapKey.ASPECT), "Should have ASPECT");
 
 		Map<AspectName, List<Aspect>> removed = mapKeyMap.removeMapFor(MapKey.ASPECT);
-		assertFalse("Should not have ASPECT", mapKeyMap
-			.containsMapFor(MapKey.ASPECT));
-		assertEquals("Removed map should have all expected elements", 3,
-			removed.size());
-		assertEquals("Retrieve 3rd item", breedAspect, removed
-			.get(breedKey).get(0));
-		assertEquals("Retrieve 2nd item", nameAspect, removed
-			.get(nameKey).get(0));
-		assertEquals("Retrieve 1st item", ageAspect, removed
-			.get(ageKey).get(0));
+		assertFalse(mapKeyMap
+			.containsMapFor(MapKey.ASPECT), "Should not have ASPECT");
+		assertEquals(3,
+			removed.size(), "Removed map should have all expected elements"
+		);
+		assertEquals(breedAspect, removed
+			.get(breedKey).get(0), "Retrieve 3rd item");
+		assertEquals(nameAspect, removed
+			.get(nameKey).get(0), "Retrieve 2nd item");
+		assertEquals(ageAspect, removed
+			.get(ageKey).get(0), "Retrieve 1st item");
 	}
 }

@@ -18,23 +18,17 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreVisionParser;
 
+import org.junit.jupiter.api.Test;
 
-@SuppressWarnings("nls")
-public class PreVisionParserTest extends EnUsLocaleDependentTestCase
+class PreVisionParserTest extends EnUsLocaleDependentTestCase
 {
-	
-	/**
-	 * Test multiple passes.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
 	@Test
 	public void testMultiplePasses() throws PersistenceLayerException
 	{

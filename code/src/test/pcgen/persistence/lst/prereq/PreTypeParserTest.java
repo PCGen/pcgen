@@ -18,16 +18,15 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreTypeParser;
 
-@SuppressWarnings("nls")
+import org.junit.jupiter.api.Test;
+
 public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 {
 	
@@ -45,7 +44,6 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 				producer.parse("TYPE", "1,Mithral,Adamantine,Darkwood", false,
 					false);
 
-		System.out.println(prereq.toString());
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"type\" key=\"Mithral\" operator=\"EQ\" operand=\"1\" >\n"
@@ -69,13 +67,13 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 
 		Prerequisite prereq = producer.parse("TYPE", "1,Animal", true, false);
 
-		System.out.println(prereq.toString());
-		/*		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" + 
+		/*		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" +
 		 "<prereq kind=\"type\" key=\"Animal\" operator=\"eq\" operand=\"1\" >\n" + 
 		 "</prereq>\n" + 
 		 "</prereq>\n",
 		 prereq.toString());
-		 */assertEquals(
+		 */
+		assertEquals(
 			"<prereq kind=\"TYPE\" key=\"Animal\" operator=\"NEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}

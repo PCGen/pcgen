@@ -23,13 +23,13 @@ import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class FundsTokenTest extends AbstractKitTokenTestCase<KitFunds>
 {
 
-	static FundsToken token = new FundsToken();
-	static CDOMSubLineLoader<KitFunds> loader = new CDOMSubLineLoader<>(
+	private static FundsToken token = new FundsToken();
+	private static CDOMSubLineLoader<KitFunds> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitFunds.class);
 
 	@Override

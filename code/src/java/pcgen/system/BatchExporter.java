@@ -30,11 +30,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.io.output.TeeOutputStream;
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
@@ -51,6 +46,11 @@ import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.output.TeeOutputStream;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code BatchExporter} manages character sheet output to a

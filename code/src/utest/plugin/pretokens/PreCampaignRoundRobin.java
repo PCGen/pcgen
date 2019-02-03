@@ -21,6 +21,9 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreCampaignParser;
 import plugin.pretokens.writer.PreCampaignWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code PreCampaignRoundRobin} is responsible for testing
  * that PRECAMPAIGN tags can be read and written. 
@@ -29,7 +32,7 @@ import plugin.pretokens.writer.PreCampaignWriter;
  */
 public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 {
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -50,6 +53,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testNegateItem()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",

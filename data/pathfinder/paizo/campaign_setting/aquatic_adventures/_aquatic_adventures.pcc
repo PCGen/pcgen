@@ -5,7 +5,7 @@ TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
 # Maybe more to add to PRECAMPAIGN
 PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Bestiary

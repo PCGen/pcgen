@@ -23,8 +23,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
@@ -50,6 +48,8 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.system.CharacterManager;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class implements the basic CompanionSupportFacade

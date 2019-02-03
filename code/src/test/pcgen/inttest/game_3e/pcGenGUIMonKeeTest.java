@@ -19,7 +19,7 @@ package pcgen.inttest.game_3e;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 8th level Human Monk.

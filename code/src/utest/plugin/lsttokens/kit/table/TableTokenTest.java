@@ -17,13 +17,13 @@
  */
 package plugin.lsttokens.kit.table;
 
-import org.junit.Test;
-
 import pcgen.core.kit.KitTable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class TableTokenTest extends AbstractKitTokenTestCase<KitTable>
 {

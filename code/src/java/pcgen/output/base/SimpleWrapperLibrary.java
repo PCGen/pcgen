@@ -20,8 +20,6 @@ package pcgen.output.base;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.output.wrapper.AgeSetWrapper;
 import pcgen.output.wrapper.BooleanWrapper;
 import pcgen.output.wrapper.CategoryWrapper;
@@ -30,6 +28,9 @@ import pcgen.output.wrapper.NumberWrapper;
 import pcgen.output.wrapper.OrderedPairWrapper;
 import pcgen.output.wrapper.StringWrapper;
 import pcgen.output.wrapper.TypeSafeConstantWrapper;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * SimpleWrapperLibrary stores information on simple wrappers used to wrap

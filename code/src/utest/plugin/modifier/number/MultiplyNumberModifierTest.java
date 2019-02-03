@@ -17,10 +17,8 @@
  */
 package plugin.modifier.number;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
@@ -31,6 +29,8 @@ import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
+
+import org.junit.jupiter.api.Test;
 
 public class MultiplyNumberModifierTest
 {
@@ -45,7 +45,7 @@ public class MultiplyNumberModifierTest
 		{
 			ModifierFactory m = new MultiplyModifierFactory();
 			m.getModifier(null, new ManagerFactory(){}, null, null, null);
-			fail("Expected MultiplyModifier with null multiply value to fail");
+				fail("Expected MultiplyModifier with null multiply value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{

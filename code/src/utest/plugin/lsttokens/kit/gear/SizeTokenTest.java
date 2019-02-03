@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.kit.gear;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.core.SizeAdjustment;
 import pcgen.core.kit.KitGear;
@@ -29,6 +29,9 @@ import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
@@ -56,7 +59,7 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

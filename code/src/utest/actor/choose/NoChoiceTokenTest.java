@@ -19,6 +19,7 @@ package actor.choose;
 
 import pcgen.cdom.base.Chooser;
 import plugin.lsttokens.choose.NoChoiceToken;
+
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
 
 public class NoChoiceTokenTest extends

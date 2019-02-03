@@ -2,9 +2,9 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
-import org.nfunk.jep.ParseException;
-
 import pcgen.util.PCGenCommand;
+
+import org.nfunk.jep.ParseException;
 
 /**
  * Deal with max() JEP command eg. {@literal max(12.6, 20) --> 20}

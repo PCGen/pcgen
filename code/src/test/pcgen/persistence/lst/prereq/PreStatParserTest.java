@@ -18,10 +18,7 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
@@ -29,13 +26,15 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreStatParser;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-@SuppressWarnings("nls")
-public class PreStatParserTest extends EnUsLocaleDependentTestCase
+
+class PreStatParserTest extends EnUsLocaleDependentTestCase
 {
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		TestHelper.loadPlugins();
 	}
@@ -72,7 +71,6 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 	{
 		PreParserFactory parser = PreParserFactory.getInstance();
 		Prerequisite prereq = parser.parse("PRESTAT:1,DEX=9");
-		System.out.println(prereq);
 		assertEquals(
 			"<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"9\" >\n"
 				+ "</prereq>\n", prereq.toString());
@@ -91,7 +89,6 @@ public class PreStatParserTest extends EnUsLocaleDependentTestCase
 
 		Prerequisite prereq =
 				producer.parse("STAT", "2,DEX=9,STR=13", false, false);
-
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
 				+ "<prereq kind=\"stat\" key=\"DEX\" operator=\"GTEQ\" operand=\"9\" >\n"

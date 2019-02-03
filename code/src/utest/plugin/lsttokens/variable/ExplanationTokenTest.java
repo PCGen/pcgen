@@ -17,9 +17,8 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Objects;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.persistence.PersistenceLayerException;
@@ -29,6 +28,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class ExplanationTokenTest extends
 		AbstractTokenTestCase<DatasetVariable>
@@ -92,11 +93,10 @@ public class ExplanationTokenTest extends
 	@Override
 	public void isCDOMEqual(DatasetVariable dv1, DatasetVariable dv2)
 	{
-		assertEquals("Display Name not equal " + dv1 + " and " + dv2, dv1
-				.getDisplayName(), dv2.getDisplayName());
-		assertEquals("Format not equal " + dv1 + " and " + dv2, dv1.getFormat(), dv2.getFormat());
-		assertEquals("Scope Name not equal " + dv1 + " and " + dv2, dv1.getScope(), dv2.getScope());
-		assertEquals("Source URI not equal " + dv1 + " and " + dv2, dv1.getSourceURI(), dv2.getSourceURI());
-		assertEquals("Explanation not equal " + dv1 + " and " + dv2, dv1.getExplanation(), dv2.getExplanation());
+		assertEquals(dv1.getDisplayName(), dv2.getDisplayName(), () -> "Display Name not equal " + dv1 + " and " + dv2);
+		assertEquals(dv1.getFormat(), dv2.getFormat(), () -> "Format not equal " + dv1 + " and " + dv2);
+		assertEquals(dv1.getScope(), dv2.getScope(), () -> "Scope Name not equal " + dv1 + " and " + dv2);
+		assertEquals(dv1.getSourceURI(), dv2.getSourceURI(), () -> "Source URI not equal " + dv1 + " and " + dv2);
+		assertEquals( dv1.getExplanation(), dv2.getExplanation(), () -> "Explanation not equal " + dv1 + " and " + dv2);
 	}
 }

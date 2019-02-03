@@ -34,11 +34,11 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * This contains logging functions. It is a proxy for the 

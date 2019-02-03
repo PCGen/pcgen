@@ -33,6 +33,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class AlignTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
 {
@@ -47,6 +49,7 @@ public class AlignTokenTest extends
 		super("ALIGN", "LG");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

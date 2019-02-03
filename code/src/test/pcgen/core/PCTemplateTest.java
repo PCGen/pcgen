@@ -48,16 +48,6 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 
 	/**
-	 * Constructs a new {@code PCTemplateTest} with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 */
-	public PCTemplateTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
 	 * Test the definition and application of abilities. 
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 

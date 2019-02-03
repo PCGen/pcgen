@@ -16,8 +16,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.domain;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.Domain;
 import pcgen.core.Skill;
@@ -26,6 +25,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class CSkillTokenTest extends AbstractListInputTokenTestCase<Domain, Skill>
 {
@@ -88,11 +89,13 @@ public class CSkillTokenTest extends AbstractListInputTokenTestCase<Domain, Skil
 		return token;
 	}
 
+	@Test
 	public void testRoundRobinList() throws PersistenceLayerException
 	{
 		runRoundRobin("LIST");
 	}
 
+	@Test
 	public void testAllowClearList()
 	{
 		assertTrue(parse(".CLEAR.LIST"));

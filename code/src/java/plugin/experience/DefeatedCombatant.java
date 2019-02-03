@@ -21,12 +21,12 @@ package plugin.experience;
 
 import java.util.List;
 
-import org.jdom2.Element;
-
 import gmgen.plugin.Combatant;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
 import pcgen.system.LanguageBundle;
+
+import org.jdom2.Element;
 
 public class DefeatedCombatant extends Combatant
 {

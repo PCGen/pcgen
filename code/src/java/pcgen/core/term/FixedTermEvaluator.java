@@ -32,7 +32,7 @@ public class FixedTermEvaluator extends BasePCDTermEvaluator implements TermEval
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return new Float(value);
+		return (float) value;
 	}
 
 	@Override

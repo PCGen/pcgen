@@ -16,47 +16,53 @@
  */
 package pcgen.base.format.dice;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.base.format.StringManager;
 import pcgen.base.util.FormatManager;
 
-public class DiceFormatTest
+import org.junit.jupiter.api.Test;
+
+class DiceFormatTest
 {
 	private static final FormatManager<Dice> MANAGER = new DiceFormat();
 
-	@Test(expected = NullPointerException.class)
+	@Test
 	public void testConvertFailNull()
 	{
-		MANAGER.convert(null);
+		assertThrows(NullPointerException.class,
+				() -> MANAGER.convert(null));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testConvertFailNotNumeric()
 	{
-		MANAGER.convert("SomeString");
+		assertThrows(IllegalArgumentException.class,
+			() -> MANAGER.convert("SomeString"));
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test
 	public void testUnconvertFailNull()
 	{
-		MANAGER.unconvert(null);
+		assertThrows(NullPointerException.class,
+				() -> MANAGER.unconvert(null));
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test
 	public void testConvertIndirectFailNull()
 	{
-		MANAGER.convertIndirect(null);
+		assertThrows(NullPointerException.class,
+				() -> MANAGER.convertIndirect(null));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testConvertIndirectFailNotNumeric()
 	{
-		MANAGER.convertIndirect("SomeString");
+		assertThrows(IllegalArgumentException.class,
+				() -> MANAGER.convertIndirect("SomeString"));
 	}
 
 	@Test

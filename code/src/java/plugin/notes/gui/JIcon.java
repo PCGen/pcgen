@@ -44,12 +44,12 @@ import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileSystemView;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import gmgen.GMGenSystem;
 import pcgen.io.PCGFile;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  *  JIcon is a small form that uses an image, a button and some text to

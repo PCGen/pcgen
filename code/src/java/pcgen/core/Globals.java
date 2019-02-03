@@ -43,6 +43,7 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -505,17 +506,17 @@ public final class Globals
 	{
 		CAMPAIGN_MAP.put(campaign.getSourceURI(), campaign);
 		CAMPAIGN_LIST.add(campaign);
-		final Campaign oldCampaign = CAMPAIGN_NAME_MAP.put(campaign.getName(), campaign);
+		final Campaign oldCampaign = CAMPAIGN_NAME_MAP.put(campaign.getKeyName(), campaign);
 		if (oldCampaign != null)
 		{
 			if (oldCampaign.getSourceURI().toString().equalsIgnoreCase(campaign.getSourceURI().toString()))
 			{
-				Logging.errorPrint("The campaign (" + campaign.getName() + ") was referenced with the incorrect case: "
+				Logging.errorPrint("The campaign (" + campaign.getKeyName() + ") was referenced with the incorrect case: "
 					+ oldCampaign.getSourceURI() + " vs " + campaign.getSourceURI());
 			}
 			else
 			{
-				Logging.errorPrint("Loaded Campaigns with matching names (" + campaign.getName()
+				Logging.errorPrint("Loaded Campaigns with matching names (" + campaign.getKeyName()
 					+ ") at different Locations: " + oldCampaign.getSourceURI() + " " + campaign.getSourceURI());
 			}
 		}
@@ -740,6 +741,7 @@ public final class Globals
 
 		RaceType.clearConstants();
 		CNAbilityFactory.reset();
+		MovementType.clearConstants();
 	}
 
 	/**

@@ -256,7 +256,7 @@ public final class FormulaFactory
 		@Override
 		public String toString()
 		{
-			return value.toString();
+			return formatManager.unconvert(value);
 		}
 
 		/**
@@ -276,7 +276,8 @@ public final class FormulaFactory
 		@Override
 		public boolean equals(Object obj)
 		{
-			return (obj instanceof SimpleFormula) && ((SimpleFormula<?>) obj).value.equals(value);
+			return (obj instanceof SimpleFormula)
+				&& Objects.deepEquals(((SimpleFormula<?>) obj).value, value);
 		}
 
 		@Override

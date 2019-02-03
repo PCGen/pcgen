@@ -36,8 +36,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import org.jetbrains.annotations.TestOnly;
-
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.inst.NEPFormula;
@@ -71,7 +69,6 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -84,7 +81,6 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
@@ -171,7 +167,6 @@ import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.fact.GoldFacet;
-import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
@@ -266,6 +261,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -277,13 +273,15 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 
+import org.jetbrains.annotations.TestOnly;
+
 public class PlayerCharacter implements Cloneable, VariableContainer
 {
 
 	// Constants for use in getBonus
 	private static String lastVariable;
 	// This marker is static so that the spells allocated to it can also be found in the cloned character.
-	private static final ObjectCache GRANTED_SPELL_CACHE = new ObjectCache();
+	private static final CDOMObject GRANTED_SPELL_CACHE = new ObjectCache();
 
 	private final CharID id;
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
@@ -299,7 +297,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private final IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private final GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private final HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
 	private final HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
@@ -632,6 +629,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
 		solverManagerFacet.set(id, variableContext.generateSolverManager(varStore));
+		if (isFeatureEnabled(CControl.ALIGNMENTFEATURE))
+		{
+			ChannelUtilities.setDirtyOnChannelChange(this, CControl.ALIGNMENTINPUT);
+		}
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
 	}
 
 	@Override
@@ -673,9 +675,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param attr which attribute to set
 	 * @param value the value to set it to
 	 */
-	public void setPCAttribute(final StringPCAttribute attr, final String value)
+	public void setPCAttribute(PCStringKey attr, String value)
 	{
-		setStringFor(attr.getStringKey(), value);
+		setStringFor(attr, value);
 	}
 
 	/**
@@ -1390,19 +1392,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		BigDecimal g = goldFacet.get(id);
 		return (g == null) ? BigDecimal.ZERO : g;
-	}
-
-	/**
-	 * Sets the character's handedness.
-	 *
-	 * @param h A handedness to try and set.
-	 */
-	public void setHanded(final Handed h)
-	{
-		if (handedFacet.setHanded(id, h))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**
@@ -2257,7 +2246,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					Logging.debugPrint(sb);
 				}
 				lastVariable = null;
-				return new Float(value);
+				return (float) value;
 			}
 		}
 
@@ -3459,7 +3448,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// Class skill
 			maxRanks = SkillUtilities.maxClassSkillForLevel(levelForSkillPurposes, this);
 		}
-		return new Float(maxRanks.floatValue());
+		return maxRanks.floatValue();
 	}
 
 	/**
@@ -7694,7 +7683,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (newQty.floatValue() < 0.0f)
 		{
 			tempQty = diffQty;
-			newQty = new Float(tempQty + getEquippedQty(eSet, eqI).floatValue());
+			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
 			addAll = true;
 		}
 
@@ -7763,7 +7752,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (addAll && mergeItem && (existingSet != null))
 		{
-			newQty = new Float(tempQty + getEquippedQty(eSet, eqI).floatValue());
+			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
 			existingSet.setQty(newQty);
 			eqI.setQty(newQty);
 			eqI.setNumberCarried(newQty);
@@ -7958,7 +7947,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (!aCategory.allowFractionalPool())
 		{
-			basePool = new Float(basePool.intValue());
+			basePool = (float) basePool.intValue();
 		}
 		return basePool;
 	}

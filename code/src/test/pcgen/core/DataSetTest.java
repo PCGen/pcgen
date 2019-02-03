@@ -17,6 +17,10 @@
  */
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
@@ -29,18 +33,14 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * The Class {@code DataSetTest} check that the Dataset class is functioning
  * correctly.
- *
- * <br/>
- * 
  */
-@SuppressWarnings("nls")
-public class DataSetTest
+class DataSetTest
 {
 
 	@Test
@@ -55,31 +55,31 @@ public class DataSetTest
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that the default locations are added.
 	 */
-	public final void getEquipmentLocationsDefaultOnly()
+	public static void getEquipmentLocationsDefaultOnly()
 	{
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
 		ListFacade<BodyStructure> locations = dataset.getEquipmentLocations();
-		Assert.assertNotNull("Body Structure should not be null", locations);
-		Assert.assertTrue(
-				"Expected to find Equipped",
-				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED)
+		assertNotNull(locations, "Body Structure should not be null");
+		assertTrue(
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED),
+				"Expected to find Equipped"
 		);
-		Assert.assertTrue(
-				"Expected to find Carried",
-				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED)
+		assertTrue(
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED),
+				"Expected to find Carried"
 		);
-		Assert.assertTrue(
-				"Expected to find Not Carried",
-				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED)
+		assertTrue(
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED),
+				"Expected to find Not Carried"
 		);
-		Assert.assertEquals("Incorrect size of body structures list", 3, locations.getSize());
+		assertEquals(3, locations.getSize(), "Incorrect size of body structures list");
 	}
 
 	/**
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that known body structures get added.
 	 */
-	public final void getEquipmentLocations()
+	public static void getEquipmentLocations()
 	{
 		final String structName = "TestStruct";
 		SystemCollections.addToBodyStructureList(structName, SettingsHandler.getGame().getName());
@@ -88,20 +88,20 @@ public class DataSetTest
 						new DefaultListFacade<>());
 		ListFacade<BodyStructure> locations =
 				dataset.getEquipmentLocations();
-		Assert.assertNotNull("Body Structure should not be null", locations);
+		assertNotNull(locations, "Body Structure should not be null");
 		// TODO i18n this. It should be the same value as structname, not the localized value.
-		Assert.assertTrue(
-				"Expected to find added body structure '" + structName + "'",
-				checkBodyStructurePresent(locations, "Teststruct")
+		assertTrue(
+				checkBodyStructurePresent(locations, "Teststruct"),
+				"Expected to find added body structure '" + structName + "'"
 		);
-		Assert.assertTrue("Expected to find Equipped", checkBodyStructurePresent(
-				locations, Constants.EQUIP_LOCATION_EQUIPPED));
-		Assert.assertTrue("Expected to find Carried", checkBodyStructurePresent(
-				locations, Constants.EQUIP_LOCATION_CARRIED));
-		Assert.assertTrue("Expected to find Not Carried", checkBodyStructurePresent(
-				locations, Constants.EQUIP_LOCATION_NOTCARRIED));
-		Assert.assertEquals("Incorrect size of body structures list", 4, locations
-				.getSize());
+		assertTrue(checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_EQUIPPED), "Expected to find Equipped");
+		assertTrue(checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_CARRIED), "Expected to find Carried");
+		assertTrue(checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_NOTCARRIED), "Expected to find Not Carried");
+		assertEquals(4, locations
+				.getSize(), "Incorrect size of body structures list");
 	}
 
 	/**
@@ -130,24 +130,24 @@ public class DataSetTest
 			new DataSet(Globals.getContext(), SettingsHandler.getGame(),
 					new DefaultListFacade<>());
 		List<AbilityFacade> abilities = dataset.getPrereqAbilities(acrobatics);
-		Assert.assertEquals("Acrobatics prereq should be empty", 0, abilities.size());
+		assertEquals(0, abilities.size(), "Acrobatics prereq should be empty");
 		abilities = dataset.getPrereqAbilities(dodge);
-		Assert.assertEquals("Dodge prereq should be empty", 0, abilities.size());
+		assertEquals(0, abilities.size(), "Dodge prereq should be empty");
 		abilities = dataset.getPrereqAbilities(mobility);
-		Assert.assertEquals("Mobility prereq should not be empty", 1, abilities.size());
-		Assert.assertEquals("Mobility prereq should be dodge", dodge, abilities.get(0));
+		assertEquals(1, abilities.size(), "Mobility prereq should not be empty");
+		assertEquals(dodge, abilities.get(0), "Mobility prereq should be dodge");
 		abilities = dataset.getPrereqAbilities(springAttack);
-		Assert.assertEquals("Spring Attack prereq should not be empty", 2, abilities.size());
-		Assert.assertEquals("Spring Attack prereq should be dodge", dodge, abilities.get(0));
-		Assert.assertEquals("Spring Attack prereq should be mobility", mobility, abilities.get(1));
+		assertEquals(2, abilities.size(), "Spring Attack prereq should not be empty");
+		assertEquals(dodge, abilities.get(0), "Spring Attack prereq should be dodge");
+		assertEquals(mobility, abilities.get(1), "Spring Attack prereq should be mobility");
 	}
 	
 	/**
 	 * @param locations
 	 * @param name 
 	 */
-	private boolean checkBodyStructurePresent(
-		ListFacade<BodyStructure> locations, String name)
+	private static boolean checkBodyStructurePresent(
+			ListFacade<BodyStructure> locations, String name)
 	{
 		boolean foundRec = false;
 		for (BodyStructure equipmentLocFacade : locations)

@@ -20,14 +20,15 @@ package pcgen.output.actor;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A FactSetKeyActor is designed to process an interpolation and convert that

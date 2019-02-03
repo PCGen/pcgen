@@ -20,6 +20,7 @@ package actor.choose;
 import pcgen.cdom.base.Chooser;
 import pcgen.core.WeaponProf;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class WeaponProficiencyTokenTest extends

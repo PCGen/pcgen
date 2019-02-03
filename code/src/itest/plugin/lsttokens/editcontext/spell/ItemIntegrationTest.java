@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.spell;
 
-import org.junit.Test;
-
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,6 +25,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.spell.ItemToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class ItemIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>

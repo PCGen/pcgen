@@ -27,7 +27,6 @@ import plugin.pretokens.test.PreWieldTester;
 
 public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
-	@SuppressWarnings("nls")
 	public void testVisionNotHandledFail()
 	{
 		final Prerequisite prereq = new Prerequisite();

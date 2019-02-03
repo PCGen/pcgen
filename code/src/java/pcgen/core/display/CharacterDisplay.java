@@ -41,9 +41,9 @@ import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -106,7 +106,6 @@ import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
-import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
@@ -242,7 +241,6 @@ public class CharacterDisplay
 	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
-	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet =
 			FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
@@ -553,12 +551,12 @@ public class CharacterDisplay
 		return ageFacet.getAge(id);
 	}
 
-	public int getBaseMovement(String moveType, Load load)
+	public int getBaseMovement(MovementType moveType, Load load)
 	{
 		return moveResultFacet.getBaseMovement(id, moveType, load);
 	}
 
-	public boolean hasMovement(String moveType)
+	public boolean hasMovement(MovementType moveType)
 	{
 		return moveResultFacet.hasMovement(id, moveType);
 	}
@@ -645,11 +643,6 @@ public class CharacterDisplay
 	public int processOldInitiativeMod()
 	{
 		return initiativeFacet.getInitiative(id);
-	}
-
-	public Handed getHandedObject()
-	{
-		return handedFacet.getHanded(id);
 	}
 
 	public SortedSet<WeaponProf> getSortedWeaponProfs()
@@ -1229,7 +1222,7 @@ public class CharacterDisplay
 		return loadFacet.getLoadType(id);
 	}
 
-	public double getMovementOfType(String moveType)
+	public double getMovementOfType(MovementType moveType)
 	{
 		return moveResultFacet.getMovementOfType(id, moveType);
 	}
@@ -1589,12 +1582,12 @@ public class CharacterDisplay
 		return visionFacet.getVisionCount(id);
 	}
 
-	public Double getBaseMovement()
+	public int getBaseMovement()
 	{
-		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
+		return baseMovementFacet.getSet(id).iterator().next().getMovement();
 	}
 
-	public double movementOfType(final String moveType)
+	public double movementOfType(MovementType moveType)
 	{
 		return moveResultFacet.movementOfType(id, moveType);
 	}

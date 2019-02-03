@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.NotePCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
@@ -39,7 +39,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
-		character.setPCAttribute(NotePCAttribute.BIO, "Test bio entry\n2nd line\nThird line\nlast one");
+		character.setPCAttribute(PCStringKey.BIO, "Test bio entry\n2nd line\nThird line\nlast one");
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 			evaluateToken("BIO..,", character));
 
 		FileAccess.setCurrentOutputFilter("foo.htm");
-		character.setPCAttribute(NotePCAttribute.BIO, "Test bio <br/>entry\n2nd line\nThird line\nlast one");
+		character.setPCAttribute(PCStringKey.BIO, "Test bio <br/>entry\n2nd line\nThird line\nlast one");
 
 		String expected =
 				"<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>"

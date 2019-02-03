@@ -78,8 +78,6 @@ public final class GameMode implements Comparable<Object>
 	private Map<String, String> plusCalcs;
 	private Map<String, String> spellRangeMap = new HashMap<>();
 	private String acName = "";
-	private String babAbbrev = null;
-	private String currencyUnit = "";
 	private String currencyUnitAbbrev = "";
 	private String damageResistance = "";
 	private String defaultSpellBook = "Known Spells";
@@ -273,24 +271,6 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Set BAB Abbreviation.
-	 * @param aString
-	 */
-	public void setBabAbbrev(final String aString)
-	{
-		babAbbrev = aString;
-	}
-
-	/**
-	 * Get BAB Abbreviation.
-	 * @return BAB Abbreviation
-	 */
-	public String getBabAbbrev()
-	{
-		return babAbbrev;
-	}
-
-	/**
 	 * Set BAB Minimum value
 	 * @param arg
 	 */
@@ -329,15 +309,6 @@ public final class GameMode implements Comparable<Object>
 			return null;
 		}
 		return getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(ClassType.class, aClassKey);
-	}
-
-	/**
-	 * Set the Currency Unit.
-	 * @param aString
-	 */
-	public void setCurrencyUnit(final String aString)
-	{
-		currencyUnit = aString;
 	}
 
 	/**
@@ -974,15 +945,6 @@ public final class GameMode implements Comparable<Object>
 	int getDisplayOrder()
 	{
 		return displayOrder;
-	}
-
-	/**
-	 * Answer the unit of currency.
-	 * @return currency unit
-	 */
-	String getLongCurrencyDisplay()
-	{
-		return currencyUnit;
 	}
 
 	public String getRankModFormula()

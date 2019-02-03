@@ -346,7 +346,7 @@ public final class KitGear extends BaseKit
 
 		Equipment testApplyEquipment = theEquipment.clone();
 		// Temporarily add the equipment so we can see if we can equip it.
-		testApplyEquipment.setQty(new Float(theQty));
+		testApplyEquipment.setQty(Float.valueOf(theQty));
 		aPC.addEquipment(testApplyEquipment);
 		Equipment theTarget = null;
 		if (actingLocation != null)
@@ -382,7 +382,7 @@ public final class KitGear extends BaseKit
 			else
 			{
 				EquipSet eqSet =
-						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, new Float(-1.0f));
+						aPC.addEquipToTarget(eSet, theTarget, theLocation, testApplyEquipment, Float.valueOf(-1.0f));
 				if (eqSet == null)
 				{
 					warnings.add("GEAR: Could not equip " + testApplyEquipment.getName() + " to " + theLocation);
@@ -399,7 +399,7 @@ public final class KitGear extends BaseKit
 
 		if (existing == null)
 		{
-			theEquipment.setQty(new Float(theQty));
+			theEquipment.setQty(Float.valueOf(theQty));
 
 			aPC.addEquipment(theEquipment);
 			Globals.getContext().getReferenceContext().importObject(theEquipment);
@@ -434,7 +434,7 @@ public final class KitGear extends BaseKit
 		//
 		// Equip the item to the default EquipSet.
 		//
-		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, new Float(theQty));
+		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment, Float.valueOf(theQty));
 
 		aPC.setGold(aPC.getGold().subtract(theCost));
 	}

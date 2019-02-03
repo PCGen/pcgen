@@ -1,14 +1,11 @@
 package pcgen.rules.persistence;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.net.URI;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
@@ -18,9 +15,12 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class TableLoaderTest
+class TableLoaderTest
 {
 
 	private static final DataTable.LookupType EQ = DataTable.LookupType.EXACT;
@@ -29,8 +29,8 @@ public class TableLoaderTest
 	private URI uri;
 	private TableLoader loader;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		uri = TestURI.getURI();
 		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),

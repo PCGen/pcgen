@@ -19,9 +19,9 @@ package actor.choose;
 
 import pcgen.cdom.base.Chooser;
 import pcgen.cdom.identifier.SpellSchool;
+import plugin.lsttokens.choose.SchoolsToken;
 
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
-import plugin.lsttokens.choose.SchoolsToken;
 
 public class SchoolsTokenTest extends
 		AbstractPersistentChoiceActorTestCase<SpellSchool>

@@ -17,9 +17,11 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.net.URISyntaxException;
 
 import pcgen.base.format.StringManager;
 import pcgen.cdom.base.CDOMObject;
@@ -37,11 +39,15 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class FactSetLstTest extends AbstractGlobalTokenTestCase
 {
 	private static FactSetLst token = new FactSetLst();
 	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

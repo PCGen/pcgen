@@ -18,13 +18,13 @@
  */
 package pcgen.core.prereq;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class PreMult extends AbstractPrerequisiteTest implements PrerequisiteTest
 {

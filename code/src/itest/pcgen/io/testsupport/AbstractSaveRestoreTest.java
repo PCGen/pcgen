@@ -17,6 +17,9 @@
  */
 package pcgen.io.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -70,12 +73,12 @@ import pcgen.core.SizeAdjustment;
 import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.chooser.ChooserFactory;
-
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
@@ -95,9 +98,8 @@ import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.language.PCToken;
 
 import compare.InequalityTesterInst;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 import util.TestURI;
 
@@ -132,7 +134,7 @@ public abstract class AbstractSaveRestoreTest
 	protected PlayerCharacter reloadedPC;
 	protected CharID id;
 
-	@BeforeClass
+	@BeforeAll
 	public static void setUpBeforeClass()
 	{
 		TokenRegistration.register(new LevelToken());
@@ -149,12 +151,6 @@ public abstract class AbstractSaveRestoreTest
 		ControlTestSupport.enableFeature(mode.getModeContext(), CControl.ALIGNMENTFEATURE);
 	}
 
-	@Before
-	public void setUp() throws Exception
-	{
-		setUpContext();
-	}
-
 	protected <T extends Loadable> T create(Class<T> cl, String key)
 	{
 		return context.getReferenceContext().constructCDOMObject(cl, key);
@@ -167,7 +163,7 @@ public abstract class AbstractSaveRestoreTest
 		context.getReferenceContext().buildDeferredObjects();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
+		assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
@@ -222,7 +218,8 @@ public abstract class AbstractSaveRestoreTest
 	private WeaponProfFacet weaponProfFacet;
 	private Race human;
 
-	private void setUpContext()
+	@BeforeEach
+	void setUpContext()
 	{
 		ChooserFactory.useRandomChooser();
 		TokenRegistration.clearTokens();
@@ -353,7 +350,7 @@ public abstract class AbstractSaveRestoreTest
 	protected void checkEquality()
 	{
 		InequalityTester it = InequalityTesterInst.getInstance();
-		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc.getCharID(),
+		assertTrue(AbstractStorageFacet.areEqualCache(pc.getCharID(),
 			reloadedPC.getCharID(), it));
 	}
 
@@ -369,8 +366,8 @@ public abstract class AbstractSaveRestoreTest
 		InputStream is = new ByteArrayInputStream(pcgString.getBytes());
 		PCGIOHandler ioh = new PCGIOHandler();
 		ioh.read(reloadedPC, is, true);
-		Assert.assertEquals(ioh.getErrors().toString(), 0, ioh.getErrors().size());
-		Assert.assertEquals(ioh.getWarnings().toString(), 0, ioh.getWarnings().size());
+		assertEquals(0, ioh.getErrors().size(), ioh.getErrors().toString());
+		assertEquals(0, ioh.getWarnings().size(), ioh.getWarnings().toString());
 	}
 	
 	protected void dumpPC(PlayerCharacter plchar)
@@ -387,7 +384,7 @@ public abstract class AbstractSaveRestoreTest
 		pc.setHeight(0);
 		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
 		pc.setAllowDebt(false);
-		pc.setHanded(Handed.Right);
+		HandedCompat.setCurrentHandedness(pc.getCharID(), Handed.Right);
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 0);

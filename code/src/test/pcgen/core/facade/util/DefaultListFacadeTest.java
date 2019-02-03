@@ -17,7 +17,7 @@
  */
 package pcgen.core.facade.util;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,16 +27,9 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-/**
- * The Class {@code} ...
- *
- * <br/>
- * 
- */
-
-public class DefaultListFacadeTest
+class DefaultListFacadeTest
 {
 
 	/**
@@ -53,11 +46,11 @@ public class DefaultListFacadeTest
 		List<String> newElements = Arrays.asList("A",
 			"C", "D", "E");
 		theList.updateContents(newElements);
-		assertEquals("Lists have not been made the same", newElements, theList.getContents());
-		assertEquals("Incorrect number of adds", 1, listener.addCount);
-		assertEquals("Incorrect number of removes", 1, listener.removeCount);
-		assertEquals("Incorrect number of changes", 0, listener.changeCount);
-		assertEquals("Incorrect number of modifies", 0, listener.modifyCount);
+		assertEquals(newElements, theList.getContents(), "Lists have not been made the same");
+		assertEquals(1, listener.addCount, "Incorrect number of adds");
+		assertEquals(1, listener.removeCount, "Incorrect number of removes");
+		assertEquals(0, listener.changeCount, "Incorrect number of changes");
+		assertEquals(0, listener.modifyCount, "Incorrect number of modifies");
 	}
 
 	/**
@@ -73,11 +66,11 @@ public class DefaultListFacadeTest
 		List<String> newElements = Arrays.asList("F",
 			"G", "H", "I", "M");
 		theList.updateContents(newElements);
-		assertEquals("Lists have not been made the same", newElements, theList.getContents());
-		assertEquals("Incorrect number of adds", 5, listener.addCount);
-		assertEquals("Incorrect number of removes", 4, listener.removeCount);
-		assertEquals("Incorrect number of changes", 0, listener.changeCount);
-		assertEquals("Incorrect number of modifies", 0, listener.modifyCount);
+		assertEquals(newElements, theList.getContents(), "Lists have not been made the same");
+		assertEquals(5, listener.addCount, "Incorrect number of adds");
+		assertEquals(4, listener.removeCount, "Incorrect number of removes");
+		assertEquals(0, listener.changeCount, "Incorrect number of changes");
+		assertEquals(0, listener.modifyCount, "Incorrect number of modifies");
 	}
 
 	/**
@@ -93,11 +86,11 @@ public class DefaultListFacadeTest
 		List<String> newElements = Arrays.asList("A",
 			"C", "D", "E");
 		theList.updateContents(newElements);
-		assertEquals("Lists have not been made the same", newElements, theList.getContents());
-		assertEquals("Incorrect number of adds", 0, listener.addCount);
-		assertEquals("Incorrect number of removes", 0, listener.removeCount);
-		assertEquals("Incorrect number of changes", 1, listener.changeCount);
-		assertEquals("Incorrect number of modifies", 0, listener.modifyCount);
+		assertEquals(newElements, theList.getContents(), "Lists have not been made the same");
+		assertEquals(0, listener.addCount, "Incorrect number of adds");
+		assertEquals(0, listener.removeCount, "Incorrect number of removes");
+		assertEquals(1, listener.changeCount, "Incorrect number of changes");
+		assertEquals(0, listener.modifyCount, "Incorrect number of modifies");
 	}
 
 	/**
@@ -112,11 +105,11 @@ public class DefaultListFacadeTest
 		theList.addListListener(listener);
 		List<String> newElements = Collections.emptyList();
 		theList.updateContents(newElements);
-		assertEquals("Lists have not been made the same", newElements, theList.getContents());
-		assertEquals("Incorrect number of adds", 0, listener.addCount);
-		assertEquals("Incorrect number of removes", 0, listener.removeCount);
-		assertEquals("Incorrect number of changes", 1, listener.changeCount);
-		assertEquals("Incorrect number of modifies", 0, listener.modifyCount);
+		assertEquals(newElements, theList.getContents(), "Lists have not been made the same");
+		assertEquals(0, listener.addCount, "Incorrect number of adds");
+		assertEquals(0, listener.removeCount, "Incorrect number of removes");
+		assertEquals(1, listener.changeCount, "Incorrect number of changes");
+		assertEquals(0, listener.modifyCount, "Incorrect number of modifies");
 	}
 
 	/**
@@ -135,11 +128,11 @@ public class DefaultListFacadeTest
 					"I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
 					"U", "V", "W", "X", "Y", "Z");
 		theList.updateContents(newElements);
-		assertEquals("Lists have not been made the same", newElements, theList.getContents());
-		assertEquals("Incorrect number of adds", 0, listener.addCount);
-		assertEquals("Incorrect number of removes", 0, listener.removeCount);
-		assertEquals("Incorrect number of changes", 1, listener.changeCount);
-		assertEquals("Incorrect number of modifies", 0, listener.modifyCount);
+		assertEquals(newElements, theList.getContents(), "Lists have not been made the same");
+		assertEquals(0, listener.addCount, "Incorrect number of adds");
+		assertEquals(0, listener.removeCount, "Incorrect number of removes");
+		assertEquals(1, listener.changeCount, "Incorrect number of changes");
+		assertEquals(0, listener.modifyCount, "Incorrect number of modifies");
 	}
 
 	/**
@@ -158,11 +151,11 @@ public class DefaultListFacadeTest
 		List<String> newElements =
 				Arrays.asList("A", "B", "C", "E");
 		theList.updateContents(newElements);
-		assertEquals("Lists have not been made the same", newElements, theList.getContents());
-		assertEquals("Incorrect number of adds", 0, listener.addCount);
-		assertEquals("Incorrect number of removes", 0, listener.removeCount);
-		assertEquals("Incorrect number of changes", 1, listener.changeCount);
-		assertEquals("Incorrect number of modifies", 0, listener.modifyCount);
+		assertEquals(newElements, theList.getContents(), "Lists have not been made the same");
+		assertEquals(0, listener.addCount, "Incorrect number of adds");
+		assertEquals(0, listener.removeCount, "Incorrect number of removes");
+		assertEquals(1, listener.changeCount, "Incorrect number of changes");
+		assertEquals(0, listener.modifyCount, "Incorrect number of modifies");
 	}
 
 	private static class TestListener implements ListListener<String>

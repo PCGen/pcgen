@@ -187,47 +187,78 @@ launch4j {
 task downloadJRE doLast {
     def major = 11
     def archs = ['x64','x32']
-    def osList = ['windows']
+    def osList = ['windows', 'mac']
     def extension = 'zip'
     osList.each{
         def os = "${it}"
+        if(os != "windows") {
+            extension = 'tar.gz'
+        }
         archs.each {
             def arch = "${it}"
+            if(os == "mac" && arch == "x32"){
+                return
+            }
             def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
-            def jreDir = new File("${projectDir}/jre/jre_${arch}")
+            def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
             if(!jreDir.exists()){
                 //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
-                println("Downloading Java ${major} from ${url}")
+                println("Downloading Java ${major} ${arch} for ${os} from ${url}")
                 if(!jreDir.exists()){
                     download {
                         src url
-                        dest new File("${projectDir}/jre/", "jre_${arch}.${extension}")
+                        dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
                         overwrite false
                     }
                     //Now untar them
-                    fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
-                        copy {
-                            println "Unzip $simLib.name"
-                            def name = simLib.name - '.$extension'
-                            def zipFile = file("${projectDir}/jre/${simLib.name}")
-                            def outputDir = "${projectDir}/jre/jre_${arch}/"
-                            from zipTree(zipFile)
-                            into outputDir
-                            eachFile { fcd ->
-                                def relPath = fcd.relativePath
-                                if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
-                                    fcd.exclude()
-                                } else {
-                                    def segments = relPath.segments
-                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                    if(extension == "zip"){
+                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                            copy {
+                                println "Unzip $simLib.name"
+                                def name = simLib.name - '.$extension'
+                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+                                
+                                from zipTree(zipFile)
+                                into outputDir
+                                eachFile { fcd ->
+                                    def relPath = fcd.relativePath
+                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                        fcd.exclude()
+                                    } else {
+                                        def segments = relPath.segments
+                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    }
                                 }
                             }
+                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
                         }
-                        new File("${projectDir}/jre/${simLib.name}").delete()
+                    } else {
+                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                            copy {
+                                println "Unzip $simLib.name"
+                                def name = simLib.name - '.$extension'
+                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+                                
+                                from tarTree(zipFile)
+                                into outputDir
+                                eachFile { fcd ->
+                                    def relPath = fcd.relativePath
+                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                        fcd.exclude()
+                                    } else {
+                                        def segments = relPath.segments
+                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    }
+                                }
+                            }
+                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
+                        }
                     }
-                    file("${projectDir}/jre/jre_${arch}").list().each { f->
+                    file("${projectDir}/jre/${os}/jre_${arch}").list().each { f->
                         if(f.startsWith("jdk")) {
-                            file("${projectDir}/jre/jre_${arch}/"+f).deleteDir()
+                            file("${projectDir}/jre/${os}/jre_${arch}/"+f).deleteDir()
                         }
                     }
                 }
@@ -301,6 +332,7 @@ task genDataList doLast {
     publisherMap.put("paizo","Paizo Publishing");
     publisherMap.put("parents_basement_games","Parents Basement Games");
     publisherMap.put("pcgen","PCGen OGL");
+    publisherMap.put("pfsrd_publishing","Open Game Network (d20pfsrd)");
     publisherMap.put("pinnacle_entertainment","Pinnacle Entertainment");
     publisherMap.put("reality_deviant","Reality Deviant Publications");
     publisherMap.put("rite","Rite Publishing");
@@ -517,3 +549,54 @@ task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
 }
+
+macAppBundle {
+    mainClassName	= "pcgen.system.Main"
+    appName			= "PCGen"
+    appStyle		= "universalJavaApplicationStub"
+    icon 			= "installers/mac-installer/PCGenApp.icns"
+    bundleJRE 		= false
+    backgroundImage = "installers/mac-installer/PCGen_folder_background.png"
+    jvmVersion		= "+11.0"
+    appIconX		= "243"
+    appIconY		= "270"
+    appFolderX		= "370"
+    appFolderY		= "270"
+    javaProperties.put("apple.laf.useScreenMenuBar", "true")
+    bundleExtras.put("JVMVersion", "11.0")
+}
+
+task copyMacDataResources(type: Copy, dependsOn: copyToResourcesJava) {
+	from	"data"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/data"
+}
+
+task copyMacDocsResources(type: Copy, dependsOn: copyMacDataResources) {
+	from	"docs"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/docs"
+}
+
+task copyMacOutputsheetsResources(type: Copy, dependsOn: copyMacDocsResources) {
+	from	"outputsheets"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/outputsheets"
+}
+
+task copyMacPluginsResources(type: Copy, dependsOn: copyMacOutputsheetsResources) {
+	from	"plugins"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/plugins"
+}
+
+task copyMacPreviewResources(type: Copy, dependsOn: copyMacPluginsResources) {
+	from	"preview"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/preview"
+}
+
+task copyMacSystemResources(type: Copy, dependsOn: copyMacPreviewResources) {
+	from	"system"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/system"
+}
+
+createApp {
+	it.dependsOn 	"copyMacSystemResources"
+}
+

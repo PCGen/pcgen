@@ -1,16 +1,17 @@
 /*
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ * Copyright 2019 Timothy Reaves <treaves@silverfieldstech.com>
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -32,14 +33,6 @@ import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
-
-import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.impl.Arguments;
-import net.sourceforge.argparse4j.inf.ArgumentParser;
-import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
-import net.sourceforge.argparse4j.inf.Namespace;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.core.CustomData;
@@ -52,7 +45,6 @@ import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.dialog.OptionsPathDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
 import pcgen.gui2.plaf.LookAndFeelManager;
-import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
@@ -64,6 +56,14 @@ import pcgen.pluginmgr.PluginManager;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
+
+import net.sourceforge.argparse4j.ArgumentParsers;
+import net.sourceforge.argparse4j.impl.Arguments;
+import net.sourceforge.argparse4j.inf.ArgumentParser;
+import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
+import net.sourceforge.argparse4j.inf.Namespace;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * Main entry point for pcgen.
@@ -262,7 +262,6 @@ public final class Main
 
 	private static void configureUI()
 	{
-		Utility.configurePlatformUI();
 		String language = ConfigurationSettings.getLanguage();
 		String country = ConfigurationSettings.getCountry();
 		if (StringUtils.isNotEmpty(language) && StringUtils.isNotEmpty(country))
@@ -271,7 +270,6 @@ public final class Main
 		}
 		LanguageBundle.init();
 		LookAndFeelManager.initLookAndFeel();
-		Utility.setApplicationTitle(Constants.APPLICATION_NAME);
 	}
 
 	/**

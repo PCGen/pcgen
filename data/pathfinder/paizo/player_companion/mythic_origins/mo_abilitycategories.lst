@@ -1,0 +1,4 @@
+# Entry by GrimaceJD (Jason D)
+# Ability Category								Visible			Editable?			Change Pool?		Fractional values?	Base Pool number			Category of Object					Type of Object						Specific choices list									Plural description for UI	Display Location
+ABILITYCATEGORY:Unbreakable Resilience		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:UnbreakableStats																				DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Impeccable Intuition		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:ImpeccableChoices																		PLURAL:Mythic Paths		DISPLAYLOCATION:Mythic Abilities

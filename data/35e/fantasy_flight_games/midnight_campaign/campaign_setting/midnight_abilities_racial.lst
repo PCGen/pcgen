@@ -109,6 +109,8 @@ Darkvision														KEY:Dwarf Midnight ~ Darkvision												SORTKEY:Racia
 Favored Region ~ Kaladrun Mountains										KEY:Dwarf Midnight ~ Favored Region												SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities				VISIBLE:NO																	ABILITY:Special Ability|AUTOMATIC|Favored Region ~ Kaladrun Mountains																																						SOURCEPAGE:39
 Weapon Familiarity												KEY:Dwarf Midnight ~ Weapon Familiarity											SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities				VISIBLE:NO																																																									CHANGEPROF:Urgosh (Dwarven),Waraxe (Dwarven)=Martial	SOURCEPAGE:39
 
+Dwarven Clan Dialect		CATEGORY:Internal		TYPE:Internal.Languages		VISIBLE:DISPLAY		MULT:YES	STACK:NO	CHOOSE:LANG|Black Blood|Durgis|Fodrin|Gorand|Thedron		AUTO:LANG|%LIST
+
 ###Block: Racial Abilities: Dwarf Clan
 # Ability Name						Unique Key									Category of Ability		Type										Visible		Ability												Modify VAR																Source Page		Aspects
 Favored Region						KEY:Clan Dwarf ~ Favored Region					CATEGORY:Special Ability	TYPE:RacialTraits.Internal.ClanDwarfRacialAbilities		VISIBLE:NO		ABILITY:Special Ability|AUTOMATIC|Favored Region ~ Subterranean Kaladruns																		SOURCEPAGE:40

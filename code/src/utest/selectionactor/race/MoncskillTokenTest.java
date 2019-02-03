@@ -19,8 +19,8 @@ package selectionactor.race;
 
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Skill;
-
 import plugin.lsttokens.race.MoncskillToken;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class MoncskillTokenTest extends AbstractSelectionActorTest<Skill>

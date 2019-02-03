@@ -20,9 +20,8 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -32,18 +31,13 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreAlignParser;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.Alignment;
 
-@SuppressWarnings("nls")
-public class PreAlignParserTest extends EnUsLocaleDependentTestCase
+class PreAlignParserTest extends EnUsLocaleDependentTestCase
 {
-
-	
-	/**
-	 * Test 1.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
 	@Test
 	public void test1() throws PersistenceLayerException
 	{
@@ -60,8 +54,8 @@ public class PreAlignParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		Globals.setUseGUI(false);
 		Globals.emptyLists();

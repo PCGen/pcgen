@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -43,16 +44,12 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import freemarker.template.Configuration;
-import freemarker.template.ObjectWrapper;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
-import freemarker.template.Version;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
@@ -93,6 +90,11 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import freemarker.template.Version;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -299,7 +301,7 @@ public final class ExportHandler
 	 * @param outputWriter The destination for the output.
 	 * @throws ExportException If the export fails.
 	 */
-	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, BufferedWriter outputWriter) throws ExportException
+	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, Writer outputWriter) throws ExportException
 	{
 
 		try
@@ -326,7 +328,7 @@ public final class ExportHandler
 			Map<String, Object> mode = OutputDB.buildModeDataModel(gamemode);
 			Map<String, Object> input = new HashMap<>();
 			input.put("pcgen", OutputDB.getGlobal());
-			input.put("pc", ObjectWrapper.DEFAULT_WRAPPER.wrap(pc));
+			input.put("pc", ExportUtilities.getObjectWrapper().wrap(pc));
 			input.put("gamemode", mode);
 			input.put("gamemodename", gamemode.getName());
 
@@ -2138,7 +2140,8 @@ public final class ExportHandler
 		CharacterDisplay display = aPC.getDisplay();
 		if ("REGION".equals(aString.substring(1)))
 		{
-			if (display.getRegion().equals(Constants.NONE))
+			if (display.getRegion().isPresent()
+				&& display.getRegion().get().equals(Region.NONE))
 			{
 				canWrite = false;
 			}

@@ -17,10 +17,8 @@
  */
 package plugin.modifier.number;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
@@ -33,6 +31,9 @@ import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import plugin.modifier.testsupport.EvalManagerUtilities;
+
+import org.junit.jupiter.api.Test;
+
 
 public class SetNumberModifierTest
 {

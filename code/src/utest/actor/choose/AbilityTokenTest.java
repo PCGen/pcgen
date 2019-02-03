@@ -17,13 +17,12 @@
  */
 package actor.choose;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
-
 import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 

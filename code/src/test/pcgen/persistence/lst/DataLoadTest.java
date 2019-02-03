@@ -30,12 +30,12 @@ import java.util.List;
 import java.util.logging.LogRecord;
 import java.util.stream.Stream;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.facade.MockUIDelegate;
@@ -175,12 +175,11 @@ public class DataLoadTest implements PCGenTaskListener
 		List<SourceSelectionFacade> basicSources = new ArrayList<>();
 		for (Campaign campaign : Globals.getCampaignList())
 		{
-			if (campaign.showInMenu())
+			if (campaign.getSafe(ObjectKey.SHOW_IN_MENU))
 			{
 				SourceSelectionFacade sourceSelection =
 						FacadeFactory.createSourceSelection(campaign.getGameModes()
-							.getElementAt(0), Collections.singletonList(campaign), campaign.getName());
-
+							.getElementAt(0), Collections.singletonList(campaign), campaign.getKeyName());
 				basicSources.add(sourceSelection);
 			}
 		}
@@ -188,7 +187,7 @@ public class DataLoadTest implements PCGenTaskListener
 		{
 			if (!mode.getDefaultDataSetList().isEmpty())
 			{
-				List<CampaignFacade> qcamps = new ArrayList<>();
+				List<Campaign> qcamps = new ArrayList<>();
 				List<String> sources = mode.getDefaultDataSetList();
 				for (String string : sources)
 				{

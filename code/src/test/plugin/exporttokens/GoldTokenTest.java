@@ -19,13 +19,13 @@ package plugin.exporttokens;
 
 import java.math.BigDecimal;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.SourceFileLoader;
 import plugin.exporttokens.deprecated.GoldToken;
+
+import org.junit.Test;
 
 /**
  * Unit test for the {@code GoldToken} class.

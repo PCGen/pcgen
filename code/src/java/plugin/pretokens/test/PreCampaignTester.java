@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
@@ -111,7 +112,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 			}
 			for (Campaign camp : fullCampList)
 			{
-				for (String listType : camp.getBookTypeList())
+				for (String listType : camp.getSafeListFor(ListKey.BOOK_TYPE))
 				{
 					if (bookType.equalsIgnoreCase(listType))
 					{

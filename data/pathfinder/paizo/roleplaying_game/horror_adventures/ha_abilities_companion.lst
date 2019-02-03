@@ -1,0 +1,3 @@
+SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
+
+Companion Advancement (Devolved Humanoid)				KEY:Companion Advancement ~ Devolved Humanoid				CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Devolved Humanoid)	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|BiteSize|1	BONUS:VAR|ClawSize|1	BONUS:STAT|STR|8	BONUS:STAT|DEX|-2	BONUS:STAT|CON|4

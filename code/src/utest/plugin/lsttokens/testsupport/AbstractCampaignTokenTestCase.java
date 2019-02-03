@@ -17,15 +17,17 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.net.URI;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Test;
+import java.net.URI;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
+
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 public abstract class AbstractCampaignTokenTestCase extends

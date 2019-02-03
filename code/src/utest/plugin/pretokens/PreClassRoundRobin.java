@@ -17,6 +17,8 @@
  */
 package plugin.pretokens;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -25,6 +27,7 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.writer.PreClassWriter;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class PreClassRoundRobin extends AbstractRankedRoundRobin
 {
@@ -55,23 +58,26 @@ public class PreClassRoundRobin extends AbstractRankedRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testSpellcaster()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER=2");
 	}
 
+	@Test
 	public void testSpellcasterTyped()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER.Arcane=2");
 	}
 
+	@Test
 	public void testNestedInvalid()
 	{
 		try
 		{
 			String prereqStr = "PRECLASS:1,Oracle=2[!PRESPELL:1,Veil of Heaven]";
 			Prerequisite p = PreParserFactory.getInstance().parse(prereqStr);
-			fail("Expected " + prereqStr + " to be rejected but got " + p); 
+			fail(() -> "Expected " + prereqStr + " to be rejected but got " + p);
 		}
 		catch (PersistenceLayerException e)
 		{

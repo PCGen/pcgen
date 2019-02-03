@@ -23,7 +23,6 @@ import java.util.Optional;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Code Controls
@@ -96,7 +95,7 @@ public final class CControl
 	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
-	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", ChannelUtilities.createVarName("Alignment"), Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
+	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
 
 	/**
 	 * Enable/Disable the AlignmentFeature
@@ -107,6 +106,16 @@ public final class CControl
 	 * Enable/Disable the DomainFeature
 	 */
 	public static final String DOMAINFEATURE = "DOMAINFEATURE";
+
+	/**
+	 * Code control for the Handedness of a PC.
+	 */
+	public static final CControl HANDEDINPUT = new CControl("HANDEDINPUT", "Handed", Optional.empty(), "HANDED", true, false);
+
+	/**
+	 * Code control for the Available Handedness on a PC.
+	 */
+	public static final CControl AVAILHANDEDNESS = new CControl("AVAILHANDEDNESS", "AvailableHandedness", Optional.empty(), "ARRAY[HANDED]", true, false);
 
 	/**
 	 * The name of a code control that contains a default value. This is used when a Code
@@ -159,16 +168,7 @@ public final class CControl
 	 * Constructs a new CControl with the given name, default variable name, controlling
 	 * feature, and format.
 	 */
-	private CControl(String name, String defaultValue, String controllingFeature, String format)
-	{
-		this(name, defaultValue, Optional.of(controllingFeature), format);
-	}
-
-	/**
-	 * Constructs a new CControl with the given name, default variable name, controlling
-	 * feature, and format.
-	 */
-	private CControl(String name, String defaultValue, Optional<String> controllingFeature, String format)
+	public CControl(String name, String defaultValue, Optional<String> controllingFeature, String format)
 	{
 		this(name, defaultValue, controllingFeature, format, false, false);
 	}

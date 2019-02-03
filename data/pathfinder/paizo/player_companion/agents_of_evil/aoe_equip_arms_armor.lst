@@ -1,0 +1,13 @@
+SOURCELONG:Agents of Evil		SOURCESHORT:AoE	SOURCEWEB:https://paizo.com/products/btpy9he0	SOURCEDATE:2015-12
+
+Short Sword (Base).COPY=Closing Offer
+Longspear (Base).COPY=Fiend's Relief
+Arrow (Base).COPY=Grave Marker Arrow
+Rapier (Base).COPY=Snakebite
+Musket.COPY=Withershot
+
+Closing Offer.MOD					TYPE:Magic			EQMOD:Material ~ Steel.Special Ability ~ +2 ~ Weapon.Special Ability ~ Enhancement Cost|7000											SOURCEPAGE:p.27		SPROP:Can be keyed to a single family and acts as a bane weapon against memebers of that bloodline.
+Fiend's Relief.MOD					TYPE:Magic			EQMOD:Material ~ Steel.Material ~ Wood.Special Ability ~ +1 ~ Weapon.Special Ability ~ Enhancement Cost|1000									SOURCEPAGE:p.27		SPROP:Weilder gains a +3 bonus on attack rolls when flanking with an evil-aligned outsider, can ignore any cover provided by such an outsider when reaching through its square.
+Grave Marker Arrow.MOD					TYPE:Magic			EQMOD:Material ~ Steel.Material ~ Wood.Special Ability ~ +1 ~ Ammunition.Special Ability ~ Enhancement Cost|261									SOURCEPAGE:p.27		SPROP:When it strikes a target, all mindless undead within 300 feet are compelled to attack the creature struck.
+Snakebite.MOD			DESCISPI:YES		TYPE:Magic			EQMOD:Material ~ Steel.Special Ability ~ +2 ~ Weapon.Special Ability ~ Injecting ~ Weapon.Special Ability ~ Wounding ~ Weapon.Special Ability ~ Enhancement Cost|7000		SOURCEPAGE:p.27		SPROP:Increases the save DC of any poison applied to its blade by 1. Worshipers of Ydersius can utter a prayer up to three times per day to creates 1 dose of purple worm poison.
+Withershot.MOD						TYPE:Magic			EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Shock ~ Weapon.Special Ability ~ Enhancement Cost|15000									SOURCEPAGE:p.27		SPROP:Bullet infect good- or neutral-aligned targets with cackle fever, which cannot be cured until bullet is removed.

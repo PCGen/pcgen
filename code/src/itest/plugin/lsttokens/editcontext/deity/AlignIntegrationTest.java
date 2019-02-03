@@ -19,9 +19,6 @@ package plugin.lsttokens.editcontext.deity;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
@@ -33,6 +30,9 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 {

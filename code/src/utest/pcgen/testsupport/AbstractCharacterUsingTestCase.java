@@ -31,7 +31,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;

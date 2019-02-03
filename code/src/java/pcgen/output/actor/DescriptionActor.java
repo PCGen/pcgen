@@ -21,8 +21,6 @@ package pcgen.output.actor;
 import java.util.Collections;
 import java.util.List;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -34,6 +32,9 @@ import pcgen.core.Description;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.output.base.OutputActor;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A DescriptionActor is designed to process an interpolation and convert the

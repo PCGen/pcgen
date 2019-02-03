@@ -33,7 +33,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
@@ -56,7 +56,6 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
-
 
 import org.apache.commons.lang3.StringUtils;
 import org.jdom2.Element;
@@ -219,7 +218,7 @@ public class PcgCombatant extends Combatant
 	 */
 	public void setPlayer(String player)
 	{
-		pc.setPCAttribute(PCAttribute.PLAYERSNAME, player);
+		pc.setPCAttribute(PCStringKey.PLAYERSNAME, player);
 	}
 
 	/**

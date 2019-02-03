@@ -17,21 +17,19 @@
  */
 package pcgen.rules.persistence;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.rules.persistence.TokenLibrary.ModifierIterator;
 import pcgen.rules.persistence.token.ModifierFactory;
-
 import plugin.modifier.number.AddModifierFactory;
 import plugin.modifier.set.SetModifierFactory;
 
 import org.junit.jupiter.api.Test;
 
-public class TokenLibraryTest
+class TokenLibraryTest
 {
-
 	@Test
 	void testFallUp()
 	{

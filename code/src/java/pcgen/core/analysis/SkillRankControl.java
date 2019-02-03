@@ -41,7 +41,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 public final class SkillRankControl
@@ -85,7 +84,7 @@ public final class SkillRankControl
 			maxRanks = Math.max(maxRanks, baseRanks);
 			ranks = Math.min(maxRanks, ranks);
 		}
-		return new Float(ranks);
+		return (float) ranks;
 	}
 
 	/**

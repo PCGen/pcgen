@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Domain;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,6 +26,8 @@ import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.Test;
 
 public class TypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<CDOMObject>

@@ -4,25 +4,21 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreSkillTotalParser;
 
+import org.junit.jupiter.api.Test;
+
 
 @SuppressWarnings("nls")
 public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 {
 	
-	/**
-	 * Test 1.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
+
 	@Test
 	public void test1() throws PersistenceLayerException
 	{

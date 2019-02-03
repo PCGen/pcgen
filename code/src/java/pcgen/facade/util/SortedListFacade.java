@@ -21,11 +21,11 @@ package pcgen.facade.util;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 public class SortedListFacade<E> extends AbstractListFacade<E> implements ListListener<E>
 {

@@ -1,12 +1,12 @@
 package gmgen.plugin.dice;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
 import static org.hamcrest.number.OrderingComparison.lessThanOrEqualTo;
-import static org.junit.Assert.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -23,7 +23,7 @@ import static org.junit.Assert.assertThat;
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-public class DiceTest
+class DiceTest
 {
 	@Test
 	public void nonRandomDiceAssertions()

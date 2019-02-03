@@ -1,10 +1,10 @@
 CAMPAIGN:Rival Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Campaign Setting
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Campaign Setting
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide

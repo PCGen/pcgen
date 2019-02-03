@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.auto;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -35,6 +35,8 @@ import pcgen.core.ShieldProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 {

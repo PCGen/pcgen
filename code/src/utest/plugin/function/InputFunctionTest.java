@@ -28,7 +28,6 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
-import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.VariableChannel;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.output.channel.ChannelUtilities;
@@ -56,7 +55,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 		getFunctionLibrary().addFunction(new InputFunction());
 		id = CharID.getID(context.getDataSetID());
 		scopeFacet.set(id, getFormulaManager().getScopeInstanceFactory());
-		variableStoreFacet.set(id, (MonitorableVariableStore) getVariableStore());
+		variableStoreFacet.set(id, getVariableStore());
 		solverManagerFacet.set(id,
 			context.getVariableContext().generateSolverManager(getVariableStore()));
 	}

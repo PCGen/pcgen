@@ -41,8 +41,8 @@ import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code ScanForUnusedIl8nKeys} check for any unused keys in
@@ -50,8 +50,7 @@ import org.junit.Test;
  * test but after completion of localisation work it will be used as means of 
  * verifying the properties files.  
  */
-
-public class ScanForUnusedIl8nKeys
+class ScanForUnusedIl8nKeys
 {
 
 	private static final String CODE_PATH = "code/src/java/";
@@ -63,9 +62,9 @@ public class ScanForUnusedIl8nKeys
 		"pcgen/core", "pcgen/system", "gmgen", "plugin", "pcgen/io",
 		"pcgen/persistence", "pcgen/cdom", "pcgen/rules/context", "pcgen/util", };
 	
-	@Ignore
+	@Disabled
 	@Test
-	public void scanForUnusedKeys() throws Exception
+	void scanForUnusedKeys() throws Exception
 	{
 		//Read in bundle, grab all keys
 		Properties p = new Properties();
@@ -184,8 +183,8 @@ public class ScanForUnusedIl8nKeys
 	 * @param unusedKeys
 	 * @throws IOException 
 	 */
-	private void outputUnusedProperties(File inputPropsFile, File unusedPropsFile,
-	                                    Collection<String> unusedKeys) throws IOException
+	private static void outputUnusedProperties(File inputPropsFile, File unusedPropsFile,
+	                                           Collection<String> unusedKeys) throws IOException
 	{
 		Reader reader = new BufferedReader(new FileReader(inputPropsFile, StandardCharsets.UTF_8));
 		List<String> lines = IOUtils.readLines(reader);

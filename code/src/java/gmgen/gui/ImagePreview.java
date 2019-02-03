@@ -15,12 +15,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.core.PlayerCharacter;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * A panel for previewing graphics in a file chooser.  This includes previewing

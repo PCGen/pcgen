@@ -17,6 +17,12 @@
  */
 package pcgen.persistence.lst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.util.List;
 
@@ -26,14 +32,8 @@ import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.util.TestHelper;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * MigrationLoaderTest checks the function of the MigrationLoader class.
@@ -43,7 +43,7 @@ public class MigrationLoaderTest
 	MigrationLoader migrationLoader = new MigrationLoader();
 	URI sourceURI;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		sourceURI = new URI("http://www.pcgen.org");
@@ -55,19 +55,19 @@ public class MigrationLoaderTest
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("SOURCE:Old Key", "", sourceURI);
 		assertNotNull(migrationRule);
-		assertEquals("Object type", ObjectType.SOURCE,  migrationRule.getObjectType());
-		assertEquals("Old key", "Old Key",  migrationRule.getOldKey());
-		assertNull("Old category", migrationRule.getOldCategory());
+		assertEquals(ObjectType.SOURCE,  migrationRule.getObjectType(), "Object type");
+		assertEquals("Old Key",  migrationRule.getOldKey(), "Old key");
+		assertNull(migrationRule.getOldCategory(), "Old category");
 	}
 	
 	@Test
 	public void testParseFirstTokenValidAbility()
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:OldCat|Old Key", "", sourceURI);
-		assertNotNull("Should have been able to parse valid ability", migrationRule);
-		assertEquals("Object type", ObjectType.ABILITY,  migrationRule.getObjectType());
-		assertEquals("Old key", "Old Key",  migrationRule.getOldKey());
-		assertEquals("Old category", "OldCat",  migrationRule.getOldCategory());
+		assertNotNull(migrationRule, "Should have been able to parse valid ability");
+		assertEquals(ObjectType.ABILITY,  migrationRule.getObjectType(), "Object type");
+		assertEquals("Old Key",  migrationRule.getOldKey(), "Old key");
+		assertEquals("OldCat",  migrationRule.getOldCategory(), "Old category");
 	}
 	
 	@Test
@@ -75,9 +75,9 @@ public class MigrationLoaderTest
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("EQUIPMENT:Old Key", "", sourceURI);
 		assertNotNull(migrationRule);
-		assertEquals("Object type", ObjectType.EQUIPMENT,  migrationRule.getObjectType());
-		assertEquals("Old key", "Old Key",  migrationRule.getOldKey());
-		assertNull("Old category", migrationRule.getOldCategory());
+		assertEquals(ObjectType.EQUIPMENT,  migrationRule.getObjectType(), "Object type");
+		assertEquals("Old Key",  migrationRule.getOldKey(), "Old key");
+		assertNull(migrationRule.getOldCategory(), "Old category");
 	}
 	
 	@Test
@@ -85,9 +85,9 @@ public class MigrationLoaderTest
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("RACE:Old Key", "", sourceURI);
 		assertNotNull(migrationRule);
-		assertEquals("Object type", ObjectType.RACE,  migrationRule.getObjectType());
-		assertEquals("Old key", "Old Key",  migrationRule.getOldKey());
-		assertNull("Old category", migrationRule.getOldCategory());
+		assertEquals(ObjectType.RACE,  migrationRule.getObjectType(), "Object type");
+		assertEquals("Old Key",  migrationRule.getOldKey(), "Old key");
+		assertNull(migrationRule.getOldCategory(), "Old category");
 	}
 	
 	@Test
@@ -107,7 +107,7 @@ public class MigrationLoaderTest
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("SOURCE:Old"+invalid, "", sourceURI);
-			assertNull("Key containing " + invalid + " should have been rejected.", migrationRule);
+			assertNull(migrationRule, "Key containing " + invalid + " should have been rejected.");
 		}
 	}
 	
@@ -116,8 +116,8 @@ public class MigrationLoaderTest
 	{
 		String sourceKey = "Paizo - Second Darkness, Chapter 6: Descent into Midnight.";
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("SOURCE:" + sourceKey, "", sourceURI);
-		assertNotNull("Key should have been accepted.", migrationRule);
-		assertEquals("Source key should have been recorded", sourceKey, migrationRule.getOldKey());
+		assertNotNull(migrationRule, "Key should have been accepted.");
+		assertEquals(sourceKey, migrationRule.getOldKey(), "Source key should have been recorded");
 	}
 	
 	/**
@@ -130,7 +130,7 @@ public class MigrationLoaderTest
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:Old"+invalid+"|Key", "", sourceURI);
-			assertNull("Key containing " + invalid + " should have been rejected.", migrationRule);
+			assertNull(migrationRule, "Key containing " + invalid + " should have been rejected.");
 		}
 	}
 	
@@ -144,7 +144,7 @@ public class MigrationLoaderTest
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:Old|Key"+invalid, "", sourceURI);
-			assertNull("Key containing " + invalid + " should have been rejected.", migrationRule);
+			assertNull(migrationRule, "Key containing " + invalid + " should have been rejected.");
 		}
 	}
 
@@ -165,15 +165,15 @@ public class MigrationLoaderTest
 				&& migrationRule.getOldCategory().equals("Special Ability")
 				&& migrationRule.getOldKey().equals("Animal Fury"))
 			{
-				assertNull("new category", migrationRule.getNewCategory());
-				assertEquals("new key", "Animal Fury ~ Rage Power", migrationRule.getNewKey());
-				assertEquals("max ver", "6.00.00", migrationRule.getMaxVer());
-				assertEquals("max dev ver", "6.01.01", migrationRule.getMaxDevVer());
+				assertNull(migrationRule.getNewCategory(), "new category");
+				assertEquals("Animal Fury ~ Rage Power", migrationRule.getNewKey(), "new key");
+				assertEquals("6.00.00", migrationRule.getMaxVer(), "max ver");
+				assertEquals("6.01.01", migrationRule.getMaxDevVer(), "max dev ver");
 				found = true;
 			}
 		}
 		
-		assertTrue("Unable to find migration rule", found);
+		assertTrue(found, "Unable to find migration rule");
 	}
 
 	@Test
@@ -191,15 +191,15 @@ public class MigrationLoaderTest
 			if (migrationRule.getObjectType() == ObjectType.SOURCE
 				&& migrationRule.getOldKey().equals("Bob's Magic Store"))
 			{
-				assertNull("new category", migrationRule.getNewCategory());
-				assertEquals("new key", "XYZ - Bobs Magic Store", migrationRule.getNewKey());
-				assertEquals("max ver", "5.17.10", migrationRule.getMaxVer());
-				assertNull("max dev ver", migrationRule.getMaxDevVer());
+				assertNull(migrationRule.getNewCategory(), "new category");
+				assertEquals("XYZ - Bobs Magic Store", migrationRule.getNewKey(), "new key");
+				assertEquals("5.17.10", migrationRule.getMaxVer(), "max ver");
+				assertNull(migrationRule.getMaxDevVer(), "max dev ver");
 				found = true;
 			}
 		}
 		
-		assertTrue("Unable to find migration rule", found);
+		assertTrue(found, "Unable to find migration rule");
 	}
 
 	@Test
@@ -221,6 +221,6 @@ public class MigrationLoaderTest
 			}
 		}
 		
-		assertFalse("Invalid source line was accepted.", found);
+		assertFalse(found, "Invalid source line was accepted.");
 	}
 }

@@ -26,7 +26,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
@@ -81,7 +81,7 @@ public class KitBio extends BaseKit
 	{
 		if (theCharacterName != null)
 		{
-			aPC.setPCAttribute(PCAttribute.NAME, theCharacterName);
+			aPC.setPCAttribute(PCStringKey.NAME, theCharacterName);
 		}
 		if (theCharacterAge != null)
 		{

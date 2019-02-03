@@ -3612,7 +3612,7 @@ BIO
 		<feat>
 			<name>Combat Expertise</name>
 			<description>You can increase your defense at the expense of your accuracy.</description>
-			<type>COMBAT.ATTACKOPTION.MODIFYAC.INFERNALBLOODLINE.DREAMSPUNBLOODLINE.DRUIDSHAMANSERPENT</type>
+			<type>COMBAT.ATTACKOPTION.MODIFYAC.DREAMSPUNBLOODLINE.DRUIDSHAMANSERPENT.INFERNALBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3622,7 +3622,7 @@ BIO
 		<feat>
 			<name>Dodge</name>
 			<description>Your training and reflexes allow you to react swiftly to avoid an opponent&#39;s attack.</description>
-			<type>COMBAT.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.FEYBLOODLINE.AQUATICBLOODLINE.SHADOWBLOODLINE.STARSOULBLOODLINE.STORMBORNBLOODLINE.DRUIDSHAMANLION</type>
+			<type>COMBAT.AQUATICBLOODLINE.SHADOWBLOODLINE.STARSOULBLOODLINE.STORMBORNBLOODLINE.DRUIDSHAMANLION.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.FEYBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3672,7 +3672,7 @@ BIO
 		<feat>
 			<name>Weapon Finesse</name>
 			<description>You are trained in using your agility in melee combat, as opposed to brute strength.</description>
-			<type>COMBAT.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.SHADOWBLOODLINE</type>
+			<type>COMBAT.SHADOWBLOODLINE.CELESTIALBLOODLINE.ELEMENTALBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

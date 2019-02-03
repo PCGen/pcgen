@@ -2,10 +2,10 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
-import org.nfunk.jep.ParseException;
-
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
+
+import org.nfunk.jep.ParseException;
 
 /**
  * eg. roll("10+d10") 

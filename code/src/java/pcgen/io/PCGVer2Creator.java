@@ -32,8 +32,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
@@ -62,6 +60,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
+import pcgen.core.Campaign;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.Deity;
 import pcgen.core.Description;
@@ -94,12 +93,14 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.spell.Spell;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HandedCompat;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code PCGVer2Creator}<br>
@@ -126,13 +127,13 @@ public final class PCGVer2Creator
 	private final PlayerCharacter thePC;
 	private final CharacterDisplay charDisplay;
 	private GameMode mode;
-	private List<? extends CampaignFacade> campaigns;
+	private List<? extends Campaign> campaigns;
 
 	/**
 	 * Constructor
 	 * @param aPC
 	 */
-	public PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<? extends CampaignFacade> campaigns)
+	public PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<? extends Campaign> campaigns)
 	{
 		thePC = aPC;
 		charDisplay = aPC.getDisplay();
@@ -485,7 +486,7 @@ public final class PCGVer2Creator
 		if (campaigns != null)
 		{
 			String del = Constants.EMPTY_STRING;
-			for (CampaignFacade campaign : campaigns)
+			for (Campaign campaign : campaigns)
 			{
 				buffer.append(del);
 				buffer.append(IOConstants.TAG_CAMPAIGN).append(':');
@@ -1516,7 +1517,7 @@ public final class PCGVer2Creator
 	private void appendHandedLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_HANDED).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getHandedObject().name()));
+		buffer.append(EntityEncoder.encode(HandedCompat.getCurrentHandedness(thePC.getCharID()).name()));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

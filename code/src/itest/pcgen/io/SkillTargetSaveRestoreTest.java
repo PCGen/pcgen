@@ -17,8 +17,8 @@
  */
 package pcgen.io;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
@@ -30,13 +30,6 @@ import plugin.lsttokens.pcclass.HdToken;
 public class SkillTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Skill>
 {
-
-	
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
 
 	@Override
 	public Class<Skill> getObjectClass()

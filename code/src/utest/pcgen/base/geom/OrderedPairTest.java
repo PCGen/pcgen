@@ -23,7 +23,6 @@ import pcgen.base.math.OrderedPair;
 
 import org.junit.jupiter.api.Test;
 
-
 class OrderedPairTest
 {
 	@Test

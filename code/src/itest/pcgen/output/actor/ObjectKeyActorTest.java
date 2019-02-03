@@ -23,21 +23,21 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Race;
 import pcgen.core.PCStat;
+import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-public class ObjectKeyActorTest extends AbstractOutputTestCase
+class ObjectKeyActorTest extends AbstractOutputTestCase
 {
 
 	private static final RaceFacet DF = new RaceFacet();
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp()
 	{
 		OutputDB.reset();

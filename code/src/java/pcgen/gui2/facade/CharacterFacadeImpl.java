@@ -52,7 +52,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
@@ -74,6 +73,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
 import pcgen.core.BonusManager.TempBonusInfo;
+import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
@@ -116,7 +116,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
@@ -148,13 +147,14 @@ import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.WriteableListFacade;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.facade.util.event.ChangeListener;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
-import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.gui2.util.CoreInterfaceUtilities;
+import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
@@ -194,7 +194,7 @@ public class CharacterFacadeImpl
 	private DefaultReferenceFacade<Gender> gender;
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
 	private DefaultListFacade<Gender> availGenders;
-	private DefaultListFacade<Handed> availHands;
+	private WriteableListFacade<Handed> availHands;
 	private Map<PCStat, WriteableReferenceFacade<Number>> statScoreMap;
 	private final DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<Race> race;
@@ -208,7 +208,7 @@ public class CharacterFacadeImpl
 	private DefaultListFacade<Language> languages;
 	private EquipmentListFacadeImpl purchasedEquip;
 	private DefaultReferenceFacade<File> file;
-	private DefaultReferenceFacade<Handed> handedness;
+	private WriteableReferenceFacade<Handed> handedness;
 	private final UIDelegate delegate;
 	private Set<Language> autoLanguagesCache;
 	private CharacterLevelsFacadeImpl charLevelsFacade;
@@ -352,15 +352,12 @@ public class CharacterFacadeImpl
 		tabName = new DefaultReferenceFacade<>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<>(charDisplay.getPlayersName());
 		race = new DefaultReferenceFacade<>(charDisplay.getRace());
-		handedness = new DefaultReferenceFacade<>();
+		handedness = CoreInterfaceUtilities
+			.getReferenceFacade(theCharacter.getCharID(), CControl.HANDEDINPUT);
 		gender = new DefaultReferenceFacade<>();
 
-		availHands = new DefaultListFacade<>();
+		availHands = HandedCompat.getAvailableHandedness(theCharacter.getCharID());
 		availGenders = new DefaultListFacade<>();
-		for (Handed handed : HandedCompat.getAvailableHanded())
-		{
-			availHands.addElement(handed);
-		}
 		for (Gender availableGender : GenderCompat.getAvailableGenders())
 		{
 			availGenders.addElement(availableGender);
@@ -368,14 +365,6 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (Handed handed : availHands)
-			{
-				if (handed.equals(charDisplay.getHandedObject()))
-				{
-					handedness.set(handed);
-					break;
-				}
-			}
 			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
@@ -1704,14 +1693,6 @@ public class CharacterFacadeImpl
 
 		if (charDisplay.getRace() != null)
 		{
-			for (Handed handed : availHands)
-			{
-				if (handed.toString().equals(charDisplay.getHanded()))
-				{
-					handedness.set(handed);
-					break;
-				}
-			}
 			for (Gender pcGender : availGenders)
 			{
 				if (pcGender.equals(theCharacter.getGenderObject()))
@@ -1760,7 +1741,7 @@ public class CharacterFacadeImpl
 	public void setTabName(String name)
 	{
 		tabName.set(name);
-		theCharacter.setPCAttribute(PCAttribute.TABNAME, name);
+		theCharacter.setPCAttribute(PCStringKey.TABNAME, name);
 	}
 
 	@Override
@@ -1816,7 +1797,7 @@ public class CharacterFacadeImpl
 	public void setSkinColor(String color)
 	{
 		skinColor.set(color);
-		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
+		theCharacter.setPCAttribute(PCStringKey.SKINCOLOR, color);
 	}
 
 	@Override
@@ -1829,7 +1810,7 @@ public class CharacterFacadeImpl
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
+		theCharacter.setPCAttribute(PCStringKey.HAIRCOLOR, color);
 	}
 
 	@Override
@@ -2477,8 +2458,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void setHanded(Handed handedness)
 	{
-		this.handedness.set(handedness);
-		theCharacter.setHanded(handedness);
+		HandedCompat.setCurrentHandedness(theCharacter.getCharID(), handedness);
 	}
 
 	@Override
@@ -2491,7 +2471,7 @@ public class CharacterFacadeImpl
 	public void setPlayersName(String name)
 	{
 		playersName.set(name);
-		theCharacter.setPCAttribute(PCAttribute.PLAYERSNAME, name);
+		theCharacter.setPCAttribute(PCStringKey.PLAYERSNAME, name);
 	}
 
 	@Override
@@ -2517,7 +2497,7 @@ public class CharacterFacadeImpl
 	public void save() throws NullPointerException, IOException
 	{
 		GameMode mode = dataSet.getGameMode();
-		List<CampaignFacade> campaigns = ListFacades.wrap(dataSet.getCampaigns());
+		List<Campaign> campaigns = ListFacades.wrap(dataSet.getCampaigns());
 		(new PCGIOHandler()).write(theCharacter, mode, campaigns, file.get());
 		theCharacter.setDirty(false);
 	}
@@ -2688,7 +2668,7 @@ public class CharacterFacadeImpl
 		AgeSet ageSet = charDisplay.getAgeSet();
 		if (ageSet != null)
 		{
-			String ageCatName = ageSet.getName();
+			String ageCatName = ageSet.getKeyName();
 			for (String ageCatFacade : ageCategoryList)
 			{
 				if (ageCatFacade.equals(ageCatName))
@@ -3093,7 +3073,7 @@ public class CharacterFacadeImpl
 			final double newQty = prevQty + quantity;
 
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-			Float qty = new Float(newQty);
+			Float qty = (float) newQty;
 			updatedItem.setQty(qty);
 			purchasedEquip.setQuantity(equipment, qty.intValue());
 		}
@@ -3105,7 +3085,7 @@ public class CharacterFacadeImpl
 			if (updatedItem != null)
 			{
 				// Set the number carried and add it to the character
-				Float qty = new Float(quantity);
+				Float qty = (float) quantity;
 				updatedItem.setQty(qty);
 				theCharacter.addEquipment(updatedItem);
 			}
@@ -3218,7 +3198,7 @@ public class CharacterFacadeImpl
 			if (newQty <= 0)
 			{
 				// completely remove item
-				updatedItem.setNumberCarried(new Float(0));
+				updatedItem.setNumberCarried((float) 0);
 				updatedItem.setLocation(EquipmentLocation.NOT_CARRIED);
 
 				final Equipment eqParent = updatedItem.getParent();
@@ -3235,14 +3215,14 @@ public class CharacterFacadeImpl
 			{
 				// update item count
 				theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-				Float qty = new Float(newQty);
+				Float qty = (float) newQty;
 				updatedItem.setQty(qty);
 				updatedItem.setNumberCarried(qty);
 				purchasedEquip.setQuantity(equipment, qty.intValue());
 			}
 
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-			Float qty = new Float(newQty);
+			Float qty = (float) newQty;
 			updatedItem.setQty(qty);
 			updatedItem.setNumberCarried(qty);
 		}

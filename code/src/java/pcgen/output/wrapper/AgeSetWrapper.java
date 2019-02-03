@@ -17,11 +17,12 @@
  */
 package pcgen.output.wrapper;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import pcgen.core.AgeSet;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.AgeSetModel;
+
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 
 /**
  * A AgeSetWrapper is an ObjectWrapper capable of producing a TemplateModel for

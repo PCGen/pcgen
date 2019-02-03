@@ -18,18 +18,16 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreVariableParser;
 
+import org.junit.jupiter.api.Test;
 
-@SuppressWarnings("nls")
-public class PreVariableParserTest extends EnUsLocaleDependentTestCase
+class PreVariableParserTest extends EnUsLocaleDependentTestCase
 {
 	
 	/**

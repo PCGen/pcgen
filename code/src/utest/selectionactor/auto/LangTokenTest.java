@@ -19,8 +19,8 @@ package selectionactor.auto;
 
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Language;
-
 import plugin.lsttokens.auto.LangToken;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class LangTokenTest extends AbstractSelectionActorTest<Language>

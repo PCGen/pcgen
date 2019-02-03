@@ -17,9 +17,11 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
@@ -50,6 +52,9 @@ import plugin.lsttokens.auto.LangToken;
 import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.pobject.QualifiedToken;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -87,6 +92,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	protected abstract boolean allowsNotQualifier();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

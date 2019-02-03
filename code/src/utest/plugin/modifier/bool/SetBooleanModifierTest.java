@@ -17,10 +17,8 @@
  */
 package plugin.modifier.bool;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.BooleanManager;
@@ -30,6 +28,8 @@ import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
+
+import org.junit.jupiter.api.Test;
 
 public class SetBooleanModifierTest
 {

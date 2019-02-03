@@ -19,15 +19,16 @@ package pcgen.output.model;
 
 import java.util.Objects;
 
-import freemarker.template.TemplateHashModel;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
-import freemarker.template.TemplateScalarModel;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.CDOMWrapperInfoFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
+
+import freemarker.template.TemplateHashModel;
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+import freemarker.template.TemplateScalarModel;
 
 /**
  * A CDOMObjectModel is a wrapper around a CDOMObject which serves as a

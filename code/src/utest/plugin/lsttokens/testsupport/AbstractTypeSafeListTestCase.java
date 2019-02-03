@@ -17,15 +17,21 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		extends AbstractCDOMTokenTestCase<T>
@@ -281,24 +287,24 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 		if (isClearDotLegal())
 		{
 			assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 	}
 

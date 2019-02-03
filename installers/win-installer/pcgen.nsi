@@ -201,7 +201,7 @@ Section "Java 64 Bit" Section5
         ;Use the right java version
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /r "${SrcDir}\..\..\jre\jre_x64\*.*"
+        File /r "${SrcDir}\..\..\jre\windows\jre_x64\*.*"
 	File /r "${SrcDir}\..\..\code\pcgen_JREx64.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
@@ -212,7 +212,7 @@ Section "Java 32 Bit" Section6
         ;Use the right java version
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /r "${SrcDir}\..\..\jre\jre_x32\*.*"
+        File /r "${SrcDir}\..\..\jre\windows\jre_x32\*.*"
 	File /r "${SrcDir}\..\..\code\pcgen_JREx32.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd

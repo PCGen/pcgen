@@ -35,7 +35,7 @@ import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
@@ -191,12 +191,12 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("HAIR"))
 		{
-			pc.setPCAttribute(PCAttribute.HAIRCOLOR, generateBioValue("HAIR", pc));
+			pc.setPCAttribute(PCStringKey.HAIRCOLOR, generateBioValue("HAIR", pc));
 		}
 
 		if (ranList.contains("SKIN"))
 		{
-			pc.setPCAttribute(PCAttribute.SKINCOLOR, generateBioValue("SKINTONE", pc));
+			pc.setPCAttribute(PCStringKey.SKINCOLOR, generateBioValue("SKINTONE", pc));
 		}
 	}
 
@@ -605,7 +605,7 @@ public final class BioSet extends PObject implements NonInteractive
 		AgeSet old = ageMap.get(region, ageSet.getIndex());
 		if (old != null)
 		{
-			if (ageSet.hasBonuses() || !ageSet.getKits().isEmpty() || !ageSet.getName().equals(old.getName()))
+			if (ageSet.hasBonuses() || !ageSet.getKits().isEmpty() || !ageSet.getKeyName().equals(old.getKeyName()))
 			{
 				Logging.errorPrint(
 					"Found second (non-identical) AGESET " + "in Bio Settings " + sourceURI + " for Region: "
@@ -619,7 +619,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Integer addToNameMap(AgeSet ageSet)
 	{
-		return ageNames.put(ageSet.getName(), ageSet.getIndex());
+		return ageNames.put(ageSet.getKeyName(), ageSet.getIndex());
 	}
 
 	public Set<String> getAgeCategories()

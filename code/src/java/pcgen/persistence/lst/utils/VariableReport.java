@@ -37,12 +37,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -51,6 +45,12 @@ import pcgen.core.SystemCollections;
 import pcgen.io.PCGFile;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.system.ConfigurationSettings;
+
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code VariableReport} produces a report on variable

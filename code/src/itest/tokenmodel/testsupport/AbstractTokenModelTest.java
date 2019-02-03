@@ -56,7 +56,6 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.util.chooser.ChooserFactory;
-
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.ability.MultToken;
@@ -137,16 +136,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected TemplateInputFacet templateInputFacet;
 	protected WeaponProfModelFacet weaponProfModelFacet;
 
-	public AbstractTokenModelTest()
-	{
-		super();
-	}
-
-	public AbstractTokenModelTest(String string)
-	{
-		super(string);
-	}
-
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -219,6 +208,8 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 		context = Globals.getContext();
 		AbstractReferenceContext ref = context.getReferenceContext();
+		BuildUtilities.enableAlignmentFeature(ref);
+
 		BuildUtilities.buildUnselectedRace(context);
 		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		

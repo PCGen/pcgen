@@ -21,8 +21,11 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpecialAbilityParser;
 import plugin.pretokens.writer.PreSpecialAbilityWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PreSARoundRobin extends AbstractBasicRoundRobin
 {
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

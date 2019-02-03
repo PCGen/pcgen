@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.kit.startpack;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,6 +30,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 {

@@ -42,7 +42,6 @@ import pcgen.core.character.EquipSlot;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.GearBuySellFacade;
@@ -72,7 +71,7 @@ public class DataSet implements DataSetFacade
 	private final AbilityMap abilityMap;
 	private final LoadContext context;
 	private final GameMode gameMode;
-	private final ListFacade<CampaignFacade> campaigns;
+	private final ListFacade<Campaign> campaigns;
 	private Skill speakLanguageSkill = null;
 	private final DefaultListFacade<BodyStructure> bodyStructures;
 	private final DefaultListFacade<EquipmentFacade> equipment;
@@ -82,7 +81,7 @@ public class DataSet implements DataSetFacade
 	private final DefaultListFacade<SizeAdjustment> unsortedSizes;
 	private final ListFacade<SizeAdjustment> sizes;
 
-	public DataSet(LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
+	public DataSet(LoadContext context, GameMode gameMode, ListFacade<Campaign> campaigns)
 	{
 		unsortedRaces = new DefaultListFacade<>();
 		races = new SortedListFacade<>(new RaceComparator(), unsortedRaces);
@@ -354,7 +353,7 @@ public class DataSet implements DataSetFacade
 	}
 
 	@Override
-	public ListFacade<CampaignFacade> getCampaigns()
+	public ListFacade<Campaign> getCampaigns()
 	{
 		return campaigns;
 	}

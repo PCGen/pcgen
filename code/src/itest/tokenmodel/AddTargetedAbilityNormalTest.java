@@ -30,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import util.TestURI;
 

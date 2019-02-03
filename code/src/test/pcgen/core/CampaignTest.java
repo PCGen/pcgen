@@ -24,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.rules.context.LoadContext;
-
 import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 

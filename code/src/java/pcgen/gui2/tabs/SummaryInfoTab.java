@@ -62,8 +62,6 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.util.CControl;
@@ -106,6 +104,8 @@ import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SimpleTextIcon;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This component displays a basic summary of a character such as name,
@@ -745,9 +745,9 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Field for Tab Name
 		 */
 		private final ManagedField tabNameHandler;
-		private final FormattedFieldHandler ageHandler;
-		private final FormattedFieldHandler expHandler;
-		private final FormattedFieldHandler nextLevelHandler;
+		private final ManagedField ageHandler;
+		private final ManagedField expHandler;
+		private final ManagedField nextLevelHandler;
 
 		LabelAndFieldHandler(final CharacterFacade character)
 		{
