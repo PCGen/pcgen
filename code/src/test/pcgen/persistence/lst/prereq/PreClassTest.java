@@ -22,8 +22,8 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
@@ -55,16 +55,10 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	@Test
 	public void testInvalidSeparators()
 	{
-		try
-		{
+		assertThrows(PersistenceLayerException.class, () -> {
 			PreClassParser parser = new PreClassParser();
 			parser.parse("class", "1,,Monk=1", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+		});
 	}
 	
 	/**
@@ -73,16 +67,10 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	@Test
 	public void testInvalidCharacter()
 	{
-		try
-		{
+		assertThrows(PersistenceLayerException.class, () -> {
 			PreClassParser parser = new PreClassParser();
 			parser.parse("class", "1,Monk=1|Cleric=1", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+		});
 	}
 	
 	/**
@@ -91,16 +79,10 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	@Test
 	public void testInvalidNegate()
 	{
-		try
-		{
-			PreClassParser parser = new PreClassParser();
+		assertThrows(PersistenceLayerException.class, () -> {
+			PrerequisiteParserInterface parser = new PreClassParser();
 			parser.parse("class", "1,Monk=1[Cleric=1]", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+		});
 	}
 	
 }
