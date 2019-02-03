@@ -116,7 +116,8 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
   <td colspan="1" class="h">${pcstring('ALIGNMENT')}</td>
   <td colspan="1" class="h">${pcstring('DEITY')}</td>
   <td class="h">${pcstring('POOL.COST')}</td>
-  <td rowspan="6" align="center" width="1%" class="border" class="font10"><a href="#Bio"><img src="file://localhost/${pcstring('PORTRAIT.THUMB')}" height="100%" alt="Click for Bio" border="0" /></a><br /></td>
+  <td rowspan="6" align="center" width="1%" class="border font10"><a href="#Bio"><img
+                  src="file://localhost/${pcstring('PORTRAIT.THUMB')}" height="100%" alt="Click for Bio" border="0" /></a><br /></td>
  </tr>
  <tr>
   <td colspan="2" class="topline">Character Name</td>
@@ -236,7 +237,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HP</b></span>
+          <td align="center" bgcolor="black"><span style="font-size:9pt" color="white"><b>HP</b></span>
             <font style="font-size:5pt" color="white"><br />Hit Points</font></td>
           <td align="center" class="border9"><b>${pcstring('ALTHP')}</b></td>
           <td align="center"><br /></td>
@@ -327,7 +328,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
-          <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>WP</b></span>
+          <td align="center" bgcolor="black"><span style="font-size:9pt" color="white"><b>WP</b></span>
             <font style="font-size:5pt" color="white"><br />Wound Points</font></td>
           <td align="center" class="border9"><b>${pcstring('ALTHP')}</b></td>
           <td align="center"><br /></td>
