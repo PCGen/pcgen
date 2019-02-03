@@ -37,7 +37,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
@@ -50,7 +49,6 @@ import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SpecialAbility;
 import pcgen.core.character.EquipSet;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.system.LanguageBundle;
@@ -113,83 +111,6 @@ public final class PCGIOHandler extends IOHandler
 	public List<String> getWarnings()
 	{
 		return warnings;
-	}
-
-	public static void buildSALIST(String aChoice, List<String> aAvailable, List<String> aBonus,
-		final PlayerCharacter currentPC)
-	{
-		// SALIST:Smite|VAR|%|1
-		// SALIST:Turn ,Rebuke|VAR|%|1
-		String aString;
-		String aPost = "";
-		int iOffs = aChoice.indexOf('|', 7);
-
-		if (iOffs < 0)
-		{
-			aString = aChoice;
-		}
-		else
-		{
-			aString = aChoice.substring(7, iOffs);
-			aPost = aChoice.substring(iOffs + 1);
-		}
-
-		final List<String> saNames = new ArrayList<>();
-		final StringTokenizer aTok = new StringTokenizer(aString, ",");
-
-		while (aTok.hasMoreTokens())
-		{
-			saNames.add(aTok.nextToken());
-		}
-
-		final List<SpecialAbility> aSAList = currentPC.getSpecialAbilityList();
-
-		for (String name : saNames)
-		{
-			for (SpecialAbility sa : aSAList)
-			{
-				String aSA = sa.getKeyName();
-
-				if (aSA.startsWith(aString))
-				{
-					String aVar = "";
-
-					//
-					// Trim off variable portion of SA, and save variable name
-					// (eg. "Smite Evil %/day|SmiteEvil" --> aSA = "Smite Evil", aVar = "SmiteEvil")
-					//
-					iOffs = aSA.indexOf('|');
-
-					if (iOffs >= 0)
-					{
-						aVar = aSA.substring(iOffs + 1);
-						iOffs = aSA.indexOf('%');
-
-						if (iOffs >= 0)
-						{
-							aSA = aSA.substring(0, iOffs).trim();
-						}
-					}
-
-					if (!aAvailable.contains(aSA))
-					{
-						aAvailable.add(aSA);
-
-						//
-						// Check for variable substitution
-						//
-						iOffs = aPost.indexOf('%');
-
-						if (iOffs >= 0)
-						{
-							aVar = aPost.substring(0, iOffs) + aVar + aPost.substring(iOffs + 1);
-						}
-
-						aBonus.add(aSA + "|" + aVar);
-					}
-				}
-			}
-		}
 	}
 
 	/**
