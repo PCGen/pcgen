@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -91,7 +92,6 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 import freemarker.template.Configuration;
-import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.Version;
@@ -301,7 +301,7 @@ public final class ExportHandler
 	 * @param outputWriter The destination for the output.
 	 * @throws ExportException If the export fails.
 	 */
-	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, BufferedWriter outputWriter) throws ExportException
+	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, Writer outputWriter) throws ExportException
 	{
 
 		try
@@ -328,7 +328,7 @@ public final class ExportHandler
 			Map<String, Object> mode = OutputDB.buildModeDataModel(gamemode);
 			Map<String, Object> input = new HashMap<>();
 			input.put("pcgen", OutputDB.getGlobal());
-			input.put("pc", ObjectWrapper.DEFAULT_WRAPPER.wrap(pc));
+			input.put("pc", ExportUtilities.getObjectWrapper().wrap(pc));
 			input.put("gamemode", mode);
 			input.put("gamemodename", gamemode.getName());
 

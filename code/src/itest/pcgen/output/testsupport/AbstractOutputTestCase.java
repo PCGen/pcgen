@@ -17,6 +17,9 @@
  */
 package pcgen.output.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -32,15 +35,14 @@ import pcgen.output.publish.OutputDB;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 public abstract class AbstractOutputTestCase
 {
 	protected DataSetID dsid;
 	protected CharID id;
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		Locale.setDefault(Locale.US);
@@ -54,19 +56,19 @@ public abstract class AbstractOutputTestCase
 	{
 		try
 		{
-			Configuration c = new Configuration();
+			Configuration c = new Configuration(Configuration.VERSION_2_3_28);
 			Template t = new Template("test", testString, c);
 			StringWriter sw = new StringWriter();
 			BufferedWriter bw = new BufferedWriter(sw);
 			Map<String, Object> input = OutputDB.buildDataModel(id);
 			t.process(input, bw);
 			String s = sw.getBuffer().toString();
-			Assert.assertEquals(expectedResult, s);
+			assertEquals(expectedResult, s);
 		}
 		catch (IOException | TemplateException e)
 		{
 			e.printStackTrace();
-			Assert.fail(e.getLocalizedMessage());
+			fail(e.getLocalizedMessage());
 		}
 	}
 

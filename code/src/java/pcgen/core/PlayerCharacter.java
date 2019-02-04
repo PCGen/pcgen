@@ -281,7 +281,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// Constants for use in getBonus
 	private static String lastVariable;
 	// This marker is static so that the spells allocated to it can also be found in the cloned character.
-	private static final ObjectCache GRANTED_SPELL_CACHE = new ObjectCache();
+	private static final CDOMObject GRANTED_SPELL_CACHE = new ObjectCache();
 
 	private final CharID id;
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
@@ -2246,7 +2246,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					Logging.debugPrint(sb);
 				}
 				lastVariable = null;
-				return new Float(value);
+				return (float) value;
 			}
 		}
 
@@ -3448,7 +3448,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// Class skill
 			maxRanks = SkillUtilities.maxClassSkillForLevel(levelForSkillPurposes, this);
 		}
-		return new Float(maxRanks.floatValue());
+		return maxRanks.floatValue();
 	}
 
 	/**
@@ -7683,7 +7683,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (newQty.floatValue() < 0.0f)
 		{
 			tempQty = diffQty;
-			newQty = new Float(tempQty + getEquippedQty(eSet, eqI).floatValue());
+			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
 			addAll = true;
 		}
 
@@ -7752,7 +7752,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (addAll && mergeItem && (existingSet != null))
 		{
-			newQty = new Float(tempQty + getEquippedQty(eSet, eqI).floatValue());
+			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
 			existingSet.setQty(newQty);
 			eqI.setQty(newQty);
 			eqI.setNumberCarried(newQty);
@@ -7947,7 +7947,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (!aCategory.allowFractionalPool())
 		{
-			basePool = new Float(basePool.intValue());
+			basePool = (float) basePool.intValue();
 		}
 		return basePool;
 	}

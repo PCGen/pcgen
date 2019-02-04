@@ -18,21 +18,20 @@
  */
 package pcgen.gui2.tools;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-
-public class IconsTest
+class IconsTest
 {
 	/**
 	 * Test that the icons in Icons actually exist
 	 */
 	@Test
-	public void testIconsExist()
+	void testIconsExist()
 	{
 		Arrays.stream(Icons.values())
 		      .forEach(icon -> assertThat(

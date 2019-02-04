@@ -195,7 +195,6 @@ class DataTest
 	
 	/**
 	 * Scan for any data files that are not referred to by any campaign.
-	 * This test should be activated once DATA-1039 has been actioned. 
 	 * @throws IOException If a file path cannot be converted.
 	 */
 	@Test

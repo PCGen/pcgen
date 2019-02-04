@@ -17,16 +17,17 @@
  */
 package pcgen.base.formula;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.fail;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 
-public class SubtractingFormulaTest
+class SubtractingFormulaTest
 {
 
 	@Test
@@ -94,42 +95,18 @@ public class SubtractingFormulaTest
 
 	private static void brokenCalls(SubtractingFormula f)
 	{
-		try
-		{
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve((Number[]) null);
-			fail("null should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+		});
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve();
-			fail("empty array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+		});
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve(4, 2.5);
-			fail("two arguments in array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+		});
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve(4, 2.5);
-			fail("two arguments should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+		});
 	}
 
 }

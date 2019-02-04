@@ -21,6 +21,9 @@ package pcgen.io;
 
 import java.io.File;
 
+import freemarker.template.DefaultObjectWrapperBuilder;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Version;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -82,5 +85,14 @@ public final class ExportUtilities
 		String extension = getOutputExtension(templateFilename, false);
 		return (extension.equalsIgnoreCase("pdf") || extension.equalsIgnoreCase("fo")
 			|| extension.equalsIgnoreCase("xslt") || extension.equalsIgnoreCase("xsl"));
+	}
+
+	/**
+	 * Returns an ObjectWrapper of sufficiently high version for pcgen
+	 */
+	public static ObjectWrapper getObjectWrapper() {
+		DefaultObjectWrapperBuilder defaultObjectWrapperBuilder = new DefaultObjectWrapperBuilder(
+				new Version("2.3.28"));
+		return defaultObjectWrapperBuilder.build();
 	}
 }

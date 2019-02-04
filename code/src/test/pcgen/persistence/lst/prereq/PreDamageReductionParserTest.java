@@ -18,8 +18,9 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
@@ -38,19 +39,13 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
-		try
-		{
+		PersistenceLayerException ple = assertThrows(PersistenceLayerException.class, () -> {
 			parser.parse("DR", "Evil=5,Magic.10", false, false);
 			fail("should have thrown a PersistenceLayerException!");
-		}
-		catch (PersistenceLayerException ple)
-		{
-			assertEquals(
-				"Badly formed passesPreDR/number of DRs attribute: Evil=5", ple
-					.getMessage());
-		}
+		});
+		assertEquals(
+				"Badly formed passesPreDR/number of DRs attribute: Evil=5", ple.getMessage());
 	}
-
 	
 	/**
 	 * Test multiple passes.

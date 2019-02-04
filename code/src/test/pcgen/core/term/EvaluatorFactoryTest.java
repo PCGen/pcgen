@@ -2,12 +2,12 @@ package pcgen.core.term;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.instanceOf;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -22,11 +22,9 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
-
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
@@ -46,7 +44,7 @@ import org.junit.Test;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-public class EvaluatorFactoryTest
+class EvaluatorFactoryTest
 {
 
 	@Test
@@ -63,8 +61,8 @@ public class EvaluatorFactoryTest
 		try
 		{
 			ok = true;
-			//assertNull("", pF.get(null));
-			//assertNull("", sF.get(null));
+			//assertNull(pF.get(null), "");
+			//assertNull(sF.get(null), "");
 
 			Pattern iVP = (Pattern) pF.get(EvaluatorFactory.PC);
 			// noinspection unchecked
@@ -72,15 +70,15 @@ public class EvaluatorFactoryTest
 					(Map<String, TermEvaluatorBuilderPCVar>) sF.get(EvaluatorFactory.PC);
 
 			// don't need instanceof, would throw ClassCastException
-			assertNotNull("Pattern is now instantiated", iVP);
-			assertNotNull("Map is now instantiated", eS);
+			assertNotNull(iVP, "Pattern is now instantiated");
+			assertNotNull(eS, "Map is now instantiated");
 		}
 		catch (ClassCastException | IllegalAccessException e)
 		{
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor001", ok);
+		assertTrue(ok, "No illegal access in Constructor001");
 	}
 
 
@@ -105,12 +103,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor002", ok);
+		assertTrue(ok, "No illegal access in Constructor002");
 
 		String term = "ACCHECK";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor002 pattern matches for " + term, mat.find());
-		assertEquals("Constructor002 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor002 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor002 pattern matches all of " + term);
 
 		// "ACCHECK",			   COMPLETE_ACCHECK
 
@@ -137,12 +135,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor003", ok);
+		assertTrue(ok, "No illegal access in Constructor003");
 
 		String term = "ACHECK";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor003 pattern matches for " + term, mat.find());
-		assertEquals("Constructor003 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor003 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor003 pattern matches all of " + term);
 
 		// "ACHECK",			   COMPLETE_ACCHECK
 
@@ -170,12 +168,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor004", ok);
+		assertTrue(ok, "No illegal access in Constructor004");
 
 		String term = "ARMORACCHECK";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor004 pattern matches for " + term, mat.find());
-		assertEquals("Constructor004 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor004 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor004 pattern matches all of " + term);
 
 		// "ARMORACCHECK",		   COMPLETE_ARMORACCHECK
 
@@ -203,12 +201,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor005", ok);
+		assertTrue(ok, "No illegal access in Constructor005");
 
 		String term = "ARMORACHECK";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor005 pattern matches for " + term, mat.find());
-		assertEquals("Constructor005 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor005 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor005 pattern matches all of " + term);
 
 		// "ARMORACHECK",		   COMPLETE_ARMORACCHECK
 
@@ -236,12 +234,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor006", ok);
+		assertTrue(ok, "No illegal access in Constructor006");
 
 		String term = "BAB";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor006 pattern matches for " + term, mat.find());
-		assertEquals("Constructor006 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor006 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor006 pattern matches all of " + term);
 
 		// "BAB",			   COMPLETE_BAB
 
@@ -269,12 +267,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor007", ok);
+		assertTrue(ok, "No illegal access in Constructor007");
 
 		String term = "BASESPELLSTAT";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor007 pattern matches for " + term, mat.find());
-		assertEquals("Constructor007 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor007 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor007 pattern matches all of " + term);
 
 		// "BASESPELLSTAT",		   COMPLETE_BASESPELLSTAT
 
@@ -302,12 +300,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor008", ok);
+		assertTrue(ok, "No illegal access in Constructor008");
 
 		String term = "BL";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor008 pattern matches for " + term, mat.find());
-		assertTrue("Constructor008 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor008 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor008 pattern matches start of " + term);
 
 		// "BL",			   START_BL
 
@@ -335,12 +333,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor009", ok);
+		assertTrue(ok, "No illegal access in Constructor009");
 
 		String term = "BL.Wizard";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor009 pattern matches for " + term, mat.find());
-		assertTrue("Constructor009 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor009 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor009 pattern matches start of " + term);
 
 		// "BL.Wizard",				 START_BL
 
@@ -368,12 +366,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor010", ok);
+		assertTrue(ok, "No illegal access in Constructor010");
 
 		String term = "BL=Cleric";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor010 pattern matches for " + term, mat.find());
-		assertTrue("Constructor010 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor010 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor010 pattern matches start of " + term);
 
 		// "BL=Cleric",				 START_BL
 
@@ -401,12 +399,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor011", ok);
+		assertTrue(ok, "No illegal access in Constructor011");
 
 		String term = "CASTERLEVEL";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor011 pattern matches for " + term, mat.find());
-		assertEquals("Constructor011 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor011 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor011 pattern matches all of " + term);
 
 		// "CASTERLEVEL",		   COMPLETE_CASTERLEVEL
 
@@ -434,12 +432,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor012", ok);
+		assertTrue(ok, "No illegal access in Constructor012");
 
 		String term = "CASTERLEVEL.TOTAL";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor012 pattern matches for " + term, mat.find());
-		assertEquals("Constructor012 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor012 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor012 pattern matches all of " + term);
 
 		// "CASTERLEVEL.TOTAL",		   COMPLETE_CASTERLEVEL
 
@@ -467,12 +465,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor013", ok);
+		assertTrue(ok, "No illegal access in Constructor013");
 
 		String term = "CL";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor013 pattern matches for " + term, mat.find());
-		assertTrue("Constructor013 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor013 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor013 pattern matches start of " + term);
 
 		// "CL",			   START_CL
 
@@ -500,12 +498,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor014", ok);
+		assertTrue(ok, "No illegal access in Constructor014");
 
 		String term = "CL.Bard";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor014 pattern matches for " + term, mat.find());
-		assertTrue("Constructor014 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor014 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor014 pattern matches start of " + term);
 
 		// "CL.Bard",			       START_CL
 
@@ -533,12 +531,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor015", ok);
+		assertTrue(ok, "No illegal access in Constructor015");
 
 		String term = "CL;BEFORELEVEL.10";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor015 pattern matches for " + term, mat.find());
-		assertTrue("Constructor015 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor015 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor015 pattern matches start of " + term);
 
 		// "CL;BEFORELEVEL.10",		     START_CL_BEFORELEVEL
 
@@ -566,12 +564,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor016", ok);
+		assertTrue(ok, "No illegal access in Constructor016");
 
 		String term = "CL;BEFORELEVEL=15";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor016 pattern matches for " + term, mat.find());
-		assertTrue("Constructor016 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor016 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor016 pattern matches start of " + term);
 
 		// "CL;BEFORELEVEL=15",		     START_CL_BEFORELEVEL
 
@@ -599,12 +597,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor017", ok);
+		assertTrue(ok, "No illegal access in Constructor017");
 
 		String term = "CL=Rogue";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor017 pattern matches for " + term, mat.find());
-		assertTrue("Constructor017 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor017 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor017 pattern matches start of " + term);
 
 		// "CL=Rogue",				START_CL
 
@@ -632,12 +630,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor018", ok);
+		assertTrue(ok, "No illegal access in Constructor018");
 
 		String term = "CLASS.Druid";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor018 pattern matches for " + term, mat.find());
-		assertTrue("Constructor018 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor018 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor018 pattern matches start of " + term);
 
 		// "CLASS.Druid",			START_CLASS
 
@@ -665,12 +663,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor019", ok);
+		assertTrue(ok, "No illegal access in Constructor019");
 
 		String term = "CLASS=Paladin";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor019 pattern matches for " + term, mat.find());
-		assertTrue("Constructor019 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor019 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor019 pattern matches start of " + term);
 
 		// "CLASS=Paladin",			  START_CLASS
 
@@ -698,12 +696,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor020", ok);
+		assertTrue(ok, "No illegal access in Constructor020");
 
 		String term = "CLASSLEVEL.Bard";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor020 pattern matches for " + term, mat.find());
-		assertTrue("Constructor020 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor020 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor020 pattern matches start of " + term);
 
 		// "CLASSLEVEL.Bard",		       START_CLASSLEVEL
 
@@ -731,12 +729,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor021", ok);
+		assertTrue(ok, "No illegal access in Constructor021");
 
 		String term = "CLASSLEVEL=Rogue";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor021 pattern matches for " + term, mat.find());
-		assertTrue("Constructor021 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor021 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor021 pattern matches start of " + term);
 
 		// "CLASSLEVEL=Rogue",			START_CLASSLEVEL
 
@@ -764,12 +762,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor022", ok);
+		assertTrue(ok, "No illegal access in Constructor022");
 
 		String term = "COUNT[ATTACKS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor022 pattern matches for " + term, mat.find());
-		assertEquals("Constructor022 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor022 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor022 pattern matches all of " + term);
 
 		// "COUNT[ATTACKS]",		   COMPLETE_COUNT_ATTACKS
 
@@ -797,12 +795,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor023", ok);
+		assertTrue(ok, "No illegal access in Constructor023");
 
 		String term = "COUNT[CHECKS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor023 pattern matches for " + term, mat.find());
-		assertEquals("Constructor023 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor023 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor023 pattern matches all of " + term);
 
 		// "COUNT[CHECKS]",		   COMPLETE_COUNT_CHECKS
 
@@ -830,12 +828,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor024", ok);
+		assertTrue(ok, "No illegal access in Constructor024");
 
 		String term = "COUNT[CLASSES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor024 pattern matches for " + term, mat.find());
-		assertEquals("Constructor024 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor024 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor024 pattern matches all of " + term);
 
 		// "COUNT[CLASSES]",		   COMPLETE_COUNT_CLASSES
 
@@ -863,12 +861,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor025", ok);
+		assertTrue(ok, "No illegal access in Constructor025");
 
 		String term = "COUNT[CONTAINERS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor025 pattern matches for " + term, mat.find());
-		assertEquals("Constructor025 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor025 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor025 pattern matches all of " + term);
 
 		// "COUNT[CONTAINERS]",		   COMPLETE_COUNT_CONTAINERS
 
@@ -896,12 +894,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor026", ok);
+		assertTrue(ok, "No illegal access in Constructor026");
 
 		String term = "COUNT[DOMAINS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor026 pattern matches for " + term, mat.find());
-		assertEquals("Constructor026 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor026 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor026 pattern matches all of " + term);
 
 		// "COUNT[DOMAINS]",		   COMPLETE_COUNT_DOMAINS
 
@@ -929,12 +927,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor027", ok);
+		assertTrue(ok, "No illegal access in Constructor027");
 
 		String term = "COUNT[EQTYPE.MERGENONE.IS.FOO]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor027 pattern matches for " + term, mat.find());
-		assertTrue("Constructor027 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor027 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor027 pattern matches start of " + term);
 
 		// "COUNT[EQTYPE.MERGENONE.IS.FOO]",		    START_COUNT_EQTYPE
 
@@ -962,12 +960,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor028", ok);
+		assertTrue(ok, "No illegal access in Constructor028");
 
 		String term = "COUNT[EQUIPMENT.MERGENONE.NOT.FOO]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor028 pattern matches for " + term, mat.find());
-		assertTrue("Constructor028 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor028 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor028 pattern matches start of " + term);
 
 		// "COUNT[EQUIPMENT.MERGENONE.NOT.FOO]",	      START_COUNT_EQUIPMENT
 
@@ -995,12 +993,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor029", ok);
+		assertTrue(ok, "No illegal access in Constructor029");
 
 		String term = "COUNT[FEATAUTOTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor029 pattern matches for " + term, mat.find());
-		assertTrue("Constructor029 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor029 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor029 pattern matches start of " + term);
 
 		// "COUNT[FEATAUTOTYPE.HIDDEN]",	  START_COUNT_FEATTYPE
 
@@ -1028,12 +1026,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor030", ok);
+		assertTrue(ok, "No illegal access in Constructor030");
 
 		String term = "COUNT[FEATAUTOTYPE=VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor030 pattern matches for " + term, mat.find());
-		assertTrue("Constructor030 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor030 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor030 pattern matches start of " + term);
 
 		// "COUNT[FEATAUTOTYPE=VISIBLE]",	   START_COUNT_FEATTYPE
 
@@ -1061,12 +1059,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor031", ok);
+		assertTrue(ok, "No illegal access in Constructor031");
 
 		String term = "COUNT[FEATNAME.Jack of all trades]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor031 pattern matches for " + term, mat.find());
-		assertTrue("Constructor031 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor031 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor031 pattern matches start of " + term);
 
 		// "COUNT[FEATNAME.Jack of all trades]",	      START_COUNT_FEATTYPE
 
@@ -1094,12 +1092,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor032", ok);
+		assertTrue(ok, "No illegal access in Constructor032");
 
 		String term = "COUNT[FEATNAME=Improved Initiative]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor032 pattern matches for " + term, mat.find());
-		assertTrue("Constructor032 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor032 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor032 pattern matches start of " + term);
 
 		// "COUNT[FEATNAME=Improved Initiative]",	       START_COUNT_FEATTYPE
 
@@ -1127,12 +1125,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor033", ok);
+		assertTrue(ok, "No illegal access in Constructor033");
 
 		String term = "COUNT[FEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor033 pattern matches for " + term, mat.find());
-		assertEquals("Constructor033 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor033 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor033 pattern matches all of " + term);
 
 		// "COUNT[FEATS.ALL]",		   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1160,12 +1158,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor034", ok);
+		assertTrue(ok, "No illegal access in Constructor034");
 
 		String term = "COUNT[FEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor034 pattern matches for " + term, mat.find());
-		assertEquals("Constructor034 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor034 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor034 pattern matches all of " + term);
 
 		// "COUNT[FEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1193,12 +1191,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor035", ok);
+		assertTrue(ok, "No illegal access in Constructor035");
 
 		String term = "COUNT[FEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor035 pattern matches for " + term, mat.find());
-		assertEquals("Constructor035 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor035 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor035 pattern matches all of " + term);
 
 		// "COUNT[FEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1226,12 +1224,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor036", ok);
+		assertTrue(ok, "No illegal access in Constructor036");
 
 		String term = "COUNT[FEATSALL.ALL]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor036 pattern matches for " + term, mat.find());
-		assertEquals("Constructor036 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor036 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor036 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL.ALL]",	   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1259,12 +1257,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor037", ok);
+		assertTrue(ok, "No illegal access in Constructor037");
 
 		String term = "COUNT[FEATSALL.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor037 pattern matches for " + term, mat.find());
-		assertEquals("Constructor037 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor037 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor037 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1292,12 +1290,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor038", ok);
+		assertTrue(ok, "No illegal access in Constructor038");
 
 		String term = "COUNT[FEATSALL.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor038 pattern matches for " + term, mat.find());
-		assertEquals("Constructor038 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor038 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor038 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1325,12 +1323,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor039", ok);
+		assertTrue(ok, "No illegal access in Constructor039");
 
 		String term = "COUNT[FEATSALL]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor039 pattern matches for " + term, mat.find());
-		assertEquals("Constructor039 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor039 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor039 pattern matches all of " + term);
 
 		// "COUNT[FEATSALL]",		   COMPLETE_COUNT_FEATSNATUREALL
 
@@ -1358,12 +1356,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor040", ok);
+		assertTrue(ok, "No illegal access in Constructor040");
 
 		String term = "COUNT[FEATSAUTO.ALL]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor040 pattern matches for " + term, mat.find());
-		assertEquals("Constructor040 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor040 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor040 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO.ALL]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1391,12 +1389,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor041", ok);
+		assertTrue(ok, "No illegal access in Constructor041");
 
 		String term = "COUNT[FEATSAUTO.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor041 pattern matches for " + term, mat.find());
-		assertEquals("Constructor041 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor041 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor041 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1424,12 +1422,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor042", ok);
+		assertTrue(ok, "No illegal access in Constructor042");
 
 		String term = "COUNT[FEATSAUTO.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor042 pattern matches for " + term, mat.find());
-		assertEquals("Constructor042 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor042 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor042 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1457,12 +1455,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor043", ok);
+		assertTrue(ok, "No illegal access in Constructor043");
 
 		String term = "COUNT[FEATSAUTO]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor043 pattern matches for " + term, mat.find());
-		assertEquals("Constructor043 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor043 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor043 pattern matches all of " + term);
 
 		// "COUNT[FEATSAUTO]",		   COMPLETE_COUNT_FEATSNATUREAUTO
 
@@ -1490,12 +1488,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor044", ok);
+		assertTrue(ok, "No illegal access in Constructor044");
 
 		String term = "COUNT[FEATS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor044 pattern matches for " + term, mat.find());
-		assertEquals("Constructor044 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor044 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor044 pattern matches all of " + term);
 
 		// "COUNT[FEATS]",		   COMPLETE_COUNT_FEATSNATURENORMAL
 
@@ -1523,12 +1521,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor045", ok);
+		assertTrue(ok, "No illegal access in Constructor045");
 
 		String term = "COUNT[FEATTYPE.BAR]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor045 pattern matches for " + term, mat.find());
-		assertTrue("Constructor045 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor045 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor045 pattern matches start of " + term);
 
 		// "COUNT[FEATTYPE.BAR]",	       START_COUNT_FEATTYPE
 
@@ -1556,12 +1554,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor046", ok);
+		assertTrue(ok, "No illegal access in Constructor046");
 
 		String term = "COUNT[FEATTYPE.BAZ]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor046 pattern matches for " + term, mat.find());
-		assertTrue("Constructor046 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor046 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor046 pattern matches start of " + term);
 
 		// "COUNT[FEATTYPE.BAZ]",	       START_COUNT_FEATTYPE
 
@@ -1589,12 +1587,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor047", ok);
+		assertTrue(ok, "No illegal access in Constructor047");
 
 		String term = "COUNT[FOLLOWERS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor047 pattern matches for " + term, mat.find());
-		assertEquals("Constructor047 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor047 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor047 pattern matches all of " + term);
 
 		// "COUNT[FOLLOWERS]",		   COMPLETE_COUNT_FOLLOWERS
 
@@ -1622,12 +1620,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor048", ok);
+		assertTrue(ok, "No illegal access in Constructor048");
 
 		String term = "COUNT[FOLLOWERTYPE.MOO]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor048 pattern matches for " + term, mat.find());
-		assertTrue("Constructor048 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor048 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor048 pattern matches start of " + term);
 
 		// "COUNT[FOLLOWERTYPE.MOO]",	       START_COUNT_FOLLOWERTYPE
 
@@ -1655,12 +1653,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor049", ok);
+		assertTrue(ok, "No illegal access in Constructor049");
 
 		String term = "COUNT[LANGUAGES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor049 pattern matches for " + term, mat.find());
-		assertEquals("Constructor049 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor049 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor049 pattern matches all of " + term);
 
 		// "COUNT[LANGUAGES]",		   COMPLETE_COUNT_LANGUAGES
 
@@ -1688,12 +1686,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor050", ok);
+		assertTrue(ok, "No illegal access in Constructor050");
 
 		String term = "COUNT[MISC.COMPANIONS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor050 pattern matches for " + term, mat.find());
-		assertEquals("Constructor050 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor050 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor050 pattern matches all of " + term);
 
 		// "COUNT[MISC.COMPANIONS]",	   COMPLETE_COUNT_MISC_COMPANIONS
 
@@ -1721,12 +1719,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor051", ok);
+		assertTrue(ok, "No illegal access in Constructor051");
 
 		String term = "COUNT[MISC.FUNDS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor051 pattern matches for " + term, mat.find());
-		assertEquals("Constructor051 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor051 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor051 pattern matches all of " + term);
 
 		// "COUNT[MISC.FUNDS]",		   COMPLETE_COUNT_MISC_FUNDS
 
@@ -1754,12 +1752,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor052", ok);
+		assertTrue(ok, "No illegal access in Constructor052");
 
 		String term = "COUNT[MISC.MAGIC]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor052 pattern matches for " + term, mat.find());
-		assertEquals("Constructor052 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor052 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor052 pattern matches all of " + term);
 
 		// "COUNT[MISC.MAGIC]",		   COMPLETE_COUNT_MISC_MAGIC
 
@@ -1787,12 +1785,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor053", ok);
+		assertTrue(ok, "No illegal access in Constructor053");
 
 		String term = "COUNT[MOVE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor053 pattern matches for " + term, mat.find());
-		assertEquals("Constructor053 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor053 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor053 pattern matches all of " + term);
 
 		// "COUNT[MOVE]",		   COMPLETE_COUNT_MOVE
 
@@ -1820,12 +1818,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor054", ok);
+		assertTrue(ok, "No illegal access in Constructor054");
 
 		String term = "COUNT[NOTES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor054 pattern matches for " + term, mat.find());
-		assertEquals("Constructor054 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor054 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor054 pattern matches all of " + term);
 
 		// "COUNT[NOTES]",		   COMPLETE_COUNT_NOTES
 
@@ -1853,12 +1851,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor055", ok);
+		assertTrue(ok, "No illegal access in Constructor055");
 
 		String term = "COUNT[RACESUBTYPES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor055 pattern matches for " + term, mat.find());
-		assertEquals("Constructor055 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor055 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor055 pattern matches all of " + term);
 
 		// "COUNT[RACESUBTYPES]",	   COMPLETE_COUNT_RACESUBTYPES
 
@@ -1886,12 +1884,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor056", ok);
+		assertTrue(ok, "No illegal access in Constructor056");
 
 		String term = "COUNT[SA]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor056 pattern matches for " + term, mat.find());
-		assertEquals("Constructor056 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor056 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor056 pattern matches all of " + term);
 
 		// "COUNT[SA]",			   COMPLETE_COUNT_SA
 
@@ -1919,12 +1917,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor057", ok);
+		assertTrue(ok, "No illegal access in Constructor057");
 
 		String term = "COUNT[SKILLS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor057 pattern matches for " + term, mat.find());
-		assertEquals("Constructor057 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor057 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor057 pattern matches all of " + term);
 
 		// "COUNT[SKILLS]",		   COMPLETE_COUNT_SKILLS
 
@@ -1952,12 +1950,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor058", ok);
+		assertTrue(ok, "No illegal access in Constructor058");
 
 		String term = "COUNT[SKILLTYPE.KNOWLEDGE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor058 pattern matches for " + term, mat.find());
-		assertTrue("Constructor058 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor058 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor058 pattern matches start of " + term);
 
 		// "COUNT[SKILLTYPE.KNOWLEDGE]",	     START_COUNT_SKILLTYPE
 
@@ -1985,12 +1983,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor059", ok);
+		assertTrue(ok, "No illegal access in Constructor059");
 
 		String term = "COUNT[SKILLTYPE=PERFORM]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor059 pattern matches for " + term, mat.find());
-		assertTrue("Constructor059 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor059 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor059 pattern matches start of " + term);
 
 		// "COUNT[SKILLTYPE=PERFORM]",		   START_COUNT_SKILLTYPE
 
@@ -2018,12 +2016,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor060", ok);
+		assertTrue(ok, "No illegal access in Constructor060");
 
 		String term = "COUNT[SPELLBOOKS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor060 pattern matches for " + term, mat.find());
-		assertTrue("Constructor060 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor060 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor060 pattern matches start of " + term);
 
 		// "COUNT[SPELLBOOKS]",		    START_COUNT_SPELLBOOKS
 
@@ -2051,12 +2049,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor061", ok);
+		assertTrue(ok, "No illegal access in Constructor061");
 
 		String term = "COUNT[SPELLCLASSES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor061 pattern matches for " + term, mat.find());
-		assertEquals("Constructor061 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor061 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor061 pattern matches all of " + term);
 
 		// "COUNT[SPELLCLASSES]",	   COMPLETE_COUNT_SPELLCLASSES
 
@@ -2084,12 +2082,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor062", ok);
+		assertTrue(ok, "No illegal access in Constructor062");
 
 		String term = "COUNT[SPELLRACE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor062 pattern matches for " + term, mat.find());
-		assertEquals("Constructor062 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor062 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor062 pattern matches all of " + term);
 
 		// "COUNT[SPELLRACE]",		   COMPLETE_COUNT_SPELLRACE
 
@@ -2117,12 +2115,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor063", ok);
+		assertTrue(ok, "No illegal access in Constructor063");
 
 		String term = "COUNT[SPELLSINBOOK]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor063 pattern matches for " + term, mat.find());
-		assertTrue("Constructor063 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor063 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor063 pattern matches start of " + term);
 
 		// "COUNT[SPELLSINBOOK]",	    START_COUNT_SPELLSINBOOK
 
@@ -2150,12 +2148,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor064", ok);
+		assertTrue(ok, "No illegal access in Constructor064");
 
 		String term = "COUNT[SPELLSKNOWN]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor064 pattern matches for " + term, mat.find());
-		assertTrue("Constructor064 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor064 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor064 pattern matches start of " + term);
 
 		// "COUNT[SPELLSKNOWN]",	    START_COUNT_SPELLSKNOWN
 
@@ -2183,12 +2181,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor065", ok);
+		assertTrue(ok, "No illegal access in Constructor065");
 
 		String term = "COUNT[SPELLSLEVELSINBOOK]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor065 pattern matches for " + term, mat.find());
-		assertTrue("Constructor065 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor065 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor065 pattern matches start of " + term);
 
 		// "COUNT[SPELLSLEVELSINBOOK]",     START_COUNT_SPELLSLEVELSINBOOK
 
@@ -2216,12 +2214,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor066", ok);
+		assertTrue(ok, "No illegal access in Constructor066");
 
 		String term = "COUNT[SPELLTIMES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor066 pattern matches for " + term, mat.find());
-		assertTrue("Constructor066 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor066 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor066 pattern matches start of " + term);
 
 		// "COUNT[SPELLTIMES]",		    START_COUNT_SPELLTIMES
 
@@ -2249,12 +2247,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor067", ok);
+		assertTrue(ok, "No illegal access in Constructor067");
 
 		String term = "COUNT[STATS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor067 pattern matches for " + term, mat.find());
-		assertEquals("Constructor067 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor067 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor067 pattern matches all of " + term);
 
 		// "COUNT[STATS]",		   COMPLETE_COUNT_STATS
 
@@ -2282,12 +2280,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor068", ok);
+		assertTrue(ok, "No illegal access in Constructor068");
 
 		String term = "COUNT[TEMPBONUSNAMES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor068 pattern matches for " + term, mat.find());
-		assertEquals("Constructor068 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor068 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor068 pattern matches all of " + term);
 
 		// "COUNT[TEMPBONUSNAMES]",	   COMPLETE_COUNT_TEMPBONUSNAMES
 
@@ -2315,12 +2313,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor069", ok);
+		assertTrue(ok, "No illegal access in Constructor069");
 
 		String term = "COUNT[TEMPLATES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor069 pattern matches for " + term, mat.find());
-		assertEquals("Constructor069 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor069 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor069 pattern matches all of " + term);
 
 		// "COUNT[TEMPLATES]",		   COMPLETE_COUNT_TEMPLATES
 
@@ -2348,12 +2346,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor070", ok);
+		assertTrue(ok, "No illegal access in Constructor070");
 
 		String term = "COUNT[VFEATS.ALL]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor070 pattern matches for " + term, mat.find());
-		assertEquals("Constructor070 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor070 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor070 pattern matches all of " + term);
 
 		// "COUNT[VFEATS.ALL]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2381,12 +2379,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor071", ok);
+		assertTrue(ok, "No illegal access in Constructor071");
 
 		String term = "COUNT[VFEATS.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor071 pattern matches for " + term, mat.find());
-		assertEquals("Constructor071 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor071 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor071 pattern matches all of " + term);
 
 		// "COUNT[VFEATS.HIDDEN]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2414,12 +2412,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor072", ok);
+		assertTrue(ok, "No illegal access in Constructor072");
 
 		String term = "COUNT[VFEATS.VISIBLE]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor072 pattern matches for " + term, mat.find());
-		assertEquals("Constructor072 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor072 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor072 pattern matches all of " + term);
 
 		// "COUNT[VFEATS.VISIBLE]",	   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2447,12 +2445,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor073", ok);
+		assertTrue(ok, "No illegal access in Constructor073");
 
 		String term = "COUNT[VFEATS]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor073 pattern matches for " + term, mat.find());
-		assertEquals("Constructor073 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor073 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor073 pattern matches all of " + term);
 
 		// "COUNT[VFEATS]",		   COMPLETE_COUNT_FEATSNATUREVIRTUAL
 
@@ -2480,12 +2478,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor074", ok);
+		assertTrue(ok, "No illegal access in Constructor074");
 
 		String term = "COUNT[VFEATTYPE.HIDDEN]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor074 pattern matches for " + term, mat.find());
-		assertTrue("Constructor074 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor074 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor074 pattern matches start of " + term);
 
 		// "COUNT[VFEATTYPE.HIDDEN]",		  START_COUNT_FEATTYPE
 
@@ -2513,12 +2511,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor075", ok);
+		assertTrue(ok, "No illegal access in Constructor075");
 
 		String term = "COUNT[VFEATTYPE=ALL]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor075 pattern matches for " + term, mat.find());
-		assertTrue("Constructor075 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor075 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor075 pattern matches start of " + term);
 
 		// "COUNT[VFEATTYPE=ALL]",	       START_COUNT_FEATTYPE
 
@@ -2546,12 +2544,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor076", ok);
+		assertTrue(ok, "No illegal access in Constructor076");
 
 		String term = "COUNT[VISIBLETEMPLATES]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor076 pattern matches for " + term, mat.find());
-		assertEquals("Constructor076 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor076 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor076 pattern matches all of " + term);
 
 		// "COUNT[VISIBLETEMPLATES]",	   COMPLETE_COUNT_VISIBLETEMPLATES
 
@@ -2579,12 +2577,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor077", ok);
+		assertTrue(ok, "No illegal access in Constructor077");
 
 		String term = "COUNT[VISION]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor077 pattern matches for " + term, mat.find());
-		assertEquals("Constructor077 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor077 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor077 pattern matches all of " + term);
 
 		// "COUNT[VISION]",		   COMPLETE_COUNT_VISION
 
@@ -2612,12 +2610,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor078", ok);
+		assertTrue(ok, "No illegal access in Constructor078");
 
 		String term = "ENCUMBERANCE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor078 pattern matches for " + term, mat.find());
-		assertEquals("Constructor078 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor078 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor078 pattern matches all of " + term);
 
 		// "ENCUMBERANCE",		   COMPLETE_ENCUMBERANCE
 
@@ -2645,12 +2643,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor079", ok);
+		assertTrue(ok, "No illegal access in Constructor079");
 
 		String term = "EQTYPE.EQUIPPED.IS.FOO";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor079 pattern matches for " + term, mat.find());
-		assertTrue("Constructor079 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor079 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor079 pattern matches start of " + term);
 
 		// "EQTYPE.EQUIPPED.IS.FOO",			   START_EQTYPE
 
@@ -2678,12 +2676,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor080", ok);
+		assertTrue(ok, "No illegal access in Constructor080");
 
 		String term = "HASDEITY:Bane";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor080 pattern matches for " + term, mat.find());
-		assertTrue("Constructor080 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor080 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor080 pattern matches start of " + term);
 
 		// "HASDEITY:Bane",		       START_HASDEITY
 
@@ -2711,12 +2709,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor081", ok);
+		assertTrue(ok, "No illegal access in Constructor081");
 
 		String term = "HASFEAT:Endurance";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor081 pattern matches for " + term, mat.find());
-		assertTrue("Constructor081 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor081 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor081 pattern matches start of " + term);
 
 		// "HASFEAT:Endurance",			    START_HASFEAT
 
@@ -2744,12 +2742,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor082", ok);
+		assertTrue(ok, "No illegal access in Constructor082");
 
 		String term = "HD";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor082 pattern matches for " + term, mat.find());
-		assertEquals("Constructor082 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor082 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor082 pattern matches all of " + term);
 
 		// "HD",			   COMPLETE_HD
 
@@ -2777,12 +2775,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor083", ok);
+		assertTrue(ok, "No illegal access in Constructor083");
 
 		String term = "MAXCASTABLE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor083 pattern matches for " + term, mat.find());
-		assertEquals("Constructor083 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor083 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor083 pattern matches all of " + term);
 
 		// "MAXCASTABLE",		   COMPLETE_MAXCASTABLE
 
@@ -2810,12 +2808,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor084", ok);
+		assertTrue(ok, "No illegal access in Constructor084");
 
 		String term = "MODEQUIPSPELLFAILURE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor084 pattern matches for " + term, mat.find());
-		assertTrue("Constructor084 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor084 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor084 pattern matches start of " + term);
 
 		// "MODEQUIPSPELLFAILURE",		       START_MODEQUIP
 
@@ -2843,12 +2841,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor085", ok);
+		assertTrue(ok, "No illegal access in Constructor085");
 
 		String term = "MOVEBASE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor085 pattern matches for " + term, mat.find());
-		assertEquals("Constructor085 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor085 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor085 pattern matches all of " + term);
 
 		// "MOVEBASE",			   COMPLETE_MOVEBASE
 
@@ -2876,12 +2874,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor086", ok);
+		assertTrue(ok, "No illegal access in Constructor086");
 
 		String term = "MOVE[Walk]";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor086 pattern matches for " + term, mat.find());
-		assertTrue("Constructor086 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor086 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor086 pattern matches start of " + term);
 
 		// "MOVE[Walk]",			START_MOVE
 
@@ -2909,12 +2907,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor087", ok);
+		assertTrue(ok, "No illegal access in Constructor087");
 
 		String term = "PC.HEIGHT";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor087 pattern matches for " + term, mat.find());
-		assertEquals("Constructor087 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor087 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor087 pattern matches all of " + term);
 
 		// "PC.HEIGHT",			   COMPLETE_PC_HEIGHT
 
@@ -2942,12 +2940,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor088", ok);
+		assertTrue(ok, "No illegal access in Constructor088");
 
 		String term = "PC.SIZEINT";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor088 pattern matches for " + term, mat.find());
-		assertTrue("Constructor088 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor088 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor088 pattern matches start of " + term);
 
 		// "PC.SIZEINT",		      START_PC_SIZE
 
@@ -2975,12 +2973,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor089", ok);
+		assertTrue(ok, "No illegal access in Constructor089");
 
 		String term = "PC.WEIGHT";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor089 pattern matches for " + term, mat.find());
-		assertEquals("Constructor089 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor089 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor089 pattern matches all of " + term);
 
 		// "PC.WEIGHT",			   COMPLETE_PC_WEIGHT
 
@@ -3008,12 +3006,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor090", ok);
+		assertTrue(ok, "No illegal access in Constructor090");
 
 		String term = "PROFACCHECK";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor090 pattern matches for " + term, mat.find());
-		assertEquals("Constructor090 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor090 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor090 pattern matches all of " + term);
 
 		// "PROFACCHECK",		   COMPLETE_PROFACCHECK
 
@@ -3041,12 +3039,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor091", ok);
+		assertTrue(ok, "No illegal access in Constructor091");
 
 		String term = "RACESIZE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor091 pattern matches for " + term, mat.find());
-		assertEquals("Constructor091 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor091 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor091 pattern matches all of " + term);
 
 		// "RACESIZE",			   COMPLETE_RACESIZE
 
@@ -3074,12 +3072,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor092", ok);
+		assertTrue(ok, "No illegal access in Constructor092");
 
 		String term = "SCORE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor092 pattern matches for " + term, mat.find());
-		assertEquals("Constructor092 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor092 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor092 pattern matches all of " + term);
 
 		// "SCORE",			   COMPLETE_SCORE
 
@@ -3107,12 +3105,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor093", ok);
+		assertTrue(ok, "No illegal access in Constructor093");
 
 		String term = "SHIELDACCHECK";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor093 pattern matches for " + term, mat.find());
-		assertEquals("Constructor093 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor093 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor093 pattern matches all of " + term);
 
 		// "SHIELDACCHECK",		   COMPLETE_SHIELDACCHECK
 
@@ -3140,12 +3138,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor094", ok);
+		assertTrue(ok, "No illegal access in Constructor094");
 
 		String term = "SHIELDACHECK";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor094 pattern matches for " + term, mat.find());
-		assertEquals("Constructor094 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor094 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor094 pattern matches all of " + term);
 
 		// "SHIELDACHECK",		   COMPLETE_SHIELDACCHECK
 
@@ -3173,12 +3171,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor095", ok);
+		assertTrue(ok, "No illegal access in Constructor095");
 
 		String term = "SIZE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor095 pattern matches for " + term, mat.find());
-		assertEquals("Constructor095 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor095 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor095 pattern matches all of " + term);
 
 		// "SIZE",			   COMPLETE_SIZEMOD
 
@@ -3206,12 +3204,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor096", ok);
+		assertTrue(ok, "No illegal access in Constructor096");
 
 		String term = "SIZEMOD";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor096 pattern matches for " + term, mat.find());
-		assertEquals("Constructor096 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor096 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor096 pattern matches all of " + term);
 
 		// "SIZEMOD",			   COMPLETE_SIZEMOD
 
@@ -3239,12 +3237,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor097", ok);
+		assertTrue(ok, "No illegal access in Constructor097");
 
 		String term = "SKILLRANK.Tumble";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor097 pattern matches for " + term, mat.find());
-		assertTrue("Constructor097 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor097 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor097 pattern matches start of " + term);
 
 		// "SKILLRANK.Tumble",			 START_SKILLRANK
 
@@ -3272,12 +3270,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor098", ok);
+		assertTrue(ok, "No illegal access in Constructor098");
 
 		String term = "SKILLRANK=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor098 pattern matches for " + term, mat.find());
-		assertTrue("Constructor098 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor098 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor098 pattern matches start of " + term);
 
 		// "SKILLRANK=Perform (Dance)",			  START_SKILLRANK
 
@@ -3305,12 +3303,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor099", ok);
+		assertTrue(ok, "No illegal access in Constructor099");
 
 		String term = "SKILLTOTAL.Tumble";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor099 pattern matches for " + term, mat.find());
-		assertTrue("Constructor099 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor099 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor099 pattern matches start of " + term);
 
 		// "SKILLTOTAL.Tumble",			 START_SKILLTOTAL
 
@@ -3338,12 +3336,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor100", ok);
+		assertTrue(ok, "No illegal access in Constructor100");
 
 		String term = "SKILLTOTAL=Perform (Dance)";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor100 pattern matches for " + term, mat.find());
-		assertTrue("Constructor100 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor100 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor100 pattern matches start of " + term);
 
 		// "SKILLTOTAL=Perform (Dance)",		  START_SKILLTOTAL
 
@@ -3371,12 +3369,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor101", ok);
+		assertTrue(ok, "No illegal access in Constructor101");
 
 		String term = "SPELLBASESTAT";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor101 pattern matches for " + term, mat.find());
-		assertEquals("Constructor101 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor101 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor101 pattern matches all of " + term);
 
 		// "SPELLBASESTAT",		   COMPLETE_SPELLBASESTAT
 
@@ -3404,12 +3402,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor102", ok);
+		assertTrue(ok, "No illegal access in Constructor102");
 
 		String term = "SPELLBASESTATSCORE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor102 pattern matches for " + term, mat.find());
-		assertEquals("Constructor102 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor102 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor102 pattern matches all of " + term);
 
 		// "SPELLBASESTATSCORE",	   COMPLETE_SPELLBASESTAT
 
@@ -3437,12 +3435,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor103", ok);
+		assertTrue(ok, "No illegal access in Constructor103");
 
 		String term = "SPELLLEVEL";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor103 pattern matches for " + term, mat.find());
-		assertEquals("Constructor103 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor103 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor103 pattern matches all of " + term);
 
 		// "SPELLLEVEL",		   COMPLETE_SPELLLEVEL
 
@@ -3470,12 +3468,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor104", ok);
+		assertTrue(ok, "No illegal access in Constructor104");
 
 		String term = "TL";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor104 pattern matches for " + term, mat.find());
-		assertEquals("Constructor104 pattern matches all of " + term, term, mat.group(1));
+		assertTrue(mat.find(), () -> "Constructor104 pattern matches for " + term);
+		assertEquals(term, mat.group(1), () -> "Constructor104 pattern matches all of " + term);
 
 		// "TL",			   COMPLETE_TL
 
@@ -3503,12 +3501,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor105", ok);
+		assertTrue(ok, "No illegal access in Constructor105");
 
 		String term = "VARDEFINED:MilkyBarsEaten";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor105 pattern matches for " + term, mat.find());
-		assertTrue("Constructor105 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor105 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor105 pattern matches start of " + term);
 
 		// "VARDEFINED:MilkyBarsEaten",			 START_VARDEFINED
 
@@ -3536,12 +3534,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor106", ok);
+		assertTrue(ok, "No illegal access in Constructor106");
 
 		String term = "WEIGHT.CARRIED";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor106 pattern matches for " + term, mat.find());
-		assertTrue("Constructor106 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor106 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor106 pattern matches start of " + term);
 
 		// "WEIGHT.CARRIED",			  START_WEIGHT
 
@@ -3569,12 +3567,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in Constructor107", ok);
+		assertTrue(ok, "No illegal access in Constructor107");
 
 		String term = "DEXSCORE";
 		Matcher mat = iVP.matcher(term);
-		assertTrue("Constructor107 pattern matches for " + term, mat.find());
-		assertTrue("Constructor107 pattern matches start of " + term, term.startsWith(mat.group(1)));
+		assertTrue(mat.find(), () -> "Constructor107 pattern matches for " + term);
+		assertTrue(term.startsWith(mat.group(1)), () -> "Constructor107 pattern matches start of " + term);
 
 		// "DEXSCORE",			      START_STAT
 
@@ -3592,7 +3590,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator001 evaluator correct for " + term, t instanceof PCACcheckTermEvaluator);
+		assertTrue(t instanceof PCACcheckTermEvaluator, () -> "GetTermEvaluator001 evaluator correct for " + term);
 
 		Class<?> uClass = PCACcheckTermEvaluator.class;
 
@@ -3610,9 +3608,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator001", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator001");
 
-		assertEquals("GetTermEvaluator001 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator001 stored term is correct " + term);
 	}
 
 	/**
@@ -3627,7 +3625,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator002 evaluator correct for " + term, t instanceof PCACcheckTermEvaluator);
+		assertTrue(t instanceof PCACcheckTermEvaluator, () -> "GetTermEvaluator002 evaluator correct for " + term);
 
 		Class<?> uClass = PCACcheckTermEvaluator.class;
 
@@ -3645,9 +3643,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator002", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator002");
 
-		assertEquals("GetTermEvaluator002 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator002 stored term is correct " + term);
 	}
 
 	/**
@@ -3662,7 +3660,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator003 evaluator correct for " + term, t instanceof PCArmourACcheckTermEvaluator);
+		assertTrue(t instanceof PCArmourACcheckTermEvaluator, () -> "GetTermEvaluator003 evaluator correct for " + term);
 
 		Class<?> uClass = PCArmourACcheckTermEvaluator.class;
 
@@ -3680,9 +3678,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator003", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator003");
 
-		assertEquals("GetTermEvaluator003 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator003 stored term is correct " + term);
 	}
 
 	/**
@@ -3697,7 +3695,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator004 evaluator correct for " + term, t instanceof PCArmourACcheckTermEvaluator);
+		assertTrue(t instanceof PCArmourACcheckTermEvaluator, () -> "GetTermEvaluator004 evaluator correct for " + term);
 
 		Class<?> uClass = PCArmourACcheckTermEvaluator.class;
 
@@ -3715,9 +3713,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator004", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator004");
 
-		assertEquals("GetTermEvaluator004 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator004 stored term is correct " + term);
 	}
 
 	/**
@@ -3732,7 +3730,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator005 evaluator correct for " + term, t instanceof PCBABTermEvaluator);
+		assertTrue(t instanceof PCBABTermEvaluator, () -> "GetTermEvaluator005 evaluator correct for " + term);
 
 		Class<?> uClass = PCBABTermEvaluator.class;
 
@@ -3750,9 +3748,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator005", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator005");
 
-		assertEquals("GetTermEvaluator005 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator005 stored term is correct " + term);
 	}
 
 	/**
@@ -3767,7 +3765,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Foo");
 
-		assertTrue("GetTermEvaluator006 evaluator correct for " + term, t instanceof PCBaseSpellStatTermEvaluator);
+		assertTrue(t instanceof PCBaseSpellStatTermEvaluator, () -> "GetTermEvaluator006 evaluator correct for " + term);
 
 		Class<?> uClass = PCBaseSpellStatTermEvaluator.class;
 
@@ -3788,10 +3786,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator006", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator006");
 
-		assertEquals("GetTermEvaluator006 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator006 field source is correct ", "Foo", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator006 stored term is correct " + term);
+		assertEquals("Foo", field1, "GetTermEvaluator006 field source is correct ");
 	}
 
 	/**
@@ -3806,7 +3804,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		assertTrue("GetTermEvaluator007 evaluator correct for " + term, t instanceof PCBaseSpellStatTermEvaluator);
+		assertTrue(t instanceof PCBaseSpellStatTermEvaluator, () -> "GetTermEvaluator007 evaluator correct for " + term);
 
 		Class<?> uClass = PCBaseSpellStatTermEvaluator.class;
 
@@ -3827,10 +3825,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator007", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator007");
 
-		assertEquals("GetTermEvaluator007 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator007 field source is correct ", "", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator007 stored term is correct " + term);
+		assertEquals("", field1, "GetTermEvaluator007 field source is correct ");
 	}
 
 	/**
@@ -3845,7 +3843,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		assertTrue("GetTermEvaluator008 evaluator correct for " + term, t instanceof PCCasterLevelRaceTermEvaluator);
+		assertTrue(t instanceof PCCasterLevelRaceTermEvaluator,
+				() -> "GetTermEvaluator008 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCasterLevelRaceTermEvaluator.class;
 
@@ -3866,10 +3866,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator008", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator008");
 
-		assertEquals("GetTermEvaluator008 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator008 field source is correct ", "RACE.Bar", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator008 stored term is correct " + term);
+		assertEquals("RACE.Bar", field1, "GetTermEvaluator008 field source is correct ");
 	}
 
 	/**
@@ -3884,7 +3884,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Foo");
 
-		assertTrue("GetTermEvaluator009 evaluator correct for " + term, t instanceof PCCasterLevelClassTermEvaluator);
+		assertTrue(t instanceof PCCasterLevelClassTermEvaluator,
+				() -> "GetTermEvaluator009 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCasterLevelClassTermEvaluator.class;
 
@@ -3905,10 +3907,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator009", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator009");
 
-		assertEquals("GetTermEvaluator009 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator009 field source is correct ", "Foo", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator009 stored term is correct " + term);
+		assertEquals("Foo", field1, "GetTermEvaluator009 field source is correct ");
 	}
 
 	/**
@@ -3923,7 +3925,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "SPELL:Baz");
 
-		assertTrue("GetTermEvaluator010 evaluator correct for " + term, t instanceof PCCasterLevelTotalTermEvaluator);
+		assertTrue(t instanceof PCCasterLevelTotalTermEvaluator,
+				() -> "GetTermEvaluator010 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCasterLevelTotalTermEvaluator.class;
 
@@ -3941,9 +3945,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator010", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator010");
 
-		assertEquals("GetTermEvaluator010 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator010 stored term is correct " + term);
 	}
 
 	/**
@@ -3958,7 +3962,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Bar");
 
-		assertTrue("GetTermEvaluator011 evaluator correct for " + term, t instanceof PCCasterLevelTotalTermEvaluator);
+		assertTrue(t instanceof PCCasterLevelTotalTermEvaluator,
+				() -> "GetTermEvaluator011 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCasterLevelTotalTermEvaluator.class;
 
@@ -3976,9 +3982,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator011", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator011");
 
-		assertEquals("GetTermEvaluator011 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator011 stored term is correct " + term);
 	}
 
 	/**
@@ -3993,7 +3999,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator012 evaluator correct for " + term, t instanceof PCCountAttacksTermEvaluator);
+		assertTrue(t instanceof PCCountAttacksTermEvaluator, () -> "GetTermEvaluator012 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountAttacksTermEvaluator.class;
 
@@ -4011,9 +4017,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator012", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator012");
 
-		assertEquals("GetTermEvaluator012 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator012 stored term is correct " + term);
 	}
 
 	/**
@@ -4028,7 +4034,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator013 evaluator correct for " + term, t instanceof PCCountChecksTermEvaluator);
+		assertTrue(t instanceof PCCountChecksTermEvaluator, () -> "GetTermEvaluator013 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountChecksTermEvaluator.class;
 
@@ -4046,9 +4052,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator013", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator013");
 
-		assertEquals("GetTermEvaluator013 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator013 stored term is correct " + term);
 	}
 
 	/**
@@ -4063,7 +4069,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator014 evaluator correct for " + term, t instanceof PCCountClassesTermEvaluator);
+		assertTrue(t instanceof PCCountClassesTermEvaluator, () -> "GetTermEvaluator014 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountClassesTermEvaluator.class;
 
@@ -4081,9 +4087,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator014", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator014");
 
-		assertEquals("GetTermEvaluator014 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator014 stored term is correct " + term);
 	}
 
 	/**
@@ -4098,7 +4104,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator015 evaluator correct for " + term, t instanceof PCCountContainersTermEvaluator);
+		assertTrue(t instanceof PCCountContainersTermEvaluator,
+				() -> "GetTermEvaluator015 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountContainersTermEvaluator.class;
 
@@ -4116,9 +4124,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator015", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator015");
 
-		assertEquals("GetTermEvaluator015 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator015 stored term is correct " + term);
 	}
 
 	/**
@@ -4133,7 +4141,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator016 evaluator correct for " + term, t instanceof PCCountDomainsTermEvaluator);
+		assertTrue(t instanceof PCCountDomainsTermEvaluator, () -> "GetTermEvaluator016 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountDomainsTermEvaluator.class;
 
@@ -4151,9 +4159,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator016", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator016");
 
-		assertEquals("GetTermEvaluator016 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator016 stored term is correct " + term);
 	}
 
 	/**
@@ -4169,8 +4177,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator017 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator,
+				() -> "GetTermEvaluator017 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
@@ -4195,11 +4203,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator017", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator017");
 
-		assertEquals("GetTermEvaluator017 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator017 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator017 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator017 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator017 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator017 field visible is correct ");
 	}
 
 	/**
@@ -4215,8 +4223,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator018 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator,
+				() -> "GetTermEvaluator018 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
@@ -4241,11 +4249,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator018", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator018");
 
-		assertEquals("GetTermEvaluator018 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator018 field hidden is correct ", field1);
-		assertFalse("GetTermEvaluator018 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator018 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator018 field hidden is correct ");
+		assertFalse(field2, "GetTermEvaluator018 field visible is correct ");
 	}
 
 	/**
@@ -4285,11 +4293,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator019", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator019");
 
-		assertEquals("GetTermEvaluator019 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator019 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator019 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator019 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator019 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator019 field visible is correct ");
 	}
 
 	/**
@@ -4305,8 +4313,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator020 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureAllTermEvaluator
+				t instanceof PCCountAbilitiesNatureAllTermEvaluator,
+				() -> "GetTermEvaluator020 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAllTermEvaluator.class;
@@ -4331,11 +4339,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator020", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator020");
 
-		assertEquals("GetTermEvaluator020 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator020 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator020 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator020 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator020 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator020 field visible is correct ");
 	}
 
 	/**
@@ -4351,8 +4359,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator021 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator,
+				() -> "GetTermEvaluator021 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
@@ -4377,11 +4385,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator021", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator021");
 
-		assertEquals("GetTermEvaluator021 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator021 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator021 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator021 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator021 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator021 field visible is correct ");
 	}
 
 	/**
@@ -4397,8 +4405,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator022 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator,
+				() -> "GetTermEvaluator022 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
@@ -4423,11 +4431,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator022", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator022");
 
-		assertEquals("GetTermEvaluator022 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator022 field hidden is correct ", field1);
-		assertFalse("GetTermEvaluator022 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator022 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator022 field hidden is correct ");
+		assertFalse(field2, "GetTermEvaluator022 field visible is correct ");
 	}
 
 	/**
@@ -4443,8 +4451,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator023 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator,
+				() -> "GetTermEvaluator023 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
@@ -4469,11 +4477,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator023", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator023");
 
-		assertEquals("GetTermEvaluator023 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator023 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator023 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator023 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator023 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator023 field visible is correct ");
 	}
 
 	/**
@@ -4489,8 +4497,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator024 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureAutoTermEvaluator
+				t instanceof PCCountAbilitiesNatureAutoTermEvaluator,
+				() -> "GetTermEvaluator024 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureAutoTermEvaluator.class;
@@ -4515,11 +4523,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator024", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator024");
 
-		assertEquals("GetTermEvaluator024 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator024 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator024 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator024 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator024 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator024 field visible is correct ");
 	}
 
 	/**
@@ -4535,8 +4543,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator025 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator,
+				() -> "GetTermEvaluator025 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
@@ -4561,11 +4569,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator025", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator025");
 
-		assertEquals("GetTermEvaluator025 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator025 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator025 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator025 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator025 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator025 field visible is correct ");
 	}
 
 	/**
@@ -4581,8 +4589,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator026 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator,
+				() -> "GetTermEvaluator026 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
@@ -4607,11 +4615,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator026", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator026");
 
-		assertEquals("GetTermEvaluator026 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator026 field hidden is correct ", field1);
-		assertFalse("GetTermEvaluator026 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator026 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator026 field hidden is correct ");
+		assertFalse(field2, "GetTermEvaluator026 field visible is correct ");
 	}
 
 	/**
@@ -4627,8 +4635,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator027 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator,
+				() -> "GetTermEvaluator027 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
@@ -4653,11 +4661,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator027", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator027");
 
-		assertEquals("GetTermEvaluator027 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator027 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator027 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator027 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator027 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator027 field visible is correct ");
 	}
 
 	/**
@@ -4673,8 +4681,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator028 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureNormalTermEvaluator
+				t instanceof PCCountAbilitiesNatureNormalTermEvaluator,
+				() -> "GetTermEvaluator028 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureNormalTermEvaluator.class;
@@ -4699,11 +4707,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator028", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator028");
 
-		assertEquals("GetTermEvaluator028 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator028 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator028 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator028 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator028 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator028 field visible is correct ");
 	}
 
 	/**
@@ -4719,8 +4727,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator029 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator,
+				() -> "GetTermEvaluator029 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
@@ -4745,11 +4753,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator029", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator029");
 
-		assertEquals("GetTermEvaluator029 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator029 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator029 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator029 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator029 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator029 field visible is correct ");
 	}
 
 	/**
@@ -4765,8 +4773,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator030 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator,
+				() -> "GetTermEvaluator030 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
@@ -4791,11 +4799,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator030", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator030");
 
-		assertEquals("GetTermEvaluator030 stored term is correct " + term, term, field0);
-		assertTrue("GetTermEvaluator030 field hidden is correct ", field1);
-		assertFalse("GetTermEvaluator030 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator030 stored term is correct " + term);
+		assertTrue(field1, "GetTermEvaluator030 field hidden is correct ");
+		assertFalse(field2, "GetTermEvaluator030 field visible is correct ");
 	}
 
 	/**
@@ -4811,8 +4819,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator031 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator,
+				() -> "GetTermEvaluator031 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
@@ -4837,11 +4845,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator031", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator031");
 
-		assertEquals("GetTermEvaluator031 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator031 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator031 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator031 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator031 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator031 field visible is correct ");
 	}
 
 	/**
@@ -4857,8 +4865,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator032 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator
+				t instanceof PCCountAbilitiesNatureVirtualTermEvaluator,
+				() -> "GetTermEvaluator032 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesNatureVirtualTermEvaluator.class;
@@ -4883,11 +4891,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator032", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator032");
 
-		assertEquals("GetTermEvaluator032 stored term is correct " + term, term, field0);
-		assertFalse("GetTermEvaluator032 field hidden is correct ", field1);
-		assertTrue("GetTermEvaluator032 field visible is correct ", field2);
+		assertEquals(term, field0, () -> "GetTermEvaluator032 stored term is correct " + term);
+		assertFalse(field1, "GetTermEvaluator032 field hidden is correct ");
+		assertTrue(field2, "GetTermEvaluator032 field visible is correct ");
 	}
 
 	/**
@@ -4902,7 +4910,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator033 evaluator correct for " + term, t instanceof PCCountFollowersTermEvaluator);
+		assertTrue(t instanceof PCCountFollowersTermEvaluator,
+				() -> "GetTermEvaluator033 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountFollowersTermEvaluator.class;
 
@@ -4920,9 +4930,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator033", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator033");
 
-		assertEquals("GetTermEvaluator033 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator033 stored term is correct " + term);
 	}
 
 	/**
@@ -4937,7 +4947,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator034 evaluator correct for " + term, t instanceof PCCountLanguagesTermEvaluator);
+		assertTrue(t instanceof PCCountLanguagesTermEvaluator,
+				() -> "GetTermEvaluator034 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountLanguagesTermEvaluator.class;
 
@@ -4955,9 +4967,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator034", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator034");
 
-		assertEquals("GetTermEvaluator034 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator034 stored term is correct " + term);
 	}
 
 	/**
@@ -4973,8 +4985,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator035 evaluator correct for " + term,
-				t instanceof PCCountMiscCompanionsTermEvaluator
+				t instanceof PCCountMiscCompanionsTermEvaluator,
+				() -> "GetTermEvaluator035 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountMiscCompanionsTermEvaluator.class;
@@ -4993,9 +5005,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator035", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator035");
 
-		assertEquals("GetTermEvaluator035 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator035 stored term is correct " + term);
 	}
 
 	/**
@@ -5010,7 +5022,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator036 evaluator correct for " + term, t instanceof PCCountMiscFundsTermEvaluator);
+		assertTrue(t instanceof PCCountMiscFundsTermEvaluator,
+				() -> "GetTermEvaluator036 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountMiscFundsTermEvaluator.class;
 
@@ -5028,9 +5042,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator036", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator036");
 
-		assertEquals("GetTermEvaluator036 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator036 stored term is correct " + term);
 	}
 
 	/**
@@ -5045,7 +5059,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator037 evaluator correct for " + term, t instanceof PCCountMiscMagicTermEvaluator);
+		assertTrue(t instanceof PCCountMiscMagicTermEvaluator,
+				() -> "GetTermEvaluator037 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountMiscMagicTermEvaluator.class;
 
@@ -5063,9 +5079,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator037", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator037");
 
-		assertEquals("GetTermEvaluator037 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator037 stored term is correct " + term);
 	}
 
 	/**
@@ -5080,7 +5096,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator038 evaluator correct for " + term, t instanceof PCCountMoveTermEvaluator);
+		assertTrue(t instanceof PCCountMoveTermEvaluator, () -> "GetTermEvaluator038 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountMoveTermEvaluator.class;
 
@@ -5098,9 +5114,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator038", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator038");
 
-		assertEquals("GetTermEvaluator038 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator038 stored term is correct " + term);
 	}
 
 	/**
@@ -5115,7 +5131,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator039 evaluator correct for " + term, t instanceof PCCountNotesTermEvaluator);
+		assertTrue(t instanceof PCCountNotesTermEvaluator, () -> "GetTermEvaluator039 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountNotesTermEvaluator.class;
 
@@ -5133,9 +5149,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator039", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator039");
 
-		assertEquals("GetTermEvaluator039 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator039 stored term is correct " + term);
 	}
 
 	/**
@@ -5150,7 +5166,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator040 evaluator correct for " + term, t instanceof PCCountRaceSubTypesTermEvaluator);
+		assertTrue(t instanceof PCCountRaceSubTypesTermEvaluator,
+				() -> "GetTermEvaluator040 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountRaceSubTypesTermEvaluator.class;
 
@@ -5168,9 +5186,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator040", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator040");
 
-		assertEquals("GetTermEvaluator040 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator040 stored term is correct " + term);
 	}
 
 	/**
@@ -5185,7 +5203,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator041 evaluator correct for " + term, t instanceof PCCountSABTermEvaluator);
+		assertTrue(t instanceof PCCountSABTermEvaluator, () -> "GetTermEvaluator041 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountSABTermEvaluator.class;
 
@@ -5203,9 +5221,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator041", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator041");
 
-		assertEquals("GetTermEvaluator041 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator041 stored term is correct " + term);
 	}
 
 	/**
@@ -5220,7 +5238,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator042 evaluator correct for " + term, t instanceof PCCountSkillsTermEvaluator);
+		assertTrue(t instanceof PCCountSkillsTermEvaluator, () -> "GetTermEvaluator042 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountSkillsTermEvaluator.class;
 
@@ -5238,9 +5256,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator042", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator042");
 
-		assertEquals("GetTermEvaluator042 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator042 stored term is correct " + term);
 	}
 
 	/**
@@ -5255,7 +5273,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator043 evaluator correct for " + term, t instanceof PCCountSpellClassesTermEvaluator);
+		assertTrue(t instanceof PCCountSpellClassesTermEvaluator,
+				() -> "GetTermEvaluator043 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountSpellClassesTermEvaluator.class;
 
@@ -5273,9 +5293,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator043", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator043");
 
-		assertEquals("GetTermEvaluator043 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator043 stored term is correct " + term);
 	}
 
 	/**
@@ -5290,7 +5310,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator044 evaluator correct for " + term, t instanceof PCCountSpellRaceTermEvaluator);
+		assertTrue(t instanceof PCCountSpellRaceTermEvaluator,
+				() -> "GetTermEvaluator044 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountSpellRaceTermEvaluator.class;
 
@@ -5308,9 +5330,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator044", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator044");
 
-		assertEquals("GetTermEvaluator044 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator044 stored term is correct " + term);
 	}
 
 	/**
@@ -5325,7 +5347,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator045 evaluator correct for " + term, t instanceof PCCountStatsTermEvaluator);
+		assertTrue(t instanceof PCCountStatsTermEvaluator, () -> "GetTermEvaluator045 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountStatsTermEvaluator.class;
 
@@ -5343,9 +5365,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator045", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator045");
 
-		assertEquals("GetTermEvaluator045 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator045 stored term is correct " + term);
 	}
 
 	/**
@@ -5361,8 +5383,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator046 evaluator correct for " + term,
-				t instanceof PCCountTempBonusNamesTermEvaluator
+				t instanceof PCCountTempBonusNamesTermEvaluator,
+				() -> "GetTermEvaluator046 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountTempBonusNamesTermEvaluator.class;
@@ -5381,9 +5403,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator046", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator046");
 
-		assertEquals("GetTermEvaluator046 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator046 stored term is correct " + term);
 	}
 
 	/**
@@ -5398,7 +5420,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator047 evaluator correct for " + term, t instanceof PCCountTemplatesTermEvaluator);
+		assertTrue(t instanceof PCCountTemplatesTermEvaluator,
+				() -> "GetTermEvaluator047 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountTemplatesTermEvaluator.class;
 
@@ -5416,9 +5440,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator047", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator047");
 
-		assertEquals("GetTermEvaluator047 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator047 stored term is correct " + term);
 	}
 
 	/**
@@ -5434,8 +5458,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator048 evaluator correct for " + term,
-				t instanceof PCCountVisibleTemplatesTermEvaluator
+				t instanceof PCCountVisibleTemplatesTermEvaluator,
+				() -> "GetTermEvaluator048 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountVisibleTemplatesTermEvaluator.class;
@@ -5454,9 +5478,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator048", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator048");
 
-		assertEquals("GetTermEvaluator048 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator048 stored term is correct " + term);
 	}
 
 	/**
@@ -5471,7 +5495,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator049 evaluator correct for " + term, t instanceof PCCountVisionTermEvaluator);
+		assertTrue(t instanceof PCCountVisionTermEvaluator, () -> "GetTermEvaluator049 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountVisionTermEvaluator.class;
 
@@ -5489,9 +5513,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator049", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator049");
 
-		assertEquals("GetTermEvaluator049 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator049 stored term is correct " + term);
 	}
 
 	/**
@@ -5506,7 +5530,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator050 evaluator correct for " + term, t instanceof PCEncumberanceTermEvaluator);
+		assertTrue(t instanceof PCEncumberanceTermEvaluator, () -> "GetTermEvaluator050 evaluator correct for " + term);
 
 		Class<?> uClass = PCEncumberanceTermEvaluator.class;
 
@@ -5524,9 +5548,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator050", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator050");
 
-		assertEquals("GetTermEvaluator050 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator050 stored term is correct " + term);
 	}
 
 	/**
@@ -5541,7 +5565,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator051 evaluator correct for " + term, t instanceof PCHDTermEvaluator);
+		assertTrue(t instanceof PCHDTermEvaluator, () -> "GetTermEvaluator051 evaluator correct for " + term);
 
 		Class<?> uClass = PCHDTermEvaluator.class;
 
@@ -5559,9 +5583,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator051", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator051");
 
-		assertEquals("GetTermEvaluator051 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator051 stored term is correct " + term);
 	}
 
 	/**
@@ -5576,7 +5600,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("testGetTermEvaluatorHp evaluator correct for " + term, t instanceof PCHPTermEvaluator);
+		assertTrue(t instanceof PCHPTermEvaluator, () -> "testGetTermEvaluatorHp evaluator correct for " + term);
 
 		Class<?> uClass = PCHPTermEvaluator.class;
 
@@ -5594,9 +5618,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in testGetTermEvaluatorHp", ok);
+		assertTrue(ok, "No illegal access in testGetTermEvaluatorHp");
 
-		assertEquals("testGetTermEvaluatorHp stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "testGetTermEvaluatorHp stored term is correct " + term);
 	}
 
 	/**
@@ -5612,7 +5636,9 @@ public class EvaluatorFactoryTest
 		Globals.getContext().getReferenceContext().constructCDOMObject(ClassSpellList.class, "Bard");
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Bard");
 
-		assertTrue("GetTermEvaluator052 evaluator correct for " + term, t instanceof PCMaxCastableClassTermEvaluator);
+		assertTrue(t instanceof PCMaxCastableClassTermEvaluator,
+				() -> "GetTermEvaluator052 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCMaxCastableClassTermEvaluator.class;
 
@@ -5633,10 +5659,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator052", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator052");
 
-		assertEquals("GetTermEvaluator052 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator052 field spellList is correct ", "Bard", field1.getKeyName());
+		assertEquals(term, field0, () -> "GetTermEvaluator052 stored term is correct " + term);
+		assertEquals("Bard", field1.getKeyName(), "GetTermEvaluator052 field spellList is correct ");
 	}
 
 	/**
@@ -5651,7 +5677,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Fire");
 
-		assertTrue("GetTermEvaluator053 evaluator correct for " + term, t instanceof PCMaxCastableDomainTermEvaluator);
+		assertTrue(t instanceof PCMaxCastableDomainTermEvaluator,
+				() -> "GetTermEvaluator053 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCMaxCastableDomainTermEvaluator.class;
 
@@ -5672,10 +5700,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator053", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator053");
 
-		assertEquals("GetTermEvaluator053 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator053 field domainKey is correct ", "Fire", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator053 stored term is correct " + term);
+		assertEquals("Fire", field1, "GetTermEvaluator053 field domainKey is correct ");
 	}
 
 	/**
@@ -5691,8 +5719,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "SPELLTYPE:Arcane");
 
 		assertTrue(
-				"GetTermEvaluator054 evaluator correct for " + term,
-				t instanceof PCMaxCastableSpellTypeTermEvaluator
+				t instanceof PCMaxCastableSpellTypeTermEvaluator,
+				() -> "GetTermEvaluator054 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCMaxCastableSpellTypeTermEvaluator.class;
@@ -5714,10 +5742,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator054", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator054");
 
-		assertEquals("GetTermEvaluator054 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator054 field typeKey is correct ", "Arcane", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator054 stored term is correct " + term);
+		assertEquals("Arcane", field1, "GetTermEvaluator054 field typeKey is correct ");
 	}
 
 	/**
@@ -5732,7 +5760,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "ANY");
 
-		assertTrue("GetTermEvaluator055 evaluator correct for " + term, t instanceof PCMaxCastableAnyTermEvaluator);
+		assertTrue(t instanceof PCMaxCastableAnyTermEvaluator,
+				() -> "GetTermEvaluator055 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCMaxCastableAnyTermEvaluator.class;
 
@@ -5750,9 +5780,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator055", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator055");
 
-		assertEquals("GetTermEvaluator055 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator055 stored term is correct " + term);
 	}
 
 	/**
@@ -5767,7 +5797,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator056 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator056 evaluator is null");
 	}
 
 	/**
@@ -5782,7 +5812,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator057 evaluator correct for " + term, t instanceof PCMoveBaseTermEvaluator);
+		assertTrue(t instanceof PCMoveBaseTermEvaluator, () -> "GetTermEvaluator057 evaluator correct for " + term);
 
 		Class<?> uClass = PCMoveBaseTermEvaluator.class;
 
@@ -5800,9 +5830,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator057", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator057");
 
-		assertEquals("GetTermEvaluator057 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator057 stored term is correct " + term);
 	}
 
 	/**
@@ -5817,7 +5847,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator058 evaluator correct for " + term, t instanceof PCHeightTermEvaluator);
+		assertTrue(t instanceof PCHeightTermEvaluator, () -> "GetTermEvaluator058 evaluator correct for " + term);
 
 		Class<?> uClass = PCHeightTermEvaluator.class;
 
@@ -5835,9 +5865,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator058", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator058");
 
-		assertEquals("GetTermEvaluator058 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator058 stored term is correct " + term);
 	}
 
 	/**
@@ -5852,7 +5882,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator059 evaluator correct for " + term, t instanceof PCWeightTermEvaluator);
+		assertTrue(t instanceof PCWeightTermEvaluator, () -> "GetTermEvaluator059 evaluator correct for " + term);
 
 		Class<?> uClass = PCWeightTermEvaluator.class;
 
@@ -5870,9 +5900,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator059", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator059");
 
-		assertEquals("GetTermEvaluator059 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator059 stored term is correct " + term);
 	}
 
 	/**
@@ -5887,7 +5917,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "EQ:Dagger");
 
-		assertTrue("GetTermEvaluator060 evaluator correct for " + term, t instanceof PCProfACCheckTermEvaluator);
+		assertTrue(t instanceof PCProfACCheckTermEvaluator, () -> "GetTermEvaluator060 evaluator correct for " + term);
 
 		Class<?> uClass = PCProfACCheckTermEvaluator.class;
 
@@ -5908,10 +5938,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator060", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator060");
 
-		assertEquals("GetTermEvaluator060 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator060 field eqKey is correct ", "Dagger", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator060 stored term is correct " + term);
+		assertEquals("Dagger", field1, "GetTermEvaluator060 field eqKey is correct ");
 	}
 
 	/**
@@ -5926,7 +5956,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator061 evaluator correct for " + term, t instanceof PCProfACCheckTermEvaluator);
+		assertTrue(t instanceof PCProfACCheckTermEvaluator, () -> "GetTermEvaluator061 evaluator correct for " + term);
 
 		Class<?> uClass = PCProfACCheckTermEvaluator.class;
 
@@ -5947,10 +5977,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator061", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator061");
 
-		assertEquals("GetTermEvaluator061 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator061 field eqKey is correct ", "", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator061 stored term is correct " + term);
+		assertEquals("", field1, "GetTermEvaluator061 field eqKey is correct ");
 	}
 
 	/**
@@ -5965,7 +5995,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator062 evaluator correct for " + term, t instanceof PCRaceSizeTermEvaluator);
+		assertTrue(t instanceof PCRaceSizeTermEvaluator, () -> "GetTermEvaluator062 evaluator correct for " + term);
 
 		Class<?> uClass = PCRaceSizeTermEvaluator.class;
 
@@ -5983,9 +6013,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator062", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator062");
 
-		assertEquals("GetTermEvaluator062 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator062 stored term is correct " + term);
 	}
 
 	/**
@@ -6000,7 +6030,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "STAT:INT");
 
-		assertTrue("GetTermEvaluator063 evaluator correct for " + term, t instanceof PCScoreTermEvaluator);
+		assertTrue(t instanceof PCScoreTermEvaluator, () -> "GetTermEvaluator063 evaluator correct for " + term);
 
 		Class<?> uClass = PCScoreTermEvaluator.class;
 
@@ -6021,10 +6051,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator063", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator063");
 
-		assertEquals("GetTermEvaluator063 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator063 field stat is correct ", "INT", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator063 stored term is correct " + term);
+		assertEquals("INT", field1, "GetTermEvaluator063 field stat is correct ");
 	}
 
 	/**
@@ -6039,7 +6069,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator064 evaluator correct for " + term, t instanceof PCScoreTermEvaluator);
+		assertTrue(t instanceof PCScoreTermEvaluator, () -> "GetTermEvaluator064 evaluator correct for " + term);
 
 		Class<?> uClass = PCScoreTermEvaluator.class;
 
@@ -6060,10 +6090,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator064", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator064");
 
-		assertEquals("GetTermEvaluator064 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator064 field stat is correct ", "", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator064 stored term is correct " + term);
+		assertEquals("", field1, "GetTermEvaluator064 field stat is correct ");
 	}
 
 	/**
@@ -6078,7 +6108,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator065 evaluator correct for " + term, t instanceof PCShieldACcheckTermEvaluator);
+		assertTrue(t instanceof PCShieldACcheckTermEvaluator, () -> "GetTermEvaluator065 evaluator correct for " + term);
 
 		Class<?> uClass = PCShieldACcheckTermEvaluator.class;
 
@@ -6096,9 +6126,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator065", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator065");
 
-		assertEquals("GetTermEvaluator065 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator065 stored term is correct " + term);
 	}
 
 	/**
@@ -6113,7 +6143,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator066 evaluator correct for " + term, t instanceof PCShieldACcheckTermEvaluator);
+		assertTrue(t instanceof PCShieldACcheckTermEvaluator, () -> "GetTermEvaluator066 evaluator correct for " + term);
 
 		Class<?> uClass = PCShieldACcheckTermEvaluator.class;
 
@@ -6131,9 +6161,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator066", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator066");
 
-		assertEquals("GetTermEvaluator066 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator066 stored term is correct " + term);
 	}
 
 	/**
@@ -6148,7 +6178,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator067 evaluator correct for " + term, t instanceof PCSizeTermEvaluator);
+		assertTrue(t instanceof PCSizeTermEvaluator, () -> "GetTermEvaluator067 evaluator correct for " + term);
 
 		Class<?> uClass = PCSizeTermEvaluator.class;
 
@@ -6166,9 +6196,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator067", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator067");
 
-		assertEquals("GetTermEvaluator067 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator067 stored term is correct " + term);
 	}
 
 	/**
@@ -6183,7 +6213,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator068 evaluator correct for " + term, t instanceof PCSizeModEvaluatorTermEvaluator);
+		assertTrue(t instanceof PCSizeModEvaluatorTermEvaluator,
+				() -> "GetTermEvaluator068 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCSizeModEvaluatorTermEvaluator.class;
 
@@ -6201,9 +6233,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator068", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator068");
 
-		assertEquals("GetTermEvaluator068 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator068 stored term is correct " + term);
 	}
 
 	/**
@@ -6218,7 +6250,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Cleric");
 
-		assertTrue("GetTermEvaluator069 evaluator correct for " + term, t instanceof PCSPellBaseStatTermEvaluator);
+		assertTrue(t instanceof PCSPellBaseStatTermEvaluator, () -> "GetTermEvaluator069 evaluator correct for " + term);
 
 		Class<?> uClass = PCSPellBaseStatTermEvaluator.class;
 
@@ -6239,10 +6271,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator069", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator069");
 
-		assertEquals("GetTermEvaluator069 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator069 field classKey is correct ", "Cleric", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator069 stored term is correct " + term);
+		assertEquals("Cleric", field1, "GetTermEvaluator069 field classKey is correct ");
 	}
 
 	/**
@@ -6258,8 +6290,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Cleric");
 
 		assertTrue(
-				"GetTermEvaluator070 evaluator correct for " + term,
-				t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator
+				t instanceof PCSPellBaseStatScoreEvaluatorTermEvaluator,
+				() -> "GetTermEvaluator070 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCSPellBaseStatScoreEvaluatorTermEvaluator.class;
@@ -6281,10 +6313,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator070", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator070");
 
-		assertEquals("GetTermEvaluator070 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator070 field classKey is correct ", "Cleric", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator070 stored term is correct " + term);
+		assertEquals("Cleric", field1, "GetTermEvaluator070 field classKey is correct ");
 	}
 
 	/**
@@ -6299,7 +6331,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnu");
 
-		assertTrue("GetTermEvaluator071 evaluator correct for " + term, t instanceof PCSPellBaseStatTermEvaluator);
+		assertTrue(t instanceof PCSPellBaseStatTermEvaluator, () -> "GetTermEvaluator071 evaluator correct for " + term);
 
 		Class<?> uClass = PCSPellBaseStatTermEvaluator.class;
 
@@ -6320,10 +6352,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator071", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator071");
 
-		assertEquals("GetTermEvaluator071 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator071 field classKey is correct ", "", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator071 stored term is correct " + term);
+		assertEquals("", field1, "GetTermEvaluator071 field classKey is correct ");
 	}
 
 	/**
@@ -6360,10 +6392,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator072", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator072");
 
-		assertEquals("GetTermEvaluator072 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator072 field classKey is correct ", "", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator072 stored term is correct " + term);
+		assertEquals("", field1, "GetTermEvaluator072 field classKey is correct ");
 	}
 
 	/**
@@ -6378,7 +6410,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator073 evaluator correct for " + term, t instanceof PCSpellLevelTermEvaluator);
+		assertTrue(t instanceof PCSpellLevelTermEvaluator, () -> "GetTermEvaluator073 evaluator correct for " + term);
 
 		Class<?> uClass = PCSpellLevelTermEvaluator.class;
 
@@ -6396,9 +6428,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator073", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator073");
 
-		assertEquals("GetTermEvaluator073 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator073 stored term is correct " + term);
 	}
 
 	/**
@@ -6413,7 +6445,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator074 evaluator correct for " + term, t instanceof PCTLTermEvaluator);
+		assertTrue(t instanceof PCTLTermEvaluator, () -> "GetTermEvaluator074 evaluator correct for " + term);
 
 		Class<?> uClass = PCTLTermEvaluator.class;
 
@@ -6431,9 +6463,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator074", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator074");
 
-		assertEquals("GetTermEvaluator074 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator074 stored term is correct " + term);
 	}
 
 	/**
@@ -6448,7 +6480,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		assertTrue("GetTermEvaluator075 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
+		assertTrue(t instanceof PCBLTermEvaluator, () -> "GetTermEvaluator075 evaluator correct for " + term);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6469,10 +6501,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator075", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator075");
 
-		assertEquals("GetTermEvaluator075 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator075 field source is correct ", "Ranger", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator075 stored term is correct " + term);
+		assertEquals("Ranger", field1, "GetTermEvaluator075 field source is correct ");
 	}
 
 	/**
@@ -6487,7 +6519,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Gnome");
 
-		assertTrue("GetTermEvaluator076 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
+		assertTrue(t instanceof PCBLTermEvaluator, () -> "GetTermEvaluator076 evaluator correct for " + term);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6508,10 +6540,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator076", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator076");
 
-		assertEquals("GetTermEvaluator076 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator076 field source is correct ", "", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator076 stored term is correct " + term);
+		assertEquals("", field1, "GetTermEvaluator076 field source is correct ");
 	}
 
 	/**
@@ -6526,7 +6558,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Ice");
 
-		assertTrue("GetTermEvaluator077 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
+		assertTrue(t instanceof PCBLTermEvaluator, () -> "GetTermEvaluator077 evaluator correct for " + term);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6547,10 +6579,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator077", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator077");
 
-		assertEquals("GetTermEvaluator077 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator077 field source is correct ", "Wizard", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator077 stored term is correct " + term);
+		assertEquals("Wizard", field1, "GetTermEvaluator077 field source is correct ");
 	}
 
 	/**
@@ -6565,7 +6597,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "DOMAIN:Law");
 
-		assertTrue("GetTermEvaluator078 evaluator correct for " + term, t instanceof PCBLTermEvaluator);
+		assertTrue(t instanceof PCBLTermEvaluator, () -> "GetTermEvaluator078 evaluator correct for " + term);
 
 		Class<?> uClass = PCBLTermEvaluator.class;
 
@@ -6586,10 +6618,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator078", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator078");
 
-		assertEquals("GetTermEvaluator078 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator078 field source is correct ", "Cleric", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator078 stored term is correct " + term);
+		assertEquals("Cleric", field1, "GetTermEvaluator078 field source is correct ");
 	}
 
 	/**
@@ -6604,7 +6636,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		assertTrue("GetTermEvaluator079 evaluator correct for " + term, t instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue(t instanceof PCCLBeforeLevelTermEvaluator, () -> "GetTermEvaluator079 evaluator correct for " + term);
 
 		Class<?> uClass = PCCLBeforeLevelTermEvaluator.class;
 
@@ -6628,13 +6660,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator079", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator079");
 
-		assertEquals("GetTermEvaluator079 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator079 field source is correct ", "Ranger", field1);
-		assertEquals("GetTermEvaluator079 field level is correct ",
-			10,
-				field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator079 stored term is correct " + term);
+		assertEquals("Ranger", field1, "GetTermEvaluator079 field source is correct ");
+		assertEquals(10, field2.intValue(), "GetTermEvaluator079 field level is correct ");
 	}
 
 	/**
@@ -6649,7 +6679,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Druid");
 
-		assertTrue("GetTermEvaluator080 evaluator correct for " + term, t instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue(t instanceof PCCLBeforeLevelTermEvaluator, () -> "GetTermEvaluator080 evaluator correct for " + term);
 
 		Class<?> uClass = PCCLBeforeLevelTermEvaluator.class;
 
@@ -6673,13 +6703,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator080", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator080");
 
-		assertEquals("GetTermEvaluator080 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator080 field source is correct ", "Druid", field1);
-		assertEquals("GetTermEvaluator080 field level is correct ",
-			15,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator080 stored term is correct " + term);
+		assertEquals("Druid", field1, "GetTermEvaluator080 field source is correct ");
+		assertEquals(15, field2.intValue(), "GetTermEvaluator080 field level is correct ");
 	}
 
 	/**
@@ -6694,7 +6722,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator081 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator081 evaluator is null");
 	}
 
 	/**
@@ -6709,7 +6737,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator082 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
+		assertTrue(t instanceof PCCLTermEvaluator, () -> "GetTermEvaluator082 evaluator correct for " + term);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6730,10 +6758,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator082", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator082");
 
-		assertEquals("GetTermEvaluator082 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator082 field classKey is correct ", "Bard (Bardiliscious)", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator082 stored term is correct " + term);
+		assertEquals("Bard (Bardiliscious)", field1, "GetTermEvaluator082 field classKey is correct ");
 	}
 
 	/**
@@ -6748,7 +6776,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator083 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
+		assertTrue(t instanceof PCCLTermEvaluator, () -> "GetTermEvaluator083 evaluator correct for " + term);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6769,10 +6797,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator083", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator083");
 
-		assertEquals("GetTermEvaluator083 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator083 field classKey is correct ", "Rogue (Sneaky)", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator083 stored term is correct " + term);
+		assertEquals("Rogue (Sneaky)", field1, "GetTermEvaluator083 field classKey is correct ");
 	}
 
 	/**
@@ -6787,7 +6815,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Human");
 
-		assertTrue("GetTermEvaluator084 evaluator correct for " + term, t instanceof PCHasClassTermEvaluator);
+		assertTrue(t instanceof PCHasClassTermEvaluator, () -> "GetTermEvaluator084 evaluator correct for " + term);
 
 		Class<?> uClass = PCHasClassTermEvaluator.class;
 
@@ -6808,10 +6836,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator084", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator084");
 
-		assertEquals("GetTermEvaluator084 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator084 field source is correct ", "Druid", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator084 stored term is correct " + term);
+		assertEquals("Druid", field1, "GetTermEvaluator084 field source is correct ");
 	}
 
 	/**
@@ -6826,7 +6854,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Dwarf");
 
-		assertTrue("GetTermEvaluator085 evaluator correct for " + term, t instanceof PCHasClassTermEvaluator);
+		assertTrue(t instanceof PCHasClassTermEvaluator, () -> "GetTermEvaluator085 evaluator correct for " + term);
 
 		Class<?> uClass = PCHasClassTermEvaluator.class;
 
@@ -6847,10 +6875,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator085", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator085");
 
-		assertEquals("GetTermEvaluator085 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator085 field source is correct ", "Paladin", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator085 stored term is correct " + term);
+		assertEquals("Paladin", field1, "GetTermEvaluator085 field source is correct ");
 	}
 
 	/**
@@ -6865,7 +6893,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "CLASS:Ranger");
 
-		assertTrue("GetTermEvaluator086 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
+		assertTrue(t instanceof PCCLTermEvaluator, () -> "GetTermEvaluator086 evaluator correct for " + term);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6886,10 +6914,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator086", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator086");
 
-		assertEquals("GetTermEvaluator086 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator086 field classKey is correct ", "Ranger", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator086 stored term is correct " + term);
+		assertEquals("Ranger", field1, "GetTermEvaluator086 field classKey is correct ");
 	}
 
 	/**
@@ -6904,7 +6932,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator087 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator087 evaluator is null");
 	}
 
 	/**
@@ -6919,7 +6947,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Elf");
 
-		assertTrue("GetTermEvaluator088 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
+		assertTrue(t instanceof PCCLTermEvaluator, () -> "GetTermEvaluator088 evaluator correct for " + term);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6940,10 +6968,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator088", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator088");
 
-		assertEquals("GetTermEvaluator088 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator088 field classKey is correct ", "Bard", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator088 stored term is correct " + term);
+		assertEquals("Bard", field1, "GetTermEvaluator088 field classKey is correct ");
 	}
 
 	/**
@@ -6958,7 +6986,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "RACE:Elf");
 
-		assertTrue("GetTermEvaluator089 evaluator correct for " + term, t instanceof PCCLTermEvaluator);
+		assertTrue(t instanceof PCCLTermEvaluator, () -> "GetTermEvaluator089 evaluator correct for " + term);
 
 		Class<?> uClass = PCCLTermEvaluator.class;
 
@@ -6979,10 +7007,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator089", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator089");
 
-		assertEquals("GetTermEvaluator089 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator089 field classKey is correct ", "Rogue", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator089 stored term is correct " + term);
+		assertEquals("Rogue", field1, "GetTermEvaluator089 field classKey is correct ");
 	}
 
 	/**
@@ -6997,7 +7025,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator090 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator090 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7021,13 +7049,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator090", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator090");
 
-		assertEquals("GetTermEvaluator090 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator090 field types[0] is correct ", "", field1[0]);
-		assertEquals("GetTermEvaluator090 field merge is correct ",
-			Constants.MERGE_NONE,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator090 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator090 field types[0] is correct ");
+		assertEquals(Constants.MERGE_NONE, (int)field2, "GetTermEvaluator090 field merge is correct ");
 	}
 
 	/**
@@ -7042,7 +7068,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator091 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator091 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7066,13 +7092,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator091", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator091");
 
-		assertEquals("GetTermEvaluator091 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator091 field types[0] is correct ", "", field1[0]);
-		assertEquals("GetTermEvaluator091 field merge is correct ",
-			Constants.MERGE_LOCATION,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator091 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator091 field types[0] is correct ");
+		assertEquals(Constants.MERGE_LOCATION, (int)field2, "GetTermEvaluator091 field merge is correct ");
 	}
 
 	/**
@@ -7087,7 +7111,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator092 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator092 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7111,13 +7135,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator092", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator092");
 
-		assertEquals("GetTermEvaluator092 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator092 field types[0] is correct ", "", field1[0]);
-		assertEquals("GetTermEvaluator092 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator092 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator092 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator092 field merge is correct ");
 	}
 
 	/**
@@ -7132,7 +7154,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator093 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator093 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7156,13 +7178,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator093", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator093");
 
-		assertEquals("GetTermEvaluator093 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator093 field types[0] is correct ", "EQUIPPED", field1[0]);
-		assertEquals("GetTermEvaluator093 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator093 stored term is correct " + term);
+		assertEquals("EQUIPPED", field1[0], "GetTermEvaluator093 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator093 field merge is correct ");
 	}
 
 	/**
@@ -7177,7 +7197,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator094 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator094 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7201,13 +7221,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator094", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator094");
 
-		assertEquals("GetTermEvaluator094 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator094 field types[0] is correct ", "NOTEQUIPPED", field1[0]);
-		assertEquals("GetTermEvaluator094 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator094 stored term is correct " + term);
+		assertEquals("NOTEQUIPPED", field1[0], "GetTermEvaluator094 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator094 field merge is correct ");
 	}
 
 	/**
@@ -7222,7 +7240,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator095 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator095 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7246,13 +7264,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator095", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator095");
 
-		assertEquals("GetTermEvaluator095 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator095 field types[0] is correct ", "CONTAINER", field1[0]);
-		assertEquals("GetTermEvaluator095 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator095 stored term is correct " + term);
+		assertEquals("CONTAINER", field1[0], "GetTermEvaluator095 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator095 field merge is correct ");
 	}
 
 	/**
@@ -7267,7 +7283,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator096 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator096 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7291,13 +7307,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator096", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator096");
 
-		assertEquals("GetTermEvaluator096 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator096 field types[0] is correct ", "WEAPON", field1[0]);
-		assertEquals("GetTermEvaluator096 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator096 stored term is correct " + term);
+		assertEquals("WEAPON", field1[0], "GetTermEvaluator096 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator096 field merge is correct ");
 	}
 
 	/**
@@ -7312,7 +7326,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator097 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator097 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7336,13 +7350,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator097", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator097");
 
-		assertEquals("GetTermEvaluator097 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator097 field types[0] is correct ", "ACITEM", field1[0]);
-		assertEquals("GetTermEvaluator097 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator097 stored term is correct " + term);
+		assertEquals("ACITEM", field1[0], "GetTermEvaluator097 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator097 field merge is correct ");
 	}
 
 	/**
@@ -7357,7 +7369,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator098 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator098 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7381,15 +7393,13 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator098", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator098");
 
-		assertEquals("GetTermEvaluator098 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator098 field types[0] is correct ", "ARMOR", field1[0]);
-		assertEquals("GetTermEvaluator098 field types[1] is correct ", "IS", field1[1]);
-		assertEquals("GetTermEvaluator098 field types[2] is correct ", "FOO", field1[2]);
-		assertEquals("GetTermEvaluator098 field merge is correct ",
-			Constants.MERGE_NONE,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator098 stored term is correct " + term);
+		assertEquals("ARMOR", field1[0], "GetTermEvaluator098 field types[0] is correct ");
+		assertEquals("IS", field1[1], "GetTermEvaluator098 field types[1] is correct ");
+		assertEquals("FOO", field1[2], "GetTermEvaluator098 field types[2] is correct ");
+		assertEquals(Constants.MERGE_NONE, (int)field2, "GetTermEvaluator098 field merge is correct ");
 	}
 
 	/**
@@ -7404,7 +7414,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator099 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator099 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7428,15 +7438,13 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator099", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator099");
 
-		assertEquals("GetTermEvaluator099 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator099 field types[0] is correct ", "QUX", field1[0]);
-		assertEquals("GetTermEvaluator099 field types[1] is correct ", "NOT", field1[1]);
-		assertEquals("GetTermEvaluator099 field types[2] is correct ", "BAR", field1[2]);
-		assertEquals("GetTermEvaluator099 field merge is correct ",
-			Constants.MERGE_LOCATION,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator099 stored term is correct " + term);
+		assertEquals("QUX", field1[0], "GetTermEvaluator099 field types[0] is correct ");
+		assertEquals("NOT", field1[1], "GetTermEvaluator099 field types[1] is correct ");
+		assertEquals("BAR", field1[2], "GetTermEvaluator099 field types[2] is correct ");
+		assertEquals(Constants.MERGE_LOCATION, (int)field2, "GetTermEvaluator099 field merge is correct ");
 	}
 
 	/**
@@ -7451,7 +7459,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator100 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator100 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7475,15 +7483,13 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator100", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator100");
 
-		assertEquals("GetTermEvaluator100 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator100 field types[0] is correct ", "QUUX", field1[0]);
-		assertEquals("GetTermEvaluator100 field types[1] is correct ", "ADD", field1[1]);
-		assertEquals("GetTermEvaluator100 field types[2] is correct ", "BAZ", field1[2]);
-		assertEquals("GetTermEvaluator100 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator100 stored term is correct " + term);
+		assertEquals("QUUX", field1[0], "GetTermEvaluator100 field types[0] is correct ");
+		assertEquals("ADD", field1[1], "GetTermEvaluator100 field types[1] is correct ");
+		assertEquals("BAZ", field1[2], "GetTermEvaluator100 field types[2] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator100 field merge is correct ");
 	}
 
 	/**
@@ -7498,7 +7504,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator101 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator101 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7522,15 +7528,13 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator101", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator101");
 
-		assertEquals("GetTermEvaluator101 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator101 field types[0] is correct ", "WEAPON", field1[0]);
-		assertEquals("GetTermEvaluator101 field types[1] is correct ", "IS", field1[1]);
-		assertEquals("GetTermEvaluator101 field types[2] is correct ", "FOO", field1[2]);
-		assertEquals("GetTermEvaluator101 field merge is correct ",
-			Constants.MERGE_NONE,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator101 stored term is correct " + term);
+		assertEquals("WEAPON", field1[0], "GetTermEvaluator101 field types[0] is correct ");
+		assertEquals("IS", field1[1], "GetTermEvaluator101 field types[1] is correct ");
+		assertEquals("FOO", field1[2], "GetTermEvaluator101 field types[2] is correct ");
+		assertEquals(Constants.MERGE_NONE, (int)field2, "GetTermEvaluator101 field merge is correct ");
 	}
 
 	/**
@@ -7545,7 +7549,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator102 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator102 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7569,18 +7573,16 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator102", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator102");
 
-		assertEquals("GetTermEvaluator102 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator102 field types[0] is correct ", "WEAPON", field1[0]);
-		assertEquals("GetTermEvaluator102 field types[1] is correct ", "IS", field1[1]);
-		assertEquals("GetTermEvaluator102 field types[2] is correct ", "FOO", field1[2]);
-		assertEquals("GetTermEvaluator102 field types[3] is correct ", "EQUIPPED", field1[3]);
-		assertEquals("GetTermEvaluator102 field types[4] is correct ", "ADD", field1[4]);
-		assertEquals("GetTermEvaluator102 field types[5] is correct ", "BAR", field1[5]);
-		assertEquals("GetTermEvaluator102 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator102 stored term is correct " + term);
+		assertEquals("WEAPON", field1[0], "GetTermEvaluator102 field types[0] is correct ");
+		assertEquals("IS", field1[1], "GetTermEvaluator102 field types[1] is correct ");
+		assertEquals("FOO", field1[2], "GetTermEvaluator102 field types[2] is correct ");
+		assertEquals("EQUIPPED", field1[3], "GetTermEvaluator102 field types[3] is correct ");
+		assertEquals("ADD", field1[4], "GetTermEvaluator102 field types[4] is correct ");
+		assertEquals("BAR", field1[5], "GetTermEvaluator102 field types[5] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator102 field merge is correct ");
 	}
 
 	/**
@@ -7595,7 +7597,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator103 evaluator correct for " + term, t instanceof PCCountEqTypeTermEvaluator);
+		assertTrue(t instanceof PCCountEqTypeTermEvaluator, () -> "GetTermEvaluator103 evaluator correct for " + term);
 
 		Class<?> uClass = PCCountEqTypeTermEvaluator.class;
 
@@ -7619,13 +7621,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator103", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator103");
 
-		assertEquals("GetTermEvaluator103 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator103 field types[0] is correct ", "FOO", field1[0]);
-		assertEquals("GetTermEvaluator103 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator103 stored term is correct " + term);
+		assertEquals("FOO", field1[0], "GetTermEvaluator103 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator103 field merge is correct ");
 	}
 
 	/**
@@ -7640,7 +7640,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator104 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator104 evaluator is null");
 	}
 
 	/**
@@ -7655,7 +7655,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator105 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator105 evaluator is null");
 	}
 
 	/**
@@ -7670,7 +7670,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator106 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator106 evaluator is null");
 	}
 
 	/**
@@ -7685,7 +7685,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator107 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
+		assertTrue(t instanceof PCCountEquipmentTermEvaluator,
+				() -> "GetTermEvaluator107 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7709,13 +7711,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator107", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator107");
 
-		assertEquals("GetTermEvaluator107 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator107 field types[0] is correct ", "", field1[0]);
-		assertEquals("GetTermEvaluator107 field merge is correct ",
-			Constants.MERGE_NONE,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator107 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator107 field types[0] is correct ");
+		assertEquals(Constants.MERGE_NONE, (int)field2, "GetTermEvaluator107 field merge is correct ");
 	}
 
 	/**
@@ -7730,7 +7730,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator108 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
+		assertTrue(t instanceof PCCountEquipmentTermEvaluator,
+				() -> "GetTermEvaluator108 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7754,13 +7756,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator108", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator108");
 
-		assertEquals("GetTermEvaluator108 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator108 field types[0] is correct ", "", field1[0]);
-		assertEquals("GetTermEvaluator108 field merge is correct ",
-			Constants.MERGE_LOCATION,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator108 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator108 field types[0] is correct ");
+		assertEquals(Constants.MERGE_LOCATION, (int)field2, "GetTermEvaluator108 field merge is correct ");
 	}
 
 	/**
@@ -7775,7 +7775,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator109 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
+		assertTrue(t instanceof PCCountEquipmentTermEvaluator,
+				() -> "GetTermEvaluator109 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7799,13 +7801,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator109", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator109");
 
-		assertEquals("GetTermEvaluator109 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator109 field types[0] is correct ", "", field1[0]);
-		assertEquals("GetTermEvaluator109 field merge is correct ",
-			Constants.MERGE_ALL,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator109 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator109 field types[0] is correct ");
+		assertEquals(Constants.MERGE_ALL, (int)field2, "GetTermEvaluator109 field merge is correct ");
 	}
 
 	/**
@@ -7820,7 +7820,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator110 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator110 evaluator is null");
 	}
 
 	/**
@@ -7835,7 +7835,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator111 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator111 evaluator is null");
 	}
 
 	/**
@@ -7850,7 +7850,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator112 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator112 evaluator is null");
 	}
 
 	/**
@@ -7865,7 +7865,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator113 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator113 evaluator is null");
 	}
 
 	/**
@@ -7880,7 +7880,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator114 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator114 evaluator is null");
 	}
 
 	/**
@@ -7895,7 +7895,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator115 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
+		assertTrue(t instanceof PCCountEquipmentTermEvaluator,
+				() -> "GetTermEvaluator115 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7919,14 +7921,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator115", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator115");
 
-		assertEquals("GetTermEvaluator115 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator115 field types[0] is correct ", "IS", field1[0]);
-		assertEquals("GetTermEvaluator115 field types[1] is correct ", "FOO", field1[1]);
-		assertEquals("GetTermEvaluator115 field merge is correct ",
-			Constants.MERGE_NONE,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator115 stored term is correct " + term);
+		assertEquals("IS", field1[0], "GetTermEvaluator115 field types[0] is correct ");
+		assertEquals("FOO", field1[1], "GetTermEvaluator115 field types[1] is correct ");
+		assertEquals(Constants.MERGE_NONE, (int)field2, "GetTermEvaluator115 field merge is correct ");
 	}
 
 	/**
@@ -7941,7 +7941,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator116 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
+		assertTrue(t instanceof PCCountEquipmentTermEvaluator,
+				() -> "GetTermEvaluator116 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -7965,14 +7967,16 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator116", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator116");
 
-		assertEquals("GetTermEvaluator116 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator116 field types[0] is correct ", "NOT", field1[0]);
-		assertEquals("GetTermEvaluator116 field types[1] is correct ", "BAR", field1[1]);
-		assertEquals("GetTermEvaluator116 field merge is correct ",
+		assertEquals(term, field0, () -> "GetTermEvaluator116 stored term is correct " + term);
+		assertEquals("NOT", field1[0], "GetTermEvaluator116 field types[0] is correct ");
+		assertEquals("BAR", field1[1], "GetTermEvaluator116 field types[1] is correct ");
+		assertEquals(
 			Constants.MERGE_LOCATION,
-			field2.intValue());
+				(int)field2,
+				"GetTermEvaluator116 field merge is correct "
+		);
 	}
 
 	/**
@@ -7987,7 +7991,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator117 evaluator correct for " + term, t instanceof PCCountEquipmentTermEvaluator);
+		assertTrue(t instanceof PCCountEquipmentTermEvaluator,
+				() -> "GetTermEvaluator117 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountEquipmentTermEvaluator.class;
 
@@ -8011,14 +8017,16 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator117", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator117");
 
-		assertEquals("GetTermEvaluator117 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator117 field types[0] is correct ", "ADD", field1[0]);
-		assertEquals("GetTermEvaluator117 field types[1] is correct ", "BAZ", field1[1]);
-		assertEquals("GetTermEvaluator117 field merge is correct ",
+		assertEquals(term, field0, () -> "GetTermEvaluator117 stored term is correct " + term);
+		assertEquals("ADD", field1[0], "GetTermEvaluator117 field types[0] is correct ");
+		assertEquals("BAZ", field1[1], "GetTermEvaluator117 field types[1] is correct ");
+		assertEquals(
 			Constants.MERGE_ALL,
-			field2.intValue());
+				(int)field2,
+				"GetTermEvaluator117 field merge is correct "
+		);
 	}
 
 	/**
@@ -8033,7 +8041,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator118 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator118 evaluator is null");
 	}
 
 	/**
@@ -8048,7 +8056,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator120 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator120 evaluator is null");
 	}
 
 	/**
@@ -8063,7 +8071,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator121 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator121 evaluator is null");
 	}
 
 	/**
@@ -8078,7 +8086,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator122 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator122 evaluator is null");
 	}
 
 	/**
@@ -8094,8 +8102,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator123 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator
+				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator,
+				() -> "GetTermEvaluator123 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAutoTermEvaluator.class;
@@ -8123,12 +8131,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator123", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator123");
 
-		assertEquals("GetTermEvaluator123 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator123 field types[0] is correct ", "", field1[0]);
-		assertTrue("GetTermEvaluator123 field hidden is correct ", field2);
-		assertFalse("GetTermEvaluator123 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator123 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator123 field types[0] is correct ");
+		assertTrue(field2, "GetTermEvaluator123 field hidden is correct ");
+		assertFalse(field3, "GetTermEvaluator123 field visible is correct ");
 	}
 
 	/**
@@ -8144,8 +8152,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator124 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator
+				t instanceof PCCountAbilitiesTypeNatureAutoTermEvaluator,
+				() -> "GetTermEvaluator124 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAutoTermEvaluator.class;
@@ -8173,12 +8181,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator124", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator124");
 
-		assertEquals("GetTermEvaluator124 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator124 field types[0] is correct ", "", field1[0]);
-		assertFalse("GetTermEvaluator124 field hidden is correct ", field2);
-		assertTrue("GetTermEvaluator124 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator124 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator124 field types[0] is correct ");
+		assertFalse(field2, "GetTermEvaluator124 field hidden is correct ");
+		assertTrue(field3, "GetTermEvaluator124 field visible is correct ");
 	}
 
 	/**
@@ -8193,7 +8201,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator125 evaluator correct for " + term, t instanceof PCCountAbilityNameTermEvaluator);
+		assertTrue(t instanceof PCCountAbilityNameTermEvaluator,
+				() -> "GetTermEvaluator125 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountAbilityNameTermEvaluator.class;
 
@@ -8220,12 +8230,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator125", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator125");
 
-		assertEquals("GetTermEvaluator125 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator125 field key is correct ", "Jack of all trades", field1);
-		assertFalse("GetTermEvaluator125 field hidden is correct ", field2);
-		assertTrue("GetTermEvaluator125 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator125 stored term is correct " + term);
+		assertEquals("Jack of all trades", field1, "GetTermEvaluator125 field key is correct ");
+		assertFalse(field2, "GetTermEvaluator125 field hidden is correct ");
+		assertTrue(field3, "GetTermEvaluator125 field visible is correct ");
 	}
 
 	/**
@@ -8240,7 +8250,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator126 evaluator correct for " + term, t instanceof PCCountAbilityNameTermEvaluator);
+		assertTrue(t instanceof PCCountAbilityNameTermEvaluator,
+				() -> "GetTermEvaluator126 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountAbilityNameTermEvaluator.class;
 
@@ -8267,12 +8279,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator126", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator126");
 
-		assertEquals("GetTermEvaluator126 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator126 field key is correct ", "Weapon Focus (Dagger)", field1);
-		assertFalse("GetTermEvaluator126 field hidden is correct ", field2);
-		assertTrue("GetTermEvaluator126 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator126 stored term is correct " + term);
+		assertEquals("Weapon Focus (Dagger)", field1, "GetTermEvaluator126 field key is correct ");
+		assertFalse(field2, "GetTermEvaluator126 field hidden is correct ");
+		assertTrue(field3, "GetTermEvaluator126 field visible is correct ");
 	}
 
 	/**
@@ -8288,8 +8300,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator127 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator,
+				() -> "GetTermEvaluator127 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
@@ -8317,12 +8329,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator127", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator127");
 
-		assertEquals("GetTermEvaluator127 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator127 field types[0] is correct ", "BAR", field1[0]);
-		assertFalse("GetTermEvaluator127 field hidden is correct ", field2);
-		assertTrue("GetTermEvaluator127 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator127 stored term is correct " + term);
+		assertEquals("BAR", field1[0], "GetTermEvaluator127 field types[0] is correct ");
+		assertFalse(field2, "GetTermEvaluator127 field hidden is correct ");
+		assertTrue(field3, "GetTermEvaluator127 field visible is correct ");
 	}
 
 	/**
@@ -8338,8 +8350,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator128 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator,
+				() -> "GetTermEvaluator128 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
@@ -8367,12 +8379,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator128", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator128");
 
-		assertEquals("GetTermEvaluator128 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator128 field types[0] is correct ", "BAZ", field1[0]);
-		assertFalse("GetTermEvaluator128 field hidden is correct ", field2);
-		assertTrue("GetTermEvaluator128 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator128 stored term is correct " + term);
+		assertEquals("BAZ", field1[0], "GetTermEvaluator128 field types[0] is correct ");
+		assertFalse(field2, "GetTermEvaluator128 field hidden is correct ");
+		assertTrue(field3, "GetTermEvaluator128 field visible is correct ");
 	}
 
 	/**
@@ -8388,8 +8400,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator129 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator
+				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator,
+				() -> "GetTermEvaluator129 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureVirtualTermEvaluator.class;
@@ -8417,12 +8429,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator129", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator129");
 
-		assertEquals("GetTermEvaluator129 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator129 field types[0] is correct ", "", field1[0]);
-		assertTrue("GetTermEvaluator129 field hidden is correct ", field2);
-		assertFalse("GetTermEvaluator129 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator129 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator129 field types[0] is correct ");
+		assertTrue(field2, "GetTermEvaluator129 field hidden is correct ");
+		assertFalse(field3, "GetTermEvaluator129 field visible is correct ");
 	}
 
 	/**
@@ -8438,8 +8450,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator130 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator
+				t instanceof PCCountAbilitiesTypeNatureVirtualTermEvaluator,
+				() -> "GetTermEvaluator130 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureVirtualTermEvaluator.class;
@@ -8467,12 +8479,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator130", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator130");
 
-		assertEquals("GetTermEvaluator130 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator130 field types[0] is correct ", "", field1[0]);
-		assertTrue("GetTermEvaluator130 field hidden is correct ", field2);
-		assertTrue("GetTermEvaluator130 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator130 stored term is correct " + term);
+		assertEquals("", field1[0], "GetTermEvaluator130 field types[0] is correct ");
+		assertTrue(field2, "GetTermEvaluator130 field hidden is correct ");
+		assertTrue(field3, "GetTermEvaluator130 field visible is correct ");
 	}
 
 	/**
@@ -8488,8 +8500,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator131 evaluator correct for " + term,
-				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator
+				t instanceof PCCountAbilitiesTypeNatureAllTermEvaluator,
+				() -> "GetTermEvaluator131 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountAbilitiesTypeNatureAllTermEvaluator.class;
@@ -8517,15 +8529,15 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator131", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator131");
 
-		assertEquals("GetTermEvaluator131 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator131 field types[0] is correct ", "FOO", field1[0]);
-		assertEquals("GetTermEvaluator131 field types[1] is correct ", "BAR", field1[1]);
-		assertEquals("GetTermEvaluator131 field types[2] is correct ", "BAZ", field1[2]);
-		assertEquals("GetTermEvaluator131 field types[3] is correct ", "QUX", field1[3]);
-		assertFalse("GetTermEvaluator131 field hidden is correct ", field2);
-		assertTrue("GetTermEvaluator131 field visible is correct ", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator131 stored term is correct " + term);
+		assertEquals("FOO", field1[0], "GetTermEvaluator131 field types[0] is correct ");
+		assertEquals("BAR", field1[1], "GetTermEvaluator131 field types[1] is correct ");
+		assertEquals("BAZ", field1[2], "GetTermEvaluator131 field types[2] is correct ");
+		assertEquals("QUX", field1[3], "GetTermEvaluator131 field types[3] is correct ");
+		assertFalse(field2, "GetTermEvaluator131 field hidden is correct ");
+		assertTrue(field3, "GetTermEvaluator131 field visible is correct ");
 	}
 
 	/**
@@ -8540,7 +8552,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator132 evaluator correct for " + term, t instanceof PCCountFollowerTypeTermEvaluator);
+		assertTrue(t instanceof PCCountFollowerTypeTermEvaluator,
+				() -> "GetTermEvaluator132 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountFollowerTypeTermEvaluator.class;
 
@@ -8561,10 +8575,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator132", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator132");
 
-		assertEquals("GetTermEvaluator132 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator132 field type is correct ", "MOO", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator132 stored term is correct " + term);
+		assertEquals("MOO", field1, "GetTermEvaluator132 field type is correct ");
 	}
 
 	/**
@@ -8580,8 +8594,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator133 evaluator correct for " + term,
-				t instanceof PCCountFollowerTypeTransitiveTermEvaluator
+				t instanceof PCCountFollowerTypeTransitiveTermEvaluator,
+				() -> "GetTermEvaluator133 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountFollowerTypeTransitiveTermEvaluator.class;
@@ -8609,14 +8623,12 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator133", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator133");
 
-		assertEquals("GetTermEvaluator133 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator133 field index is correct ",
-			0,
-			field1.intValue());
-		assertEquals("GetTermEvaluator133 field newCount is correct ", "COUNT[EQTYPE]", field2);
-		assertEquals("GetTermEvaluator133 field type is correct ", "MOO", field3);
+		assertEquals(term, field0, () -> "GetTermEvaluator133 stored term is correct " + term);
+		assertEquals(0, (int)field1, "GetTermEvaluator133 field index is correct ");
+		assertEquals("COUNT[EQTYPE]", field2, "GetTermEvaluator133 field newCount is correct ");
+		assertEquals("MOO", field3, "GetTermEvaluator133 field type is correct ");
 	}
 
 	/**
@@ -8631,7 +8643,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator134 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator134 evaluator is null");
 	}
 
 	/**
@@ -8646,7 +8658,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator135 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator135 evaluator is null");
 	}
 
 	/**
@@ -8661,7 +8673,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator136 evaluator correct for " + term, t instanceof PCSkillTypeTermEvaluator);
+		assertTrue(t instanceof PCSkillTypeTermEvaluator, () -> "GetTermEvaluator136 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillTypeTermEvaluator.class;
 
@@ -8682,10 +8694,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator136", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator136");
 
-		assertEquals("GetTermEvaluator136 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator136 field type is correct ", "KNOWLEDGE", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator136 stored term is correct " + term);
+		assertEquals("KNOWLEDGE", field1, "GetTermEvaluator136 field type is correct ");
 	}
 
 	/**
@@ -8700,7 +8712,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator137 evaluator correct for " + term, t instanceof PCSkillTypeTermEvaluator);
+		assertTrue(t instanceof PCSkillTypeTermEvaluator, () -> "GetTermEvaluator137 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillTypeTermEvaluator.class;
 
@@ -8721,10 +8733,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator137", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator137");
 
-		assertEquals("GetTermEvaluator137 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator137 field type is correct ", "PERFORM", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator137 stored term is correct " + term);
+		assertEquals("PERFORM", field1, "GetTermEvaluator137 field type is correct ");
 	}
 
 	/**
@@ -8739,7 +8751,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator138 evaluator correct for " + term, t instanceof PCCountSpellbookTermEvaluator);
+		assertTrue(t instanceof PCCountSpellbookTermEvaluator,
+				() -> "GetTermEvaluator138 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountSpellbookTermEvaluator.class;
 
@@ -8757,9 +8771,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator138", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator138");
 
-		assertEquals("GetTermEvaluator138 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator138 stored term is correct " + term);
 	}
 
 	/**
@@ -8774,7 +8788,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator139 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator139 evaluator is null");
 	}
 
 	/**
@@ -8789,7 +8803,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator140 evaluator correct for " + term, t instanceof PCCountSpellsInbookTermEvaluator);
+		assertTrue(t instanceof PCCountSpellsInbookTermEvaluator,
+				() -> "GetTermEvaluator140 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountSpellsInbookTermEvaluator.class;
 
@@ -8810,10 +8826,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator140", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator140");
 
-		assertEquals("GetTermEvaluator140 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator140 field book is correct ", "1.0", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator140 stored term is correct " + term);
+		assertEquals("1.0", field1, "GetTermEvaluator140 field book is correct ");
 	}
 
 	/**
@@ -8828,7 +8844,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator141 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator141 evaluator is null");
 	}
 
 	/**
@@ -8843,7 +8859,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator142 evaluator correct for " + term, t instanceof PCCountSpellsKnownTermEvaluator);
+		assertTrue(t instanceof PCCountSpellsKnownTermEvaluator,
+				() -> "GetTermEvaluator142 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountSpellsKnownTermEvaluator.class;
 
@@ -8864,15 +8882,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator142", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator142");
 
-		assertEquals("GetTermEvaluator142 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator142 field nums[0] is correct ",
-			0,
-			field1[0]);
-		assertEquals("GetTermEvaluator142 field nums[1] is correct ",
-			0,
-			field1[1]);
+		assertEquals(term, field0, () -> "GetTermEvaluator142 stored term is correct " + term);
+		assertEquals(0, field1[0], "GetTermEvaluator142 field nums[0] is correct ");
+		assertEquals(0, field1[1], "GetTermEvaluator142 field nums[1] is correct ");
 	}
 
 	/**
@@ -8887,7 +8901,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator143 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator143 evaluator is null");
 	}
 
 	/**
@@ -8902,7 +8916,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator144 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator144 evaluator is null");
 	}
 
 	/**
@@ -8917,7 +8931,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator145 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator145 evaluator is null");
 	}
 
 	/**
@@ -8932,7 +8946,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator146 evaluator correct for " + term, t instanceof PCCountSpellTimesTermEvaluator);
+		assertTrue(t instanceof PCCountSpellTimesTermEvaluator,
+				() -> "GetTermEvaluator146 evaluator correct for " + term
+		);
 
 		Class<?> uClass = PCCountSpellTimesTermEvaluator.class;
 
@@ -8962,21 +8978,13 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator146", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator146");
 
-		assertEquals("GetTermEvaluator146 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator146 field classNum is correct ",
-			1,
-			field1.intValue());
-		assertEquals("GetTermEvaluator146 field bookNum is correct ",
-			2,
-			field2.intValue());
-		assertEquals("GetTermEvaluator146 field spellLevel is correct ",
-			3,
-			field3.intValue());
-		assertEquals("GetTermEvaluator146 field spellNumber is correct ",
-			4,
-			field4.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator146 stored term is correct " + term);
+		assertEquals(1, (int)field1, "GetTermEvaluator146 field classNum is correct ");
+		assertEquals(2, (int)field2,"GetTermEvaluator146 field bookNum is correct ");
+		assertEquals(3, (int)field3, "GetTermEvaluator146 field spellLevel is correct ");
+		assertEquals(4, (int)field4, "GetTermEvaluator146 field spellNumber is correct ");
 	}
 
 	/**
@@ -8992,8 +9000,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
 		assertTrue(
-				"GetTermEvaluator147 evaluator correct for " + term,
-				t instanceof PCCountSpellsLevelsInBookTermEvaluator
+				t instanceof PCCountSpellsLevelsInBookTermEvaluator,
+				() -> "GetTermEvaluator147 evaluator correct for " + term
 		);
 
 		Class<?> uClass = PCCountSpellsLevelsInBookTermEvaluator.class;
@@ -9018,15 +9026,11 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator147", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator147");
 
-		assertEquals("GetTermEvaluator147 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator147 field classNum is correct ",
-			1,
-			field1.intValue());
-		assertEquals("GetTermEvaluator147 field sbookNum is correct ",
-			2,
-			field2.intValue());
+		assertEquals(term, field0, () -> "GetTermEvaluator147 stored term is correct " + term);
+		assertEquals(1, (int)field1, "GetTermEvaluator147 field classNum is correct ");
+		assertEquals(2, (int)field2, "GetTermEvaluator147 field sbookNum is correct ");
 	}
 
 	/**
@@ -9041,7 +9045,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator148 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator148 evaluator is null");
 	}
 
 	/**
@@ -9056,7 +9060,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator149 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator149 evaluator is null");
 	}
 
 	/**
@@ -9071,7 +9075,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator150 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator150 evaluator is null");
 	}
 
 	/**
@@ -9086,7 +9090,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator151 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator151 evaluator is null");
 	}
 
 	/**
@@ -9101,7 +9105,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator152 evaluator correct for " + term, t instanceof PCEqTypeTermEvaluator);
+		assertTrue(t instanceof PCEqTypeTermEvaluator, () -> "GetTermEvaluator152 evaluator correct for " + term);
 
 		Class<?> uClass = PCEqTypeTermEvaluator.class;
 
@@ -9119,9 +9123,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator152", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator152");
 
-		assertEquals("GetTermEvaluator152 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator152 stored term is correct " + term);
 	}
 
 	/**
@@ -9136,7 +9140,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator153 evaluator correct for " + term, t instanceof PCHasDeityTermEvaluator);
+		assertTrue(t instanceof PCHasDeityTermEvaluator, () -> "GetTermEvaluator153 evaluator correct for " + term);
 
 		Class<?> uClass = PCHasDeityTermEvaluator.class;
 
@@ -9157,10 +9161,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator153", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator153");
 
-		assertEquals("GetTermEvaluator153 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator153 field deity is correct ", "Bane", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator153 stored term is correct " + term);
+		assertEquals("Bane", field1, "GetTermEvaluator153 field deity is correct ");
 	}
 
 	/**
@@ -9175,7 +9179,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator154 evaluator correct for " + term, t instanceof PCHasFeatTermEvaluator);
+		assertTrue(t instanceof PCHasFeatTermEvaluator, () -> "GetTermEvaluator154 evaluator correct for " + term);
 
 		Class<?> uClass = PCHasFeatTermEvaluator.class;
 
@@ -9196,10 +9200,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator154", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator154");
 
-		assertEquals("GetTermEvaluator154 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator154 field feat is correct ", "Endurance", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator154 stored term is correct " + term);
+		assertEquals("Endurance", field1, "GetTermEvaluator154 field feat is correct ");
 	}
 
 	/**
@@ -9214,7 +9218,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator155 evaluator correct for " + term, t instanceof PCModEquipTermEvaluator);
+		assertTrue(t instanceof PCModEquipTermEvaluator, () -> "GetTermEvaluator155 evaluator correct for " + term);
 
 		Class<?> uClass = PCModEquipTermEvaluator.class;
 
@@ -9235,10 +9239,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator155", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator155");
 
-		assertEquals("GetTermEvaluator155 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator155 field modEq is correct ", "SPELLFAILURE", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator155 stored term is correct " + term);
+		assertEquals("SPELLFAILURE", field1, "GetTermEvaluator155 field modEq is correct ");
 	}
 
 	/**
@@ -9253,7 +9257,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator156 evaluator correct for " + term, t instanceof PCMovementTermEvaluator);
+		assertTrue(t instanceof PCMovementTermEvaluator, () -> "GetTermEvaluator156 evaluator correct for " + term);
 
 		Class<?> uClass = PCMovementTermEvaluator.class;
 
@@ -9274,10 +9278,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator156", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator156");
 
-		assertEquals("GetTermEvaluator156 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator156 field movement is correct ", MovementType.getConstant("Walk"), field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator156 stored term is correct " + term);
+		assertEquals(MovementType.getConstant("Walk"), field1, "GetTermEvaluator156 field movement is correct ");
 	}
 
 	/**
@@ -9292,7 +9296,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator157 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator157 evaluator is null");
 	}
 
 	/**
@@ -9307,7 +9311,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator158 evaluator correct for " + term, t instanceof PCSizeTermEvaluator);
+		assertTrue(t instanceof PCSizeTermEvaluator, () -> "GetTermEvaluator158 evaluator correct for " + term);
 
 		Class<?> uClass = PCSizeTermEvaluator.class;
 
@@ -9325,9 +9329,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator158", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator158");
 
-		assertEquals("GetTermEvaluator158 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator158 stored term is correct " + term);
 	}
 
 	/**
@@ -9342,7 +9346,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator159 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
+		assertTrue(t instanceof PCSkillRankTermEvaluator, () -> "GetTermEvaluator159 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -9363,10 +9367,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator159", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator159");
 
-		assertEquals("GetTermEvaluator159 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator159 field rank is correct ", "Tumble", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator159 stored term is correct " + term);
+		assertEquals("Tumble", field1, "GetTermEvaluator159 field rank is correct ");
 	}
 
 	/**
@@ -9381,7 +9385,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator160 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
+		assertTrue(t instanceof PCSkillRankTermEvaluator, () -> "GetTermEvaluator160 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -9402,10 +9406,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator160", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator160");
 
-		assertEquals("GetTermEvaluator160 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator160 field rank is correct ", "Perform (Dance)", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator160 stored term is correct " + term);
+		assertEquals("Perform (Dance)", field1, "GetTermEvaluator160 field rank is correct ");
 	}
 
 	/**
@@ -9420,7 +9424,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator161 evaluator correct for " + term, t instanceof PCSkillRankTermEvaluator);
+		assertTrue(t instanceof PCSkillRankTermEvaluator, () -> "GetTermEvaluator161 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillRankTermEvaluator.class;
 
@@ -9441,10 +9445,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator161", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator161");
 
-		assertEquals("GetTermEvaluator161 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator161 field rank is correct ", "Perform (Sing)", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator161 stored term is correct " + term);
+		assertEquals("Perform (Sing)", field1, "GetTermEvaluator161 field rank is correct ");
 	}
 
 	/**
@@ -9459,7 +9463,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator162 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
+		assertTrue(t instanceof PCSkillTotalTermEvaluator, () -> "GetTermEvaluator162 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -9480,10 +9484,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator162", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator162");
 
-		assertEquals("GetTermEvaluator162 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator162 field total is correct ", "Tumble", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator162 stored term is correct " + term);
+		assertEquals("Tumble", field1, "GetTermEvaluator162 field total is correct ");
 	}
 
 	/**
@@ -9498,7 +9502,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator163 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
+		assertTrue(t instanceof PCSkillTotalTermEvaluator, () -> "GetTermEvaluator163 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -9519,10 +9523,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator163", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator163");
 
-		assertEquals("GetTermEvaluator163 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator163 field total is correct ", "Perform (Dance)", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator163 stored term is correct " + term);
+		assertEquals("Perform (Dance)", field1, "GetTermEvaluator163 field total is correct ");
 	}
 
 	/**
@@ -9537,7 +9541,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator164 evaluator correct for " + term, t instanceof PCSkillTotalTermEvaluator);
+		assertTrue(t instanceof PCSkillTotalTermEvaluator, () -> "GetTermEvaluator164 evaluator correct for " + term);
 
 		Class<?> uClass = PCSkillTotalTermEvaluator.class;
 
@@ -9558,10 +9562,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator164", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator164");
 
-		assertEquals("GetTermEvaluator164 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator164 field total is correct ", "Perform (Sing)", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator164 stored term is correct " + term);
+		assertEquals("Perform (Sing)", field1, "GetTermEvaluator164 field total is correct ");
 	}
 
 	/**
@@ -9576,7 +9580,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator165 evaluator correct for " + term, t instanceof PCVarDefinedTermEvaluator);
+		assertTrue(t instanceof PCVarDefinedTermEvaluator, () -> "GetTermEvaluator165 evaluator correct for " + term);
 
 		Class<?> uClass = PCVarDefinedTermEvaluator.class;
 
@@ -9597,10 +9601,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator165", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator165");
 
-		assertEquals("GetTermEvaluator165 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator165 field var is correct ", "MilkyBarsEaten", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator165 stored term is correct " + term);
+		assertEquals("MilkyBarsEaten", field1, "GetTermEvaluator165 field var is correct ");
 	}
 
 	/**
@@ -9615,7 +9619,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator166 evaluator correct for " + term, t instanceof PCCarriedWeightTermEvaluator);
+		assertTrue(t instanceof PCCarriedWeightTermEvaluator, () -> "GetTermEvaluator166 evaluator correct for " + term);
 
 		Class<?> uClass = PCCarriedWeightTermEvaluator.class;
 
@@ -9633,9 +9637,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator166", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator166");
 
-		assertEquals("GetTermEvaluator166 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator166 stored term is correct " + term);
 	}
 
 	/**
@@ -9650,7 +9654,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator167 evaluator correct for " + term, t instanceof PCCarriedWeightTermEvaluator);
+		assertTrue(t instanceof PCCarriedWeightTermEvaluator, () -> "GetTermEvaluator167 evaluator correct for " + term);
 
 		Class<?> uClass = PCCarriedWeightTermEvaluator.class;
 
@@ -9668,9 +9672,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator167", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator167");
 
-		assertEquals("GetTermEvaluator167 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator167 stored term is correct " + term);
 	}
 
 	/**
@@ -9685,7 +9689,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator168 evaluator correct for " + term, t instanceof PCWeightTermEvaluator);
+		assertTrue(t instanceof PCWeightTermEvaluator, () -> "GetTermEvaluator168 evaluator correct for " + term);
 
 		Class<?> uClass = PCWeightTermEvaluator.class;
 
@@ -9703,9 +9707,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator168", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator168");
 
-		assertEquals("GetTermEvaluator168 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator168 stored term is correct " + term);
 	}
 
 	/**
@@ -9720,7 +9724,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator169 evaluator correct for " + term, t instanceof PCTotalWeightTermEvaluator);
+		assertTrue(t instanceof PCTotalWeightTermEvaluator, () -> "GetTermEvaluator169 evaluator correct for " + term);
 
 		Class<?> uClass = PCTotalWeightTermEvaluator.class;
 
@@ -9738,9 +9742,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator169", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator169");
 
-		assertEquals("GetTermEvaluator169 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator169 stored term is correct " + term);
 	}
 
 	/**
@@ -9755,7 +9759,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator170 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator170 evaluator is null");
 	}
 
 	/**
@@ -9770,7 +9774,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		Assert.assertThat(
+		assertThat(
 				"GetTermEvaluator171 evaluator correct for " + term,
 				t,
 				instanceOf(PCStatModTermEvaluator.class)
@@ -9795,10 +9799,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator171", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator171");
 
-		assertEquals("GetTermEvaluator171 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator171 field statAbbrev is correct ", "STR", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator171 stored term is correct " + term);
+		assertEquals("STR", field1, "GetTermEvaluator171 field statAbbrev is correct ");
 	}
 
 	/**
@@ -9813,7 +9817,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator172 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
+		assertTrue(t instanceof PCStatModTermEvaluator, () -> "GetTermEvaluator172 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9834,10 +9838,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator172", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator172");
 
-		assertEquals("GetTermEvaluator172 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator172 field statAbbrev is correct ", "INT", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator172 stored term is correct " + term);
+		assertEquals("INT", field1, "GetTermEvaluator172 field statAbbrev is correct ");
 	}
 
 	/**
@@ -9852,7 +9856,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator173 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
+		assertTrue(t instanceof PCStatModTermEvaluator, () -> "GetTermEvaluator173 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9873,10 +9877,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator173", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator173");
 
-		assertEquals("GetTermEvaluator173 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator173 field statAbbrev is correct ", "DEX", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator173 stored term is correct " + term);
+		assertEquals("DEX", field1, "GetTermEvaluator173 field statAbbrev is correct ");
 	}
 
 	/**
@@ -9891,7 +9895,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator174 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
+		assertTrue(t instanceof PCStatModTermEvaluator, () -> "GetTermEvaluator174 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9912,10 +9916,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator174", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator174");
 
-		assertEquals("GetTermEvaluator174 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator174 field statAbbrev is correct ", "WIS", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator174 stored term is correct " + term);
+		assertEquals("WIS", field1, "GetTermEvaluator174 field statAbbrev is correct ");
 	}
 
 	/**
@@ -9930,7 +9934,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator175 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
+		assertTrue(t instanceof PCStatModTermEvaluator, () -> "GetTermEvaluator175 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9951,10 +9955,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator175", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator175");
 
-		assertEquals("GetTermEvaluator175 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator175 field statAbbrev is correct ", "CON", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator175 stored term is correct " + term);
+		assertEquals("CON", field1, "GetTermEvaluator175 field statAbbrev is correct ");
 	}
 
 	/**
@@ -9969,7 +9973,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator176 evaluator correct for " + term, t instanceof PCStatModTermEvaluator);
+		assertTrue(t instanceof PCStatModTermEvaluator, () -> "GetTermEvaluator176 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatModTermEvaluator.class;
 
@@ -9990,10 +9994,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator176", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator176");
 
-		assertEquals("GetTermEvaluator176 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator176 field statAbbrev is correct ", "CHA", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator176 stored term is correct " + term);
+		assertEquals("CHA", field1, "GetTermEvaluator176 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10008,7 +10012,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator177 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
+		assertTrue(t instanceof PCStatTotalTermEvaluator, () -> "GetTermEvaluator177 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10029,10 +10033,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator177", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator177");
 
-		assertEquals("GetTermEvaluator177 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator177 field statAbbrev is correct ", "STR", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator177 stored term is correct " + term);
+		assertEquals("STR", field1, "GetTermEvaluator177 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10047,7 +10051,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator178 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
+		assertTrue(t instanceof PCStatTotalTermEvaluator, () -> "GetTermEvaluator178 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10068,10 +10072,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator178", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator178");
 
-		assertEquals("GetTermEvaluator178 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator178 field statAbbrev is correct ", "INT", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator178 stored term is correct " + term);
+		assertEquals("INT", field1, "GetTermEvaluator178 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10086,7 +10090,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator179 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
+		assertTrue(t instanceof PCStatTotalTermEvaluator, () -> "GetTermEvaluator179 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10107,10 +10111,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator179", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator179");
 
-		assertEquals("GetTermEvaluator179 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator179 field statAbbrev is correct ", "DEX", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator179 stored term is correct " + term);
+		assertEquals("DEX", field1, "GetTermEvaluator179 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10125,7 +10129,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator180 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
+		assertTrue(t instanceof PCStatTotalTermEvaluator, () -> "GetTermEvaluator180 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10146,10 +10150,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator180", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator180");
 
-		assertEquals("GetTermEvaluator180 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator180 field statAbbrev is correct ", "WIS", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator180 stored term is correct " + term);
+		assertEquals("WIS", field1, "GetTermEvaluator180 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10164,7 +10168,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator181 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
+		assertTrue(t instanceof PCStatTotalTermEvaluator, () -> "GetTermEvaluator181 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10185,10 +10189,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator181", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator181");
 
-		assertEquals("GetTermEvaluator181 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator181 field statAbbrev is correct ", "CON", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator181 stored term is correct " + term);
+		assertEquals("CON", field1, "GetTermEvaluator181 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10203,7 +10207,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator182 evaluator correct for " + term, t instanceof PCStatTotalTermEvaluator);
+		assertTrue(t instanceof PCStatTotalTermEvaluator, () -> "GetTermEvaluator182 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatTotalTermEvaluator.class;
 
@@ -10224,10 +10228,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator182", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator182");
 
-		assertEquals("GetTermEvaluator182 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator182 field statAbbrev is correct ", "CHA", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator182 stored term is correct " + term);
+		assertEquals("CHA", field1, "GetTermEvaluator182 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10242,7 +10246,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator183 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator183 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10263,10 +10267,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator183", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator183");
 
-		assertEquals("GetTermEvaluator183 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator183 field statAbbrev is correct ", "STR", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator183 stored term is correct " + term);
+		assertEquals("STR", field1, "GetTermEvaluator183 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10281,7 +10285,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator184 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator184 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10302,10 +10306,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator184", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator184");
 
-		assertEquals("GetTermEvaluator184 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator184 field statAbbrev is correct ", "INT", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator184 stored term is correct " + term);
+		assertEquals("INT", field1, "GetTermEvaluator184 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10320,7 +10324,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator185 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator185 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10341,10 +10345,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator185", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator185");
 
-		assertEquals("GetTermEvaluator185 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator185 field statAbbrev is correct ", "DEX", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator185 stored term is correct " + term);
+		assertEquals("DEX", field1, "GetTermEvaluator185 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10359,7 +10363,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator186 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator186 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10380,10 +10384,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator186", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator186");
 
-		assertEquals("GetTermEvaluator186 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator186 field statAbbrev is correct ", "WIS", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator186 stored term is correct " + term);
+		assertEquals("WIS", field1, "GetTermEvaluator186 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10398,7 +10402,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator187 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator187 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10419,10 +10423,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator187", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator187");
 
-		assertEquals("GetTermEvaluator187 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator187 field statAbbrev is correct ", "CON", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator187 stored term is correct " + term);
+		assertEquals("CON", field1, "GetTermEvaluator187 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10437,7 +10441,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator188 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator188 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10458,10 +10462,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator188", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator188");
 
-		assertEquals("GetTermEvaluator188 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator188 field statAbbrev is correct ", "CHA", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator188 stored term is correct " + term);
+		assertEquals("CHA", field1, "GetTermEvaluator188 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10476,7 +10480,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator189 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator189 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10497,10 +10501,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator189", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator189");
 
-		assertEquals("GetTermEvaluator189 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator189 field statAbbrev is correct ", "STR", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator189 stored term is correct " + term);
+		assertEquals("STR", field1, "GetTermEvaluator189 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10515,7 +10519,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator190 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator190 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10536,10 +10540,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator190", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator190");
 
-		assertEquals("GetTermEvaluator190 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator190 field statAbbrev is correct ", "INT", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator190 stored term is correct " + term);
+		assertEquals("INT", field1, "GetTermEvaluator190 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10554,7 +10558,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator191 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator191 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10575,10 +10579,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator191", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator191");
 
-		assertEquals("GetTermEvaluator191 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator191 field statAbbrev is correct ", "DEX", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator191 stored term is correct " + term);
+		assertEquals("DEX", field1, "GetTermEvaluator191 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10593,7 +10597,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator192 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator192 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10614,10 +10618,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator192", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator192");
 
-		assertEquals("GetTermEvaluator192 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator192 field statAbbrev is correct ", "WIS", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator192 stored term is correct " + term);
+		assertEquals("WIS", field1, "GetTermEvaluator192 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10632,7 +10636,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator193 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator193 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10653,10 +10657,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator193", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator193");
 
-		assertEquals("GetTermEvaluator193 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator193 field statAbbrev is correct ", "CON", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator193 stored term is correct " + term);
+		assertEquals("CON", field1, "GetTermEvaluator193 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10671,7 +10675,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator194 evaluator correct for " + term, t instanceof PCStatBaseTermEvaluator);
+		assertTrue(t instanceof PCStatBaseTermEvaluator, () -> "GetTermEvaluator194 evaluator correct for " + term);
 
 		Class<?> uClass = PCStatBaseTermEvaluator.class;
 
@@ -10692,10 +10696,10 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator194", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator194");
 
-		assertEquals("GetTermEvaluator194 stored term is correct " + term, term, field0);
-		assertEquals("GetTermEvaluator194 field statAbbrev is correct ", "CHA", field1);
+		assertEquals(term, field0, () -> "GetTermEvaluator194 stored term is correct " + term);
+		assertEquals("CHA", field1, "GetTermEvaluator194 field statAbbrev is correct ");
 	}
 
 	/**
@@ -10710,7 +10714,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator195 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator195 evaluator is null");
 	}
 
 	/**
@@ -10725,7 +10729,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator196 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator196 evaluator is null");
 	}
 
 	/**
@@ -10740,7 +10744,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator197 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator197 evaluator is null");
 	}
 
 	/**
@@ -10755,7 +10759,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator198 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator198 evaluator is null");
 	}
 
 	/**
@@ -10770,7 +10774,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator199 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator199 evaluator is null");
 	}
 
 	/**
@@ -10785,7 +10789,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.PC.getTermEvaluator(term, "");
 
-		assertNull("GetTermEvaluator200 evaluator is null", t);
+		assertNull(t, "GetTermEvaluator200 evaluator is null");
 	}
 
 	/**
@@ -10800,7 +10804,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator201 evaluator correct for " + term, t instanceof EQBaseCostTermEvaluator);
+		assertTrue(t instanceof EQBaseCostTermEvaluator, () -> "GetTermEvaluator201 evaluator correct for " + term);
 
 		Class<?> uClass = EQBaseCostTermEvaluator.class;
 
@@ -10818,9 +10822,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator201", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator201");
 
-		assertEquals("GetTermEvaluator201 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator201 stored term is correct " + term);
 	}
 
 	/**
@@ -10835,7 +10839,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator202 evaluator correct for " + term, t instanceof EQCritMultTermEvaluator);
+		assertTrue(t instanceof EQCritMultTermEvaluator, () -> "GetTermEvaluator202 evaluator correct for " + term);
 
 		Class<?> uClass = EQCritMultTermEvaluator.class;
 
@@ -10853,9 +10857,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator202", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator202");
 
-		assertEquals("GetTermEvaluator202 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator202 stored term is correct " + term);
 	}
 
 	/**
@@ -10870,7 +10874,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator203 evaluator correct for " + term, t instanceof EQDamageDiceTermEvaluator);
+		assertTrue(t instanceof EQDamageDiceTermEvaluator, () -> "GetTermEvaluator203 evaluator correct for " + term);
 
 		Class<?> uClass = EQDamageDiceTermEvaluator.class;
 
@@ -10888,9 +10892,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator203", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator203");
 
-		assertEquals("GetTermEvaluator203 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator203 stored term is correct " + term);
 	}
 
 	/**
@@ -10905,7 +10909,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator204 evaluator correct for " + term, t instanceof EQDamageDieTermEvaluator);
+		assertTrue(t instanceof EQDamageDieTermEvaluator, () -> "GetTermEvaluator204 evaluator correct for " + term);
 
 		Class<?> uClass = EQDamageDieTermEvaluator.class;
 
@@ -10923,9 +10927,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator204", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator204");
 
-		assertEquals("GetTermEvaluator204 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator204 stored term is correct " + term);
 	}
 
 	/**
@@ -10940,7 +10944,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator205 evaluator correct for " + term, t instanceof EQACCheckTermEvaluator);
+		assertTrue(t instanceof EQACCheckTermEvaluator, () -> "GetTermEvaluator205 evaluator correct for " + term);
 
 		Class<?> uClass = EQACCheckTermEvaluator.class;
 
@@ -10958,9 +10962,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator205", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator205");
 
-		assertEquals("GetTermEvaluator205 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator205 stored term is correct " + term);
 	}
 
 	/**
@@ -10975,7 +10979,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator206 evaluator correct for " + term, t instanceof EQHandsTermEvaluator);
+		assertTrue(t instanceof EQHandsTermEvaluator, () -> "GetTermEvaluator206 evaluator correct for " + term);
 
 		Class<?> uClass = EQHandsTermEvaluator.class;
 
@@ -10993,9 +10997,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator206", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator206");
 
-		assertEquals("GetTermEvaluator206 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator206 stored term is correct " + term);
 	}
 
 	/**
@@ -11010,7 +11014,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator207 evaluator correct for " + term, t instanceof EQSpellFailureTermEvaluator);
+		assertTrue(t instanceof EQSpellFailureTermEvaluator, () -> "GetTermEvaluator207 evaluator correct for " + term);
 
 		Class<?> uClass = EQSpellFailureTermEvaluator.class;
 
@@ -11028,9 +11032,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator207", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator207");
 
-		assertEquals("GetTermEvaluator207 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator207 stored term is correct " + term);
 	}
 
 	/**
@@ -11045,7 +11049,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator208 evaluator correct for " + term, t instanceof EQEquipSizeTermEvaluator);
+		assertTrue(t instanceof EQEquipSizeTermEvaluator, () -> "GetTermEvaluator208 evaluator correct for " + term);
 
 		Class<?> uClass = EQEquipSizeTermEvaluator.class;
 
@@ -11063,9 +11067,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator208", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator208");
 
-		assertEquals("GetTermEvaluator208 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator208 stored term is correct " + term);
 	}
 
 	/**
@@ -11080,7 +11084,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator209 evaluator correct for " + term, t instanceof EQSizeTermEvaluator);
+		assertTrue(t instanceof EQSizeTermEvaluator, () -> "GetTermEvaluator209 evaluator correct for " + term);
 
 		Class<?> uClass = EQSizeTermEvaluator.class;
 
@@ -11098,9 +11102,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator209", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator209");
 
-		assertEquals("GetTermEvaluator209 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator209 stored term is correct " + term);
 	}
 
 	/**
@@ -11116,8 +11120,8 @@ public class EvaluatorFactoryTest
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
 		assertTrue(
-				"EQAltPlusTotalTermEvaluator evaluator correct for " + term,
-				t instanceof EQAltPlusTotalTermEvaluator
+				t instanceof EQAltPlusTotalTermEvaluator,
+				() -> "EQAltPlusTotalTermEvaluator evaluator correct for " + term
 		);
 
 		Class<?> uClass = EQAltPlusTotalTermEvaluator.class;
@@ -11136,9 +11140,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in testGetTermEvaluatorAltPlusTotal", ok);
+		assertTrue(ok, "No illegal access in testGetTermEvaluatorAltPlusTotal");
 
-		assertEquals("testGetTermEvaluatorAltPlusTotal stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "testGetTermEvaluatorAltPlusTotal stored term is correct " + term);
 	}
 
 	/**
@@ -11153,7 +11157,9 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("EQPlusTotalTermEvaluator evaluator correct for " + term, t instanceof EQPlusTotalTermEvaluator);
+		assertTrue(t instanceof EQPlusTotalTermEvaluator,
+				() -> "EQPlusTotalTermEvaluator evaluator correct for " + term
+		);
 
 		Class<?> uClass = EQPlusTotalTermEvaluator.class;
 
@@ -11171,9 +11177,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in testGetTermEvaluatorPlusTotal", ok);
+		assertTrue(ok, "No illegal access in testGetTermEvaluatorPlusTotal");
 
-		assertEquals("testGetTermEvaluatorPlusTotal stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "testGetTermEvaluatorPlusTotal stored term is correct " + term);
 	}
 
 	/**
@@ -11188,7 +11194,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "RACE:Gnome");
 
-		assertTrue("GetTermEvaluator210 evaluator correct for " + term, t instanceof EQRaceReachTermEvaluator);
+		assertTrue(t instanceof EQRaceReachTermEvaluator, () -> "GetTermEvaluator210 evaluator correct for " + term);
 
 		Class<?> uClass = EQRaceReachTermEvaluator.class;
 
@@ -11206,9 +11212,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator210", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator210");
 
-		assertEquals("GetTermEvaluator210 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator210 stored term is correct " + term);
 	}
 
 	/**
@@ -11223,7 +11229,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator211 evaluator correct for " + term, t instanceof EQRangeTermEvaluator);
+		assertTrue(t instanceof EQRangeTermEvaluator, () -> "GetTermEvaluator211 evaluator correct for " + term);
 
 		Class<?> uClass = EQRangeTermEvaluator.class;
 
@@ -11241,9 +11247,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator211", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator211");
 
-		assertEquals("GetTermEvaluator211 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator211 stored term is correct " + term);
 	}
 
 	/**
@@ -11258,7 +11264,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator212 evaluator correct for " + term, t instanceof EQReachTermEvaluator);
+		assertTrue(t instanceof EQReachTermEvaluator, () -> "GetTermEvaluator212 evaluator correct for " + term);
 
 		Class<?> uClass = EQReachTermEvaluator.class;
 
@@ -11276,9 +11282,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator212", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator212");
 
-		assertEquals("GetTermEvaluator212 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator212 stored term is correct " + term);
 	}
 
 	/**
@@ -11293,7 +11299,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator213 evaluator correct for " + term, t instanceof EQReachMultTermEvaluator);
+		assertTrue(t instanceof EQReachMultTermEvaluator, () -> "GetTermEvaluator213 evaluator correct for " + term);
 
 		Class<?> uClass = EQReachMultTermEvaluator.class;
 
@@ -11311,9 +11317,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator213", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator213");
 
-		assertEquals("GetTermEvaluator213 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator213 stored term is correct " + term);
 	}
 
 	/**
@@ -11328,7 +11334,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator214 evaluator correct for " + term, t instanceof EQSizeTermEvaluator);
+		assertTrue(t instanceof EQSizeTermEvaluator, () -> "GetTermEvaluator214 evaluator correct for " + term);
 
 		Class<?> uClass = EQSizeTermEvaluator.class;
 
@@ -11346,9 +11352,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator214", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator214");
 
-		assertEquals("GetTermEvaluator214 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator214 stored term is correct " + term);
 	}
 
 	/**
@@ -11363,7 +11369,7 @@ public class EvaluatorFactoryTest
 
 		TermEvaluator t = EvaluatorFactory.EQ.getTermEvaluator(term, "");
 
-		assertTrue("GetTermEvaluator215 evaluator correct for " + term, t instanceof EQWeightTermEvaluator);
+		assertTrue(t instanceof EQWeightTermEvaluator, () -> "GetTermEvaluator215 evaluator correct for " + term);
 
 		Class<?> uClass = EQWeightTermEvaluator.class;
 
@@ -11381,9 +11387,9 @@ public class EvaluatorFactoryTest
 			ok = false;
 		}
 
-		assertTrue("No illegal access in getTermEvaluator215", ok);
+		assertTrue(ok, "No illegal access in getTermEvaluator215");
 
-		assertEquals("GetTermEvaluator215 stored term is correct " + term, term, field0);
+		assertEquals(term, field0, () -> "GetTermEvaluator215 stored term is correct " + term);
 	}
 
 	/**
@@ -11400,13 +11406,19 @@ public class EvaluatorFactoryTest
 		TermEvaluator t2 = EvaluatorFactory.PC.getTermEvaluator(term1, "CLASS:Ranger");
 		TermEvaluator t3 = EvaluatorFactory.PC.getTermEvaluator(term1, "CLASS:Druid");
 
-		assertTrue("GetTermEvaluator215 t1 evaluator correct for " + term1, t1 instanceof PCCLBeforeLevelTermEvaluator);
-		assertTrue("GetTermEvaluator215 t2 evaluator correct for " + term1, t2 instanceof PCCLBeforeLevelTermEvaluator);
-		assertTrue("GetTermEvaluator215 t3 evaluator correct for " + term1, t3 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue(t1 instanceof PCCLBeforeLevelTermEvaluator,
+				() -> "GetTermEvaluator215 t1 evaluator correct for " + term1
+		);
+		assertTrue(t2 instanceof PCCLBeforeLevelTermEvaluator,
+				() -> "GetTermEvaluator215 t2 evaluator correct for " + term1
+		);
+		assertTrue(t3 instanceof PCCLBeforeLevelTermEvaluator,
+				() -> "GetTermEvaluator215 t3 evaluator correct for " + term1
+		);
 
-		assertNotEquals("t1 and t2 are different objects", t1, t2);
-		assertEquals("t1 and t3 are the Same object", t1, t3);
-		assertNotEquals("t2 and t3 are different objects", t2, t3);
+		assertNotEquals(t1, t2, "t1 and t2 are different objects");
+		assertEquals(t1, t3, "t1 and t3 are the Same object");
+		assertNotEquals(t2, t3, "t2 and t3 are different objects");
 
 		String term2 = "CL;BEFORELEVEL=14";
 
@@ -11414,15 +11426,21 @@ public class EvaluatorFactoryTest
 		TermEvaluator t5 = EvaluatorFactory.PC.getTermEvaluator(term2, "CLASS:Ranger");
 		TermEvaluator t6 = EvaluatorFactory.PC.getTermEvaluator(term2, "CLASS:Druid");
 
-		assertTrue("GetTermEvaluator215 t4 evaluator correct for " + term2, t4 instanceof PCCLBeforeLevelTermEvaluator);
-		assertTrue("GetTermEvaluator215 t5 evaluator correct for " + term2, t6 instanceof PCCLBeforeLevelTermEvaluator);
-		assertTrue("GetTermEvaluator215 t6 evaluator correct for " + term2, t5 instanceof PCCLBeforeLevelTermEvaluator);
+		assertTrue(t4 instanceof PCCLBeforeLevelTermEvaluator,
+				() -> "GetTermEvaluator215 t4 evaluator correct for " + term2
+		);
+		assertTrue(t6 instanceof PCCLBeforeLevelTermEvaluator,
+				() -> "GetTermEvaluator215 t5 evaluator correct for " + term2
+		);
+		assertTrue(t5 instanceof PCCLBeforeLevelTermEvaluator,
+				() -> "GetTermEvaluator215 t6 evaluator correct for " + term2
+		);
 
-		assertEquals("t4 and t6 are the Same object", t4, t6);
-		assertNotEquals("t4 and t5 are different objects", t4, t5);
-		assertNotEquals("t6 and t5 are different objects", t6, t5);
+		assertEquals(t4, t6, "t4 and t6 are the Same object");
+		assertNotEquals(t4, t5, "t4 and t5 are different objects");
+		assertNotEquals(t6, t5, "t6 and t5 are different objects");
 
-		assertNotEquals("t1 and t4 are diffferent objects", t1, t4);
+		assertNotEquals(t1, t4, "t1 and t4 are diffferent objects");
 	}
 
 	/**

@@ -18,6 +18,8 @@
  */
 package pcgen.core;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -40,7 +42,6 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.hamcrest.Matchers;
-import org.junit.Assert;
 
 /**
  * This class tests the handling of DESC fields in PCGen
@@ -94,14 +95,14 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addPrerequisite(prereqNE);
 		List<CNAbility> singletonAbility = Collections.singletonList(CNAbilityFactory
 			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, dummy));
-		Assert.assertThat(desc.getDescription(getCharacter(), singletonAbility), Matchers.is(""));
+		assertThat(desc.getDescription(getCharacter(), singletonAbility), Matchers.is(""));
 
 		PCTemplate template = new PCTemplate();
 		template.setName("Natural Lycanthrope");
 		template.put(StringKey.KEY_NAME, "KEY_Natural Lycanthrope");
 		Globals.getContext().getReferenceContext().importObject(template);
 		getCharacter().addTemplate(template);
-		Assert.assertThat(desc.getDescription(getCharacter(), singletonAbility), Matchers.is(simpleDesc));
+		assertThat(desc.getDescription(getCharacter(), singletonAbility), Matchers.is(simpleDesc));
 	}
 
 	/**
