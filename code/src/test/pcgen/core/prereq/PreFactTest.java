@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -26,6 +29,9 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreFactTest} tests that the PREFACT tag is
  * working correctly.
@@ -33,6 +39,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PreFactTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -47,6 +54,7 @@ public class PreFactTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testFact() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -61,13 +69,13 @@ public class PreFactTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREFACT:1,RACE,ABB=Hum");
 
-		assertFalse("Character should not be a matching race", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character should not be a matching race");
 
 		prereq = factory.parse("PREFACT:1,RACE,ABB=Hgln");
 
-		assertTrue("Character should be a matching race", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character should be a matching race");
 	}
 
 	@Override

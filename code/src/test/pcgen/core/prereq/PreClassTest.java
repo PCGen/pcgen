@@ -17,6 +17,11 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -32,6 +37,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
 import plugin.pretokens.test.PreClassTester;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Test class for PRECLASS token
  * 
@@ -41,6 +48,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that a character with a named class can be found.
 	 */
+	@Test
 	public void testNamedClass()
 	{
 		final PCClass pcClass = new PCClass();
@@ -63,6 +71,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that a character with a ServeAs class can be found.
 	 */
+	@Test
 	public void testNamedClassServesAs()
 	{
 		final PCClass pcClass = new PCClass();
@@ -93,6 +102,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * if it does not have the correct number of levels
 	 * in the class.
 	 */
+	@Test
 	public void testTooFewLevels()
 	{
 		final PCClass pcClass = new PCClass();
@@ -118,6 +128,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * if it does not have the correct number of levels
 	 * in the class.
 	 */
+	@Test
 	public void testCharWithMultipleClasses()
 	{
 		final PCClass pcClass = new PCClass();
@@ -147,6 +158,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * if it does not have the correct number of levels
 	 * in the class.
 	 */
+	@Test
 	public void testCharWithMultipleSpellClasses()
 	{
 		LoadContext context = Globals.getContext();
@@ -188,6 +200,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testFromParserCharWithMultipleSpellClasses() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
@@ -230,6 +243,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testFromParserAny() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
@@ -265,6 +279,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that a character without a named class cannot be found.
 	 */
+	@Test
 	public void testNamedClassFail()
 	{
 		final PCClass pcClass = new PCClass();
@@ -288,6 +303,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that a character without a named class cannot be found.
 	 */
+	@Test
 	public void testNoLevelsPass()
 	{
 		final PCClass pcClass = new PCClass();
@@ -310,6 +326,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that a character without a named class cannot be found.
 	 */
+	@Test
 	public void testNoLevelsFail()
 	{
 		final PCClass pcClass = new PCClass();
@@ -332,6 +349,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that a character with a spellcasting class can be found.
 	 */
+	@Test
 	public void testSpellcaster()
 	{
 		LoadContext context = Globals.getContext();
@@ -362,6 +380,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character with a spellcasting class
 	 * does not match a different spellcasting type.
 	 */
+	@Test
 	public void testSpellcasterTypeFail()
 	{
 		final PCClass pcClass = new PCClass();
@@ -386,6 +405,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * will pass a prerequisite that requires a level of that
 	 * classes spell type.
 	 */
+	@Test
 	public void testSpellcasterTypePass()
 	{
 		LoadContext context = Globals.getContext();
@@ -415,6 +435,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that a spellcaster type check is case insensitive.
 	 */
+	@Test
 	public void testSpellcasterTypeWrongCasePass()
 	{
 		LoadContext context = Globals.getContext();
@@ -446,6 +467,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testPreClassLevelMax() throws PersistenceLayerException
 	{
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
@@ -486,6 +508,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 			singlePrereq, character, null));
 	}
 
+	@Test
 	public void testOldPreClassLevelMax() throws Exception
 	{
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
@@ -505,6 +528,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * if it does not have the correct number of levels
 	 * in the class.
 	 */
+	@Test
 	public void testAnyLevelsOneClass()
 	{
 		final PCClass pcClass = new PCClass();
@@ -556,7 +580,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		assertEquals(1, test.passes(prereq, character, null));
 	}
 
-
+	@Test
 	public void testLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
@@ -582,6 +606,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 
+	@Test
 	public void testAnyLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
@@ -604,7 +629,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 
-
+	@Test
 	public void testAnyTwoLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
@@ -630,6 +655,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
 
+	@Test
 	public void testSpellcasterLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
@@ -665,7 +691,8 @@ public class PreClassTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass2);
 		assertTrue(PrereqHandler.passes(prereq, character, null));
 	}
-	
+
+	@Test
 	public void testSpellcasterTypeLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();

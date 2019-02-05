@@ -472,7 +472,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 		);
 	}
 
-	private void setGameSkillRankData(boolean crossClassCostTwo)
+	private static void setGameSkillRankData(boolean crossClassCostTwo)
 	{
 		GameMode game = SettingsHandler.getGame();
 		final XPTable xpTable = game.getLevelInfo(game.getDefaultXPTableName());

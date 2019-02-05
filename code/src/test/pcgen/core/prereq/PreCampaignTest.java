@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * The Class {@code PreCampaignTest} checks the processing
@@ -48,6 +52,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	private Campaign camp4Wild;
 	private Campaign camp6TypeParent;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

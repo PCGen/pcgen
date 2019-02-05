@@ -22,6 +22,8 @@
  * $$id$$
  */
 package pcgen.core.levelability;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -51,9 +53,9 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.TestHelper;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * Tests for Level Ability Class Skills
@@ -66,7 +68,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	boolean firstTime = true;
 
 	@Override
-	@Before
+	@BeforeEach
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -92,7 +94,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	}
 
 	@Override
-	@After
+	@AfterEach
 	protected void tearDown() throws Exception
 	{
 		pcClass = null;

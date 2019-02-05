@@ -16,6 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.prereq;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -33,6 +35,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Test;
+
 
 public class PreEquipTest extends AbstractCharacterTestCase
 {
@@ -40,6 +44,7 @@ public class PreEquipTest extends AbstractCharacterTestCase
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
+	@Test
 	public void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();

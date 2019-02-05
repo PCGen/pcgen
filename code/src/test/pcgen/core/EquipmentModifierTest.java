@@ -37,19 +37,19 @@ import org.junit.jupiter.api.Test;
 /**
  * Equipment Modifer Test 
  */
-public class EquipmentModifierTest
+class EquipmentModifierTest
 {
 	/**
 	 * Starts the system plugins.
 	 */
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 	}

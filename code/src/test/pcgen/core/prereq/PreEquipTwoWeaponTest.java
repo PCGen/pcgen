@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -32,6 +35,8 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreEquipTwoWeaponTest} tests that the PREEQUIPTWOWEAPON tag is
  * working correctly.
@@ -42,6 +47,7 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
+	@Test
 	public void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -77,6 +83,7 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 	/**
 	 * Test equipment type tests.
 	 */
+	@Test
 	public void testType()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -112,6 +119,7 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 	/**
 	 * Test wield category tests.
 	 */
+	@Test
 	public void testWield()
 	{
 		final PlayerCharacter character = getCharacter();

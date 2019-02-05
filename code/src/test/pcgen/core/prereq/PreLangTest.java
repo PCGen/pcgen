@@ -16,6 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.prereq;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -27,6 +29,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreLangTest} tests that the PRELANG tag is
@@ -43,6 +48,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testLang() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -87,6 +93,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 			prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

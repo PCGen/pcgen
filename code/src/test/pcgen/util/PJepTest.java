@@ -18,6 +18,9 @@
  */
 package pcgen.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 import java.util.Iterator;
 
 import pcgen.AbstractCharacterTestCase;
@@ -26,6 +29,7 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.Test;
 import org.nfunk.jep.SymbolTable;
 
 /**
@@ -33,6 +37,7 @@ import org.nfunk.jep.SymbolTable;
  */
 public class PJepTest extends AbstractCharacterTestCase
 {
+	@Test
 	public void testMin()
 	{
 		final PJEP jep = new PJEP();
@@ -43,6 +48,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("min", 1.0, value, 0.001);
 	}
 
+	@Test
 	public void testMax1()
 	{
 		final PJEP jep = new PJEP();
@@ -53,6 +59,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("max", 8.0, value, 0.001);
 	}
 
+	@Test
 	public void testMax2()
 	{
 		final PJEP jep = new PJEP();
@@ -63,6 +70,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertFalse(jep.hasError());
 	}
 
+	@Test
 	public void testFloor1()
 	{
 		final PJEP jep = new PJEP();
@@ -73,6 +81,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("floor", 5.0, value, 0.001);
 	}
 
+	@Test
 	public void testFloor2()
 	{
 		final PJEP jep = new PJEP();
@@ -83,6 +92,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("floor", -6.0, value, 0.001);
 	}
 
+	@Test
 	public void testCeil1()
 	{
 		final PJEP jep = new PJEP();
@@ -93,6 +103,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("ceil", 6.0, value, 0.001);
 	}
 
+	@Test
 	public void testCeil2()
 	{
 		final PJEP jep = new PJEP();
@@ -103,6 +114,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("ceil", -5.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf()
 	{
 		final PJEP jep = new PJEP();
@@ -113,6 +125,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 9.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf2()
 	{
 		final PJEP jep = new PJEP();
@@ -123,6 +136,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 7.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf3()
 	{
 		final PJEP jep = new PJEP();
@@ -133,6 +147,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 29.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf4()
 	{
 		final PJEP jep = new PJEP();
@@ -143,6 +158,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 1.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf5()
 	{
 		final PJEP jep = new PJEP();
@@ -153,6 +169,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 5, value, 0.001);
 	}
 
+	@Test
 	public void testIf6()
 	{
 		final PJEP jep = new PJEP();
@@ -163,6 +180,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 5, value, 0.001);
 	}
 
+	@Test
 	public void testIf7()
 	{
 		final PJEP jep = new PJEP();
@@ -173,6 +191,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", -5, value, 0.001);
 	}
 
+	@Test
 	public void testIf8()
 	{
 		final PJEP jep = new PJEP();
@@ -185,6 +204,7 @@ public class PJepTest extends AbstractCharacterTestCase
 
 	}
 
+	@Test
 	public void testIf9()
 	{
 		final PJEP jep = new PJEP();
@@ -203,6 +223,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals(-1, jep.getValue(), 0.1);
 	}
 
+	@Test
 	public void testIf10()
 	{
 		final PJEP jep = new PJEP();
@@ -214,6 +235,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals(-1, jep.getValue(), 0.1);
 	}
 
+	@Test
 	public void testIf11()
 	{
 		final PJEP jep = new PJEP();
@@ -225,6 +247,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals(0, jep.getValue(), 0.1);
 	}
 
+	@Test
 	public void testIf12()
 	{
 		final PJEP jep = new PJEP();
@@ -238,8 +261,10 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertFalse(jep.hasError());
 
 		assertEquals(-2, jep.getValue(), 0.1);
+
 	}
 
+	@Test
 	public void testJepIf()
 	{
 		final PlayerCharacter character = new PlayerCharacter();

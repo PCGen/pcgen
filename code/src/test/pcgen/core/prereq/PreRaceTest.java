@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,6 +31,8 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.Test;
+
 
 @SuppressWarnings("nls")
 public class PreRaceTest extends AbstractCharacterTestCase
@@ -35,6 +40,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to ensure that we return false when races don't match.
 	 */
+	@Test
 	public void testFail()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -57,6 +63,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to make sure we return false when race is equal but NOT is specified.
 	 */
+	@Test
 	public void testNeqFails()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -79,6 +86,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to make sure that NOT returns true if races don't match.
 	 */
+	@Test
 	public void testNeqPasses()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -101,6 +109,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to make sure that we return true when races are equal.
 	 */
+	@Test
 	public void testPass()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -122,6 +131,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to make sure that we return true when races are equal using ServesAs.
 	 */
+	@Test
 	public void testPassServesAsName()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -147,7 +157,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		assertTrue("Expected prereq " + prereq + " to pass for race " + fake
 			+ " with SERVESAS", passes);
 	}
-	
+
+	@Test
 	public void testRaceTypeEq()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -166,7 +177,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(prereq + " should pass", passes);
 	}
-	
+
+	@Test
 	public void testRaceTypeNeq()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -193,6 +205,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to make sure that we return true when races RACESUBTYPE are equal using ServesAs.
 	 */
+	@Test
 	public void testPassServesAsRaceSubType()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -252,6 +265,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to make sure that we return true when races RACETYPE are equal using ServesAs.
 	 */
+	@Test
 	public void testPassServesAsRaceType()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -295,6 +309,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	/**
 	 * Test to make sure that we return true when races TYPE are equal.
 	 */
+	@Test
 	public void testPassServesAsType()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -337,6 +352,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that PRERACE with wildcarded names functions 
 	 * correctly with SERVESAS
 	 */
+	@Test
 	public void testPassServesAsNameWildcard()
 	{
 		final PlayerCharacter character = getCharacter();

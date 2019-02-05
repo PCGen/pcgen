@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -25,6 +28,9 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreRuleTest} checks the function of the rule
  * prereq tester.
@@ -32,6 +38,7 @@ import plugin.pretokens.parser.PreRuleParser;
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -44,6 +51,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		gameMode.getModeContext().getReferenceContext().importObject(preRule);
 	}
 
+	@Test
 	public void testRule() throws Exception
 	{
 		// if ruleEnabled is launch before disabled, the disabled assert are wrong.

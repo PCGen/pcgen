@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
@@ -26,6 +29,9 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreFactSetTest} tests that the PREFACTSET tag is
  * working correctly.
@@ -33,6 +39,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class PreFactSetTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -47,6 +54,7 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testFact() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -62,18 +70,18 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Roman");
 
-		assertFalse("Character's deity should not match requirement", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character's deity should not match requirement");
 
 		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=War");
 
-		assertTrue("Character's deity should match pantheon", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character's deity should match pantheon");
 
 		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Greek");
 
-		assertTrue("Character's deity should match pantheon", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character's deity should match pantheon");
 	}
 
 	@Override
