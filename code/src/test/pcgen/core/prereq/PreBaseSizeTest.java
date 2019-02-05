@@ -16,6 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.prereq;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -33,6 +35,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreBaseSizeTest} tests that the PREBASESIZE tag is
  * working correctly.
@@ -48,6 +53,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testBaseSize() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -97,6 +103,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testModBaseSize() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -147,6 +154,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testBaseSizePlusMod() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -197,6 +205,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

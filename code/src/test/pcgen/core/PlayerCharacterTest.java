@@ -17,6 +17,12 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.awt.HeadlessException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -386,9 +392,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(giantRace);
 		character.incrementClassLevel(4, giantClass, true);
 
-		assertEquals(15.0f, character.getVariableValue("GiantVar1",
+		assertEquals(15.0f, (float)character.getVariableValue("GiantVar1",
 			"CLASS:Giant"));
-		assertEquals(8.0f, character.getVariableValue("GiantClass1",
+		assertEquals(8.0f, (float)character.getVariableValue("GiantClass1",
 			"CLASS:Giant"));
 
 	}

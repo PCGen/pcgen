@@ -17,6 +17,8 @@
  */
 package pcgen.io.migration;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
@@ -25,6 +27,9 @@ import pcgen.core.EquipmentList;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
 import pcgen.util.TestHelper;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code EquipSetMigrationTest} verifies the EquipSetMigration
@@ -39,6 +44,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	private final int[] preOrderedVer = {6, 0, 1};
 	private final int[] postOrderedVer = {6, 1, 3};
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -53,6 +59,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
+	@Test
 	public void testMigrateEquipSetsNoEquip()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -63,6 +70,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
+	@Test
 	public void testMigrateEquipSetsSimpleEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -97,6 +105,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#renumberEquipmentSets(pcgen.core.PlayerCharacter)}.
 	 */
+	@Test
 	public void testRenumberEquipmentSetsNestedEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -132,6 +141,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#renumberEquipmentSets(pcgen.core.PlayerCharacter)}.
 	 */
+	@Test
 	public void testRenumberEquipmentSetsMultipleEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -183,6 +193,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
+	@Test
 	public void testMigrateEquipSetsNoMigrate()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -214,7 +225,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		verifyEquipSet(migratedList.get(3), "0.1.4", eqItemThree);
 	}
 	
-	private void verifyEquipSet(EquipSet equipSet, String expectedIdPath, Equipment expectedItem)
+	private static void verifyEquipSet(EquipSet equipSet, String expectedIdPath, Equipment expectedItem)
 	{
 		assertEquals("Unexpected item", expectedItem, equipSet.getItem());
 		assertEquals("Unexpected path", expectedIdPath, equipSet.getIdPath());
@@ -229,8 +240,8 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * @param id The set to add the item to
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet equipItem(PlayerCharacter pc, 
-		Equipment item, float qty, String locName, String id)
+	private static EquipSet equipItem(PlayerCharacter pc,
+	                                  Equipment item, float qty, String locName, String id)
 	{
 		EquipSet newSet = new EquipSet(id, locName, item.getName(), item);
 		item.setQty(qty);

@@ -17,6 +17,9 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,6 +31,8 @@ import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 /**
@@ -58,6 +63,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	private PCClass npcClass2;
 	private PCClass companionClass;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -158,6 +164,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class level 1 => CR 1/2
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassLevel1() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -170,6 +177,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class level 2 => CR 1/4
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassLevel2() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -182,6 +190,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 1 => CR 1/3
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassLevel1() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -194,6 +203,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 2 => CR 1/2
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassLevel2() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -206,6 +216,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 3 => CR 1
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassLevel3() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -219,6 +230,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class multiclass level 4/4 => CR 7
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testMultiClassPCLevel4PCLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -232,6 +244,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class multiclass level 4/4 => CR 6
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testMultiClassNPCLevel4NPCLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -245,6 +258,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC/PC class multiclass level 4/4 => CR 7
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testMultiClassNPCLevel4PCLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -259,6 +273,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 1, kobold (CRMOD:NPC|-3) => CR 1/4
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassKoboldLevel1() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -271,6 +286,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 2, kobold (CRMOD:NPC|-3) => CR 1/3
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassKoboldLevel2() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -283,6 +299,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 3, kobold (CRMOD:NPC|-3) => CR 1/2
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassKoboldLevel3() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -295,6 +312,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 4, kobold (CRMOD:NPC|-3) => CR 1
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassKoboldLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -307,6 +325,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class level 4, kobold (CRMOD:NPC|-3) => CR 3
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassKoboldLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -320,6 +339,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class level 4, drow noble (CRMOD:PC.NPC|0) => CR 4
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassDrowNobleLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -332,6 +352,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test NPC class level 4, drow noble (CRMOD:PC.NPC|0) => CR 4
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testNPCClassDrowNobleLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -344,6 +365,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class key level 4 babau => CR 10
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassBabauKeyLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -356,6 +378,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class key level 4 babau => CR 8
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassBabauNonKeyLevel4() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -367,6 +390,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class key level 10 babau => CR 13
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassBabauNonKeyLevel10() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -379,6 +403,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class key level 8 dryad => CR 15
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassDyradKeyLevel8() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -390,6 +415,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test PC class non key level 8 dryad => CR 11
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPCClassDryadNonKeyLevel8() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -402,6 +428,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test Companion => CR 0
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testCompanion() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -414,6 +441,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test zombie => CR 1/2
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testZombie() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -424,6 +452,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test dire rat => CR 1/3
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testDireRat() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -434,6 +463,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test mite => CR 1/4
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testMite() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -444,6 +474,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test beetle => CR 1/6
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testBeetle() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -454,6 +485,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 * Test centipede => CR 1/8
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testCentipede() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();

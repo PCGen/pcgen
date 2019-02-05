@@ -17,6 +17,11 @@
  */
 package pcgen.gui2.facade;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMReference;
@@ -41,6 +46,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
@@ -52,6 +58,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	private CompanionList companionList;
 	private TodoManager todoManager;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

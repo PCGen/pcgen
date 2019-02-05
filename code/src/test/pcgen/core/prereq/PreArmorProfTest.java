@@ -18,6 +18,10 @@
 package pcgen.core.prereq;
 
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -37,6 +41,9 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreArmorProfTest} tests that the PREARMORPROF tag is
  * working correctly.
@@ -48,6 +55,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testOneOption() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -89,6 +97,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -129,6 +138,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -156,6 +166,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testInverse() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -198,6 +209,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testArmorProfAddedWithAutoArmorProf() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -240,6 +252,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testWithFeatThatGrantsBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -289,7 +302,8 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 					);
 	
 	}
-	
+
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

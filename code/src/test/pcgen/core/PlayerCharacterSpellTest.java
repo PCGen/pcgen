@@ -17,6 +17,8 @@
  */
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
@@ -35,6 +37,9 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code PlayerCharacterSpellTest} checks the function of spell related
  * code in PlayerCharacter and associated objects.
@@ -51,6 +56,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	private Spell domainSpell;
 	private PCClass divineClass;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -93,6 +99,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 * Test that domain spell lists are built and managed correctly.
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testDomainSpell() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -112,6 +119,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 * Test that class spell lists are built and managed correctly.
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPcClassSpell() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();

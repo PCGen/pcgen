@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.helper;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -38,8 +40,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * This class tests the handling of ASPECT fields in PCGen
- * 
- * 
  */
 @SuppressWarnings("nls")
 public class AspectTest extends AbstractCharacterTestCase

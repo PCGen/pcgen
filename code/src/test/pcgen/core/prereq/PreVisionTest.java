@@ -4,6 +4,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
@@ -13,11 +16,14 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 import pcgen.util.enumeration.VisionType;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Tests PREVISION token
  */
 public class PreVisionTest extends AbstractCharacterTestCase
 {
+	@Test
 	public void testVision2Pass()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -46,7 +52,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	
+	@Test
 	public void testVisionFail()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -68,7 +74,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	
+	@Test
 	public void testVisionPass()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -90,7 +96,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	
+	@Test
 	public void testVisionPresentTen()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -116,7 +122,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	
+	@Test
 	public void testVisionNotPresentTen()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -142,7 +148,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	
+	@Test
 	public void testVisionPresentZero()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -167,6 +173,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+	@Test
 	public void testVisionNotPresentZero()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -192,7 +199,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	
+	@Test
 	public void testVisionZeroTen()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -217,7 +224,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	
+	@Test
 	public void testVisionNotZeroTen()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -243,7 +250,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	
+	@Test
 	public void testVisionZeroZero()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -268,7 +275,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-
+	@Test
 	public void testVisionNotZeroZero()
 	{
 		final PlayerCharacter character = getCharacter();

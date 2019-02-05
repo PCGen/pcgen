@@ -17,12 +17,17 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreHandsTest} tests that the PREHANDS tag is
@@ -35,6 +40,7 @@ public class PreHandsTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testHands() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();

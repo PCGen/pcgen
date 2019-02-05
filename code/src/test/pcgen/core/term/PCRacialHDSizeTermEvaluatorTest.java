@@ -17,6 +17,8 @@
  */
 package pcgen.core.term;
 
+import static org.junit.Assert.assertEquals;
+
 import java.net.URI;
 
 import pcgen.AbstractCharacterTestCase;
@@ -39,6 +41,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
  * PCRacialHDSizeTermEvaluatorTest checks the function of the RACIALHDSIZE variable.
  * 
@@ -52,6 +56,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	Race humanRace = new Race();
 	PCRacialHDSizeTermEvaluator eval = new PCRacialHDSizeTermEvaluator("RACIALHDSIZE");
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

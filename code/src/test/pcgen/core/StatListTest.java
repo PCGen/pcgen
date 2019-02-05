@@ -18,6 +18,8 @@
 
 package pcgen.core;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
@@ -30,6 +32,7 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * {@code StatListTest} checks the function of the
@@ -42,6 +45,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	Ability bonus;
 	Ability lockedBonus;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

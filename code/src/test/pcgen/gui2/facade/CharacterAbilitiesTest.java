@@ -17,6 +17,11 @@
  */
 package pcgen.gui2.facade;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -32,6 +37,7 @@ import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 /**
  * The Class {@code CharacterAbilitiesTest} verifies the operation of the
@@ -111,7 +117,8 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Should have found reading", reading, abilityFromList);
 		
 	}
-	
+
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

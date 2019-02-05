@@ -17,8 +17,9 @@
  */
 package plugin.jepcommands;
 
-import static org.hamcrest.Matchers.closeTo;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.closeTo;
+import static org.junit.Assert.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -31,6 +32,9 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code CountDistinctCommandTest} tests the functioning of the jep
  * countdistinct plugin
@@ -38,6 +42,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class CountDistinctCommandTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -437,6 +442,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	//        assertThat(s, character.getVariableValue(s,""), closeTo(6.0, 0.1));
 	//    }
 
+	@Test
 	public void testCountAbilitiesByName()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -475,6 +481,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		assertThat(s + " three choices", (double) character.getVariableValue(s, ""), closeTo(1.0, 0.1));
 	}
 
+	@Test
 	public void testCountAbilitiesByKey()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -526,6 +533,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	 * Check that a count call for a not directly supported type falls through 
 	 * to CountCommand.
 	 */
+	@Test
 	public void testCountClassesFallThrough()
 	{
 		final PlayerCharacter character = getCharacter();

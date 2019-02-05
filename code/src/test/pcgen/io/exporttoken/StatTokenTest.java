@@ -34,6 +34,10 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code StatTokenTest} tests the functioning of the STAT token.
  */
@@ -48,6 +52,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	PCTemplate template3;
 	PCTemplate template4;
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -110,23 +115,24 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	 * Test out the stacking of bonuses particularly when NOEUIP or NOTEMP
 	 * are used.  
 	 */
+	@Test
 	public void testBonusStacking()
 	{
 		PlayerCharacter pc = getCharacter();
 		StatToken statTok = new StatToken();
 
 		setPCStat(pc, dex, 10);
-		assertEquals("Stat Name.", "DEX", statTok.getToken("STAT.1.NAME", pc,
-			null));
-		assertEquals("Total stat.", "10", statTok.getToken("STAT.1", pc, null));
-		assertEquals("Temp stat.", "10", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "10", statTok.getToken("STAT.1.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "10", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "10", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
+		Assertions.assertEquals("DEX", statTok.getToken("STAT.1.NAME", pc,
+			null), "Stat Name.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("10", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("10", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "Base stat.");
 
 		pc.addEquipment(boots);
 		EquipSet es = new EquipSet("0.1", "Equipped");
@@ -136,76 +142,77 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.setCalcEquipmentList();
 		pc.calcActiveBonuses();
 
-		assertEquals("Total stat.", "12", statTok.getToken("STAT.1", pc, null));
-		assertEquals("Temp stat.", "10", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "12", statTok.getToken("STAT.1.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "10", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "10", statTok.getToken("STAT.1.BASE", pc,
-			null));
+		Assertions.assertEquals("12", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.1.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("10", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.BASE", pc,
+			null), "Base stat.");
 
 		pc.setUseTempMods(true);
 		BonusObj bonus = spell.getRawBonusList(pc).get(0);
 		pc.addTempBonus(bonus, spell, pc);
 		pc.calcActiveBonuses();
-		assertEquals("Total stat.", "14", statTok.getToken("STAT.1", pc, null));
-		assertEquals("Temp stat.", "14", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "12", statTok.getToken("STAT.1.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "10", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "10", statTok.getToken("STAT.1.BASE", pc,
-			null));
+		Assertions.assertEquals("14", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		Assertions.assertEquals("14", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.1.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("10", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.BASE", pc,
+			null), "Base stat.");
 
 		pc.addTemplate(template1);
 		pc.calcActiveBonuses();
-		assertEquals("Total stat.", "15", statTok.getToken("STAT.1", pc, null));
-		assertEquals("Temp stat.", "15", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "13", statTok.getToken("STAT.1.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "11", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "10", statTok.getToken("STAT.1.BASE", pc,
-			null));
+		Assertions.assertEquals("15", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		Assertions.assertEquals("15", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("13", statTok.getToken("STAT.1.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("11", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.BASE", pc,
+			null), "Base stat.");
 
 		pc.addTemplate(template2);
 		pc.calcActiveBonuses();
-		assertEquals("Total stat.", "15", statTok.getToken("STAT.1", pc, null));
-		assertEquals("Temp stat.", "15", statTok.getToken("STAT.1.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "13", statTok.getToken("STAT.1.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "12", statTok.getToken(
-			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "10", statTok.getToken("STAT.1.BASE", pc,
-			null));
+		Assertions.assertEquals("15", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		Assertions.assertEquals("15", statTok.getToken("STAT.1.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("13", statTok.getToken("STAT.1.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("12", statTok.getToken(
+			"STAT.1.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.BASE", pc,
+			null), "Base stat.");
 	}
 
 	/**
 	 * Test out the processing of stat mods, including stacking issues.  
 	 */
+	@Test
 	public void testStatMods()
 	{
 		PlayerCharacter pc = getCharacter();
 		StatToken statTok = new StatToken();
 
 		setPCStat(pc, dex, 10);
-		assertEquals("Stat Name.", "DEX", statTok.getToken("STAT.1.NAME", pc,
-			null));
-		assertEquals("Total stat.", "+0", statTok.getToken("STAT.1.MOD", pc,
-			null));
-		assertEquals("Temp stat.", "+0", statTok.getToken("STAT.1.MOD.NOEQUIP",
-			pc, null));
-		assertEquals("Equip stat.", "+0", statTok.getToken("STAT.1.MOD.NOTEMP",
-			pc, null));
-		assertEquals("No equip/temp stat.", "+0", statTok.getToken(
-			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "+0", statTok.getToken(
-			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null));
+		Assertions.assertEquals("DEX", statTok.getToken("STAT.1.NAME", pc,
+			null), "Stat Name.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.MOD", pc,
+			null), "Total stat.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.MOD.NOEQUIP",
+			pc, null), "Temp stat.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.MOD.NOTEMP",
+			pc, null), "Equip stat.");
+		Assertions.assertEquals("+0", statTok.getToken(
+			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("+0", statTok.getToken(
+			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null), "Base stat.");
 
 		pc.addEquipment(boots);
 		EquipSet es = new EquipSet("0.1", "Equipped");
@@ -215,63 +222,64 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.setCalcEquipmentList();
 		pc.calcActiveBonuses();
 
-		assertEquals("Total stat.", "+1", statTok.getToken("STAT.1.MOD", pc,
-			null));
-		assertEquals("Temp stat.", "+0", statTok.getToken("STAT.1.MOD.NOEQUIP",
-			pc, null));
-		assertEquals("Equip stat.", "+1", statTok.getToken("STAT.1.MOD.NOTEMP",
-			pc, null));
-		assertEquals("No equip/temp stat.", "+0", statTok.getToken(
-			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "+0", statTok.getToken("STAT.1.BASEMOD", pc,
-			null));
+		Assertions.assertEquals("+1", statTok.getToken("STAT.1.MOD", pc,
+			null), "Total stat.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.MOD.NOEQUIP",
+			pc, null), "Temp stat.");
+		Assertions.assertEquals("+1", statTok.getToken("STAT.1.MOD.NOTEMP",
+			pc, null), "Equip stat.");
+		Assertions.assertEquals("+0", statTok.getToken(
+			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.BASEMOD", pc,
+			null), "Base stat.");
 
 		pc.setUseTempMods(true);
 		BonusObj bonus = spell.getRawBonusList(pc).get(0);
 		pc.addTempBonus(bonus, spell, pc);
 		pc.calcActiveBonuses();
-		assertEquals("Total stat.", "+2", statTok.getToken("STAT.1.MOD", pc,
-			null));
-		assertEquals("Temp stat.", "+2", statTok.getToken("STAT.1.MOD.NOEQUIP",
-			pc, null));
-		assertEquals("Equip stat.", "+1", statTok.getToken("STAT.1.MOD.NOTEMP",
-			pc, null));
-		assertEquals("No equip/temp stat.", "+0", statTok.getToken(
-			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "+0", statTok.getToken("STAT.1.BASEMOD", pc,
-			null));
+		Assertions.assertEquals("+2", statTok.getToken("STAT.1.MOD", pc,
+			null), "Total stat.");
+		Assertions.assertEquals("+2", statTok.getToken("STAT.1.MOD.NOEQUIP",
+			pc, null), "Temp stat.");
+		Assertions.assertEquals("+1", statTok.getToken("STAT.1.MOD.NOTEMP",
+			pc, null), "Equip stat.");
+		Assertions.assertEquals("+0", statTok.getToken(
+			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.BASEMOD", pc,
+			null), "Base stat.");
 
 		pc.addTemplate(template1);
 		pc.calcActiveBonuses();
-		assertEquals("Total stat.", "+2", statTok.getToken("STAT.1.MOD", pc,
-			null));
-		assertEquals("Temp stat.", "+2", statTok.getToken("STAT.1.MOD.NOEQUIP",
-			pc, null));
-		assertEquals("Equip stat.", "+1", statTok.getToken("STAT.1.MOD.NOTEMP",
-			pc, null));
-		assertEquals("No equip/temp stat.", "+0", statTok.getToken(
-			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "+0", statTok.getToken("STAT.1.BASEMOD", pc,
-			null));
+		Assertions.assertEquals("+2", statTok.getToken("STAT.1.MOD", pc,
+			null), "Total stat.");
+		Assertions.assertEquals("+2", statTok.getToken("STAT.1.MOD.NOEQUIP",
+			pc, null), "Temp stat.");
+		Assertions.assertEquals("+1", statTok.getToken("STAT.1.MOD.NOTEMP",
+			pc, null), "Equip stat.");
+		Assertions.assertEquals("+0", statTok.getToken(
+			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.BASEMOD", pc,
+			null), "Base stat.");
 
 		pc.addTemplate(template2);
 		pc.calcActiveBonuses();
-		assertEquals("Total stat.", "+2", statTok.getToken("STAT.1.MOD", pc,
-			null));
-		assertEquals("Temp stat.", "+2", statTok.getToken("STAT.1.MOD.NOEQUIP",
-			pc, null));
-		assertEquals("Equip stat.", "+1", statTok.getToken("STAT.1.MOD.NOTEMP",
-			pc, null));
-		assertEquals("No equip/temp stat.", "+1", statTok.getToken(
-			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("Base stat.", "+0", statTok.getToken("STAT.1.BASEMOD", pc,
-			null));
+		Assertions.assertEquals("+2", statTok.getToken("STAT.1.MOD", pc,
+			null), "Total stat.");
+		Assertions.assertEquals("+2", statTok.getToken("STAT.1.MOD.NOEQUIP",
+			pc, null), "Temp stat.");
+		Assertions.assertEquals("+1", statTok.getToken("STAT.1.MOD.NOTEMP",
+			pc, null), "Equip stat.");
+		Assertions.assertEquals("+1", statTok.getToken(
+			"STAT.1.MOD.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
+		Assertions.assertEquals("+0", statTok.getToken("STAT.1.BASEMOD", pc,
+			null), "Base stat.");
 	}
 
 	/**
 	 * Test out the output of stats as at a particular level, including 
 	 * stacking issues.  
 	 */
+	@Test
 	public void testLevelStat()
 	{
 		StatToken statTok = new StatToken();
@@ -293,11 +301,11 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.saveStatIncrease(dex, 1, false);
 		setPCStat(pc, dex, 14);
 
-		assertEquals("Total stat.", "14", statTok.getToken("STAT.1", pc, null));
-		assertEquals("Level 1 stat.", "10", statTok.getToken("STAT.1.LEVEL.1",
-			pc, null));
-		assertEquals("Level 2 stat.", "11", statTok.getToken(
-			"STAT.1.LEVEL.2.NOPOST", pc, null));
+		Assertions.assertEquals("14", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.1.LEVEL.1",
+			pc, null), "Level 1 stat.");
+		Assertions.assertEquals("11", statTok.getToken(
+			"STAT.1.LEVEL.2.NOPOST", pc, null), "Level 2 stat.");
 
 		pc.addEquipment(boots);
 		EquipSet es = new EquipSet("0.1", "Equipped");
@@ -312,70 +320,71 @@ public class StatTokenTest extends AbstractCharacterTestCase
 		pc.addTempBonus(bonus, spell, pc);
 		pc.calcActiveBonuses();
 
-		assertEquals("Total stat.", "18", statTok.getToken("STAT.1", pc, null));
-		assertEquals("Level 1 stat.", "14", statTok.getToken("STAT.1.LEVEL.1",
-			pc, null));
-		assertEquals("Level 1 stat.", "14", statTok.getToken(
-			"STAT.1.LEVEL.1.NOEQUIP", pc, null));
-		assertEquals("Level 1 stat.", "12", statTok.getToken(
-			"STAT.1.LEVEL.1.NOTEMP", pc, null));
-		assertEquals("Level 1 stat.", "10", statTok.getToken(
-			"STAT.1.LEVEL.1.NOEQUIP.NOTEMP", pc, null));
+		Assertions.assertEquals("18", statTok.getToken("STAT.1", pc, null), "Total stat.");
+		Assertions.assertEquals("14", statTok.getToken("STAT.1.LEVEL.1",
+			pc, null), "Level 1 stat.");
+		Assertions.assertEquals("14", statTok.getToken(
+			"STAT.1.LEVEL.1.NOEQUIP", pc, null), "Level 1 stat.");
+		Assertions.assertEquals("12", statTok.getToken(
+			"STAT.1.LEVEL.1.NOTEMP", pc, null), "Level 1 stat.");
+		Assertions.assertEquals("10", statTok.getToken(
+			"STAT.1.LEVEL.1.NOEQUIP.NOTEMP", pc, null), "Level 1 stat.");
 	}
 
 	/**
 	 * Test out the way in which locked stats are reported.
 	 */
+	@Test
 	public void testLockedStats()
 	{
 		PlayerCharacter pc = getCharacter();
 		StatToken statTok = new StatToken();
 
 		setPCStat(pc, wis, 10);
-		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
-			null));
-		assertEquals("Total stat.", "10", statTok.getToken("STAT.4", pc, null));
-		assertEquals("Temp stat.", "10", statTok.getToken("STAT.4.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "10", statTok.getToken("STAT.4.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "10", statTok.getToken(
-			"STAT.4.NOEQUIP.NOTEMP", pc, null));
+		Assertions.assertEquals("WIS", statTok.getToken("STAT.4.NAME", pc,
+			null), "Stat Name.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.4", pc, null), "Total stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("10", statTok.getToken("STAT.4.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("10", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
 
 		pc.addTemplate(template3);
 		pc.calcActiveBonuses();
-		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
-			null));
-		assertEquals("Total stat.", "12", statTok.getToken("STAT.4", pc, null));
-		assertEquals("Temp stat.", "12", statTok.getToken("STAT.4.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "12", statTok.getToken("STAT.4.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "12", statTok.getToken(
-			"STAT.4.NOEQUIP.NOTEMP", pc, null));
+		Assertions.assertEquals("WIS", statTok.getToken("STAT.4.NAME", pc,
+			null), "Stat Name.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.4", pc, null), "Total stat.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.4.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("12", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
 
 		pc.addTemplate(template4);
 		pc.calcActiveBonuses();
-		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
-			null));
-		assertEquals("Total stat.", "12", statTok.getToken("STAT.4", pc, null));
-		assertEquals("Temp stat.", "12", statTok.getToken("STAT.4.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "12", statTok.getToken("STAT.4.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "12", statTok.getToken(
-			"STAT.4.NOEQUIP.NOTEMP", pc, null));
+		Assertions.assertEquals("WIS", statTok.getToken("STAT.4.NAME", pc,
+			null), "Stat Name.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.4", pc, null), "Total stat.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("12", statTok.getToken("STAT.4.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("12", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
 
 		pc.removeTemplate(template3);
 		pc.calcActiveBonuses();
-		assertEquals("Stat Name.", "WIS", statTok.getToken("STAT.4.NAME", pc,
-			null));
-		assertEquals("Total stat.", "2", statTok.getToken("STAT.4", pc, null));
-		assertEquals("Temp stat.", "2", statTok.getToken("STAT.4.NOEQUIP", pc,
-			null));
-		assertEquals("Equip stat.", "2", statTok.getToken("STAT.4.NOTEMP", pc,
-			null));
-		assertEquals("No equip/temp stat.", "2", statTok.getToken(
-			"STAT.4.NOEQUIP.NOTEMP", pc, null));
+		Assertions.assertEquals("WIS", statTok.getToken("STAT.4.NAME", pc,
+			null), "Stat Name.");
+		Assertions.assertEquals("2", statTok.getToken("STAT.4", pc, null), "Total stat.");
+		Assertions.assertEquals("2", statTok.getToken("STAT.4.NOEQUIP", pc,
+			null), "Temp stat.");
+		Assertions.assertEquals("2", statTok.getToken("STAT.4.NOTEMP", pc,
+			null), "Equip stat.");
+		Assertions.assertEquals("2", statTok.getToken(
+			"STAT.4.NOEQUIP.NOTEMP", pc, null), "No equip/temp stat.");
 	}
 }

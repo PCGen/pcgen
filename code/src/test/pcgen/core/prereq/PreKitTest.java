@@ -17,23 +17,28 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import plugin.pretokens.test.PreKitTester;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * PreKitTest verifies the behaviour of PREKIT processing.
- * 
- * 
  */
-public class PreKitTest extends AbstractCharacterTestCase
+class PreKitTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Ensure a character with a kit correctly passes
 	 * PREKIT
 	 */
+	@Test
 	public void testKitPresence()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -56,6 +61,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure that a character with no templates correctly
 	 * passes !PRETEMPLATE
 	 */
+	@Test
 	public void testKitAbsence()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -74,6 +80,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure that a character with kits, but not the
 	 * required kit correctly passes !PREKIT
 	 */
+	@Test
 	public void testSpecificKitAbsent()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -96,6 +103,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure a character with the requested kit correctly fails
 	 * !PREKIT
 	 */
+	@Test
 	public void testNotAbsent()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -118,6 +126,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure a character with the requested kit correctly passes
 	 * a wildcard test
 	 */
+	@Test
 	public void testWildcard()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -140,6 +149,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure a test with a non integer operand fails with a meaningfull
 	 * error message
 	 */
+	@Test
 	public void testBadOperand()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -154,6 +164,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void testKindHandled()
 	{
 		final PreKitTester preKit = new PreKitTester();

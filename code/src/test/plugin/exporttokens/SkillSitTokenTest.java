@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -39,12 +41,17 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class SkillSitTokenTest extends AbstractCharacterTestCase
 {
 	private Skill balance = null;
 	private Skill[] knowledge = null;
 	private Skill tumble = null;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -146,6 +153,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 	}
 
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -160,6 +168,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILL token.
 	 */
+	@Test
 	public void testSkillToken()
 	{
 		PlayerCharacter character = getCharacter();
