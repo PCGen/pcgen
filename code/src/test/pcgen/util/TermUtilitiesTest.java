@@ -1,15 +1,17 @@
 package pcgen.util;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.term.TermEvaulatorException;
 
+import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
@@ -29,7 +31,7 @@ import org.junit.Test;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-public class TermUtilitiesTest
+class TermUtilitiesTest
 {
 	/**
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
@@ -37,18 +39,10 @@ public class TermUtilitiesTest
 	@Test
 	public void testcheckEqTypeTypesArray01()
 	{
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = {"EQUIPPED"};
+		String[] types = {"EQUIPPED"};
+		assertDoesNotThrow(() -> {
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		assertTrue("EqtypesTypesArray01 Single Type EQUIPPED", ok);
+		}, "EqtypesTypesArray01 Single Type EQUIPPED");
 	}
 
 	/**
@@ -57,18 +51,10 @@ public class TermUtilitiesTest
 	@Test
 	public void testcheckEqTypeTypesArray02()
 	{
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = {"NOTEQUIPPED"};
+		String[] types = {"NOTEQUIPPED"};
+		assertDoesNotThrow(() -> {
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		assertTrue("EqtypesTypesArray02 Single Type NOTEQUIPPED", ok);
+		}, "EqtypesTypesArray01 Single Type NOTEQUIPPEDZ");
 	}
 
 	/**
@@ -77,18 +63,10 @@ public class TermUtilitiesTest
 	@Test
 	public void testcheckEqTypeTypesArray03()
 	{
-		boolean ok;
-		try
-		{
-			ok = true;
+		assertThrows(TermEvaulatorException.class, () -> {
 			String[] types = {"EQUIPPED", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		assertFalse("EqtypesTypesArray03 EQUIPPED with spurious type", ok);
+		}, "EqtypesTypesArray03 EQUIPPED with spurious type");
 	}
 
 	/**
@@ -97,18 +75,10 @@ public class TermUtilitiesTest
 	@Test
 	public void testcheckEqTypeTypesArray04()
 	{
-		boolean ok;
-		try
-		{
-			ok = true;
-			String[] types = {"BAR", "NOT", "FOO"};
+		String[] types = {"BAR", "NOT", "FOO"};
+		assertDoesNotThrow(() -> {
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.NOT.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		assertTrue("EqtypesTypesArray04 Exclude FOO", ok);
+		}, "EqtypesTypesArray04 Exclude FOO");
 	}
 
 	/**
@@ -117,18 +87,10 @@ public class TermUtilitiesTest
 	@Test
 	public void testcheckEqTypeTypesArray05()
 	{
-		boolean ok;
-		try
-		{
-			ok = true;
+		assertDoesNotThrow(() ->  {
 			String[] types = {"BAR", "ADD", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.ADD.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		assertTrue("EqtypesTypesArray05 Include FOO", ok);
+		}, "EqtypesTypesArray05 Include FOO");
 	}
 
 	/**
@@ -137,18 +99,10 @@ public class TermUtilitiesTest
 	@Test
 	public void testcheckEqTypeTypesArray06()
 	{
-		boolean ok;
-		try
-		{
-			ok = true;
+		assertDoesNotThrow(() -> {
 			String[] types = {"BAR", "IS", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.IS.FOO]", types, 0);
-		}
-		catch (TermEvaulatorException e)
-		{
-			ok = false;
-		}
-		assertTrue("EqtypesTypesArray06 Only FOO", ok);
+		}, "EqtypesTypesArray06 Only FOO");
 	}
 
 	/**
@@ -168,7 +122,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("EqtypesTypesArray07 All options", ok);
+		assertTrue(ok, "EqtypesTypesArray07 All options");
 	}
 
 	/**
@@ -188,7 +142,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertFalse("EqtypesTypesArray08 All options with spurious", ok);
+		assertFalse(ok, "EqtypesTypesArray08 All options with spurious");
 	}
 
 	/**
@@ -208,7 +162,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertFalse("EquipmentTypesArray01 Single Type EQUIPPED", ok);
+		assertFalse(ok, "EquipmentTypesArray01 Single Type EQUIPPED");
 	}
 
 	/**
@@ -228,7 +182,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertFalse("EquipmentTypesArray02 Single Type NOTEQUIPPED", ok);
+		assertFalse(ok, "EquipmentTypesArray02 Single Type NOTEQUIPPED");
 	}
 
 	/**
@@ -248,7 +202,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertFalse("EquipmentTypesArray03 EQUIPPED with spurious type", ok);
+		assertFalse(ok, "EquipmentTypesArray03 EQUIPPED with spurious type");
 	}
 
 	/**
@@ -268,7 +222,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("EquipmentTypesArray04 Exclude FOO", ok);
+		assertTrue(ok, "EquipmentTypesArray04 Exclude FOO");
 	}
 
 	/**
@@ -288,7 +242,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("EquipmentTypesArray05 Include FOO", ok);
+		assertTrue(ok, "EquipmentTypesArray05 Include FOO");
 	}
 
 	/**
@@ -308,7 +262,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("EquipmentTypesArray06 Only FOO", ok);
+		assertTrue(ok, "EquipmentTypesArray06 Only FOO");
 	}
 
 	/**
@@ -328,7 +282,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("EquipmentTypesArray07 All options", ok);
+		assertTrue(ok, "EquipmentTypesArray07 All options");
 	}
 
 	/**
@@ -348,7 +302,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertFalse("EquipmentTypesArray08 All options with spurious", ok);
+		assertFalse(ok, "EquipmentTypesArray08 All options with spurious");
 	}
 
 
@@ -369,8 +323,8 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("one int is ok", ok);
-		Assert.assertThat("one int is ok:first", nums[0], Matchers.is(3));
+		assertTrue(ok, "one int is ok");
+		MatcherAssert.assertThat("one int is ok:first", nums[0], Matchers.is(3));
 	}
 
 	/**
@@ -391,7 +345,7 @@ public class TermUtilitiesTest
 			ok = false;
 		}
 
-		assertTrue("two ints is ok", ok);
+		assertTrue(ok, "two ints is ok");
 		assertArrayEquals(nums, new int[]{3, 57});
 	}
 
@@ -413,7 +367,7 @@ public class TermUtilitiesTest
 			ok = false;
 		}
 
-		assertTrue("three ints is ok", ok);
+		assertTrue(ok, "three ints is ok");
 		assertArrayEquals(nums, new int[]{3, 57, 67});
 	}
 
@@ -435,7 +389,7 @@ public class TermUtilitiesTest
 			ok = false;
 		}
 
-		assertFalse("three ints plus spurious non-int fails", ok);
+		assertFalse(ok, "three ints plus spurious non-int fails");
 	}
 
 	/**
@@ -459,8 +413,8 @@ public class TermUtilitiesTest
 			ok = false;
 		}
 
-		assertTrue("Extracts Text correctly", ok);
-		assertEquals("Text is correct ExtractContentsOfBrackets01", "MARSHMALLOWS.FOO", inside);
+		assertTrue(ok, "Extracts Text correctly");
+		assertEquals("MARSHMALLOWS.FOO", inside, "Text is correct ExtractContentsOfBrackets01");
 	}
 
 	/**
@@ -483,7 +437,7 @@ public class TermUtilitiesTest
 			ok = false;
 		}
 
-		assertFalse("Fail, no ] found", ok);
+		assertFalse(ok, "Fail, no ] found");
 	}
 
 	/**
@@ -506,7 +460,7 @@ public class TermUtilitiesTest
 			ok = false;
 		}
 
-		assertFalse("Fail, ] not the last char", ok);
+		assertFalse(ok, "Fail, ] not the last char");
 	}
 
 
@@ -528,8 +482,8 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("ConvertToIntegers: one int is ok", ok);
-		assertEquals("ConvertToIntegers: one int is ok - first", 1, nums[0]);
+		assertTrue(ok, "ConvertToIntegers: one int is ok");
+		assertEquals(1, nums[0], "ConvertToIntegers: one int is ok - first");
 	}
 
 	/**
@@ -550,7 +504,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("ConvertToIntegers: two ints is ok", ok);
+		assertTrue(ok, "ConvertToIntegers: two ints is ok");
 		assertArrayEquals(nums, new int[] {1, 2});
 	}
 
@@ -572,7 +526,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertTrue("ConvertToIntegers: three ints is ok", ok);
+		assertTrue(ok, "ConvertToIntegers: three ints is ok");
 		assertArrayEquals(nums, new int[] {1, 2, 3});
 	}
 
@@ -593,7 +547,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertFalse("ConvertToIntegers: three ints plus spurious non-int fails", ok);
+		assertFalse(ok, "ConvertToIntegers: three ints plus spurious non-int fails");
 	}
 
 	/**
@@ -613,8 +567,7 @@ public class TermUtilitiesTest
 		{
 			ok = false;
 		}
-		assertFalse("ConvertToIntegers: ask for three with four present fails", ok);
-		assertFalse("ConvertToIntegers: ask for three with four present fails", ok);
+		assertFalse(ok, "ConvertToIntegers: ask for three with four present fails");
 	}
 
 
