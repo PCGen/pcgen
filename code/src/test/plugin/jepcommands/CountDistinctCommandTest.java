@@ -41,9 +41,10 @@ import org.junit.jupiter.api.Test;
  */
 public class CountDistinctCommandTest extends AbstractCharacterTestCase
 {
+
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		final PlayerCharacter character = getCharacter();

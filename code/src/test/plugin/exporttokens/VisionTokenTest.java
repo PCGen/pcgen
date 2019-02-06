@@ -53,7 +53,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		
@@ -101,7 +101,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		Globals.getContext().getReferenceContext().forget(darkvisionT);
 		Globals.getContext().getReferenceContext().forget(lowlightT);
@@ -114,7 +114,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the list output of the vision tag.
 	 */
 	@Test
-	void testList()
+	public void testList()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("", new VisionToken().getToken(
@@ -135,7 +135,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the output of individual vision entries.
 	 */
 	@Test
-	void testPositional()
+	public void testPositional()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("", new VisionToken().getToken(
@@ -168,7 +168,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the list output of the vision tag with metric units.
 	 */
 	@Test
-	void testListMetric()
+	public void testListMetric()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(darkvisionT);

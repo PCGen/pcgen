@@ -26,7 +26,7 @@ public class PreUnarmedAttackRoundRobin extends AbstractIntegerRoundRobin
 
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreUnarmedAttackParser());

@@ -27,7 +27,7 @@ public class PreStatRoundRobin extends AbstractRankedRoundRobin
 {
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreStatParser());

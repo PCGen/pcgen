@@ -46,7 +46,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		TestHelper.makeEquipment("Item One\tTYPE:Goods\tSIZE:M");

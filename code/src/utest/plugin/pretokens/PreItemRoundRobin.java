@@ -27,7 +27,7 @@ public class PreItemRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreItemParser());

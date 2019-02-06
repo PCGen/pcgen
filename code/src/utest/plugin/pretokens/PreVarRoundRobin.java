@@ -26,7 +26,7 @@ public class PreVarRoundRobin extends AbstractComparatorRoundRobin
 
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreVariableParser());

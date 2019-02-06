@@ -55,7 +55,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -100,7 +100,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
     @Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		Globals.getContext().getReferenceContext().forget(divineClass);
 		Globals.getContext().getReferenceContext().forget(arcaneClass);

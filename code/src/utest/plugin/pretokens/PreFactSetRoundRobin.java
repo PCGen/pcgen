@@ -35,7 +35,7 @@ public class PreFactSetRoundRobin extends AbstractPreRoundRobin
 	private static final StringManager STR_MGR = new StringManager();
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreFactSetParser());

@@ -135,7 +135,7 @@ public abstract class AbstractSaveRestoreTest
 	protected CharID id;
 
 	@BeforeAll
-	public static void setUpBeforeAll()
+	public static void setUpBeforeClass()
 	{
 		TokenRegistration.register(new LevelToken());
 		TokenRegistration.register(new MinxpToken());
