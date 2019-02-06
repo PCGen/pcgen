@@ -85,7 +85,7 @@ public abstract class AbstractCharacterTestCase
 	 * @throws Exception
 	 */
 	@BeforeEach
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
@@ -229,7 +229,7 @@ public abstract class AbstractCharacterTestCase
 
 
 	@AfterEach
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		character = null;
 		context = null;
