@@ -115,7 +115,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-    public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();

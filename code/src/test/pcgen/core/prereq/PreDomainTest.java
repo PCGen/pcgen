@@ -163,7 +163,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-    public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

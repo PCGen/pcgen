@@ -90,7 +90,6 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		prereq = factory.parse("!PREPCLEVEL:MAX=3");
 		assertTrue("Character is 3rd or higher level", PrereqHandler.passes(prereq,
 				character, null));
-
 	}
 
 	/**
@@ -215,7 +214,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

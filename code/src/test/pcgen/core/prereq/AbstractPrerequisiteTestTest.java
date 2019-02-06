@@ -17,7 +17,7 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Locale;
@@ -28,10 +28,11 @@ import plugin.pretokens.test.PreWieldTester;
 
 import org.junit.jupiter.api.Test;
 
+
 class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
 	@Test
-	public void testVisionNotHandledFail()
+	void testVisionNotHandledFail()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("wield");

@@ -229,7 +229,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-    public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		deity = new Deity();

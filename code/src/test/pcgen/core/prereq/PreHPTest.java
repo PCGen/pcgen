@@ -17,6 +17,7 @@
  */
 package pcgen.core.prereq;
 
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -86,7 +87,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-    public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 
