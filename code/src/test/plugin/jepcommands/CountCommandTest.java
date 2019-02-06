@@ -97,19 +97,19 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), abArray[1], "two");
 
 		addAbility(BuildUtilities.getFeatCat(), abArray[0]);
-		for (int i = 2; 6 > i; i++)
+		for (int i = 2; i < 6; i++)
 		{
 			Ability anAbility = abArray[i];
 			addAbility(BuildUtilities.getFeatCat(), anAbility);
 		}
 
-		for (int i = 6; 12 > i; i++)
+		for (int i = 6; i < 12; i++)
 		{
 			Ability anAbility = abArray[i];
 			addAbility(bardCategory, anAbility);
 		}
 
-		for (int i = 12; 14 > i; i++)
+		for (int i = 12; i < 14; i++)
 		{
 			Ability anAbility = abArray[i];
 			addAbility(clericalCategory, anAbility);
