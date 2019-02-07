@@ -17,8 +17,9 @@
  */
 package pcgen.core.display;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,6 +36,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -47,11 +49,11 @@ import org.junit.jupiter.api.Test;
 public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {
 
-	PCClass pcClass;
-	boolean firstTime = true;
-	Ability skillFocus = new Ability();
-	Ability persuasive = new Ability();
-	Skill bluff;
+	private PCClass pcClass;
+	private boolean firstTime = true;
+	private Ability skillFocus = new Ability();
+	private Ability persuasive = new Ability();
+	private Skill bluff;
 
 	@BeforeEach
 	@Override
@@ -116,7 +118,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	 * bonus feats.
 	 */
 	@Test
-	public void testGetModifierExplanation()
+	void testGetModifierExplanation()
 	{
 		bluff =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

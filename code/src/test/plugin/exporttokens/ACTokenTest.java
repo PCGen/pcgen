@@ -17,7 +17,8 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Collections;
 
@@ -38,6 +39,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

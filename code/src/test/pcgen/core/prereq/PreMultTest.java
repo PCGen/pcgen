@@ -17,9 +17,9 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -39,6 +39,7 @@ import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreSkillParser;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -229,7 +230,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 					false, false);
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		Assertions.assertFalse(
+		assertFalse(
 				passes, "Should not pass 2 knowledge skill test with 1 skill");
 
 		final Skill extraKnow = new Skill();
