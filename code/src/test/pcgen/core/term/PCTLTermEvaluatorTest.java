@@ -17,7 +17,7 @@
  */
 package pcgen.core.term;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.net.URI;
 
@@ -44,8 +44,6 @@ import org.junit.jupiter.api.Test;
 
 /**
  * PCTLTermEvaluatorTest checks the fucntion of the TL variable.
- * 
- * 
  */
 public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 {
