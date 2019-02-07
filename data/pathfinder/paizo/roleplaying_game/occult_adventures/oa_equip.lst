@@ -123,7 +123,7 @@ Talisman of Warrior's Courage, Greater		KEY:Talisman of Warrior's Courage (Great
 Talisman of Warrior's Courage, Lesser		KEY:Talisman of Warrior's Courage (Lesser)		TYPE:Magic.Wondrous.LesserMinor			COST:450	WT:1											SOURCEPAGE:p.264									SPROP:The first time that the wearer would gain the frightened or panicked condition, he gains the shaken condition instead.
 Thaumaturgic Powder					KEY:Thaumaturgic powder						TYPE:Magic.Wondrous.GreaterMinor			COST:4000	WT:0											SOURCEPAGE:p.264									SPROP:The scribed circle acts as the perfectly scribed special diagram of a magic circle against chaos, evil, good, or law and bars extradimensional movement as if the user had attached dimensional anchor to the magic circle.
 Tin Cap							KEY:Tin cap								TYPE:Magic.Wondrous.LesserMedium			COST:15000	WT:2											SOURCEPAGE:p.265
-Tome of Origami Animals					KEY:Tome of Origami Animals					TYPE:Magic.Wondrous.LesserMedium			COST:13500	WT:15											SOURCEPAGE:p.265
+Tome of Origami Animals					KEY:Tome of Origami Animals					TYPE:Magic.Wondrous.LesserMedium			COST:13500	WT:15											SOURCEPAGE:p.265		EQMOD:CHARGED_ITEM_50|CHARGES[50]
 Waxen Image							KEY:Waxen image							TYPE:Magic.Wondrous.Lesser Minor Wondrous Item	COST:500	WT:.5											SOURCEPAGE:p.265
 
 # Cursed
