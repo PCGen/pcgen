@@ -61,7 +61,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  returns all BonusObjs that are "active"
 	 */
-	List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
@@ -108,7 +108,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getBonusList(super.getBonusList(e), e.getAssociationList(this));
 	}
 
-	private static List<BonusObj> getBonusList(List<? extends BonusObj> bonusList, Iterable<String> associations)
+	private List<BonusObj> getBonusList(List<BonusObj> bonusList, List<String> associations)
 	{
 		ArrayList<BonusObj> myBonusList = new ArrayList<>(bonusList);
 		for (int i = myBonusList.size() - 1; i > -1; i--)
@@ -162,7 +162,14 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 */
 	public boolean isIType(final String aType)
 	{
-		return getSafeListFor(ListKey.ITEM_TYPES).stream().anyMatch(aType::equalsIgnoreCase);
+		for (String s : getSafeListFor(ListKey.ITEM_TYPES))
+		{
+			if (aType.equalsIgnoreCase(s))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -249,7 +256,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getDisplayName();
 	}
 
-	int getSR(Equipment parent, PlayerCharacter aPC)
+	public int getSR(Equipment parent, PlayerCharacter aPC)
 	{
 		SpellResistance sr = get(ObjectKey.SR);
 		if (sr == null)

@@ -49,7 +49,7 @@ public class SkillClassesTest extends AbstractTokenModelTest
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		sk = context.getReferenceContext().constructCDOMObject(Skill.class, "MySkill");

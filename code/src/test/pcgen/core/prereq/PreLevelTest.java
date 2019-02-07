@@ -17,7 +17,6 @@
  */
 package pcgen.core.prereq;
 
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -216,7 +215,7 @@ public class PreLevelTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-    public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

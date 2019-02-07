@@ -39,7 +39,7 @@ class PreCharactertypeTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testCharactertype() throws PersistenceLayerException
+	void testCharactertype() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setCharacterType("PC");

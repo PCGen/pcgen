@@ -49,7 +49,7 @@ public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 	private LocalSkillCostFacet lscFacet;
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		lscFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);

@@ -17,14 +17,10 @@
  */
 package tokencontent;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
@@ -32,7 +28,6 @@ import pcgen.core.Race;
 import pcgen.core.SimpleMovement;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-
 import plugin.lsttokens.race.MoveToken;
 
 import org.junit.jupiter.api.Test;
@@ -46,7 +41,7 @@ public class RaceMoveTest extends AbstractTokenModelTest
 	private BaseMovementFacet baseMoveFacet;
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		baseMoveFacet = FacetLibrary.getFacet(BaseMovementFacet.class);

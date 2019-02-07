@@ -179,7 +179,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);

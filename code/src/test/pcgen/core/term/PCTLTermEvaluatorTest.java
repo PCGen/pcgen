@@ -44,6 +44,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * PCTLTermEvaluatorTest checks the fucntion of the TL variable.
+ * 
+ * 
  */
 public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 {
@@ -52,7 +54,7 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 

@@ -53,7 +53,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -155,7 +155,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		knowledge = null;
 		balance = null;

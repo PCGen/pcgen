@@ -139,7 +139,7 @@ public abstract class AbstractTokenModelTest
 	protected WeaponProfModelFacet weaponProfModelFacet;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		setUpContext();
 	}

@@ -56,7 +56,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -139,7 +139,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
     @Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		Globals.getContext().getReferenceContext().forget(masterwork);
 		Globals.getContext().getReferenceContext().forget(plus1);

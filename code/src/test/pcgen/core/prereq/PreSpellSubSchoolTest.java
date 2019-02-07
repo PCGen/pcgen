@@ -40,7 +40,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -88,7 +88,6 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		finishLoad();
 	}
 
-
 	@Test
 	public void testSimpleSUBSCHOOL() throws Exception
 	{
@@ -132,7 +131,6 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
-
 
 	@Test
 	public void testNotSimpleSUBSCHOOL() throws Exception

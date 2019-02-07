@@ -39,7 +39,7 @@ class EquipmentUtilitiesTest
 	/**
 	 * Sets up some basic stuff that must be present for tests to work.
 	 */
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");

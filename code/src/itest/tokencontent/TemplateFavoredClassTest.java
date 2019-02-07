@@ -17,14 +17,10 @@
  */
 package tokencontent;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.core.PCClass;
@@ -50,7 +46,7 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 	private FavoredClassFacet fcFacet;
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		fcFacet = FacetLibrary.getFacet(FavoredClassFacet.class);

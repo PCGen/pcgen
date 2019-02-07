@@ -29,7 +29,7 @@ import plugin.pretokens.test.PreTemplateTester;
 
 import org.junit.jupiter.api.Test;
 
-public class PreTemplateTest extends AbstractCharacterTestCase
+class PreTemplateTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Ensure a character with a template correctly passes

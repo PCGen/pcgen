@@ -67,7 +67,7 @@ public class TemplateLangbonusTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		startingLanguageFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);

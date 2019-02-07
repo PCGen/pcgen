@@ -57,7 +57,6 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -78,7 +77,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -187,7 +186,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		knowledge = null;
 		balance = null;

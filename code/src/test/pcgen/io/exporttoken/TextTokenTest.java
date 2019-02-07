@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
 import plugin.exporttokens.TextToken;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -33,11 +34,11 @@ import org.junit.jupiter.api.Test;
  * {@code TextTokenTest} tests the functioning of the TEXT
  * token processing code. 
  */
-public class  TextTokenTest extends AbstractCharacterTestCase
+public class TextTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
     @Override
-    public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();

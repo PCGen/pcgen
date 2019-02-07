@@ -27,7 +27,6 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -35,13 +34,6 @@ import org.junit.jupiter.api.Test;
  */
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
-
-	@Override
-	@BeforeEach
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
 
 	/**
 	 * Validate that the setActiveBonusStack method will correctly calculate the value of 

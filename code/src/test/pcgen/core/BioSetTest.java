@@ -73,7 +73,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		SettingsHandler.getGame().getBioSet().clearUserMap();
 

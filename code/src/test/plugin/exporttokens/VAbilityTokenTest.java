@@ -17,7 +17,7 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
     @Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();

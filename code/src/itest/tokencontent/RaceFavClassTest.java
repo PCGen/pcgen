@@ -49,7 +49,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 	private FavoredClassFacet fcFacet;
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		fcFacet = FacetLibrary.getFacet(FavoredClassFacet.class);

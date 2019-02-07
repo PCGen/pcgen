@@ -41,7 +41,7 @@ public class GlobalDrTest extends AbstractContentTokenTest
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);

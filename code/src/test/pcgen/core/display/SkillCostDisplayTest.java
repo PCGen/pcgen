@@ -17,7 +17,6 @@
  */
 package pcgen.core.display;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -57,7 +56,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -107,7 +106,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		pcClass = null;
 		super.tearDown();
@@ -118,7 +117,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	 * bonus feats.
 	 */
 	@Test
-	void testGetModifierExplanation()
+	public void testGetModifierExplanation()
 	{
 		bluff =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

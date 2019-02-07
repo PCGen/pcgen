@@ -63,7 +63,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		mcsFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);

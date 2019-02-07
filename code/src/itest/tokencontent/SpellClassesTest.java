@@ -51,7 +51,7 @@ public class SpellClassesTest extends AbstractTokenModelTest
 		.getFacet(AvailableSpellFacet.class);
 
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		sp = context.getReferenceContext().constructCDOMObject(Spell.class, "MySpell");

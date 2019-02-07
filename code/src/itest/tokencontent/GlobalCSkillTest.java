@@ -51,7 +51,7 @@ public class GlobalCSkillTest extends AbstractContentTokenTest
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		globalSkillCostFacet =

@@ -86,7 +86,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
@@ -383,7 +383,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 	@AfterEach
 	@Override
-	public void tearDown() throws Exception
+	protected void tearDown() throws Exception
 	{
 		dblWpn = null;
 		str.removeListFor(ListKey.BONUS);

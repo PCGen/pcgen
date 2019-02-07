@@ -49,6 +49,7 @@ import org.junit.jupiter.api.Test;
  * {@code BonusTest} test that the Bonus class is functioning
  * correctly.
  */
+
 @SuppressWarnings("nls")
 public class BonusTest extends AbstractCharacterTestCase
 {

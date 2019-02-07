@@ -73,22 +73,20 @@ import util.TestURI;
 
 public class PCClassTest extends AbstractCharacterTestCase
 {
-	PCClass humanoidClass;
-	Race bugbearRace;
-	Race bigBugbearRace;
-	PCClass nymphClass;
-	Race nymphRace;
-	Prerequisite prereq;
-	RuleCheck classPreRule;
-	PCClass prClass;
-	PCClass qClass;
-	PCClass nqClass;
+	private PCClass humanoidClass;
+	private Race bugbearRace;
+	private Race bigBugbearRace;
+	private PCClass nymphClass;
+	private Race nymphRace;
+	private PCClass prClass;
+	private PCClass qClass;
+	private PCClass nqClass;
 
 	/**
 	 * Test name change
 	 */
 	@Test
-	public void testFireNameChangedVariable()
+	void testFireNameChangedVariable()
 	{
 		finishLoad();
 		final PCClass myClass = new PCClass();
@@ -129,7 +127,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Test monster classes generating the correct number of skill points.
 	 */
 	@Test
-	public void testMonsterSkillPoints()
+	void testMonsterSkillPoints()
 	{
 		finishLoad();
 		// Create a medium bugbear first level
@@ -198,7 +196,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBypassClassPrereqs() throws PersistenceLayerException
+	void testBypassClassPrereqs() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 
@@ -283,7 +281,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBypassClassPrereqsDeprecated() throws PersistenceLayerException
+	void testBypassClassPrereqsDeprecated() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 
@@ -366,7 +364,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Qualifies functionality associated with a class.
 	 */
 	@Test
-	public void testQualifies()
+	void testQualifies()
 	{
 		finishLoad();
 		// Setup character without prereqs
@@ -408,7 +406,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testGetPCCText() throws PersistenceLayerException
+	void testGetPCCText() throws PersistenceLayerException
 	{
 		FactKey.getConstant("Abb", new StringManager());
 		// Test a basic class
@@ -654,7 +652,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testGetKnownForLevelSpellstatOther()
+	void testGetKnownForLevelSpellstatOther()
 	{
 		LoadContext context = Globals.getContext();
 		PCClass megaCasterClass = new PCClass();
@@ -753,7 +751,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 */
 	@Test
-	public void testAddAbility() throws PersistenceLayerException
+	void testAddAbility() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
@@ -830,7 +828,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Monster class without a levels per feat setting.
 	 */
 	@Test
-	public void testDefaultLevelsPerFeatMonster()
+	void testDefaultLevelsPerFeatMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();
@@ -849,7 +847,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Monster class with a levels per feat setting.
 	 */
 	@Test
-	public void testLevelsPerFeatMonster()
+	void testLevelsPerFeatMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();
@@ -870,7 +868,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Non monster class without a levels per feat setting.
 	 */
 	@Test
-	public void testDefaultLevelsPerFeatNonMonster()
+	void testDefaultLevelsPerFeatNonMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();
@@ -889,7 +887,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Non monster class with a levels per feat setting.
 	 */
 	@Test
-	public void testLevelsPerFeatNonMonster()
+	void testLevelsPerFeatNonMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();

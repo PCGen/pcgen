@@ -17,7 +17,7 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -33,7 +33,6 @@ import pcgen.io.FileAccess;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 /**
  * {@code BioTokenTest} is ...
  */
@@ -41,7 +40,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
     @Override
-    public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
@@ -102,7 +101,6 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	 * @return the string
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-
 	private static String evaluateToken(String token, PlayerCharacter pc)
 		throws IOException
 	{

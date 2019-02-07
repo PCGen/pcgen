@@ -50,14 +50,14 @@ import org.junit.jupiter.api.Test;
  * This class tests the handling of DESC fields in PCGen
  */
 @SuppressWarnings("nls")
-class DescriptionTest extends AbstractCharacterTestCase
+public class DescriptionTest extends AbstractCharacterTestCase
 {
 
 	/**
 	 * Tests outputting an empty description.
 	 */
 	@Test
-	void testEmptyDesc()
+	public void testEmptyDesc()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");

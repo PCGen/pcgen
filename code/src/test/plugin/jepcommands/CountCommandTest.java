@@ -17,8 +17,8 @@
  */
 package plugin.jepcommands;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
@@ -42,7 +42,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	protected void setUp() throws Exception
 	{
 		super.setUp();
 		final PlayerCharacter character = getCharacter();
@@ -428,7 +428,6 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	//
 	//        assertThat(s, (double) character.getVariableValue(s,""), closeTo(6.0, 0.1));
 	//    }
-
 	@Test
 	public void testCountAbilitiesByName()
 	{
