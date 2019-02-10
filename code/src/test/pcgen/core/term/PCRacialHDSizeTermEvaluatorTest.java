@@ -42,6 +42,7 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * PCRacialHDSizeTermEvaluatorTest checks the function of the RACIALHDSIZE variable.
@@ -58,7 +59,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -103,6 +104,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check for creature with racial HD but no class levels
 	 */
+	@Test
 	public void testBugbearWithNoClassLevels()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -113,6 +115,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check for creature with racial HD and class levels
 	 */
+	@Test
 	public void testBugbearWithClassLevels()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -124,6 +127,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check for creature with no racial HD
 	 */
+	@Test
 	public void testHuman()
 	{
 		PlayerCharacter pc = getCharacter();

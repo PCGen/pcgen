@@ -26,7 +26,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipmentmodifier.ChargesToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ChargesIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>

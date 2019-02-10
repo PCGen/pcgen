@@ -63,7 +63,6 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -397,6 +396,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Test the processing of double weapons on a medium creature. All output
 	 * tags are checked.
 	 */
+	@Test
 	public void testDoubleWeapon()
 	{
 		PlayerCharacter character = getCharacter();

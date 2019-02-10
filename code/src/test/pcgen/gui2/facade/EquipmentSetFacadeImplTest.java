@@ -26,6 +26,7 @@ import pcgen.core.character.EquipSlot;
 import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -131,6 +132,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl when initialised with a dataset 
 	 * containing equipment hides and shows the correct weapon slots.  
 	 */
+	@Test
 	public void testSlotManagementOnInitWithEquipment()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -459,8 +461,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * @param qty The number to be placed in the location.
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
-		Equipment item, float qty)
+	private static EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
+	                                           Equipment item, float qty)
 	{
 		return addEquipToEquipSet(pc, es, item, qty, Constants.EQUIP_LOCATION_EQUIPPED);
 	}
@@ -473,8 +475,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * @param qty The number to be placed in the location.
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
-		Equipment item, float qty, String locName)
+	private static EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
+	                                           Equipment item, float qty, String locName)
 	{
 		String id = EquipmentSetFacadeImpl.getNewIdPath(pc.getDisplay(), es);
 		EquipSet newSet = new EquipSet(id, locName, item.getName(), item);
@@ -484,6 +486,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		return newSet;
 	}
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

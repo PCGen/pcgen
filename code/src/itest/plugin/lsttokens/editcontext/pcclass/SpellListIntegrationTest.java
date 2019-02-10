@@ -28,7 +28,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.SpelllistToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SpellListIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, ClassSpellList>

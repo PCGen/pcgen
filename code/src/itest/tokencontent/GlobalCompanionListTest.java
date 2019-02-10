@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
@@ -29,6 +31,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.CompanionListLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -38,6 +41,7 @@ public class GlobalCompanionListTest extends AbstractContentTokenTest
 	private static CompanionListLst token = new CompanionListLst();
 	private FollowerOptionFacet foFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

@@ -41,8 +41,8 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class StatIntegrationTest
 {
@@ -64,7 +64,7 @@ public class StatIntegrationTest
 	private PCStat stat2;
 	private final Object tsource = new Object();
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();

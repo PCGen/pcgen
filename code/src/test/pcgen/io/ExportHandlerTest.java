@@ -400,25 +400,25 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		// if this evaluates math wise, the values should be string "1.0"
-		assertNotEquals("Token: |" + tok + "| != 1.0: ", "1.0", evaluateToken(tok, pc));
+		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0: ");
 		
 		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";
 		assertEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 1.0: ");
 	
 		tok = "COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";
-		assertNotEquals("Token: |" + tok + "| != 1.0: ", "1.0", evaluateToken(tok, pc));
+		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0: ");
 		
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
-		assertNotEquals("Token: |" + tok + "| != 1.0 ", "1.0", evaluateToken(tok, pc));
+		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0 ");
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
-		assertNotEquals("Token: |" + tok + "| == 5.0 ", "5.0", evaluateToken(tok, pc));
+		assertNotEquals("5.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 5.0 ");
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
 		assertEquals("6.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 6.0 ");
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
-		assertNotEquals("Token: |" + tok + "| == 3.0 ", "3.0", evaluateToken(tok, pc));
+		assertNotEquals("3.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 3.0 ");
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
 		assertEquals("2.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 2.0 ");

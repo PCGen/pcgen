@@ -17,6 +17,9 @@
  */
 package tokencontent.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -41,7 +44,7 @@ import pcgen.core.character.CompanionMod;
 import pcgen.output.channel.compat.AlignmentCompat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public abstract class AbstractContentTokenTest extends AbstractTokenModelTest

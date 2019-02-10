@@ -751,7 +751,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 */
 	@Test
-	public void testAddAbility() throws PersistenceLayerException
+	void testAddAbility() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
@@ -828,7 +828,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Monster class without a levels per feat setting.
 	 */
 	@Test
-	public void testDefaultLevelsPerFeatMonster()
+	void testDefaultLevelsPerFeatMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();
@@ -887,7 +887,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 * Non monster class with a levels per feat setting.
 	 */
 	@Test
-	public void testLevelsPerFeatNonMonster()
+	void testLevelsPerFeatNonMonster()
 	{
 		finishLoad();
 		PlayerCharacter pc = getCharacter();
@@ -930,7 +930,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 

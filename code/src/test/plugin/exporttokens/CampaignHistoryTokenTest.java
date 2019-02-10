@@ -31,8 +31,8 @@ import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 import pcgen.util.TestHelper;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * CampaignHistoryTokenTest validates the functions of the 
@@ -49,8 +49,8 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@Override
 	@BeforeEach
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();

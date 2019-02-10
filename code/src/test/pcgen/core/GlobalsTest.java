@@ -14,8 +14,8 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestHelper;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * This class tests global areas of PCGen
@@ -415,7 +415,8 @@ class GlobalsTest
 				SizeAdjustment.class, "S");
 		SizeAdjustment medium = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "M");
-		assertEquals("1d4",
+		assertEquals(
+				"1d4",
 				Globals.adjustDamage("1d6", medium, small),
 				"reduction of damage due to smaller size"
 		);

@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.LangbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, Language>

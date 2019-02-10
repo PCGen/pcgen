@@ -35,8 +35,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * SpellBuilderFacadeImplTest
@@ -58,8 +58,8 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@Override
 	@BeforeEach
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();

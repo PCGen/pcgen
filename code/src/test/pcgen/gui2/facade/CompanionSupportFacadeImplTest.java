@@ -45,8 +45,8 @@ import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
@@ -60,7 +60,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		

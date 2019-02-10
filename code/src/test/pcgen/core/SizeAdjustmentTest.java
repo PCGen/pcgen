@@ -16,7 +16,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package pcgen.core;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.rules.context.LoadContext;

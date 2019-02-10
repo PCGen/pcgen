@@ -29,8 +29,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
@@ -38,7 +38,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	private static ClassesToken token = new ClassesToken();
 	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
-	@BeforeClass
+	@BeforeAll
 	public static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreClassParser());

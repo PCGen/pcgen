@@ -31,8 +31,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code StatListTest} checks the function of the
@@ -47,7 +47,7 @@ public class StatListTest extends AbstractCharacterTestCase
 
 	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter pc = getCharacter();
@@ -129,6 +129,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	/**
 	 * Test out the output of stats where a min value is in place. 
 	 */
+	@Test
 	public void testMinValueStat()
 	{
 		PlayerCharacter pc = getCharacter();

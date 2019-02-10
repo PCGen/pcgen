@@ -17,15 +17,20 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.template.AddLevelToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
+
 
 public class TemplateAddLevelTest extends AbstractTokenModelTest
 {

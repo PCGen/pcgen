@@ -4,8 +4,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -52,6 +52,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+
 	@Test
 	public void testVisionFail()
 	{
@@ -95,6 +96,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
+
 
 	@Test
 	public void testVisionPresentTen()

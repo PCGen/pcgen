@@ -17,6 +17,11 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
@@ -35,7 +40,8 @@ import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.domain.CskillToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
@@ -48,11 +54,12 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 	private LocalSkillCostFacet lscFacet;
 	private LocalAddedSkillCostFacet lascFacet;
 	private static SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
-	protected DomainInputFacet domainInputFacet = FacetLibrary
+	private final DomainInputFacet domainInputFacet = FacetLibrary
 		.getFacet(DomainInputFacet.class);
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		lscFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);

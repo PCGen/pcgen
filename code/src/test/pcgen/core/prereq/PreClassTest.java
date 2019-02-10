@@ -20,7 +20,7 @@ package pcgen.core.prereq;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.Assert.fail;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -551,6 +551,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		assertEquals(1, test.passes(prereq, character, null));
 	}
 
+	@Test
 	public void testAnyLevelTwo() throws Exception
 	{
 		final PCClass pcClass = new PCClass();

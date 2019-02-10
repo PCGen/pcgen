@@ -27,13 +27,14 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test class for BonusManager.
  */
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
+
 	/**
 	 * Validate that the setActiveBonusStack method will correctly calculate the value of 
 	 * a positive bonus followed by a negative bonus to a non-stackable value.

@@ -15,6 +15,9 @@
  */
 package tokencontent;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
 import pcgen.base.formatmanager.FormatUtilities;
@@ -30,11 +33,11 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-
 import plugin.lsttokens.ModifyLst;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -49,6 +52,7 @@ public class GlobalModifyTest extends AbstractContentTokenTest
 	private static EquippedEquipmentFacet equippedEquipmentFacet =
 			FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

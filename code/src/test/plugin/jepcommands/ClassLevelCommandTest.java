@@ -40,6 +40,8 @@ import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.SimpleLoader;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 /**
@@ -52,8 +54,9 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 	private PCClass humanoidClass;
 	private PCClass nymphClass;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -101,6 +104,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 
 	}
 
+	@Test
 	public void testClassLevel()
 	{
 		PlayerCharacter pc = this.getCharacter();
@@ -127,6 +131,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		assertThat("classlevel(\"TYPE=Monster\")", (double) pc.getVariableValue("classlevel(\"TYPE=Monster\")", ""), closeTo(2.0, 0.001));
 	}
 
+	@Test
 	public void testClassLevelAppliedAs()
 	{
 		PlayerCharacter pc = this.getCharacter();

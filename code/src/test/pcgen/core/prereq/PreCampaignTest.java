@@ -34,8 +34,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
-import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code PreCampaignTest} checks the processing

@@ -28,8 +28,8 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.LangbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Language>
@@ -39,7 +39,7 @@ public class LangbonusIntegrationTest extends
 	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

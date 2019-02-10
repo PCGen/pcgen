@@ -17,6 +17,10 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,7 +39,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.spell.DomainsToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
@@ -52,7 +56,7 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 	private Domain domain;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		sp = context.getReferenceContext().constructCDOMObject(Spell.class, "MySpell");
