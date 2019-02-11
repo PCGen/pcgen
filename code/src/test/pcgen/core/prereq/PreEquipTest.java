@@ -19,9 +19,6 @@ package pcgen.core.prereq;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -37,8 +34,6 @@ import pcgen.core.character.WieldCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
-
-import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Test;
 
