@@ -33,7 +33,7 @@ spotbugs {
 	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
 	reportLevel = 'low'
 	ignoreFailures = 'true'
-	toolVersion = '3.1.10'
+	toolVersion = '3.1.11'
 }
 
 //Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
