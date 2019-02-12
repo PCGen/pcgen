@@ -1165,7 +1165,14 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 <@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")')-1; skill , skill_has_next >
 <#if (skill % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td align="center" ><font style="font-size: x-small"><#if pcboolean("SKILLSIT.${skill}.UNTRAINED")>&#9670;</#if></font></td>
-     <td align="left" class="font8" colspan="8">&nbsp;&nbsp;<#if pcstring('SKILLSIT.${skill}')?contains("Linguistics")>Linguistics<#else>${pcstring('SKILLSIT.${skill}')}</#if><#if pcstring('SKILLSIT.${skill}.ACPv') != "v">*</#if></td>
+     <#assign skillTemp = pcstring('SKILLSIT.${skill}')/>
+     <#if skillTemp?matches("Linguistics\\(.*?\\) \\((.*?)\\)")>
+        <#assign skillSitTemp = skillTemp?matches("Linguistics\\(.*?\\) \\((.*?)\\)")/>
+        <#assign skillTemp = "Linguistics (" + skillSitTemp?groups[1] + ")"/>
+     <#elseif skillTemp?matches("Linguistics\\(.*?\\)")>
+        <#assign skillTemp = "Linguistics"/>
+     </#if>
+     <td align="left" class="font8" colspan="8">${skillTemp}<#if pcstring('SKILLSIT.${skill}.ACPv') != "v">*</#if></td>
      <td align="center" class="font8">${pcstring('SKILLSIT.${skill}.ABILITY')}</td>
      <td align="center" class="borderbottom8" valign="bottom"><b>${pcstring('SKILLSIT.${skill}.TOTAL')}</b></td>
      <td align="center" valign="bottom" class="font8"><b>=</b></td>
