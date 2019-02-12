@@ -1147,25 +1147,25 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 <!-- START Skills Table -->
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
     <tr>
-     <td height="30" bgcolor="black"></td>
-     <td height="30" bgcolor="black" align="center"><font style="font-size: small" color="white"><b>SKILLS</b></font></td>
+     <td colspan="5" height="30" bgcolor="black"></td>
+     <td colspan="4" height="30" bgcolor="black" align="center"><font style="font-size: small" color="white"><b>SKILLS</b></font></td>
      <td colspan="4" height="30" bgcolor="black" align="center"></td>
      <td height="30" bgcolor="black" align="right" ></td>
      <td height="30" bgcolor="black" align="center"><font style="font-size: x-small" color="white" >MAX<br />RANKS</font></td>
      <td colspan="2" height="30"  bgcolor="white" align="center" class="skl"><b>${pcstring('MAXSKILLLEVEL')}/${pcstring('MAXCCSKILLLEVEL')}</b></td>
     </tr>
     <tr>
-     <td colspan="2" align="center" width="40%" class="border6">SKILL NAME</td>
-     <td align="center" width="5%" class="border6">ABILITY</td>
-     <td align="center" width="13%" colspan="1" class="border6">SKILL<br />MODIFIER</td>
-     <td align="center" width="13%" colspan="2" class="border6">ABILITY<br />MODIFIER</td>
-     <td align="center" width="13%" colspan="2" class="border6">RANKS</td>
-     <td align="center" width="13%" colspan="2" class="border6">MISC<br />MODIFIER</td>
+     <td colspan="9" align="center" width="40%" class="border6">SKILL NAME</td>
+     <td colspan="1" align="center" width="5%" class="border6">ABILITY</td>
+     <td colspan="1" align="center" width="13%" class="border6">SKILL<br />MODIFIER</td>
+     <td colspan="2" align="center" width="13%" class="border6">ABILITY<br />MODIFIER</td>
+     <td colspan="2" align="center" width="13%" class="border6">RANKS</td>
+     <td colspan="2" align="center" width="13%" class="border6">MISC<br />MODIFIER</td>
     </tr>
 <@loop from=0 to=pcvar('count("SKILLSIT", "VIEW=VISIBLE_EXPORT")')-1; skill , skill_has_next >
 <#if (skill % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
      <td align="center" ><font style="font-size: x-small"><#if pcboolean("SKILLSIT.${skill}.UNTRAINED")>&#9670;</#if></font></td>
-     <td align="left" class="font8">&nbsp;&nbsp;${pcstring('SKILLSIT.${skill}')}</td>
+     <td align="left" class="font8" colspan="8">&nbsp;&nbsp;<#if pcstring('SKILLSIT.${skill}')?contains("Linguistics")>Linguistics<#else>${pcstring('SKILLSIT.${skill}')}</#if><#if pcstring('SKILLSIT.${skill}.ACPv') != "v">*</#if></td>
      <td align="center" class="font8">${pcstring('SKILLSIT.${skill}.ABILITY')}</td>
      <td align="center" class="borderbottom8" valign="bottom"><b>${pcstring('SKILLSIT.${skill}.TOTAL')}</b></td>
      <td align="center" valign="bottom" class="font8"><b>=</b></td>
@@ -1177,7 +1177,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     </tr>
 </@loop>
    </table>
-<div class="font6">&#9670; = Useable Untrained</div>
+<div class="font6">&#9670; = Useable Untrained; * = armor check penalty applies</div>
 <div class="font7"></div>
    <table width="100%" summary="Saving Throws">
      <tr>
