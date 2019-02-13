@@ -28,8 +28,8 @@ import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SkillRankFacetTest
 {
@@ -56,7 +56,7 @@ public class SkillRankFacetTest
 		}
 
 	}
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();

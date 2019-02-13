@@ -18,6 +18,8 @@
 package pcgen.core;
 
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
@@ -25,25 +27,13 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test class for BonusManager.
- *
- * <br/>
- * 
  */
-
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
-
-	@Override
-	@Before
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
 
 	/**
 	 * Validate that the setActiveBonusStack method will correctly calculate the value of 

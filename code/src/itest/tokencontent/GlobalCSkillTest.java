@@ -17,6 +17,11 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.FacetLibrary;
@@ -30,7 +35,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.CskillLst;
 import plugin.lsttokens.choose.SkillToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -43,6 +49,7 @@ public class GlobalCSkillTest extends AbstractContentTokenTest
 	private GlobalSkillCostFacet globalSkillCostFacet;
 	private Skill granted;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

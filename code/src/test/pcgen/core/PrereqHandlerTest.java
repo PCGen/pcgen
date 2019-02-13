@@ -1,4 +1,6 @@
 package pcgen.core;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.StringKey;
@@ -8,6 +10,8 @@ import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PrereqHandlerTest} tests the operation of the
@@ -22,6 +26,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testPasses() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
@@ -52,6 +57,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testFeatPasses() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();

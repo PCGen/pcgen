@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ProhibitSpellIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>

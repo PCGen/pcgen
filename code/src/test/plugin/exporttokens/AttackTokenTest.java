@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -29,6 +31,9 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code ACTokenTest} tests the function of the AC token and
  * thus the calculations of armor class.  
@@ -37,6 +42,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -71,6 +77,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the character's attack calcs with no bonus.
 	 */
+	@Test
 	public void testBase()
 	{
 		assertEquals("Total melee attack no bonus", "+2", new AttackToken()
@@ -84,6 +91,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the character's attack calcs with a bonus.
 	 */
+	@Test
 	public void testIterative()
 	{
 		getCharacter().incrementClassLevel(1, myClass, true);

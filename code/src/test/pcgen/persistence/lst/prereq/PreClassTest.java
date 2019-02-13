@@ -30,7 +30,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreClassParser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("nls")

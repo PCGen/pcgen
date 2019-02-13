@@ -31,8 +31,6 @@ public final class Utilities
 
 	/** Up direction. */
 	public static final int UP = 14;
-	/** Beginning (far left) direction. */
-	public static final int BEGINNING = 16;
 	/** End (far right) direction. */
 	public static final int END = 17;
 	/** Icons for New item. */
@@ -87,7 +85,7 @@ public final class Utilities
 	@Contract(pure = true)
 	public static boolean isShiftLeftMouseButton(InputEvent e)
 	{
-		return ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) && e.isShiftDown();
+		return ((e.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) == InputEvent.BUTTON1_DOWN_MASK) && e.isShiftDown();
 	}
 
 }

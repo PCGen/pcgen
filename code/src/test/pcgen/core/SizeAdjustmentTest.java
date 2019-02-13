@@ -16,13 +16,17 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package pcgen.core;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Test;
+
 public class SizeAdjustmentTest extends AbstractCharacterTestCase
 {
 
+	@Test
 	public void testSizeMod() throws Exception
 	{
 		Race race = new Race();

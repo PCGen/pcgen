@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -40,6 +42,10 @@ import pcgen.io.exporttoken.SkillToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
@@ -52,6 +58,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	private Skill[] knowledge = null;
 	private Skill tumble = null;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -138,6 +145,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 	}
 
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -152,6 +160,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILL token.
 	 */
+	@Test
 	public void testSkillToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -194,6 +203,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILLLEVEL token.
 	 */
+	@Test
 	public void testSkillLevelToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -208,6 +218,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILLSUBSET token.
 	 */
+	@Test
 	public void testSkillSubsetToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -224,6 +235,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILLTYPE token.
 	 */
+	@Test
 	public void testSkillTypeToken()
 	{
 		PlayerCharacter character = getCharacter();

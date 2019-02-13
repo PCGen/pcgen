@@ -28,7 +28,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.SkilllistToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SkillListIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, ClassSkillList>

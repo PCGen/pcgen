@@ -16,6 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.gui2.facade;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -30,21 +32,20 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code Gui2InfoFactoryTest} verifies the operation of the
  * Gui2InfoFactory class.
- *
- * <br/>
- * 
  */
 public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 {
 
-	private MockDataSetFacade dataset;
-
 	/**
 	 * Test the getChoices method with text choices. 
 	 */
+	@Test
 	public void testGetChoices()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -72,6 +73,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 	/**
 	 * Verify getHTMLInfo for a temporary bonus.
 	 */
+	@Test
 	public void testGetHTMLInfoTempBonus()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -93,12 +95,13 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 				+ "<b>Desc:</b>&nbsp;CE Desc<br><b>Source:</b>&nbsp;</html>",
 			infoFactory.getHTMLInfo(tbf));
 	}	
-	
+
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
-		dataset = new MockDataSetFacade(SettingsHandler.getGame());
+		MockDataSetFacade dataset = new MockDataSetFacade(SettingsHandler.getGame());
 		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 	}
 

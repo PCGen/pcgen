@@ -17,14 +17,17 @@
  */
 package pcgen.gui2.facade;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.EquipSet;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code CharacterFacadeImplTest} verifies the behaviour of
@@ -56,9 +59,9 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect id of the default equip set",
 			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
 	}
-	
+
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

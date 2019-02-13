@@ -17,6 +17,9 @@
  */
 package plugin.exporttokens;
 
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Collections;
 
 import pcgen.AbstractCharacterTestCase;
@@ -36,6 +39,10 @@ import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code ACTokenTest} tests the function of the AC token and
  * thus the calculations of armor class.  
@@ -47,6 +54,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	private EquipmentModifier plus1;
 	private Equipment chainShirt;
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -129,6 +137,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 
 	}
 
+	@AfterEach
     @Override
 	protected void tearDown() throws Exception
 	{
@@ -143,21 +152,23 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the character's AC calcs with no armor.
 	 */
+	@Test
 	public void testBase()
 	{
-		assertEquals("Total AC no armor", "12", new ACToken().getToken(
-			"AC.Total", getCharacter(), null));
+		assertEquals("12", new ACToken().getToken(
+			"AC.Total", getCharacter(), null), "Total AC no armor");
 
-		assertEquals("Armor AC no armor", "0", new ACToken().getToken(
-			"AC.Armor", getCharacter(), null));
+		assertEquals("0", new ACToken().getToken(
+			"AC.Armor", getCharacter(), null), "Armor AC no armor");
 
-		assertEquals("Ability AC no armor", "2", new ACToken().getToken(
-			"AC.Ability", getCharacter(), null));
+		assertEquals("2", new ACToken().getToken(
+			"AC.Ability", getCharacter(), null), "Ability AC no armor");
 	}
 
 	/**
 	 * Test the character's AC calcs with armor with no equip mods applied.
 	 */
+	@Test
 	public void testNonMagic()
 	{
 		PlayerCharacter character = getCharacter();
@@ -168,19 +179,20 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 		character.calcActiveBonuses();
 
-		assertEquals("Ability AC normal armor", "2", new ACToken().getToken(
-			"AC.Ability", getCharacter(), null));
+		assertEquals("2", new ACToken().getToken(
+			"AC.Ability", getCharacter(), null), "Ability AC normal armor");
 
-		assertEquals("Armor AC with normal armor", "4", new ACToken().getToken(
-			"AC.Armor", getCharacter(), null));
+		assertEquals("4", new ACToken().getToken(
+			"AC.Armor", getCharacter(), null), "Armor AC with normal armor");
 
-		assertEquals("Total AC with normal armor", "16", new ACToken()
-			.getToken("AC.Total", getCharacter(), null));
+		assertEquals("16", new ACToken()
+			.getToken("AC.Total", getCharacter(), null), "Total AC with normal armor");
 	}
 
 	/**
 	 * Test the character's AC calcs with armor with equipmods applied, including magic.
 	 */
+	@Test
 	public void testMagic()
 	{
 		PlayerCharacter character = getCharacter();
@@ -192,14 +204,14 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 		character.calcActiveBonuses();
 
-		assertEquals("Ability AC magic armor", "2", new ACToken().getToken(
-			"AC.Ability", getCharacter(), null));
+		assertEquals("2", new ACToken().getToken(
+			"AC.Ability", getCharacter(), null), "Ability AC magic armor");
 
-		assertEquals("Armor AC with magic armor", "5", new ACToken().getToken(
-			"AC.Armor", getCharacter(), null));
+		assertEquals("5", new ACToken().getToken(
+			"AC.Armor", getCharacter(), null), "Armor AC with magic armor");
 
-		assertEquals("Total AC with magic armor", "17", new ACToken().getToken(
-			"AC.Total", getCharacter(), null));
+		assertEquals("17", new ACToken().getToken(
+			"AC.Total", getCharacter(), null), "Total AC with magic armor");
 	}
 
 }

@@ -17,6 +17,11 @@
  */
 package pcgen.gui2.facade;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -31,14 +36,12 @@ import pcgen.util.TestHelper;
 import plugin.lsttokens.choose.StringToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code CharacterAbilitiesTest} verifies the operation of the
  * CharacterAbilities class.
- *
- * <br/>
- * 
  */
 public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 {
@@ -111,9 +114,10 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		assertEquals("Should have found reading", reading, abilityFromList);
 		
 	}
-	
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
+
 	{
 		super.setUp();
 		dataset = new MockDataSetFacade(SettingsHandler.getGame());

@@ -1,5 +1,12 @@
 package pcgen.gui2.facade;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +25,9 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.facade.util.ListFacade;
 import pcgen.util.TestHelper;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code EquipmentSetFacadeImplTest} is a test class for
@@ -51,6 +61,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Check that EquipmentSetFacadeImpl can be initialised with an empty dataset.  
 	 */
+	@Test
 	public void testEmptyInit()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -68,6 +79,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl can be initialised with a dataset 
 	 * containing equipment.  
 	 */
+	@Test
 	public void testInitWithEquipment()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -120,6 +132,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl when initialised with a dataset 
 	 * containing equipment hides and shows the correct weapon slots.  
 	 */
+	@Test
 	public void testSlotManagementOnInitWithEquipment()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -163,8 +176,9 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	}
 	
 	/**
-	 * Check that EquipmentSetFacadeImpl can manage addition and removal of equipment.  
+	 * Check that EquipmentSetFacadeImpl can manage addition and removal of equipment.
 	 */
+	@Test
 	public void testAddRemove()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -217,6 +231,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Test the creation of phantom slots, looking at types and quantities particularly.  
 	 */
+	@Test
 	public void testSlotCreation()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -296,6 +311,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Verify the getRequiredLoc method. 
 	 */
+	@Test
 	public void testGetRequiredLoc()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -330,6 +346,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Check that EquipmentSetFacadeImpl can move an equipment item up the list.
 	 */
+	@Test
 	public void testMoveEquipmentUp()
 	{
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
@@ -355,6 +372,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Check that EquipmentSetFacadeImpl can move an equipment item down the list.
 	 */
+	@Test
 	public void testMoveEquipmentDown()
 	{
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
@@ -420,8 +438,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 			dataset, equipmentList, todoManager, null);
 	}
 	
-	private EquipNode getEquipNodeByName(ListFacade<EquipNode> nodeList,
-		String name)
+	private static EquipNode getEquipNodeByName(ListFacade<EquipNode> nodeList,
+	                                            String name)
 	{
 		for (EquipNode equipNode : nodeList)
 		{
@@ -443,8 +461,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * @param qty The number to be placed in the location.
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
-		Equipment item, float qty)
+	private static EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
+	                                           Equipment item, float qty)
 	{
 		return addEquipToEquipSet(pc, es, item, qty, Constants.EQUIP_LOCATION_EQUIPPED);
 	}
@@ -457,8 +475,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * @param qty The number to be placed in the location.
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
-		Equipment item, float qty, String locName)
+	private static EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
+	                                           Equipment item, float qty, String locName)
 	{
 		String id = EquipmentSetFacadeImpl.getNewIdPath(pc.getDisplay(), es);
 		EquipSet newSet = new EquipSet(id, locName, item.getName(), item);
@@ -468,6 +486,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		return newSet;
 	}
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

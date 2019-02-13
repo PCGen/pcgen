@@ -17,6 +17,7 @@
  */
 package pcgen.io;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.io.BufferedWriter;
@@ -55,6 +56,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its sub tokens are working correctly.
@@ -70,6 +75,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	private Equipment gem = null;
 	private Equipment armor = null;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -178,6 +184,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 	}
 
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -194,20 +201,21 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 *
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
+	@Test
 	public void testWpnLoop() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
 
 		// Test each token for old and new syntax processing.
 
-		assertEquals("New format SKILL Token", "****", evaluateToken(
-			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
+		assertEquals("****", evaluateToken(
+			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character), "New format SKILL Token");
 		// Now assign a weapon
 		character.addEquipment(weapon);
 		EquipSet es = new EquipSet("1", "Default", "", weapon);
 		character.addEquipSet(es);
-		assertEquals("New format SKILL Token", "**TestWpn**", evaluateToken(
-			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
+		assertEquals("**TestWpn**", evaluateToken(
+			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character), "New format SKILL Token");
 	}
 
 	/**
@@ -215,35 +223,39 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 *
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
+	@Test
 	public void testEqtypeLoop() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
 		final String gemLoop =
 				"FOR.0,COUNT[EQTYPE.Gem],1,\\EQTYPE.Gem.%.NAME\\: \\EQTYPE.Gem.%.QTY\\, ,<br/>,1";
 
-		assertEquals("Gem Loop - no gems", "",
-			evaluateToken(gemLoop, character));
+		assertEquals("",
+			evaluateToken(gemLoop, character), "Gem Loop - no gems"
+		);
 
 		// Now assign a gem
 		character.addEquipment(gem);
 		EquipSet es = new EquipSet("1", "Default", "", gem);
 		character.addEquipSet(es);
 		character.setDirty(true);
-		assertEquals("Gem loop - 1 gem", " TestGem: 1<br/>", evaluateToken(
-			gemLoop, character));
+		assertEquals(" TestGem: 1<br/>", evaluateToken(
+			gemLoop, character), "Gem loop - 1 gem");
 	}
 
+	@Test
 	public void testJepIif() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Basic JEP boolean", 1.0f, character
-			.getVariableValue("max(0,2)==2", ""));
-		assertEquals("JEP boolean in IF", "true", evaluateToken(
-			"OIF(max(0,2)==2,true,false)", character));
+		assertEquals(1.0f, (float)character
+			.getVariableValue("max(0,2)==2", ""), "Basic JEP boolean");
+		assertEquals("true", evaluateToken(
+			"OIF(max(0,2)==2,true,false)", character), "JEP boolean in IF");
 //		assertEquals("JEP boolean in IF", "true", evaluateToken(
 //			"|OIF(max(0,2)==2)|\ntrue\n|ELSE|\nfalse\n|ENDIF|", character));
 	}
-	
+
+	@Test
 	public void testFor() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();
@@ -283,12 +295,14 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat6);
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat7);
 		
-		assertEquals("Test for evaluates correctly", "----------------",
+		assertEquals("----------------",
 			evaluateToken(
-				"FOR.1,((24-STRLEN[SKILL.0])),24,-,NONE,NONE,1", pc));
-		assertEquals("Test for evaluates correctly", "                ",
+				"FOR.1,((24-STRLEN[SKILL.0])),24,-,NONE,NONE,1", pc), "Test for evaluates correctly"
+		);
+		assertEquals("                ",
 			evaluateToken(
-				"FOR.1,((24-STRLEN[SKILL.0])),24, ,NONE,NONE,1", pc));
+				"FOR.1,((24-STRLEN[SKILL.0])),24, ,NONE,NONE,1", pc), "Test for evaluates correctly"
+		);
 		
 		String tok = "DFOR."
 			+ "0"
@@ -310,28 +324,33 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		// will assume that x is a well formed type of value.  This was to get around 
 		// the problems with DFOR not taking ((count("ABILITIES";"CATEGORY=FEAT")+1)
 		// since it could not figure out how to parse it to send to the right place.
-		assertEquals("Test for DFOR ", "[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]", 
-			evaluateToken(tok, pc));
+		assertEquals("[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]",
+			evaluateToken(tok, pc), "Test for DFOR "
+		);
 					
 	}
-	
+
+	@Test
 	public void testForNoMoreItems() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Test for evaluates correctly", "SF",
+		assertEquals("SF",
 			evaluateToken(
-				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
+				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc), "Test for evaluates correctly"
+		);
 
 		// Now assign a gem
 		pc.addEquipment(armor);
 		EquipSet es = new EquipSet("1", "Default", "", armor);
 		pc.addEquipSet(es);
-		assertEquals("Test for evaluates correctly", "STestArmorSuitFSF",
+		assertEquals("STestArmorSuitFSF",
 			evaluateToken(
-				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
+				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc), "Test for evaluates correctly"
+		);
 		
 	}
-	
+
+	@Test
 	public void testExpressionOutput() throws IOException
 	{
 		LoadContext context = Globals.getContext();
@@ -372,41 +391,42 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		addAbility(cat, dummyFeat3);
 		addAbility(cat2, dummyFeat4);
 		
-		assertEquals("Unsigned output", "7", evaluateToken(
-			"VAR.NegLevels.INTVAL", pc));
-		assertEquals("Signed output", "+7", evaluateToken(
-			"VAR.NegLevels.INTVAL.SIGN", pc));
+		assertEquals("7", evaluateToken(
+			"VAR.NegLevels.INTVAL", pc), "Unsigned output");
+		assertEquals("+7", evaluateToken(
+			"VAR.NegLevels.INTVAL.SIGN", pc), "Signed output");
 	
 		String tok = "";
 	
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		// if this evaluates math wise, the values should be string "1.0"
-		assertNotEquals("Token: |" + tok + "| != 1.0: ", "1.0", evaluateToken(tok, pc));
+		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0: ");
 		
 		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";
-		assertEquals("Token: |" + tok + "| == 1.0: ", "1.0", evaluateToken(tok, pc));
+		assertEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 1.0: ");
 	
 		tok = "COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";
-		assertNotEquals("Token: |" + tok + "| != 1.0: ", "1.0", evaluateToken(tok, pc));
+		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0: ");
 		
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
-		assertNotEquals("Token: |" + tok + "| != 1.0 ", "1.0", evaluateToken(tok, pc));
+		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0 ");
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
-		assertNotEquals("Token: |" + tok + "| == 5.0 ", "5.0", evaluateToken(tok, pc));
+		assertNotEquals("5.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 5.0 ");
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
-		assertEquals("Token: |" + tok + "| != 6.0 ", "6.0", evaluateToken(tok, pc));
+		assertEquals("6.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 6.0 ");
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
-		assertNotEquals("Token: |" + tok + "| == 3.0 ", "3.0", evaluateToken(tok, pc));
+		assertNotEquals("3.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 3.0 ");
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
-		assertEquals("Token: |" + tok + "| != 2.0 ", "2.0", evaluateToken(tok, pc));
+		assertEquals("2.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 2.0 ");
 		
 		
 	}
 
+	@Test
 	public void testPartyFor() throws IOException
 	{
 		String outputToken =
@@ -418,14 +438,15 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		List<PlayerCharacter> pcs = new ArrayList<>();
 		pcs.add(getCharacter());
 		String result = evaluatePartyToken(outputToken, pcs).trim();
-		assertEquals("Party skills output", "<combatants>"
+		assertEquals("<combatants>"
 			+ System.getProperty("line.separator")
 			+ "<combatant>	<name></name>	<skills> Balance: +9;  KNOWLEDGE (ARCANA): +11;  "
 			+ "KNOWLEDGE (RELIGION): +8;  Tumble: +10; </skills></combatant>   </combatants>",
-			result);
+			result, "Party skills output"
+		);
 	}
-	
-	private String evaluateToken(String token, PlayerCharacter pc)
+
+	private static String evaluateToken(String token, PlayerCharacter pc)
 		throws IOException
 	{
 		StringWriter retWriter = new StringWriter();
@@ -439,7 +460,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		return retWriter.toString();
 	}
 	
-	private String evaluatePartyToken(String token, List<PlayerCharacter> pcs)
+	private static String evaluatePartyToken(String token, List<PlayerCharacter> pcs)
 		throws IOException
 	{
 		// Create temp file.

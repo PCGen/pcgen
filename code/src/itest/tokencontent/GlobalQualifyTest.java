@@ -17,6 +17,9 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.QualifyFacet;
@@ -32,7 +35,8 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.QualifyToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -42,8 +46,9 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	private static QualifyToken token = new QualifyToken();
 	private QualifyFacet qualifyFacet;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);

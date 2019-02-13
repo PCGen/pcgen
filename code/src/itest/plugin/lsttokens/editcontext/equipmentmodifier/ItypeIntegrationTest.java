@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.equipmentmodifier.ItypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ItypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<EquipmentModifier>
