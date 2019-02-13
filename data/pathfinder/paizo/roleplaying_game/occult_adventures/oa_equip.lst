@@ -40,7 +40,7 @@ Wind Chime																		TYPE:Goods.Tools										COST:1	WT:1															
 #
 Ectoplasmic Residue										PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash.Flask	COST:20	WT:2											RANGE:10	SIZE:M	SOURCEPAGE:p.252									QUALITY:CraftDC|25	SPROP:ranged touch attack DC13 Will, shaken 1d4 rounds, splash 1 round
 Magnetized Paper																	TYPE:Alchemical.Goods.Consumable							COST:11	WT:1															SOURCEPAGE:p.252									QUALITY:CraftDC|15	SPROP:these sheets add a 5% bonus to the chance of creating meaningful writing for the automatic writing occult skill unlock. 7 Sheets per pack.
-Snake Oil																		TYPE:Alchemical.Goods.Consumble.Flask						COST:20	WT:0															SOURCEPAGE:p.252									QUALITY:CraftDC|20	SPROP:This mildly toxic liniment numbs flesh and can soothe injuries.
+Snake Oil																		TYPE:Alchemical.Goods.Consumable.Flask						COST:20	WT:0															SOURCEPAGE:p.252									QUALITY:CraftDC|20	SPROP:This mildly toxic liniment numbs flesh and can soothe injuries.
 
 Ring of Psychic Mastery																TYPE:Magic.Ring										COST:50000																SOURCEPAGE:p.252													SPROP:A ring of psychic mastery grants the caster 1 additional psychic spell per day for each spell level from 1st to 4th that she is capable of casting.
 Ring of the Hidden Psyche															TYPE:Magic.Ring										COST:160000																SOURCEPAGE:p.252													SPROP:The wearer's soul instantly enters the ring upon the wearer's death, even if her body is utterly destroyed.
