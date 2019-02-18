@@ -9,8 +9,8 @@ nuget:
 install:
 #See: https://github.com/appveyor/ci/issues/505
  - ps: |
-    $exePath = "$($env:USERPROFILE)\nsis-3.02.1-setup.exe"
-    (New-Object Net.WebClient).DownloadFile('http://ufpr.dl.sourceforge.net/project/nsis/NSIS%203/3.02.1/nsis-3.02.1-setup.exe', $exePath)
+    $exePath = "$($env:USERPROFILE)\nsis-3.04-setup.exe"
+    (New-Object Net.WebClient).DownloadFile('https://downloads.sourceforge.net/project/nsis/NSIS%203/3.04/nsis-3.04-setup.exe', $exePath)
     cmd /c start /wait $exePath /S /D=C:\nsis
 build_script:
   gradlew.bat build --info --no-daemon
