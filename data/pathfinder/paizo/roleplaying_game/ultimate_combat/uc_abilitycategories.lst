@@ -75,7 +75,6 @@ ABILITYCATEGORY:Bat Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Boar Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Bleeding Critical|Blind-Fight|Diehard|Improved Overrun																								DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Wild Stalker Wild Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:WILDSTALKERWildTalent																																								DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Rapid Reload																															DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Rogue Advanced Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RogueAdvancedTalent																																	PLURAL:Rogue Advanced Talents			DISPLAYLOCATION:Class Features
 
