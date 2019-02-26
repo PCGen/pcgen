@@ -225,7 +225,7 @@ Section -FinishSection
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
 
 	DetailPrint "Calculating installation size..."
-	${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
+	${GetSize} "$INSTDIR\${APPDIR}" "/S=0K" $0 $1 $2
  	IntFmt $0 "0x%08X" $0
  	WriteRegDWORD HKLM "${ARP}" "EstimatedSize" "$0"
 	DetailPrint "Done!"
