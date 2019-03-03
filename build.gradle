@@ -16,7 +16,7 @@ import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
-    id 'com.gradle.build-scan' version '2.1'
+    id 'com.gradle.build-scan' version '2.2.1'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
