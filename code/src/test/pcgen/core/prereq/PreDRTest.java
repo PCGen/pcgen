@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.DamageReduction;
@@ -25,6 +28,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreDRTest} tests that the PREDR tag is
@@ -40,6 +46,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testDR() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -76,6 +83,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testMultiOr() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -107,6 +115,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+	@Test
 	public void testMultiAnd() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -145,6 +154,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 			prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

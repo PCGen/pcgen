@@ -17,6 +17,10 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -25,6 +29,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreAlignTest} tests that the PREALIGN tag is
@@ -39,6 +46,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testNegative() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -63,6 +71,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -99,6 +108,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testDeity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -119,6 +129,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
+	@Test
 	public void testMulti() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -135,6 +146,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

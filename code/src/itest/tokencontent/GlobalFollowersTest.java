@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.FollowerLimitFacet;
@@ -25,6 +27,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.FollowersLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -34,6 +37,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 	private static FollowersLst token = new FollowersLst();
 	private FollowerLimitFacet flFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

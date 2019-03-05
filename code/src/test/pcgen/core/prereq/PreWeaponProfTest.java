@@ -18,6 +18,10 @@
 package pcgen.core.prereq;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -39,6 +43,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreWeaponProfTest} tests that the PREWEAPONPROF tag is
  * working correctly.
@@ -50,6 +57,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testOneOption() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -64,23 +72,23 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 
 		character.addTemplate(pct);
 
-		assertTrue("Character has the Longsword proficiency.", 
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longsword proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Longbow");
 		
-		assertFalse("Character does not have the Longbow proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character does not have the Longbow proficiency");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Dagger");
 		
-		assertTrue("Character has the Dagger proficiency.", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Dagger proficiency.");
 	}
 
 
@@ -89,6 +97,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -102,23 +111,24 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword,Dagger");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 
 		character.addTemplate(pct);
 
-		assertTrue("Character has one of Longsword or Dagger proficiency", 
-			PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has one of Longsword or Dagger proficiency");
 
 		prereq = factory.parse("PREWEAPONPROF:2,Longsword,Dagger");
 
-		assertTrue("Character has both Longsword and Dagger proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has both Longsword and Dagger proficiency");
 		
 		prereq = factory.parse("PREWEAPONPROF:3,Longsword,Dagger,Longbow");
 
-		assertFalse("Character has both Longsword and Dagger proficiency but not Longbow", 
-				PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null),
+				"Character has both Longsword and Dagger proficiency but not Longbow");
 		
 	}
 	
@@ -127,6 +137,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -142,23 +153,23 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 		
 		character.addTemplate(pctls);
 		
-		assertTrue("Character has one Martial Weapon Proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has one Martial Weapon Proficiency");
 		
 		prereq = factory.parse("PREWEAPONPROF:2,TYPE.Martial");
 
-		assertFalse("Character only has one proficiency", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character only has one proficiency");
 		
 		character.addTemplate(pctlb);
 		
-		assertTrue("Character has two Martial Weapon Proficiencies", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has two Martial Weapon Proficiencies");
 	
 	}
 	
@@ -167,6 +178,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testInverse() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -180,23 +192,23 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("!PREWEAPONPROF:1,Longsword");
 
-		assertTrue("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 
 		character.addTemplate(pct);
 
-		assertFalse("Character has the Longsword proficiency.", 
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longsword proficiency.");
 		
 		prereq = factory.parse("!PREWEAPONPROF:1,Longbow");
 		
-		assertTrue("Character does not have the Longbow proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character does not have the Longbow proficiency");
 		
 		prereq = factory.parse("!PREWEAPONPROF:1,Dagger");
 		
-		assertFalse("Character has the Dagger proficiency.", 
-				PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character has the Dagger proficiency.");
 		
 	}
 	
@@ -207,6 +219,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testWeaponProfAddedWithAutoWeaponProf() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -216,8 +229,8 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 		
 		final Ability martialProf = 
 			TestHelper.makeAbility("Weapon Proficiency (Martial)", BuildUtilities.getFeatCat(), "General");
@@ -227,20 +240,20 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		
 		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
-		assertTrue("Character has the Longsword proficiency.", 
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longsword proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Longbow");
-		assertTrue("Character has the Longbow proficiency.",
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longbow proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Dagger");
-		assertFalse("Character does not have the Dagger proficiency.",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character does not have the Dagger proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
-		assertTrue("Character has martial weaponprofs.",
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has martial weaponprofs.");
 		
 	}
 	
@@ -250,6 +263,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testWithFeatThatGrantsBonus() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -279,10 +293,11 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
 		addAbility(BuildUtilities.getFeatCat(), bar);
 		
-		assertEquals("Character should have 50 bonus hp added.",
-					baseHp+50,
-					character.hitPoints()
-					);
+		assertEquals(
+				baseHp+50,
+					character.hitPoints(),
+				"Character should have 50 bonus hp added."
+		);
 		
 		character.addTemplate(pctls);
 		
@@ -292,15 +307,17 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
 		addAbility(BuildUtilities.getFeatCat(), foo);
 		
-		assertEquals("Character has the longsword proficiency so the bonus should be added",
-					baseHp+50+50,
-					character.hitPoints()
-					);
+		assertEquals(
+				baseHp+50+50,
+					character.hitPoints(),
+				"Character has the longsword proficiency so the bonus should be added"
+		);
 	
 	}
-	
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
+
 	{
 		super.setUp();
 

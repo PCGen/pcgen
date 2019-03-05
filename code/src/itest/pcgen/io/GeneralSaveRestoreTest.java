@@ -17,9 +17,10 @@
  */
 package pcgen.io;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -28,17 +29,15 @@ import pcgen.core.Ability;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
-import pcgen.persistence.PersistenceLayerException;
 import plugin.exporttokens.deprecated.TemplateToken;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.deprecated.TemplateFeatToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
+class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 {
 
 	@Test
@@ -51,18 +50,13 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		Ability a = BuildUtilities.buildAbility(context, BuildUtilities.getFeatCat(), "Ab");
 		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
-		try
-		{
+		assertDoesNotThrow(() -> {
 			assertTrue(context.processToken(a, "MULT", "YES"));
 			assertTrue(context.processToken(a, "STACK", "YES"));
 			assertTrue(context.processToken(a, "CHOOSE", "LANG|English"));
 			assertTrue(context.processToken(a, "AUTO", "LANG|%LIST"));
 			assertTrue(context.processToken(pct, "FEAT", "Ab"));
-		}
-		catch (PersistenceLayerException e)
-		{
-			fail(e.getMessage());
-		}
+		});
 		finishLoad();
 		pc.addTemplate(pct);
 		assertTrue(pc.hasLanguage(lang));
@@ -81,7 +75,7 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		assertEquals("Ab(English)", ExportHandler.getTokenString(pc, "TEMPLATE.0.FEAT"));
 		assertEquals("Ab(English)", ExportHandler.getTokenString(reloadedPC, "TEMPLATE.0.FEAT"));
 		reloadedPC.removeTemplate(pct);
-		Assert.assertFalse(reloadedPC.hasLanguage(lang));
+		assertFalse(reloadedPC.hasLanguage(lang));
 	}
 	
 	

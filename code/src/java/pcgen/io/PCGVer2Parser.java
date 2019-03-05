@@ -4950,7 +4950,7 @@ final class PCGVer2Parser implements PCGParser
 			{
 				try
 				{
-					itemQuantity = new Float(element.getText());
+					itemQuantity = Float.valueOf(element.getText());
 				}
 				catch (NumberFormatException nfe)
 				{

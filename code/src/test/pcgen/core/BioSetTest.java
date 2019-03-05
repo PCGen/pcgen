@@ -18,6 +18,9 @@
  */
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Locale;
 import java.util.Optional;
 
@@ -30,6 +33,10 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * A collection of tests to validate the functioning of the core BioSet class.
@@ -54,6 +61,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 				"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
 				"RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
 
+	@BeforeEach
     @Override
 	public void setUp() throws Exception
 	{
@@ -63,6 +71,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		finishLoad();
 	}
 
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -75,6 +84,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	 * Verify that the randomize function in BioSet
 	 * is functioning properly.
 	 */
+	@Test
 	public void testRandomize()
 	{
 		final int[] BASE_AGE = {15, 35, 53, 70};
@@ -91,32 +101,33 @@ public class BioSetTest extends AbstractCharacterTestCase
 			currBioSet.randomize("AGECAT" + ageCat, pc);
 			final int age = pc.getDisplay().getAge();
 			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
-			assertTrue("Generated age " + age + " is not between "
-				+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat],
-				(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]));
+			assertTrue(
+					(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]), "Generated age " + age + " is not between "
+						+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat]);
 		}
 		LocaleDependentTestCase.before(Locale.US);
 		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
 		LocaleDependentTestCase.after();
-		assertTrue("Generated height " + pc.getDisplay().getHeight()
-			+ " is not in required range.", (pc.getDisplay().getHeight() >= 58 && pc
-					.getDisplay().getHeight() <= 78));
-		assertTrue("Generated weight " + pc.getDisplay().getWeight()
-			+ " is not in required range.", (pc.getDisplay().getWeight() >= 120 && pc
-					.getDisplay().getWeight() <= 280));
-		assertEquals("Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
-				+ " is not valid.", "Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR));
-		assertTrue("Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
-			+ " is not valid.", ("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
-			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))));
-		assertTrue("Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
-			+ " is not valid.", ("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
-			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))));
+		assertTrue((pc.getDisplay().getHeight() >= 58 && pc
+					.getDisplay().getHeight() <= 78), "Generated height " + pc.getDisplay().getHeight()
+						+ " is not in required range.");
+		assertTrue((pc.getDisplay().getWeight() >= 120 && pc
+					.getDisplay().getWeight() <= 280), "Generated weight " + pc.getDisplay().getWeight()
+						+ " is not in required range.");
+		assertEquals("Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR), "Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
+				+ " is not valid.");
+		assertTrue(("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
+			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))), "Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
+				+ " is not valid.");
+		assertTrue(("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
+			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))), "Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
+				+ " is not valid.");
 	}
 
 	/**
 	 * Test the age set
 	 */
+	@Test
 	public void testAgeSet()
 	{
 		final PlayerCharacter pc = getCharacter();
@@ -126,23 +137,23 @@ public class BioSetTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
 		int idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
+		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
+		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 1, idx);
+		assertEquals(1, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 2, idx);
+		assertEquals(2, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
+		assertEquals(3, idx, "Ageset for " + display.getAge() + ".");
 
 		Optional<Region> region = pc.getDisplay().getRegion();
 		SettingsHandler.getGame().getBioSet().getAgeSet(region, idx);

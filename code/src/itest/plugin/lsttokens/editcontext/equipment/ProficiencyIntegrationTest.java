@@ -29,7 +29,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ProficiencyIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>

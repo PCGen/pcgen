@@ -17,6 +17,10 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
@@ -24,10 +28,9 @@ import pcgen.core.Race;
 import pcgen.core.SimpleMovement;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-
 import plugin.lsttokens.race.MoveToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 

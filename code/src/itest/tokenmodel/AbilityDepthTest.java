@@ -17,9 +17,14 @@
  */
 package tokenmodel;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -35,8 +40,6 @@ import plugin.lsttokens.deprecated.VFeatLst;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
@@ -49,11 +52,11 @@ public final class AbilityDepthTest extends AbstractTokenModelTest
 		.getFacet(GrantedAbilityFacet.class);
 
 	//Registration by super.setUpContext()
-	private static final VFeatLst VFEAT_TOKEN = new VFeatLst();
+	private static final CDOMToken<CDOMObject> VFEAT_TOKEN = new VFeatLst();
 
 	//Registration required locally
-	private static final AbilityLst ABILITY_LST = new AbilityLst();
-	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
+	private static final CDOMToken<CDOMObject> ABILITY_LST = new AbilityLst();
+	private static final CDOMToken<CDOMObject> ADD_ABILITY_TOKEN = new AbilityToken();
 
 	private final CDOMToken<? super Ability> firstToken;
 	private final String firstPrefix;
@@ -87,29 +90,7 @@ public final class AbilityDepthTest extends AbstractTokenModelTest
 		return a;
 	}
 
-	public static Test suite()
-	{
-		TestSuite suite = new TestSuite();
-		for (int i = 0; i < tokens.length; i++)
-		{
-			CDOMToken<? super Ability> ft = tokens[i];
-			String fp = prefix[i];
-			for (int j = 0; j < tokens.length; j++)
-			{
-				CDOMToken<? super Ability> st = tokens[j];
-				String sp = prefix[j];
-				if (!Arrays.asList(targetProhibited).contains(st))
-				{
-					suite.addTest(new AbilityDepthTest(ft.getClass()
-						.getSimpleName() + "_" + st.getClass().getSimpleName(),
-						ft, fp, st, sp));
-				}
-			}
-		}
-		return suite;
-	}
 
-	@Override
 	protected void runTest()
 	{
 		Ability top = createAbility("TopAbility");
@@ -150,7 +131,7 @@ public final class AbilityDepthTest extends AbstractTokenModelTest
 		assertEquals(0, getCount());
 	}
 
-	private boolean containsExpected(Ability granted)
+	private boolean containsExpected(Identified granted)
 	{
 		Collection<CNAbility> abilities =
 				GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat());

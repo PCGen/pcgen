@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class WeildIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>

@@ -17,23 +17,29 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreDomainTest} tests that the PREDOMAIN tag is
  * working correctly.
  */
-public class PreCharactertypeTest extends AbstractCharacterTestCase
+class PreCharactertypeTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test to make sure it is not looking at deity domains.
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testCharactertype() throws PersistenceLayerException
+	@Test
+	void testCharactertype() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setCharacterType("PC");
@@ -44,13 +50,13 @@ public class PreCharactertypeTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRECHARACTERTYPE:1,PC");
 
-		assertTrue("Character has character type 'PC'", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has character type 'PC'");
 
 		prereq = factory.parse("PRECHARACTERTYPE:1,NPC");
 
-		assertFalse("Character doesn't have character type 'NPC'", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character doesn't have character type 'NPC'");
 
 	}
 }

@@ -17,6 +17,10 @@
  */
 package pcgen.core.bonus;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 import java.util.Set;
 
@@ -31,9 +35,12 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.facade.TempBonusHelper;
 import pcgen.rules.context.LoadContext;
 
-public class TempBonusTest extends AbstractCharacterTestCase
+import org.junit.jupiter.api.Test;
+
+class TempBonusTest extends AbstractCharacterTestCase
 {
 
+	@Test
 	public void testPCTemporaryBonus()
 	{
 		LoadContext context = Globals.getContext();
@@ -55,7 +62,7 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		}
 	}
 
-	
+	@Test
 	public void testANYPCTemporaryBonus()
 	{
 		LoadContext context = Globals.getContext();
@@ -77,7 +84,7 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		}
 	}
 
-	
+	@Test
 	public void testEquipmentTemporaryBonus()
 	{
 		PlayerCharacter character = getCharacter();

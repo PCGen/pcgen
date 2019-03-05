@@ -17,6 +17,10 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
@@ -31,7 +35,7 @@ import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.TemplateLst;
 import plugin.lsttokens.choose.TemplateToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 import util.TestURI;
 
@@ -44,7 +48,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	private static TemplateToken CHOOSE_TEMPLATE_TOKEN = new TemplateToken();
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		ChooserFactory.setDelegate(new MockUIDelegate());

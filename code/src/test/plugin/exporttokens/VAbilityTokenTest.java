@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,9 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code VAbilityTokenTest} tests the functioning of the VABILITY
  * token processing code. 
@@ -52,6 +57,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 {
 	private Ability skillFocus;
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -113,6 +119,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the aspect subtoken of VABILITY without a specific aspect.
 	 */
+	@Test
 	public void testAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -127,6 +134,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECTCOUNT subtoken of VABILITY.
 	 */
+	@Test
 	public void testAspectCount()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -140,6 +148,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECT subtoken of VABILITY with an aspect specified.
 	 */
+	@Test
 	public void testSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -164,6 +173,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECT subtoken of VABILITY with an invalid aspect specified.
 	 */
+	@Test
 	public void testNonExistantSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -184,6 +194,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the HASASPECT subtoken of VABILITY.
 	 */
+	@Test
 	public void testHasAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -205,6 +216,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the name subtoken of VABILITY.
 	 */
+	@Test
 	public void testName()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -222,6 +234,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the key subtoken of VABILITY.
 	 */
+	@Test
 	public void testKey()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -240,6 +253,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the associated subtoken of VABILITY.
 	 */
+	@Test
 	public void testAssociated()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -259,6 +273,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASSOCIATEDCOUNT subtoken of VABILITY.
 	 */
+	@Test
 	public void testAssociatedCount()
 	{
 		VAbilityToken tok = new VAbilityToken();

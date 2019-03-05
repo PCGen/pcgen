@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.enumeration.ListKey;
@@ -28,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ChangeprofLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -37,6 +40,7 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 	private static ChangeprofLst token = new ChangeprofLst();
 	private ChangeProfFacet changeProfFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

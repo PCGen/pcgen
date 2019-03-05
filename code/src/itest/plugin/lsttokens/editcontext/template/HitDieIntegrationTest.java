@@ -27,7 +27,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.HitdieToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HitDieIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCTemplate>

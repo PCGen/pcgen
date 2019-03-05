@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.FacetLibrary;
@@ -37,7 +39,7 @@ public class GlobalMoveTest extends AbstractContentTokenTest
 	private MovementFacet moveFacet;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		moveFacet = FacetLibrary.getFacet(MovementFacet.class);

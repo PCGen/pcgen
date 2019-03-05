@@ -18,9 +18,10 @@
 package pcgen.io.testsupport;
 
 import static org.hamcrest.Matchers.closeTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -48,8 +49,8 @@ import plugin.lsttokens.skill.ExclusiveToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject>
 		extends AbstractSaveRestoreTest
@@ -545,13 +546,13 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		abil.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Object o = prepare(target);
 		finishLoad();
-		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(0.0f, 0.1));
+		MatcherAssert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(0.0f, 0.1));
 		applyObject(target);
 		pc.setDirty(true);
-		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
+		MatcherAssert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
 		runRoundRobin(getPreEqualityCleanup());
-		Assert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
-		Assert.assertThat((double) SkillRankControl.getTotalRank(reloadedPC, granted), closeTo(1.0f, 0.1));
+		MatcherAssert.assertThat((double) SkillRankControl.getTotalRank(pc, granted), closeTo(1.0f, 0.1));
+		MatcherAssert.assertThat((double) SkillRankControl.getTotalRank(reloadedPC, granted), closeTo(1.0f, 0.1));
 		remove(o);
 		reloadedPC.setDirty(true);
 		//This fails (see CODE-2387)

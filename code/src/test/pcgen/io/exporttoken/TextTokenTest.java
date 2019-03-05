@@ -17,6 +17,8 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
@@ -25,12 +27,16 @@ import pcgen.io.ExportHandler;
 
 import plugin.exporttokens.TextToken;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code TextTokenTest} tests the functioning of the TEXT
  * token processing code. 
  */
 public class TextTokenTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -43,6 +49,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for positive numbers with fractions.
 	 */
+	@Test
 	public void testTextFormatting()
 	{
 		TextToken tok = new TextToken();
@@ -75,6 +82,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers with fractions.
 	 */
+	@Test
 	public void testNumSuffix()
 	{
 		TextToken tok = new TextToken();
@@ -125,6 +133,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers with fractions.
 	 */
+	@Test
 	public void testNumSuffixDirect()
 	{
 		TextToken tok = new TextToken();

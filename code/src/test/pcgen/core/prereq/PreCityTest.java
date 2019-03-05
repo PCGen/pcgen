@@ -17,24 +17,30 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreCityTest} tests that the PRECITY tag is
  * working correctly.
  */
-public class PreCityTest extends AbstractCharacterTestCase
+class PreCityTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test the PRECITY code.
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testCity() throws PersistenceLayerException
+	@Test
+	void testCity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setPCAttribute(PCStringKey.RESIDENCE, "Klamath");
@@ -44,17 +50,17 @@ public class PreCityTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECITY:Klamath");
 
-		assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character is from Klamath");
 
 		prereq = factory.parse("PRECITY:KLAMATH");
 
-		assertTrue("Case is not significant", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Case is not significant");
 
 		prereq = factory.parse("PRECITY:Klam");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Requires a full match");
 	}
 }

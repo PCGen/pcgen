@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AbilityIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Ability>

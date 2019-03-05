@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
@@ -24,6 +26,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DefineStatLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -33,6 +36,7 @@ public class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest
 	private static DefineStatLst token = new DefineStatLst();
 	private UnlockedStatFacet unlockedStatFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

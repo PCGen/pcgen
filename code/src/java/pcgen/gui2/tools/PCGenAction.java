@@ -68,8 +68,8 @@ public class PCGenAction extends AbstractAction
 			// 2) shortcut-alt +
 			// 3) F1
 			// (error checking is for the weak!)
-			int iShortCut = InputEvent.CTRL_MASK;
-			int menuShortcutKeyMask = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
+			int iShortCut = InputEvent.CTRL_DOWN_MASK;
+			int menuShortcutKeyMask = Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx();
 			StringTokenizer aTok = new StringTokenizer(accelerator);
 
 			// get the first argument
@@ -81,11 +81,11 @@ public class PCGenAction extends AbstractAction
 			}
 			else if (aString.equalsIgnoreCase("alt"))
 			{
-				iShortCut = InputEvent.ALT_MASK;
+				iShortCut = InputEvent.ALT_DOWN_MASK;
 			}
 			else if (aString.equalsIgnoreCase("shift-shortcut"))
 			{
-				iShortCut = menuShortcutKeyMask | InputEvent.SHIFT_MASK;
+				iShortCut = menuShortcutKeyMask | InputEvent.SHIFT_DOWN_MASK;
 			}
 			else if (aString.matches("F[0-9]+"))
 			{

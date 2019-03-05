@@ -38,16 +38,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -77,8 +67,17 @@ import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
 import plugin.encounter.gui.EncounterView;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 /**
  * This class controls the various classes that are
@@ -729,7 +728,7 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 	{
 		for (Equipment eq : aPC.getDisplay().getEquipmentSet())
 		{
-			addEquipToTarget(aPC, eqSet, "", eq.clone(), new Float(1));
+			addEquipToTarget(aPC, eqSet, "", eq.clone(), 1.0f);
 		}
 	}
 

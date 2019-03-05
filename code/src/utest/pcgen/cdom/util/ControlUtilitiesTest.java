@@ -15,12 +15,10 @@
  */
 package pcgen.cdom.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Optional;
-
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
@@ -29,7 +27,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
-public class ControlUtilitiesTest
+import org.junit.jupiter.api.Test;
+
+class ControlUtilitiesTest
 {
 
 	@Test

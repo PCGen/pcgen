@@ -1,8 +1,9 @@
 package pcgen.core;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 
@@ -13,18 +14,17 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestHelper;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * This class tests global areas of PCGen
  */
 @SuppressWarnings("nls")
-public class GlobalsTest
+class GlobalsTest
 {
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		Globals.clearCampaignsForRefresh();
 		final GameMode gamemode = new GameMode("3.5");
@@ -415,9 +415,10 @@ public class GlobalsTest
 				SizeAdjustment.class, "S");
 		SizeAdjustment medium = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "M");
-		Assert.assertEquals("reduction of damage due to smaller size",
+		assertEquals(
 				"1d4",
-				Globals.adjustDamage("1d6", medium, small)
+				Globals.adjustDamage("1d6", medium, small),
+				"reduction of damage due to smaller size"
 		);
 	}
 }

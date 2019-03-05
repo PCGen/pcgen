@@ -18,7 +18,8 @@
 package plugin.jepcommands;
 
 import static org.hamcrest.Matchers.closeTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -31,11 +32,15 @@ import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code CountCommandTest} tests the functioning of the jep count plugin
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -92,19 +97,19 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), abArray[1], "two");
 
 		addAbility(BuildUtilities.getFeatCat(), abArray[0]);
-		for (int i = 2; 6 > i; i++)
+		for (int i = 2; i < 6; i++)
 		{
 			Ability anAbility = abArray[i];
 			addAbility(BuildUtilities.getFeatCat(), anAbility);
 		}
 
-		for (int i = 6; 12 > i; i++)
+		for (int i = 6; i < 12; i++)
 		{
 			Ability anAbility = abArray[i];
 			addAbility(bardCategory, anAbility);
 		}
 
-		for (int i = 12; 14 > i; i++)
+		for (int i = 12; i < 14; i++)
 		{
 			Ability anAbility = abArray[i];
 			addAbility(clericalCategory, anAbility);
@@ -423,6 +428,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	//
 	//        assertThat(s, (double) character.getVariableValue(s,""), closeTo(6.0, 0.1));
 	//    }
+	@Test
 	public void testCountAbilitiesByName()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -460,6 +466,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		assertThat(s + " three choices", (double) character.getVariableValue(s, ""), closeTo(3.0, 0.1));
 	}
 
+	@Test
 	public void testCountAbilitiesByKey()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -509,6 +516,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	/**
 	 * Verify counting CAMPAIGNHISTORY entries.
 	 */
+	@Test
 	public void testCountCampaignHistory()
 	{
 		final PlayerCharacter character = getCharacter();

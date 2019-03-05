@@ -28,7 +28,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.AdddomainsToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AddDomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Domain>

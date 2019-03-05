@@ -16,6 +16,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -50,6 +53,8 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Test the PObject class.
  */
@@ -59,6 +64,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Test DR.
 	 */
+	@Test
 	public void testDR()
 	{
 		Race race = new Race();
@@ -100,6 +106,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testGetPCCText() throws PersistenceLayerException
 	{
 		OrderedPairManager opManager = new OrderedPairManager();
@@ -154,6 +161,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Test the function of adding a bonus each time an associated value is chosen.
 	 */
+	@Test
 	public void testAssociatedBonus()
 	{
 		Ability pObj = new Ability();
@@ -193,6 +201,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * no choices and adds a static bonus.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testNoChoiceBonus() throws Exception
 	{
 		CampaignSourceEntry source;
@@ -234,6 +243,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * a single choice and adds a static bonus.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testNoSubsChoiceBonus() throws Exception
 	{
 		CampaignSourceEntry source;
@@ -271,6 +281,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Tests description handling
 	 */
+	@Test
 	public void testDescription()
 	{
 		final Description desc1 = new Description("Description 1.");
@@ -304,6 +315,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * Test the definition and application of abilities. 
 	 * @throws PersistenceLayerException 
 	 */
+	@Test
 	public void testAddAbility() throws PersistenceLayerException
 	{
 		// Create some abilities to be added

@@ -28,7 +28,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.pcclass.AllowBaseClassToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AllowBaseClassIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
