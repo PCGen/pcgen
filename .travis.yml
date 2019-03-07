@@ -18,9 +18,9 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install lib32z1 lib32ncurses5 nsis
 - export PERL_MM_USE_DEFAULT=1
-- chmod +x gradlew
-    - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install scons zlib1g-dev libcppunit-dev; fi
-    - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; then brew install https://sourceforge.net/p/nsis/code/HEAD/tree/web-scripts/trunk/cppunit.rb?format=raw; then brew install scons mingw-w64 zlib; fi
+- chmod +x gradlew;
+- if [[ $TRAVIS_OS_NAME == 'linux' ]]; then sudo apt-get install scons zlib1g-dev libcppunit-dev; fi
+- if [[ $TRAVIS_OS_NAME == 'osx' ]]; then brew update; brew install https://sourceforge.net/p/nsis/code/HEAD/tree/web-scripts/trunk/cppunit.rb?format=raw; brew install scons mingw-w64 zlib; fi
 install:
 - wget -O /tmp/zlib.zip "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip?r=&ts=1403402496&use_mirror=hivelocity"
 - mkdir /tmp/zlib
@@ -46,7 +46,4 @@ deploy:
     skip_cleanup: true
   on:
     repo: PCGen/pcgen
-        # This make the deploy only happen when a tag is created.  
-        tags: true
-        # Uncomment this if we only want to build on Master. Otherwise we need to have this disabled for Production Releases
-        #branch: master
+    tags: true
