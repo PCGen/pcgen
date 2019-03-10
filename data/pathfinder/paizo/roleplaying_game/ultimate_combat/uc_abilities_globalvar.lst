@@ -204,7 +204,7 @@ CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Out
 CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Heavy)|PREVAREQ:Samurai_CF_SamuraiArmorProficiencyHeavy,0
 CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|PREVAREQ:Samurai_CF_SamuraiArmorProficiencyLight,0
 CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|PREVAREQ:Samurai_CF_SamuraiArmorProficiencyMedium,0
-CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|PREVAREQ:Samurai_CF_WeaponProficiencies,0
+CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|PREVAREQ:Samurai_CF_SamuraiShieldProficiency,0
 
 ###Block:
 # Ability Name			Define								Modify VAR
