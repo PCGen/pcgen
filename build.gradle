@@ -16,12 +16,12 @@ import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
-    id 'com.gradle.build-scan' version '2.1'
+    id 'com.gradle.build-scan' version '2.2.1'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '1.6.9'
+    id "com.github.spotbugs" version '1.6.11'
     id 'java'
     id 'maven'
     id 'pmd'
