@@ -6,20 +6,3 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Elements	SOURCESHORT:BOTE	S
 
 # Ability Name					Category of Ability	Type				Required Class			Description																				Source Page		Benefits
 Elemental Commixture				CATEGORY:FEAT		TYPE:Teamwork		PRECLASS:1,SPELLCASTER=1	DESC:You can combine your elemental spells with those of your allies to produce entirely new and synergistic magical effects.	SOURCEPAGE:28	BENEFIT:You and an ally within 30 feet who shares this feat can cast your spells together to create a more powerful, hybrid effect.
-
-CATEGORY=FEAT|Dodge.MOD								TYPE:LifewaterBloodline
-CATEGORY=FEAT|Empower Spell.MOD						TYPE:LifewaterBloodline
-CATEGORY=FEAT|Great Fortitude.MOD						TYPE:LifewaterBloodline
-CATEGORY=FEAT|Improved Initiative.MOD					TYPE:LifewaterBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD					TYPE:LifewaterBloodline
-CATEGORY=FEAT|Power Attack.MOD						TYPE:LifewaterBloodline
-CATEGORY=FEAT|Weapon Finesse.MOD						TYPE:LifewaterBloodline
-
-
-CATEGORY=FEAT|Dodge.MOD								TYPE:ShahzadaBloodline
-CATEGORY=FEAT|Empower Spell.MOD						TYPE:ShahzadaBloodline
-CATEGORY=FEAT|Great Fortitude.MOD						TYPE:ShahzadaBloodline
-CATEGORY=FEAT|Improved Initiative.MOD					TYPE:ShahzadaBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD					TYPE:ShahzadaBloodline
-CATEGORY=FEAT|Power Attack.MOD						TYPE:ShahzadaBloodline
-CATEGORY=FEAT|Weapon Finesse.MOD						TYPE:ShahzadaBloodline

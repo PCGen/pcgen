@@ -4,25 +4,6 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY: none
 # ORIGINAL ENTRY DATE: none
 
-###Block: Modified Feats for Sorcerer Bloodlines
-# Feat Name				Type
-# Ability Name						Type
-CATEGORY=FEAT|Diehard.MOD				TYPE:ImperiousBloodline
-CATEGORY=FEAT|Endurance.MOD				TYPE:ImperiousBloodline
-CATEGORY=FEAT|Heroic Defiance.MOD			TYPE:ImperiousBloodline
-CATEGORY=FEAT|Heroic Recovery.MOD			TYPE:ImperiousBloodline
-CATEGORY=FEAT|Improved Initiative.MOD		TYPE:ImperiousBloodline
-CATEGORY=FEAT|Lingering Spell.MOD			TYPE:ImperiousBloodline
-CATEGORY=FEAT|Magical Aptitude.MOD			TYPE:ImperiousBloodline
-CATEGORY=FEAT|Persuasive.MOD				TYPE:ImperiousBloodline
-CATEGORY=FEAT|Alertness.MOD				TYPE:KoboldBloodline
-CATEGORY=FEAT|Combat Casting.MOD			TYPE:KoboldBloodline
-CATEGORY=FEAT|Defensive Combat Training.MOD	TYPE:KoboldBloodline
-CATEGORY=FEAT|Dodge.MOD					TYPE:KoboldBloodline
-CATEGORY=FEAT|Improved Initiative.MOD		TYPE:KoboldBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD		TYPE:KoboldBloodline
-CATEGORY=FEAT|Silent Spell.MOD			TYPE:KoboldBloodline
-
 ###New Fighter Bonus Feats
 #
 CATEGORY=FEAT|Flyby Attack.MOD			TYPE:Combat

@@ -163,11 +163,3 @@ Tenacious Hunter						CATEGORY:FEAT		TYPE:Animal																																
 ##Support
 CATEGORY=Special Ability|Samurai ~ Mount.MOD					TYPE:Mount
 CATEGORY=FEAT|Intimidating Prowess.MOD																																						!PREABILITY:1,CATEGORY=FEAT,Ferocious Beast
-
-CATEGORY=FEAT|Bolstered Resilience.MOD						TYPE:VerdantBloodRagerBloodline
-CATEGORY=FEAT|Diehard.MOD								TYPE:VerdantBloodRagerBloodline
-CATEGORY=FEAT|Endurance.MOD								TYPE:VerdantBloodRagerBloodline
-CATEGORY=FEAT|Great Fortitude.MOD							TYPE:VerdantBloodRagerBloodline
-CATEGORY=FEAT|Power Attack.MOD							TYPE:VerdantBloodRagerBloodline
-CATEGORY=FEAT|Raging Vitality.MOD							TYPE:VerdantBloodRagerBloodline
-CATEGORY=FEAT|Toughness.MOD								TYPE:VerdantBloodRagerBloodline

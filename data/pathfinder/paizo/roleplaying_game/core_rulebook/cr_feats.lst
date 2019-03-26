@@ -208,48 +208,6 @@ Power Attack (Natural Primary - Single)	CATEGORY:FEAT		VISIBLE:NO										TEMPB
 CATEGORY=FEAT|Arcane Strike.MOD								BONUS:VAR|ArcaneStrikeLVL|Caster_Level_Total__Arcane
 #charbonusto("CASTERLEVEL","Wizard")+var("BL=Wizard")+charbonusto("CASTERLEVEL","Sorcerer")+var("BL=Sorcerer")+charbonusto("CASTERLEVEL","Bard")+var("BL=Bard")
 
-###Block: Modified Feats for Sorcerer Bloodlines -Converted to new system
-# Ability Name					Type
-CATEGORY=FEAT|Arcane Strike.MOD		TYPE:DestinedBloodline
-CATEGORY=FEAT|Augment Summoning.MOD		TYPE:AbyssalBloodline
-CATEGORY=FEAT|Blind-Fight.MOD			TYPE:DraconicBloodline.InfernalBloodline
-CATEGORY=FEAT|Cleave.MOD			TYPE:AbyssalBloodline
-CATEGORY=FEAT|Combat Casting.MOD		TYPE:AberrantBloodline.ArcaneBloodline.UndeadBloodline
-CATEGORY=FEAT|Combat Expertise.MOD		TYPE:InfernalBloodline
-CATEGORY=FEAT|Deceitful.MOD			TYPE:InfernalBloodline
-CATEGORY=FEAT|Diehard.MOD			TYPE:DestinedBloodline.UndeadBloodline
-CATEGORY=FEAT|Dodge.MOD				TYPE:CelestialBloodline.ElementalBloodline.FeyBloodline
-CATEGORY=FEAT|Empower Spell.MOD		TYPE:AbyssalBloodline.ElementalBloodline
-CATEGORY=FEAT|Endurance.MOD			TYPE:DestinedBloodline.UndeadBloodline
-CATEGORY=FEAT|Extend Spell.MOD		TYPE:CelestialBloodline.InfernalBloodline
-CATEGORY=FEAT|Great Fortitude.MOD		TYPE:AbyssalBloodline.DraconicBloodline.ElementalBloodline
-CATEGORY=FEAT|Improved Bull Rush.MOD	TYPE:AbyssalBloodline
-CATEGORY=FEAT|Improved Counterspell.MOD	TYPE:ArcaneBloodline
-CATEGORY=FEAT|Improved Disarm.MOD		TYPE:AberrantBloodline.InfernalBloodline
-CATEGORY=FEAT|Improved Grapple.MOD		TYPE:AberrantBloodline
-CATEGORY=FEAT|Improved Initiative.MOD	TYPE:AberrantBloodline.ArcaneBloodline.DraconicBloodline.ElementalBloodline.FeyBloodline
-CATEGORY=FEAT|Improved Sunder.MOD		TYPE:AbyssalBloodline
-CATEGORY=FEAT|Improved Unarmed Strike.MOD	TYPE:AberrantBloodline
-CATEGORY=FEAT|Iron Will.MOD			TYPE:AberrantBloodline.ArcaneBloodline.CelestialBloodline.InfernalBloodline.UndeadBloodline
-CATEGORY=FEAT|Leadership.MOD			TYPE:DestinedBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD	TYPE:DestinedBloodline.ElementalBloodline.FeyBloodline
-CATEGORY=FEAT|Maximize Spell.MOD		TYPE:DestinedBloodline
-CATEGORY=FEAT|Mobility.MOD			TYPE:CelestialBloodline.FeyBloodline
-CATEGORY=FEAT|Mounted Combat.MOD		TYPE:CelestialBloodline
-CATEGORY=FEAT|Point-Blank Shot.MOD		TYPE:FeyBloodline
-CATEGORY=FEAT|Power Attack.MOD		TYPE:AbyssalBloodline.DraconicBloodline.ElementalBloodline
-CATEGORY=FEAT|Precise Shot.MOD		TYPE:FeyBloodline
-CATEGORY=FEAT|Quicken Spell.MOD		TYPE:DraconicBloodline.FeyBloodline
-CATEGORY=FEAT|Ride-By Attack.MOD		TYPE:CelestialBloodline
-CATEGORY=FEAT|Scribe Scroll.MOD		TYPE:ArcaneBloodline
-CATEGORY=FEAT|Silent Spell.MOD		TYPE:AberrantBloodline
-CATEGORY=FEAT|Spell Focus.MOD			TYPE:ArcaneBloodline.UndeadBloodline
-CATEGORY=FEAT|Spell Penetration.MOD		TYPE:InfernalBloodline
-CATEGORY=FEAT|Still Spell.MOD			TYPE:ArcaneBloodline.UndeadBloodline
-CATEGORY=FEAT|Toughness.MOD			TYPE:DraconicBloodline.UndeadBloodline
-CATEGORY=FEAT|Weapon Finesse.MOD		TYPE:CelestialBloodline.ElementalBloodline
-CATEGORY=FEAT|Weapon Focus.MOD		TYPE:DestinedBloodline
-
 ###Block: Improved Familiar ---------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name				Allowed Companions
 CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Rat/Dire)|PREMULT:1,[PRECLASS:1,SPELLCASTER.Arcane=3],[PREVARGTEQ:Caster_Level_Highest__Arcane,3]

@@ -31,19 +31,3 @@ Katana Weapon Proficiency	CATEGORY:FEAT		TYPE:Combat	PREMULT:1,[PRETOTALAB:1],[P
 #
 # End
 #
-
-###Block: Modified Feats for Sorcerer Bloodlines
-# Feat Name				Type
-# Ability Name						Type
-CATEGORY=FEAT|Combat Expertise.MOD			TYPE:OniBloodline
-CATEGORY=FEAT|Combat Reflexes.MOD			TYPE:OniBloodline
-CATEGORY=FEAT|Enforcer.MOD				TYPE:OniBloodline
-CATEGORY=FEAT|Fast Healer.MOD				TYPE:OniBloodline
-CATEGORY=FEAT|Improved Initiative.MOD		TYPE:OniBloodline
-CATEGORY=FEAT|Iron Will.MOD				TYPE:OniBloodline
-CATEGORY=FEAT|Power Attack.MOD			TYPE:OniBloodline
-CATEGORY=FEAT|Katana Weapon Proficiency.MOD	TYPE:OniBloodline
-
-#
-# End
-#

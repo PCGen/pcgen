@@ -40,7 +40,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: People of the Rive
 
 ABILITY:potr_abilities.lst
 ABILITY:potr_abilities_class.lst
-ABILITYCATEGORY:potr_abilitycategories.lst
 CLASS:potr_classes.lst
 EQUIPMENT:potr_equip_arms_armor.lst
 EQUIPMENT:potr_equip_magic_items.lst

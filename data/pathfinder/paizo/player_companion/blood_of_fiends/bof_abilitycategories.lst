@@ -24,11 +24,6 @@ ABILITYCATEGORY:Rakshasa Spawn Race Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 #Tiefling Variant Abilities based on the set in Blood of Angels that worked
 ABILITYCATEGORY:Tiefling Variant Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingVariantAbility	PLURAL:Tiefling Variant Abilities	DISPLAYLOCATION:Racial Abilities
 
-
-###Block: Class Bonus Feat Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list		Plural description for UI	Display Location
-ABILITYCATEGORY:Daemon Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DaemonBloodline	ABILITYLIST:Skill Focus(Heal)	PLURAL:Daemon Bloodline Feats	DISPLAYLOCATION:Feats
-
 #
 # End
 #

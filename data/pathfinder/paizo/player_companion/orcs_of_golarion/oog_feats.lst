@@ -15,11 +15,3 @@ Warleader's Rage					CATEGORY:FEAT		TYPE:General																						!PREALIGN:
 Destroyer's Blessing				CATEGORY:FEAT		TYPE:Combat			PREABILITY:1,CATEGORY=Special Ability,Rage																																PRERACE:1,Orc,RACESUBTYPE=Orc				DESC:Breaking things adds to your power																							SOURCEPAGE:p.24	BENEFIT:When you are raging and you succeed at a sunder attempt, you regain 1 round of rage. If the sunder attempt causes the object to gain the broken condition, you heal 1 hit point. You must worship the Destroyer in order to choose this feat.
 Fire God's Blessing				CATEGORY:FEAT		TYPE:General																																									PRERACE:1,Orc,RACESUBTYPE=Orc				DESC:The Fire God rewards you for killing enemies with flame.																			SOURCEPAGE:p.25	BENEFIT:When in combat, if you deal fire damage to an enemy, you heal 1 hit point. You can only benefit from this healing once per round. Attacks that case a target to catch on fire heal you each round the target takes fire damage. You must worship the Fire God in order to choose this feat.
 Adept Channel					CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=Special Ability,Arcane Bond ~ Familiar														PREMULT:1,[PRECLASS:1,SPELLCASTER.Divine=4],[PREVARGTEQ:Caster_Level_Highest__Divine,4]						PRESTAT:1,CHA=13	DESC:Some orc adepts enjoy greater connection to their gods and can channel their faith through their unholy symbols. You gain the ability to channel energy as a cleric.	SOURCEPAGE:p.27	BENEFIT:You gain the channel energy class feature, as a cleric, usable 2 times per day. This ability otherwise functions like the cleric's channel energy ability, except that your effective cleric level is equal to your divine spellcasting class level -3. Unlike a cleric, however, the number of times per day you may channel energy is not affected by your Charisma modifier.
-CATEGORY=FEAT|Diehard.MOD							TYPE:OrcBloodline
-CATEGORY=FEAT|Endurance.MOD							TYPE:OrcBloodline
-CATEGORY=FEAT|Great Fortitude.MOD						TYPE:OrcBloodline
-CATEGORY=FEAT|Intimidating Prowess.MOD					TYPE:OrcBloodline
-CATEGORY=FEAT|Improved Overrun.MOD						TYPE:OrcBloodline
-CATEGORY=FEAT|Power Attack.MOD						TYPE:OrcBloodline
-CATEGORY=FEAT|Toughness.MOD							TYPE:OrcBloodline
-CATEGORY=FEAT|Widen Spell.MOD							TYPE:OrcBloodline
