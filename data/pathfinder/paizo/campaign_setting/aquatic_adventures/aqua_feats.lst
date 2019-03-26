@@ -65,14 +65,3 @@ Swim Speed ~ 45	CATEGORY:Internal		MOVE:Swim,45
 Swim Speed ~ 50	CATEGORY:Internal		MOVE:Swim,50
 Swim Speed ~ 55	CATEGORY:Internal		MOVE:Swim,55
 Swim Speed ~ 60	CATEGORY:Internal		MOVE:Swim,60
-
-
-###Block: Modified Feats for Bloodrager Aquatic Bloodline
-# Ability Name					Type
-CATEGORY=FEAT|Aquadynamic Focus.MOD		TYPE:AquaticBloodragerBloodline
-CATEGORY=FEAT|Dodge.MOD				TYPE:AquaticBloodragerBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD	TYPE:AquaticBloodragerBloodline
-CATEGORY=FEAT|Mobility.MOD			TYPE:AquaticBloodragerBloodline
-CATEGORY=FEAT|Steam Spell.MOD			TYPE:AquaticBloodragerBloodline
-CATEGORY=FEAT|Toughness.MOD			TYPE:AquaticBloodragerBloodline
-#CATEGORY=FEAT|Skill Focus.MOD		TYPE:AquaticBloodragerBloodline

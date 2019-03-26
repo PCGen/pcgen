@@ -100,9 +100,6 @@ ABILITYCATEGORY:Flexible Enhancement Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object				Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Metal Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:MetalOpposedSchool			PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Wood Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:WoodOpposedSchool			PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Features
-#ABILITYCATEGORY:Eldritch Heritage Bloodline Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Eldritch Heritage Bloodline Selection									DISPLAYLOCATION:Feats
-#ABILITYCATEGORY:Improved Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedEldritchHeritageSelection								DISPLAYLOCATION:Feats
-#ABILITYCATEGORY:Greater Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterEldritchHeritageSelection								DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Eldritch Heritage Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Eldritch Heritage Bloodline	TYPE:Eldritch Heritage Selection								DISPLAYLOCATION:Feats
 
@@ -138,12 +135,3 @@ ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 4	VISIBLE:QUALIFY	EDITABLE:YES	ED
 #
 # End
 #
-
-## REMOVE - When Bloodline Conversion Complete
-ABILITYCATEGORY:Accursed Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO												CATEGORY:FEAT			TYPE:AccursedBloodline																																																																								PLURAL:Accursed Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Djinni Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO												CATEGORY:FEAT			TYPE:DjinniBloodline					ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Djinni Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Efreeti Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO												CATEGORY:FEAT			TYPE:EfreetiBloodline					ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Efreeti Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Maestro Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO												CATEGORY:FEAT			TYPE:MaestroBloodline					ABILITYLIST:Spell Focus (Enchantment)|Greater Spell Focus (Enchantment)|Skill Focus (Perform (Act))|Skill Focus (Perform (Comedy))|Skill Focus (Perform (Dance))|Skill Focus (Perform (Keyboard Instruments))|Skill Focus (Perform (Oratory))|Skill Focus (Perform (Percussion Instruments))|Skill Focus (Perform (Sing))|Skill Focus (Perform (String Instruments))|Skill Focus (Perform (Wind Instruments))	PLURAL:Maestro Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Marid Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO												CATEGORY:FEAT			TYPE:MaridBloodline					ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Marid Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Rakshasa Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO												CATEGORY:FEAT			TYPE:RakshasaBloodline																																																																								PLURAL:Rakshasa Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Shaitan Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO												CATEGORY:FEAT			TYPE:ShaitanBloodline					ABILITYLIST:Skill Focus (Knowledge (Planes))																																																												PLURAL:Shaitan Bloodline Feats	DISPLAYLOCATION:Feats

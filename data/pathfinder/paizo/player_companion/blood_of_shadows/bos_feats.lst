@@ -34,13 +34,5 @@ Shadow Magic Defense				CATEGORY:FEAT		TYPE:General				PREABILITY:1,CATEGORY=Spe
 Surface Scout					CATEGORY:FEAT		TYPE:General				PREABILITY:1,CATEGORY=Special Ability,Drow ~ Spell-Like Abilities																												PRERACE:1,Drow,RACESUBTYPE=Drow						PRETEXT:Drow, spell-like abilities drow racial trait.																																						SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Fear the Sun	SPELLS:Innate|TIMES=1|CASTERLEVEL=TL|Ignoble Form	DESC:You were trained from youth to infiltrate and ambush aboveground settlements.																																											SOURCEPAGE:p.15	BENEFIT:You can use fear the sun and ignoble form each once per day as a spell-like ability. Your caster level is %1.|TL
 Wayang Soothsayer					CATEGORY:FEAT		TYPE:General																											PREMULT:1,[PREVAREQ:TL,1],[PREVAREQ:TL,11]								PRERACE:1,Wayang,RACESUBTYPE=Wayang						PRETEXT:Wayang.																																																														DESC:You embody the ideals of wayang society and culture.																			ABILITY:Special Ability|AUTOMATIC|Wayang ~ Shadow Speaker																			SOURCEPAGE:p.11	BENEFIT:You gain the shadow speaker racial trait. If you already have the shadow speaker racial trait, you can increase the number of times per day that you can use shadow speaker by 1, and increase the insight bonus granted from each type of use by 1.
 
-
-CATEGORY=FEAT|Blind-Fight.MOD							TYPE:ShadowBloodRagerBloodline
-CATEGORY=FEAT|Combat Reflexes.MOD						TYPE:ShadowBloodRagerBloodline
-CATEGORY=FEAT|Improved Initiative.MOD					TYPE:ShadowBloodRagerBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD					TYPE:ShadowBloodRagerBloodline
-CATEGORY=FEAT|Quick Draw.MOD							TYPE:ShadowBloodRagerBloodline
-CATEGORY=FEAT|Step Up.MOD							TYPE:ShadowBloodRagerBloodline
-
 ###Support for racial trait if OA is not loaded.
 Psychic Sensitivity				CATEGORY:FEAT		TYPE:General																																																																																																																					DESC:You unlock the secrets of the occult world.																																																SOURCEPAGE:p.138	BENEFIT:You gain access to occult skill unlocks (OA 194) for any skills in which you have ranks. If you have no ranks in the appropriate skill, you can't use the occult skill unlock, even if that skill can be used untrained. Normal: You must have the ability to cast psychic spells in order to use occult skill unlocks.

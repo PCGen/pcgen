@@ -8,10 +8,6 @@ ABILITYCATEGORY:Elemental Opposition School	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 ABILITYCATEGORY:Favored Yokai				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredYokai				PLURAL:Favored Yokai				DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:White-Haired Witch Rogue Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WhiteHairedWitchRogueTalent	PLURAL:White-Haired Witch Rogue Talents	DISPLAYLOCATION:Class Abilities
 
-###Block: Class Bonus Feat Categories
-# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object	Specific choices list			Plural description for UI	Display Location
-ABILITYCATEGORY:Oni Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:OniBloodline	ABILITYLIST:Skill Focus(Intimidate)	PLURAL:Oni Bloodline Feats	DISPLAYLOCATION:Feats
-
 #
 # End
 #
