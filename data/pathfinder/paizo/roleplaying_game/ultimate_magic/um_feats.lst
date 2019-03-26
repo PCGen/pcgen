@@ -200,35 +200,6 @@ CATEGORY=FEAT|Lightning Reflexes.MOD											TYPE:SharkShamanBonus
 CATEGORY=FEAT|Self-Sufficient.MOD												TYPE:SharkShamanBonus
 Skill Focus (Swim)				KEY:Skill Focus Swim			CATEGORY:FEAT		TYPE:SharkShamanBonus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Internal,Shark Shaman Bonus Feats	ABILITY:FEAT|AUTOMATIC|Skill Focus (Swim)
 
-###Block: Sorcerer Bloodline Modded Feats
-# Feat Name					Type
-# Ability Name						Type
-CATEGORY=FEAT|Alertness.MOD				TYPE:AccursedBloodline
-CATEGORY=FEAT|Arcane Armor Mastery.MOD		TYPE:RakshasaBloodline
-CATEGORY=FEAT|Arcane Armor Training.MOD		TYPE:RakshasaBloodline
-CATEGORY=FEAT|Armor Proficiency (Light).MOD	TYPE:RakshasaBloodline
-CATEGORY=FEAT|Blind-Fight.MOD				TYPE:AccursedBloodline
-CATEGORY=FEAT|Combat Casting.MOD			TYPE:AccursedBloodline
-CATEGORY=FEAT|Deceitful.MOD				TYPE:AccursedBloodline.MaestroBloodline.RakshasaBloodline
-CATEGORY=FEAT|Defensive Combat Training.MOD	TYPE:AccursedBloodline
-CATEGORY=FEAT|Detect Expertise.MOD			TYPE:RakshasaBloodline
-CATEGORY=FEAT|Dodge.MOD					TYPE:DjinniBloodline.EfreetiBloodline.MaridBloodline.ShaitanBloodline
-CATEGORY=FEAT|Empower Spell.MOD			TYPE:DjinniBloodline.EfreetiBloodline.MaridBloodline.RakshasaBloodline.ShaitanBloodline
-CATEGORY=FEAT|Endurance.MOD				TYPE:AccursedBloodline
-CATEGORY=FEAT|Great Fortitude.MOD			TYPE:AccursedBloodline.DjinniBloodline.EfreetiBloodline.MaridBloodline.ShaitanBloodline
-CATEGORY=FEAT|Improved Initiative.MOD		TYPE:DjinniBloodline.EfreetiBloodline.MaridBloodline.ShaitanBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD		TYPE:DjinniBloodline.EfreetiBloodline.MaridBloodline.ShaitanBloodline
-CATEGORY=FEAT|Lingering Performance.MOD		TYPE:MaestroBloodline
-CATEGORY=FEAT|Martial Weapon Proficiency.MOD	TYPE:RakshasaBloodline
-CATEGORY=FEAT|Mounted Combat.MOD			TYPE:AccursedBloodline
-CATEGORY=FEAT|Persuasive.MOD				TYPE:MaestroBloodline
-CATEGORY=FEAT|Power Attack.MOD			TYPE:DjinniBloodline.EfreetiBloodline.MaridBloodline.ShaitanBloodline
-CATEGORY=FEAT|Spellsong.MOD				TYPE:MaestroBloodline
-CATEGORY=FEAT|Stealthy.MOD				TYPE:RakshasaBloodline
-CATEGORY=FEAT|Still Spell.MOD				TYPE:MaestroBloodline
-CATEGORY=FEAT|Weapon Finesse.MOD			TYPE:DjinniBloodline.EfreetiBloodline.MaridBloodline.ShaitanBloodline
-
-
 ###Block: Bardic Masterpiece feats
 # Feat Name								Output Name										Type			Required Class	Required Skill																Description											Source Page
 # Ability Name							Output Name										Category of Ability	Type			Required Skill																Var. Min. Value			Description											Source Page

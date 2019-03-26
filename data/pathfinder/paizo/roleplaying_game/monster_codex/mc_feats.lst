@@ -37,9 +37,3 @@ Visceral Threat				CATEGORY:FEAT		TYPE:Combat			PREABILITY:1,CATEGORY=FEAT,Intim
 
 CATEGORY=Feat|Improved Familiar.MOD																																																																																																																																																																																																																																																																																																																																																																																																																										COMPANIONLIST:Familiar|Bat (Sootwing)|PREALIGN:LE,NE,CE|PREVARGTEQ:FamiliarMasterLVL,7
 CATEGORY=Feat|Improved Familiar.MOD																																																																																																																																																																																																																																																																																																																																																																																																																										COMPANIONLIST:Familiar|Seru|PREALIGN:LE,NE,CE|PREVARGTEQ:FamiliarMasterLVL,7
-
-CATEGORY=FEAT|Arcane Strike.MOD					TYPE:GhoulBloodline
-CATEGORY=FEAT|Combat Casting.MOD					TYPE:GhoulBloodline
-CATEGORY=FEAT|Power Attack.MOD					TYPE:GhoulBloodline
-CATEGORY=FEAT|Toughness.MOD						TYPE:GhoulBloodline
-CATEGORY=FEAT|Weapon Finesse.MOD					TYPE:GhoulBloodline

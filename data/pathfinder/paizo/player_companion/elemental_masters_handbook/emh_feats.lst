@@ -27,16 +27,3 @@ Mobile Gathering								CATEGORY:FEAT		TYPE:General								PREABILITY:1,CATEGORY
 
 Masterpiece (Blazing Rondo)						CATEGORY:FEAT		TYPE:Masterpiece																																																																													PRESKILL:1,Perform (Oratory)=7,Perform (Percussion Instruments)=7																												PREVARGTEQ:MasterpieceLVL,1											DESC:You learn the masterpiece Blazing Rondo.																																					SOURCEPAGE:p.5
 Masterpiece (Dance of Captivating Desire)				CATEGORY:FEAT		TYPE:Masterpiece																																																																													PRESKILL:1,Perform (Dance)=5																																		PREVARGTEQ:MasterpieceLVL,1											DESC:You learn the masterpiece Dance of Captivating Desire.																																			SOURCEPAGE:p.5
-
-# ------------------------------
-# Support
-# ------------------------------
-
-CATEGORY=FEAT|Cleave.MOD										TYPE:SalamanderBloodline.SalamanderBloodragerBloodline
-CATEGORY=FEAT|Craft Wondrous Item.MOD								TYPE:SalamanderBloodline
-CATEGORY=FEAT|Improved Grapple.MOD									TYPE:SalamanderBloodragerBloodline
-CATEGORY=FEAT|Improved Iron Will.MOD								TYPE:SalamanderBloodragerBloodline
-CATEGORY=FEAT|Iron Will.MOD										TYPE:SalamanderBloodline.SalamanderBloodragerBloodline
-CATEGORY=FEAT|Power Attack.MOD									TYPE:SalamanderBloodline.SalamanderBloodragerBloodline
-CATEGORY=FEAT|Prodigy.MOD										TYPE:SalamanderBloodline
-CATEGORY=FEAT|Toughness.MOD										TYPE:SalamanderBloodline.SalamanderBloodragerBloodline

@@ -56,10 +56,6 @@ ABILITYCATEGORY:Martial Performance Sing Groups			VISIBLE:QUALIFY	EDITABLE:YES	E
 ABILITYCATEGORY:Martial Performance String Groups		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceStringGroups																				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Martial Performance Wind Groups			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialPerformanceWindGroups																				DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Naga Bloodrager Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NagaBloodRagerBloodline			ABILITYLIST:Special Bloodline Feat				PLURAL:Naga Bloodrager Bloodline Feats			DISPLAYLOCATION:Feats
-
-ABILITYCATEGORY:Naga Bloodline Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NagaBloodline				ABILITYLIST:Skill Focus(Knowledge (dungeoneering))	PLURAL:Naga Bloodline Feats					DISPLAYLOCATION:Feats
-
 ABILITYCATEGORY:First Mothers Fang Bonus Combat Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FirstMothersFangCombatFeat											PLURAL:First Mothers Fang Bonus Combat Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:First Mothers Fang Exotic Melee Weapon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FirstMothersFangExoticMeleeWeapon																			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:First Mothers Fang Exotic Ranged Weapon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FirstMothersFangExoticRangedWeapon																			DISPLAYLOCATION:Class Features

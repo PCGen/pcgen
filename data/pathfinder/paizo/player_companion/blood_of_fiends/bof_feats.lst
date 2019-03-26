@@ -31,18 +31,6 @@ Masterpiece (Dance of Kindled Desires)	CATEGORY:FEAT		TYPE:Masterpiece	PRESKILL:
 Masterpiece (Melody of Frightful Death)	CATEGORY:FEAT		TYPE:Masterpiece	PRESKILL:1,Perform (String Instruments)=7	PREVARGTEQ:MasterpieceLVL,1	DESC:You learn the masterpiece Melody of Frightful Death.		SOURCEPAGE:p.28
 Masterpiece (Rheumy Refrain)			CATEGORY:FEAT		TYPE:Masterpiece	PRESKILL:1,Perform (Sing)=5			PREVARGTEQ:MasterpieceLVL,1	DESC:You learn the masterpiece The Rheumy Refrain.			SOURCEPAGE:p.28
 
-###Block: Modified Feats for Sorcerer Bloodlines
-# Feat Name			Type
-# Ability Name				Type
-CATEGORY=FEAT|Diehard.MOD		TYPE:DaemonBloodline
-CATEGORY=FEAT|Endurance.MOD		TYPE:DaemonBloodline
-CATEGORY=FEAT|Fast Healer.MOD		TYPE:DaemonBloodline
-CATEGORY=FEAT|Great Fortitude.MOD	TYPE:DaemonBloodline
-CATEGORY=FEAT|Heroic Defiance.MOD	TYPE:DaemonBloodline
-CATEGORY=FEAT|Heroic Recovery.MOD	TYPE:DaemonBloodline
-CATEGORY=FEAT|Sickening Spell.MOD	TYPE:DaemonBloodline
-CATEGORY=FEAT|Toughness.MOD		TYPE:DaemonBloodline
-
 #
 # End
 #

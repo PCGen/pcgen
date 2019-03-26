@@ -44,7 +44,6 @@ ABILITY:bote_abilities_builder.lst
 ABILITY:bote_abilities_class.lst
 ABILITY:bote_abilities_race.lst
 ABILITY:bote_feats.lst
-ABILITYCATEGORY:bote_abilitycategories.lst
 EQUIPMENT:bote_equip_general.lst
 SPELL:bote_spells.lst
 TEMPLATE:bote_templates.lst
