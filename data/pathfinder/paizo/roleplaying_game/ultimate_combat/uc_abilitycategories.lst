@@ -78,7 +78,7 @@ ABILITYCATEGORY:Wild Stalker Wild Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 
 ABILITYCATEGORY:Rogue Advanced Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RogueAdvancedTalent																																	PLURAL:Rogue Advanced Talents			DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Guided Hand Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal												ABILITYLIST:Guided Hand ~ Melee|Guided Hand ~ Ranged																											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Guided Hand Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Guided Hand																																										DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Gunslinger Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO													CATEGORY:Special Ability	TYPE:GunslingerClassFeatures.Gunslinger Class Feature																													PLURAL:Gunslinger Class Features		DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Ninja Class Feature					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO													CATEGORY:Special Ability	TYPE:NinjaClassFeatures.Ninja Class Feature																														PLURAL:Ninja Class Features			DISPLAYLOCATION:Class Features
