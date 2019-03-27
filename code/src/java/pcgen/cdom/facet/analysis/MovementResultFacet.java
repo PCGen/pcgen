@@ -147,7 +147,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	{
 		private final Map<MovementType, Double> moveRates = new LinkedHashMap<>();
 
-		public int countMovementTypes()
+		private int countMovementTypes()
 		{
 			return moveRates.size();
 		}
@@ -155,7 +155,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		/**
 		 * recalculate all the move rates and modifiers
 		 */
-		public void adjustMoveRates(CharID id)
+		private void adjustMoveRates(CharID id)
 		{
 			Race race = raceFacet.get(id);
 			if (race == null)
@@ -210,7 +210,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		 * get the base MOVE: plus any bonuses from BONUS:MOVE additions takes
 		 * into account Armor restrictions to movement and load carried
 		 * 
-		 * @param moveIdx
+		 * @param id
 		 * @return movement
 		 */
 		public double movementOfType(CharID id, MovementType moveType)
@@ -311,7 +311,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		 */
 		public double getMovementOfType(MovementType moveType)
 		{
-			return moveRates.get(moveType);
+			return moveRates.getOrDefault(moveType, 0.0);
 		}
 
 		/**
