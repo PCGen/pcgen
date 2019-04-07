@@ -3,9 +3,6 @@
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list								Plural description for UI				Display Location
-ABILITYCATEGORY:Salamander Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SalamanderBloodragerBloodline			ABILITYLIST:Special Bloodline Feat|Skill Focus (Perception)		PLURAL:Salamander Bloodrager Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Salamander Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SalamanderBloodline				ABILITYLIST:Skill Focus (Acrobatics)|Skill Focus(Perception)	PLURAL:Salamander Bloodline Feats			DISPLAYLOCATION:Feats
-
 ABILITYCATEGORY:Elemental Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalOppositionSchool														PLURAL:Arcane Opposition Schools			DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Genie Binder Mastery Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GenieMasteryChoice																								DISPLAYLOCATION:Class Features

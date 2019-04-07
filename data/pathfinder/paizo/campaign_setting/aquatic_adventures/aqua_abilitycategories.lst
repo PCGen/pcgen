@@ -7,8 +7,6 @@
 ABILITYCATEGORY:Underwater Training I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AquanautUnderwaterTraining1											PLURAL:Underwater Training I			DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Underwater Training II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AquanautUnderwaterTraining2											PLURAL:Underwater Training II			DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Aquatic Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AquaticBloodragerBloodline		ABILITYLIST:Special Bloodline Feat|Skill Focus (Fly)	PLURAL:Aquatic Bloodrager Bloodline Feats	DISPLAYLOCATION:Feats
-
 ABILITYCATEGORY:Deep Shaman Waves Wandering Hex		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShamanSpiritHex.DeepShamanWavesHex																	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Pelagic Hunter Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PelagicHunterFocusAbility											PLURAL:Pelagic Hunter Foci			DISPLAYLOCATION:Class Features

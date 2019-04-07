@@ -30,16 +30,6 @@ Venomous Stare						CATEGORY:FEAT		TYPE:General.Combat.Stare				PREABILITY:1,CAT
 
 CATEGORY=FEAT|Defiant Luck.MOD																																																																																																																																																																									QUALIFY:ABILITY=FEAT|Lucky
 
-CATEGORY=FEAT|Alertness.MOD								TYPE:NagaBloodRagerBloodline.NagaBloodline
-CATEGORY=FEAT|Blind-Fight.MOD								TYPE:NagaBloodline
-CATEGORY=FEAT|Combat Casting.MOD							TYPE:NagaBloodRagerBloodline.NagaBloodline
-CATEGORY=FEAT|Combat Reflexes.MOD							TYPE:NagaBloodRagerBloodline
-CATEGORY=FEAT|Dodge.MOD									TYPE:NagaBloodRagerBloodline.NagaBloodline
-CATEGORY=FEAT|Improved Initiative.MOD						TYPE:NagaBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD						TYPE:NagaBloodRagerBloodline.NagaBloodline
-CATEGORY=FEAT|Power Attack.MOD							TYPE:NagaBloodRagerBloodline
-CATEGORY=FEAT|Stealthy.MOD								TYPE:NagaBloodRagerBloodline.NagaBloodline
-
 ####Support for First Mother's Fang - Combat feats with Combat Expertise as a prerequisite...
 #CRB
 CATEGORY=FEAT|Greater Disarm.MOD							TYPE:FirstMothersFangCombatFeat

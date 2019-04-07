@@ -381,3 +381,8 @@ Greater Called Shot	CATEGORY:FEAT		TYPE:Called Shot	PREABILITY:2,CATEGORY=FEAT,C
 
 ###Block: Feat Support
 Non-Monk Levels Unarmed Damage Tracker		CATEGORY:Internal	BONUS:UDAM|CLASS.Monk|NonMonkClassLevels/2|TYPE=Base	BONUS:VAR|MonkUnarmedDamageLVL|NonMonkClassLevels/2|TYPE=Base	DEFINE:NonMonkClassLevels|0	BONUS:VAR|NonMonkClassLevels|(TL-MonkLVL-HD)|TYPE=Base
+
+###Block: Guided Hand Choices
+Guided Hand ~ Melee								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee																	BONUS:WEAPONPROF=%LIST|TOHIT|WIS-STR
+Guided Hand ~ Ranged								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Ranged																BONUS:WEAPONPROF=%LIST|TOHIT|WIS-DEX
+Guided Hand ~ Both								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee,TYPE=Ranged															BONUS:WEAPONPROF=%LIST|TOHIT|DEX-STR|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|TOHIT|WIS-DEX
