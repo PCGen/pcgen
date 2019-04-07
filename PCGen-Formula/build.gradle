@@ -9,7 +9,7 @@
  */
 
 plugins {
-    id 'com.gradle.build-scan' version '2.1'
+    id 'com.gradle.build-scan' version '2.2.1'
     id "ca.coglinc2.javacc" version "3.0.0"
     id 'java'
     id 'eclipse'
@@ -17,7 +17,7 @@ plugins {
     id 'ivy-publish'
     id 'checkstyle'
     id 'pmd'
-    id 'com.github.ben-manes.versions' version '0.20.0'
+    id 'com.github.ben-manes.versions' version '0.21.0'
     id 'com.github.spotbugs' version '1.6.9'
 }
 
