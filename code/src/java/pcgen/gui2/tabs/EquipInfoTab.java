@@ -172,6 +172,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	private void initComponents()
 	{
+		FontManipulation.small(expandAllButton);
+		expandAllButton.setMargin(new Insets(0, -2,0,-2));
+		FontManipulation.small(collapseAllButton);
+		collapseAllButton.setMargin(new Insets(0, -2,0,-2));
+
 		FontManipulation.small(newSetButton);
 		newSetButton.setMargin(new Insets(0, 0, 0, 0));
 		FontManipulation.small(removeSetButton);
@@ -226,25 +231,19 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		box.add(new JLabel(LanguageBundle.getString("in_equipWeightLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(5));
 		box.add(weightLabel);
-		box.add(Box.createHorizontalGlue());
+		box.add(Box.createHorizontalStrut(5));
 		box.add(new JLabel(LanguageBundle.getString("in_equipLoadLabel"))); //$NON-NLS-1$
 		box.add(Box.createHorizontalStrut(5));
 		box.add(loadLabel);
 		box.add(Box.createHorizontalStrut(5));
 		box.add(limitLabel);
+		box.add(Box.createHorizontalStrut(3));
+		box.add(expandAllButton);
+		box.add(collapseAllButton);
 		box.add(Box.createHorizontalGlue());
-
-		equipPane.add(Box.createVerticalStrut(3));
 		equipPane.add(box);
-		equipPane.add(Box.createVerticalStrut(3));
 
-		Box horizontalBox = Box.createHorizontalBox();
-		horizontalBox.add(Box.createHorizontalStrut(3));
-		horizontalBox.add(expandAllButton);
-		horizontalBox.add(Box.createHorizontalStrut(3));
-		horizontalBox.add(collapseAllButton);
-		equipPane.add(horizontalBox);
-		equipPane.add(Box.createVerticalStrut(3));
+		box.add(Box.createHorizontalStrut(3));
 
 		panel.add(equipPane, BorderLayout.NORTH);
 
