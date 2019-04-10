@@ -472,8 +472,9 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 -1 WIS Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 WIS bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|WIS|-1	COST:0
 -1 CHA Score Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM Penalized PC with -1 CHA bonus.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:STAT|CHA|-1	COST:0
 
-
-
+###Block: GM Award for defense and armor
++1 Deflection Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	BONUS:COMBAT|AC|1|TYPE=Deflection.STACK	STACK:YES	CHOOSE:NOCHOICE	COST:0	DESC:GM Award of Natural Armor	MULT:YES
++1 Natural Armor	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement.STACK	STACK:YES	CHOOSE:NOCHOICE	COST:0	DESC:GM Award of Deflection Bonus	MULT:YES
 
 ###Block: House Rules / Homebrew Support
 # Ability Name					Category of Ability	Type				Define						Description																Modify VAR								Cost
