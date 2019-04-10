@@ -97,7 +97,6 @@ import org.apache.commons.lang3.StringUtils;
  * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
  */
-@SuppressWarnings("serial")
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
@@ -116,10 +115,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private final JComboBox equipSetBox;
 	private final JButton newSetButton;
 	private final JButton removeSetButton;
-	private final JButton exportTemplateButton;
-	private final JButton viewBrowserButton;
-	private final JButton exportFileButton;
-	private final JButton setNoteButton;
 	private final JButton expandAllButton;
 	private final JButton collapseAllButton;
 	private final JLabel weightLabel;
@@ -167,10 +162,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.equipSetBox = new JComboBox<>();
 		this.newSetButton = new JButton();
 		this.removeSetButton = new JButton();
-		this.exportTemplateButton = new JButton();
-		this.viewBrowserButton = new JButton();
-		this.exportFileButton = new JButton();
-		this.setNoteButton = new JButton();
 		this.expandAllButton = new JButton();
 		this.collapseAllButton = new JButton();
 		this.weightLabel = new JLabel();
@@ -185,11 +176,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		newSetButton.setMargin(new Insets(0, 0, 0, 0));
 		FontManipulation.small(removeSetButton);
 		removeSetButton.setMargin(new Insets(0, 0, 0, 0));
-
-		exportTemplateButton.setText(LanguageBundle.getString("in_equipExportTemplate")); //$NON-NLS-1$
-		viewBrowserButton.setText(LanguageBundle.getString("in_equipViewBrowser")); //$NON-NLS-1$
-		exportFileButton.setText(LanguageBundle.getString("in_equipExportFile")); //$NON-NLS-1$
-		setNoteButton.setText(LanguageBundle.getString("in_equipSetNote")); //$NON-NLS-1$
 
 		setOrientation(HORIZONTAL_SPLIT);
 		FlippingSplitPane splitPane = new FlippingSplitPane(VERTICAL_SPLIT, "EquipMain");
@@ -252,23 +238,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		equipPane.add(box);
 		equipPane.add(Box.createVerticalStrut(3));
 
-		box = Box.createHorizontalBox();
-		box.add(exportTemplateButton);
-		exportTemplateButton.setEnabled(false);
-		box.add(Box.createHorizontalStrut(3));
-		box.add(viewBrowserButton);
-		viewBrowserButton.setEnabled(false);
-		box.add(Box.createHorizontalStrut(3));
-		box.add(exportFileButton);
-		exportFileButton.setEnabled(false);
-		box.add(Box.createHorizontalStrut(3));
-		box.add(setNoteButton);
-		setNoteButton.setEnabled(false);
-		box.add(Box.createHorizontalStrut(3));
-		box.add(expandAllButton);
-		box.add(Box.createHorizontalStrut(3));
-		box.add(collapseAllButton);
-		equipPane.add(box);
+		Box horizontalBox = Box.createHorizontalBox();
+		horizontalBox.add(Box.createHorizontalStrut(3));
+		horizontalBox.add(expandAllButton);
+		horizontalBox.add(Box.createHorizontalStrut(3));
+		horizontalBox.add(collapseAllButton);
+		equipPane.add(horizontalBox);
 		equipPane.add(Box.createVerticalStrut(3));
 
 		panel.add(equipPane, BorderLayout.NORTH);
