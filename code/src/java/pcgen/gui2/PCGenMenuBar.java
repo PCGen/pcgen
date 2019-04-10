@@ -18,18 +18,6 @@
  */
 package pcgen.gui2;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.io.File;
-import java.util.Objects;
-import java.util.logging.Level;
-
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.SourceSelectionFacade;
@@ -50,6 +38,19 @@ import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.text.DefaultEditorKit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.Objects;
+import java.util.logging.Level;
 
 /**
  * The menu bar that is displayed in PCGen's main window.
@@ -88,11 +89,28 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 
 	private JMenu createEditMenu()
 	{
-		PCGMenu menu = new PCGMenu(actionMap.get(PCGenActionMap.EDIT_COMMAND));
+		JMenu menu = new PCGMenu(actionMap.get(PCGenActionMap.EDIT_COMMAND));
+		menu.setMnemonic(KeyEvent.VK_E);
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.ADD_KIT_COMMAND)));
 		menu.addSeparator();
 		menu.add(equipmentMenu);
 		menu.add(tempMenu);
+		menu.addSeparator();
+
+		JMenuItem cutMenuItem = new PCGMenuItem(new DefaultEditorKit.CutAction());
+		cutMenuItem.setText("Cut");
+		cutMenuItem.setMnemonic(KeyEvent.VK_T);
+		menu.add(cutMenuItem);
+
+		JMenuItem copyMenuItem = new PCGMenuItem(new DefaultEditorKit.CopyAction());
+		copyMenuItem.setText("Copy");
+		copyMenuItem.setMnemonic(KeyEvent.VK_C);
+		menu.add(copyMenuItem);
+
+		JMenuItem pasteMenuItem = new PCGMenuItem(new DefaultEditorKit.PasteAction());
+		pasteMenuItem.setText("Paste");
+		pasteMenuItem.setMnemonic(KeyEvent.VK_P);
+		menu.add(pasteMenuItem);
 		return menu;
 	}
 
