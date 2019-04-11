@@ -40,7 +40,7 @@ public class IntegerKey
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<>();
+	private static final CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<>();
 
 	/**
 	 * @deprecated due to EQACCHECK CodeControl
