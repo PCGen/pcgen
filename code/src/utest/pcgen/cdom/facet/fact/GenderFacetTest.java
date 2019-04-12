@@ -91,10 +91,10 @@ class GenderFacetTest
 	public void testGenderSet()
 	{
 		assertTrue(facet.canSetGender(id));
-		facet.setGender(id, Gender.Female);
+		facet.set(id, Gender.Female);
 		assertTrue(facet.canSetGender(id));
 		assertEquals(Gender.Female, facet.getGender(id));
-		facet.removeGender(id);
+		facet.remove(id);
 		assertTrue(facet.canSetGender(id));
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
@@ -116,7 +116,7 @@ class GenderFacetTest
 	@Test
 	public void testGenderSetLockDominates()
 	{
-		facet.setGender(id, Gender.Female);
+		facet.set(id, Gender.Female);
 		assertEquals(Gender.Female, facet.getGender(id));
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
