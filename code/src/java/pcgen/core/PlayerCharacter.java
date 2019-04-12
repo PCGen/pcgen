@@ -648,7 +648,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		switch (attr)
 		{
 			case WEIGHT:
-				didChange = weightFacet.setWeight(id, value);
+				didChange = weightFacet.set(id, value);
 				break;
 			case AGE:
 				didChange = ageFacet.set(id, value);
@@ -1334,7 +1334,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		if (genderFacet.getGender(id) != g)
 		{
-			genderFacet.setGender(id, g);
+			genderFacet.set(id, g);
 			setDirty(true);
 		}
 	}
@@ -1404,7 +1404,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public void setHeight(final int i)
 	{
-		if (heightFacet.setHeight(id, i))
+		if (heightFacet.set(id, i))
 		{
 			setDirty(true);
 		}
