@@ -26,12 +26,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -97,6 +93,7 @@ import pcgen.gui2.dialog.SpellChoiceDialog;
 import pcgen.gui2.dialog.TipOfTheDay;
 import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
+import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
@@ -125,12 +122,13 @@ import org.lobobrowser.html.test.SimpleUserAgentContext;
  * The main window for PCGen. In addition this class is responsible for providing 
  * global UI functions such as message dialogs. 
  */
-public final class PCGenFrame extends JFrame implements UIDelegate
+public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSelectionListener
 {
 
 	private final PCGenActionMap actionMap;
 	private final CharacterTabs characterTabs;
 	private final PCGenStatusBar statusBar;
+	private final PCGenMenuBar pcGenMenuBar;
 
 	/**
 	 * The context indicating what items are currently loaded/being processed in the UI
@@ -163,6 +161,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		Observer messageObserver = new ShowMessageGuiObserver(this);
 		ShowMessageDelegate.getInstance().addObserver(messageObserver);
 		ChooserFactory.setDelegate(this);
+		this.pcGenMenuBar = new PCGenMenuBar(this, uiContext);
 		initComponents();
 		pack();
 		initSettings();
@@ -177,7 +176,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		root.setInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, createInputMap(actionMap));
 
 		characterTabs.add(new InfoGuidePane(this, uiContext));
-		setJMenuBar(new PCGenMenuBar(this, uiContext));
+		setJMenuBar(pcGenMenuBar);
 		add(new PCGenToolBar(this), BorderLayout.NORTH);
 		add(characterTabs, BorderLayout.CENTER);
 		add(statusBar, BorderLayout.SOUTH);
@@ -523,7 +522,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return actionMap;
 	}
 
-	public void setSelectedCharacter(CharacterFacade character)
+	@Override
+	public void setCharacter(CharacterFacade character)
 	{
 		if (currentCharacterRef.get() != null)
 		{
@@ -534,6 +534,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		if (character != null && character.getFileRef() != null)
 		{
 			character.getFileRef().addReferenceListener(filenameListener);
+		}
+		if (character != null)
+		{
+			pcGenMenuBar.setCharacter(character);
 		}
 	}
 
@@ -1094,8 +1098,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		//Because CharacterManager adds the new character to the character
 		//list before it returns, it is not necessary to update the character
 		//tabs since they will catch that event before the call to
-		//setSelectedCharacter is called
-		setSelectedCharacter(character);
+		//setCharacter is called
+		setCharacter(character);
 	}
 
 	/**
@@ -1538,16 +1542,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			return null;
 		}
 		final JCheckBox checkBox = new JCheckBox(checkBoxText, true);
-		checkBox.addItemListener(new ItemListener()
-		{
-
-			@Override
-			public void itemStateChanged(ItemEvent e)
-			{
-				context.setBoolean(contextProp, checkBox.isSelected());
-			}
-
-		});
+		checkBox.addItemListener(e -> context.setBoolean(contextProp, checkBox.isSelected()));
 		JPanel panel = buildMessageLabelPanel(message, checkBox);
 		int ret = JOptionPane.showConfirmDialog(this, panel, title, JOptionPane.YES_NO_OPTION,
 			JOptionPane.WARNING_MESSAGE);
@@ -1677,12 +1672,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		private final SourceSelectionFacade sources;
 		private final SourceFileLoader loader;
 		private final SwingWorker<List<LogRecord>> worker;
-		private final UIDelegate delegate;
 
 		public SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
 		{
 			this.sources = sources;
-			this.delegate = delegate;
 			loader = new SourceFileLoader(sources, delegate);
 			worker = statusBar.createWorker(LanguageBundle.getString("in_taskLoadSources"), loader); //$NON-NLS-1$
 		}
@@ -1836,27 +1829,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 		jCheckBox1.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD));
 
-		jClose.addActionListener(new ActionListener()
-		{
+		jClose.addActionListener(evt -> aFrame.dispose());
 
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				aFrame.dispose();
-			}
-
-		});
-
-		jCheckBox1.addItemListener(new ItemListener()
-		{
-
-			@Override
-			public void itemStateChanged(ItemEvent evt)
-			{
-				context.setBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, jCheckBox1.isSelected());
-			}
-
-		});
+		jCheckBox1.addItemListener(evt ->
+				context.setBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, jCheckBox1.isSelected()));
 
 		aFrame.getContentPane().setLayout(new BorderLayout());
 		aFrame.getContentPane().add(jPanel1, BorderLayout.NORTH);
