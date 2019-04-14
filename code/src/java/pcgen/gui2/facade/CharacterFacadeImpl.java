@@ -1966,12 +1966,6 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public ReferenceFacade<Integer> getMaxDomains()
-	{
-		return maxDomains;
-	}
-
-	@Override
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef()
 	{
 		return remainingDomains;
