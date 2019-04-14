@@ -528,15 +528,6 @@ final class PCGVer2Parser implements PCGParser
 	}
 
 	/**
-	 * Auto sort gear (Y/N)
-	 * @param line Line of saved data to be processed.
-	 **/
-	private void parseAutoSortGearLine(String line)
-	{
-		thePC.setAutoSortGear(line.endsWith(IOConstants.VALUE_Y));
-	}
-
-	/**
 	 * Ignore cost for gear (Y/N)
 	 * @param line Line of saved data to be processed.
 	 **/
@@ -718,7 +709,6 @@ final class PCGVer2Parser implements PCGParser
 		 * AUTOSPELLS:Y or N
 		 * LOADCOMPANIONS:Y or N
 		 * USETEMPMODS:Y or N
-		 * AUTOSORTGEAR:Y or N
 		 * SKILLSOUTPUTORDER:0
 		 */
 		if (cache.containsKey(IOConstants.TAG_POOLPOINTS))
@@ -772,11 +762,6 @@ final class PCGVer2Parser implements PCGParser
 		if (cache.containsKey(IOConstants.TAG_PDFOUTPUTSHEET))
 		{
 			parsePDFOutputSheetLine(cache.get(IOConstants.TAG_PDFOUTPUTSHEET).get(0));
-		}
-
-		if (cache.containsKey(IOConstants.TAG_AUTOSORTGEAR))
-		{
-			parseAutoSortGearLine(cache.get(IOConstants.TAG_AUTOSORTGEAR).get(0));
 		}
 
 		if (cache.containsKey(IOConstants.TAG_IGNORECOST))

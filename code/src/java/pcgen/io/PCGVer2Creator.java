@@ -1658,9 +1658,6 @@ public final class PCGVer2Creator
 
 	private void appendAutoSortLines(StringBuilder buffer)
 	{
-		buffer.append(IOConstants.TAG_AUTOSORTGEAR).append(':');
-		buffer.append(thePC.isAutoSortGear() ? 'Y' : 'N');
-		buffer.append(IOConstants.LINE_SEP);
 		buffer.append(IOConstants.TAG_SKILLSOUTPUTORDER).append(':');
 		buffer.append(thePC.getSkillsOutputOrder().ordinal());
 		buffer.append(IOConstants.LINE_SEP);
