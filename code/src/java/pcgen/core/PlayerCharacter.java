@@ -16,11 +16,6 @@
 package pcgen.core;
 
 import java.awt.Rectangle;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -259,7 +254,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
@@ -460,7 +454,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final List<Equipment> tempBonusItemList = new ArrayList<>();
 
 	private String calcEquipSetId = EquipSet.DEFAULT_SET_PATH;
-	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 
 	// whether to add auto known spells each level
 	private boolean autoKnownSpells = true;
@@ -982,16 +975,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public Deity getDeity()
 	{
 		return deityFacet.get(id);
-	}
-
-	/**
-	 * Selector.
-	 *
-	 * @return description lst
-	 */
-	public String getDescriptionLst()
-	{
-		return descriptionLst;
 	}
 
 	/**
@@ -5482,67 +5465,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonusManager.listBonusesFor(bonusType, bonusName);
 	}
 
-	public boolean loadDescriptionFilesInDirectory(final String aDirectory)
-	{
-		new File(aDirectory).list((dir, name) -> {
-			final File descriptionFile = new File(dir, name);
-
-			if (PCGFile.isPCGenListFile(descriptionFile))
-			{
-				BufferedReader descriptionReader = null;
-
-				try
-				{
-					if (descriptionFile.exists())
-					{
-						final char[] inputLine;
-
-						// final BufferedReader descriptionReader = new
-						// BufferedReader(new FileReader(descriptionFile));
-						descriptionReader = new BufferedReader(
-							new InputStreamReader(new FileInputStream(descriptionFile), "UTF-8"));
-
-						final int length = (int) descriptionFile.length();
-						inputLine = new char[length];
-						descriptionReader.read(inputLine, 0, length);
-
-						this.descriptionLst = getDescriptionLst() + new String(inputLine);
-					}
-				}
-				catch (IOException exception)
-				{
-					Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
-				}
-				finally
-				{
-					if (descriptionReader != null)
-					{
-						try
-						{
-							descriptionReader.close();
-						}
-						catch (IOException e)
-						{
-							Logging.errorPrint(
-								"Couldn't close descriptionReader in PlayerCharacter.loadDescriptionFilesInDirectory",
-								e);
-
-							// Not much to do...
-						}
-					}
-				}
-			}
-			else if (dir.isDirectory())
-			{
-				loadDescriptionFilesInDirectory(dir.getPath() + File.separator + name);
-			}
-
-			return false;
-		});
-
-		return false;
-	}
-
 	public void makeIntoExClass(final PCClass fromClass)
 	{
 		CDOMSingleRef<PCClass> exc = fromClass.get(ObjectKey.EX_CLASS);
@@ -7297,7 +7219,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		aClone.calcEquipSetId = calcEquipSetId;
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
-		aClone.descriptionLst = descriptionLst;
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;
