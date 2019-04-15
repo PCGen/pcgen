@@ -164,15 +164,6 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		{
 			return new Object[]{item};
 		}
-
-		@Override
-		public Point getToolTipLocation(MouseEvent event)
-		{
-			Dimension size = getSize();
-			double halfheight = size.getHeight() / 2;
-			return new Point((int) size.getWidth(), (int) halfheight);
-		}
-
 	}
 
 }
