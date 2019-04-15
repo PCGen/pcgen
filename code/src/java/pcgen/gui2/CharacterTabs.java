@@ -41,7 +41,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -130,7 +129,7 @@ public final class CharacterTabs extends SharedTabPane
 	{
 		int index = getSelectedIndex();
 		CharacterFacade character = index != -1 ? characters.get(index) : null;
-		frame.setSelectedCharacter(character);
+		frame.setCharacter(character);
 		if (character != null)
 		{
 			infoTabbedPane.setCharacter(character);
@@ -162,7 +161,7 @@ public final class CharacterTabs extends SharedTabPane
 			listenerMap.remove(character).removeListeners();
 		}
 		characters.clear();
-		for (CharacterFacade character : (ListFacade<CharacterFacade>) e.getSource())
+		for (CharacterFacade character : (Iterable<CharacterFacade>) e.getSource())
 		{
 			addCharacter(character);
 		}

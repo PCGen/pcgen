@@ -18,8 +18,21 @@
  */
 package pcgen.gui2;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.Objects;
+import java.util.logging.Level;
+
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.text.DefaultEditorKit;
+
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.TempBonusFacade;
 import pcgen.facade.util.DefaultListFacade;
@@ -39,19 +52,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.text.DefaultEditorKit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.util.Objects;
-import java.util.logging.Level;
-
 /**
  * The menu bar that is displayed in PCGen's main window.
  */
@@ -64,7 +64,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	private final UIContext uiContext;
 	private final PCGenFrame frame;
 	private final PCGenActionMap actionMap;
-	private final EquipmentSetMenu equipmentMenu;
 	private final TempBonusMenu tempMenu;
 	private CharacterFacade character;
 
@@ -73,7 +72,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
 		this.actionMap = frame.getActionMap();
-		this.equipmentMenu = new EquipmentSetMenu();
 		this.tempMenu = new TempBonusMenu();
 		initComponents();
 	}
@@ -93,7 +91,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		menu.setMnemonic(KeyEvent.VK_E);
 		menu.add(new PCGMenuItem(actionMap.get(PCGenActionMap.ADD_KIT_COMMAND)));
 		menu.addSeparator();
-		menu.add(equipmentMenu);
 		menu.add(tempMenu);
 		menu.addSeparator();
 
@@ -182,7 +179,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	public void setCharacter(CharacterFacade character)
 	{
 		this.character = character;
-		equipmentMenu.setListModel(character.getEquipmentSets());
 		tempMenu.setListModel(character.getAvailableTempBonuses());
 	}
 
@@ -311,26 +307,10 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 
 	}
 
-	private class EquipmentSetMenu extends AbstractRadioListMenu<EquipmentSetFacade>
+	private final class TempBonusMenu extends AbstractListMenu<TempBonusFacade> implements ItemListener
 	{
 
-		public EquipmentSetMenu()
-		{
-			super(actionMap.get(PCGenActionMap.EQUIPMENTSET_COMMAND));
-		}
-
-		@Override
-		public void itemStateChanged(ItemEvent e)
-		{
-			throw new UnsupportedOperationException("Not supported yet.");
-		}
-
-	}
-
-	private class TempBonusMenu extends AbstractListMenu<TempBonusFacade> implements ItemListener
-	{
-
-		public TempBonusMenu()
+		private TempBonusMenu()
 		{
 			super(actionMap.get(PCGenActionMap.TEMP_BONUS_COMMAND));
 		}
@@ -338,6 +318,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		@Override
 		protected JMenuItem createMenuItem(TempBonusFacade item, int index)
 		{
+			Objects.requireNonNull(item);
 			return new CheckBoxMenuItem(item, character.getTempBonuses().containsElement(item), this);
 		}
 
