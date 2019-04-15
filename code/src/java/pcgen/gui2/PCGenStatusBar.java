@@ -28,11 +28,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
+import javax.swing.SwingWorker;
 
 import pcgen.gui2.tools.CursorControlUtilities;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.StatusWorker;
-import pcgen.gui2.util.SwingWorker;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
@@ -131,7 +131,7 @@ public final class PCGenStatusBar extends JPanel
 	 * @param task a PCGenTask
 	 * @return a SwingWorker
 	 */
-	SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
+	SwingWorker<List<LogRecord>, List<LogRecord>> createWorker(String taskName, PCGenTask task)
 	{
 		return new StatusWorker(taskName, task, this);
 	}

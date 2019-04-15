@@ -41,6 +41,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Observer;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
 
 import javax.swing.Action;
@@ -60,6 +61,7 @@ import javax.swing.KeyStroke;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -97,7 +99,6 @@ import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
-import pcgen.gui2.util.SwingWorker;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -1671,7 +1672,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 		private final SourceSelectionFacade sources;
 		private final SourceFileLoader loader;
-		private final SwingWorker<List<LogRecord>> worker;
+		private final SwingWorker<List<LogRecord>, List<LogRecord>> worker;
 
 		public SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
 		{
@@ -1683,9 +1684,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		@Override
 		public void run()
 		{
-			worker.start();
+			worker.execute();
 			//wait until the worker finish and post any errors that occurred
-			statusBar.setSourceLoadErrors(worker.get());
+			try
+			{
+				statusBar.setSourceLoadErrors(worker.get());
+			} catch (InterruptedException | ExecutionException e)
+			{
+				Logging.errorPrint("error when loading sources", e);
+			}
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot
 			StringBuilder sec15 = new StringBuilder(" ");
