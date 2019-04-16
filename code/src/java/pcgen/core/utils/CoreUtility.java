@@ -116,12 +116,10 @@ public final class CoreUtility
 	{
 		switch (url.getProtocol().toLowerCase(Locale.ENGLISH))
 		{
-			case "http":
-			case "ftp":
-			case "https":
-				return true;
-			default:
+			case "file":
 				return false;
+			default:
+				return true;
 		}
 	}
 
